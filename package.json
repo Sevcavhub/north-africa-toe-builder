@@ -1,0 +1,38 @@
+{
+  "name": "north-africa-toe-builder",
+  "version": "1.0.0",
+  "description": "Multi-agent system for building military TO&E data",
+  "main": "src/orchestrator.js",
+  "scripts": {
+    "start": "node src/orchestrator.js",
+    "start:autonomous": "node src/autonomous_orchestrator.js",
+    "start:file": "node src/file_orchestrator.js",
+    "start:claude": "node src/single_session_orchestrator.js projects/north_africa_campaign.json",
+    "start:claude:interactive": "node src/single_session_orchestrator.js projects/north_africa_campaign.json --interactive",
+    "orchestrate": "node src/intelligent_orchestrator.js projects/north_africa_campaign.json",
+    "orchestrate:resume": "node src/intelligent_orchestrator.js projects/north_africa_campaign.json --resume",
+    "agent": "node src/agent_runner.js",
+    "search": "node scripts/search_sources.js",
+    "prepare": "node scripts/prepare_source_for_agent.js",
+    "mcp:setup": "node scripts/setup-mcp.js",
+    "mcp:test": "node scripts/test-mcp.js",
+    "test": "node test/run-tests.js",
+    "validate": "node scripts/validate-schema.js"
+  },
+  "keywords": [
+    "military",
+    "history",
+    "wargaming",
+    "agent",
+    "orchestration"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "node-fetch": "^2.6.7"
+  },
+  "devDependencies": {
+    "prettier": "^2.8.0"
+  }
+}
