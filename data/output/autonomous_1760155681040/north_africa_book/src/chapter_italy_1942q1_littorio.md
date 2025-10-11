@@ -146,7 +146,10 @@ The Littorio Division fielded a well-balanced artillery regiment (133rd LITTORIO
 | ↳ 47/32 Mod. 1935 | 48 | 48 | 47mm |
 | **Anti-Aircraft** | **12** | **12** | - |
 | ↳ 20/65 Mod. 35 | 12 | 12 | 20mm |
-| **Total Artillery** | **108** | **108** | - |
+| **Mortars** | **63** | **63** | - |
+| ↳ 81mm Mortaio Mod. 35 | 36 | 36 | 81mm |
+| ↳ 45mm Mortaio Brixia Mod. 35 | 27 | 27 | 45mm |
+| **Total Artillery** | **171** | **171** | - |
 
 ### 75/27 Mod. 1911 - 24 guns
 
@@ -219,22 +222,6 @@ The 20/65 Modello 1935 was a 20mm automatic antiaircraft gun based on the Swiss 
 - **Mount**: Towed wheeled carriage
 
 **Combat Performance**: The 20/65 was effective against low-flying aircraft, providing point defense for the artillery regiment and division headquarters. The high rate of fire and explosive rounds could damage or destroy aircraft with sustained hits. However, the 20/65's effective range of only 1.5 km left the division vulnerable to medium and high-altitude bombing attacks. The small 20mm caliber lacked the destructive power of larger AA guns (40mm, 88mm). In North Africa, British air superiority meant that air attacks were frequent, and the Littorio Division's 12 guns provided only minimal protection. The guns could also be used in ground combat roles against light vehicles and infantry, though this was not their primary purpose. Overall, the 20/65 battery was insufficient for comprehensive air defense, but better than no AA protection at all.
-
----
-
-## Mortars
-
-The Littorio Division was equipped with 63 mortars distributed across its infantry battalions, providing close fire support at the battalion and company level.
-
-| Type | Count | Caliber |
-|------|-------|---------|
-| **Total Mortars** | **63** | - |
-| ↳ 81mm Mortaio Mod. 35 | 36 | 81mm |
-| ↳ 45mm Mortaio Brixia Mod. 35 | 27 | 45mm |
-
-**81mm Mortaio Mod. 35** (36 mortars): The 81mm mortar was the standard Italian medium mortar, providing battalion-level indirect fire support. Effective range of approximately 4,200 meters with 3.2 kg bombs. Highly effective against infantry, light vehicles, and field fortifications. The 36 mortars were distributed across the three Bersaglieri battalions of the 12th Regiment, providing each battalion with organic fire support.
-
-**45mm Mortaio Brixia Mod. 35** (27 mortars): The 45mm Brixia was an unusual and complex light mortar, designed for company-level fire support. Range of approximately 530 meters with 0.46 kg bombs. The Brixia's complex mechanism made it difficult to operate and maintain, though it was theoretically capable of a high rate of fire. In practice, the Brixia was disliked by Italian troops due to its mechanical complexity and limited effectiveness. The 27 Brixia mortars provided some close-range fire support but were generally considered inferior to more conventional light mortars.
 
 ---
 
@@ -480,20 +467,6 @@ Medical ambulances provided casualty evacuation for the division's medical servi
 
 ---
 
-## Air Strength
-
-The Littorio Division had no organic air assets. All air support was provided by the Regia Aeronautica (Italian Royal Air Force) or the German Luftwaffe, operating independently from division control.
-
-| Type | Total | Operational | Role |
-|------|-------|-------------|------|
-| **Fighters** | **0** | **0** | - |
-| **Bombers** | **0** | **0** | - |
-| **Reconnaissance** | **0** | **0** | - |
-| **Total Aircraft** | **0** | **0** | - |
-
-**Air Support Context**: Italian armored divisions did not include organic aviation. Air support was requested through higher headquarters (X Corps) and provided by Regia Aeronautica units based at airfields in Libya and Egypt. By Q1 1942, Italian air power in North Africa was declining due to aircraft losses, fuel shortages, and the arrival of improved British fighters. The Littorio Division would have received limited tactical air support during the 1942 campaign, relying primarily on German Luftwaffe units for close air support, particularly during major offensives like Gazala.
-
----
 
 ## Organizational Structure
 

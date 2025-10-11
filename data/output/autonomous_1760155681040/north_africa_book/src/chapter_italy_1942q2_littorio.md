@@ -175,7 +175,10 @@ The 133rd LITTORIO Artillery Regiment (home station Mantova) provided the divisi
 | **Anti-Aircraft** | **20** | - | - |
 | ↳ 20mm Breda M35 | 16 | 20mm | Light AA |
 | ↳ 90/53 AA Gun | 4 | 90mm | Dual-purpose |
-| **Total Artillery** | **78** | - | - |
+| **Mortars** | **56** | - | - |
+| ↳ 81mm Mortar M35 | 38 | 81mm | Battalion mortars |
+| ↳ 45mm Mortar | 18 | 45mm | Company mortars |
+| **Total Artillery** | **134** | - | - |
 
 **Note**: The 4× 90/53 guns are counted in both anti-tank and anti-aircraft totals as they served dual purposes. The actual gun count is 74 pieces; 4 guns counted twice reflects their dual role.
 
@@ -309,42 +312,6 @@ The division's infantry—primarily concentrated in the 12th Bersaglieri Regimen
 - **WITW ID**: ITA_HMG_BREDA_M37
 
 **Combat Performance**: The Breda M1937 heavy machine gun provided company and battalion-level sustained fire support. The 8mm cartridge delivered greater range and penetration than the 6.5mm round used in rifles and light machine guns. However, like the M1930, the M1937 featured the problematic strip-feed system requiring oiling of cartridges—a significant liability in desert sand and dust. The air-cooled barrel limited sustained fire capability compared to water-cooled designs like the British Vickers. Despite these limitations, the 74 guns provided the division with critical heavy automatic weapons capability for defensive positions, providing suppressive fire and long-range area denial.
-
-## Mortars
-
-Mortars provided organic indirect fire support at battalion and company level, giving unit commanders immediate fire support without requiring division artillery coordination.
-
-| Type | Count | Caliber | Role |
-|------|-------|---------|------|
-| **Total Mortars** | **56** | - | - |
-| ↳ 81mm Mortar M35 | 38 | 81mm | Battalion mortars |
-| ↳ 45mm Mortar | 18 | 45mm | Company mortars |
-
-### 81mm Mortar M35 - 38 mortars
-
-**Specifications**:
-- **Caliber**: 81mm
-- **Range**: 4,300 meters maximum
-- **Bomb Weight**: 3.3 kg (HE), 2.4 kg (smoke)
-- **Rate of Fire**: 18-20 rounds per minute (initial), 8-10 rpm (sustained)
-- **Weight**: 59.7 kg (complete system)
-- **WITW ID**: ITA_MORT_81MM
-
-**Combat Performance**: The 81mm Mortar M35 represented the standard Italian battalion mortar, providing high-angle indirect fire support. The 81mm high-explosive bomb proved effective against infantry in the open and could neutralize light field fortifications. Smoke rounds provided essential screening for movement in the open desert terrain. The relatively light weight made the weapon mobile enough to keep pace with motorized infantry. The 38 mortars gave LITTORIO's battalions immediate, responsive fire support without waiting for divisional artillery. Maximum range of 4.3km provided good tactical reach within the battalion operating area. Quick setup time (under 2 minutes) made it highly responsive to tactical situations.
-
----
-
-### 45mm Mortar - 18 mortars
-
-**Specifications**:
-- **Caliber**: 45mm (actually 45mm Brixia Model 35)
-- **Range**: 530 meters maximum
-- **Bomb Weight**: 0.465 kg
-- **Rate of Fire**: 8-10 rounds per minute
-- **Weight**: 15.5 kg (complete)
-- **WITW ID**: ITA_MORT_45MM
-
-**Combat Performance**: The 45mm Brixia mortar provided company-level indirect fire support with an extremely light, portable system. The small bomb delivered limited high-explosive effect but proved useful for engaging troops in defilade at close range. The weapon's complexity and relatively low rate of fire (due to complicated reloading procedure) limited effectiveness compared to British 2-inch mortars. However, the 530-meter range provided company commanders with organic indirect fire capability for immediate tactical situations. The 18 mortars distributed throughout the infantry battalions gave junior officers a responsive, if limited, fire support tool.
 
 ## Transport & Vehicles
 

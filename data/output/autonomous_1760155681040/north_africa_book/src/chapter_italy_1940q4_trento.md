@@ -266,19 +266,6 @@ The Trento's defining characteristic was its complete motorization - sufficient 
 **Role**: Towing heavy artillery, anti-aircraft guns, recovery operations
 **Notes**: The TM40 represented the division's heaviest towing capability, primarily assigned to move the 100mm howitzer battery and the 20mm anti-aircraft guns. The powerful diesel engine and low-range gearing allowed the TM40 to maintain mobility with heavy loads over difficult terrain. Limited numbers (only 8 vehicles) restricted the TM40 to the most demanding towing requirements.
 
-## Air Strength
-
-The Trento Division possessed no organic air assets. Air support for divisional operations was provided by Regia Aeronautica theater-level assets, coordinated through the corps headquarters.
-
-| Type | Total | Note |
-|------|-------|------|
-| **Total Aircraft** | **0** | No organic air component |
-| Fighters | 0 | Regia Aeronautica theater assets |
-| Bombers | 0 | Regia Aeronautica theater assets |
-| Reconnaissance | 0 | Regia Aeronautica theater assets |
-
-**Air Support Arrangements**: When deployed to North Africa in 1941, the division would operate under the air umbrella of the Regia Aeronautica's Libya-based fighter and bomber squadrons, primarily equipped with Fiat CR.42 fighters, Fiat G.50 fighters, and SM.79 bombers.
-
 ## Infantry Weapons - Top 3
 
 The division's infantry armament reflected standard Italian practice, centered on the venerable Carcano rifle supplemented by inadequate quantities of modern automatic weapons.
