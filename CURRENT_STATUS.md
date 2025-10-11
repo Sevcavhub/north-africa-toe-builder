@@ -76,12 +76,32 @@
 
 ## 🚨 Quality Control Checkpoints
 
+### Chapter Regeneration Status (v2.0 - 16 Sections)
+**Status:** 10/11 chapters compliant (91%)
+
+**✅ Compliant Chapters (16 sections):**
+- 7th Armoured Division (British)
+- Ariete, Trento, Savona (1940-Q4)
+- Pavia (1940-Q3)
+- Bologna (1941-Q1)
+- Littorio (1942-Q2, 1942-Q3)
+- Folgore (1942-Q3)
+- Trieste (1941-Q2)
+
+**❌ KNOWN ISSUE - 1942Q1 Littorio Chapter:**
+- **File:** `data/output/autonomous_1760155681040/north_africa_book/src/chapter_italy_1942q1_littorio.md`
+- **Problem 1:** Missing "Infantry Weapons" section (should be between Artillery and Transport)
+- **Problem 2:** Wrong section order - Conclusion (line 871) appears before Data Quality & Known Gaps (line 883)
+- **Required Fix:** Add Infantry Weapons section, swap sections 15/16 to correct order
+- **Priority:** Medium - does not block new unit extraction
+- **Action:** Document for future correction session
+
 ### For Italian Units Already Extracted:
 
 **MUST VERIFY:**
 - [ ] All units have JSON files in `units/` directory
 - [ ] All units have MDBook chapters in `north_africa_book/src/`
-- [ ] Every chapter follows template v2.0 (13 sections)
+- [ ] Every chapter follows template v2.0 (16 sections) ← **ONE KNOWN ISSUE (1942Q1 Littorio)**
 - [ ] Section 5 (Artillery): EVERY variant has detail section
 - [ ] Section 6 (Armored Cars): Separate section with variant details
 - [ ] Section 7 (Transport): NO tanks/armored cars, ALL variants detailed
