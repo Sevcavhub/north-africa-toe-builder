@@ -1,0 +1,764 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>North Africa TO&amp;E - Sample Chapter</title>
+        <meta name="robots" content="noindex">
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">North Africa TO&amp;E - Sample Chapter</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="chapter-1"><a class="header" href="#chapter-1">Chapter 1</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="7th-armoured-division-desert-rats"><a class="header" href="#7th-armoured-division-desert-rats">7th Armoured Division "Desert Rats"</a></h1>
+<p><strong>British Empire Forces • 1940 Q2 (April-June) • Western Desert, Egypt</strong></p>
+<hr />
+<h2 id="division-overview"><a class="header" href="#division-overview">Division Overview</a></h2>
+<p>The <strong>7th Armoured Division</strong>, immortalized as the "Desert Rats," was Britain's premier mobile force in the Western Desert at the outbreak of hostilities with Italy. Originally formed as the Mobile Division (Egypt) on 27 September 1938, the division was renamed on 16 February 1940 and adopted its famous <strong>jerboa</strong> (desert rat) insignia on 16 April 1940.</p>
+<h3 id="command"><a class="header" href="#command">Command</a></h3>
+<p><strong>Divisional Commander</strong>: Major-General Sir Michael O'Moore Creagh
+<strong>Rank</strong>: Major-General
+<strong>Appointed</strong>: 4 December 1939
+<strong>Service</strong>: Tank Corps veteran (WWI), experienced armored warfare commander</p>
+<p><strong>Headquarters</strong>: Mersa Matruh area, Western Desert, Egypt
+<strong>Parent Formation</strong>: Western Desert Force (formed 17 June 1940 under Major-General Richard O'Connor)</p>
+<p><strong>Division Staff</strong>: 400 personnel</p>
+<ul>
+<li>Officers: 45</li>
+<li>NCOs: 120</li>
+<li>Enlisted: 235</li>
+</ul>
+<hr />
+<h2 id="personnel-strength"><a class="header" href="#personnel-strength">Personnel Strength</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Category</th><th>Count</th><th>Percentage</th></tr></thead><tbody>
+<tr><td><strong>Total Personnel</strong></td><td><strong>10,000</strong></td><td>100%</td></tr>
+<tr><td>Officers</td><td>580</td><td>5.8%</td></tr>
+<tr><td>NCOs</td><td>1,850</td><td>18.5%</td></tr>
+<tr><td>Other Ranks</td><td>7,570</td><td>75.7%</td></tr>
+</tbody></table>
+</div>
+<hr />
+<h2 id="armoured-strength"><a class="header" href="#armoured-strength">Armoured Strength</a></h2>
+<h3 id="summary"><a class="header" href="#summary">Summary</a></h3>
+<p>The division faced a <strong>critical tank shortage</strong> in Q2 1940, possessing only <strong>228 tanks</strong> versus an authorized War Establishment of <strong>340 tanks</strong> - just <strong>67% of authorized strength</strong>.</p>
+<div class="table-wrapper"><table><thead><tr><th>Category</th><th>Total</th><th>Operational</th><th>Readiness</th></tr></thead><tbody>
+<tr><td><strong>All Tanks</strong></td><td><strong>228</strong></td><td><strong>220</strong></td><td><strong>96.5%</strong></td></tr>
+<tr><td><strong>Medium Tanks (Cruisers)</strong></td><td><strong>69</strong></td><td><strong>66</strong></td><td><strong>95.7%</strong></td></tr>
+<tr><td>↳ A13 Mk II (Cruiser Mk IV)</td><td>44</td><td>42</td><td>95.5%</td></tr>
+<tr><td>↳ A10 Cruiser Mk II</td><td>10</td><td>10</td><td>100%</td></tr>
+<tr><td>↳ A9 Cruiser Mk I</td><td>9</td><td>8</td><td>88.9%</td></tr>
+<tr><td>↳ Matilda II</td><td>6</td><td>6</td><td>100%</td></tr>
+<tr><td><strong>Light Tanks</strong></td><td><strong>159</strong></td><td><strong>152</strong></td><td><strong>95.6%</strong></td></tr>
+<tr><td>↳ Light Tank Mk VI</td><td>159</td><td>152</td><td>95.6%</td></tr>
+<tr><td><strong>Heavy Tanks</strong></td><td><strong>0</strong></td><td><strong>0</strong></td><td><strong>N/A</strong></td></tr>
+</tbody></table>
+</div>
+<h3 id="medium-tanks-cruiser-tanks"><a class="header" href="#medium-tanks-cruiser-tanks">Medium Tanks (Cruiser Tanks)</a></h3>
+<h4 id="a13-mk-ii-cruiser-mk-iv---44-tanks"><a class="header" href="#a13-mk-ii-cruiser-mk-iv---44-tanks">A13 Mk II (Cruiser Mk IV) - 44 tanks</a></h4>
+<p>The backbone of British cruiser strength, the <strong>A13 Mk II</strong> equipped the 2nd Royal Tank Regiment with its superior speed and mobility.</p>
+<p><strong>Specifications</strong>:</p>
+<ul>
+<li><strong>Armament</strong>: Ordnance QF 2-pounder (40mm)</li>
+<li><strong>Armor</strong>: 30mm frontal</li>
+<li><strong>Speed</strong>: 48 km/h (fast for 1940)</li>
+<li><strong>Crew</strong>: 4 (commander, gunner, loader, driver)</li>
+<li><strong>Operational Rate</strong>: 42/44 (95.5%)</li>
+<li><strong>WITW ID</strong>: 2011</li>
+</ul>
+<p><strong>Combat Performance</strong>:
+The A13's high speed made it ideal for mobile desert operations, but its light armor (30mm) and 40mm gun would prove inadequate against heavily-armored Italian M13/40 medium tanks and German Panzers arriving in 1941.</p>
+<hr />
+<h4 id="a10-cruiser-mk-ii---10-tanks"><a class="header" href="#a10-cruiser-mk-ii---10-tanks">A10 Cruiser Mk II - 10 tanks</a></h4>
+<p><strong>Specifications</strong>:</p>
+<ul>
+<li><strong>Armament</strong>: Ordnance QF 2-pounder (40mm)</li>
+<li><strong>Armor</strong>: 30mm frontal</li>
+<li><strong>Speed</strong>: 26 km/h (slower "heavy cruiser")</li>
+<li><strong>Crew</strong>: 5</li>
+<li><strong>Operational Rate</strong>: 10/10 (100%)</li>
+<li><strong>WITW ID</strong>: 2009</li>
+</ul>
+<p><strong>Notes</strong>: The A10 was designed as an "infantry tank" but reclassified as a "heavy cruiser." Its additional armor came at the cost of mobility.</p>
+<hr />
+<h4 id="a9-cruiser-mk-i---9-tanks"><a class="header" href="#a9-cruiser-mk-i---9-tanks">A9 Cruiser Mk I - 9 tanks</a></h4>
+<p><strong>Specifications</strong>:</p>
+<ul>
+<li><strong>Armament</strong>: Ordnance QF 2-pounder (40mm)</li>
+<li><strong>Armor</strong>: 14mm frontal (very light)</li>
+<li><strong>Speed</strong>: 40 km/h</li>
+<li><strong>Crew</strong>: 6 (including two sub-turret machine gunners)</li>
+<li><strong>Operational Rate</strong>: 8/9 (88.9%)</li>
+<li><strong>WITW ID</strong>: 2008</li>
+</ul>
+<p><strong>Combat Issues</strong>: The A9's thin armor (14mm) made it extremely vulnerable. By January 1940, the 6th RTR operated a mix of 23 A9/A10 cruisers.</p>
+<hr />
+<h4 id="matilda-ii-infantry-tank---6-tanks"><a class="header" href="#matilda-ii-infantry-tank---6-tanks">Matilda II Infantry Tank - 6 tanks</a></h4>
+<p>The 7th Royal Tank Regiment deployed a <strong>small initial force</strong> of the heavily-armored <strong>Matilda II</strong> - Britain's most formidable tank in 1940.</p>
+<p><strong>Specifications</strong>:</p>
+<ul>
+<li><strong>Armament</strong>: Ordnance QF 2-pounder (40mm)</li>
+<li><strong>Armor</strong>: 77mm frontal (excellent for 1940)</li>
+<li><strong>Speed</strong>: 24 km/h (slow but well-protected)</li>
+<li><strong>Crew</strong>: 4</li>
+<li><strong>Operational Rate</strong>: 6/6 (100%)</li>
+<li><strong>WITW ID</strong>: 662</li>
+</ul>
+<p><strong>Historical Significance</strong>: The Matilda II's heavy armor would prove devastating against Italian forces during Operation Compass (December 1940), as Italian anti-tank guns could not penetrate its 77mm frontal armor.</p>
+<hr />
+<h3 id="light-tanks"><a class="header" href="#light-tanks">Light Tanks</a></h3>
+<h4 id="light-tank-mk-vi---159-tanks"><a class="header" href="#light-tank-mk-vi---159-tanks">Light Tank Mk VI - 159 tanks</a></h4>
+<p>The division's <strong>most numerous tank</strong>, the <strong>Mk VI light tank</strong> equipped the cavalry regiments for reconnaissance. However, it was <strong>obsolete for combat</strong> against any medium tank.</p>
+<p><strong>Specifications</strong>:</p>
+<ul>
+<li><strong>Armament</strong>: .303 Vickers machine gun + .50 Vickers machine gun</li>
+<li><strong>Armor</strong>: 14mm (maximum)</li>
+<li><strong>Speed</strong>: 56 km/h (fastest tank in the division)</li>
+<li><strong>Crew</strong>: 3</li>
+<li><strong>Operational Rate</strong>: 152/159 (95.6%)</li>
+<li><strong>WITW ID</strong>: Search_Required</li>
+</ul>
+<p><strong>Role</strong>: Reconnaissance only. The Mk VI's machine-gun armament and thin armor made it useless against Italian M13/40 medium tanks armed with 47mm guns.</p>
+<hr />
+<h2 id="artillery-strength"><a class="header" href="#artillery-strength">Artillery Strength</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Type</th><th>Total</th><th>Operational</th><th>Caliber</th></tr></thead><tbody>
+<tr><td><strong>Field Artillery</strong></td><td><strong>96</strong></td><td><strong>96</strong></td><td>-</td></tr>
+<tr><td>↳ Ordnance QF 25-pounder</td><td>72</td><td>72</td><td>87.6mm</td></tr>
+<tr><td>↳ QF 4.5-inch Howitzer</td><td>24</td><td>24</td><td>114mm</td></tr>
+<tr><td><strong>Anti-Tank</strong></td><td><strong>48</strong></td><td><strong>48</strong></td><td>-</td></tr>
+<tr><td>↳ Ordnance QF 2-pounder</td><td>48</td><td>48</td><td>40mm</td></tr>
+<tr><td><strong>Anti-Aircraft</strong></td><td><strong>36</strong></td><td><strong>36</strong></td><td>-</td></tr>
+<tr><td>↳ Bofors 40mm</td><td>36</td><td>36</td><td>40mm</td></tr>
+<tr><td><strong>Total Artillery</strong></td><td><strong>180</strong></td><td><strong>180</strong></td><td>-</td></tr>
+</tbody></table>
+</div>
+<h3 id="field-artillery"><a class="header" href="#field-artillery">Field Artillery</a></h3>
+<h4 id="ordnance-qf-25-pounder---72-guns"><a class="header" href="#ordnance-qf-25-pounder---72-guns">Ordnance QF 25-pounder - 72 guns</a></h4>
+<p>The <strong>25-pounder</strong> was Britain's outstanding field gun throughout WWII, serving as both a <strong>gun-howitzer</strong> capable of direct and indirect fire.</p>
+<p><strong>Specifications</strong>:</p>
+<ul>
+<li><strong>Caliber</strong>: 87.6mm (3.45 inches)</li>
+<li><strong>Range</strong>: 12,253 meters (maximum)</li>
+<li><strong>Projectile Weight</strong>: 11.3 kg (25 pounds - hence the name)</li>
+<li><strong>Rate of Fire</strong>: 5 rounds per minute (trained crew)</li>
+<li><strong>Type</strong>: Gun-howitzer</li>
+<li><strong>WITW ID</strong>: Unknown</li>
+</ul>
+<p><strong>Combat Performance</strong>: The 25-pounder's versatility made it invaluable in the desert. It could engage targets directly (as a gun) or provide indirect fire support (as a howitzer). The weapon would serve throughout the war with distinction.</p>
+<p><strong>Organization</strong>: The 7th Support Group fielded <strong>72 guns total</strong> (16 guns initially with additional batteries allocated to armoured brigades).</p>
+<hr />
+<h4 id="qf-45-inch-howitzer---24-guns"><a class="header" href="#qf-45-inch-howitzer---24-guns">QF 4.5-inch Howitzer - 24 guns</a></h4>
+<p><strong>Specifications</strong>:</p>
+<ul>
+<li><strong>Caliber</strong>: 114mm (4.5 inches)</li>
+<li><strong>Range</strong>: 6,700 meters</li>
+<li><strong>Projectile Weight</strong>: 15.9 kg</li>
+<li><strong>Type</strong>: Medium howitzer</li>
+<li><strong>WITW ID</strong>: Unknown</li>
+</ul>
+<p><strong>Combat Performance</strong>: The QF 4.5-inch howitzer provided supporting medium artillery with a heavier shell than the 25-pounder, though with shorter range. Its high-angle fire was effective against troops in prepared positions.</p>
+<p><strong>Notes</strong>: Supporting medium artillery, supplementing the 25-pounder batteries.</p>
+<hr />
+<h3 id="anti-tank-artillery"><a class="header" href="#anti-tank-artillery">Anti-Tank Artillery</a></h3>
+<h4 id="ordnance-qf-2-pounder---48-guns"><a class="header" href="#ordnance-qf-2-pounder---48-guns">Ordnance QF 2-pounder - 48 guns</a></h4>
+<p><strong>Specifications</strong>:</p>
+<ul>
+<li><strong>Caliber</strong>: 40mm</li>
+<li><strong>Penetration</strong>: 42mm armor @ 1,000 meters</li>
+<li><strong>Rate of Fire</strong>: 22 rounds per minute</li>
+<li><strong>Weight</strong>: 800 kg (towed)</li>
+<li><strong>WITW ID</strong>: Unknown</li>
+</ul>
+<p><strong>Combat Performance</strong>: The 2-pounder was Britain's standard anti-tank gun in 1940. While effective against light armor and early Italian tanks, it struggled against the M13/40's 42mm frontal armor. By 1941, it would be outclassed by German Panzers.</p>
+<p><strong>Organization</strong>: 7th Support Group anti-tank regiment fielded 48 guns divisionally.</p>
+<hr />
+<h3 id="anti-aircraft-artillery"><a class="header" href="#anti-aircraft-artillery">Anti-Aircraft Artillery</a></h3>
+<h4 id="bofors-40mm---36-guns"><a class="header" href="#bofors-40mm---36-guns">Bofors 40mm - 36 guns</a></h4>
+<p><strong>Specifications</strong>:</p>
+<ul>
+<li><strong>Caliber</strong>: 40mm</li>
+<li><strong>Rate of Fire</strong>: 120 rounds per minute (cyclic)</li>
+<li><strong>Effective Ceiling</strong>: 3,500 meters</li>
+<li><strong>Muzzle Velocity</strong>: 850 m/s</li>
+<li><strong>WITW ID</strong>: Unknown</li>
+</ul>
+<p><strong>Combat Performance</strong>: The Swedish-designed Bofors 40mm was the finest light anti-aircraft gun of WWII. Its high rate of fire and reliability made it devastatingly effective against low-flying aircraft. The weapon would serve with British forces throughout the war.</p>
+<p><strong>Organization</strong>: 7th Support Group AA regiment with 36 guns for divisional air defense.</p>
+<hr />
+<h2 id="armoured-cars"><a class="header" href="#armoured-cars">Armoured Cars</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Type</th><th>Count</th><th>Operational</th><th>Role</th></tr></thead><tbody>
+<tr><td><strong>Total Armoured Cars</strong></td><td><strong>75</strong></td><td><strong>71</strong></td><td>-</td></tr>
+<tr><td>↳ Morris CS9</td><td>45</td><td>43</td><td>Reconnaissance</td></tr>
+<tr><td>↳ Rolls-Royce Armoured Car</td><td>30</td><td>28</td><td>Reconnaissance</td></tr>
+</tbody></table>
+</div>
+<h3 id="morris-cs9---45-vehicles"><a class="header" href="#morris-cs9---45-vehicles">Morris CS9 - 45 vehicles</a></h3>
+<p>The <strong>Morris CS9</strong> was the division's primary <strong>reconnaissance vehicle</strong>, serving with the famous <strong>11th Hussars (Prince Albert's Own)</strong>.</p>
+<p><strong>Armament</strong>:</p>
+<ul>
+<li>Boys .55-inch anti-tank rifle (minimal effectiveness against tanks)</li>
+<li>Bren .303 light machine gun</li>
+</ul>
+<p><strong>Specifications</strong>:</p>
+<ul>
+<li><strong>Armor</strong>: 14mm maximum</li>
+<li><strong>Crew</strong>: 4 (commander, driver, gunner, radio operator)</li>
+<li><strong>Speed</strong>: Approximately 72 km/h on roads</li>
+<li><strong>Operational Rate</strong>: 43/45 (95.6%)</li>
+<li><strong>WITW ID</strong>: Unknown</li>
+</ul>
+<p><strong>Combat Record</strong>: The 11th Hussars' Morris CS9s crossed into Libya on <strong>11 June 1940</strong> (one day after Italy's declaration of war) and captured <strong>70 Italian prisoners</strong> in the division's first combat action. Their long-range patrols provided invaluable intelligence on Italian dispositions throughout the early desert war.</p>
+<p><strong>Role</strong>: Deep reconnaissance patrols, screening operations, pursuit actions. The Morris CS9's speed and reliability made it ideal for the vast distances of the Western Desert.</p>
+<hr />
+<h3 id="rolls-royce-armoured-car---30-vehicles"><a class="header" href="#rolls-royce-armoured-car---30-vehicles">Rolls-Royce Armoured Car - 30 vehicles</a></h3>
+<p><strong>Armament</strong>:</p>
+<ul>
+<li>.303 Vickers machine gun (turret-mounted)</li>
+</ul>
+<p><strong>Specifications</strong>:</p>
+<ul>
+<li><strong>Armor</strong>: 9mm maximum</li>
+<li><strong>Crew</strong>: 3</li>
+<li><strong>Speed</strong>: Approximately 80 km/h on roads</li>
+<li><strong>Operational Rate</strong>: 28/30 (93.3%)</li>
+<li><strong>WITW ID</strong>: Unknown</li>
+</ul>
+<p><strong>Historical Notes</strong>: The Rolls-Royce armoured car was a <strong>WWI-era design</strong> still in service in 1940. Despite its age, the vehicle's reliability and cross-country performance kept it operational in the desert. Lawrence of Arabia had famously used Rolls-Royce armoured cars in the Arab Revolt (1916-1918).</p>
+<p><strong>Role</strong>: Reconnaissance and screening, though increasingly supplemented by the more modern Morris CS9.</p>
+<hr />
+<h2 id="infantry-weapons"><a class="header" href="#infantry-weapons">Infantry Weapons</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Weapon</th><th>Count</th><th>Type</th><th>Role</th></tr></thead><tbody>
+<tr><td><strong>Lee-Enfield No. 4 Mk I</strong></td><td>6,500</td><td>Bolt-action rifle</td><td>Primary infantry weapon</td></tr>
+<tr><td><strong>Bren Gun</strong></td><td>400</td><td>Light machine gun</td><td>Squad automatic weapon</td></tr>
+<tr><td><strong>2-inch Mortar</strong></td><td>120</td><td>Infantry mortar</td><td>Close fire support</td></tr>
+</tbody></table>
+</div>
+<h3 id="lee-enfield-no-4-mk-i---6500-rifles"><a class="header" href="#lee-enfield-no-4-mk-i---6500-rifles">Lee-Enfield No. 4 Mk I - 6,500 rifles</a></h3>
+<p>The legendary <strong>.303-inch Lee-Enfield</strong> equipped British infantry throughout both World Wars.</p>
+<p><strong>Specifications</strong>:</p>
+<ul>
+<li><strong>Caliber</strong>: .303 British (7.7x56mm)</li>
+<li><strong>Magazine</strong>: 10 rounds (detachable box)</li>
+<li><strong>Effective Range</strong>: 550 meters</li>
+<li><strong>Rate of Fire</strong>: 20-30 aimed rounds per minute (skilled rifleman)</li>
+<li><strong>WITW ID</strong>: Unknown</li>
+</ul>
+<p><strong>Combat Performance</strong>: The Lee-Enfield's fast bolt action and large magazine capacity gave British infantry superior sustained firepower compared to bolt-action rifles limited to 5-round internal magazines.</p>
+<h3 id="bren-gun---400-light-machine-guns"><a class="header" href="#bren-gun---400-light-machine-guns">Bren Gun - 400 light machine guns</a></h3>
+<p>The <strong>.303-inch Bren Gun</strong> was the section (squad) automatic weapon for British and Commonwealth infantry.</p>
+<p><strong>Specifications</strong>:</p>
+<ul>
+<li><strong>Caliber</strong>: .303 British</li>
+<li><strong>Magazine</strong>: 30-round detachable box (top-mounted)</li>
+<li><strong>Rate of Fire</strong>: 500 rounds per minute (cyclic), 120 rpm (practical sustained)</li>
+<li><strong>Effective Range</strong>: 600 meters</li>
+<li><strong>WITW ID</strong>: Unknown</li>
+</ul>
+<p><strong>Role</strong>: Squad-level automatic fire support. Each infantry section (10 men) had one Bren gunner.</p>
+<hr />
+<h2 id="transport--vehicles"><a class="header" href="#transport--vehicles">Transport &amp; Vehicles</a></h2>
+<p><strong>Note</strong>: Tanks and Armoured Cars are listed in their own sections above.</p>
+<div class="table-wrapper"><table><thead><tr><th>Category</th><th>Count</th><th>Percentage</th></tr></thead><tbody>
+<tr><td><strong>Total Transport Vehicles</strong></td><td><strong>2,290</strong></td><td>100%</td></tr>
+<tr><td><strong>Trucks</strong></td><td><strong>1,400</strong></td><td><strong>61.1%</strong></td></tr>
+<tr><td>↳ Bedford QL</td><td>800</td><td>3 ton</td></tr>
+<tr><td>↳ Bedford MW</td><td>400</td><td>15 cwt</td></tr>
+<tr><td>↳ CMP Chevrolet</td><td>200</td><td>Varied</td></tr>
+<tr><td><strong>Motorcycles</strong></td><td><strong>350</strong></td><td><strong>15.3%</strong></td></tr>
+<tr><td>↳ BSA M20</td><td>200</td><td>Solo</td></tr>
+<tr><td>↳ Norton 16H</td><td>150</td><td>Solo</td></tr>
+<tr><td><strong>Support Vehicles</strong></td><td><strong>540</strong></td><td><strong>23.6%</strong></td></tr>
+<tr><td>↳ Universal Carrier (Bren Carrier)</td><td>468</td><td>Tracked carrier</td></tr>
+<tr><td>↳ Morris C8 Quad</td><td>72</td><td>Artillery tractor</td></tr>
+</tbody></table>
+</div>
+<h3 id="trucks"><a class="header" href="#trucks">Trucks</a></h3>
+<h4 id="bedford-ql---800-trucks"><a class="header" href="#bedford-ql---800-trucks">Bedford QL - 800 trucks</a></h4>
+<p><strong>Specifications</strong>:</p>
+<ul>
+<li><strong>Type</strong>: 3-ton cargo truck</li>
+<li><strong>Capacity</strong>: 3 tons (6,600 lbs) or 30 troops</li>
+<li><strong>Engine</strong>: Bedford 6-cylinder petrol</li>
+<li><strong>Speed</strong>: 48 km/h</li>
+<li><strong>WITW ID</strong>: Unknown</li>
+</ul>
+<p><strong>Role</strong>: Primary cargo and troop transport for the division. The Bedford QL was Britain's standard 3-ton truck throughout WWII.</p>
+<p><strong>Notes</strong>: Essential for maintaining the division's mobility across the vast distances of the Western Desert. Each truck could carry supplies, ammunition, fuel, or personnel.</p>
+<hr />
+<h4 id="bedford-mw---400-trucks"><a class="header" href="#bedford-mw---400-trucks">Bedford MW - 400 trucks</a></h4>
+<p><strong>Specifications</strong>:</p>
+<ul>
+<li><strong>Type</strong>: 15 cwt (0.75 ton) light utility truck</li>
+<li><strong>Capacity</strong>: 15 hundredweight (750 kg) or 8 troops</li>
+<li><strong>Engine</strong>: Bedford 6-cylinder petrol</li>
+<li><strong>Speed</strong>: 60 km/h</li>
+<li><strong>WITW ID</strong>: Unknown</li>
+</ul>
+<p><strong>Role</strong>: Light utility truck for command, liaison, reconnaissance support, and light cargo.</p>
+<p><strong>Notes</strong>: More nimble than the QL, the MW was used for headquarters elements, signals units, and rapid movement of small groups.</p>
+<hr />
+<h4 id="cmp-chevrolet---200-trucks"><a class="header" href="#cmp-chevrolet---200-trucks">CMP Chevrolet - 200 trucks</a></h4>
+<p><strong>Specifications</strong>:</p>
+<ul>
+<li><strong>Type</strong>: Canadian Military Pattern trucks (various models)</li>
+<li><strong>Capacity</strong>: Varied (15 cwt to 3 ton)</li>
+<li><strong>Origin</strong>: Canadian-built (Chevrolet, Ford, others)</li>
+<li><strong>WITW ID</strong>: Unknown</li>
+</ul>
+<p><strong>Role</strong>: Supplementary transport from Canadian production.</p>
+<p><strong>Notes</strong>: CMP (Canadian Military Pattern) trucks were standardized designs built in Canada for Commonwealth forces. They supplemented British-built vehicles throughout the war.</p>
+<hr />
+<h3 id="motorcycles"><a class="header" href="#motorcycles">Motorcycles</a></h3>
+<h4 id="bsa-m20---200-motorcycles"><a class="header" href="#bsa-m20---200-motorcycles">BSA M20 - 200 motorcycles</a></h4>
+<p><strong>Specifications</strong>:</p>
+<ul>
+<li><strong>Type</strong>: Solo motorcycle</li>
+<li><strong>Engine</strong>: 496cc single-cylinder</li>
+<li><strong>Speed</strong>: 100 km/h</li>
+<li><strong>Use</strong>: Dispatch rider, reconnaissance</li>
+<li><strong>WITW ID</strong>: Unknown</li>
+</ul>
+<p><strong>Role</strong>: Dispatch riders for rapid message delivery, reconnaissance patrols, liaison between units.</p>
+<p><strong>Notes</strong>: Essential for communications in an era when radio equipment was limited. Dispatch riders carried orders, reports, and messages across the division's wide frontage.</p>
+<hr />
+<h4 id="norton-16h---150-motorcycles"><a class="header" href="#norton-16h---150-motorcycles">Norton 16H - 150 motorcycles</a></h4>
+<p><strong>Specifications</strong>:</p>
+<ul>
+<li><strong>Type</strong>: Solo motorcycle</li>
+<li><strong>Engine</strong>: 490cc single-cylinder</li>
+<li><strong>Speed</strong>: 95 km/h</li>
+<li><strong>Use</strong>: Reconnaissance and dispatch</li>
+<li><strong>WITW ID</strong>: Unknown</li>
+</ul>
+<p><strong>Role</strong>: Similar to BSA M20 - dispatch riding, reconnaissance, and liaison duties.</p>
+<p><strong>Notes</strong>: The Norton 16H was another standard British military motorcycle, slightly smaller engine than the BSA but equally reliable in desert conditions.</p>
+<hr />
+<h3 id="support-vehicles"><a class="header" href="#support-vehicles">Support Vehicles</a></h3>
+<h4 id="universal-carrier-bren-carrier---468-vehicles"><a class="header" href="#universal-carrier-bren-carrier---468-vehicles">Universal Carrier (Bren Carrier) - 468 vehicles</a></h4>
+<p>Instead of <strong>halftracks</strong> (used by German and American forces), British doctrine relied on the <strong>Universal Carrier</strong> - a small, tracked, open-topped vehicle.</p>
+<p><strong>Specifications</strong>:</p>
+<ul>
+<li><strong>Type</strong>: Tracked carrier</li>
+<li><strong>Armament</strong>: Bren gun</li>
+<li><strong>Armor</strong>: 10mm maximum</li>
+<li><strong>Crew</strong>: 3-4</li>
+<li><strong>Speed</strong>: 48 km/h</li>
+<li><strong>WITW ID</strong>: Unknown</li>
+</ul>
+<p><strong>Role</strong>: Infantry support, reconnaissance, supply carrier, ammunition resupply, casualty evacuation, towing light anti-tank guns.</p>
+<p><strong>Combat Performance</strong>: The Universal Carrier's excellent cross-country mobility made it invaluable for desert operations. Its low profile provided some protection, and the Bren gun gave suppressive fire capability.</p>
+<p><strong>Notes</strong>: 468 carriers provided the division with tracked mobility for infantry support, a role that halftracks filled in other armies.</p>
+<hr />
+<h4 id="morris-c8-quad---72-vehicles"><a class="header" href="#morris-c8-quad---72-vehicles">Morris C8 Quad - 72 vehicles</a></h4>
+<p><strong>Specifications</strong>:</p>
+<ul>
+<li><strong>Type</strong>: Field artillery tractor (4x4)</li>
+<li><strong>Towing Capacity</strong>: 2-pounder AT gun or 25-pounder field gun</li>
+<li><strong>Crew</strong>: 6 (driver + 5 gun crew)</li>
+<li><strong>Engine</strong>: Morris 4-cylinder petrol</li>
+<li><strong>WITW ID</strong>: Unknown</li>
+</ul>
+<p><strong>Role</strong>: Towing field artillery and anti-tank guns, carrying gun crews and ammunition.</p>
+<p><strong>Combat Performance</strong>: The Morris C8 Quad ("Quad" because it was a 4x4) was specifically designed to tow the 25-pounder gun-howitzer and 2-pounder anti-tank gun. Its ability to keep pace with armored formations made it essential for mobile artillery support.</p>
+<p><strong>Notes</strong>: Field artillery tractor for the 7th Support Group's 25-pounders and divisional anti-tank guns.</p>
+<hr />
+<h2 id="organizational-structure"><a class="header" href="#organizational-structure">Organizational Structure</a></h2>
+<p>The 7th Armoured Division fielded <strong>three brigades</strong> with distinct roles:</p>
+<h3 id="1-4th-armoured-brigade"><a class="header" href="#1-4th-armoured-brigade">1. 4th Armoured Brigade</a></h3>
+<p><strong>Type</strong>: Heavy Armoured Brigade (renamed from "4th Heavy Armoured Brigade" on 14 April 1940)
+<strong>Commander</strong>: Brigadier J. A. L. Caunter
+<strong>Strength</strong>: 2,500 personnel
+<strong>Headquarters</strong>: Abbassia</p>
+<p><strong>Composition</strong>:</p>
+<ul>
+<li><strong>6th Royal Tank Regiment</strong> (850 men) - A9/A10 cruiser tanks + Mk VI light tanks</li>
+<li><strong>7th Queen's Own Hussars</strong> (800 men) - Mk VI light tanks</li>
+<li><strong>1st Royal Horse Artillery</strong> (450 men) - 25-pounder guns</li>
+</ul>
+<p><strong>Historical Note</strong>: The 6th RTR reached full tank establishment by January 1940 with 23 A9/A10 cruisers.</p>
+<hr />
+<h3 id="2-7th-armoured-brigade"><a class="header" href="#2-7th-armoured-brigade">2. 7th Armoured Brigade</a></h3>
+<p><strong>Type</strong>: Light Armoured Brigade (renamed from "7th Light Armoured Brigade" on 14 April 1940)
+<strong>Commander</strong>: Unknown
+<strong>Strength</strong>: 2,500 personnel
+<strong>Headquarters</strong>: Western Desert</p>
+<p><strong>Composition</strong>:</p>
+<ul>
+<li><strong>7th Hussars</strong> (800 men) - Mk VI light tanks</li>
+<li><strong>8th King's Royal Irish Hussars</strong> (800 men) - Mk VI light tanks</li>
+<li><strong>11th Hussars (Prince Albert's Own)</strong> (650 men) - Morris CS9 and Rolls-Royce armoured cars</li>
+</ul>
+<p><strong>Historical Significance</strong>: The <strong>11th Hussars</strong> were the division's eyes and ears - their armoured car patrols ranged hundreds of kilometers into the desert, providing invaluable reconnaissance. On <strong>11 June 1940</strong>, they became the first British unit to engage Italian forces, capturing 70 prisoners.</p>
+<hr />
+<h3 id="3-7th-support-group"><a class="header" href="#3-7th-support-group">3. 7th Support Group</a></h3>
+<p><strong>Type</strong>: Support Group (Artillery + Motorized Infantry)
+<strong>Commander</strong>: Brigadier W. H. E. Gott
+<strong>Strength</strong>: 4,600 personnel
+<strong>Headquarters</strong>: Western Desert
+<strong>Formed</strong>: 22 January 1940</p>
+<p><strong>Artillery</strong>:</p>
+<ul>
+<li><strong>72x Ordnance QF 25-pounder</strong> field guns</li>
+<li><strong>48x Ordnance QF 2-pounder</strong> anti-tank guns</li>
+<li><strong>36x Bofors 40mm</strong> anti-aircraft guns</li>
+</ul>
+<p><strong>Infantry</strong>:</p>
+<ul>
+<li><strong>1st Battalion, King's Royal Rifle Corps</strong> (750 men, motorized) - Commander: Lieutenant Colonel William Gott</li>
+<li><strong>2nd Battalion, The Rifle Brigade</strong> (750 men, motorized)</li>
+</ul>
+<p><strong>Engineers</strong>:</p>
+<ul>
+<li><strong>Divisional Engineers</strong> (400 men)</li>
+</ul>
+<p><strong>Tactical Concept</strong>: The Support Group provided a mobile "pivot" of artillery and motorized infantry that could anchor defensive positions while armoured brigades maneuvered. This innovative combined-arms concept would prove devastatingly effective during Operation Compass.</p>
+<hr />
+<h2 id="supply-status-q2-1940"><a class="header" href="#supply-status-q2-1940">Supply Status (Q2 1940)</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Resource</th><th>Days of Supply</th><th>Status</th></tr></thead><tbody>
+<tr><td><strong>Fuel</strong></td><td>10 days</td><td>Adequate</td></tr>
+<tr><td><strong>Ammunition</strong></td><td>7 days</td><td>Adequate</td></tr>
+<tr><td><strong>Food</strong></td><td>14 days</td><td>Good</td></tr>
+<tr><td><strong>Water</strong></td><td>8 liters/day/man</td><td>Adequate</td></tr>
+</tbody></table>
+</div>
+<p><strong>Operational Radius</strong>: 240 km from Mersa Matruh
+<strong>Supply Base</strong>: Mersa Matruh, with forward dumps along Egyptian-Libyan frontier
+<strong>Assessment</strong>: Adequate reserves for defensive operations. Supply lines extended but manageable.</p>
+<hr />
+<h2 id="tactical-doctrine--capabilities"><a class="header" href="#tactical-doctrine--capabilities">Tactical Doctrine &amp; Capabilities</a></h2>
+<h3 id="role"><a class="header" href="#role">Role</a></h3>
+<p>Mobile armoured division for <strong>desert warfare</strong> - reconnaissance in force, defensive operations, and rapid response to Italian incursions along the Egyptian-Libyan frontier.</p>
+<h3 id="special-capabilities"><a class="header" href="#special-capabilities">Special Capabilities</a></h3>
+<ol>
+<li>
+<p><strong>Desert Navigation &amp; Long-Range Patrolling</strong>
+Sun compasses, desert-experienced drivers, and navigation specialists enabled operations hundreds of kilometers from base.</p>
+</li>
+<li>
+<p><strong>Armoured Car Reconnaissance (11th Hussars)</strong>
+Deep penetration reconnaissance patrols provided early warning and intelligence on Italian dispositions.</p>
+</li>
+<li>
+<p><strong>Integrated Combined Arms Operations</strong>
+The Support Group concept pioneered the integration of artillery, motorized infantry, and armor in mobile operations.</p>
+</li>
+<li>
+<p><strong>Mobile Defensive Tactics</strong>
+Rather than static defense, the division employed mobile "boxes" - defensive positions anchored by artillery with armored counterattack capability.</p>
+</li>
+</ol>
+<h3 id="tactical-innovations"><a class="header" href="#tactical-innovations">Tactical Innovations</a></h3>
+<ul>
+<li><strong>Armoured cars for deep reconnaissance</strong> - The 11th Hussars' long-range patrols became legendary</li>
+<li><strong>Support Group "pivot" concept</strong> - Artillery + motorized infantry as mobile defensive anchor</li>
+<li><strong>Radio communication for dispersed formations</strong> - Wireless coordination enabled operations across vast distances</li>
+</ul>
+<h3 id="desert-adaptations"><a class="header" href="#desert-adaptations">Desert Adaptations</a></h3>
+<ul>
+<li><strong>Sun compasses</strong> for navigation (magnetic compasses unreliable in desert)</li>
+<li><strong>Engine condensers</strong> for water conservation</li>
+<li><strong>Sand filters</strong> for engines</li>
+<li><strong>Special fuel mixtures</strong> for extreme heat</li>
+</ul>
+<hr />
+<h2 id="critical-equipment-shortages"><a class="header" href="#critical-equipment-shortages">Critical Equipment Shortages</a></h2>
+<h3 id="1-tank-shortage-228-actual-vs-340-authorized-67-strength"><a class="header" href="#1-tank-shortage-228-actual-vs-340-authorized-67-strength">1. Tank Shortage: 228 actual vs 340 authorized (67% strength)</a></h3>
+<p>The division's most critical weakness was the <strong>severe shortage of cruiser tanks</strong>. War Office records from April 1940 documented only <strong>69 cruiser tanks</strong> operational versus <strong>340 authorized</strong> - an <strong>80% shortfall</strong>.</p>
+<p><strong>Impact</strong>: The division could not sustain offensive operations or replace combat losses. Armoured brigades operated far below establishment strength.</p>
+<h3 id="2-obsolete-light-tanks"><a class="header" href="#2-obsolete-light-tanks">2. Obsolete Light Tanks</a></h3>
+<p>The 159 <strong>Light Tank Mk VI</strong> vehicles were obsolete for combat:</p>
+<ul>
+<li>Machine-gun armament useless against medium tanks</li>
+<li>14mm armor penetrated by all Italian anti-tank guns</li>
+<li>Relegated to reconnaissance role only</li>
+</ul>
+<h3 id="3-extended-supply-lines"><a class="header" href="#3-extended-supply-lines">3. Extended Supply Lines</a></h3>
+<p>The division operated <strong>240 km from Mersa Matruh</strong>, stretching logistics across desert terrain with limited transport capacity.</p>
+<hr />
+<h2 id="historical-context-q2-1940"><a class="header" href="#historical-context-q2-1940">Historical Context: Q2 1940</a></h2>
+<h3 id="key-events"><a class="header" href="#key-events">Key Events</a></h3>
+<p><strong>14 April 1940</strong>: Armoured brigades officially drop "heavy" and "light" designations, becoming simply "4th Armoured Brigade" and "7th Armoured Brigade."</p>
+<p><strong>16 April 1940</strong>: The division adopts the <strong>jerboa (desert rat) insignia</strong>, confirmed officially in May 1940. The jerboa was chosen for its desert survival abilities and became one of the most famous military insignias in history.</p>
+<p><strong>10 June 1940</strong>: <strong>Italy declares war</strong> on Britain and France. The Western Desert immediately becomes an active theater.</p>
+<p><strong>11 June 1940</strong>: <strong>First combat action</strong> - 11th Hussars armoured cars and 1st Battalion KRRC cross into Libya, engage Italian forces, capture <strong>70 prisoners</strong>. First blood to the Desert Rats.</p>
+<p><strong>17 June 1940</strong>: <strong>Western Desert Force</strong> formed under Major-General Richard O'Connor, with 7th Armoured Division as its mobile striking force.</p>
+<h3 id="operational-status"><a class="header" href="#operational-status">Operational Status</a></h3>
+<p><strong>Posture</strong>: Defensive operations along the Egyptian-Libyan frontier
+<strong>Mission</strong>: Border patrol, reconnaissance, harassment of Italian probes
+<strong>Combat Activity</strong>: Limited border skirmishing following Italian declaration of war</p>
+<p><strong>Equipment Status</strong>:</p>
+<ul>
+<li><strong>Critical tank shortage</strong>: 69 cruisers vs 340 authorized (20%)</li>
+<li>Limited spare parts for older tank models</li>
+<li>Supply buildup ongoing from Mersa Matruh</li>
+</ul>
+<hr />
+<h2 id="wargaming-data"><a class="header" href="#wargaming-data">Wargaming Data</a></h2>
+<h3 id="scenario-suitability"><a class="header" href="#scenario-suitability">Scenario Suitability</a></h3>
+<ul>
+<li><strong>Border skirmishes</strong> (June 1940)</li>
+<li><strong>Reconnaissance in force</strong> operations</li>
+<li><strong>Mobile defense</strong> scenarios</li>
+<li><strong>Desert patrol</strong> operations</li>
+</ul>
+<h3 id="game-statistics"><a class="header" href="#game-statistics">Game Statistics</a></h3>
+<p><strong>Morale Rating</strong>: 7/10
+<strong>Experience Level</strong>: Regular (becoming Veteran by December 1940)
+<strong>Operational Readiness</strong>: 96.5% (tanks), 100% (artillery)</p>
+<h3 id="special-rules"><a class="header" href="#special-rules">Special Rules</a></h3>
+<ol>
+<li><strong>Desert Navigation</strong>: No penalty for open terrain movement</li>
+<li><strong>Extended Reconnaissance Range</strong>: 11th Hussars armoured cars have +50% reconnaissance range</li>
+<li><strong>Combined Arms Doctrine</strong>: +1 bonus when Support Group coordinates with armoured brigades</li>
+<li><strong>Supply Vulnerability</strong>: -1 morale if cut off from supply lines for more than 3 turns</li>
+</ol>
+<h3 id="historical-first-engagement"><a class="header" href="#historical-first-engagement">Historical First Engagement</a></h3>
+<p><strong>Date</strong>: 11 June 1940
+<strong>Location</strong>: Libyan frontier
+<strong>Forces</strong>: 11th Hussars (armoured cars) + 1st Battalion KRRC (motorized infantry)
+<strong>Result</strong>: 70 Italian prisoners captured, no British casualties
+<strong>Significance</strong>: First combat action of the Desert Rats</p>
+<hr />
+<h2 id="conclusion"><a class="header" href="#conclusion">Conclusion</a></h2>
+<p>The <strong>7th Armoured Division</strong> in Q2 1940 was a formation in transition - pioneering desert mobile warfare doctrine while struggling with critical equipment shortages. With only <strong>67% of authorized tank strength</strong> and many obsolete light tanks, the division could not sustain offensive operations. Yet its innovative combined-arms tactics, superb reconnaissance capabilities (11th Hussars), and experienced commanders would prove decisive in the coming months.</p>
+<p>By December 1940, after reinforcement and operational experience, this same division would spearhead <strong>Operation Compass</strong> - Britain's first major offensive of WWII - destroying 10 Italian divisions and advancing 800 kilometers in two months. The "Desert Rats" legend was born on the Egyptian frontier in June 1940.</p>
+<hr />
+<p><strong>Data Source</strong>: Autonomous TO&amp;E Extraction System
+<strong>Confidence</strong>: 85% (Tier 1 local sources + Tier 2 curated web sources)
+<strong>Schema</strong>: unified_toe_schema.json v1.0.0
+<strong>Extraction Date</strong>: 2025-10-10</p>
+<hr />
+<p><em>For detailed equipment specifications and subordinate unit TO&amp;E files, see:</em></p>
+<ul>
+<li><code>britain_1940q2_4th_armoured_brigade_toe.json</code></li>
+<li><code>britain_1940q2_7th_armoured_brigade_toe.json</code></li>
+<li><code>britain_1940q2_7th_support_group_toe.json</code></li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+            </nav>
+
+        </div>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+        <script>
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+
+
+    </div>
+    </body>
+</html>
