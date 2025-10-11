@@ -126,13 +126,64 @@ After EVERY unit chapter generated:
    npm run git:commit "Italian batch 4 - 10 units"
    ```
 
-### Phase 3: Priority Order
-1. **Incomplete/in-progress work** (check CURRENT_STATUS.md)
-2. **Italian units** (42 unit-quarters remaining)
-3. **British/Commonwealth** (include India, Australia, NZ, Canada, South Africa)
-4. **German units** (Panzer divisions, infantry divisions)
-5. **American units** (1942-1943)
-6. **French units** (1940-1941)
+### Phase 3: Intelligent Unit Selection
+
+**DO NOT follow rigid nation order. Instead, evaluate:**
+
+1. **Check Current Status:**
+   ```bash
+   cat CURRENT_STATUS.md
+   ```
+   - Which nations have units completed?
+   - What's the completion percentage per nation?
+   - Are there incomplete/in-progress units?
+
+2. **Review Gap Analysis:**
+   ```bash
+   cat GAP_TRACKER.md
+   ```
+   - Which units have confidence < 80%?
+   - Which nations have critical gaps?
+   - Are there pattern problems to address?
+
+3. **Evaluate Source Availability:**
+   - Check `sources/sources_catalog.json` for available documents
+   - Tier 1 sources (Tessin, Army Lists, Field Manuals) = prioritize
+   - Missing sources for nation/quarter = defer or use Tier 2/3
+
+4. **Strategic Decision Criteria:**
+   - **Finish what's started**: Complete in-progress work first
+   - **Fill gaps**: Units with low confidence need re-extraction
+   - **Source-driven**: Process nations with best source availability
+   - **Balance**: Don't complete one nation 100% while others at 0%
+   - **Historical coherence**: Related units (same corps, same campaign) together
+
+5. **Autonomous Decision:**
+   - Read project config: `projects/north_africa_campaign.json`
+   - Analyze completion vs total units per nation
+   - Select next batch (3-5 units) based on above criteria
+   - Document decision in session log
+
+**Example Good Decision:**
+```
+Status Check:
+- Italian: 17/42 units (40% complete, Tier 1 Tessin sources available)
+- British: 1/65 units (1.5% complete, Tier 1 Army Lists available)
+- German: 0/78 units (0% complete, Tier 1 Tessin sources available)
+
+Decision: Process 5 German units (Panzer divisions 1940-1941)
+Rationale: Balance nations (British/Italian both started, German at 0%),
+excellent Tier 1 source availability (Tessin), high strategic value (Panzer
+divisions critical to North Africa campaign), historical coherence (early-war
+Panzers deployed together)
+```
+
+**Example Bad Decision:**
+```
+Decision: Complete all 42 Italian units before touching other nations
+Problem: Creates imbalanced dataset, delays British/German extraction,
+ignores source availability patterns, no strategic rationale
+```
 
 ---
 
@@ -207,13 +258,15 @@ npm run git:commit "descriptive batch name"
 ## 🎓 KEY PRINCIPLES
 
 1. **The TEMPLATE is THE LAW** - `MDBOOK_CHAPTER_TEMPLATE.md` is the authoritative standard, not any chapter file
-2. **Autonomous does NOT mean unsupervised** - validate everything
-3. **Quality over quantity** - 10 perfect units > 50 flawed units
-4. **Stop when uncertain** - ask rather than guess
-5. **Use v2.0 template** - all new chapters automatically compliant via book_chapter_generator agent
-6. **Be honest about gaps** - Section 15 documents what's unknown
-7. **Historical accuracy** - no anachronisms, verify equipment dates
-8. **Commonwealth = British** - include all Empire/Commonwealth forces
+2. **Orchestration-driven selection** - evaluate status/gaps/sources, don't follow rigid nation order
+3. **Autonomous does NOT mean unsupervised** - validate everything
+4. **Quality over quantity** - 10 perfect units > 50 flawed units
+5. **Stop when uncertain** - ask rather than guess
+6. **Use v2.0 template** - all new chapters automatically compliant via book_chapter_generator agent
+7. **Be honest about gaps** - Section 15 documents what's unknown
+8. **Historical accuracy** - no anachronisms, verify equipment dates
+9. **Commonwealth = British** - include all Empire/Commonwealth forces
+10. **Document decisions** - explain unit selection rationale in session logs
 
 ---
 
