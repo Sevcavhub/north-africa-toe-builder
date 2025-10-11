@@ -12,7 +12,7 @@ This template defines the standard structure for military unit chapters in the N
 
 ---
 
-## Required Sections
+## Required Sections (16 Total)
 
 ### 1. Header
 
@@ -39,7 +39,7 @@ Brief 2-3 paragraph narrative introduction covering:
 - Unit history and formation
 - Nickname/insignia (if applicable)
 - Strategic role
-- Commander information
+- Commander information (overview - detailed info in Command section)
 
 ### 3. Command Section
 
@@ -75,7 +75,9 @@ Brief 2-3 paragraph narrative introduction covering:
 
 ---
 
-## 5. Equipment Tables with Variant Breakdowns
+## 5-8. Equipment Tables with Variant Breakdowns
+
+**Sections 5-8 cover: Armoured Strength, Artillery Strength, Armoured Cars, Infantry Weapons, Transport & Vehicles**
 
 ### CRITICAL FORMAT REQUIREMENT
 
@@ -294,7 +296,7 @@ Brief 2-3 paragraph narrative introduction covering:
 
 ## Additional Sections
 
-### 6. Organizational Structure
+### 9. Organizational Structure
 
 List subordinate units with:
 - Unit designation
@@ -303,7 +305,7 @@ List subordinate units with:
 - Composition (regiments/battalions)
 - Equipment summary
 
-### 7. Supply Status
+### 10. Supply Status
 
 ```markdown
 ## Supply Status ([Quarter])
@@ -320,7 +322,7 @@ List subordinate units with:
 **Assessment**: [Overall status description]
 ```
 
-### 8. Tactical Doctrine & Capabilities
+### 11. Tactical Doctrine & Capabilities
 
 - Role description
 - Special capabilities
@@ -328,7 +330,48 @@ List subordinate units with:
 - Known issues/limitations
 - Desert/terrain adaptations (if applicable)
 
-### 9. Historical Context
+### 12. Critical Equipment Shortages
+
+**REQUIRED SECTION** - Document operational limitations from equipment deficiencies
+
+```markdown
+## Critical Equipment Shortages
+
+This section identifies critical equipment shortages that significantly impact unit operational capability during this quarter.
+
+### Priority 1: Critical Shortages (Mission-Limiting)
+- **[Equipment Category]**: [Description of shortage]
+  - **Required**: [Number/amount needed]
+  - **Available**: [Number/amount on hand]
+  - **Impact**: [Specific operational limitation]
+  - **Mitigation**: [How unit compensates]
+
+### Priority 2: Important Shortages (Capability-Reducing)
+- **[Equipment Category]**: [Description]
+
+### Priority 3: Minor Shortages (Performance-Degrading)
+- **[Equipment Category]**: [Description]
+
+**Overall Assessment**: [Summary of how shortages affect unit combat effectiveness]
+```
+
+**Example (British 7th Armoured, 1940 Q2):**
+```markdown
+## Critical Equipment Shortages
+
+### Priority 1: Critical Shortages
+- **Anti-Tank Artillery**: Severe shortage of modern AT guns
+  - **Required**: 72 x 2-pounder AT guns per division standard
+  - **Available**: 48 (66.7% of requirement)
+  - **Impact**: Reduced ability to counter German Panzer III/IV
+  - **Mitigation**: Increased reliance on cruiser tanks for AT role
+
+### Priority 2: Important Shortages
+- **Infantry Tanks**: Only 6 Matilda II available vs. 50 planned
+- **Transport Vehicles**: 15% below establishment strength
+```
+
+### 13. Historical Context
 
 - Formation history
 - Operational status for the quarter
@@ -336,7 +379,7 @@ List subordinate units with:
 - Combat activity
 - Equipment status
 
-### 10. Wargaming Data
+### 14. Wargaming Data
 
 - Scenario suitability
 - Morale rating (1-10)
@@ -344,7 +387,7 @@ List subordinate units with:
 - Special rules for wargames
 - Historical engagements
 
-### 11. Data Quality & Known Gaps
+### 15. Data Quality & Known Gaps
 
 **REQUIRED SECTION** - Transparency about data completeness
 
@@ -404,7 +447,7 @@ When additional sources become available, the following areas would benefit from
 
 ---
 
-### 12. Conclusion
+### 16. Conclusion
 
 2-3 paragraph wrap-up covering:
 - Unit assessment for the quarter
@@ -412,7 +455,7 @@ When additional sources become available, the following areas would benefit from
 - Future outlook (if known)
 - Historical significance
 
-### 13. Data Source Footer
+**Data Source Footer (part of Conclusion):**
 
 ```markdown
 ---
@@ -489,7 +532,20 @@ Before publishing any chapter, verify:
 - [ ] Readiness percentages calculated correctly
 - [ ] Variant counts sum to category totals
 - [ ] WITW IDs included where available
-- [ ] All required sections present
+- [ ] All 16 required sections present:
+  - [ ] 1. Header
+  - [ ] 2. Division/Unit Overview
+  - [ ] 3. Command
+  - [ ] 4. Personnel Strength
+  - [ ] 5-8. Equipment sections (Armoured, Artillery, Armoured Cars, Infantry Weapons, Transport)
+  - [ ] 9. Organizational Structure
+  - [ ] 10. Supply Status
+  - [ ] 11. Tactical Doctrine & Capabilities
+  - [ ] 12. Critical Equipment Shortages
+  - [ ] 13. Historical Context
+  - [ ] 14. Wargaming Data
+  - [ ] 15. Data Quality & Known Gaps
+  - [ ] 16. Conclusion with Data Source Footer
 - [ ] Cross-references to subordinate units included
 - [ ] Source citations in footer
 - [ ] Confidence score documented
