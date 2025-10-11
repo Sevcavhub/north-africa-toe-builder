@@ -68,10 +68,11 @@ The MDBook template and book_chapter_generator agent have been synchronized to *
 ## Step-by-Step Execution Plan
 
 ### Phase 1: Read and Understand Template
-1. Read `docs/MDBOOK_CHAPTER_TEMPLATE.md` completely
+1. Read `docs/MDBOOK_CHAPTER_TEMPLATE.md` completely - **THIS IS THE AUTHORITATIVE STANDARD**
 2. Note the 16-section structure
 3. Understand Critical Equipment Shortages format (lines 333-372)
 4. Understand Data Quality & Known Gaps format (lines 390-447)
+5. **Reference chapters (7th Armoured, Bologna, Ariete) are EXAMPLES only, not standards**
 
 ### Phase 2: Process 7th Armoured Division
 1. Read existing chapter: `data/output/autonomous_1760133539236/north_africa_book/src/chapter_7th_armoured.md`

@@ -32,8 +32,8 @@
 
 ## 📚 REQUIRED READING (in order)
 
-### 1. Project Configuration & Standards
-- **`docs/MDBOOK_CHAPTER_TEMPLATE.md`** - v2.0 standard (16 sections) ⭐ THE LAW
+### 1. Project Configuration & Standards ⭐ READ THESE FIRST
+- **`docs/MDBOOK_CHAPTER_TEMPLATE.md`** - v2.0 standard (16 sections) ⭐ **THE LAW - AUTHORITATIVE STANDARD**
 - **`agents/agent_catalog.json`** - book_chapter_generator agent (synchronized to v2.0)
 - **`schemas/unified_toe_schema.json`** - JSON structure requirements
 
@@ -43,16 +43,15 @@
 - **`GAP_TRACKER.md`** - Known gaps and research priorities
 
 ### 3. Template Synchronization Updates
-- **`CHAPTER_REGENERATION_PROMPT.md`** - Chapter upgrade task (may be complete)
+- **`CHAPTER_REGENERATION_PROMPT.md`** - Chapter upgrade task (completed)
 - **Git log:** `git log --oneline -5` to see recent commits
 
-### 4. Reference Baseline
-- **`data/output/autonomous_1760133539236/north_africa_book/src/chapter_7th_armoured.md`**
-  - 647+ lines, v2.0 compliant (16 sections)
-  - Command section included
-  - Critical Equipment Shortages documented
-  - Data Quality & Known Gaps section complete
-  - USE THIS AS GOLD STANDARD
+### 4. Example Compliant Chapters (v2.0)
+- **`data/output/autonomous_1760133539236/north_africa_book/src/chapter_7th_armoured.md`** (British, 713 lines)
+- **`data/output/autonomous_1760155681040/north_africa_book/src/chapter_italy_1941q1_bologna.md`** (Italian, 1000+ lines)
+- **`data/output/autonomous_1760155681040/north_africa_book/src/chapter_italy_1940q4_ariete.md`** (Italian armored, 700+ lines)
+
+**These are EXAMPLES demonstrating template compliance, NOT the standard itself. Always follow `MDBOOK_CHAPTER_TEMPLATE.md`.**
 
 ---
 
@@ -109,14 +108,13 @@ After EVERY unit chapter generated:
 
 ## 🔄 AUTONOMOUS WORKFLOW
 
-### Phase 1: Complete Chapter Regeneration (if not done)
+### Phase 1: Chapter Regeneration Status
 ```bash
-# Check if regeneration complete
-ls -la data/output/autonomous_*/north_africa_book/src/*.md | wc -l
-# Should be 11 chapters updated to v2.0
-
-# If not complete: Read and execute CHAPTER_REGENERATION_PROMPT.md
+# Verify all chapters v2.0 compliant (completed)
+# 1 British + 10 Italian = 11 chapters updated
 ```
+
+**Chapter regeneration is COMPLETE.** All existing chapters now v2.0 compliant with 16 sections.
 
 ### Phase 2: Unit Extraction (Batch Processing)
 1. **Batch size:** 3-5 units per run
@@ -208,13 +206,14 @@ npm run git:commit "descriptive batch name"
 
 ## 🎓 KEY PRINCIPLES
 
-1. **Autonomous does NOT mean unsupervised** - validate everything
-2. **Quality over quantity** - 10 perfect units > 50 flawed units
-3. **Stop when uncertain** - ask rather than guess
-4. **Use v2.0 template** - all new chapters automatically compliant
-5. **Be honest about gaps** - Section 15 documents what's unknown
-6. **Historical accuracy** - no anachronisms, verify equipment dates
-7. **Commonwealth = British** - include all Empire/Commonwealth forces
+1. **The TEMPLATE is THE LAW** - `MDBOOK_CHAPTER_TEMPLATE.md` is the authoritative standard, not any chapter file
+2. **Autonomous does NOT mean unsupervised** - validate everything
+3. **Quality over quantity** - 10 perfect units > 50 flawed units
+4. **Stop when uncertain** - ask rather than guess
+5. **Use v2.0 template** - all new chapters automatically compliant via book_chapter_generator agent
+6. **Be honest about gaps** - Section 15 documents what's unknown
+7. **Historical accuracy** - no anachronisms, verify equipment dates
+8. **Commonwealth = British** - include all Empire/Commonwealth forces
 
 ---
 
