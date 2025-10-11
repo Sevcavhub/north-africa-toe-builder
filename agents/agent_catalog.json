@@ -1,0 +1,416 @@
+{
+  "version": "1.0.0",
+  "catalog_name": "TO&E Builder Agent Catalog",
+  "last_updated": "2025-10-09",
+  
+  "agents": [
+    {
+      "agent_id": "document_parser",
+      "category": "source_extraction",
+      "role": "Parse source documents and extract raw facts",
+      "inputs": ["source_pdf", "document_type", "target_nation", "target_quarter"],
+      "outputs": ["raw_facts.json"],
+      "capabilities": [
+        "PDF text extraction",
+        "Table parsing",
+        "Figure/diagram interpretation",
+        "Citation tracking"
+      ],
+      "prompt_template": "You are a military historian extracting data from {document_type}.\n\nTask: Extract ALL factual information about {nation} forces in {quarter}.\n\nFor each fact extracted, provide:\n1. The fact itself\n2. Source citation (page number, section)\n3. Confidence level (0-100)\n4. Category (personnel|equipment|organization|command)\n\nOutput format: JSON array of facts\n\nExample:\n{\n  \"fact_type\": \"command\",\n  \"data\": {\n    \"unit\": \"XXI Corpo d'Armata\",\n    \"commander\": \"Generale di Corpo d'Armata Lorenzo Dalmazzo\",\n    \"rank\": \"Generale di Corpo d'Armata\"\n  },\n  \"source\": \"TM E 30-420, page 45, section 2.3\",\n  \"confidence\": 95\n}\n\nExtract facts now from: {source_content}",
+      "validation_rules": [
+        "All facts must have source citations",
+        "Confidence must be 0-100",
+        "No hallucinated data"
+      ]
+    },
+    
+    {
+      "agent_id": "historical_research",
+      "category": "source_extraction",
+      "role": "Cross-reference facts across multiple sources",
+      "inputs": ["raw_facts.json", "additional_sources[]"],
+      "outputs": ["verified_facts.json", "conflicts.json"],
+      "capabilities": [
+        "Multi-source verification",
+        "Conflict identification",
+        "Best estimate selection",
+        "Source quality ranking"
+      ],
+      "prompt_template": "You are verifying historical facts across multiple sources.\n\nPrimary facts: {raw_facts}\nAdditional sources: {source_list}\n\nTask: For each fact, verify against additional sources and identify:\n1. Confirming sources\n2. Conflicting information\n3. Best estimate if conflicts exist\n4. Updated confidence level\n\nOutput verified facts with all supporting/conflicting citations.",
+      "validation_rules": [
+        "Conflicts must be explicitly flagged",
+        "At least 2 sources per critical fact",
+        "Confidence adjusted based on source agreement"
+      ]
+    },
+    
+    {
+      "agent_id": "org_hierarchy",
+      "category": "structure_organization",
+      "role": "Build organizational tree from Theater to Squad",
+      "inputs": ["verified_facts.json", "nation", "quarter"],
+      "outputs": ["org_tree.json"],
+      "capabilities": [
+        "Hierarchy construction",
+        "Parent-child relationship mapping",
+        "Commander assignment",
+        "Unit naming normalization"
+      ],
+      "prompt_template": "You are building the complete organizational hierarchy for {nation} in {quarter}.\n\nFacts available: {verified_facts}\n\nTask: Construct organizational tree from Theater level down to Squad level.\n\nFor each level, identify:\n1. Unit designation\n2. Unit type\n3. Commander (name and rank)\n4. Parent formation\n5. Subordinate units\n6. Personnel strength\n\nOutput: Hierarchical JSON structure\n\nExample:\n{\n  \"level\": \"corps\",\n  \"unit_designation\": \"XXI Corpo d'Armata\",\n  \"commander\": {\"name\": \"...\", \"rank\": \"...\"},\n  \"parent\": \"10th Army\",\n  \"subordinates\": [\n    {\"unit\": \"Sirte Division\", \"strength\": 8000}\n  ]\n}\n\nBuild complete hierarchy now.",
+      "validation_rules": [
+        "Every unit must have a parent (except theater)",
+        "Subordinate counts must match organizational doctrine",
+        "Personnel strengths must be provided"
+      ]
+    },
+    
+    {
+      "agent_id": "toe_template",
+      "category": "structure_organization",
+      "role": "Create standard unit templates for reuse",
+      "inputs": ["nation", "quarter", "unit_type", "doctrine_sources"],
+      "outputs": ["templates/{unit_type}_template.json"],
+      "capabilities": [
+        "Doctrine interpretation",
+        "Standard TO&E creation",
+        "Equipment allocation patterns",
+        "Personnel position definition"
+      ],
+      "prompt_template": "You are creating a standard TO&E template for {nation} {unit_type} in {quarter}.\n\nDoctrine sources: {doctrine_sources}\n\nTask: Define the STANDARD organization for this unit type:\n\n1. Personnel structure (officers, NCOs, enlisted)\n2. Standard equipment allocation\n3. Weapons per position\n4. Vehicle/transport allocation\n5. Tactical organization (squads, sections, platoons)\n6. Individual positions (for squad templates)\n\nFor squad templates, define EACH position:\n- Position name\n- Rank\n- Primary weapon (with WITW ID if available)\n- Secondary weapons/equipment\n- Ammunition load\n- Responsibilities\n\nOutput: Complete template following unified TO&E schema.\n\nCreate template now.",
+      "validation_rules": [
+        "Template must conform to unified TO&E schema",
+        "All positions must have weapons assigned",
+        "Equipment totals must be calculable"
+      ]
+    },
+    
+    {
+      "agent_id": "unit_instantiation",
+      "category": "structure_organization",
+      "role": "Create specific unit instances from templates",
+      "inputs": ["template.json", "org_tree.json", "unit_specific_data", "parent_unit"],
+      "outputs": ["{unit_designation}_toe.json"],
+      "capabilities": [
+        "Template instantiation",
+        "Unit-specific modifications",
+        "Parent reference linking",
+        "Unique ID assignment"
+      ],
+      "prompt_template": "You are creating a specific unit instance from a template.\n\nTemplate: {template}\nUnit designation: {unit_designation}\nParent unit: {parent_unit}\nSpecific modifications: {modifications}\n\nTask: Create unit-specific TO&E JSON:\n\n1. Apply template as base\n2. Add unit-specific information:\n   - Actual commander name\n   - Actual personnel count (if different from template)\n   - Equipment variations\n   - Parent formation reference\n3. Maintain full SCM-level detail\n4. Add unit-specific tactical notes\n\nOutput: Complete unit TO&E following unified schema.\n\nCreate unit instance now.",
+      "validation_rules": [
+        "Must reference parent unit correctly",
+        "All required SCM fields must be present",
+        "Template deviations must be documented"
+      ]
+    },
+    
+    {
+      "agent_id": "theater_allocator",
+      "category": "equipment_distribution",
+      "role": "Distribute theater SCM totals across divisions",
+      "inputs": ["theater_scm.json", "org_tree.json", "historical_allocation_data"],
+      "outputs": ["division_equipment_allocations.json"],
+      "capabilities": [
+        "Top-down equipment distribution",
+        "Historical allocation pattern matching",
+        "Priority unit identification",
+        "Equipment variant distribution"
+      ],
+      "prompt_template": "You are distributing theater-level equipment across divisions.\n\nTheater totals: {theater_scm}\nDivisions: {division_list}\nHistorical patterns: {allocation_patterns}\n\nTask: Distribute ALL theater equipment to divisions based on:\n\n1. Division type (armor/infantry/colonial)\n2. Historical priorities\n3. Operational role\n4. Equipment availability dates\n\nRules:\n- Sum of all divisions MUST equal theater total\n- Variant-specific (e.g., 'F2 guns go to elite units')\n- Realistic allocations per division type\n- Account for corps-level equipment\n\nOutput: Equipment allocation per division with justification.\n\nDistribute equipment now.",
+      "validation_rules": [
+        "Sum of divisions = theater total (within 5%)",
+        "All equipment variants accounted for",
+        "Allocations match historical patterns"
+      ]
+    },
+    
+    {
+      "agent_id": "division_cascader",
+      "category": "equipment_distribution",
+      "role": "Cascade division equipment down to regiment/battalion/company/squad",
+      "inputs": ["division_toe.json", "subordinate_units[]", "distribution_doctrine"],
+      "outputs": ["regiment_equipment.json", "battalion_equipment.json", "company_equipment.json", "squad_equipment.json"],
+      "capabilities": [
+        "Equipment cascading",
+        "TO&E ratio application",
+        "Company-level distribution",
+        "Squad-level allocation"
+      ],
+      "prompt_template": "You are cascading equipment from division level down through the hierarchy.\n\nDivision equipment: {division_equipment}\nSubordinate structure: {org_structure}\nDistribution doctrine: {doctrine}\n\nTask: Distribute division equipment to all subordinate units:\n\nDivision → Regiments\nRegiments → Battalions\nBattalions → Companies\nCompanies → Platoons\nPlatoons → Squads\n\nRules:\n- Use historical TO&E ratios\n- Consider unit specialization (HQ company vs rifle company)\n- Maintain full SCM detail at each level\n- Sum of children MUST equal parent\n\nFor squads, assign equipment to individual positions.\n\nOutput: Complete equipment allocation for all subordinate units.\n\nDistribute now.",
+      "validation_rules": [
+        "Parent-child equipment totals match",
+        "All variants distributed",
+        "Squad positions have individual weapons"
+      ]
+    },
+    
+    {
+      "agent_id": "equipment_reconciliation",
+      "category": "equipment_distribution",
+      "role": "Verify equipment totals at all levels",
+      "inputs": ["all_unit_toe_files[]"],
+      "outputs": ["reconciliation_report.json", "corrections.json"],
+      "capabilities": [
+        "Multi-level aggregation checking",
+        "Discrepancy identification",
+        "Correction suggestion",
+        "Confidence scoring"
+      ],
+      "prompt_template": "You are verifying equipment totals across all organizational levels.\n\nAll unit files: {unit_files}\n\nTask: For each equipment category, verify:\n\nSquad → Platoon → Company → Battalion → Regiment → Division → Corps → Theater\n\nCheck:\n1. Do all subordinate units sum to parent?\n2. Are there any missing units?\n3. Are there any double-counted items?\n4. Do variant counts match across levels?\n\nOutput: Reconciliation report with:\n- ✓ Verified totals (perfect match)\n- ⚠ Minor discrepancies (< 5% difference)\n- ❌ Major errors (> 5% difference)\n- Suggested corrections\n\nGenerate report now.",
+      "validation_rules": [
+        "All equipment paths traced",
+        "Discrepancies quantified",
+        "Correction suggestions feasible"
+      ]
+    },
+    
+    {
+      "agent_id": "bottom_up_aggregator",
+      "category": "aggregation_calculation",
+      "role": "Aggregate squad data up to theater SCM",
+      "inputs": ["squad_toe_files[]", "org_tree.json"],
+      "outputs": ["aggregated_units[]", "theater_scm.json"],
+      "capabilities": [
+        "Multi-level summation",
+        "Variant aggregation",
+        "Personnel rollup",
+        "Top-3 weapon calculation"
+      ],
+      "prompt_template": "You are aggregating unit data from squads up to theater level.\n\nSquad files: {squad_files}\nOrganization tree: {org_tree}\n\nTask: For each organizational level, calculate:\n\n1. Total personnel (sum of subordinates + HQ)\n2. Top 3 infantry weapons (aggregate all subordinates)\n3. Equipment by variant (sum across all subordinates)\n4. Vehicles by type\n5. Artillery by caliber\n6. Aircraft by type\n\nProcess:\n- Start with squads\n- Aggregate to platoons\n- Platoons → Companies\n- Companies → Battalions\n- Battalions → Regiments\n- Regiments → Divisions\n- Divisions → Corps\n- Corps → Theater SCM\n\nOutput: Complete unit files at each level with full SCM detail.\n\nAggregate now.",
+      "validation_rules": [
+        "No equipment lost in aggregation",
+        "All variants preserved",
+        "Top 3 weapons correctly calculated"
+      ]
+    },
+    
+    {
+      "agent_id": "top3_calculator",
+      "category": "aggregation_calculation",
+      "role": "Calculate top 3 infantry weapons at each level",
+      "inputs": ["unit_equipment.json", "subordinate_weapons[]"],
+      "outputs": ["top_3_infantry_weapons"],
+      "capabilities": [
+        "Weapon counting across units",
+        "Sorting by count",
+        "Type classification",
+        "WITW ID lookup"
+      ],
+      "prompt_template": "You are calculating the top 3 infantry weapons for a unit.\n\nAll weapons in unit: {weapon_list}\n\nTask: Identify top 3 infantry weapons by count:\n\n1. Count all infantry weapons (rifles, MGs, SMGs, pistols, AT rifles)\n2. Exclude artillery, vehicle weapons, grenades\n3. Sort by total count\n4. Return top 3 with:\n   - Weapon name\n   - Total count\n   - Weapon type\n   - WITW ID (if available)\n\nOutput: top_3_infantry_weapons object matching SCM schema\n\nCalculate now.",
+      "validation_rules": [
+        "Only infantry weapons counted",
+        "Correct sorting by count",
+        "Types properly classified"
+      ]
+    },
+    
+    {
+      "agent_id": "schema_validator",
+      "category": "validation",
+      "role": "Validate JSON against unified TO&E schema",
+      "inputs": ["unit_toe.json", "schema_definition"],
+      "outputs": ["validation_result.json"],
+      "capabilities": [
+        "Schema compliance checking",
+        "Required field verification",
+        "Data type validation",
+        "Validation rule enforcement"
+      ],
+      "prompt_template": "You are validating a unit TO&E file against the unified schema.\n\nUnit file: {unit_file}\nSchema: {schema}\n\nTask: Check ALL requirements:\n\n1. Required fields present\n2. Data types correct\n3. Validation rules satisfied:\n   - tanks.total = sum(heavy + medium + light)\n   - total_personnel ≈ officers + ncos + enlisted (±5%)\n   - ground_vehicles_total ≥ sum(all vehicle categories)\n   - artillery_total ≥ sum(field + AT + AA)\n   - aircraft_total ≥ sum(fighters + bombers + recon + transport)\n4. Allowed values respected\n5. References valid (parent units exist)\n\nOutput: Validation report with:\n- ✓ Passed checks\n- ❌ Failed checks with details\n- ⚠ Warnings (non-critical issues)\n\nValidate now.",
+      "validation_rules": [
+        "All schema rules checked",
+        "Clear error messages",
+        "Severity levels assigned"
+      ]
+    },
+    
+    {
+      "agent_id": "historical_accuracy",
+      "category": "validation",
+      "role": "Verify data matches historical records",
+      "inputs": ["unit_toe.json", "historical_sources[]"],
+      "outputs": ["accuracy_report.json"],
+      "capabilities": [
+        "Historical cross-referencing",
+        "Anachronism detection",
+        "Equipment availability checking",
+        "Doctrine compliance"
+      ],
+      "prompt_template": "You are verifying historical accuracy of unit data.\n\nUnit: {unit_designation}\nQuarter: {quarter}\nData: {unit_data}\nSources: {historical_sources}\n\nTask: Verify:\n\n1. Equipment existed in this time period\n   - Check equipment introduction dates\n   - Flag anachronisms\n2. Quantities realistic for unit type\n3. Commander names correct\n4. Organizational structure matches doctrine\n5. Equipment variants appropriate\n\nOutput: Accuracy assessment with:\n- Confidence score (0-100)\n- Historical issues found\n- Supporting evidence\n- Recommended corrections\n\nVerify now.",
+      "validation_rules": [
+        "All equipment checked for period accuracy",
+        "Commander names verified",
+        "Doctrine conformance assessed"
+      ]
+    },
+    
+    {
+      "agent_id": "book_chapter_generator",
+      "category": "output_generation",
+      "role": "Generate MDBook chapters from unit TO&E files",
+      "inputs": ["unit_toe.json", "chapter_type", "style_guide"],
+      "outputs": ["chapter.md"],
+      "capabilities": [
+        "Markdown generation",
+        "Table formatting",
+        "Narrative synthesis",
+        "Equipment summary creation"
+      ],
+      "prompt_template": "You are generating a book chapter for {unit_designation}.\n\nUnit data: {unit_toe}\nChapter type: {chapter_type}\nStyle: Professional military history, engaging narrative\n\nTask: Generate markdown chapter with:\n\n1. Header with unit designation and type\n2. Command section (commander, HQ, strength)\n3. Personnel strength table\n4. Equipment sections with VARIANT BREAKDOWNS AND DETAIL SECTIONS\n5. Organizational breakdown (subordinate units)\n6. Supply status\n7. Tactical doctrine section\n8. Historical context for the quarter\n9. Wargaming data\n10. Conclusion\n11. Data source footer\n\nCRITICAL - Equipment Table Format with Detail Sections:\n\n## TANKS - Use variant breakdown table + detail section for EACH variant:\n\n| Category | Total | Operational | Readiness |\n|----------|-------|-------------|-----------|\n| **All Tanks** | **228** | **220** | **96.5%** |\n| **Medium Tanks (Cruisers)** | **69** | **66** | **95.7%** |\n| ↳ A13 Mk II (Cruiser Mk IV) | 44 | 42 | 95.5% |\n| ↳ A10 Cruiser Mk II | 10 | 10 | 100% |\n| ↳ Matilda II (Infantry Tank) | 6 | 6 | 100% |\n\nThen IMMEDIATELY follow with detail sections:\n\n### A13 Mk II (Cruiser Mk IV) - 44 tanks\n[Specifications, combat performance, notes]\n\n### A10 Cruiser Mk II - 10 tanks\n[Specifications, combat performance, notes]\n\n### Matilda II (Infantry Tank) - 6 tanks\n[Specifications, combat performance, notes]\n\n## ARTILLERY - EVERY variant gets a detail section:\n\n| Type | Total | Operational | Caliber |\n| **Field Artillery** | **96** | **96** | - |\n| ↳ Ordnance QF 25-pounder | 72 | 72 | 87.6mm |\n| ↳ QF 4.5-inch Howitzer | 24 | 24 | 114mm |\n\nThen detail sections:\n\n### Ordnance QF 25-pounder - 72 guns\n[Range, projectile weight, rate of fire, combat performance]\n\n### QF 4.5-inch Howitzer - 24 guns\n[Range, projectile weight, rate of fire, combat performance]\n\n### Ordnance QF 2-pounder - 48 guns (anti-tank)\n[Penetration, rate of fire, role]\n\n### Bofors 40mm - 36 guns (anti-aircraft)\n[Rate of fire, ceiling, effectiveness]\n\n## ARMORED CARS - Separate section, EVERY variant detailed:\n\n| Type | Count | Role | Unit |\n| ↳ Morris CS9 | 45 | Reconnaissance | 11th Hussars |\n\n### Morris CS9 - 45 vehicles\n[Armament, armor, crew, speed, combat record]\n\n### Rolls-Royce Armoured Car - 30 vehicles\n[Armament, armor, crew, speed, combat record]\n\n## TRANSPORT & VEHICLES - EXCLUDE Tanks and Armored Cars, EVERY variant detailed:\n\n| Category | Count | Percentage |\n| **Trucks** | **1,400** | 55.2% |\n| ↳ Bedford QL | 800 | 3 ton |\n| ↳ Bedford MW | 400 | 15 cwt |\n\n### Bedford QL - 800 trucks\n[Capacity, role, specifications]\n\n### Bedford MW - 400 trucks\n[Capacity, role, specifications]\n\n### BSA M20 - 200 motorcycles\n[Engine, use, specifications]\n\n### Universal Carrier (Bren Carrier) - 468 vehicles\n[Armament, armor, crew, speed, role]\n\nKEY RULES:\n- Show category totals in BOLD\n- Use ↳ symbol for variant sub-items\n- EVERY variant in table MUST have detail section immediately after table\n- Tanks and Armored Cars excluded from Transport & Vehicles table\n- Detail sections include: specifications, combat performance/role, notes\n- WITW IDs in parentheses where available\n\nStyle requirements:\n- Professional but engaging\n- Bold key facts for scannability\n- Complete detail for ALL variants\n- Individual soldier positions for squads\n- Match MDBOOK_CHAPTER_TEMPLATE.md exactly\n\nGenerate chapter now.",
+      "validation_rules": [
+        "All required sections present",
+        "Tables properly formatted",
+        "Cross-references valid"
+      ]
+    },
+    
+    {
+      "agent_id": "scenario_exporter",
+      "category": "output_generation",
+      "role": "Export unit data for wargaming scenarios",
+      "inputs": ["unit_toe.json", "scenario_format"],
+      "outputs": ["scenario.{format}"],
+      "capabilities": [
+        "Multi-format export",
+        "OOB generation",
+        "Scenario balancing",
+        "WITW integration"
+      ],
+      "prompt_template": "You are creating a wargaming scenario from unit data.\n\nUnit: {unit_toe}\nFormat: {format}\nScenario type: {scenario_type}\n\nTask: Export unit data in requested format:\n\nFor WITW CSV:\n- Map each equipment item to WITW ID\n- Create force pool entries\n- Set experience/morale levels\n- Add special rules\n\nFor generic JSON:\n- Include all equipment with counts\n- Add wargaming stats\n- Provide setup recommendations\n- Include victory conditions\n\nOutput: Scenario file in requested format.\n\nGenerate now.",
+      "validation_rules": [
+        "All equipment mapped to game IDs",
+        "Format specification followed",
+        "Scenario balanced"
+      ]
+    },
+    
+    {
+      "agent_id": "sql_populator",
+      "category": "output_generation",
+      "role": "Generate SQL INSERT statements for database",
+      "inputs": ["unit_toe_files[]", "db_schema"],
+      "outputs": ["insert_statements.sql"],
+      "capabilities": [
+        "SQL generation",
+        "Relationship mapping",
+        "Foreign key management",
+        "Batch insert optimization"
+      ],
+      "prompt_template": "You are generating SQL INSERT statements from unit TO&E files.\n\nUnits: {unit_files}\nDatabase schema: {db_schema}\n\nTask: Generate SQL to populate:\n\nTables:\n- units (unit_id, designation, type, parent_id, quarter, nation)\n- commanders (commander_id, name, rank, unit_id)\n- personnel (unit_id, officers, ncos, enlisted)\n- equipment (unit_id, equipment_type, variant, count, witw_id)\n- weapons (unit_id, weapon_name, count, weapon_type)\n- vehicles (unit_id, vehicle_type, variant, count)\n- individual_positions (unit_id, position_num, rank, weapon, ammo)\n\nEnsure:\n- Proper foreign key relationships\n- Batch inserts for performance\n- Handle NULL values appropriately\n- Include indexes for common queries\n\nGenerate SQL now.",
+      "validation_rules": [
+        "All relationships preserved",
+        "No orphaned records",
+        "Indexes created"
+      ]
+    },
+
+    {
+      "agent_id": "qa_auditor",
+      "category": "quality_assurance",
+      "role": "Orchestrator for project-level QA - coordinates specialized sub-tasks",
+      "workflow_pattern": "orchestrator-workers",
+      "inputs": ["project_directory", "audit_scope"],
+      "outputs": ["audit_plan.json", "gap_tracker.md", "quality_report.json", "compliance_report.json", "project_dashboard.md"],
+      "capabilities": [
+        "Task decomposition and delegation",
+        "Progress tracking",
+        "Report aggregation",
+        "Pattern identification across sub-task results"
+      ],
+      "prompt_template": "You are the QA Auditor orchestrator for the North Africa TO&E project.\n\n**YOUR ROLE**: Break down quality assurance into specialized sub-tasks, delegate to workers, and aggregate results.\n\n**PROJECT CONTEXT**:\n- Project directory: {project_directory}\n- Total units planned: 213\n- Completed units: {completed_count}\n- Schema: unified_toe_schema.json v1.0.0\n- Template: MDBOOK_CHAPTER_TEMPLATE.md v2.0\n\n**AUDIT WORKFLOW** (Orchestrator-Workers Pattern):\n\nSTEP 1: **SCAN & INVENTORY**\n- Scan `{project_directory}/units/` for JSON files\n- Scan `{project_directory}/north_africa_book/src/` for chapter files\n- Create inventory:\n  ```json\n  {\n    \"units_found\": 18,\n    \"chapters_found\": 18,\n    \"json_files\": [\"britain_1940q2_7th_armoured_division_toe.json\", ...],\n    \"chapter_files\": [\"chapter_7th_armoured.md\", ...]\n  }\n  ```\n\nSTEP 2: **DELEGATE TO SPECIALIZED WORKERS**\n\nYou will coordinate 5 specialized sub-tasks:\n\na) **gap_analyzer**\n   - Task: Extract `validation.known_gaps` from each JSON file\n   - Input: List of JSON files\n   - Output: Structured gap data per unit\n   - Tool: Read JSON, extract gaps, categorize by severity\n\nb) **template_checker**\n   - Task: Validate each MDBook chapter against template standard\n   - Input: Chapter file + template requirements\n   - Output: Compliance score + violations list\n   - Tool: Read chapter, check sections/format\n\nc) **cross_validator**\n   - Task: Compare JSON data vs MDBook chapter for consistency\n   - Input: JSON + corresponding chapter\n   - Output: Discrepancy report\n   - Tool: Read both, compare key fields\n\nd) **metrics_calculator**\n   - Task: Calculate completion and quality metrics\n   - Input: All unit data + gap analysis results\n   - Output: Statistics and scores\n   - Tool: Aggregate data, compute percentages\n\ne) **report_generator**\n   - Task: Generate final QA reports from aggregated results\n   - Input: Results from workers a-d\n   - Output: 4 report files (GAP_TRACKER.md, QUALITY_REPORT.json, etc.)\n   - Tool: Format and write reports\n\nSTEP 3: **ORCHESTRATION PLAN**\n\nCreate execution plan:\n```json\n{\n  \"execution_order\": [\n    {\"task\": \"gap_analyzer\", \"parallel\": false, \"inputs\": \"all_json_files\"},\n    {\"task\": \"template_checker\", \"parallel\": true, \"inputs\": \"all_chapter_files\"},\n    {\"task\": \"cross_validator\", \"parallel\": true, \"inputs\": \"json_chapter_pairs\"},\n    {\"task\": \"metrics_calculator\", \"parallel\": false, \"inputs\": \"gap_results + compliance_results\"},\n    {\"task\": \"report_generator\", \"parallel\": false, \"inputs\": \"all_worker_results\"}\n  ],\n  \"estimated_time\": \"5-10 minutes\",\n  \"parallelizable_steps\": [\"template_checker\", \"cross_validator\"]\n}\n```\n\nSTEP 4: **EXECUTE & MONITOR**\n\nFor each sub-task:\n1. Provide clear, minimal inputs\n2. Execute worker task\n3. Validate worker output format\n4. Handle errors gracefully (log and continue)\n5. Aggregate successful results\n\nSTEP 5: **AGGREGATE & REPORT**\n\nGenerate final outputs:\n1. **GAP_TRACKER.md** - All gaps across all units with priorities\n2. **QUALITY_REPORT.json** - Quantitative metrics (completion %, confidence scores)\n3. **COMPLIANCE_REPORT.json** - Template adherence by chapter\n4. **PROJECT_DASHBOARD.md** - Executive summary with recommendations\n\n**QUALITY STANDARDS**:\n- Minimum confidence per unit: 75%\n- Maximum critical gaps per unit: 0\n- Template compliance target: 100%\n- JSON-Chapter consistency target: 100%\n\n**ERROR HANDLING**:\n- If JSON file unreadable: Log error, mark unit as \"needs_review\", continue\n- If chapter missing: Note in compliance report, continue\n- If validation fails: Document specific failure, suggest corrective action\n\n**OUTPUT REQUIREMENTS**:\n- All reports must be actionable (specific files, line numbers, corrective actions)\n- Gap severity must use consistent classification (critical/important/moderate/low)\n- Metrics must be verifiable (show calculation method)\n- Recommendations must be prioritized by impact\n\n**START ORCHESTRATION**: Begin with Step 1 (Scan & Inventory) and create the execution plan.",
+      "validation_rules": [
+        "Orchestration plan created before execution",
+        "Each sub-task has clear inputs/outputs",
+        "Error handling specified for each step",
+        "Final reports are comprehensive and actionable"
+      ],
+      "sub_tasks": {
+        "gap_analyzer": {
+          "role": "Extract and categorize data gaps from unit JSON files",
+          "inputs": ["json_file_list"],
+          "outputs": ["gap_data.json"],
+          "prompt": "Extract `validation.known_gaps` from each JSON file: {json_files}\n\nFor each gap, classify:\n- Severity: critical|important|moderate|low\n- Category: commanders|equipment_variants|subordinate_units|personnel|supply_status|witw_ids\n\nOutput format:\n```json\n[\n  {\n    \"unit\": \"7th Armoured Division\",\n    \"nation\": \"britain\",\n    \"quarter\": \"1940-Q2\",\n    \"confidence\": 85,\n    \"gaps\": [\n      {\"gap\": \"7th Armoured Brigade commander name not confirmed\", \"severity\": \"important\", \"category\": \"commanders\"},\n      {\"gap\": \"Exact A9 vs A10 distribution\", \"severity\": \"moderate\", \"category\": \"equipment_variants\"}\n    ]\n  }\n]\n```"
+        },
+        "template_checker": {
+          "role": "Validate MDBook chapter against template standard",
+          "inputs": ["chapter_file", "template_requirements"],
+          "outputs": ["compliance_score.json"],
+          "prompt": "Check chapter {chapter_file} against template requirements:\n\nRequired sections: {required_sections}\nEquipment format rules: {equipment_rules}\n\nVerify:\n1. All required sections present\n2. Equipment tables use **bold** categories, ↳ variant sub-items\n3. EVERY variant has detail section\n4. Armored cars separate from transport\n5. No tanks/armored cars in transport table\n\nOutput:\n```json\n{\n  \"chapter\": \"chapter_7th_armoured.md\",\n  \"compliance_score\": 95,\n  \"missing_sections\": [],\n  \"format_violations\": [\"Missing detail section for Bedford MW\"],\n  \"recommendations\": [\"Add detail section for Bedford MW after table\"]\n}\n```"
+        },
+        "cross_validator": {
+          "role": "Verify JSON and MDBook chapter consistency",
+          "inputs": ["json_file", "chapter_file"],
+          "outputs": ["discrepancies.json"],
+          "prompt": "Compare {json_file} with {chapter_file}.\n\nCheck:\n1. Tank totals match\n2. Artillery totals match\n3. All JSON variants appear in chapter\n4. Personnel totals match\n5. Commander names match\n6. Confidence scores match\n\nOutput discrepancies ONLY:\n```json\n{\n  \"unit\": \"7th Armoured Division\",\n  \"discrepancies\": [\n    {\"field\": \"tanks.medium.A13_Mk_II\", \"json\": 44, \"chapter\": 42, \"severity\": \"major\"}\n  ]\n}\n```\n\nIf no discrepancies: `{\"unit\": \"...\", \"discrepancies\": []}`"
+        },
+        "metrics_calculator": {
+          "role": "Calculate project-level quality metrics",
+          "inputs": ["gap_data.json", \"compliance_scores.json"],
+          "outputs": ["metrics.json"],
+          "prompt": "Calculate metrics from gap data: {gap_data} and compliance scores: {compliance_scores}\n\nCompute:\n1. Completion: units completed / 213\n2. Avg confidence score\n3. Units below 80% confidence\n4. Gaps by category counts\n5. Compliance score distribution\n\nOutput:\n```json\n{\n  \"completion\": {\"completed\": 18, \"total\": 213, \"percent\": 8.5},\n  \"confidence\": {\"average\": 85, \"below_threshold\": 3},\n  \"gaps\": {\"critical\": 0, \"important\": 65, \"moderate\": 25, \"low\": 250},\n  \"compliance\": {\"100_percent\": 12, \"95_99_percent\": 5, \"below_95\": 1}\n}\n```"
+        },
+        "report_generator": {
+          "role": "Generate final QA reports from aggregated results",
+          "inputs": ["gap_data.json", "compliance_scores.json", "discrepancies.json", "metrics.json"],
+          "outputs": ["GAP_TRACKER.md", "QUALITY_REPORT.json", "COMPLIANCE_REPORT.json", "PROJECT_DASHBOARD.md"],
+          "prompt": "Generate 4 QA reports from results:\n\nInputs:\n- Gap data: {gap_data}\n- Compliance: {compliance_scores}\n- Discrepancies: {discrepancies}\n- Metrics: {metrics}\n\nCreate:\n1. **GAP_TRACKER.md**: All gaps with priorities, patterns, research recommendations\n2. **QUALITY_REPORT.json**: Quantitative metrics, confidence distribution, completion stats\n3. **COMPLIANCE_REPORT.json**: Per-chapter scores, violations, corrective actions\n4. **PROJECT_DASHBOARD.md**: Executive summary, health status, critical issues, next priorities\n\nEnsure reports are:\n- Actionable (specific files/lines)\n- Prioritized (critical first)\n- Evidence-based (show data sources)\n- Forward-looking (recommendations)"
+        }
+      }
+    }
+  ],
+
+  "orchestration_workflow": {
+    "phases": [
+      {
+        "phase_id": 1,
+        "name": "Source Extraction",
+        "agents": ["document_parser", "historical_research"],
+        "outputs": ["verified_facts.json", "conflicts.json"],
+        "validation_required": true
+      },
+      {
+        "phase_id": 2,
+        "name": "Organization Building",
+        "agents": ["org_hierarchy", "toe_template", "unit_instantiation"],
+        "outputs": ["org_tree.json", "templates/", "all_units_toe/"],
+        "validation_required": true
+      },
+      {
+        "phase_id": 3,
+        "name": "Equipment Distribution",
+        "agents": ["theater_allocator", "division_cascader", "equipment_reconciliation"],
+        "outputs": ["division_allocations.json", "all_units_with_equipment/"],
+        "validation_required": true
+      },
+      {
+        "phase_id": 4,
+        "name": "Aggregation",
+        "agents": ["bottom_up_aggregator", "top3_calculator"],
+        "outputs": ["theater_scm.json", "aggregated_units/"],
+        "validation_required": true
+      },
+      {
+        "phase_id": 5,
+        "name": "Validation",
+        "agents": ["schema_validator", "historical_accuracy"],
+        "outputs": ["validation_reports/", "accuracy_reports/"],
+        "validation_required": false
+      },
+      {
+        "phase_id": 6,
+        "name": "Output Generation",
+        "agents": ["book_chapter_generator", "scenario_exporter", "sql_populator"],
+        "outputs": ["chapters/", "scenarios/", "database.sql"],
+        "validation_required": false
+      },
+      {
+        "phase_id": 7,
+        "name": "Quality Assurance & Gap Analysis",
+        "agents": ["qa_auditor"],
+        "outputs": ["gap_tracker.md", "quality_report.json", "compliance_report.json", "project_dashboard.md"],
+        "validation_required": true,
+        "description": "Project-level QA audit checking all units for completeness, gaps, template compliance, and cross-validation"
+      }
+    ]
+  }
+}

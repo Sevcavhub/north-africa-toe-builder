@@ -1,0 +1,397 @@
+{
+  "schema_version": "1.0.0",
+  "schema_name": "Unified TO&E Schema (All Organizational Levels)",
+  "description": "Common schema for theater, corps, division, regiment, battalion, company, platoon, and squad levels. Every level includes full Strategic Command Summary (SCM) detail.",
+  "file_naming": "{nation}_{quarter}_{unit_designation}_toe.json",
+  "stability": "HIGH - Standardized across all nations and organizational levels",
+  
+  "organization_levels": [
+    "theater",
+    "corps",
+    "division",
+    "regiment",
+    "battalion",
+    "company",
+    "platoon",
+    "squad"
+  ],
+  
+  "required_fields": [
+    "schema_type",
+    "schema_version",
+    "nation",
+    "quarter",
+    "unit_designation",
+    "unit_type",
+    "organization_level",
+    "command",
+    "total_personnel",
+    "officers",
+    "enlisted",
+    "top_3_infantry_weapons",
+    "ground_vehicles_total",
+    "tanks",
+    "artillery_total",
+    "aircraft_total",
+    "supply_status",
+    "subordinate_units",
+    "validation"
+  ],
+  
+  "field_specifications": {
+    "schema_type": {
+      "type": "string",
+      "allowed_values": [
+        "theater_scm",
+        "corps_toe",
+        "division_toe",
+        "regiment_toe",
+        "battalion_toe",
+        "company_toe",
+        "platoon_toe",
+        "squad_toe"
+      ],
+      "description": "Type of organizational level"
+    },
+    
+    "schema_version": {
+      "type": "string",
+      "format": "SEMVER",
+      "example": "1.0.0",
+      "description": "Schema version for compatibility tracking"
+    },
+    
+    "nation": {
+      "type": "string",
+      "allowed_values": ["german", "italian", "british", "american", "french"],
+      "description": "Nation identifier (lowercase)"
+    },
+    
+    "quarter": {
+      "type": "string",
+      "format": "YYYY-QN",
+      "example": "1942-Q4",
+      "description": "Quarter identifier"
+    },
+    
+    "unit_designation": {
+      "type": "string",
+      "example": "XXI Corpo d'Armata",
+      "description": "Official unit designation"
+    },
+    
+    "unit_type": {
+      "type": "string",
+      "example": "Colonial Infantry Corps",
+      "description": "Type of unit (functional description)"
+    },
+    
+    "parent_formation": {
+      "type": "string",
+      "description": "Parent unit designation (null for theater level)"
+    },
+    
+    "organization_level": {
+      "type": "string",
+      "allowed_values": ["theater", "corps", "division", "regiment", "battalion", "company", "platoon", "squad"],
+      "description": "Organizational hierarchy level"
+    },
+    
+    "command": {
+      "type": "object",
+      "required_fields": ["commander", "headquarters_location"],
+      "structure": {
+        "commander": {
+          "name": "string (not 'Unknown' unless confidence < 50%)",
+          "rank": "string",
+          "appointment_date": "string (ISO date, optional)",
+          "previous_service": "string (optional)"
+        },
+        "chief_of_staff": {
+          "name": "string",
+          "rank": "string",
+          "note": "Corps/Division level only"
+        },
+        "headquarters_location": "string",
+        "staff_strength": {
+          "officers": "integer",
+          "ncos": "integer (optional)",
+          "enlisted": "integer"
+        }
+      }
+    },
+    
+    "total_personnel": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Total personnel in unit"
+    },
+    
+    "officers": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Officer count"
+    },
+    
+    "ncos": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "NCO count (optional but recommended)"
+    },
+    
+    "enlisted": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Enlisted personnel count"
+    },
+    
+    "top_3_infantry_weapons": {
+      "type": "object",
+      "description": "Top 3 infantry weapons with counts",
+      "structure": {
+        "1": {"weapon": "string", "count": "integer", "type": "string", "witw_id": "string (optional)"},
+        "2": {"weapon": "string", "count": "integer", "type": "string", "witw_id": "string (optional)"},
+        "3": {"weapon": "string", "count": "integer", "type": "string", "witw_id": "string (optional)"}
+      }
+    },
+    
+    "ground_vehicles_total": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Total ground vehicles (sum of all categories)"
+    },
+    
+    "tanks": {
+      "type": "object",
+      "required_subfields": ["total", "heavy_tanks", "medium_tanks", "light_tanks"],
+      "structure": {
+        "total": "integer",
+        "operational": "integer (optional)",
+        "heavy_tanks": {
+          "total": "integer",
+          "variants": {
+            "{variant_name}": {
+              "count": "integer",
+              "operational": "integer",
+              "witw_id": "string (optional)"
+            }
+          }
+        },
+        "medium_tanks": {"total": "integer", "variants": "object"},
+        "light_tanks": {"total": "integer", "variants": "object"}
+      },
+      "validation_rule": "tanks.total MUST equal sum(heavy.total + medium.total + light.total)"
+    },
+    
+    "halftracks": {
+      "type": "object",
+      "structure": {
+        "total": "integer",
+        "variants": {
+          "{model_name}": {
+            "count": "integer",
+            "operational": "integer (optional)",
+            "witw_id": "string (optional)",
+            "role": "string (optional)"
+          }
+        }
+      }
+    },
+    
+    "armored_cars": {
+      "type": "object",
+      "structure": {"total": "integer", "variants": "object"}
+    },
+    
+    "trucks": {
+      "type": "object",
+      "structure": {
+        "total": "integer",
+        "variants": {
+          "{truck_model}": {
+            "count": "integer",
+            "capacity": "string (e.g., '3_ton', '15_cwt')",
+            "witw_id": "string (optional)"
+          }
+        }
+      }
+    },
+    
+    "motorcycles": {
+      "type": "object",
+      "structure": {
+        "total": "integer",
+        "variants": {
+          "{model_name}": {
+            "count": "integer",
+            "type": "string",
+            "witw_id": "string (optional)"
+          }
+        }
+      }
+    },
+    
+    "support_vehicles": {
+      "type": "object",
+      "structure": {
+        "total": "integer",
+        "variants": {
+          "{vehicle_type}": {
+            "count": "integer",
+            "type": "string",
+            "witw_id": "string (optional)"
+          }
+        }
+      }
+    },
+    
+    "artillery_total": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Total artillery pieces"
+    },
+    
+    "field_artillery": {
+      "type": "object",
+      "structure": {
+        "total": "integer",
+        "variants": {
+          "{gun_type}": {
+            "count": "integer",
+            "caliber": "string",
+            "witw_id": "string (optional)"
+          }
+        }
+      }
+    },
+    
+    "anti_tank": {
+      "type": "object",
+      "description": "Anti-tank gun breakdown"
+    },
+    
+    "anti_aircraft": {
+      "type": "object",
+      "description": "Anti-aircraft gun breakdown"
+    },
+    
+    "aircraft_total": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Total aircraft"
+    },
+    
+    "fighters": {"type": "object", "description": "Fighter aircraft breakdown"},
+    "bombers": {"type": "object", "description": "Bomber aircraft breakdown"},
+    "reconnaissance": {"type": "object", "description": "Reconnaissance aircraft breakdown"},
+    "transport": {"type": "object", "description": "Transport aircraft breakdown (optional)"},
+    
+    "supply_status": {
+      "type": "object",
+      "structure": {
+        "fuel_days": "integer",
+        "ammunition_days": "integer",
+        "water_liters_per_day": "integer",
+        "food_days": "integer (optional)"
+      }
+    },
+    
+    "subordinate_units": {
+      "type": "array",
+      "description": "List of direct subordinate units",
+      "item_schema": {
+        "unit_designation": "string",
+        "unit_type": "string",
+        "commander": "string",
+        "strength": "integer",
+        "reference_file": "string (path to unit's JSON file)"
+      }
+    },
+    
+    "individual_positions": {
+      "type": "array",
+      "description": "SQUAD LEVEL ONLY - Individual soldier positions",
+      "note": "Empty array for all levels except squad",
+      "item_schema": {
+        "position_number": "integer",
+        "position": "string (e.g., 'Squad Leader', 'Rifleman')",
+        "rank": "string",
+        "name": "string (optional - for named characters)",
+        "nationality": "string (optional)",
+        "primary_weapon": {
+          "weapon": "string",
+          "witw_id": "string",
+          "ammunition": "integer"
+        },
+        "secondary_weapon": "object (optional)",
+        "equipment": "array of strings",
+        "responsibilities": "string"
+      }
+    },
+    
+    "tactical_doctrine": {
+      "type": "object",
+      "description": "Tactical employment information",
+      "structure": {
+        "role": "string",
+        "special_capabilities": "array of strings (optional)",
+        "tactical_innovations": "array of strings (optional)",
+        "known_issues": "array of strings (optional)",
+        "desert_adaptations": "string (optional)"
+      }
+    },
+    
+    "wargaming_data": {
+      "type": "object",
+      "description": "Data for wargaming scenarios",
+      "structure": {
+        "scenario_suitability": "array of strings",
+        "morale_rating": "integer (1-10)",
+        "experience_level": "string (Green|Regular|Veteran|Elite)",
+        "special_rules": "array of strings",
+        "historical_engagements": "array of strings (optional)"
+      }
+    },
+    
+    "validation": {
+      "type": "object",
+      "required": true,
+      "structure": {
+        "source": "array of strings",
+        "confidence": "integer (0-100)",
+        "last_updated": "string (ISO date)",
+        "validated_by": "string (optional)",
+        "known_gaps": "array of strings",
+        "aggregation_status": "string (calculated|manually_entered|mixed)"
+      }
+    }
+  },
+  
+  "validation_rules": [
+    "tanks.total = sum(heavy_tanks.total + medium_tanks.total + light_tanks.total)",
+    "total_personnel ≈ officers + ncos + enlisted (allow ±5% variance for rounding)",
+    "ground_vehicles_total ≥ sum(all vehicle categories)",
+    "artillery_total ≥ sum(field_artillery + anti_tank + anti_aircraft)",
+    "aircraft_total ≥ sum(fighters + bombers + reconnaissance + transport)",
+    "All variant counts must be positive integers",
+    "operational counts must be <= total counts",
+    "supreme_commander must not be 'Unknown' unless confidence < 50%",
+    "Parent-child relationships: sum of subordinate totals = parent total (±5%)",
+    "individual_positions array populated ONLY for squad_toe schema_type"
+  ],
+  
+  "data_quality": {
+    "required_confidence": "75% minimum for all data",
+    "sources": "Minimum 2 sources per critical fact",
+    "validation": "Equipment counts cross-checked against historical records",
+    "aggregation_check": "Bottom-up validation from squad to theater"
+  },
+  
+  "notes": [
+    "This schema is UNIFIED across all organizational levels",
+    "Squad level is the only level with individual_positions populated",
+    "All other levels have empty individual_positions array",
+    "Equipment detail is maintained at ALL levels (not just theater)",
+    "Subordinate units reference child JSON files for complete detail"
+  ]
+}

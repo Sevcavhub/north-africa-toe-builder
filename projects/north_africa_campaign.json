@@ -1,0 +1,320 @@
+{
+  "project_id": "north_africa_campaign",
+  "project_name": "North Africa Campaign TO&E Builder",
+  "description": "Complete Table of Organization & Equipment for all forces in the North African Campaign, 1940-1943",
+  "version": "1.0.0",
+
+  "scope": {
+    "theater": "North Africa",
+    "time_period": {
+      "start": "1940-Q2",
+      "end": "1943-Q2",
+      "quarters": [
+        "1940-Q2", "1940-Q3", "1940-Q4",
+        "1941-Q1", "1941-Q2", "1941-Q3", "1941-Q4",
+        "1942-Q1", "1942-Q2", "1942-Q3", "1942-Q4",
+        "1943-Q1", "1943-Q2"
+      ]
+    },
+    "nations": {
+      "axis": ["Italy", "Germany"],
+      "allies": ["Britain", "France", "USA", "Commonwealth"],
+      "commonwealth_includes": [
+        "India",
+        "Australia",
+        "New Zealand",
+        "Canada",
+        "South Africa",
+        "Colonial Forces"
+      ]
+    },
+    "organizational_levels": [
+      "corps",
+      "division",
+      "regiment",
+      "battalion",
+      "company",
+      "platoon",
+      "squad"
+    ],
+    "schema_requirements": {
+      "all_levels_use_scm": true,
+      "individual_positions_at": "squad",
+      "top_3_weapons_at": "all_levels",
+      "equipment_variants_tracked": true
+    }
+  },
+
+  "source_strategy": {
+    "waterfall_priority": [
+      {
+        "tier": 1,
+        "name": "Local Primary Documents",
+        "sources": [
+          "Tessin Wehrmacht Encyclopedia (German)",
+          "British Army Lists (British/Commonwealth)",
+          "US Field Manuals (USA)",
+          "TM 30-410 British Army Handbook"
+        ],
+        "confidence_base": 90
+      },
+      {
+        "tier": 2,
+        "name": "Curated Web Sources",
+        "sources": [
+          "Feldgrau.com (German)",
+          "Niehorster.org (All nations)",
+          "Asisbiz.com (Aviation)",
+          "RommelsRiposte.com (Afrika Korps)",
+          "ErwinRommel.info (German command)"
+        ],
+        "confidence_base": 75
+      },
+      {
+        "tier": 3,
+        "name": "General Web Search",
+        "search_engines": ["Google Scholar", "DuckDuckGo", "Bing"],
+        "excluded_domains": ["wikipedia.org", "*.wikipedia.org"],
+        "confidence_base": 60,
+        "requires_verification": true
+      }
+    ],
+    "gap_filling_rules": {
+      "try_tier_1_first": true,
+      "escalate_to_tier_2_if": "data_missing or confidence < 70",
+      "escalate_to_tier_3_if": "data_still_missing after tier 2",
+      "never_use_wikipedia": true,
+      "always_document_source": true
+    }
+  },
+
+  "source_documentation_requirements": {
+    "track_for_every_fact": [
+      "source_name",
+      "source_type",
+      "page_number",
+      "line_number",
+      "url (if web)",
+      "access_date",
+      "confidence_level",
+      "verification_sources"
+    ],
+    "generate_bibliography": true,
+    "format": "Chicago Manual of Style (military history variant)",
+    "by_nation_tracking": true
+  },
+
+  "review_checkpoints": {
+    "automatic_pause_on": [
+      {
+        "trigger": "phase_complete",
+        "description": "End of each phase (1-6)",
+        "action": "Display summary, wait for approval"
+      },
+      {
+        "trigger": "low_confidence",
+        "threshold": 75,
+        "description": "Any fact with confidence < 75%",
+        "action": "Flag for human review"
+      },
+      {
+        "trigger": "source_conflict",
+        "description": "Contradictory data from multiple sources",
+        "action": "Present both versions, request decision"
+      },
+      {
+        "trigger": "validation_failure",
+        "description": "Schema validation errors",
+        "action": "Show errors, allow correction"
+      },
+      {
+        "trigger": "unexpected_error",
+        "description": "Agent errors or exceptions",
+        "action": "Pause, display error, allow retry"
+      }
+    ],
+    "review_options": [
+      "approve (continue to next phase)",
+      "review_issues (examine flagged items)",
+      "modify (manual corrections)",
+      "retry (re-run failed tasks)",
+      "abort (stop orchestration)"
+    ]
+  },
+
+  "orchestration_phases": [
+    {
+      "phase_id": 1,
+      "name": "Source Extraction",
+      "agents": ["document_parser", "historical_research"],
+      "auto_create_tasks": true,
+      "task_strategy": "For each nation in theater, each quarter, extract from primary sources",
+      "expected_outputs": ["raw_facts.json per unit", "verified_facts.json per unit"],
+      "success_criteria": {
+        "min_units_found": 50,
+        "min_avg_confidence": 80,
+        "required_fields": ["unit_designation", "commander", "organization"]
+      }
+    },
+    {
+      "phase_id": 2,
+      "name": "Organization Building",
+      "agents": ["org_hierarchy", "toe_template", "unit_instantiation"],
+      "depends_on": "phase_1_complete",
+      "auto_create_tasks": true,
+      "task_strategy": "Build org tree from verified facts, create templates, instantiate units",
+      "expected_outputs": ["org_tree.json", "templates/", "unit_toe_files/"]
+    },
+    {
+      "phase_id": 3,
+      "name": "Equipment Distribution",
+      "agents": ["theater_allocator", "division_cascader", "equipment_reconciliation"],
+      "depends_on": "phase_2_complete",
+      "auto_create_tasks": true,
+      "task_strategy": "Allocate equipment from theater to squads, reconcile totals",
+      "expected_outputs": ["equipment_allocations/", "reconciliation_reports/"]
+    },
+    {
+      "phase_id": 4,
+      "name": "Aggregation",
+      "agents": ["bottom_up_aggregator", "top3_calculator"],
+      "depends_on": "phase_3_complete",
+      "auto_create_tasks": true,
+      "task_strategy": "Aggregate squad data up to theater SCM",
+      "expected_outputs": ["aggregated_units/", "theater_scm.json"]
+    },
+    {
+      "phase_id": 5,
+      "name": "Validation",
+      "agents": ["schema_validator", "historical_accuracy"],
+      "depends_on": "phase_4_complete",
+      "auto_create_tasks": true,
+      "task_strategy": "Validate all outputs against schema and historical records",
+      "expected_outputs": ["validation_reports/", "accuracy_reports/"]
+    },
+    {
+      "phase_id": 6,
+      "name": "Output Generation",
+      "agents": ["book_chapter_generator", "scenario_exporter", "sql_populator"],
+      "depends_on": "phase_5_complete",
+      "auto_create_tasks": true,
+      "task_strategy": "Generate final outputs: book chapters, scenarios, database",
+      "expected_outputs": ["chapters/", "scenarios/", "database.sql", "bibliography.md"]
+    }
+  ],
+
+  "initial_unit_discovery": {
+    "method": "source_scanning",
+    "scan_sources": [
+      {
+        "nation": "Germany",
+        "sources": [
+          "Tessin Band 03 (Afrika formations)",
+          "Tessin Band 08 (Panzer divisions)"
+        ],
+        "search_patterns": [
+          ".*Panzer.*Division",
+          ".*leichte.*Division",
+          "Deutsches Afrikakorps",
+          "Panzerarmee Afrika"
+        ]
+      },
+      {
+        "nation": "Italy",
+        "sources": [
+          "British Army Lists (Italian formations in North Africa)",
+          "TM 30-410 (Italian units section)"
+        ],
+        "search_patterns": [
+          ".*Divisione",
+          ".*Corpo d'Armata",
+          ".*Armata"
+        ]
+      },
+      {
+        "nation": "Britain",
+        "sources": [
+          "British Army Lists (quarterly)",
+          "Desert Rats book",
+          "TM 30-410"
+        ],
+        "search_patterns": [
+          ".*Armoured.*Division",
+          ".*Infantry.*Division",
+          "8th Army",
+          ".*Corps.*Egypt",
+          "Western Desert Force"
+        ]
+      },
+      {
+        "nation": "USA",
+        "sources": [
+          "US Field Manuals",
+          "Niehorster (US forces North Africa)"
+        ],
+        "search_patterns": [
+          ".*Armored.*Division",
+          ".*Infantry.*Division",
+          "II Corps"
+        ]
+      },
+      {
+        "nation": "France",
+        "sources": [
+          "Niehorster (Free French forces)",
+          "British Army Lists (French Colonial)"
+        ],
+        "search_patterns": [
+          "Free French",
+          "Forces Françaises Libres",
+          ".*Division.*française"
+        ]
+      }
+    ],
+    "auto_identify_quarters": true,
+    "track_unit_lifecycle": true
+  },
+
+  "output_structure": {
+    "base_dir": "outputs/north_africa_campaign",
+    "by_nation": true,
+    "by_quarter": true,
+    "structure": {
+      "raw_data": "outputs/north_africa_campaign/raw/{nation}/{quarter}/",
+      "verified_data": "outputs/north_africa_campaign/verified/{nation}/{quarter}/",
+      "org_trees": "outputs/north_africa_campaign/org_trees/{nation}/{quarter}/",
+      "unit_toe_files": "outputs/north_africa_campaign/units/{nation}/{quarter}/{level}/",
+      "aggregated": "outputs/north_africa_campaign/aggregated/{nation}/{quarter}/",
+      "final_outputs": {
+        "book_chapters": "outputs/north_africa_campaign/book/{nation}/",
+        "scenarios": "outputs/north_africa_campaign/scenarios/",
+        "database": "outputs/north_africa_campaign/database/",
+        "bibliography": "outputs/north_africa_campaign/sources/"
+      }
+    }
+  },
+
+  "progress_tracking": {
+    "dashboard_refresh_interval": 2000,
+    "save_checkpoints": true,
+    "checkpoint_dir": "checkpoints/north_africa_campaign/",
+    "enable_resume": true,
+    "metrics": [
+      "units_discovered",
+      "units_completed",
+      "avg_confidence_score",
+      "sources_used_count",
+      "review_flags_count",
+      "phase_completion_pct"
+    ]
+  },
+
+  "metadata": {
+    "created": "2025-10-09",
+    "author": "Automated TO&E Builder",
+    "estimated_units": 150,
+    "estimated_runtime": "24-48 hours (with agent processing)",
+    "requires_human_review": true,
+    "review_checkpoints_expected": 20
+  }
+}
