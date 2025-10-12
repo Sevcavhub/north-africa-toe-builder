@@ -1,0 +1,483 @@
+{
+  "audit_date": "2025-10-12",
+  "project": "North Africa TO&E Builder",
+  "schema_version": "1.0.0",
+
+  "summary": {
+    "units_analyzed": 107,
+    "valid_units": 97,
+    "metadata_files": 10,
+    "total_gaps": 580,
+    "avg_gaps_per_unit": 5.4,
+    "avg_confidence": 69.7,
+    "units_meeting_threshold": 81,
+    "threshold_compliance_rate": 75.7
+  },
+
+  "gaps_by_severity": {
+    "critical": {
+      "count": 0,
+      "percentage": 0,
+      "status": "EXCELLENT",
+      "description": "Zero critical gaps across all units - outstanding"
+    },
+    "important": {
+      "count": 85,
+      "percentage": 14.7,
+      "status": "MODERATE_CONCERN",
+      "description": "Important gaps averaging 0.79 per unit - mostly artillery/subordinate units"
+    },
+    "moderate": {
+      "count": 261,
+      "percentage": 45.0,
+      "status": "EXPECTED",
+      "description": "Moderate gaps are expected - commander names, specific dates"
+    },
+    "low": {
+      "count": 234,
+      "percentage": 40.3,
+      "status": "ACCEPTABLE",
+      "description": "Low priority gaps - detailed breakdowns, minor specifications"
+    }
+  },
+
+  "gaps_by_category": {
+    "commanders": {
+      "count": 99,
+      "percentage": 17.1,
+      "priority": "MEDIUM",
+      "details": "Mostly subordinate unit commanders (battalion/company level). Division commanders well-documented.",
+      "actionable": false,
+      "notes": "Many historical records do not preserve subordinate commander names"
+    },
+    "equipment_variants": {
+      "count": 91,
+      "percentage": 15.7,
+      "priority": "MEDIUM",
+      "details": "Specific vehicle/weapon model designations, operational vs. total counts",
+      "actionable": true,
+      "notes": "Can be improved with Tier 1 source documents (Army Lists, Tessin)"
+    },
+    "subordinate_units": {
+      "count": 81,
+      "percentage": 14.0,
+      "priority": "HIGH",
+      "details": "Battalion/regiment level organization details, reference files not yet created",
+      "actionable": true,
+      "notes": "Requires cascading to lower organizational levels"
+    },
+    "personnel": {
+      "count": 58,
+      "percentage": 10.0,
+      "priority": "HIGH",
+      "details": "Exact strength numbers, officer/NCO/enlisted breakdowns",
+      "actionable": true,
+      "notes": "Often calculable from standard TO&E templates"
+    },
+    "supply_status": {
+      "count": 23,
+      "percentage": 4.0,
+      "priority": "LOW",
+      "details": "Fuel days, ammunition reserves, water supply",
+      "actionable": false,
+      "notes": "Difficult to source historically - often estimated"
+    },
+    "witw_ids": {
+      "count": 4,
+      "percentage": 0.7,
+      "priority": "LOW",
+      "details": "Missing WITW (War in the West) game identifiers",
+      "actionable": true,
+      "notes": "Easy fix - consult WITW equipment database"
+    },
+    "other": {
+      "count": 224,
+      "percentage": 38.6,
+      "priority": "LOW",
+      "details": "Miscellaneous gaps - varied categories",
+      "actionable": false,
+      "notes": "General category for unclassified gaps"
+    }
+  },
+
+  "units_by_confidence": {
+    "90_100": {
+      "count": 0,
+      "percentage": 0,
+      "status": "NONE_ACHIEVED",
+      "target": "Achieve 10+ units at 90%+ confidence"
+    },
+    "80_89": {
+      "count": 48,
+      "percentage": 44.9,
+      "status": "STRONG",
+      "units_sample": [
+        "italy_1941-q2_bologna_division_toe.json (85%)",
+        "britain_1942q2_9th_australian_division_toe.json (83%)",
+        "germany_1942q1_90_leichte_division_toe.json (82%)"
+      ]
+    },
+    "75_79": {
+      "count": 33,
+      "percentage": 30.8,
+      "status": "MEETS_MINIMUM",
+      "units_sample": [
+        "britain_1941-q2_9th_australian_division_toe.json (78%)",
+        "britain_1941-q2_5th_indian_division_toe.json (78%)",
+        "germany_1941q4_15_panzer_division_toe.json (76%)"
+      ]
+    },
+    "below_75": {
+      "count": 26,
+      "percentage": 24.3,
+      "status": "NEEDS_IMPROVEMENT",
+      "requires_action": true,
+      "units_sample": [
+        "britain_1940q2_western_desert_force_toe.json (0% - metadata issue)",
+        "italy_1940q3_pavia_division_toe.json (52%)",
+        "britain_1940q2_7th_armoured_division_toe.json (68%)"
+      ]
+    }
+  },
+
+  "by_quarter": [
+    {
+      "quarter": "1940-Q2",
+      "units": 6,
+      "avg_confidence": 63.7,
+      "status": "BELOW_THRESHOLD",
+      "priority": "MEDIUM",
+      "action_required": "Review and enhance with Tier 1 sources"
+    },
+    {
+      "quarter": "1940-Q3",
+      "units": 3,
+      "avg_confidence": 52.7,
+      "status": "WELL_BELOW_THRESHOLD",
+      "priority": "HIGH",
+      "action_required": "Add 7+ more units, improve existing units"
+    },
+    {
+      "quarter": "1940-Q4",
+      "units": 6,
+      "avg_confidence": 79.8,
+      "status": "GOOD",
+      "priority": "LOW",
+      "action_required": "Maintain quality"
+    },
+    {
+      "quarter": "1941-Q1",
+      "units": 11,
+      "avg_confidence": 70.7,
+      "status": "BELOW_AVERAGE",
+      "priority": "MEDIUM",
+      "action_required": "Enhance source material"
+    },
+    {
+      "quarter": "1941-Q2",
+      "units": 27,
+      "avg_confidence": 79.7,
+      "status": "STRONG",
+      "priority": "LOW",
+      "action_required": "Generate MDBook chapters"
+    },
+    {
+      "quarter": "1941-Q3",
+      "units": 7,
+      "avg_confidence": 79.3,
+      "status": "STRONG",
+      "priority": "LOW",
+      "action_required": "Continue coverage"
+    },
+    {
+      "quarter": "1941-Q4",
+      "units": 6,
+      "avg_confidence": 78.3,
+      "status": "GOOD",
+      "priority": "LOW",
+      "action_required": "Maintain quality"
+    },
+    {
+      "quarter": "1942-Q1",
+      "units": 5,
+      "avg_confidence": 81.6,
+      "status": "EXCELLENT",
+      "priority": "LOW",
+      "action_required": "None"
+    },
+    {
+      "quarter": "1942-Q2",
+      "units": 4,
+      "avg_confidence": 83.5,
+      "status": "EXCELLENT",
+      "priority": "LOW",
+      "action_required": "None"
+    },
+    {
+      "quarter": "1942-Q3",
+      "units": 7,
+      "avg_confidence": 78.9,
+      "status": "GOOD",
+      "priority": "LOW",
+      "action_required": "Maintain quality"
+    },
+    {
+      "quarter": "1942-Q4",
+      "units": 9,
+      "avg_confidence": 80.4,
+      "status": "STRONG",
+      "priority": "LOW",
+      "action_required": "None"
+    },
+    {
+      "quarter": "1943-Q1",
+      "units": 6,
+      "avg_confidence": 77.7,
+      "status": "GOOD",
+      "priority": "LOW",
+      "action_required": "Maintain quality"
+    }
+  ],
+
+  "recent_session_analysis": {
+    "session_id": "autonomous_1760302575079",
+    "date": "2025-10-12",
+    "units_completed": 3,
+    "avg_confidence": 80.3,
+    "quality_grade": "A-",
+
+    "units": [
+      {
+        "file": "italy_1941-q2_bologna_division_toe.json",
+        "nation": "italian",
+        "quarter": "1941-Q2",
+        "designation": "25ª Divisione di Fanteria 'Bologna'",
+        "confidence": 85,
+        "total_gaps": 6,
+        "gaps_by_severity": {
+          "critical": 0,
+          "important": 0,
+          "moderate": 3,
+          "low": 3
+        },
+        "assessment": "EXCELLENT - Highest confidence in session, strong commander documentation",
+        "strengths": [
+          "Commander confirmed: Mario Marghinotti",
+          "Complete equipment inventory",
+          "Rich historical context (Tobruk siege)",
+          "6 diverse sources including US G-2 OOB"
+        ],
+        "gaps": [
+          "Exact names of regimental commanders",
+          "Precise operational readiness percentages",
+          "Detailed engineer battalion organization"
+        ]
+      },
+      {
+        "file": "britain_1941-q2_9th_australian_division_toe.json",
+        "nation": "british",
+        "quarter": "1941-Q2",
+        "designation": "9th Australian Division",
+        "confidence": 78,
+        "total_gaps": 8,
+        "gaps_by_severity": {
+          "critical": 0,
+          "important": 1,
+          "moderate": 4,
+          "low": 3
+        },
+        "assessment": "GOOD - Accurate documentation of Tobruk garrison, transparent gap reporting",
+        "strengths": [
+          "Commander confirmed: Lt-Gen Leslie James Morshead",
+          "Accurate 4-brigade composition (including attached 18th Brigade)",
+          "Excellent wargaming data ('Rats of Tobruk')",
+          "Clear documentation of missing artillery (deployed to Syria)"
+        ],
+        "gaps": [
+          "Artillery detached to Syria campaign (important gap)",
+          "Subordinate commander names (4 moderate gaps)",
+          "Vehicle model distributions"
+        ]
+      },
+      {
+        "file": "britain_1941-q2_5th_indian_division_toe.json",
+        "nation": "british",
+        "quarter": "1941-Q2",
+        "designation": "5th Indian Infantry Division",
+        "confidence": 78,
+        "total_gaps": 7,
+        "gaps_by_severity": {
+          "critical": 0,
+          "important": 0,
+          "moderate": 4,
+          "low": 3
+        },
+        "assessment": "GOOD - Exceptional deployment tracking, correctly placed in East Africa",
+        "strengths": [
+          "Commander confirmed: Maj-Gen Mosley Mayne",
+          "Three-period deployment tracking within Q2",
+          "Correctly placed in East Africa (NOT North Africa)",
+          "Complete artillery: 72 x 25-pdr + 24 mountain howitzers",
+          "Battle of Keren veteran status"
+        ],
+        "gaps": [
+          "Brigade commander names (except Marriott)",
+          "Chief of Staff not identified",
+          "Exact 25-pdr complement (some regiments not fully equipped early 1941)",
+          "Vehicle model distributions"
+        ]
+      }
+    ],
+
+    "session_strengths": [
+      "All units 1941-Q2 (concentrated quarter completion)",
+      "Above-average confidence: 80.3% vs project 69.7%",
+      "Zero critical gaps maintained",
+      "Excellent historical context sections",
+      "Strong source documentation (6-11 sources per unit)"
+    ],
+
+    "session_weaknesses": [
+      "Slightly higher gap counts: 7.0 vs project average 5.4",
+      "No MDBook chapters generated (template compliance failure)",
+      "Could benefit from Tier 1 sources for subordinate commanders"
+    ]
+  },
+
+  "template_compliance": {
+    "json_files": {
+      "expected": 107,
+      "actual": 107,
+      "compliance_rate": 100,
+      "status": "EXCELLENT"
+    },
+    "mdbook_chapters": {
+      "expected": 107,
+      "actual": 1,
+      "compliance_rate": 0.9,
+      "status": "CRITICAL_FAILURE",
+      "missing_for_recent_session": [
+        "italy_bologna_division_1941q2.md",
+        "britain_9th_australian_division_1941q2.md",
+        "britain_5th_indian_division_1941q2.md"
+      ],
+      "action_required": "Enable book_chapter_generator agent in autonomous workflow"
+    },
+    "wargaming_scenarios": {
+      "expected": 107,
+      "actual": 0,
+      "compliance_rate": 0,
+      "status": "NOT_IMPLEMENTED",
+      "action_required": "Implement scenario_exporter agent"
+    },
+    "sql_database": {
+      "expected": 107,
+      "actual": 0,
+      "compliance_rate": 0,
+      "status": "NOT_IMPLEMENTED",
+      "action_required": "Implement sql_populator agent"
+    }
+  },
+
+  "priority_actions": [
+    {
+      "priority": 1,
+      "severity": "CRITICAL",
+      "category": "Template Compliance",
+      "issue": "Only 1 MDBook chapter exists for 107 units",
+      "impact": "Missing professional narrative documentation",
+      "recommendation": "Enable book_chapter_generator agent in autonomous workflow",
+      "estimated_effort": "2-3 hours autonomous processing"
+    },
+    {
+      "priority": 2,
+      "severity": "HIGH",
+      "category": "Quarter Coverage",
+      "issue": "1940-Q3 only has 3 units at 52.7% confidence",
+      "impact": "Incomplete early war coverage",
+      "recommendation": "Add 7+ units for 1940-Q3, enhance existing units with Tier 1 sources",
+      "estimated_effort": "5-7 hours autonomous processing"
+    },
+    {
+      "priority": 3,
+      "severity": "HIGH",
+      "category": "Data Quality",
+      "issue": "1940-Q2 has 6 units at only 63.7% confidence",
+      "impact": "Below threshold for initial deployment period",
+      "recommendation": "Review and enhance with British Army Lists Q2 1940, Italian OOB documents",
+      "estimated_effort": "3-4 hours autonomous processing"
+    },
+    {
+      "priority": 4,
+      "severity": "MEDIUM",
+      "category": "File Organization",
+      "issue": "10 metadata files incorrectly categorized as units",
+      "impact": "Inflated unit counts, confusion in metrics",
+      "recommendation": "Move orchestration_metadata.json and research reports to /metadata/ subdirectory",
+      "estimated_effort": "30 minutes manual work"
+    },
+    {
+      "priority": 5,
+      "severity": "MEDIUM",
+      "category": "Data Validation",
+      "issue": "Equipment totals not systematically validated",
+      "impact": "Potential calculation errors undetected",
+      "recommendation": "Run batch validation: tanks.total = sum(variants), artillery totals, vehicle counts",
+      "estimated_effort": "1 hour script development + validation"
+    }
+  ],
+
+  "low_confidence_units": [
+    {
+      "file": "britain_1940q2_western_desert_force_toe.json",
+      "confidence": 0,
+      "designation": "Western Desert Force",
+      "quarter": "1940-Q2",
+      "issue": "Appears to be metadata/placeholder file",
+      "action": "Review and enhance or remove"
+    },
+    {
+      "file": "italy_1940q3_pavia_division_toe.json",
+      "confidence": 52,
+      "designation": "Pavia Division",
+      "quarter": "1940-Q3",
+      "issue": "Below threshold, early war period",
+      "action": "Enhance with Tessin Encyclopedia, Italian OOB sources"
+    },
+    {
+      "file": "britain_1940q2_7th_armoured_division_toe.json",
+      "confidence": 68,
+      "designation": "7th Armoured Division",
+      "quarter": "1940-Q2",
+      "issue": "Below threshold, key British unit",
+      "action": "Enhance with British Army Lists, regimental histories"
+    }
+  ],
+
+  "recommendations": {
+    "immediate": [
+      "Enable MDBook chapter generation for recent 3 units",
+      "Review 10 metadata files and reorganize",
+      "Begin 1940-Q3 enhancement (highest priority quarter)"
+    ],
+    "short_term": [
+      "Batch-generate chapters for all 107 units",
+      "Enhance 1940-Q2 units to 75%+ confidence",
+      "Implement equipment total validation script"
+    ],
+    "long_term": [
+      "Raise minimum confidence threshold to 80%",
+      "Implement scenario_exporter for wargaming outputs",
+      "Develop SQL database population pipeline"
+    ]
+  },
+
+  "audit_metadata": {
+    "auditor": "Claude Code QA Orchestrator",
+    "audit_date": "2025-10-12",
+    "analysis_script": "scripts/qa_audit.js",
+    "files_analyzed": 107,
+    "analysis_duration_seconds": 12,
+    "next_audit_due": "After next autonomous session"
+  }
+}
