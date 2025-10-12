@@ -29,6 +29,79 @@ async function readWorkflowState() {
     }
 }
 
+async function getCompletedUnits() {
+    // Scan for completed unit files (same as create_checkpoint.js)
+    const unitsDir = path.join(PROJECT_ROOT, 'data/output');
+    const completed = [];
+
+    try {
+        // Find all unit JSON files recursively
+        const findUnits = (dir) => {
+            const items = require('fs').readdirSync(dir, { withFileTypes: true });
+            for (const item of items) {
+                const fullPath = path.join(dir, item.name);
+                if (item.isDirectory()) {
+                    findUnits(fullPath);
+                } else if (item.name.endsWith('_toe.json') && !item.name.startsWith('unit_')) {
+                    // Extract unit info from filename
+                    const match = item.name.match(/^([a-z]+)_(\d{4}[-]?q\d)_(.+)_toe\.json$/i);
+                    if (match) {
+                        completed.push({
+                            nation: match[1],
+                            quarter: match[2].toUpperCase().replace(/Q/, '-Q'),
+                            unit: match[3],
+                            filename: item.name
+                        });
+                    }
+                }
+            }
+        };
+
+        findUnits(unitsDir);
+    } catch (error) {
+        console.warn('⚠️  Could not scan units directory:', error.message);
+    }
+
+    return completed;
+}
+
+async function syncWorkflowState(scannedUnits, currentState) {
+    // Compare scanned files with state and update if out of sync
+    const scannedIds = scannedUnits.map(u => `${u.nation}_${u.quarter}_${u.unit}`);
+    const stateIds = currentState ? currentState.completed : [];
+
+    if (scannedIds.length !== stateIds.length) {
+        // Out of sync - update state
+        const newState = currentState || {
+            last_updated: new Date().toISOString(),
+            total_units: 213,
+            completed: [],
+            in_progress: [],
+            pending: [],
+            session_id: `session_${Date.now()}`,
+            last_commit: null
+        };
+
+        newState.completed = scannedIds;
+        newState.last_updated = new Date().toISOString();
+
+        // Save updated state
+        await fs.writeFile(WORKFLOW_STATE_PATH, JSON.stringify(newState, null, 2));
+
+        return {
+            synced: true,
+            oldCount: stateIds.length,
+            newCount: scannedIds.length,
+            state: newState
+        };
+    }
+
+    return {
+        synced: false,
+        state: currentState
+    };
+}
+
 async function queryMemoryMCP() {
     // Query project knowledge using helper module
     console.log('🧠 Querying project knowledge...');
@@ -200,7 +273,20 @@ async function main() {
     console.log('');
 
     // Read workflow state
-    const state = await readWorkflowState();
+    let state = await readWorkflowState();
+
+    // Scan actual files and sync state if needed
+    console.log('🔍 Scanning for completed units...');
+    const scannedUnits = await getCompletedUnits();
+    const syncResult = await syncWorkflowState(scannedUnits, state);
+
+    if (syncResult.synced) {
+        console.log(`   ⚠️  State was out of sync: ${syncResult.oldCount} → ${syncResult.newCount} units`);
+        console.log(`   ✅ WORKFLOW_STATE.json updated\n`);
+        state = syncResult.state;
+    } else {
+        console.log(`   ✅ State in sync: ${scannedUnits.length} units\n`);
+    }
 
     // Query Memory MCP
     const memory = await queryMemoryMCP();

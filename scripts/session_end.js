@@ -239,21 +239,18 @@ async function main() {
         // No marker, that's ok
     }
 
-    // Check for uncommitted changes
+    // Always create checkpoint to ensure state is synced
+    console.log('📍 Creating final checkpoint (syncs state)...\n');
+    await createFinalCheckpoint();
+
+    // Check for uncommitted changes after checkpoint
     const uncommitted = checkUncommittedChanges();
 
     if (uncommitted.length > 0) {
-        console.log('⚠️  Uncommitted changes detected!\n');
-        console.log('   Creating final checkpoint...\n');
-        await createFinalCheckpoint();
-
-        // Check again
-        const stillUncommitted = checkUncommittedChanges();
-        if (stillUncommitted.length > 0) {
-            console.log('⚠️  Some files still uncommitted. Review manually.\n');
-        }
+        console.log('⚠️  Uncommitted changes remain after checkpoint\n');
+        console.log('   Some files still uncommitted. Review manually.\n');
     } else {
-        console.log('✅ Working tree clean - no uncommitted changes\n');
+        console.log('✅ Working tree clean - all changes committed\n');
     }
 
     // Calculate session statistics

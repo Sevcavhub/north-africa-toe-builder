@@ -52,7 +52,7 @@ async function getCompletedUnits() {
                     findUnits(fullPath);
                 } else if (item.name.endsWith('_toe.json') && !item.name.startsWith('unit_')) {
                     // Extract unit info from filename
-                    const match = item.name.match(/^([a-z]+)_(\d{4}q\d)_(.+)_toe\.json$/i);
+                    const match = item.name.match(/^([a-z]+)_(\d{4}[-]?q\d)_(.+)_toe\.json$/i);
                     if (match) {
                         completed.push({
                             nation: match[1],
@@ -71,6 +71,59 @@ async function getCompletedUnits() {
     }
 
     return completed;
+}
+
+async function checkChapterStatus(completedUnits) {
+    // Check if corresponding MDBook chapters exist for each JSON file
+    const chapterStatus = {
+        total: completedUnits.length,
+        found: 0,
+        missing: []
+    };
+
+    for (const unit of completedUnits) {
+        // Look for chapter files in all autonomous session directories
+        const outputDir = path.join(PROJECT_ROOT, 'data/output');
+        let chapterFound = false;
+
+        try {
+            const checkDir = (dir) => {
+                const items = require('fs').readdirSync(dir, { withFileTypes: true });
+                for (const item of items) {
+                    if (item.isDirectory()) {
+                        const fullPath = path.join(dir, item.name);
+                        if (item.name === 'north_africa_book') {
+                            // Check for chapter file
+                            const srcDir = path.join(fullPath, 'src');
+                            if (require('fs').existsSync(srcDir)) {
+                                const chapterPattern = new RegExp(`chapter_${unit.nation}_.*${unit.unit.replace(/_/g, '.*')}\\.md`, 'i');
+                                const files = require('fs').readdirSync(srcDir);
+                                if (files.some(f => chapterPattern.test(f))) {
+                                    chapterFound = true;
+                                    return true;
+                                }
+                            }
+                        } else if (!item.name.startsWith('.')) {
+                            checkDir(fullPath);
+                        }
+                    }
+                }
+                return false;
+            };
+
+            checkDir(outputDir);
+        } catch (error) {
+            // Ignore errors, just mark as not found
+        }
+
+        if (chapterFound) {
+            chapterStatus.found++;
+        } else {
+            chapterStatus.missing.push(`${unit.nation}_${unit.quarter}_${unit.unit}`);
+        }
+    }
+
+    return chapterStatus;
 }
 
 async function updateWorkflowState(completedUnits) {
@@ -99,7 +152,7 @@ async function updateWorkflowState(completedUnits) {
     return state;
 }
 
-async function createCheckpointFile(state) {
+async function createCheckpointFile(state, chapterStatus) {
     const completedCount = state.completed.length;
     const remaining = state.total_units - completedCount;
     const percentComplete = ((completedCount / state.total_units) * 100).toFixed(1);
@@ -112,6 +165,12 @@ async function createCheckpointFile(state) {
 - **Completed:** ${completedCount} (${percentComplete}%)
 - **Remaining:** ${remaining}
 - **Last Commit:** ${state.last_commit}
+
+## Chapter Status
+
+- **JSON Files:** ${chapterStatus.total}
+- **MDBook Chapters:** ${chapterStatus.found} ${chapterStatus.found === chapterStatus.total ? '✅' : '⚠️'}
+${chapterStatus.missing.length > 0 ? `- **Missing Chapters:** ${chapterStatus.missing.length}\n${chapterStatus.missing.slice(0, 5).map(u => `  - ❌ ${u}`).join('\n')}${chapterStatus.missing.length > 5 ? `\n  - ... and ${chapterStatus.missing.length - 5} more` : ''}` : '- **All chapters present** ✅'}
 
 ## Recent Completions
 
@@ -175,6 +234,11 @@ async function main() {
     const completedUnits = await getCompletedUnits();
     console.log(`   Found ${completedUnits.length} completed units\n`);
 
+    // Check chapter status
+    console.log('📚 Checking MDBook chapters...');
+    const chapterStatus = await checkChapterStatus(completedUnits);
+    console.log(`   ${chapterStatus.found}/${chapterStatus.total} chapters found${chapterStatus.missing.length > 0 ? ` (${chapterStatus.missing.length} missing)` : ' ✅'}\n`);
+
     // Update workflow state
     console.log('💾 Updating WORKFLOW_STATE.json...');
     const state = await updateWorkflowState(completedUnits);
@@ -182,7 +246,7 @@ async function main() {
 
     // Create checkpoint file
     console.log('📝 Writing SESSION_CHECKPOINT.md...');
-    await createCheckpointFile(state);
+    await createCheckpointFile(state, chapterStatus);
     console.log('   ✅ Checkpoint file created\n');
 
     // Commit to git
