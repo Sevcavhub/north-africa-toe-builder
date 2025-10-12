@@ -1,16 +1,16 @@
-# Session Checkpoint - 2025-10-12T22:04:23.975Z
+# Session Checkpoint - 2025-10-12T22:37:37.708Z
 
 ## Progress Summary
 
 - **Total Units:** 213
-- **Completed:** 98 (46.0%)
-- **Remaining:** 115
-- **Last Commit:** 62e5721
+- **Completed:** 102 (47.9%)
+- **Remaining:** 111
+- **Last Commit:** 57de9b7
 
 ## Validation Status
 
-- **Total Validated:** 98
-- **✅ Passed:** 70 (71.4%)
+- **Total Validated:** 102
+- **✅ Passed:** 74 (72.5%)
 - **❌ Failed:** 0 ✅
 - **⚠️ Warnings:** 28
 
@@ -18,15 +18,15 @@
 
 ## Chapter Status
 
-- **JSON Files:** 98
-- **MDBook Chapters:** 51 ⚠️
-- **Missing Chapters:** 47
+- **JSON Files:** 102
+- **MDBook Chapters:** 54 ⚠️
+- **Missing Chapters:** 48
   - ❌ france_1942-Q2_1st_free_french_division
   - ❌ france_1943-Q1_division_marche_maroc
   - ❌ germany_1941-Q2_deutsches_afrikakorps
   - ❌ india_1940-Q2_4th_indian_division
   - ❌ italy_1940-Q4_bologna_division
-  - ... and 42 more
+  - ... and 43 more
 
 ## Recent Completions
 
@@ -52,13 +52,13 @@ If this session crashes or needs to resume:
 
 3. **View full progress:**
    - See WORKFLOW_STATE.json for complete list
-   - 98 units saved successfully
+   - 102 units saved successfully
 
 ## Session Info
 
 - **Session ID:** session_initial
-- **Checkpoint Time:** 2025-10-12T22:04:23.944Z
-- **Git Commit:** 62e5721
+- **Checkpoint Time:** 2025-10-12T22:37:37.676Z
+- **Git Commit:** 57de9b7
 
 ---
 
