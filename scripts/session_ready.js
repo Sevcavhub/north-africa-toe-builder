@@ -80,8 +80,10 @@ function calculateQuarterProgress(quarter, seedUnits, completed) {
     for (const [key, units] of Object.entries(seedUnits)) {
         const nation = nationMap[key] || key.replace('_units', '');
         if (!byNation[nation]) continue;
+        if (!Array.isArray(units)) continue; // Skip non-array entries
 
         for (const unit of units) {
+            if (!unit.quarters || !Array.isArray(unit.quarters)) continue;
             if (unit.quarters.includes(quarter)) {
                 byNation[nation].total++;
 
@@ -109,8 +111,10 @@ function getNextBatchForQuarter(quarter, seedUnits, completed) {
 
     for (const [key, units] of Object.entries(seedUnits)) {
         const nation = nationMap[key] || key.replace('_units', '');
+        if (!Array.isArray(units)) continue; // Skip non-array entries
 
         for (const unit of units) {
+            if (!unit.quarters || !Array.isArray(unit.quarters)) continue;
             if (unit.quarters.includes(quarter)) {
                 const unitId = createUnitId(nation, unit.designation, quarter);
                 if (!completed.includes(unitId)) {
