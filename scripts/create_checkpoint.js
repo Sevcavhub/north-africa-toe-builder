@@ -14,6 +14,7 @@
 const fs = require('fs').promises;
 const path = require('path');
 const { execSync } = require('child_process');
+const { validateUnitFile } = require('./lib/validator');
 
 const PROJECT_ROOT = path.join(__dirname, '..');
 const WORKFLOW_STATE_PATH = path.join(PROJECT_ROOT, 'WORKFLOW_STATE.json');
@@ -152,7 +153,7 @@ async function updateWorkflowState(completedUnits) {
     return state;
 }
 
-async function createCheckpointFile(state, chapterStatus) {
+async function createCheckpointFile(state, chapterStatus, validationStatus) {
     const completedCount = state.completed.length;
     const remaining = state.total_units - completedCount;
     const percentComplete = ((completedCount / state.total_units) * 100).toFixed(1);
@@ -166,6 +167,17 @@ async function createCheckpointFile(state, chapterStatus) {
 - **Remaining:** ${remaining}
 - **Last Commit:** ${state.last_commit}
 
+## Validation Status
+
+- **Total Validated:** ${validationStatus.total}
+- **✅ Passed:** ${validationStatus.passed} (${validationStatus.total > 0 ? ((validationStatus.passed / validationStatus.total) * 100).toFixed(1) : 0}%)
+- **❌ Failed:** ${validationStatus.failed} ${validationStatus.failed === 0 ? '✅' : '⚠️'}
+- **⚠️ Warnings:** ${validationStatus.warnings}
+
+${validationStatus.violations.length > 0 ? `### Critical Validation Failures
+
+${validationStatus.violations.slice(0, 3).map(v => `**${v.unit}:**\n${v.critical.map(c => `  - ❌ ${c}`).join('\n')}`).join('\n\n')}${validationStatus.violations.length > 3 ? `\n\n... and ${validationStatus.violations.length - 3} more. Run \`npm run validate\` for full report.` : ''}
+` : '**All units passed validation** ✅\n'}
 ## Chapter Status
 
 - **JSON Files:** ${chapterStatus.total}
@@ -208,6 +220,63 @@ If this session crashes or needs to resume:
     await fs.writeFile(CHECKPOINT_PATH, checkpoint);
 }
 
+async function validateCompletedUnits(completedUnits) {
+    // Validate all completed unit JSON files
+    const validationStatus = {
+        total: completedUnits.length,
+        passed: 0,
+        failed: 0,
+        warnings: 0,
+        violations: []
+    };
+
+    for (const unit of completedUnits) {
+        // Find the file path
+        const outputDir = path.join(PROJECT_ROOT, 'data/output');
+        let filePath = null;
+
+        try {
+            const findFile = (dir) => {
+                const items = require('fs').readdirSync(dir, { withFileTypes: true });
+                for (const item of items) {
+                    const fullPath = path.join(dir, item.name);
+                    if (item.isDirectory()) {
+                        const found = findFile(fullPath);
+                        if (found) return found;
+                    } else if (item.name === unit.filename) {
+                        return fullPath;
+                    }
+                }
+                return null;
+            };
+
+            filePath = findFile(outputDir);
+        } catch (error) {
+            // Ignore search errors
+        }
+
+        if (!filePath) continue;
+
+        // Validate the file
+        const result = validateUnitFile(filePath);
+
+        if (result.critical.length === 0 && result.warnings.length === 0) {
+            validationStatus.passed++;
+        } else if (result.critical.length > 0) {
+            validationStatus.failed++;
+            validationStatus.violations.push({
+                unit: `${unit.nation}_${unit.quarter}_${unit.unit}`,
+                critical: result.critical,
+                warnings: result.warnings
+            });
+        } else {
+            validationStatus.warnings++;
+        }
+    }
+
+    return validationStatus;
+}
+
 async function commitCheckpoint(batchName) {
     try {
         // Call the existing git auto-commit script
@@ -234,6 +303,11 @@ async function main() {
     const completedUnits = await getCompletedUnits();
     console.log(`   Found ${completedUnits.length} completed units\n`);
 
+    // Validate completed units
+    console.log('✅ Validating completed units...');
+    const validationStatus = await validateCompletedUnits(completedUnits);
+    console.log(`   ${validationStatus.passed}/${validationStatus.total} passed${validationStatus.failed > 0 ? `, ${validationStatus.failed} failed ⚠️` : ' ✅'}\n`);
+
     // Check chapter status
     console.log('📚 Checking MDBook chapters...');
     const chapterStatus = await checkChapterStatus(completedUnits);
@@ -246,7 +320,7 @@ async function main() {
 
     // Create checkpoint file
     console.log('📝 Writing SESSION_CHECKPOINT.md...');
-    await createCheckpointFile(state, chapterStatus);
+    await createCheckpointFile(state, chapterStatus, validationStatus);
     console.log('   ✅ Checkpoint file created\n');
 
     // Commit to git
