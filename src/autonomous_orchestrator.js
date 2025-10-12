@@ -188,9 +188,10 @@ For each unit in projects/north_africa_seed_units.json:
   * Extract structured data following unified TO&E schema (schemas/unified_toe_schema.json)
   * Return JSON with facts, citations, confidence scores, and source tier used
   * If SQLite MCP available: INSERT extracted data into database immediately
-- Process multiple units in parallel (batches of 3-5)
+- Process units in parallel (batches of 3 maximum)
 - Update progress with TodoWrite after each unit
-- If Git MCP available: Commit after every 10 units processed
+- **CHECKPOINT: After every 3-unit batch, run: Bash('npm run checkpoint')**
+- This creates a git commit and updates WORKFLOW_STATE.json for crash recovery
 
 **PHASE 3: Cross-Reference Validation**
 - Launch historical_research agents to:
@@ -230,7 +231,7 @@ For each unit in projects/north_africa_seed_units.json:
 
 **AUTONOMOUS EXECUTION:**
 Use your autonomous capabilities to complete this entire workflow:
-- Launch Task agents in parallel for maximum speed
+- Launch Task agents in parallel (batches of 3 units maximum - wait for batch to complete before starting next batch)
 - Use extended thinking when analyzing conflicting sources
 - Leverage all available MCPs to enhance functionality
 - Gracefully degrade if MCPs not available
