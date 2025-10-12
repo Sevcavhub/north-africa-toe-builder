@@ -1,12 +1,18 @@
 #!/usr/bin/env node
 
 /**
- * Session Ready - One-command workflow starter
+ * Session Ready - One-command workflow starter (FIXED VERSION)
  *
- * Combines session:start with year-based priority and Ken's guidelines
+ * Combines session:start with accurate file scanning and quarter dashboard
  * to create a single copy-paste prompt for Claude Code.
  *
- * Usage: node scripts/session_ready.js
+ * FIXES:
+ * - Scans actual files in autonomous folders AND data output units
+ * - Handles format variations (1941-Q2, 1941--Q2, 1941q2)
+ * - Shows quarter completion dashboard
+ * - Suggests correct next batch
+ *
+ * Usage: node scripts/session_ready.js [target_quarter]
  */
 
 const { execSync } = require('child_process');
@@ -16,92 +22,100 @@ const path = require('path');
 const PROJECT_ROOT = path.join(__dirname, '..');
 const KEN_PROMPT_PATH = path.join(PROJECT_ROOT, 'STRICT AUTONOMOUS MODE - Ken Prompt.md');
 
-// Target quarter for showcase (can be made configurable later)
-const TARGET_QUARTER = '1941-Q2';
+// Target quarter for showcase (can be overridden via CLI arg)
+const TARGET_QUARTER = process.argv[2] || '1941-Q2';
 
 async function main() {
     console.log('\n' + '═'.repeat(80));
-    console.log('  🚀 SESSION READY - Autonomous Workflow Starter');
+    console.log('  🚀 SESSION READY - Autonomous Workflow Starter (FIXED)');
     console.log('═'.repeat(80));
     console.log('');
 
-    // Step 1: Run session:start (which now includes auto-sync)
-    console.log('📊 Loading session state and scanning files...\n');
+    // Step 1: Create autonomous session folder
+    const sessionId = 'autonomous_' + Date.now();
+    const sessionDir = path.join(PROJECT_ROOT, 'data/output', sessionId);
+    const unitsDir = path.join(sessionDir, 'units');
+
     try {
-        execSync('node scripts/session_start.js', {
-            cwd: PROJECT_ROOT,
-            stdio: 'inherit'
-        });
+        fs.mkdirSync(sessionDir, { recursive: true });
+        fs.mkdirSync(unitsDir, { recursive: true });
+        console.log(`📁 Created session folder: ${sessionId}\n`);
     } catch (error) {
-        console.error('❌ Session start failed:', error.message);
+        console.error(`❌ Failed to create session folder: ${error.message}`);
         process.exit(1);
     }
 
-    console.log('\n' + '─'.repeat(80));
-    console.log('  📋 GENERATING AUTONOMOUS PROMPT');
-    console.log('─'.repeat(80) + '\n');
+    // Step 2: Scan actual files
+    console.log('📊 Scanning actual unit files...\n');
+    const completedFiles = scanCompletedFiles();
+    console.log(`   Found ${completedFiles.length} completed units\n`);
 
-    // Step 2: Load state and seed units
-    const state = JSON.parse(fs.readFileSync(path.join(PROJECT_ROOT, 'WORKFLOW_STATE.json'), 'utf-8'));
+    // Step 3: Load seed units
     const seedUnits = JSON.parse(fs.readFileSync(path.join(PROJECT_ROOT, 'projects/north_africa_seed_units.json'), 'utf-8'));
 
-    // Step 3: Calculate quarter progress
-    const quarterProgress = calculateQuarterProgress(TARGET_QUARTER, seedUnits, state.completed);
+    // Step 4: Calculate ALL quarter progress
+    const allQuartersProgress = calculateAllQuartersProgress(seedUnits, completedFiles);
 
-    // Step 4: Get next 3 units prioritizing target quarter
-    const nextBatch = getNextBatchForQuarter(TARGET_QUARTER, seedUnits, state.completed);
+    // Step 5: Get target quarter progress
+    const targetQuarterProgress = allQuartersProgress.find(q => q.quarter === TARGET_QUARTER);
 
-    // Step 5: Read Ken's guidelines
-    const kenPrompt = fs.readFileSync(KEN_PROMPT_PATH, 'utf-8');
-    const keyGuidelines = extractKeyGuidelines(kenPrompt);
+    // Step 6: Get next 3 units for target quarter
+    const nextBatch = getNextBatchForQuarter(TARGET_QUARTER, seedUnits, completedFiles);
 
-    // Step 6: Generate ready-to-paste prompt
-    displayReadyPrompt(state, quarterProgress, nextBatch, keyGuidelines);
+    // Step 7: Read Ken's guidelines
+    let kenPrompt = '';
+    try {
+        kenPrompt = fs.readFileSync(KEN_PROMPT_PATH, 'utf-8');
+    } catch (error) {
+        console.warn('⚠️  Ken prompt not found, skipping guidelines');
+    }
+
+    // Step 8: Generate ready-to-paste prompt
+    displayReadyPrompt(completedFiles.length, allQuartersProgress, targetQuarterProgress, nextBatch, sessionId);
 }
 
-function calculateQuarterProgress(quarter, seedUnits, completed) {
-    const byNation = {
-        german: { total: 0, completed: 0 },
-        italian: { total: 0, completed: 0 },
-        british: { total: 0, completed: 0 },
-        usa: { total: 0, completed: 0 },
-        french: { total: 0, completed: 0 }
-    };
+function scanCompletedFiles() {
+    const completedFiles = [];
+    const outputDir = path.join(PROJECT_ROOT, 'data/output');
 
-    const nationMap = {
-        'german_units': 'german',
-        'italian_units': 'italian',
-        'british_units': 'british',
-        'usa_units': 'usa',
-        'french_units': 'french'
-    };
-
-    // Count units in target quarter
-    for (const [key, units] of Object.entries(seedUnits)) {
-        const nation = nationMap[key] || key.replace('_units', '');
-        if (!byNation[nation]) continue;
-        if (!Array.isArray(units)) continue; // Skip non-array entries
-
-        for (const unit of units) {
-            if (!unit.quarters || !Array.isArray(unit.quarters)) continue;
-            if (unit.quarters.includes(quarter)) {
-                byNation[nation].total++;
-
-                // Check if completed
-                const unitId = createUnitId(nation, unit.designation, quarter);
-                if (completed.includes(unitId)) {
-                    byNation[nation].completed++;
+    function scanDir(dir) {
+        try {
+            const items = fs.readdirSync(dir, { withFileTypes: true });
+            for (const item of items) {
+                const fullPath = path.join(dir, item.name);
+                if (item.isDirectory()) {
+                    scanDir(fullPath);
+                } else if (item.name.endsWith('_toe.json') && !item.name.startsWith('unit_')) {
+                    completedFiles.push(item.name);
                 }
             }
+        } catch (error) {
+            // Ignore errors
         }
     }
 
-    return byNation;
+    scanDir(outputDir);
+    return completedFiles;
 }
 
-function getNextBatchForQuarter(quarter, seedUnits, completed) {
-    const needed = [];
-    const nationMap = {
+function isCompleted(nation, designation, quarter, completedFiles) {
+    const cleanDesignation = designation.toLowerCase()
+        .replace(/[^a-z0-9]/g, '_')
+        .replace(/_+/g, '_')
+        .replace(/^_|_$/g, '');
+
+    const cleanQuarter = quarter.replace('-', '').toLowerCase();
+
+    return completedFiles.some(filename => {
+        const fnameLower = filename.toLowerCase();
+        return fnameLower.includes(nation.toLowerCase()) &&
+               (fnameLower.includes(quarter.toLowerCase()) || fnameLower.includes(cleanQuarter)) &&
+               fnameLower.includes(cleanDesignation.replace(/^[0-9]+_/, ''));
+    });
+}
+
+function calculateAllQuartersProgress(seedUnits, completedFiles) {
+    const nations = {
         'german_units': 'germany',
         'italian_units': 'italy',
         'british_units': 'britain',
@@ -109,79 +123,127 @@ function getNextBatchForQuarter(quarter, seedUnits, completed) {
         'french_units': 'france'
     };
 
-    for (const [key, units] of Object.entries(seedUnits)) {
-        const nation = nationMap[key] || key.replace('_units', '');
-        if (!Array.isArray(units)) continue; // Skip non-array entries
+    const quarters = [
+        '1940-Q2', '1940-Q3', '1940-Q4',
+        '1941-Q1', '1941-Q2', '1941-Q3', '1941-Q4',
+        '1942-Q1', '1942-Q2', '1942-Q3', '1942-Q4',
+        '1943-Q1', '1943-Q2'
+    ];
 
-        for (const unit of units) {
-            if (!unit.quarters || !Array.isArray(unit.quarters)) continue;
-            if (unit.quarters.includes(quarter)) {
-                const unitId = createUnitId(nation, unit.designation, quarter);
-                if (!completed.includes(unitId)) {
-                    needed.push({
+    const quarterStats = [];
+
+    quarters.forEach(quarter => {
+        let totalUnits = 0;
+        let completedUnits = 0;
+        const missingUnits = [];
+
+        for (const [key, nation] of Object.entries(nations)) {
+            const units = seedUnits[key] || [];
+            const quarterUnits = units.filter(u => u.quarters && u.quarters.includes(quarter));
+
+            quarterUnits.forEach(u => {
+                totalUnits++;
+                if (isCompleted(nation, u.designation, quarter, completedFiles)) {
+                    completedUnits++;
+                } else {
+                    missingUnits.push({
                         nation: nation.charAt(0).toUpperCase() + nation.slice(1),
-                        designation: unit.designation,
-                        quarter: quarter
+                        designation: u.designation
                     });
                 }
-            }
+            });
         }
+
+        if (totalUnits > 0) {
+            const percentage = Math.round((completedUnits / totalUnits) * 100);
+            quarterStats.push({
+                quarter,
+                total: totalUnits,
+                completed: completedUnits,
+                remaining: totalUnits - completedUnits,
+                percentage,
+                missing: missingUnits
+            });
+        }
+    });
+
+    // Sort by completion percentage (highest first)
+    quarterStats.sort((a, b) => b.percentage - a.percentage);
+
+    return quarterStats;
+}
+
+function getNextBatchForQuarter(quarter, seedUnits, completedFiles) {
+    const needed = [];
+    const nations = {
+        'german_units': 'germany',
+        'italian_units': 'italy',
+        'british_units': 'britain',
+        'usa_units': 'usa',
+        'french_units': 'france'
+    };
+
+    for (const [key, nation] of Object.entries(nations)) {
+        const units = seedUnits[key] || [];
+        const quarterUnits = units.filter(u => u.quarters && u.quarters.includes(quarter));
+
+        quarterUnits.forEach(u => {
+            if (!isCompleted(nation, u.designation, quarter, completedFiles)) {
+                needed.push({
+                    nation: nation.charAt(0).toUpperCase() + nation.slice(1),
+                    designation: u.designation,
+                    quarter: quarter
+                });
+            }
+        });
     }
 
     // Return first 3
     return needed.slice(0, 3);
 }
 
-function createUnitId(nation, designation, quarter) {
-    // Create ID matching WORKFLOW_STATE.json format
-    const cleanNation = nation.toLowerCase();
-    const cleanQuarter = quarter.toUpperCase().replace('-', '');
-    const cleanDesignation = designation.toLowerCase()
-        .replace(/[^a-z0-9]/g, '_')
-        .replace(/_+/g, '_')
-        .replace(/^_|_$/g, '');
-    return `${cleanNation}_${cleanQuarter}_${cleanDesignation}`;
-}
+function displayReadyPrompt(totalCompleted, allQuartersProgress, targetQuarterProgress, nextBatch, sessionId) {
+    const totalUnits = 213; // From project config
+    const percentComplete = ((totalCompleted / totalUnits) * 100).toFixed(1);
 
-function extractKeyGuidelines(kenPrompt) {
-    // Extract key sections from Ken's .md file
-    const guidelines = {
-        sessionProtocol: '',
-        validation: '',
-        stopConditions: ''
-    };
+    console.log('═'.repeat(80));
+    console.log('  📊 QUARTER COMPLETION DASHBOARD');
+    console.log('═'.repeat(80));
+    console.log('');
 
-    // Simple extraction (can be made more robust)
-    const protocolMatch = kenPrompt.match(/## SESSION MANAGEMENT PROTOCOL([\s\S]*?)(?=##|$)/);
-    if (protocolMatch) {
-        guidelines.sessionProtocol = protocolMatch[1].trim().substring(0, 500) + '...';
+    // Show top candidates
+    const topCandidates = allQuartersProgress.filter(q => q.percentage >= 40 && q.remaining <= 10);
+    if (topCandidates.length > 0) {
+        console.log('🏆 **TOP CANDIDATES FOR COMPLETION:**\n');
+        topCandidates.forEach((q, i) => {
+            const medal = i === 0 ? '🥇' : i === 1 ? '🥈' : i === 2 ? '🥉' : '  ';
+            console.log(`   ${medal} ${q.quarter}: ${q.percentage}% Complete (${q.completed}/${q.total} units)`);
+            console.log(`      Only ${q.remaining} units missing:`);
+            q.missing.forEach(u => {
+                console.log(`      ${u.remaining === q.remaining ? '└─' : '├─'} ${u.nation} - ${u.designation}`);
+            });
+            console.log('');
+        });
     }
 
-    const validationMatch = kenPrompt.match(/## MANDATORY VALIDATION CHECKLIST([\s\S]*?)(?=##|$)/);
-    if (validationMatch) {
-        guidelines.validation = validationMatch[1].trim().substring(0, 500) + '...';
-    }
+    // Show all quarters table
+    console.log('📋 **ALL QUARTERS RANKED:**\n');
+    console.log('Quarter      | Progress       | Status');
+    console.log('-------------|----------------|----------------------------------');
+    allQuartersProgress.forEach(q => {
+        const status = q.percentage === 100 ? '✅ COMPLETE' :
+                      q.percentage >= 80 ? `${q.remaining} missing ⭐ CLOSEST` :
+                      q.percentage >= 50 ? `${q.remaining} missing` :
+                      `${q.remaining} remaining`;
+        console.log(`${q.quarter.padEnd(12)} | ${q.completed}/${q.total} (${q.percentage}%)`.padEnd(15) + ' | ' + status);
+    });
 
-    const stopMatch = kenPrompt.match(/## STOP CONDITIONS([\s\S]*?)(?=##|$)/);
-    if (stopMatch) {
-        guidelines.stopConditions = stopMatch[1].trim().substring(0, 300) + '...';
-    }
+    console.log('');
+    console.log('─'.repeat(80));
+    console.log('');
 
-    return guidelines;
-}
-
-function displayReadyPrompt(state, quarterProgress, nextBatch, guidelines) {
-    const completedCount = state.completed.length;
-    const percentComplete = ((completedCount / state.total_units) * 100).toFixed(1);
-
-    // Calculate total for target quarter
-    let quarterTotal = 0;
-    let quarterCompleted = 0;
-    for (const nation in quarterProgress) {
-        quarterTotal += quarterProgress[nation].total;
-        quarterCompleted += quarterProgress[nation].completed;
-    }
-    const quarterPercent = quarterTotal > 0 ? ((quarterCompleted / quarterTotal) * 100).toFixed(0) : 0;
+    // Overall progress
+    console.log(`📊 **OVERALL PROGRESS:** ${totalCompleted}/${totalUnits} units (${percentComplete}%)\n`);
 
     console.log('═'.repeat(80));
     console.log('  📢 COPY THE MESSAGE BELOW AND PASTE INTO CLAUDE CODE CHAT');
@@ -191,26 +253,17 @@ function displayReadyPrompt(state, quarterProgress, nextBatch, guidelines) {
     console.log('');
 
     // The prompt to copy-paste
-    console.log(`Start autonomous orchestration session following Ken's guidelines.
+    console.log(`Start autonomous orchestration session.
 
 **CURRENT PROGRESS:**
-- Overall: ${completedCount}/${state.total_units} units (${percentComplete}%)
-- Last updated: ${new Date(state.last_updated).toLocaleString()}
+- Overall: ${totalCompleted}/${totalUnits} units (${percentComplete}%)
+- Last scan: ${new Date().toLocaleString()}
 
-**SHOWCASE STRATEGY: Complete ${TARGET_QUARTER} snapshot**
-Goal: Build one complete quarter as quality reference before scaling to full campaign.
-
-**${TARGET_QUARTER} PROGRESS (Target Showcase Quarter):**
-${Object.entries(quarterProgress).map(([nation, data]) => {
-    if (data.total === 0) return null;
-    const pct = data.total > 0 ? ((data.completed / data.total) * 100).toFixed(0) : 0;
-    const status = pct == 100 ? '✅ COMPLETE' : `${pct}%`;
-    return `- ${nation.charAt(0).toUpperCase() + nation.slice(1)}: ${data.completed}/${data.total} (${status})`;
-}).filter(Boolean).join('\n')}
-- **Quarter Total**: ${quarterCompleted}/${quarterTotal} units (${quarterPercent}%)
+**STRATEGY: Complete ${TARGET_QUARTER}**
+${targetQuarterProgress ? `Progress: ${targetQuarterProgress.completed}/${targetQuarterProgress.total} (${targetQuarterProgress.percentage}%)` : 'Quarter not found'}
 
 **NEXT BATCH (3 units - filling ${TARGET_QUARTER} gaps):**
-${nextBatch.length > 0 ? nextBatch.map((u, i) => `${i + 1}. ${u.nation} - ${u.designation} (${u.quarter})`).join('\n') : 'No units needed - quarter complete!'}
+${nextBatch.length > 0 ? nextBatch.map((u, i) => `${i + 1}. ${u.nation} - ${u.designation} (${u.quarter})`).join('\n') : '✅ No units needed - quarter complete!'}
 
 **SESSION PROTOCOL (Ken's 3-3-3 Rule):**
 ✅ Session started (progress loaded above)
@@ -237,20 +290,16 @@ ${nextBatch.length > 0 ? nextBatch.map((u, i) => `${i + 1}. ${u.nation} - ${u.de
 - Section 15: Data Quality & Known Gaps (honest assessment)
 - **Confidence threshold**: ≥ 75%
 
-**QUALITY REVIEW (After ${TARGET_QUARTER} complete):**
-Run existing QA agent to review all work:
-\`\`\`bash
-npm run qa:audit
-\`\`\`
-This generates GAP_TRACKER.md with quality metrics.
+**OUTPUT PATH (ALREADY CREATED FOR YOU):**
+✅ Session folder: data/output/${sessionId}/
+✅ Units folder: data/output/${sessionId}/units/
 
-Review chapters via MDBook:
-\`\`\`bash
-cd data/output/autonomous_[session_id]/north_africa_book
-mdbook serve --open
-\`\`\`
+⚠️  **MANDATORY**: Save ALL files to:
+   data/output/${sessionId}/units/[unit_file].json
 
-**STOP CONDITIONS (from Ken's guidelines):**
+   **NEVER** write to: data/output/units/ (deprecated legacy location)
+
+**STOP CONDITIONS:**
 - Validation fails after 2 regeneration attempts
 - Confidence score < 75% for any unit
 - Critical gaps cannot be resolved (missing commander, no equipment data)

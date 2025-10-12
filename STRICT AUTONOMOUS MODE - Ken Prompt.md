@@ -6,38 +6,38 @@
 
 ---
 
-## 🎯 IMMEDIATE FIRST ACTIONS
+## 🎯 MANDATORY ENTRY POINT ⚠️
 
-1. **Start session with context restoration:**
-   ```bash
-   npm run session:start
-   ```
-   This displays:
-   - Progress from WORKFLOW_STATE.json (56/213 units complete)
-   - Known patterns from previous sessions
-   - Workflow decisions (3-3-3 rule, agent limits)
-   - Suggested next 3-unit batch
+**⚠️ CRITICAL: You MUST run this command before any autonomous work:**
 
-2. **Review workflow state:**
-   ```bash
-   cat WORKFLOW_STATE.json
-   ```
-   Shows completed units, in-progress work, last commit
+```bash
+npm run session:ready
+```
 
-3. **Check current status:**
-   ```bash
-   cat CURRENT_STATUS.md
-   ```
+**What this does (automatically):**
+1. ✅ Creates autonomous session folder: `data/output/autonomous_[timestamp]/units/`
+2. ✅ Scans ALL completed units (recursive search across all autonomous folders)
+3. ✅ Calculates quarter completion dashboard (which quarters closest to 100%)
+4. ✅ Suggests optimal next batch (3 units filling strategic gaps)
+5. ✅ Generates ready-to-paste Claude Code prompt with ALL context
 
-4. **Review priorities:**
-   ```bash
-   cat GAP_TRACKER.md
-   ```
+**⚠️ NEVER:**
+- ❌ Create folders manually
+- ❌ Write to `data/output/units/` (deprecated legacy location)
+- ❌ Start autonomous work without running `session:ready` first
 
-5. **Check if chapter regeneration complete:**
-   - Read `CHAPTER_REGENERATION_PROMPT.md` status
-   - Verify 11 chapters updated to v2.0 (1 British + 10 Italian)
-   - If not complete: finish chapter regeneration first
+**This prevents folder drift and ensures consistent output paths for ALL sessions.**
+
+---
+
+### Optional Commands (After session:ready)
+
+**Review workflow state:**
+```bash
+cat WORKFLOW_STATE.json    # Shows completed units, last commit
+cat CURRENT_STATUS.md       # Latest progress and confidence scores
+cat GAP_TRACKER.md          # Known gaps and research priorities
+```
 
 ---
 
@@ -70,24 +70,30 @@
 
 ## 🔄 SESSION MANAGEMENT PROTOCOL
 
-### Session Start (REQUIRED)
+### Session Start (REQUIRED - via session:ready)
 Every new session or continuation MUST begin with:
 ```bash
-npm run session:start
+npm run session:ready
 ```
 
-**This automatically:**
-- Reads WORKFLOW_STATE.json to show progress (56/213 units complete)
-- Queries memory system for known patterns, decisions, quality issues
-- Suggests next 3-unit batch based on completion status
-- Creates SESSION_ACTIVE.txt marker for tracking
-- Displays recent completions and remaining work
+**⚠️ This is the ONLY entry point. DO NOT use other commands to start sessions.**
 
-**Memory System Context Restored:**
-- **Patterns**: Quality trends discovered (e.g., "80% units have estimated battalion TO&E")
-- **Decisions**: Workflow choices made (e.g., "2-3 agents max for stability", "3-3-3 rule")
-- **Quality Issues**: Validation failures and data conflicts from previous sessions
-- **Session Stats**: Completion rates, durations, performance metrics
+**This automatically:**
+- ✅ Creates autonomous session folder with timestamp
+- ✅ Scans ALL completed units recursively across all folders
+- ✅ Calculates quarter completion dashboard (shows which quarters closest to done)
+- ✅ Suggests strategic next batch (3 units to fill gaps efficiently)
+- ✅ Generates Claude Code prompt with full context (just copy-paste)
+- ✅ Includes output path in prompt (no folder confusion)
+
+**The generated prompt includes:**
+- Progress summary (93/213 units complete)
+- Quarter dashboard with completion percentages
+- Next 3-unit batch suggestion (strategic selection)
+- Unified schema reminders
+- Template compliance checklist
+- Output path (already created for you)
+- Stop conditions and validation rules
 
 ### Checkpoint System (AUTOMATIC)
 **Autonomous orchestrator automatically creates checkpoints after every 3-unit batch:**
@@ -423,10 +429,12 @@ npm run session:end  # Creates final checkpoint if uncommitted work exists
 - **`SESSION_ACTIVE.txt`** - Active session marker (created by session:start)
 - **`.memory_cache/`** - Local memory storage (patterns, decisions, issues)
 
-### Output Directories:
-- **Units JSON:** `data/output/autonomous_*/units/*.json`
-- **Chapters:** `data/output/autonomous_*/north_africa_book/src/*.md`
-- **Session logs:** `data/output/autonomous_*/logs/`
+### Output Directories (Created Automatically by session:ready):
+- **Units JSON:** `data/output/autonomous_[timestamp]/units/*.json` ⚠️ MANDATORY PATH
+- **Chapters:** `data/output/autonomous_[timestamp]/north_africa_book/src/*.md`
+- **Session logs:** `data/output/autonomous_[timestamp]/logs/`
+
+**⚠️ NEVER write to:** `data/output/units/` (deprecated - causes folder drift)
 
 ### Configuration:
 - **Project config:** `projects/north_africa_campaign.json`
@@ -458,22 +466,24 @@ Confirm you have:
 
 **Then begin with:**
 ```bash
-# ALWAYS START HERE (loads context from previous sessions)
-npm run session:start
+# STEP 1: MANDATORY ENTRY POINT (creates folder, scans files, suggests batch)
+npm run session:ready
 
-# Review the suggested next batch and decide:
-# If chapter regeneration incomplete:
-# Read and execute: CHAPTER_REGENERATION_PROMPT.md
+# STEP 2: Copy the generated prompt and paste into Claude Code chat
+# The prompt includes:
+# - Full context (progress, quarter dashboard, next batch)
+# - Output path (already created automatically)
+# - Schema and template compliance rules
+# - Just paste and Claude begins autonomous processing
 
-# If chapter regeneration complete:
-npm run start:autonomous
-# Process 3 units per batch
-# Automatic checkpoint after each batch
-# Maximum 9 units (3 batches) before break
+# STEP 3: After batch complete, checkpoint runs automatically
+# Claude orchestrator calls: npm run checkpoint
 
-# ALWAYS END HERE (stores session knowledge)
+# STEP 4: ALWAYS END HERE (stores session knowledge)
 npm run session:end
 ```
+
+**⚠️ Key Change:** `session:ready` is now the SINGLE entry point that creates folders and prevents drift.
 
 ---
 
@@ -488,9 +498,10 @@ npm run session:end
 **Remember:** You are extracting historical military data with academic rigor. Every unit matters. Every gap must be documented. Quality is non-negotiable.
 
 **Session Protocol:**
-1. **START:** `npm run session:start` (loads all context)
-2. **WORK:** Process 3-unit batches (automatic checkpoints)
-3. **END:** `npm run session:end` (stores all knowledge)
+1. **START:** `npm run session:ready` (creates folder, loads context, suggests batch) ⚠️ MANDATORY
+2. **PASTE:** Copy generated prompt into Claude Code chat
+3. **WORK:** Claude processes 3-unit batches autonomously (automatic checkpoints)
+4. **END:** `npm run session:end` (stores all knowledge)
 
 **Crash Recovery:** Maximum 1 unit lost (<5 min recovery). Check WORKFLOW_STATE.json and SESSION_CHECKPOINT.md to resume.
 
