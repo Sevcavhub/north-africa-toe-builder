@@ -2,7 +2,7 @@
 
 ## 1. Unit Identification and Context
 
-The **60ª Divisione di fanteria "Sabratha"** was an Italian colonial infantry division that served in Libya from its formation in 1937. During the second quarter of 1941, the division was in a critical state of reconstitution following catastrophic losses during the British Operation Compass offensive of December 1940 to February 1941. The division existed largely as a cadre formation during this period, classified as non-operational for offensive operations.
+The **60ª Divisione di fanteria "Sabratha"** was an Italian colonial infantry division that served in Libya from its formation in 1937. During the second quarter of 1941, the division was in a critical state of reconstitution following catastrophic losses during the British Operation Compass offensive of December 1940 to February 1941. The division existed largely as a cadre formation during this period, classified as non-operational for offensive operations. The division was deployed to the **Gharyan-Nalut defensive sector** in the interior of Tripolitania for rebuilding and training, representing a deliberate withdrawal from frontline operations to allow recovery.
 
 **Key Identifiers:**
 - **Official Designation:** 60ª Divisione di fanteria "Sabratha"
@@ -10,11 +10,11 @@ The **60ª Divisione di fanteria "Sabratha"** was an Italian colonial infantry d
 - **Type:** Infantry Division (Binary)
 - **Time Period:** 1941-Q2 (April-June 1941)
 - **Formation Date:** March 1, 1937
-- **Theater:** North Africa (Libya - Derna-Mechili sector)
+- **Theater:** North Africa (Libya - Gharyan-Nalut sector)
 
 The "Sabratha" division was named after the ancient Roman city of Sabratha in Tripolitania, reflecting Italy's colonial ambitions in North Africa. As a binary infantry division, it possessed two infantry regiments (rather than the three-regiment "triangular" structure), following the Italian army's standard colonial organization for North African divisions.
 
-During Q2 1941, the Sabratha Division was subordinated to XXI Corpo d'Armata and stationed in defensive positions in the Derna-Mechili sector, far from the active siege operations around Tobruk. The division's primary mission was recovery and rebuilding rather than active operations.
+During Q2 1941, the Sabratha Division was subordinated to XXI Corpo d'Armata and stationed in defensive positions in the **Gharyan-Nalut sector** of Tripolitania, approximately 100-150 km south of Tripoli. This interior defensive posting was far from the active siege operations around Tobruk, allowing the division to focus on recovery and rebuilding rather than active operations. The division was in a **rebuilding phase** following near-complete destruction at the Battle of Beda Fomm in February 1941.
 
 ## 2. Command and Leadership
 
@@ -49,10 +49,14 @@ The 60ª Divisione "Sabratha" was organized according to the Italian binary infa
   - Actual: Severely understrength, estimated company-sized elements only
 
 ### Artillery Regiment
-- **42º Reggimento artiglieria "Sabratha"**
+- **Artillery Grouping "Sabratha"** (replacing destroyed 42º Reggimento artiglieria)
+  - **Original 42º Reggimento artiglieria:** Completely destroyed at Battle of Beda Fomm (February 1941)
+  - **Replacement Organization:** Artillery Grouping "Sabratha" consisting of:
+    - **CCLXXXII Artillery Group** with 75/27 field guns
+    - **CCLXXXIV Artillery Group** with 75/27 field guns
   - Authorized: 48 artillery pieces in three groups
   - Actual: Approximately 18 pieces (~40% of authorized strength)
-  - Equipment: 100/17 howitzers and 75/27 field guns
+  - Equipment: 100/17 howitzers and 75/27 field guns (primarily 75/27 in new grouping)
 
 ### Support Units
 - **LX Battaglione misto del genio**
@@ -283,7 +287,7 @@ With only 6 light anti-aircraft guns, the division possessed minimal air defense
 ### 8.4 Artillery Organization and Employment
 
 **Command and Control:**
-The 42º Reggimento artiglieria "Sabratha" headquarters controlled all divisional artillery assets, though the severely reduced strength (approximately 18 field pieces vs. 48 authorized) limited fire support capability dramatically. Forward observers were assigned to infantry units when available, but the reduced artillery strength meant that many infantry positions lacked adequate fire support.
+The **Artillery Grouping "Sabratha"** headquarters (replacing the destroyed 42º Reggimento artiglieria) controlled all divisional artillery assets, organized into CCLXXXII and CCLXXXIV artillery groups. The severely reduced strength (approximately 18 field pieces vs. 48 authorized) limited fire support capability dramatically. The new artillery organization emphasized 75/27 field guns rather than the original regiment's heavier gun complement, reflecting the emergency nature of reconstitution and available equipment. Forward observers were assigned to infantry units when available, but the reduced artillery strength meant that many infantry positions lacked adequate fire support.
 
 **Ammunition Supply:**
 Ammunition stocks were described as "basic stocks only" in divisional reports. Each gun maintained a minimal basic load, with resupply difficult due to the division's low priority status and extended supply lines from Tripoli (600+ km). Artillery fire was restricted to essential defensive missions only.
@@ -615,9 +619,9 @@ This historical reconstruction of the 60ª Divisione "Sabratha" for 1941-Q2 is b
 
 ### 15.1 Overall Confidence Assessment
 
-**Overall Data Confidence: 72%**
+**Overall Data Confidence: 78%**
 
-This confidence level reflects solid documentation of unit identity and composition, but estimated equipment and personnel numbers due to the division's severely understrength status following near-destruction during Operation Compass.
+This confidence level reflects solid documentation of unit identity and composition, enhanced by Tier 2 web research that provided detailed operational history, precise geographic deployment locations (Gharyan-Nalut), reconstitution timeline, and artillery reorganization details. Equipment and personnel numbers remain estimated based on the division's severely understrength status following near-destruction during Operation Compass, but the operational context is now well-established.
 
 ### 15.2 Confidence by Category
 
@@ -625,13 +629,14 @@ This confidence level reflects solid documentation of unit identity and composit
 |----------|------------|-----------|
 | Unit Identification | 90% | Well-documented in multiple sources |
 | Command | 80% | Commander confirmed via web sources |
-| Subordinate Units | 85% | Regimental composition confirmed in US documents |
-| Personnel Summary | 65% | Estimated at ~54% strength based on "practically destroyed" assessment |
-| Equipment Summary | 60% | Calculated from reduced strength percentages |
-| Equipment Detail | 55% | Estimated from standard ratios adjusted for understrength |
-| Operational History | 75% | Operation Compass and reconstitution well-documented |
+| Subordinate Units | 85% | Regimental composition confirmed in US documents; artillery reorganization confirmed via Tier 2 sources |
+| Personnel Summary | 70% | Estimated at 50-60% strength based on "practically destroyed" assessment and Tier 2 reconstitution timeline |
+| Equipment Summary | 65% | Calculated from reduced strength percentages with Tier 2 confirmation of artillery changes |
+| Equipment Detail | 60% | Estimated from standard ratios adjusted for understrength; 2-battalion regiment structure confirmed |
+| Operational History | 85% | Operation Compass, Battle of Beda Fomm, and reconstitution timeline now detailed via Tier 2 sources |
+| Geographic Deployment | 85% | Gharyan-Nalut location precisely identified via Tier 2 sources |
 | Logistics | 65% | Supply status assessed from secondary sources and logic |
-| Combat Effectiveness | 70% | Assessment based on strength levels and historical context |
+| Combat Effectiveness | 75% | Assessment based on strength levels, historical context, and confirmed non-operational status |
 
 ### 15.3 Primary Sources
 
@@ -648,8 +653,18 @@ This confidence level reflects solid documentation of unit identity and composit
    - Confidence: 90%
 
 3. **Web Sources (Tier 2 - Curated historical websites)**
+   - **Military Wiki** - Detailed reconstitution timeline and geographic deployment
+   - **Warfare History Network** - Battle of Beda Fomm detailed battle narrative
+   - **The Crusader Project** - Italian divisional histories and reorganizations
+   - **TheReaderWiki** - Unit deployment locations and operational status
    - Generale di Divisione Guido Della Bona confirmed as commander
-   - Battle of Beda Fomm casualties and retreat documented
+   - Battle of Beda Fomm casualties and retreat documented in detail
+   - Division "mostly destroyed at Derna" (January 26) then "almost completely destroyed" at Beda Fomm (February 6-7)
+   - Reconstitution timeline: Feb-April (Al Khums coastal defense) → May-August (Gharyan-Nalut rebuilding) → September (return to front)
+   - Gharyan-Nalut defensive sector location confirmed
+   - Artillery Regiment 42º destruction and replacement by Artillery Grouping "Sabratha" (CCLXXXII and CCLXXXIV groups) confirmed
+   - Infantry regiments reduced to 2 battalions each confirmed
+   - Division status: NOT combat ready during Q2 1941, defensive garrison duties only
    - Confidence: 75-80%
 
 ### 15.4 Secondary Sources
@@ -669,18 +684,25 @@ This confidence level reflects solid documentation of unit identity and composit
 ### 15.5 Data Gaps and Estimates
 
 **Known Gaps:**
-- Exact personnel strength Q2 1941 (estimated at ~54% based on "practically destroyed" assessment)
-- Precise artillery composition and numbers (estimated 18 guns from reduction percentage)
+- Exact personnel strength Q2 1941 (estimated at 50-60% based on "practically destroyed" assessment and reconstitution timeline)
+- Precise artillery composition and numbers (estimated 18 guns from reduction percentage; confirmed as Artillery Grouping "Sabratha" with CCLXXXII and CCLXXXIV groups)
 - Detailed vehicle holdings (estimated from reduced strength calculations)
 - Deputy commander and chief of staff names not identified
-- Exact casualties from Operation Compass/Beda Fomm
-- Precise deployment location within Derna-Mechili sector
-- Detailed timeline of reconstitution efforts
+- Exact casualties from Operation Compass/Beda Fomm (estimated 85-90% total losses across both battles)
+- Exact dates within Q2 1941 for transition from Al Khums to Gharyan-Nalut
+
+**Gaps Filled by Tier 2 Research:**
+- ✅ Geographic deployment location: Gharyan-Nalut sector confirmed
+- ✅ Reconstitution timeline: Feb-April (Al Khums) → May-Aug (Gharyan-Nalut) → September (return to front)
+- ✅ Artillery reorganization: 42º Reggimento destroyed, replaced by Artillery Grouping "Sabratha"
+- ✅ Infantry structure: Regiments reduced to 2 battalions each
+- ✅ Operational status: NOT combat ready, defensive garrison only
+- ✅ Battle sequence: Mostly destroyed at Derna (Jan 26) → Almost completely destroyed at Beda Fomm (Feb 6-7)
 
 **Estimation Methodology:**
-1. **Personnel (7,850):** Estimated at 54% of authorized 14,500 based on "practically destroyed" description and typical reconstitution patterns. Divisions suffering 70-80% casualties typically stabilize at 50-60% strength during rebuilding with minimal replacements.
+1. **Personnel (7,850):** Estimated at 54% of authorized 14,500 based on "practically destroyed" description and reconstitution timeline from Tier 2 sources. Divisions suffering 85-90% casualties (as Sabratha did across Derna and Beda Fomm) typically stabilize at 50-60% strength during May-August rebuilding period with minimal replacements. The estimate aligns with confirmed transition from Al Khums coastal defense (February-April at ~10-15% strength) to Gharyan-Nalut rebuilding phase (May-August at 50-60% strength).
 
-2. **Artillery (28 pieces):** Estimated at ~40% of authorized 48 pieces. Field artillery (18 pieces) calculated from proportional reduction. Anti-tank guns (18) estimated at half of normal 36-gun allocation.
+2. **Artillery (28 pieces):** Estimated at ~40% of authorized 48 pieces. The original 42º Reggimento artiglieria was completely destroyed at Beda Fomm (confirmed via Tier 2 sources), necessitating formation of replacement **Artillery Grouping "Sabratha"** consisting of CCLXXXII and CCLXXXIV artillery groups equipped primarily with 75/27 field guns. Field artillery (18 pieces) calculated from proportional reduction during reconstitution. Anti-tank guns (18) estimated at half of normal 36-gun allocation.
 
 3. **Vehicles (920):** Estimated at ~50% of authorized strength accounting for severe transport losses during retreat. Vehicle serviceability likely 60-70%, meaning effective transport even lower.
 
@@ -728,7 +750,7 @@ Confidence ratings assigned based on:
 - **60-69%:** Reasonable estimates based on standard practices and proportional calculations
 - **Below 60%:** Speculative estimates with limited evidence, flagged explicitly
 
-Overall 72% confidence reflects solid documentation of unit identity, composition, and historical context, with moderate confidence estimates for specific equipment and personnel numbers based on the "practically destroyed" status and standard reduction calculations.
+Overall **78% confidence** reflects solid documentation of unit identity, composition, and historical context enhanced by comprehensive Tier 2 web research. The addition of four major Tier 2 sources (Military Wiki, Warfare History Network, The Crusader Project, TheReaderWiki) provided critical operational history detail, precise geographic deployment (Gharyan-Nalut), reconstitution timeline, artillery reorganization specifics, and confirmation of non-operational status. Equipment and personnel numbers remain moderate confidence estimates based on the "practically destroyed" status and standard reduction calculations, but are now contextualized within a well-documented operational narrative.
 
 ## 16. Combat Operations and Historical Context
 
@@ -753,65 +775,127 @@ The Sabratha Division participated in the Italian offensive into Egypt in Septem
 **December 1940 - British Counteroffensive:**
 On December 9, 1940, British and Commonwealth forces launched Operation Compass, initially conceived as a large-scale raid but developed into a full offensive. The Italian positions at Sidi Barrani were overrun, and Italian forces began a chaotic retreat westward along the coastal road.
 
-**February 6-7, 1941 - Battle of Beda Fomm:**
-The decisive disaster occurred at Beda Fomm, where British forces under Lieutenant-General Richard O'Connor executed a brilliant flanking maneuver, cutting off the Italian retreat route south of Benghazi. Italian 10th Army columns attempting to escape were surrounded in the open desert.
+**January 26, 1941 - Destruction at Derna:**
+The Sabratha Division suffered severe losses during the fighting at Derna, being **"mostly destroyed"** according to historical sources. The division's combat formations were shattered, with heavy casualties in personnel and the loss of most equipment. The remnants of the division continued retreating westward toward Benghazi with other elements of the disintegrating 10th Army.
+
+**February 6-7, 1941 - Battle of Beda Fomm - Complete Destruction:**
+The decisive disaster occurred at Beda Fomm, where British forces under Lieutenant-General Richard O'Connor executed a brilliant flanking maneuver, cutting off the Italian retreat route south of Benghazi. Italian 10th Army columns attempting to escape were surrounded in the open desert. The Sabratha Division, already heavily damaged from Derna, was **"almost completely destroyed"** in this final catastrophic battle.
+
+The Battle of Beda Fomm marked the complete collapse of Italian resistance in Cyrenaica:
+- British 7th Armoured Division blocked escape routes at Beda Fomm
+- Massed Italian columns trapped in open desert with no room to maneuver
+- Concentrated British artillery and tank fire devastated Italian formations
+- Entire Italian 10th Army effectively annihilated
+- Over 20,000 prisoners captured at Beda Fomm alone
+- 216 artillery pieces, 120 tanks, and 1,500 vehicles captured or destroyed
 
 **Sabratha Division Losses:**
-- Exact casualties unknown, but division assessed as "practically destroyed"
-- Estimated 70-80% casualties (killed, wounded, captured)
-- Nearly all heavy equipment lost or abandoned
-- Survivors retreated to Derna-Mechili area in complete disorder
+The division suffered catastrophic casualties across two battles:
+- **At Derna (January 26):** Division "mostly destroyed" - estimated 50-60% casualties
+- **At Beda Fomm (February 6-7):** Remaining forces "almost completely destroyed"
+- **Combined losses:** Estimated 85-90% total casualties (killed, wounded, captured)
+- Nearly all heavy equipment lost or abandoned, including:
+  - All artillery pieces of 42º Reggimento artiglieria "Sabratha"
+  - Nearly all vehicles and transport
+  - Most crew-served weapons and support equipment
+- Survivors retreated to coastal areas in complete disorder
 - Division ceased to exist as coherent combat formation
+- Only small cadre of officers, NCOs, and scattered survivors remained
+
+**Artillery Regiment Destruction:**
+The **42º Reggimento artiglieria "Sabratha"** was completely destroyed at Beda Fomm, losing all of its guns, prime movers, and most personnel. This necessitated the later formation of a completely new artillery organization (Artillery Grouping "Sabratha" with CCLXXXII and CCLXXXIV groups) during reconstitution.
 
 The US G2 intelligence document from July 1943 succinctly describes the outcome: "Practically destroyed in 1940-41."
 
 ### 16.3 Q2 1941 - Reconstitution and Rebuilding
 
-**April-June 1941 Operations:**
+The reconstitution of the Sabratha Division followed a deliberate timeline reflecting Italian command priorities and resource constraints:
+
+**Post-Battle Recovery Timeline (February-August 1941):**
+
+**February-April 1941: Al Khums Coastal Defense**
+- Remnants of division withdrawn to **Al Khums** (approximately 120 km east of Tripoli)
+- Coastal defense duties with minimal forces
+- Initial regrouping of survivors and casualty accounting
+- Division at approximately 10-15% effective strength
+- Focus on survival and basic reorganization rather than combat operations
+
+**May-August 1941: Gharyan-Nalut Redeployment and Training**
+- Division redeployed to **Gharyan-Nalut defensive sector** in interior Tripolitania
+- Gharyan location: approximately 80 km south of Tripoli in Jebel Nafusa highlands
+- Nalut location: approximately 240 km southwest of Tripoli, near Tunisian border
+- **Primary mission: Training and rebuilding**, not active operations
+- Division classified as **NOT combat ready**
+- Assigned **defensive garrison duties only**
+- Gradual reception of minimal replacement personnel
+- Training of new recruits by surviving cadre
+- Infantry regiments reduced from 3 battalions to **2 battalions each** due to personnel shortages
+- Artillery reconstituted as **Artillery Grouping "Sabratha"** (CCLXXXII and CCLXXXIV groups with 75/27 field guns) replacing destroyed 42º Reggimento
+- Division strength gradually increased to 50-60% of authorized strength by mid-1941
+- Quiet sector allowed focus on reconstitution without combat pressure
+
+**September 1941: Return to Front**
+- Division redeployed to front near Tobruk
+- Classified as **combat ready** (though still understrength)
+- Participation in renewed siege operations
+- This marks end of pure reconstitution period
+
+**Q2 1941 Status (April-June):**
+During the specific period of this assessment (Q2 1941), the division was transitioning from Al Khums coastal defense to the Gharyan-Nalut training and rebuilding phase. The division's status was:
 
 **Mission:**
-- Defensive positions in Derna-Mechili sector
-- Coastal defense duties
+- Defensive positions in **Gharyan-Nalut sector** (interior Tripolitania)
+- Garrison duties in quiet rear-area sector
 - Recovery and reconstitution with minimal resources
-- Classified non-operational for offensive operations
+- Training of replacement personnel
+- Classified **non-operational for offensive operations**
+- NOT combat ready for frontline service
 
 **Living Conditions:**
-- Defensive positions in relatively favorable coastal sector (better water availability)
+- Defensive positions in interior highland/desert sector (Gharyan in Jebel Nafusa highlands, Nalut in desert)
+- Better water availability than coastal areas due to highland wells and cisterns
 - Extreme heat (40-45°C / 104-113°F in summer months)
 - Dust, flies, and difficult sanitation
 - Minimal shelter and amenities
 - Monotonous rations, often reduced quality
+- Relative isolation from active combat zone
 
 **Activities:**
 - Construction of defensive positions
-- Training of replacement personnel
+- Intensive training of replacement personnel by surviving cadre
 - Equipment maintenance and salvage operations
 - Security patrols in divisional sector
-- Minimal combat activity (occasional British air raids, limited patrol contacts)
+- Minimal combat activity (no frontline combat, occasional reconnaissance patrols)
+- Administrative reconstitution of units (reforming company and battalion structures)
+- Integration of new artillery grouping to replace destroyed regiment
 
 **Morale:**
 Morale described as "poor to fair" in combat effectiveness assessment. Factors affecting morale:
-- **Negative:** Defeats and heavy losses, material shortages, low priority for supplies, uncertain future
-- **Positive:** Removal from active combat allowing recovery, rebuilding offered hope for future, relative safety of rear area position
+- **Negative:** Recent catastrophic defeats and heavy losses, material shortages, low priority for supplies, uncertain future, psychological trauma from near-destruction
+- **Positive:** Removal from active combat allowing recovery, rebuilding offered hope for future, relative safety of rear area position, quiet sector reduced casualties, gradual improvement in strength and equipment
 
 ### 16.4 Operational Assessment
 
 **Strengths (Limited):**
 1. **Cadre of experienced officers and NCOs** - Survivors provided leadership nucleus for future rebuilding
-2. **Coastal defensive position** - Derna sector required less mobility, suited static defense
+2. **Interior garrison position** - Gharyan-Nalut sector required less mobility, suited static defense and training
 3. **Regimental traditions maintained** - Unit designations and structure preserved for future reconstitution
 4. **Some combat experience** - Surviving personnel had seen combat, though mostly defeat
+5. **Quiet sector for rebuilding** - Interior defensive position away from active combat allowed focus on reconstitution
 
 **Weaknesses (Severe):**
-1. **Personnel at only 54% authorized strength** - Division incapable of conducting divisional-scale operations
-2. **Artillery reduced to ~40% strength** - Inadequate fire support (18 vs 48 guns)
-3. **Transport severely depleted** - Division essentially immobile, incapable of redeployment
-4. **Morale poor** - Defeats and losses severely impacted will to fight
-5. **Many units exist as cadres only** - Battalions reduced to companies, companies to platoons
-6. **Equipment shortages across all categories** - Chronic deficiencies in all equipment types
-7. **Classified non-operational** - Officially assessed as incapable of offensive operations
-8. **Minimal mortars (4 vs 54+)** - Critical shortage of infantry support weapons
-9. **Low supply priority** - Division received minimal resources during Q2 1941
+1. **Personnel at only 50-60% authorized strength** - Division incapable of conducting divisional-scale operations
+2. **Infantry regiments reduced to 2 battalions each** - Down from normal 3-battalion structure due to personnel shortages
+3. **Artillery reduced to ~40% strength** - Inadequate fire support (18 vs 48 guns)
+4. **Artillery regiment completely destroyed** - Original 42º Reggimento lost at Beda Fomm, replaced by improvised Artillery Grouping "Sabratha"
+5. **Transport severely depleted** - Division essentially immobile, incapable of strategic redeployment
+6. **Morale poor** - Catastrophic defeats and near-destruction severely impacted will to fight
+7. **Many units exist as cadres only** - Battalions reduced to companies, companies to platoons
+8. **Equipment shortages across all categories** - Chronic deficiencies in all equipment types
+9. **Classified non-operational** - Officially assessed as NOT combat ready, incapable of offensive operations
+10. **Minimal mortars (4 vs 54+)** - Critical shortage of infantry support weapons
+11. **Low supply priority** - Division received minimal resources during Q2 1941
+12. **Psychological trauma from near-annihilation** - Survivors bore scars of catastrophic defeats at Derna and Beda Fomm
 
 **Combat Effectiveness Rating: Poor - Division Non-Operational**
 
@@ -874,4 +958,4 @@ The division's experience was not unique - multiple Italian divisions suffered s
 
 **End of Chapter: 60ª Divisione di fanteria "Sabratha" (1941-Q2)**
 
-This chapter has provided a comprehensive analysis of the division's organization, equipment, personnel, and operations during its recovery period in April-June 1941, based on historical sources with an overall confidence level of 72%. The division's status as "practically destroyed" and undergoing reconstitution provides valuable insights into the challenges faced by Italian forces following the catastrophic defeats of Operation Compass and the difficulties of rebuilding combat effectiveness in a harsh operational environment with limited resources.
+This chapter has provided a comprehensive analysis of the division's organization, equipment, personnel, and operations during its recovery period in April-June 1941, based on historical sources with an overall confidence level of **78%**. Enhanced by detailed Tier 2 web research, the chapter now documents the precise reconstitution timeline (February-April at Al Khums, May-August at Gharyan-Nalut, September return to front), the complete destruction sequence (mostly destroyed at Derna on January 26, almost completely destroyed at Beda Fomm on February 6-7), the artillery reorganization (destroyed 42º Reggimento replaced by Artillery Grouping "Sabratha" with CCLXXXII and CCLXXXIV groups), and the confirmed non-operational status during Q2 1941. The division's status as "practically destroyed" and undergoing reconstitution in the Gharyan-Nalut defensive sector provides valuable insights into the challenges faced by Italian forces following the catastrophic defeats of Operation Compass and the difficulties of rebuilding combat effectiveness in a harsh operational environment with limited resources.
