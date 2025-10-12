@@ -219,6 +219,15 @@ ${nextBatch.length > 0 ? nextBatch.map((u, i) => `${i + 1}. ${u.nation} - ${u.de
 📊 Check validation: Review SESSION_CHECKPOINT.md for chapter status
 🏁 When done: Bash('npm run session:end')
 
+**UNIFIED SCHEMA COMPLIANCE (schemas/UNIFIED_SCHEMA_EXAMPLES.md):**
+- **CRITICAL**: Use top-level fields (nation, quarter, organization_level)
+- **NEVER** nest unit_identification, personnel_summary, equipment_summary
+- Commander MUST be nested object: commander.name, commander.rank
+- Nation values lowercase only: german, italian, british, american, french
+- Tank totals MUST match: total = heavy + medium + light
+- **Validation**: Run scripts/lib/validator.js before saving
+- **Examples**: See schemas/UNIFIED_SCHEMA_EXAMPLES.md for correct/incorrect structures
+
 **TEMPLATE COMPLIANCE (v2.0 - 16 Sections from MDBOOK_CHAPTER_TEMPLATE.md):**
 - Section 3: Command (commander, HQ, staff) - REQUIRED
 - Section 5: Artillery (summary + detail for EVERY variant)
