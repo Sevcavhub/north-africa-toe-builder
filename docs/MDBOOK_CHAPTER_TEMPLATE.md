@@ -1,8 +1,8 @@
 # MDBook Chapter Template - TO&E Unit Documentation
 
-**Version:** 2.0
-**Updated:** 2025-10-10
-**Purpose:** Standard format for all MDBook chapters generated from TO&E JSON files
+**Version:** 3.0
+**Updated:** 2025-10-13
+**Purpose:** Standard format for all MDBook chapters generated from TO&E JSON files (Ground Forces)
 
 ---
 
@@ -12,7 +12,7 @@ This template defines the standard structure for military unit chapters in the N
 
 ---
 
-## Required Sections (16 Total)
+## Required Sections (18 Total)
 
 ### 1. Header
 
@@ -294,9 +294,127 @@ Brief 2-3 paragraph narrative introduction covering:
 
 ---
 
+### Infantry Weapons Table (CRITICAL - Gap 8 Fix)
+
+**NEW REQUIREMENT for v3.0** - Extract from `top_3_infantry_weapons` in unit JSON
+
+```markdown
+## Infantry Weapons
+
+### Top 3 Weapons by Count
+
+| Rank | Weapon | Count | Type | Role |
+|------|--------|-------|------|------|
+| #1 | [Weapon Name] | [Count] | [Type] | [Role Description] |
+| #2 | [Weapon Name] | [Count] | [Type] | [Role Description] |
+| #3 | [Weapon Name] | [Count] | [Type] | [Role Description] |
+
+**Analysis**: [Brief paragraph about infantry armament philosophy, strengths, weaknesses]
+```
+
+**ACTUAL EXAMPLE (British 7th Armoured, 1940 Q2):**
+
+```markdown
+## Infantry Weapons
+
+### Top 3 Weapons by Count
+
+| Rank | Weapon | Count | Type | Role |
+|------|--------|-------|------|------|
+| #1 | Lee-Enfield No.1 Mk III | 8,420 | Rifle | Primary infantry weapon |
+| #2 | Bren Light Machine Gun | 412 | LMG | Squad automatic weapon |
+| #3 | Boys Anti-Tank Rifle | 138 | AT Rifle | Infantry anti-tank capability |
+
+**Analysis**: The division's infantry armament follows standard British doctrine with the reliable Lee-Enfield as the backbone. The high Bren count (1 per 20 riflemen) provides excellent squad fire support. Boys AT rifles give infantry companies organic anti-tank capability against light armor, though effectiveness against newer German tanks is limited.
+```
+
+---
+
 ## Additional Sections
 
-### 9. Organizational Structure
+### 9. Supply & Logistics (NEW - v3.0)
+
+**CRITICAL REQUIREMENT** - Extract from `supply_logistics` object in unit JSON
+
+```markdown
+## Supply & Logistics
+
+### Logistics Status ([Quarter])
+
+| Resource | Quantity | Status | Notes |
+|----------|----------|--------|-------|
+| **Operational Radius** | [Distance] km | - | From [Main depot] |
+| **Fuel Reserves** | [Days] days | [Status] | At current consumption rate |
+| **Ammunition** | [Days] days | [Status] | Combat load basis |
+| **Water Supply** | [Liters] L/day/person | [Status] | Desert operations requirement |
+
+**Supply Status**: [Qualitative assessment from supply_status field]
+
+**Operational Context**: [Description of supply constraints, logistics challenges, impact on operations]
+```
+
+**ACTUAL EXAMPLE (German Deutsches Afrikakorps, 1941 Q2):**
+
+```markdown
+## Supply & Logistics
+
+### Logistics Status (1941 Q2)
+
+| Resource | Quantity | Status | Notes |
+|----------|----------|--------|-------|
+| **Operational Radius** | 350 km | Constrained | From Tripoli (1800km) |
+| **Fuel Reserves** | 6.5 days | Strained | Vulnerable to interdiction |
+| **Ammunition** | 8 days | Adequate | Sufficient for defensive ops |
+| **Water Supply** | 4.5 L/day/person | Adequate | Desert operations minimum |
+
+**Supply Status**: Adequate for defensive operations, strained for sustained offensive operations. Primary constraint: fuel delivery from Tripoli over 1800km of vulnerable coastal road.
+
+**Operational Context**: The DAK's operational tempo is directly constrained by fuel availability. Rommel's aggressive tactics frequently operate beyond prudent supply margins. British interdiction of coastal convoys creates periodic crises requiring operational pauses.
+```
+
+### 10. Operational Environment (NEW - v3.0)
+
+**CRITICAL REQUIREMENT** - Extract from `weather_environment` object in unit JSON
+
+```markdown
+## Operational Environment
+
+### Environmental Conditions ([Quarter])
+
+| Factor | Value | Impact |
+|--------|-------|--------|
+| **Season** | [Quarter description] | - |
+| **Temperature Range** | [Min]°C to [Max]°C | [Heat/cold impact] |
+| **Terrain Type** | [Description] | [Mobility/visibility effects] |
+| **Storm Frequency** | [Days] days/month | [Operational disruption] |
+| **Daylight Hours** | [Hours] hours | [Operational tempo] |
+
+**Environmental Impact**: [Description of how conditions affect operations, equipment performance, personnel endurance]
+
+**Tactical Considerations**: [How weather/terrain influences tactics, timing of operations, equipment choices]
+```
+
+**ACTUAL EXAMPLE (North Africa, 1941 Q2 - April-June):**
+
+```markdown
+## Operational Environment
+
+### Environmental Conditions (1941 Q2 - April-June)
+
+| Factor | Value | Impact |
+|--------|-------|--------|
+| **Season** | Spring transitioning to summer | Rising heat stress |
+| **Temperature Range** | 18°C to 35°C | High daytime heat, moderate nights |
+| **Terrain Type** | Coastal plain and rocky desert | Good tank mobility, limited cover |
+| **Storm Frequency** | 2 days/month | Occasional sandstorms (Ghibli winds) |
+| **Daylight Hours** | 13.5 hours | Extended operational window |
+
+**Environmental Impact**: Rising temperatures increase water requirements and strain cooling systems on vehicles and aircraft. The terrain favors mobile armored warfare with excellent visibility for reconnaissance. Sandstorms occasionally ground aircraft and reduce visibility to near-zero, halting operations.
+
+**Tactical Considerations**: Long daylight hours enable extended combat operations but also increase exposure to air attack. Lack of natural cover places premium on prepared defensive positions. Heat necessitates dawn/dusk operations to preserve crew effectiveness.
+```
+
+### 11. Organizational Structure
 
 List subordinate units with:
 - Unit designation
@@ -305,24 +423,7 @@ List subordinate units with:
 - Composition (regiments/battalions)
 - Equipment summary
 
-### 10. Supply Status
-
-```markdown
-## Supply Status ([Quarter])
-
-| Resource | Days of Supply | Status |
-|----------|---------------|--------|
-| **Fuel** | [Days] | [Assessment] |
-| **Ammunition** | [Days] | [Assessment] |
-| **Food** | [Days] | [Assessment] |
-| **Water** | [Liters/day/man] | [Assessment] |
-
-**Operational Radius**: [Distance] from [Base]
-**Supply Base**: [Location]
-**Assessment**: [Overall status description]
-```
-
-### 11. Tactical Doctrine & Capabilities
+### 12. Tactical Doctrine & Capabilities
 
 - Role description
 - Special capabilities
@@ -330,7 +431,7 @@ List subordinate units with:
 - Known issues/limitations
 - Desert/terrain adaptations (if applicable)
 
-### 12. Critical Equipment Shortages
+### 13. Critical Equipment Shortages
 
 **REQUIRED SECTION** - Document operational limitations from equipment deficiencies
 
@@ -371,7 +472,7 @@ This section identifies critical equipment shortages that significantly impact u
 - **Transport Vehicles**: 15% below establishment strength
 ```
 
-### 13. Historical Context
+### 14. Historical Context
 
 - Formation history
 - Operational status for the quarter
@@ -379,7 +480,7 @@ This section identifies critical equipment shortages that significantly impact u
 - Combat activity
 - Equipment status
 
-### 14. Wargaming Data
+### 15. Wargaming Data
 
 - Scenario suitability
 - Morale rating (1-10)
@@ -387,7 +488,7 @@ This section identifies critical equipment shortages that significantly impact u
 - Special rules for wargames
 - Historical engagements
 
-### 15. Data Quality & Known Gaps
+### 16. Data Quality & Known Gaps
 
 **REQUIRED SECTION** - Transparency about data completeness
 
@@ -447,7 +548,7 @@ When additional sources become available, the following areas would benefit from
 
 ---
 
-### 16. Conclusion
+### 17. Conclusion
 
 2-3 paragraph wrap-up covering:
 - Unit assessment for the quarter
@@ -462,7 +563,7 @@ When additional sources become available, the following areas would benefit from
 
 **Data Source**: Autonomous TO&E Extraction System
 **Confidence**: [%] ([Source tier description])
-**Schema**: unified_toe_schema.json v1.0.0
+**Schema**: unified_toe_schema.json v3.0.0 (Ground Forces)
 **Extraction Date**: [YYYY-MM-DD]
 
 ---
@@ -532,20 +633,21 @@ Before publishing any chapter, verify:
 - [ ] Readiness percentages calculated correctly
 - [ ] Variant counts sum to category totals
 - [ ] WITW IDs included where available
-- [ ] All 16 required sections present:
+- [ ] All 18 required sections present:
   - [ ] 1. Header
   - [ ] 2. Division/Unit Overview
   - [ ] 3. Command
   - [ ] 4. Personnel Strength
-  - [ ] 5-8. Equipment sections (Armoured, Artillery, Armoured Cars, Infantry Weapons, Transport)
-  - [ ] 9. Organizational Structure
-  - [ ] 10. Supply Status
-  - [ ] 11. Tactical Doctrine & Capabilities
-  - [ ] 12. Critical Equipment Shortages
-  - [ ] 13. Historical Context
-  - [ ] 14. Wargaming Data
-  - [ ] 15. Data Quality & Known Gaps
-  - [ ] 16. Conclusion with Data Source Footer
+  - [ ] 5-9. Equipment sections (Armoured, Artillery, Armoured Cars, Infantry Weapons, Transport)
+  - [ ] 10. Supply & Logistics (NEW v3.0 - extract from supply_logistics object)
+  - [ ] 11. Operational Environment (NEW v3.0 - extract from weather_environment object)
+  - [ ] 12. Organizational Structure
+  - [ ] 13. Tactical Doctrine & Capabilities
+  - [ ] 14. Critical Equipment Shortages
+  - [ ] 15. Historical Context
+  - [ ] 16. Wargaming Data
+  - [ ] 17. Data Quality & Known Gaps
+  - [ ] 18. Conclusion with Data Source Footer
 - [ ] Cross-references to subordinate units included
 - [ ] Source citations in footer
 - [ ] Confidence score documented
@@ -576,7 +678,15 @@ When manually editing chapters:
 
 ---
 
-**Template Version:** 2.0
+**Template Version:** 3.0
 **Author:** Claude Code Autonomous Orchestrator
-**Date:** 2025-10-10
+**Date:** 2025-10-13
 **Status:** PRODUCTION STANDARD - All chapters must comply
+
+**v3.0 Changes:**
+- Added Section 8: Infantry Weapons (Gap 8 fix)
+- Added Section 10: Supply & Logistics (supply_logistics object extraction)
+- Added Section 11: Operational Environment (weather_environment object extraction)
+- Renumbered sections 9-16 → 12-18
+- Updated quality checklist for 18 sections
+- Schema updated to v3.0.0 (Ground Forces)

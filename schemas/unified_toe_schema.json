@@ -1,7 +1,7 @@
 {
-  "schema_version": "1.0.0",
-  "schema_name": "Unified TO&E Schema (All Organizational Levels)",
-  "description": "Common schema for theater, corps, division, regiment, battalion, company, platoon, and squad levels. Every level includes full Strategic Command Summary (SCM) detail.",
+  "schema_version": "3.0.0",
+  "schema_name": "Unified TO&E Schema (All Organizational Levels) - Ground Forces",
+  "description": "Common schema for theater, corps, division, regiment, battalion, company, platoon, and squad levels. Every level includes full Strategic Command Summary (SCM) detail with supply/logistics and environmental factors for scenario generation.",
   "file_naming": "{nation}_{quarter}_{unit_designation}_toe.json",
   "stability": "HIGH - Standardized across all nations and organizational levels",
   
@@ -33,7 +33,8 @@
     "tanks",
     "artillery_total",
     "aircraft_total",
-    "supply_status",
+    "supply_logistics",
+    "weather_environment",
     "subordinate_units",
     "validation"
   ],
@@ -286,14 +287,103 @@
     "reconnaissance": {"type": "object", "description": "Reconnaissance aircraft breakdown"},
     "transport": {"type": "object", "description": "Transport aircraft breakdown (optional)"},
     
-    "supply_status": {
+    "supply_logistics": {
       "type": "object",
+      "required": true,
+      "version": "3.0",
+      "description": "Supply and logistics state - CRITICAL for scenario generation",
       "structure": {
-        "fuel_days": "integer",
-        "ammunition_days": "integer",
-        "water_liters_per_day": "integer",
-        "food_days": "integer (optional)"
-      }
+        "supply_status": {
+          "type": "string",
+          "description": "Qualitative assessment with operational context",
+          "example": "Adequate for defensive operations, strained for offensive operations. Primary constraint: fuel delivery from Tripoli (1800km)."
+        },
+        "operational_radius_km": {
+          "type": "integer",
+          "minimum": 50,
+          "maximum": 1000,
+          "description": "Distance from main supply depot in kilometers",
+          "example": 350
+        },
+        "fuel_reserves_days": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 30,
+          "description": "Days of fuel at current consumption rate",
+          "example": 6.5
+        },
+        "ammunition_days": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 30,
+          "description": "Days of combat ammunition supply",
+          "example": 8
+        },
+        "water_liters_per_day": {
+          "type": "number",
+          "minimum": 3,
+          "maximum": 10,
+          "description": "Water capacity per person per day (desert operations)",
+          "example": 4.5
+        }
+      },
+      "validation_rules": [
+        "operational_radius_km must be realistic for terrain and logistics",
+        "fuel_reserves_days typically 1-30 days",
+        "ammunition_days typically 1-30 days",
+        "water_liters_per_day typically 3-6 L/person/day for desert"
+      ]
+    },
+
+    "weather_environment": {
+      "type": "object",
+      "required": true,
+      "version": "3.0",
+      "description": "Environmental conditions for the quarter - CRITICAL for scenario generation",
+      "structure": {
+        "season_quarter": {
+          "type": "string",
+          "format": "YYYY-QN with description",
+          "example": "1941-Q2 (April-June)",
+          "description": "Quarter and seasonal conditions"
+        },
+        "temperature_range_c": {
+          "type": "object",
+          "structure": {
+            "min": "integer (-5 to 30 typical)",
+            "max": "integer (20 to 50 typical)"
+          },
+          "validation": "min < max",
+          "example": {"min": 18, "max": 35},
+          "description": "Daily temperature range in Celsius"
+        },
+        "terrain_type": {
+          "type": "string",
+          "description": "Primary terrain type",
+          "examples": ["coastal plain", "rocky desert", "sand desert", "mixed terrain"],
+          "example": "coastal plain and rocky desert"
+        },
+        "storm_frequency_days": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 15,
+          "description": "Sandstorms, Ghibli winds frequency (days per month)",
+          "example": 2
+        },
+        "daylight_hours": {
+          "type": "number",
+          "minimum": 10,
+          "maximum": 15,
+          "description": "Average daylight hours (affects operational tempo)",
+          "example": 13.5
+        }
+      },
+      "validation_rules": [
+        "temperature_min < temperature_max",
+        "temperature values realistic for North Africa (-5 to 50°C range)",
+        "storm_frequency realistic (0-10 days/month typical)",
+        "daylight_hours realistic (10-15 hours for North Africa latitudes)"
+      ]
     },
     
     "subordinate_units": {
@@ -377,7 +467,13 @@
     "operational counts must be <= total counts",
     "supreme_commander must not be 'Unknown' unless confidence < 50%",
     "Parent-child relationships: sum of subordinate totals = parent total (±5%)",
-    "individual_positions array populated ONLY for squad_toe schema_type"
+    "individual_positions array populated ONLY for squad_toe schema_type",
+    "supply_logistics object REQUIRED with all 5 fields (v3.0)",
+    "weather_environment object REQUIRED with all 5 fields (v3.0)",
+    "operational_radius_km must be > 0 and realistic (50-1000km typical)",
+    "fuel_reserves_days and ammunition_days typically 1-30 days",
+    "temperature_range_c.min < temperature_range_c.max",
+    "NO Wikipedia sources allowed in validation.source array"
   ],
   
   "data_quality": {
@@ -393,5 +489,25 @@
     "All other levels have empty individual_positions array",
     "Equipment detail is maintained at ALL levels (not just theater)",
     "Subordinate units reference child JSON files for complete detail"
-  ]
+  ],
+
+  "changelog": {
+    "3.0.0": {
+      "date": "2025-10-13",
+      "changes": [
+        "Added supply_logistics object (Section 6) - 5 required fields for scenario generation",
+        "Added weather_environment object (Section 7) - 5 required fields for seasonal modeling",
+        "Updated validation rules to enforce supply/logistics and environmental data",
+        "Added Wikipedia source blocking to validation rules",
+        "Renamed from 'Unified TO&E Schema' to 'Ground Forces' schema (Air Forces will be separate Phase 7)",
+        "Required for: scenario generation, wargaming exports, campaign system"
+      ],
+      "breaking_changes": true,
+      "migration": "All unit JSONs must add supply_logistics and weather_environment objects"
+    },
+    "1.0.0": {
+      "date": "2025-10-09",
+      "changes": ["Initial schema with Sections 1-5 (command, personnel, equipment, artillery, aircraft)"]
+    }
+  }
 }
