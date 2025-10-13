@@ -1,8 +1,8 @@
 # 🚀 NEW SESSION - START HERE
 
 **Project**: North Africa TO&E Builder - **v3.0.0 (Ground Forces)**
-**Last Updated**: 2025-10-13
-**Status**: Schema v3.0 Complete, Ready for Unit Extraction
+**Last Updated**: 2025-10-13 14:45
+**Status**: Schema v3.0 Complete, Showcase 90% Complete (Gaps 3/5/8 RESOLVED)
 
 ---
 
@@ -37,18 +37,30 @@
 - **NPM Scripts**: Added `validate:v3`, `validate:sources`, `qa:v3`
 - **Wikipedia Blocking**: 4-layer protection (parser → research → validator → publisher)
 
+### ✅ RECENTLY COMPLETED (2025-10-13):
+- **Gap 3 - Wikipedia Violations**: ✅ RESOLVED - 0 violations (was 26 across 9 files)
+  - 10 divisions re-extracted with Tier 1/2 sources only
+  - Average confidence: 80.8% (range: 78-88%)
+  - All 18 MDBook chapters regenerated clean
+- **Gap 8 - Infantry Weapons**: ✅ RESOLVED - All 18 chapters now include Section 8
+  - Updated generate_mdbook_chapters.js with extraction logic
+  - Chapter structure expanded to 18 sections (was 16)
+- **Gap 5 - Empty Sections**: ✅ RESOLVED - Bologna & Trieste complete
+  - Comprehensive 6-subsection overviews added
+  - Both upgraded to schema v3.0.0
+
 ### 🔨 IN PROGRESS:
-- **1941-Q2 Showcase**: 18 units generated, needs Gap 3/5/8 fixes
-- **Wikipedia Violations**: 7 chapters (38.9%) need regeneration with Tier 1/2 sources only
-- **Infantry Weapons**: Missing from all 18 chapters (data exists, needs extraction)
-- **Corps Roll-ups**: 2 British + 2 Italian corps units need extraction
+- **1941-Q2 Showcase**: 90% complete (was 70%)
+  - 10/18 units upgraded to v3.0.0 schema
+  - All critical gaps resolved (Gap 3, 5, 8)
+  - Remaining: Corps Roll-ups (Gaps 1 & 2)
 
 ### 📋 NEXT PRIORITIES:
 
-1. **Gap 8 Fix** (CRITICAL): Regenerate all 18 chapters with Infantry Weapons section
-2. **Gap 3 Fix** (CRITICAL): Remove Wikipedia from 7 chapters (Bologna, Ariete, 15.Panzer, 1st SA, 4th Indian, 5th Indian, 7th Armoured)
-3. **Gap 5 Fix** (HIGH): Fix empty Division Overview sections (Bologna, Trieste)
-4. **Gaps 1 & 2** (HIGH): Extract 4 corps units (XIII Corps, WDF, XX Corpo, XXI Corpo)
+1. **Gap 1** (HIGH): Extract British Corps units (XIII Corps, Western Desert Force)
+2. **Gap 2** (HIGH): Extract Italian Corps units (XX Corpo d'Armata, XXI Corpo d'Armata)
+3. **Gap 4** (MEDIUM): Apply Ariete narrative standard to all chapters
+4. **Complete Showcase**: Upgrade remaining 8 divisions to v3.0.0 (50th Infantry, 9th Australian, 5. leichte, Pavia, Brescia, Trento, Savona, DAK)
 
 ---
 
@@ -156,20 +168,22 @@ npm run git:push           # Commit and push
 
 ## Common Workflows
 
-### 1. Fix Showcase Gaps (Immediate Priority)
+### 1. Complete Showcase (Current Priority)
 
 ```bash
-# Read gap analysis
+# Read gap analysis (updated with resolved gaps)
 "Read data/output/1941-q2-showcase/SHOWCASE_GAPS.md"
 
-# Fix Gap 8 (Infantry Weapons)
-"Update scripts/generate_mdbook_chapters.js to extract top_3_infantry_weapons"
+# Read completion report for v3.0 details
+"Read data/output/1941-q2-showcase/RE-EXTRACTION_COMPLETE.md"
 
-# Fix Gap 3 (Wikipedia violations)
-"Regenerate 7 chapters using only Tier 1/2 sources"
+# Gap 1 - Extract British Corps
+"Extract XIII Corps TO&E for 1941-Q2"
+"Extract Western Desert Force TO&E for 1941-Q2"
 
-# Fix Gap 5 (Empty sections)
-"Fix Bologna and Trieste Division Overview sections"
+# Gap 2 - Extract Italian Corps
+"Extract XX Corpo d'Armata TO&E for 1941-Q2"
+"Extract XXI Corpo d'Armata TO&E for 1941-Q2"
 ```
 
 ### 2. Extract New Units
@@ -259,4 +273,4 @@ If you need context from previous sessions:
 
 **Ready to continue? Just tell me what you want to work on!** 🚀
 
-**Recommended Next Step**: "Review SHOWCASE_GAPS.md and fix Gap 8 (Infantry Weapons extraction)"
+**Recommended Next Step**: "Read RE-EXTRACTION_COMPLETE.md then extract British/Italian Corps units (Gaps 1 & 2)"
