@@ -37,6 +37,16 @@
 | ↳ Marmon-Herrington Mk II | 36 |
 | ↳ Universal Carrier | 12 |
 
+## Infantry Weapons
+
+### Top 3 Weapons by Count
+
+| Rank | Weapon | Count | Type | Role |
+|------|--------|-------|------|------|
+| #1 | Lee-Enfield No. 1 Mk III | 13,500 | Bolt-Action Rifle | Unknown |
+| #2 | Bren Gun | 920 | Light Machine Gun | Unknown |
+| #3 | Vickers Machine Gun | 192 | Heavy Machine Gun | Unknown |
+
 ## Transport & Vehicles
 
 **Total Ground Vehicles:** 2,800
@@ -160,7 +170,6 @@ No critical equipment shortages identified for this quarter.
 
 - British Army List April 1941 (Primary source)
 - New Zealand History website (Official NZ govt history)
-- Military Wiki - 2nd New Zealand Division
 - Balagan.info - British Commonwealth TO&E 1941
 - Standard British infantry division establishment 1941
 
@@ -181,4 +190,4 @@ No critical equipment shortages identified for this quarter.
 **Primary Sources:**
 - British Army List April 1941 (Primary source)
 - New Zealand History website (Official NZ govt history)
-- Military Wiki - 2nd New Zealand Division
+- Balagan.info - British Commonwealth TO&E 1941

@@ -39,6 +39,16 @@ Formed as 1st South African Infantry Division, redesignated N/A. Known as "None 
 | ↳ Marmon-Herrington Mk II | 36 |
 | ↳ Marmon-Herrington Mk I | 12 |
 
+## Infantry Weapons
+
+### Top 3 Weapons by Count
+
+| Rank | Weapon | Count | Type | Role |
+|------|--------|-------|------|------|
+| #1 | Lee-Enfield No.1 Mk III Rifle | 15,800 | rifle | Primary infantry weapon |
+| #2 | Bren Light Machine Gun | 560 | light machine gun | Squad automatic weapon |
+| #3 | Vickers Medium Machine Gun | 72 | medium machine gun | Unknown |
+
 ## Transport & Vehicles
 
 **Total Ground Vehicles:** 3,450
@@ -174,11 +184,6 @@ No critical equipment shortages identified for this quarter.
 
 ### Primary Sources
 
-- Wikipedia: 1st South African Infantry Division - Division history, commander, brigade composition (Confidence: 75%)
-- Wikipedia: George Brink - Commander verification, appointment date 13 August 1940 (Confidence: 80%)
-- Wikipedia: 1st South African Infantry Brigade - Brigade composition, Dan Pienaar command, battalion assignments (Confidence: 78%)
-- Wikipedia: 5th Infantry Brigade (South Africa) - Brigade composition, Bertram Armstrong command, battalions confirmed (Confidence: 78%)
-- Wikipedia: 2nd South African Infantry Brigade - Brigade composition, W.H.E. Poole command (Confidence: 75%)
 - HyperWar: UK Mediterranean & Middle East Vol.II Appendix VIII - Command structure confirmation (Confidence: 85%)
 - South African Military History Society - 5th Brigade at Sidi Rezegh, detailed unit composition (Confidence: 82%)
 - Web sources: Marmon-Herrington armoured car production and use by South African forces (Confidence: 80%)
@@ -208,6 +213,6 @@ No critical equipment shortages identified for this quarter.
 *Data compiled from historical records for 1941-Q2 North Africa Campaign*
 
 **Primary Sources:**
-- Wikipedia: 1st South African Infantry Division - Division history, commander, brigade composition (Confidence: 75%)
-- Wikipedia: George Brink - Commander verification, appointment date 13 August 1940 (Confidence: 80%)
-- Wikipedia: 1st South African Infantry Brigade - Brigade composition, Dan Pienaar command, battalion assignments (Confidence: 78%)
+- HyperWar: UK Mediterranean & Middle East Vol.II Appendix VIII - Command structure confirmation (Confidence: 85%)
+- South African Military History Society - 5th Brigade at Sidi Rezegh, detailed unit composition (Confidence: 82%)
+- Web sources: Marmon-Herrington armoured car production and use by South African forces (Confidence: 80%)

@@ -460,7 +460,43 @@ function generateChapter(unit) {
     }
   }
 
-  // Section 8: Transport & Vehicles (NO tanks/armored cars)
+  // Section 8: Infantry Weapons (NEW in v3.0)
+  if (data.top_3_infantry_weapons) {
+    chapter += `## Infantry Weapons\n\n`;
+    chapter += `### Top 3 Weapons by Count\n\n`;
+    chapter += `| Rank | Weapon | Count | Type | Role |\n`;
+    chapter += `|------|--------|-------|------|------|\n`;
+
+    // Extract top 3 weapons
+    const top3 = data.top_3_infantry_weapons;
+    for (let i = 1; i <= 3; i++) {
+      if (top3[i.toString()]) {
+        const weapon = top3[i.toString()];
+        const weaponName = weapon.weapon || 'Unknown';
+        const count = formatNumber(weapon.count || 0);
+        const type = (weapon.type || 'unknown').replace(/_/g, ' ');
+
+        // Determine role from type
+        let role = 'Unknown';
+        if (weapon.type === 'rifle') role = 'Primary infantry weapon';
+        else if (weapon.type === 'light_machine_gun' || weapon.type === 'lmg') role = 'Squad automatic weapon';
+        else if (weapon.type === 'heavy_machine_gun' || weapon.type === 'hmg') role = 'Heavy support weapon';
+        else if (weapon.type === 'anti_tank_rifle') role = 'Infantry anti-tank capability';
+        else if (weapon.type === 'submachine_gun' || weapon.type === 'smg') role = 'Close quarters combat';
+        else if (weapon.type === 'pistol') role = 'Officer/NCO sidearm';
+        else if (weapon.type === 'grenade_launcher') role = 'Infantry fire support';
+
+        chapter += `| #${i} | ${weaponName} | ${count} | ${type} | ${role} |\n`;
+      }
+    }
+
+    chapter += `\n`;
+    if (data.infantry_weapons_notes) {
+      chapter += `**Notes:** ${data.infantry_weapons_notes}\n\n`;
+    }
+  }
+
+  // Section 9: Transport & Vehicles (NO tanks/armored cars)
   if (data.ground_vehicles || data.trucks) {
     chapter += `## Transport & Vehicles\n\n`;
 
@@ -577,7 +613,43 @@ function generateChapter(unit) {
     }
   }
 
-  // Section 11: Tactical Doctrine & Capabilities
+  // Section 11: Operational Environment (NEW in v3.0)
+  if (data.weather_environment) {
+    chapter += `## Operational Environment\n\n`;
+
+    const weather = data.weather_environment;
+    chapter += `### Environmental Conditions\n\n`;
+    chapter += `| Factor | Value |\n`;
+    chapter += `|--------|-------|\n`;
+
+    if (weather.season_quarter) {
+      chapter += `| **Season/Quarter** | ${weather.season_quarter} |\n`;
+    }
+    if (weather.temperature_range_c) {
+      const tempRange = `${weather.temperature_range_c.min}°C to ${weather.temperature_range_c.max}°C`;
+      chapter += `| **Temperature Range** | ${tempRange} |\n`;
+    }
+    if (weather.terrain_type) {
+      chapter += `| **Terrain Type** | ${weather.terrain_type} |\n`;
+    }
+    if (weather.storm_frequency_days !== undefined) {
+      chapter += `| **Storm Frequency** | ${weather.storm_frequency_days} days/month |\n`;
+    }
+    if (weather.daylight_hours) {
+      chapter += `| **Daylight Hours** | ${weather.daylight_hours} hours/day |\n`;
+    }
+
+    chapter += `\n`;
+
+    if (weather.environmental_impact) {
+      chapter += `**Environmental Impact:** ${weather.environmental_impact}\n\n`;
+    }
+    if (weather.tactical_considerations) {
+      chapter += `**Tactical Considerations:** ${weather.tactical_considerations}\n\n`;
+    }
+  }
+
+  // Section 12: Tactical Doctrine & Capabilities
   chapter += `## Tactical Doctrine & Capabilities\n\n`;
   if (data.tactical_doctrine || data.combat_effectiveness) {
     if (data.tactical_doctrine?.role) {
@@ -607,7 +679,7 @@ function generateChapter(unit) {
     }
   }
 
-  // Section 12: Critical Equipment Shortages
+  // Section 13: Critical Equipment Shortages
   chapter += `## Critical Equipment Shortages\n\n`;
 
   // Analyze shortages from data
@@ -661,7 +733,7 @@ function generateChapter(unit) {
     chapter += `No critical equipment shortages identified for this quarter.\n\n`;
   }
 
-  // Section 13: Historical Context
+  // Section 14: Historical Context
   chapter += `## Historical Context\n\n`;
 
   // Major engagements
@@ -728,7 +800,7 @@ function generateChapter(unit) {
     chapter += `### Strategic Situation\n\n${data.historical_context.strategic_situation}\n\n`;
   }
 
-  // Section 14: Wargaming Data
+  // Section 15: Wargaming Data
   chapter += `## Wargaming Data\n\n`;
   if (data.wargaming_data) {
     chapter += `| Attribute | Value |\n`;
@@ -754,7 +826,7 @@ function generateChapter(unit) {
     }
   }
 
-  // Section 15: Data Quality & Known Gaps
+  // Section 16: Data Quality & Known Gaps
   chapter += `## Data Quality & Known Gaps\n\n`;
   if (data.data_quality || data.validation) {
     const quality = data.data_quality || data.validation;
@@ -784,7 +856,7 @@ function generateChapter(unit) {
     }
   }
 
-  // Section 16: Conclusion
+  // Section 17: Conclusion
   chapter += `## Conclusion\n\n`;
   if (data.combat_effectiveness?.notes) {
     chapter += `${data.combat_effectiveness.notes}\n\n`;

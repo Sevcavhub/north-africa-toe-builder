@@ -54,6 +54,16 @@ Formed as Mobile Division (Egypt), redesignated 1939-10-01 as 7th Armoured Divis
 | ↳ Rolls-Royce Armoured Car | 22 |
 | ↳ Humber Mk I | 12 |
 
+## Infantry Weapons
+
+### Top 3 Weapons by Count
+
+| Rank | Weapon | Count | Type | Role |
+|------|--------|-------|------|------|
+| #1 | Lee-Enfield No.1 Mk III Rifle | 8,420 | rifle | Primary infantry weapon |
+| #2 | Bren Light Machine Gun | 412 | light machine gun | Squad automatic weapon |
+| #3 | Boys Anti-Tank Rifle | 138 | anti tank rifle | Infantry anti-tank capability |
+
 ## Transport & Vehicles
 
 **Total Ground Vehicles:** 4,628
@@ -201,7 +211,6 @@ December 1940 - February 1941: Destroyed Italian 10th Army
 
 - British Army Lists April 1941 (armylistapr1941grea) - Officer rosters verified
 - desertrats.org.uk: Organisation and Order of Battles - June 1941 (Battleaxe) structure confirmed
-- Operation Battleaxe order of battle (Wikipedia) - Commander and unit assignments verified
 - British Military Forces and Equipment Database (7th Armoured Division strength estimates)
 - Battleaxe After-Action Reports: Tank strength 190 confirmed from multiple sources
 - British Armoured Formations 1940-1945: Equipment tables and organizational structure
@@ -230,4 +239,4 @@ December 1940 - February 1941: Destroyed Italian 10th Army
 **Primary Sources:**
 - British Army Lists April 1941 (armylistapr1941grea) - Officer rosters verified
 - desertrats.org.uk: Organisation and Order of Battles - June 1941 (Battleaxe) structure confirmed
-- Operation Battleaxe order of battle (Wikipedia) - Commander and unit assignments verified
+- British Military Forces and Equipment Database (7th Armoured Division strength estimates)

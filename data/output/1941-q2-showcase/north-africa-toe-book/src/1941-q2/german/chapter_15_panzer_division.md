@@ -52,6 +52,16 @@
 | ↳ SdKfz 231 (8-rad) | 20 |
 | ↳ SdKfz 221 | 13 |
 
+## Infantry Weapons
+
+### Top 3 Weapons by Count
+
+| Rank | Weapon | Count | Type | Role |
+|------|--------|-------|------|------|
+| #1 | Karabiner 98k | 8,450 | Rifle | Unknown |
+| #2 | MG 34 | 420 | Machine Gun | Unknown |
+| #3 | MP 40 | 650 | Submachine Gun | Unknown |
+
 ## Transport & Vehicles
 
 **Total Ground Vehicles:** 2,850
@@ -192,9 +202,7 @@ No critical equipment shortages identified for this quarter.
 ### Primary Sources
 
 - Osprey Men-at-Arms #53: Rommel's Desert Army (Tier 2, 75% confidence)
-- Wikipedia: 15th Panzer Division (Wehrmacht) (Tier 3, 60% confidence)
 - Feldgrau.net forum discussions (Tier 3, 60% confidence)
-- Military Wiki: 15th Panzer Division (Tier 3, 60% confidence)
 - Web search: General organizational structure (Tier 3, 60% confidence)
 
 ### Known Data Gaps
@@ -216,5 +224,5 @@ No critical equipment shortages identified for this quarter.
 
 **Primary Sources:**
 - Osprey Men-at-Arms #53: Rommel's Desert Army (Tier 2, 75% confidence)
-- Wikipedia: 15th Panzer Division (Wehrmacht) (Tier 3, 60% confidence)
 - Feldgrau.net forum discussions (Tier 3, 60% confidence)
+- Web search: General organizational structure (Tier 3, 60% confidence)

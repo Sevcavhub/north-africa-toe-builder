@@ -152,6 +152,15 @@ Reconnaissance duties with cavalry group
 **Combat Performance:**
 Light reconnaissance and transport trucks
 
+## Infantry Weapons
+
+### Top 3 Weapons by Count
+
+| Rank | Weapon | Count | Type | Role |
+|------|--------|-------|------|------|
+| #1 | Carcano M91 Carbine | 0 | unknown | Unknown |
+| #2 | Beretta MAB 38 Submachine Gun | 0 | unknown | Unknown |
+
 ## Transport & Vehicles
 
 **Total Ground Vehicles:** 461

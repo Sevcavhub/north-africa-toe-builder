@@ -36,6 +36,16 @@
 | ↳ Humber Mk I Armoured Car | 12 |
 | ↳ Morris CS9 Armoured Car | 6 |
 
+## Infantry Weapons
+
+### Top 3 Weapons by Count
+
+| Rank | Weapon | Count | Type | Role |
+|------|--------|-------|------|------|
+| #1 | Lee-Enfield No. 1 Mk III Rifle | 11,200 | Bolt-Action Rifle | Unknown |
+| #2 | Bren Gun Mk I/II | 768 | Light Machine Gun | Unknown |
+| #3 | Ordnance ML 2-inch Mortar | 162 | Light Mortar | Unknown |
+
 ## Transport & Vehicles
 
 **Total Ground Vehicles:** 4,166

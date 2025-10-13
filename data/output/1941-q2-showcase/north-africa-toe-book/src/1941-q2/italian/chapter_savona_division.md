@@ -29,6 +29,16 @@
 | NCOs | 2,045 | 24.3% |
 | Enlisted | 6,022 | 71.5% |
 
+## Infantry Weapons
+
+### Top 3 Weapons by Count
+
+| Rank | Weapon | Count | Type | Role |
+|------|--------|-------|------|------|
+| #1 | Carcano M1891 Rifle | 5,850 | bolt action rifle | Unknown |
+| #2 | Breda M30 Light Machine Gun | 205 | light machine gun | Squad automatic weapon |
+| #3 | Breda M37 Heavy Machine Gun | 62 | heavy machine gun | Heavy support weapon |
+
 ## Transport & Vehicles
 
 **Total Ground Vehicles:** 1,156

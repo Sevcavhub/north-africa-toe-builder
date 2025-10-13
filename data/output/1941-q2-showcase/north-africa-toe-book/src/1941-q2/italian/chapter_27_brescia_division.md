@@ -163,6 +163,15 @@ Reconnaissance duties
 **Combat Performance:**
 Improved version with 20mm gun for reconnaissance and escort
 
+## Infantry Weapons
+
+### Top 3 Weapons by Count
+
+| Rank | Weapon | Count | Type | Role |
+|------|--------|-------|------|------|
+| #1 | Carcano M91/38 Carbine | 0 | unknown | Unknown |
+| #2 | Beretta MAB 38 Submachine Gun | 0 | unknown | Unknown |
+
 ## Transport & Vehicles
 
 **Total Ground Vehicles:** 1,847

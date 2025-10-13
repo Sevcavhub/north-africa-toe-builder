@@ -163,6 +163,15 @@ Reconnaissance duties - reduced strength
 **Combat Performance:**
 Improved version with 20mm gun for reconnaissance - reduced strength
 
+## Infantry Weapons
+
+### Top 3 Weapons by Count
+
+| Rank | Weapon | Count | Type | Role |
+|------|--------|-------|------|------|
+| #1 | Carcano M91/38 Carbine | 0 | unknown | Unknown |
+| #2 | Beretta MAB 38 Submachine Gun | 0 | unknown | Unknown |
+
 ## Transport & Vehicles
 
 **Total Ground Vehicles:** 920
@@ -351,7 +360,6 @@ Standard military motorcycle with sidecar - reduced strength
 - TME_30_420_Italian_Military_Forces_1943_temp.txt (Tier 1 - US War Department)
 - Web search: Generale di Divisione Guido Della Bona confirmed as commander (Tier 2)
 - Standard Italian binary division TO&E from TM 30-420 (Tier 1)
-- Military Wiki - 60th Infantry Division Sabratha (Tier 2, 85% confidence)
 - Warfare History Network - Battle of Beda Fomm accounts (Tier 2, 82% confidence)
 - The Crusader Project - Italian division strengths (Tier 2, 81% confidence)
 - TheReaderWiki - Sabratha reconstitution timeline (Tier 2, 90% confidence)

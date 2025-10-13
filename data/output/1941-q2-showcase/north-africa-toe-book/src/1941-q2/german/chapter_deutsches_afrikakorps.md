@@ -57,6 +57,16 @@
 | ↳ SdKfz 222 | 24 |
 | ↳ SdKfz 231 (8-rad) | 18 |
 
+## Infantry Weapons
+
+### Top 3 Weapons by Count
+
+| Rank | Weapon | Count | Type | Role |
+|------|--------|-------|------|------|
+| #1 | Karabiner 98k | 24,000 | Rifle | Unknown |
+| #2 | MG34 | 950 | Machine Gun | Unknown |
+| #3 | MP40 | 1,100 | Submachine Gun | Unknown |
+
 ## Transport & Vehicles
 
 **Total Ground Vehicles:** 2,866

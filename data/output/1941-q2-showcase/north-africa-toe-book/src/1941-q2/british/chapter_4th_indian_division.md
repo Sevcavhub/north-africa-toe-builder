@@ -39,6 +39,16 @@ Formed as 4th Indian Infantry Division, redesignated N/A. Known as "The Red Eagl
 | ↳ Marmon-Herrington Mk II | 20 |
 | ↳ Rolls-Royce Armoured Car | 8 |
 
+## Infantry Weapons
+
+### Top 3 Weapons by Count
+
+| Rank | Weapon | Count | Type | Role |
+|------|--------|-------|------|------|
+| #1 | Lee-Enfield No.1 Mk III Rifle | 14,500 | rifle | Primary infantry weapon |
+| #2 | Bren Light Machine Gun | 520 | light machine gun | Squad automatic weapon |
+| #3 | Vickers Medium Machine Gun | 64 | medium machine gun | Unknown |
+
 ## Transport & Vehicles
 
 **Total Ground Vehicles:** 3,260
@@ -180,8 +190,6 @@ December 1940 - February 1941: Participated in destruction of Italian 10th Army
 ### Primary Sources
 
 - British Army Lists April 1941 (armylistapr1941grea) - Commanders and officer rosters verified
-- Wikipedia: 4th Infantry Division (India) - Brigade composition and battalion assignments confirmed (Confidence: 75%)
-- Wikipedia: 11th Indian Infantry Brigade - Battalion assignments verified (Confidence: 80%)
 - stefanov.no-ip.org/MagWeb: The 4th Indian Division article - Divisional organization and artillery regiments (Confidence: 75%)
 - British Military History - Middle East Indian Formations - Deployment timeline confirmed (Confidence: 70%)
 - Standard British/Indian infantry division establishment tables 1941 - Personnel and equipment estimates
@@ -209,5 +217,5 @@ December 1940 - February 1941: Participated in destruction of Italian 10th Army
 
 **Primary Sources:**
 - British Army Lists April 1941 (armylistapr1941grea) - Commanders and officer rosters verified
-- Wikipedia: 4th Infantry Division (India) - Brigade composition and battalion assignments confirmed (Confidence: 75%)
-- Wikipedia: 11th Indian Infantry Brigade - Battalion assignments verified (Confidence: 80%)
+- stefanov.no-ip.org/MagWeb: The 4th Indian Division article - Divisional organization and artillery regiments (Confidence: 75%)
+- British Military History - Middle East Indian Formations - Deployment timeline confirmed (Confidence: 70%)

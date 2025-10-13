@@ -28,6 +28,15 @@
 | NCOs | 2,850 | 20.0% |
 | Enlisted | 10,620 | 74.5% |
 
+## Infantry Weapons
+
+### Top 3 Weapons by Count
+
+| Rank | Weapon | Count | Type | Role |
+|------|--------|-------|------|------|
+| #1 | Bren Mk II Light Machine Gun | 0 | unknown | Unknown |
+| #2 | Boys Anti-Tank Rifle | 0 | unknown | Unknown |
+
 ## Transport & Vehicles
 
 **Total Ground Vehicles:** 1,850

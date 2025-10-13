@@ -46,6 +46,16 @@
 | ↳ Autoblinda 40 | 8 |
 | ↳ Autoblinda 41 | 4 |
 
+## Infantry Weapons
+
+### Top 3 Weapons by Count
+
+| Rank | Weapon | Count | Type | Role |
+|------|--------|-------|------|------|
+| #1 | Carcano M1891 Rifle | 6,500 | Rifle | Unknown |
+| #2 | Breda M30 Light Machine Gun | 199 | Light Machine Gun | Unknown |
+| #3 | Breda M37 Heavy Machine Gun | 109 | Heavy Machine Gun | Unknown |
+
 ## Transport & Vehicles
 
 **Total Ground Vehicles:** 980

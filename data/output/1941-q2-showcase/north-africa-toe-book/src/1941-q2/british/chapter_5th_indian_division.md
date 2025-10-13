@@ -37,6 +37,16 @@
 | ↳ ACV Indian Pattern Mk I | 16 |
 | ↳ ACV Indian Pattern Mk II | 8 |
 
+## Infantry Weapons
+
+### Top 3 Weapons by Count
+
+| Rank | Weapon | Count | Type | Role |
+|------|--------|-------|------|------|
+| #1 | Lee-Enfield No. 1 Mk III Rifle | 10,200 | Bolt-Action Rifle | Unknown |
+| #2 | Bren Gun Mk I/II | 702 | Light Machine Gun | Unknown |
+| #3 | Vickers Machine Gun Mk I | 54 | Medium Machine Gun | Unknown |
+
 ## Transport & Vehicles
 
 **Total Ground Vehicles:** 3,850
@@ -169,14 +179,6 @@ No critical equipment shortages identified for this quarter.
 
 ### Primary Sources
 
-- Wikipedia - 5th Infantry Division (India) - Command and operational history
-- Wikipedia - Mosley Mayne - Commander appointment April 1941
-- Wikipedia - Indian Army during World War II - Division organization structure
-- Wikipedia - 4th Infantry Division (India) - Comparable division TO&E for artillery and support units
-- Wikipedia - 9th Indian Infantry Brigade - Battalion composition
-- Wikipedia - 10th Indian Infantry Brigade - Battalion composition
-- Wikipedia - 29th Indian Infantry Brigade - Battalion composition
-- Wikipedia - Battle of Keren - 5th Division participation and casualties
 - HyperWar: East African Campaign, 1940-41 (Chapter 9) - Operational details and attached units
 - British Indian Division standard organization 1941 - 3 brigades x 3 battalions, artillery regiments
 - Cross-reference with 50th Infantry Division 1941-Q2 structure for British division standards
@@ -198,6 +200,6 @@ No critical equipment shortages identified for this quarter.
 *Data compiled from historical records for 1941-Q2 North Africa Campaign*
 
 **Primary Sources:**
-- Wikipedia - 5th Infantry Division (India) - Command and operational history
-- Wikipedia - Mosley Mayne - Commander appointment April 1941
-- Wikipedia - Indian Army during World War II - Division organization structure
+- HyperWar: East African Campaign, 1940-41 (Chapter 9) - Operational details and attached units
+- British Indian Division standard organization 1941 - 3 brigades x 3 battalions, artillery regiments
+- Cross-reference with 50th Infantry Division 1941-Q2 structure for British division standards

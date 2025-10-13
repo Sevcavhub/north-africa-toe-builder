@@ -47,6 +47,16 @@
 | ↳ AB 41 | 2 |
 | ↳ Lancia 1ZM | 2 |
 
+## Infantry Weapons
+
+### Top 3 Weapons by Count
+
+| Rank | Weapon | Count | Type | Role |
+|------|--------|-------|------|------|
+| #1 | Carcano M1891 Rifle | 8,180 | rifle | Primary infantry weapon |
+| #2 | Breda M30 Light Machine Gun | 228 | light machine gun | Squad automatic weapon |
+| #3 | Breda M37 Heavy Machine Gun | 158 | heavy machine gun | Heavy support weapon |
+
 ## Transport & Vehicles
 
 **Total Ground Vehicles:** 502
@@ -195,7 +205,6 @@ No critical equipment shortages identified for this quarter.
 - Order-of-battle of the Italian Army, USA HQ G-2 (July 1943) - PRIMARY SOURCE
 - TME 30-420: Handbook on the Italian Military Forces (1943) - US War Department
 - Comando Supremo: Mario Marghinotti biographical entry
-- Wikipedia: 25th Infantry Division Bologna
 - Italian divisione autotrasportabile AS organization
 - Previous extractions (1941-Q1 and 1941-Q3) for interpolation
 

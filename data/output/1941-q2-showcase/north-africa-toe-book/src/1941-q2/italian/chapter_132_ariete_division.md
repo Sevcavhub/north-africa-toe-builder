@@ -78,6 +78,15 @@ Primary battle tank. Steady increase from ~75-85 in April to 99+ by June as VII 
 **Combat Performance:**
 Tankettes in II and III "L" Battalions, arrived 30 June 1941. Used for reconnaissance and infantry support, not main combat.
 
+## Infantry Weapons
+
+### Top 3 Weapons by Count
+
+| Rank | Weapon | Count | Type | Role |
+|------|--------|-------|------|------|
+| #1 | Carcano M38 Carbine | 0 | unknown | Unknown |
+| #2 | Beretta MAB 38 Submachine Gun | 0 | unknown | Unknown |
+
 ## Organizational Structure
 
 ### Subordinate Units
@@ -200,8 +209,6 @@ Tankettes in II and III "L" Battalions, arrived 30 June 1941. Used for reconnais
 
 ### Primary Sources
 
-- Wikipedia - Multiple articles (132ª Divisione corazzata Ariete, Ettore Baldassarre, M13/40, North Africa operations)
-- Military Wiki / Fandom - Italian armored divisions, North Africa OOB
 - Tank Encyclopedia - M13/40, L3/35 specifications and operational history
 - Historia Scripta - Italian military history database
 - Comando Supremo - Italian military historical database
@@ -226,6 +233,6 @@ Ariete's combat effectiveness improved significantly from April (hampered by mec
 *Data compiled from historical records for 1941-Q2 North Africa Campaign*
 
 **Primary Sources:**
-- Wikipedia - Multiple articles (132ª Divisione corazzata Ariete, Ettore Baldassarre, M13/40, North Africa operations)
-- Military Wiki / Fandom - Italian armored divisions, North Africa OOB
 - Tank Encyclopedia - M13/40, L3/35 specifications and operational history
+- Historia Scripta - Italian military history database
+- Comando Supremo - Italian military historical database

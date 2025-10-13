@@ -33,8 +33,10 @@ const WIKIPEDIA_PATTERNS = [
   /wikipedia\.org/i,
   /wikipedia\.com/i,
   /\.wikipedia\./i,
+  /\bwikipedia\b/i,          // Match the word "Wikipedia" by itself
   /wikia\./i,
   /fandom\.com/i,
+  /\bmilitary\s+wiki\b/i,    // Match "Military Wiki"
   /wikimedia\.org/i
 ];
 
