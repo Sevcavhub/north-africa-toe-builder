@@ -33,9 +33,9 @@
 
 ---
 
-## Cross-Validation Results
+## Cross-Validation Results - All Nations
 
-### ✅ PERFECT MATCH - All Aircraft Types Confirmed
+### British RAF - ✅ PERFECT MATCH (100%)
 
 | Aircraft Type | RAF Museum (Tier 2) | v4 JSON legacy_data | Cross-Validation Status |
 |---------------|---------------------|---------------------|------------------------|
@@ -47,19 +47,51 @@
 
 **Result**: 5/5 aircraft types match between independent sources (100% match rate)
 
+### German Luftwaffe - ⚠️ PARTIAL MATCH with ERROR DETECTED
+
+| Aircraft Type | Tessin (Tier 1) | v4 JSON legacy_data | Cross-Validation Status |
+|---------------|----------------|---------------------|------------------------|
+| **Messerschmitt Bf 109** | I./JG 27 operational (~30-40 aircraft) | Bf 109E-7: 24, Bf 109F-2: 12 = 36 total | ✅ CONFIRMED |
+| **Junkers Ju 87 (StG 3)** | NOT PRESENT (Greece/Balkans Q2 1941) | Ju 87B-2: 18, Ju 87D-1: 12 = 30 total | ❌ **v4 ERROR** |
+| **Messerschmitt Bf 110 (ZG 26)** | NOT CONFIRMED in Tessin extraction | Bf 110C-4: 8 aircraft | ⚠️ REQUIRES RESEARCH |
+
+**Result**: 1 confirmed, 1 ERROR detected, 1 uncertain
+
+**Critical Finding**: v4 JSON incorrectly includes StG 3 (Ju 87) which Tessin proves was in Greece/Balkans, not Africa, during Q2 1941. StG 3 deployed to Africa January 1942.
+
+### Italian Regia Aeronautica - ✅ EXCELLENT MATCH (86%)
+
+| Aircraft Type | TM E 30-420 (Tier 1) | v4 JSON legacy_data | Cross-Validation Status |
+|---------------|---------------------|---------------------|------------------------|
+| **Macchi MC.200 Saetta** | Confirmed operational, "Used in Libya" | 35-50 aircraft | ✅ CONFIRMED |
+| **Macchi MC.202 Folgore** | Entering service mid-1941 | 50 aircraft | ✅ CONFIRMED |
+| **Fiat CR.42 Falco** | Operational (obsolescent biplane) | 40 aircraft | ✅ CONFIRMED |
+| **Savoia-Marchetti SM.79** | Most important Italian bomber | 34-48 aircraft | ✅ CONFIRMED |
+| **Fiat BR.20 Cicogna** | Operational medium bomber | 20 aircraft | ✅ CONFIRMED |
+| **Reggiane RE.2001** | Operational fighter | 15 aircraft | ✅ CONFIRMED |
+| **Cant. Z-1007 Bis** | Operational (TM E 30-420) | Not in v4 legacy_data section | ⚠️ v4 GAP |
+| **Savoia-Marchetti SM.84** | Not extracted | 20 aircraft in v4 | ⚠️ EXTRACTION GAP |
+
+**Result**: 6/7 extracted types confirmed in v4 (86% match rate). Additional aircraft in each source suggest both have partial coverage.
+
 ---
 
-## Confidence Level Upgrade
+## Confidence Level Changes After Cross-Validation
 
-### Before Cross-Validation
-- **Source**: RAF Museum (Tier 2 only)
-- **Confidence**: 80%
-- **Limitation**: Single Tier 2 source, no independent verification
+### British RAF
+**Before**: 80% (Tier 2 RAF Museum only)
+**After**: **90%** ✅ UPGRADED
+**Justification**: 100% aircraft type match with v4 JSON. Two independent sources confirm identical aircraft types. v4 provides counts that align with squadron-level data.
 
-### After Cross-Validation
-- **Sources**: RAF Museum (Tier 2) + v4 JSON legacy_data (independent compilation)
-- **Confidence**: **90%** (upgraded from 80%)
-- **Justification**: Two independent sources confirm identical aircraft types. v4 JSON provides specific counts that align with squadron-level data from RAF Museum.
+### German Luftwaffe
+**Before**: 95% (Tier 1 Tessin)
+**After**: **95%** (maintained)
+**Justification**: Bf 109 presence confirmed by v4. v4 error (StG 3) detected and documented. Primary source remains authoritative. Confidence maintained due to Tier 1 source quality.
+
+### Italian Regia Aeronautica
+**Before**: 90% (Tier 1 TM E 30-420)
+**After**: **92%** ✅ SLIGHT UPGRADE
+**Justification**: 6/7 aircraft types confirmed by v4 (86% match rate). High agreement between sources. Small confidence boost justified by dual-source validation.
 
 ---
 
@@ -217,19 +249,32 @@ Step 5: Update raw_facts.json with cross-validation metadata
 
 ---
 
-## Updated Confidence Levels - British RAF 1941-Q2
+## Final Confidence Levels - All Nations
 
-### Final Assessment After Cross-Validation
+### Summary Table
 
-| Aircraft Type | Original Confidence | Cross-Validation | Final Confidence |
-|---------------|---------------------|------------------|------------------|
-| Hawker Hurricane | 80% (Tier 2) | v4 JSON confirms | **90%** |
-| Curtiss Tomahawk | 80% (Tier 2) | v4 JSON confirms | **90%** |
-| Bristol Blenheim | 80% (Tier 2) | v4 JSON confirms | **90%** |
-| Vickers Wellington | 80% (Tier 2) | v4 JSON confirms | **90%** |
-| Westland Lysander | 75% (Tier 2) | v4 JSON confirms | **88%** |
+| Nation | Original Confidence | Cross-Validation Result | Final Confidence | Change |
+|--------|---------------------|------------------------|------------------|--------|
+| **British RAF** | 80% (Tier 2) | 100% match (5/5 types) | **90%** | +10% ✅ |
+| **German Luftwaffe** | 95% (Tier 1) | 1 confirmed, 1 error detected | **95%** | No change |
+| **Italian Regia Aeronautica** | 90% (Tier 1) | 86% match (6/7 types) | **92%** | +2% ✅ |
 
-**Overall British RAF Aircraft Confidence**: **90%** (upgraded from 80%)
+### Overall Project Confidence
+**Average Confidence**: **92.3%** across all three nations (up from 88.3%)
+
+### Cross-Validation Effectiveness
+
+**Total Aircraft Types Cross-Checked**: 15
+- ✅ **Confirmed**: 12 types (80%)
+- ❌ **Errors Detected**: 1 type (StG 3) (7%)
+- ⚠️ **Uncertain**: 2 types (ZG 26, Cant Z.1007 gaps) (13%)
+
+**v4 Data Quality Assessment**:
+- British data: **EXCELLENT** (100% accurate)
+- Italian data: **VERY GOOD** (86% coverage)
+- German data: **GOOD** (66% accurate, 1 error found)
+
+**Bidirectional Validation Working**: Primary sources detected 1 v4 error (StG 3) and confirmed 12 accurate v4 entries.
 
 ---
 
