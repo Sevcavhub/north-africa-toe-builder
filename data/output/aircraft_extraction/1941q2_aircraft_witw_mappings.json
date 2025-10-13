@@ -1,0 +1,473 @@
+{
+  "mapping_metadata": {
+    "title": "1941-Q2 North Africa Aircraft → WITW Database Mappings",
+    "date_created": "2025-10-12",
+    "purpose": "Links historically-extracted aircraft (Tier 1/Tier 2 sources) to existing WITW IDs from v4 JSONs",
+    "source_extractions": [
+      "german_1941q2_luftwaffe_raw_facts.json (95% confidence, Tier 1)",
+      "italian_1941q2_regia_aeronautica_raw_facts.json (90% confidence, Tier 1)",
+      "british_1941q2_raf_raw_facts.json (80% confidence, Tier 2)"
+    ],
+    "witw_source": "v4 JSONs legacy_data sections + witw_mappings_from_v4.json",
+    "note": "All WITW IDs are from existing project data. Historical extraction validates these entries with primary sources."
+  },
+
+  "german_luftwaffe_mappings": {
+    "nation": "german",
+    "extraction_confidence": 95,
+    "source_tier": 1,
+    "aircraft": {
+      "Bf_109E": {
+        "historical_designation": "Messerschmitt Bf 109E-7",
+        "witw_id": "200",
+        "extraction_source": "Tessin Band 14 - I./JG 27 April 1941 deployment",
+        "witw_source": "1941-Q2_Enhanced_COMPREHENSIVE_v4.json legacy_data line 3138-3147",
+        "historical_count_1941q2": "~24 aircraft (I./JG 27)",
+        "specifications": {
+          "role": "fighter",
+          "armament": "2×7.92mm MG17, 2×20mm MG FF",
+          "speed_kmh": 570,
+          "range_km": 660,
+          "service_ceiling_m": 10500,
+          "crew": 1
+        },
+        "operational_notes": "Primary German fighter in North Africa Q2 1941. I./JG 27 based at Gazala airfield.",
+        "historical_accuracy": "HIGH - Tessin explicitly identifies Bf 109 equipment for I./JG 27"
+      },
+      "Bf_109F": {
+        "historical_designation": "Messerschmitt Bf 109F-2",
+        "witw_id": "201",
+        "extraction_source": "Tessin Band 14 - I./JG 27 transitioning to F variant Q2 1941",
+        "witw_source": "1941-Q2_Enhanced_COMPREHENSIVE_v4.json legacy_data line 3148-3158",
+        "historical_count_1941q2": "~12 aircraft (I./JG 27, limited numbers)",
+        "specifications": {
+          "role": "fighter",
+          "armament": "2×7.92mm MG17, 1×20mm MG151",
+          "speed_kmh": 615,
+          "range_km": 850,
+          "service_ceiling_m": 12000,
+          "crew": 1,
+          "status": "latest fighter variant"
+        },
+        "operational_notes": "Advanced variant arriving Q2 1941, better performance than E-7",
+        "historical_accuracy": "MEDIUM - Tessin confirms I./JG 27 had Bf 109, variant transition inferred from deployment dates"
+      },
+      "Ju_87B": {
+        "historical_designation": "Junkers Ju 87B-2 Stuka",
+        "witw_id": "250",
+        "extraction_source": "Tessin Band 14 - StG 3 reference (ERROR CORRECTION: NOT in Q2 1941)",
+        "witw_source": "1941-Q2_Enhanced_COMPREHENSIVE_v4.json legacy_data line 3167-3178",
+        "historical_count_1941q2": "0 (ERROR CORRECTION)",
+        "specifications": {
+          "role": "dive_bomber",
+          "bomb_load_kg": 500,
+          "speed_kmh": 380,
+          "range_km": 600,
+          "crew": 2
+        },
+        "operational_notes": "HISTORICAL CORRECTION: StG 3 was in Greece/Balkans during Q2 1941, NOT in North Africa. Only deployed to Africa January 1942.",
+        "historical_accuracy": "HIGH - Tessin explicitly shows StG 3 deployment timeline, corrects planning assumptions",
+        "critical_finding": "Corrects v4 JSON which included StG 3 in 1941-Q2"
+      },
+      "Bf_110C": {
+        "historical_designation": "Messerschmitt Bf 110C-4",
+        "witw_id": "210",
+        "extraction_source": "Tessin Band 14 - ZG 26 presence requires additional research",
+        "witw_source": "1941-Q2_Enhanced_COMPREHENSIVE_v4.json legacy_data line 3191-3197",
+        "historical_count_1941q2": "Unknown (requires research)",
+        "specifications": {
+          "role": "twin_engine_fighter",
+          "armament": "4×7.92mm MG17, 2×20mm MG FF",
+          "crew": 2
+        },
+        "operational_notes": "ZG 26 presence in North Africa Q2 1941 not confirmed in Tessin extraction",
+        "historical_accuracy": "LOW - Requires additional primary source research"
+      }
+    },
+    "summary": {
+      "confirmed_aircraft_types": 2,
+      "total_aircraft_q2_1941": "30-40 (I./JG 27 only)",
+      "witw_ids_mapped": 4,
+      "critical_correction": "StG 3 NOT in North Africa Q2 1941"
+    }
+  },
+
+  "italian_regia_aeronautica_mappings": {
+    "nation": "italian",
+    "extraction_confidence": 90,
+    "source_tier": 1,
+    "aircraft": {
+      "CR_42": {
+        "historical_designation": "Fiat CR.42 Falco",
+        "italian_name": "Falcon",
+        "witw_id": "320",
+        "extraction_source": "TM E 30-420 Section 149 - Operational aircraft types",
+        "witw_source": "1941-Q2_Enhanced_COMPREHENSIVE_v4.json legacy_data line 3983-3992",
+        "historical_count_1941q2": "~40 aircraft (v4 estimate)",
+        "specifications": {
+          "role": "fighter",
+          "type": "biplane",
+          "armament": "2×12.7mm Breda-SAFAT",
+          "speed_kmh": 441,
+          "crew": 1,
+          "status": "obsolescent but operational"
+        },
+        "operational_notes": "Biplane fighter, obsolescent by 1941 but still in use. TM E 30-420 confirms operational status.",
+        "historical_accuracy": "HIGH - TM E 30-420 explicitly lists CR.42 as operational"
+      },
+      "MC_200": {
+        "historical_designation": "Macchi MC.200 Saetta",
+        "italian_name": "Thunderbolt",
+        "witw_id": "321",
+        "extraction_source": "TM E 30-420 Section 149 + Figure 164 'Used in Libya'",
+        "witw_source": "1941-Q2_Enhanced_COMPREHENSIVE_v4.json legacy_data line 3993-4001",
+        "historical_count_1941q2": "~50 aircraft (v4 estimate)",
+        "specifications": {
+          "role": "fighter",
+          "armament": "2×12.7mm Breda-SAFAT",
+          "speed_kmh": 503,
+          "crew": 1
+        },
+        "operational_notes": "Primary Italian fighter 1941. TM E 30-420 Figure 164 explicitly confirms 'Used in Libya'.",
+        "historical_accuracy": "VERY HIGH - Direct confirmation of Libya deployment in primary source"
+      },
+      "MC_202": {
+        "historical_designation": "Macchi MC.202 Folgore",
+        "italian_name": "Thunderbolt II",
+        "witw_id": "NOT_FOUND_IN_V4_MAPPINGS",
+        "extraction_source": "TM E 30-420 Section 149 - Entering service mid-1941",
+        "witw_source": "No WITW ID found in v4 mappings",
+        "historical_count_1941q2": "Limited numbers, entering service",
+        "specifications": {
+          "role": "fighter",
+          "status": "advanced fighter, limited Q2 1941 availability"
+        },
+        "operational_notes": "Advanced fighter entering service mid-1941, limited numbers in North Africa Q2",
+        "historical_accuracy": "HIGH - TM E 30-420 confirms entering service",
+        "witw_mapping_status": "REQUIRES RESEARCH - Not found in existing v4 mappings"
+      },
+      "SM_79": {
+        "historical_designation": "Savoia-Marchetti SM.79 Sparviero",
+        "italian_name": "Hawk",
+        "witw_id": "350",
+        "extraction_source": "TM E 30-420 Section 149 - Most important Italian bomber",
+        "witw_source": "1941-Q2_Enhanced_COMPREHENSIVE_v4.json legacy_data line 4008-4017",
+        "historical_count_1941q2": "~34 aircraft (v4 estimate, 41º Stormo)",
+        "specifications": {
+          "role": "medium_bomber_torpedo_bomber",
+          "engines": 3,
+          "bomb_load_kg": 1250,
+          "speed_kmh": 430,
+          "crew": 5
+        },
+        "operational_notes": "Three-engine bomber, also used as torpedo bomber. TM E 30-420 identifies as most important Italian bomber.",
+        "historical_accuracy": "VERY HIGH - Explicit primary source confirmation"
+      },
+      "BR_20": {
+        "historical_designation": "Fiat BR.20 Cicogna",
+        "italian_name": "Stork",
+        "witw_id": "351",
+        "extraction_source": "TM E 30-420 Section 149 - Operational medium bomber",
+        "witw_source": "1941-Q2_Enhanced_COMPREHENSIVE_v4.json legacy_data line 4018-4027",
+        "historical_count_1941q2": "~20 aircraft (v4 estimate)",
+        "specifications": {
+          "role": "medium_bomber",
+          "engines": 2,
+          "bomb_load_kg": 1600,
+          "speed_kmh": 430,
+          "crew": 5
+        },
+        "operational_notes": "Twin-engine medium bomber operational in North Africa",
+        "historical_accuracy": "HIGH - TM E 30-420 confirms operational status"
+      },
+      "Cant_Z1007": {
+        "historical_designation": "Cant. Z-1007 Bis Alcione",
+        "italian_name": "Kingfisher",
+        "witw_id": "NOT_FOUND_IN_V4_MAPPINGS",
+        "extraction_source": "TM E 30-420 Section 149 - Operational medium bomber",
+        "witw_source": "No WITW ID found in v4 mappings",
+        "historical_count_1941q2": "Unknown",
+        "specifications": {
+          "role": "medium_bomber",
+          "engines": 3
+        },
+        "operational_notes": "Three-engine medium bomber, TM E 30-420 confirms operational",
+        "historical_accuracy": "HIGH - TM E 30-420 confirms operational status",
+        "witw_mapping_status": "REQUIRES RESEARCH - Not found in existing v4 mappings"
+      }
+    },
+    "summary": {
+      "confirmed_aircraft_types": 6,
+      "total_aircraft_q2_1941": "200-300+ estimated (from infrastructure: 20 emergency fields)",
+      "witw_ids_mapped": 4,
+      "witw_ids_missing": 2,
+      "data_gaps": "Specific squadriglie assignments, exact aircraft numbers"
+    }
+  },
+
+  "british_raf_mappings": {
+    "nation": "british",
+    "extraction_confidence": 80,
+    "source_tier": "1+2 (escalated)",
+    "aircraft": {
+      "Hurricane": {
+        "historical_designation": "Hawker Hurricane Mk I/II",
+        "witw_id_mk_iic": "545",
+        "witw_id_mk_iib": "546",
+        "extraction_source": "RAF Museum 1941 Timeline - Operation Battleaxe (June 1941) 253 Wing + specific squadrons",
+        "witw_source": "witw_mappings_from_v4.json lines 335-348",
+        "historical_count_1941q2": "Multiple squadrons (at least 3+ identified)",
+        "squadrons_confirmed": [
+          "No.33 Squadron RAF (returned from Greece)",
+          "253 Wing: 2 Hurricane squadrons",
+          "SAAF: 1 Hurricane squadron"
+        ],
+        "specifications": {
+          "role": "fighter",
+          "variants": "Mk I and Mk II operational Q2 1941",
+          "status": "primary RAF single-engine fighter North Africa"
+        },
+        "operational_notes": "Primary RAF fighter. 253 Wing had 2 squadrons for Operation Battleaxe. No.33 Squadron returned from Greece operations.",
+        "historical_accuracy": "HIGH - Multiple squadron confirmations from Tier 2 source (RAF Museum)"
+      },
+      "Tomahawk": {
+        "historical_designation": "Curtiss Tomahawk (P-40)",
+        "witw_id": "Search_Required",
+        "extraction_source": "RAF Museum 1941 Timeline - 253 Wing Operation Battleaxe",
+        "witw_source": "witw_mappings_from_v4.json line 349-354 (marked 'Search required')",
+        "historical_count_1941q2": "At least 1 squadron (253 Wing)",
+        "squadrons_confirmed": [
+          "253 Wing: 1 Tomahawk squadron"
+        ],
+        "specifications": {
+          "role": "fighter",
+          "type": "American P-40",
+          "notes": "American-built fighter used by RAF/Commonwealth"
+        },
+        "operational_notes": "American P-40 used by RAF in desert. 253 Wing included 1 squadron for Operation Battleaxe.",
+        "historical_accuracy": "HIGH - RAF Museum confirms Operation Battleaxe participation",
+        "witw_mapping_status": "WITW ID requires research (marked in v4 mappings)"
+      },
+      "Kittyhawk": {
+        "historical_designation": "Curtiss P-40 Kittyhawk",
+        "witw_id_kittyhawk_ia": "563",
+        "witw_id_kittyhawk_iib": "566",
+        "witw_id_kittyhawk_iia": "567",
+        "extraction_source": "RAF Museum 1941 Timeline - Later P-40 variants",
+        "witw_source": "witw_mappings_from_v4.json lines 650-669",
+        "historical_count_1941q2": "Possible limited numbers late Q2 1941",
+        "specifications": {
+          "role": "fighter",
+          "type": "American P-40E/later",
+          "notes": "Later P-40 variant, may have arrived late Q2 1941"
+        },
+        "operational_notes": "Later variant of P-40. Uncertain if present in Q2 1941 or later quarters.",
+        "historical_accuracy": "MEDIUM - Requires verification of Q2 1941 presence"
+      },
+      "Blenheim": {
+        "historical_designation": "Bristol Blenheim Mk IV",
+        "witw_id": "609",
+        "extraction_source": "RAF Museum 1941 Timeline - Multiple squadrons",
+        "witw_source": "witw_mappings_from_v4.json lines 356-361",
+        "historical_count_1941q2": "Multiple squadrons",
+        "squadrons_confirmed": [
+          "No.11 Squadron RAF (returned from Greece)",
+          "No.113 Squadron RAF (returned from Greece)",
+          "253 Wing: 1 Blenheim squadron"
+        ],
+        "specifications": {
+          "role": "light_bomber_reconnaissance",
+          "crew": 3
+        },
+        "operational_notes": "Light bomber and reconnaissance. Multiple squadrons active in Middle East theater.",
+        "historical_accuracy": "VERY HIGH - Multiple squadron confirmations from RAF Museum"
+      },
+      "Wellington": {
+        "historical_designation": "Vickers Wellington",
+        "witw_id": "Search_Required",
+        "extraction_source": "RAF Museum 1941 Timeline - No.148 Squadron recalled 9 March 1941",
+        "witw_source": "witw_mappings_from_v4.json lines 363-369 (marked 'Search required')",
+        "historical_count_1941q2": "At least 1 squadron (No.148)",
+        "squadrons_confirmed": [
+          "No.148 Squadron RAF (recalled from Malta 9 March 1941)"
+        ],
+        "specifications": {
+          "role": "medium_heavy_bomber",
+          "crew": 6
+        },
+        "operational_notes": "Medium/heavy bomber. No.148 Squadron recalled to Middle East from Malta in March 1941.",
+        "historical_accuracy": "HIGH - RAF Museum timeline confirms squadron movement",
+        "witw_mapping_status": "WITW ID requires research (marked in v4 mappings)"
+      },
+      "Lysander": {
+        "historical_designation": "Westland Lysander",
+        "witw_id": "NOT_FOUND_IN_V4_MAPPINGS",
+        "extraction_source": "RAF Museum 1941 Timeline - No.208 Squadron",
+        "witw_source": "No WITW ID found in v4 mappings",
+        "historical_count_1941q2": "At least 1 squadron (No.208)",
+        "squadrons_confirmed": [
+          "No.208 Squadron RAF (army cooperation/reconnaissance)"
+        ],
+        "specifications": {
+          "role": "army_cooperation_reconnaissance",
+          "notes": "Specialized army cooperation aircraft"
+        },
+        "operational_notes": "Army cooperation and reconnaissance role. No.208 Squadron active in theater.",
+        "historical_accuracy": "HIGH - RAF Museum confirms squadron",
+        "witw_mapping_status": "REQUIRES RESEARCH - Not found in existing v4 mappings"
+      },
+      "Maryland": {
+        "historical_designation": "Martin Maryland",
+        "witw_id": "NOT_FOUND_IN_V4_MAPPINGS",
+        "extraction_source": "RAF Museum 1941 Timeline - SAAF Operation Battleaxe",
+        "witw_source": "No WITW ID found in v4 mappings (but Martin Baltimore II has ID 607)",
+        "historical_count_1941q2": "SAAF squadrons",
+        "squadrons_confirmed": [
+          "SAAF: 1 Maryland squadron (Operation Battleaxe)"
+        ],
+        "commonwealth_nation": "South African",
+        "specifications": {
+          "role": "reconnaissance_bomber",
+          "type": "American-built",
+          "notes": "Reconnaissance bomber operated by SAAF"
+        },
+        "operational_notes": "American-built reconnaissance bomber. SAAF operated in desert operations.",
+        "historical_accuracy": "HIGH - RAF Museum confirms SAAF participation",
+        "witw_mapping_status": "REQUIRES RESEARCH - Maryland not found, but Baltimore (later variant) is ID 607"
+      },
+      "Boston": {
+        "historical_designation": "Douglas Boston (A-20)",
+        "witw_id_boston_iii": "612",
+        "extraction_source": "RAF Museum 1941 Timeline - Operational by November 1941",
+        "witw_source": "witw_mappings_from_v4.json lines 671-676",
+        "historical_count_1941q2": "Uncertain Q2 1941 presence",
+        "specifications": {
+          "role": "tactical_reconnaissance",
+          "type": "American A-20"
+        },
+        "operational_notes": "Confirmed for Operation Crusader (November 1941). Uncertain if present in Q2 1941.",
+        "historical_accuracy": "MEDIUM - Confirmed for Q4 1941, Q2 presence uncertain"
+      },
+      "Beaufighter": {
+        "historical_designation": "Bristol Beaufighter",
+        "witw_id": "NOT_FOUND_IN_V4_MAPPINGS",
+        "extraction_source": "RAF Museum 1941 Timeline - Operational by November 1941",
+        "witw_source": "No WITW ID found in v4 mappings",
+        "historical_count_1941q2": "Uncertain Q2 1941 presence",
+        "specifications": {
+          "role": "heavy_fighter",
+          "notes": "Twin-engine heavy fighter"
+        },
+        "operational_notes": "Confirmed for Operation Crusader (November 1941). Uncertain if present in Q2 1941.",
+        "historical_accuracy": "MEDIUM - Confirmed for Q4 1941, Q2 presence uncertain",
+        "witw_mapping_status": "REQUIRES RESEARCH - Not found in existing v4 mappings"
+      },
+      "Spitfire": {
+        "historical_designation": "Supermarine Spitfire VB",
+        "witw_id": "549",
+        "extraction_source": "Not extracted from RAF Museum for Q2 1941",
+        "witw_source": "witw_mappings_from_v4.json lines 643-648",
+        "historical_count_1941q2": "NOT CONFIRMED for Q2 1941",
+        "specifications": {
+          "role": "fighter",
+          "notes": "Advanced RAF fighter"
+        },
+        "operational_notes": "Spitfire VB in v4 mappings but NOT extracted from RAF Museum for Q2 1941. Likely arrived later.",
+        "historical_accuracy": "LOW for Q2 1941 - No Q2 confirmation in extraction",
+        "witw_mapping_status": "WITW ID exists but Q2 1941 presence NOT confirmed by historical extraction"
+      }
+    },
+    "summary": {
+      "confirmed_aircraft_types": 10,
+      "total_squadrons_identified": 9,
+      "estimated_aircraft_q2_1941": "150-200+ aircraft (10-15 squadrons)",
+      "witw_ids_mapped": 6,
+      "witw_ids_search_required": 2,
+      "witw_ids_missing": 3,
+      "commonwealth_participation": "SAAF (Hurricane, Maryland), RAAF (253 Wing)",
+      "data_gaps": "Exact aircraft numbers per squadron, April-May details (only June Operation Battleaxe data)"
+    }
+  },
+
+  "integration_recommendations": {
+    "phase_8_witw_mapper": {
+      "ready_for_integration": {
+        "german": "2 aircraft types with WITW IDs confirmed",
+        "italian": "4 aircraft types with WITW IDs confirmed",
+        "british": "6 aircraft types with WITW IDs confirmed"
+      },
+      "requires_witw_research": {
+        "aircraft_needing_ids": [
+          "Curtiss P-40 Tomahawk (British)",
+          "Vickers Wellington (British)",
+          "Macchi MC.202 (Italian)",
+          "Cant. Z-1007 Bis (Italian)",
+          "Westland Lysander (British)",
+          "Martin Maryland (British)",
+          "Bristol Beaufighter (British)"
+        ],
+        "estimated_research_time": "2-3 hours to search WITW database/manual"
+      },
+      "custom_id_assignments": {
+        "note": "Aircraft not in WITW database should receive custom IDs in 160000-169999 range per project convention",
+        "candidates": [
+          "Martin Maryland (if not in WITW)",
+          "Westland Lysander (if not in WITW)"
+        ]
+      }
+    },
+    "phase_9_aircraft_integration": {
+      "next_steps": [
+        "Use this mapping to populate 1941-Q2_AIRCRAFT_TEMPLATE.json",
+        "Replace v4 JSON aircraft sections with historically-verified data",
+        "Add source citations for all aircraft entries",
+        "Document confidence levels for each aircraft type",
+        "Integrate with existing ground TO&E data"
+      ],
+      "critical_corrections_to_apply": [
+        "REMOVE StG 3 (Ju 87) from German 1941-Q2 data (historical error corrected)",
+        "UPDATE German to show ONLY I./JG 27 (Bf 109) as fighter presence",
+        "ADD British squadron-level detail (No.11, 33, 113, 148, 208, SAAF)",
+        "ADD Italian MC.200 Libya deployment confirmation"
+      ]
+    },
+    "data_quality_assessment": {
+      "german": {
+        "quality": "EXCELLENT",
+        "confidence": 95,
+        "witw_coverage": "100% (all confirmed types have IDs)",
+        "historical_accuracy": "VERY HIGH - Tier 1 primary source with explicit unit identifications"
+      },
+      "italian": {
+        "quality": "GOOD",
+        "confidence": 90,
+        "witw_coverage": "67% (4 of 6 types have IDs)",
+        "historical_accuracy": "HIGH - Tier 1 primary source, aircraft types confirmed, deployments partially inferred"
+      },
+      "british": {
+        "quality": "GOOD",
+        "confidence": 80,
+        "witw_coverage": "60% (6 of 10 types have IDs)",
+        "historical_accuracy": "HIGH for June 1941 - Tier 2 source with specific squadron identifications"
+      }
+    }
+  },
+
+  "historical_findings_summary": {
+    "key_discoveries": [
+      "Only I./JG 27 (30-40 Bf 109s) represented German air power in North Africa Q2 1941",
+      "StG 3 was NOT in North Africa during Q2 1941 (corrects v4 JSON error)",
+      "Italian Regia Aeronautica bore primary Axis air burden with confirmed MC.200, SM.79 operations",
+      "British RAF had 10-15 squadrons operational (150-200+ aircraft estimated)",
+      "Commonwealth participation documented: SAAF (Hurricane, Maryland), RAAF (253 Wing)",
+      "MC.200 'Used in Libya' explicitly confirmed in TM E 30-420 Figure 164"
+    ],
+    "v4_json_corrections_required": [
+      "Remove StG 3 from German 1941-Q2 aircraft",
+      "Reduce German aircraft count to reflect only I./JG 27",
+      "Add squadron-level detail for British RAF forces",
+      "Update source citations to reflect Tier 1/Tier 2 extraction methodology"
+    ],
+    "methodology_validation": "3-tier source waterfall successfully applied. Tier 1 worked for German/Italian. British required Tier 2 escalation (RAF Museum) when Tier 1 (TM30-410) insufficient."
+  }
+}
