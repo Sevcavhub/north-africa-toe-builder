@@ -2,8 +2,8 @@
 
 <!-- AUTO-UPDATED: START - Session Metadata -->
 **Project**: North Africa TO&E Builder - **v3.0.0 (Ground Forces)**
-**Last Updated**: 2025-10-13 14:45
-**Status**: Schema v3.0 Complete, Showcase 90% Complete (Gaps 3/5/8 RESOLVED)
+**Last Updated**: 2025-10-13 16:27
+**Status**: Schema v3.0 Complete, 178/213 units (83.6%)
 <!-- AUTO-UPDATED: END - Session Metadata -->
 
 ---
@@ -42,18 +42,18 @@
 <!-- AUTO-UPDATED: START - Recently Completed -->
 ### ✅ RECENTLY COMPLETED (Last Session):
 - **Session Date**: 2025-10-13
-- **Units Completed**: 10 units (157 → 167)
-- **Session Duration**: Unknown
+- **Units Completed**: 178 units (0 → 178)
+- **Session Duration**: unknown minutes
 - **Recent Work**:
-  - germany_1942-Q4_90_leichte_division
-  - italy_1941-Q4_61_trento_division
-  - italy_1943-Q1_131_centauro_division
-  - italian_1940-Q2_62_marmarica_division
-  - germany_1942-Q1_panzerarmee_afrika
-  - italy_1940-Q2_61_sirte_division
-  - britain_1942-Q1_8th_army
-  - germany_1941-Q4_21_panzer_division
-  - germany_1942-Q3_15_panzer_division
+  - italy_1941--Q4_61_trento_division
+  - italy_1943--Q1_131_centauro_division
+  - italian_1940--Q2_62_marmarica_division
+  - germany_1942--Q1_panzerarmee_afrika
+  - italy_1940--Q2_61_sirte_division
+  - italy_1941--Q4_61_trento_division
+  - britain_1942--Q1_8th_army
+  - germany_1941--Q4_21_panzer_division
+  - germany_1942--Q3_15_panzer_division
 - **Milestone Achievements**:
   - Gap 3 (Wikipedia): ✅ RESOLVED - 0 violations
   - Gap 8 (Infantry Weapons): ✅ RESOLVED - All chapters complete
@@ -62,8 +62,8 @@
 
 <!-- AUTO-UPDATED: START - Progress Stats -->
 ### 🔨 IN PROGRESS:
-- **Ground Forces Extraction**: 167/213 units (78.4%)
-  - 46 units remaining to complete Phase 1-6
+- **Ground Forces Extraction**: 178/213 units (83.6%)
+  - 35 units remaining to complete Phase 1-6
 - **1941-Q2 Showcase**: 90% complete
   - 10/18 units upgraded to v3.0.0 schema
   - All critical gaps resolved (Gap 3, 5, 8)
