@@ -1,8 +1,10 @@
 # 🚀 NEW SESSION - START HERE
 
+<!-- AUTO-UPDATED: START - Session Metadata -->
 **Project**: North Africa TO&E Builder - **v3.0.0 (Ground Forces)**
 **Last Updated**: 2025-10-13 14:45
 **Status**: Schema v3.0 Complete, Showcase 90% Complete (Gaps 3/5/8 RESOLVED)
+<!-- AUTO-UPDATED: END - Session Metadata -->
 
 ---
 
@@ -37,23 +39,36 @@
 - **NPM Scripts**: Added `validate:v3`, `validate:sources`, `qa:v3`
 - **Wikipedia Blocking**: 4-layer protection (parser → research → validator → publisher)
 
-### ✅ RECENTLY COMPLETED (2025-10-13):
-- **Gap 3 - Wikipedia Violations**: ✅ RESOLVED - 0 violations (was 26 across 9 files)
-  - 10 divisions re-extracted with Tier 1/2 sources only
-  - Average confidence: 80.8% (range: 78-88%)
-  - All 18 MDBook chapters regenerated clean
-- **Gap 8 - Infantry Weapons**: ✅ RESOLVED - All 18 chapters now include Section 8
-  - Updated generate_mdbook_chapters.js with extraction logic
-  - Chapter structure expanded to 18 sections (was 16)
-- **Gap 5 - Empty Sections**: ✅ RESOLVED - Bologna & Trieste complete
-  - Comprehensive 6-subsection overviews added
-  - Both upgraded to schema v3.0.0
+<!-- AUTO-UPDATED: START - Recently Completed -->
+### ✅ RECENTLY COMPLETED (Last Session):
+- **Session Date**: 2025-10-13
+- **Units Completed**: 10 units (157 → 167)
+- **Session Duration**: Unknown
+- **Recent Work**:
+  - germany_1942-Q4_90_leichte_division
+  - italy_1941-Q4_61_trento_division
+  - italy_1943-Q1_131_centauro_division
+  - italian_1940-Q2_62_marmarica_division
+  - germany_1942-Q1_panzerarmee_afrika
+  - italy_1940-Q2_61_sirte_division
+  - britain_1942-Q1_8th_army
+  - germany_1941-Q4_21_panzer_division
+  - germany_1942-Q3_15_panzer_division
+- **Milestone Achievements**:
+  - Gap 3 (Wikipedia): ✅ RESOLVED - 0 violations
+  - Gap 8 (Infantry Weapons): ✅ RESOLVED - All chapters complete
+  - Gap 5 (Empty Sections): ✅ RESOLVED - Bologna & Trieste complete
+<!-- AUTO-UPDATED: END - Recently Completed -->
 
+<!-- AUTO-UPDATED: START - Progress Stats -->
 ### 🔨 IN PROGRESS:
-- **1941-Q2 Showcase**: 90% complete (was 70%)
+- **Ground Forces Extraction**: 167/213 units (78.4%)
+  - 46 units remaining to complete Phase 1-6
+- **1941-Q2 Showcase**: 90% complete
   - 10/18 units upgraded to v3.0.0 schema
   - All critical gaps resolved (Gap 3, 5, 8)
   - Remaining: Corps Roll-ups (Gaps 1 & 2)
+<!-- AUTO-UPDATED: END - Progress Stats -->
 
 ### 📋 NEXT PRIORITIES:
 

@@ -109,6 +109,79 @@ async function updateMemoryMCP(sessionStats) {
     }
 }
 
+async function updateStartHereNewSession(state, sessionStats, lastCompleted = []) {
+    console.log('📋 Updating START_HERE_NEW_SESSION.md...');
+
+    try {
+        const startHerePath = path.join(PROJECT_ROOT, 'START_HERE_NEW_SESSION.md');
+        let content = await fs.readFile(startHerePath, 'utf-8');
+
+        const now = new Date();
+        const dateStr = now.toISOString().split('T')[0]; // 2025-10-13
+        const timeStr = now.toTimeString().split(' ')[0].slice(0, 5); // 14:45
+
+        const completedCount = state ? state.completed.length : 0;
+        const totalUnits = state ? state.total_units : 213;
+        const remaining = totalUnits - completedCount;
+        const percentComplete = ((completedCount / totalUnits) * 100).toFixed(1);
+
+        // Update Session Metadata
+        content = content.replace(
+            /<!-- AUTO-UPDATED: START - Session Metadata -->[\s\S]*?<!-- AUTO-UPDATED: END - Session Metadata -->/,
+            `<!-- AUTO-UPDATED: START - Session Metadata -->
+**Project**: North Africa TO&E Builder - **v3.0.0 (Ground Forces)**
+**Last Updated**: ${dateStr} ${timeStr}
+**Status**: Schema v3.0 Complete, ${completedCount}/${totalUnits} units (${percentComplete}%)
+<!-- AUTO-UPDATED: END - Session Metadata -->`
+        );
+
+        // Update Progress Stats
+        content = content.replace(
+            /<!-- AUTO-UPDATED: START - Progress Stats -->[\s\S]*?<!-- AUTO-UPDATED: END - Progress Stats -->/,
+            `<!-- AUTO-UPDATED: START - Progress Stats -->
+### 🔨 IN PROGRESS:
+- **Ground Forces Extraction**: ${completedCount}/${totalUnits} units (${percentComplete}%)
+  - ${remaining} units remaining to complete Phase 1-6
+- **1941-Q2 Showcase**: 90% complete
+  - 10/18 units upgraded to v3.0.0 schema
+  - All critical gaps resolved (Gap 3, 5, 8)
+  - Remaining: Corps Roll-ups (Gaps 1 & 2)
+<!-- AUTO-UPDATED: END - Progress Stats -->`
+        );
+
+        // Update Recently Completed section
+        const recentUnits = lastCompleted.slice(-9); // Last 9 units
+        const unitsCompleted = sessionStats.completed_count || 0;
+        const prevCompleted = completedCount - unitsCompleted;
+        const recentWork = recentUnits.length > 0
+            ? recentUnits.map(u => `  - ${u}`).join('\n')
+            : '  - (No units completed in last session)';
+
+        content = content.replace(
+            /<!-- AUTO-UPDATED: START - Recently Completed -->[\s\S]*?<!-- AUTO-UPDATED: END - Recently Completed -->/,
+            `<!-- AUTO-UPDATED: START - Recently Completed -->
+### ✅ RECENTLY COMPLETED (Last Session):
+- **Session Date**: ${dateStr}
+- **Units Completed**: ${unitsCompleted} units (${prevCompleted} → ${completedCount})
+- **Session Duration**: ${sessionStats.duration} minutes
+- **Recent Work**:
+${recentWork}
+- **Milestone Achievements**:
+  - Gap 3 (Wikipedia): ✅ RESOLVED - 0 violations
+  - Gap 8 (Infantry Weapons): ✅ RESOLVED - All chapters complete
+  - Gap 5 (Empty Sections): ✅ RESOLVED - Bologna & Trieste complete
+<!-- AUTO-UPDATED: END - Recently Completed -->`
+        );
+
+        await fs.writeFile(startHerePath, content);
+        console.log('   ✅ START_HERE_NEW_SESSION.md updated\n');
+        return true;
+    } catch (error) {
+        console.warn('   ⚠️  Failed to update START_HERE_NEW_SESSION.md:', error.message, '\n');
+        return false;
+    }
+}
+
 async function generateSessionSummary(state, startTime, uncommitted) {
     const endTime = new Date();
     const duration = startTime ? Math.round((endTime - new Date(startTime)) / 1000 / 60) : 'unknown';
@@ -267,6 +340,10 @@ async function main() {
 
     // Generate session summary
     await generateSessionSummary(state, startTime, uncommitted);
+
+    // Update START_HERE_NEW_SESSION.md with current progress
+    const lastCompleted = state && state.completed ? state.completed.slice(-9) : [];
+    await updateStartHereNewSession(state, sessionStats, lastCompleted);
 
     // Display summary
     displayEndSummary(state, uncommitted, sessionStats.duration);
