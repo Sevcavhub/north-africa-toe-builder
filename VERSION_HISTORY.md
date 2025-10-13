@@ -1,0 +1,914 @@
+# North Africa TO&E Builder - Version History
+
+**Companion Document**: PROJECT_SCOPE.md v1.0.0
+**Last Updated**: 2025-10-13
+**Status**: 🟢 LIVING DOCUMENT - Updated with each version change
+
+---
+
+## 📖 Purpose
+
+Track technical evolution of schemas, templates, agents, and implementation decisions. For project vision and strategic scope, see **PROJECT_SCOPE.md**.
+
+---
+
+## 🔄 Update Protocol
+
+### When to Update This Document:
+
+**Update VERSION_HISTORY.md when**:
+- Schema version changes (unified_toe_schema.json)
+- Template version changes (MDBOOK_CHAPTER_TEMPLATE.md)
+- Agent catalog version changes (agent_catalog.json)
+- Breaking changes to data structure
+- Major architectural decisions
+
+**How to Update** (Semi-Automated Workflow):
+1. Make technical change (edit schema/template/agents)
+2. Update version number in the changed file
+3. Add new entry to this document with:
+   - Version number and date
+   - Strategic rationale (WHY the change)
+   - Technical changes (WHAT changed)
+   - Impact assessment (migration required?)
+   - Cross-reference to PROJECT_SCOPE.md if applicable
+4. Run `npm run validate:v3` to verify compliance
+5. Commit both files together
+
+**Reminder System**:
+- Git commit template will prompt for VERSION_HISTORY.md update
+- Cross-references in CLAUDE.md ensure agents follow protocol
+- Future: `npm run version:check` will detect drift
+
+---
+
+## 📊 Version Overview
+
+| Component | v1.0 | v2.0 | v3.0 (Current) |
+|-----------|------|------|----------------|
+| **Schema** | 25 fixed fields | 27-35+ variable | 37-45+ variable |
+| **Equipment Detail** | Rollup counts | Variant-level | Variant-level |
+| **Supply Data** | None | None | 5 fields |
+| **Environment** | None | None | 5 fields |
+| **Wikipedia** | Allowed | Allowed | 🚫 BLOCKED |
+| **MDBook Sections** | ~14 | 16 | 18 |
+| **Agents** | v1.0 | v1.0 | v2.0 |
+
+---
+
+## 📅 Complete Version Timeline
+
+---
+
+### **Pre-Project Phase (Pre-October 2025)**
+
+**Iteration 1 & 2 Development**
+
+**Location**: `F:\Timeline_TOE_Reconstruction` (Iteration 2 baseline)
+
+**Purpose**: External research and data compilation
+
+**Key Artifact**: `STRATEGIC_COMMAND_SUMMARY_SCHEMA.md` (Iteration 2)
+
+**Status**: Completed externally, imported as baseline for this project
+
+---
+
+### **Phase 0: Project Initialization (Early October 2025)**
+
+**Git Commits**: 73f48bb - 7006426
+
+**Key Events**:
+- `73f48bb` - Initialize autonomous TO&E extraction
+- `7006426` - Add core system implementation
+- `be6936d` - Add autonomous extraction outputs
+
+**Deliverables**:
+- 15-agent orchestration system
+- File-based task coordination
+- Source waterfall (3-tier: local docs → curated web → general search)
+- Base unified schema
+
+**Technical Foundation**:
+- Multi-agent architecture (document_parser, historical_research, unit_instantiation, etc.)
+- Task management system (pending/in_progress/completed directories)
+- Source quality tiers (95% local docs, 75% curated, 60% general)
+
+---
+
+### **Schema v1.0: Original Fixed Schema (October 2025)**
+
+**MDBook Template**: Unknown sections (pre-standardization)
+**Schema**: 25-field fixed schema
+**Agent Catalog**: v1.0
+
+**Characteristics**:
+- **Fixed 25 fields** per unit (inflexible)
+- **Rollup counts allowed** (e.g., "tanks: 230" without variants)
+- **Generic equipment entries** acceptable
+- **No supply/logistics data** required
+- **No weather/environmental factors**
+- **Wikipedia sources** accepted
+
+**Example Data Structure**:
+```json
+{
+  "tanks": 230,
+  "artillery": 72,
+  "trucks": 1200
+}
+```
+
+**Problems Identified**:
+- Generic equipment reduced historical accuracy
+- Couldn't support scenario generation (no supply data)
+- Missing operational context (weather, terrain)
+- Inconsistent section counts across chapters
+- Nation-specific equipment variations not handled
+
+---
+
+### **Schema v2.0: Variable Field Count + Variant Detail (October 1, 2025)**
+
+**Git Commits**: Phase 6 standardization (commit refs not preserved)
+
+**Strategic Rationale**:
+Fixed 25-field schema couldn't handle nation-specific equipment variations. German divisions had extensive halftrack inventories, British had carriers, Italian had few halftracks. Variant-level detail required for wargaming accuracy.
+
+**Schema Changes** (`unified_toe_schema.json`):
+- **Field count**: 25 fixed → **27-35+ variable**
+- **Ground vehicles**: Single field → **7-15+ categories**
+  - Core: tanks, light_tanks, armored_cars, motorcycles, trucks, halftracks, specialized_vehicles
+  - Optional: artillery_tractors, apcs, captured_vehicles, carriers (nation-specific)
+- **Variant requirement**: ALL equipment must have variant breakdown
+- **Totals calculation**: Category totals must equal sum of variants (±5%)
+
+**Example Data Structure**:
+```json
+{
+  "tanks": {
+    "total": 230,
+    "breakdown": {
+      "Panzer III Ausf F": 60,
+      "Panzer III Ausf G": 50,
+      "Panzer III Ausf H": 90,
+      "Panzer IV Ausf D": 20,
+      "Panzer IV Ausf E": 10
+    }
+  }
+}
+```
+
+**Data Quality Rules** (NEW):
+- ✅ NO ROLLUP COUNTS - Every category MUST have variant breakdown
+- ✅ Variant names must be specific (Panzer III Ausf F, not "Panzer III")
+- ✅ Totals must match breakdowns exactly
+- ✅ Ground vehicles total = sum of all vehicle categories
+
+**Impact**:
+- All existing units required variant-level detail addition
+- Nation-specific optional categories enabled
+- Wargame-quality precision achieved
+- Equipment evolution tracking enabled
+
+**Baseline Document**:
+- `F:\Timeline_TOE_Reconstruction\PROCESSING\STRATEGIC_COMMAND_SUMMARY_SCHEMA.md` (Iteration 2)
+
+---
+
+### **MDBook Template v2.0: 16-Section Standardization (October 11, 2025)**
+
+**Git Commits**: dd8c7d5, 223a783
+
+**Strategic Rationale**:
+Chapters had inconsistent structure (14-16 sections). British 7th Armoured (v1.0) missing Command section. Italian chapters (v1.5) missing Critical Equipment Shortages. Needed unified standard combining best features from all chapters.
+
+**Template Changes** (`docs/MDBOOK_CHAPTER_TEMPLATE.md`):
+- **Sections**: 14 variable → **16 standard**
+- **Added Section 3**: Command (divisional commander, HQ, staff detail)
+- **Added Section 12**: Critical Equipment Shortages (operational limitations)
+- **Added Section 15**: Data Quality & Known Gaps (transparency requirement)
+
+**Key Commits**:
+- `dd8c7d5` - Synchronize MDBook template to 16-section standard
+- `223a783` - Complete v2.0 chapter regeneration (11 chapters updated)
+
+**16-Section Structure**:
+1. Header
+2. Division/Unit Overview
+3. Command (NEW)
+4. Personnel Strength
+5-9. Equipment Tables (Armoured, Artillery, Armoured Cars, Transport, Aircraft)
+10. Organizational Structure
+11. Tactical Doctrine & Capabilities
+12. Critical Equipment Shortages (NEW)
+13. Historical Context
+14. Wargaming Data
+15. Data Quality & Known Gaps (NEW)
+16. Conclusion
+
+**Impact**:
+- Template became authoritative (not sample chapters)
+- Quality transparency added (Gap documentation required)
+- All future chapters must comply with 16-section standard
+- 11 chapters regenerated (1 British + 10 Italian divisions)
+
+**Template Authority**:
+- MDBOOK_CHAPTER_TEMPLATE.md declared "THE LAW"
+- Sample chapters (7th Armoured, Bologna, Ariete) demoted to "examples"
+- All agents updated to enforce template compliance
+
+---
+
+### **Agent Catalog v2.0.0: Wikipedia Blocking + Anthropic Patterns (October 13, 2025)**
+
+**Git Commit**: 7b6d236
+
+**Strategic Rationale**:
+Showcase analysis revealed 38.9% Wikipedia violation rate (Gap 3). Professional-grade research requires Tier 1/2 sources only (Tessin, Army Lists, Field Manuals, Archives). Implemented 4-layer blocking system to prevent Wikipedia contamination.
+
+**Agent Updates**:
+- **7 agents updated** to v2.0 patterns
+- **Wikipedia blocking** - 4-layer enforcement system
+- **Anthropic patterns** integrated (error prevention, stopping conditions)
+- **v3.0 schema support** added (Sections 6 & 7 extraction)
+
+**4-Layer Wikipedia Blocking System**:
+
+1. **Layer 1: document_parser v2.0**
+   - Validates sources BEFORE extraction begins
+   - Rejects Wikipedia sources immediately
+   - Logs forbidden source attempts
+
+2. **Layer 2: historical_research v2.0**
+   - Filters Wikipedia from additional sources
+   - Only searches Tier 1/2 sources
+   - Provides source quality ratings
+
+3. **Layer 3: schema_validator v2.0**
+   - Scans unit JSON files for Wikipedia citations
+   - Detects: wikipedia.org, wikia, fandom.com, wikimedia.org
+   - Fails validation if violations found
+
+4. **Layer 4: book_chapter_generator v2.0**
+   - Pre-publication check blocks generation
+   - Refuses to create chapter if Wikipedia detected
+   - Requires re-extraction with proper sources
+
+**Updated Agents**:
+- document_parser v2.0
+- historical_research v2.0
+- unit_instantiation v2.0
+- bottom_up_aggregator v2.0
+- book_chapter_generator v2.0
+- scenario_exporter v2.0
+- schema_validator v2.0
+
+**Anthropic Patterns Integration**:
+- **Error Prevention**: Source validation before processing
+- **Stopping Conditions**: Immediate rejection for forbidden sources
+- **Clear Tool Interface**: Explicit allowed/forbidden sources documented
+- **Examples**: Concrete output formats with real data
+- **Feedback Loop**: Insufficient sources flag for human intervention
+
+**Showcase Gaps Addressed**:
+- **Gap 3**: Wikipedia violations (38.9% rate) - NOW BLOCKED at 4 layers
+- **Gap 8**: Missing Infantry Weapons sections - NOW EXTRACTED automatically
+
+**Impact**:
+- All future extractions blocked from Wikipedia
+- Existing violations require re-extraction
+- Professional-grade sourcing enforced
+- Kickstarter-quality research standards achieved
+
+---
+
+### **Schema v3.0.0: Ground Forces + Supply/Environment (October 13, 2025)**
+
+**Git Commit**: 846de80 (CURRENT VERSION)
+
+**🚨 BREAKING CHANGES**
+
+**Strategic Rationale**:
+PROJECT_SCOPE.md defines primary purpose as "wargame scenario generation system" (not just static historical reference). Scenario generation requires operational context: supply states (fuel days, ammo days), weather impacts (temperature, storms, seasonal effects), and environmental constraints (terrain, operational radius). v2.0 schema only provided static equipment data.
+
+**Why Supply/Logistics Added** (Section 6):
+Scenarios need operational constraints to model historical supply line challenges. Example: Rommel's fuel shortages at El Alamein directly limited offensive capability. Can't simulate "Gazala scenario" without knowing German fuel reserves (6.5 days) and British supply advantages.
+
+**Why Weather/Environment Added** (Section 7):
+Desert operations heavily influenced by seasonal factors. Sandstorms ground aircraft (2 days/month avg), extreme heat affects tank engine performance (18°C to 35°C range in 1941-Q2), operational tempo varies by daylight hours (13.5 hours in spring). Scenarios must account for these factors.
+
+**Schema Updates** (`unified_toe_schema.json`):
+- **Version**: 1.0.0 → **3.0.0**
+- **Field count**: 27-35+ → **37-45+ variable**
+
+**NEW Section 6: Supply & Logistics** (5 required fields):
+```json
+{
+  "supply_logistics": {
+    "supply_status": "Adequate but stretched. Benghazi-Tobruk supply line under constant air attack.",
+    "operational_radius_km": 150,
+    "fuel_reserves_days": 7.0,
+    "ammunition_days": 10.0,
+    "water_liters_per_day": 4.5
+  }
+}
+```
+
+**NEW Section 7: Weather & Environment** (5 required fields):
+```json
+{
+  "weather_environment": {
+    "season_quarter": "Spring transitioning to summer (April-June)",
+    "temperature_range_c": "18°C to 35°C",
+    "terrain_type": "Coastal plain and rocky desert",
+    "storm_frequency_days": 2,
+    "daylight_hours": 13.5
+  }
+}
+```
+
+**Additional Changes**:
+- **Wikipedia Blocking**: Added validation rule to reject Wikipedia sources
+- **Scope Clarification**: Renamed to "Ground Forces" schema (Air Forces = Phase 7)
+- **Infantry Weapons**: Added `top_3_infantry_weapons` field (Gap 8 fix)
+
+**MDBook Template Updates** (`MDBOOK_CHAPTER_TEMPLATE.md` v3.0):
+- **Sections**: 16 → **18 sections**
+- **NEW Section 8**: Infantry Weapons (Gap 8 fix - extracts `top_3_infantry_weapons`)
+- **NEW Section 10**: Supply & Logistics (operational radius, fuel days, ammo days, water)
+- **NEW Section 11**: Operational Environment (temperature, terrain, storms, daylight)
+- **Renumbered**: Old sections 9-16 → new sections 12-18
+
+**18-Section Structure**:
+1. Header
+2. Division/Unit Overview
+3. Command
+4. Personnel Strength
+5. Armoured Strength
+6. Artillery Strength
+7. Armoured Cars
+8. Infantry Weapons (NEW)
+9. Transport & Vehicles
+10. Supply & Logistics (NEW)
+11. Operational Environment (NEW)
+12. Organizational Structure
+13. Tactical Doctrine & Capabilities
+14. Critical Equipment Shortages
+15. Historical Context
+16. Wargaming Data
+17. Data Quality & Known Gaps
+18. Conclusion
+
+**NPM Scripts** (`package.json`):
+- `validate:v3` - Validate v3.0 schema compliance
+- `validate:sources` - Check for Wikipedia violations (NEW)
+- `validate:full` - Run both validations
+- `qa:v3` - Full QA pipeline
+
+**Wikipedia Validator** (`scripts/validate-no-wikipedia.js`):
+- NEW enforcement script for Gap 3 fix
+- Scans unit JSON files for Wikipedia sources in validation.source arrays
+- Detects: wikipedia.org, wikia, fandom.com, wikimedia.org
+- Returns exit code 1 if violations found (CI/CD blocking)
+- Provides detailed violation report with fix instructions
+
+**Session Documentation** (`START_HERE_NEW_SESSION.md`):
+- Complete rewrite for v3.0 context
+- Project state: v3.0 schema complete, 18-unit showcase analysis
+- Quick start commands for v3.0 work
+- Authorized sources by nation (Tier 1/2)
+- 9 showcase gaps documented with priorities
+
+**Migration Required**:
+All existing unit JSONs must be updated to v3.0:
+1. Add `supply_logistics` object with 5 fields
+2. Add `weather_environment` object with 5 fields
+3. Remove ANY Wikipedia sources from validation.source
+4. Add `top_3_infantry_weapons` to personnel section
+5. Update schema_version to "3.0.0"
+
+**Validation**:
+```bash
+npm run validate:v3      # Check v3.0 schema compliance
+npm run validate:sources # Check for Wikipedia violations
+npm run qa:v3           # Full QA pipeline
+```
+
+**Impact**:
+- **Purpose shift**: Static historical data → Scenario-ready output
+- **Scenario support**: Can now generate Phases 9-10 battle scenarios
+- **Commercial viability**: Kickstarter-quality scenario generation system
+- **Breaking change**: All 18 existing units need v3.0 migration
+
+**Related**:
+- PROJECT_SCOPE.md v1.0.0 Phase 9: Scenario Generation (12+ scenarios)
+- PROJECT_SCOPE.md v1.0.0 Phase 10: Campaign System
+- Addresses showcase gaps: Gap 3 (Wikipedia), Gap 8 (Infantry Weapons)
+
+**Files Changed**:
+- `schemas/unified_toe_schema.json` - Version 3.0.0
+- `docs/MDBOOK_CHAPTER_TEMPLATE.md` - Version 3.0
+- `package.json` - New validation scripts
+- `scripts/validate-no-wikipedia.js` - NEW
+- `START_HERE_NEW_SESSION.md` - Complete rewrite
+
+---
+
+## 🔢 Field Count Evolution Summary
+
+| Version | Fixed Fields | Ground Vehicle Categories | Supply | Environment | Total Range |
+|---------|--------------|---------------------------|--------|-------------|-------------|
+| **v1.0** | 25 | 1 (rollup) | 0 | 0 | 25 fixed |
+| **v2.0** | 20 | 7-15+ (variants) | 0 | 0 | 27-35+ variable |
+| **v3.0** | 20 | 7-15+ (variants) | 5 | 5 | 37-45+ variable |
+
+---
+
+## 📋 Schema Comparison Table
+
+| Component | v1.0 | v2.0 (Iteration 2) | v3.0 (Current) |
+|-----------|------|-------------------|----------------|
+| **Command** | 2 fields | 2 fields | 2 fields |
+| **Personnel** | 3 fields | 3 fields | 3 fields + top_3_weapons |
+| **Ground Vehicles Total** | 1 field (rollup) | 1 field (sum) | 1 field (sum) |
+| **Ground Vehicle Categories** | 0 (rollup only) | 7-15+ (variants) | 7-15+ (variants) |
+| **Artillery** | 4 fields | 4 fields | 4 fields |
+| **Aircraft** | 4 fields | 4 fields | 4 fields |
+| **Supply/Logistics** | ❌ None | ❌ None | ✅ 5 fields (NEW) |
+| **Weather/Environment** | ❌ None | ❌ None | ✅ 5 fields (NEW) |
+| **Wikipedia Sources** | ✅ Allowed | ✅ Allowed | 🚫 BLOCKED (4 layers) |
+| **Infantry Weapons** | ❌ None | ❌ None | ✅ top_3_weapons (NEW) |
+| **TOTAL** | 25 fixed | 27-35+ variable | 37-45+ variable |
+
+---
+
+## 📚 MDBook Template Evolution
+
+| Version | Sections | Key Additions | Quality Features | Status |
+|---------|----------|---------------|------------------|--------|
+| **v1.0** | ~14 | Basic equipment tables | None | Deprecated |
+| **v2.0** | 16 | Command, Critical Shortages, Data Quality | Gap documentation | Superseded |
+| **v3.0** | **18** | Infantry Weapons, Supply/Logistics, Operational Environment | Gap + source transparency | **CURRENT** |
+
+**v3.0 Section Additions**:
+- **Section 8**: Infantry Weapons (top 3 weapons with counts, analysis)
+- **Section 10**: Supply & Logistics (fuel/ammo days, operational radius, water)
+- **Section 11**: Operational Environment (weather, terrain, seasonal impacts)
+
+---
+
+## 🤖 Agent Catalog Evolution
+
+| Version | Agents | Key Features | Wikipedia | v3.0 Schema | Status |
+|---------|--------|--------------|-----------|-------------|--------|
+| **v1.0** | 15 | Basic orchestration | Allowed | No | Deprecated |
+| **v2.0** | 15 | 4-layer Wikipedia blocking, Anthropic patterns | BLOCKED | Yes | **CURRENT** |
+
+**v2.0 Enhancements**:
+- **Error Prevention**: Source validation before processing begins
+- **Stopping Conditions**: Immediate rejection for forbidden sources
+- **Clear Tool Interface**: Explicit allowed/forbidden sources documented
+- **Examples**: Concrete output formats with real historical data
+- **Feedback Loop**: Insufficient sources flag for human intervention
+
+---
+
+## 🎯 Project Progress Status
+
+### **Overall Progress** (as of October 13, 2025):
+- **Ground Units**: 167/213 complete (78.4%) ⬆️ from 8.5%
+- **Air Force Units**: 0/~100-135 (Phase 7 pending)
+- **Overall**: ~53.4% complete (167 of ~313-348 total units)
+
+### **Current Phase**: Phase 1-6 (Ground Forces)
+**Status**: Active extraction with v3.0 schema
+
+### **v3.0 Schema Compliance**:
+- **1941-Q2 Showcase**: 90% complete
+  - Wikipedia violations: 0 (Gap 3 RESOLVED)
+  - Infantry weapons: 18/18 chapters (Gap 8 RESOLVED)
+  - Empty sections: 0 (Gap 5 RESOLVED)
+  - Remaining: Corps roll-ups (Gaps 1 & 2)
+
+---
+
+## 🔧 Key Technical Transitions
+
+### **1. Equipment Detail Evolution**:
+
+**v1.0 (Deprecated)**:
+```json
+{"tanks": 230}
+```
+❌ No variant information, no breakdowns
+
+**v2.0 (Superseded)**:
+```json
+{
+  "tanks": {
+    "total": 230,
+    "breakdown": {
+      "Panzer III Ausf F": 60,
+      "Panzer III Ausf G": 50,
+      "Panzer III Ausf H": 90,
+      "Panzer IV Ausf D": 20,
+      "Panzer IV Ausf E": 10
+    }
+  }
+}
+```
+✅ Variant-level detail, wargaming accuracy
+
+**v3.0 (Current)**:
+```json
+{
+  "tanks": {
+    "total": 230,
+    "breakdown": {
+      "Panzer III Ausf F": 60,
+      "Panzer III Ausf G": 50,
+      "Panzer III Ausf H": 90,
+      "Panzer IV Ausf D": 20,
+      "Panzer IV Ausf E": 10
+    }
+  },
+  "supply_logistics": {
+    "fuel_reserves_days": 6.5,
+    "ammunition_days": 8.0
+  },
+  "weather_environment": {
+    "temperature_range_c": "18°C to 35°C",
+    "terrain_type": "Rocky desert"
+  }
+}
+```
+✅ Variant detail + scenario-ready operational context
+
+---
+
+### **2. Source Control Evolution**:
+
+**v1.0**: Any sources accepted
+**v2.0**: Wikipedia discouraged
+**v3.0**: Wikipedia BLOCKED (4-layer enforcement) 🚫
+
+**Enforcement Layers**:
+1. document_parser - Pre-validation
+2. historical_research - Source filtering
+3. schema_validator - JSON scanning
+4. book_chapter_generator - Publication blocking
+
+---
+
+### **3. Scenario Readiness Evolution**:
+
+**v1.0**: Static historical data only
+**v2.0**: Static historical data with equipment detail
+**v3.0**: **Scenario-ready** (supply states, weather conditions, operational radius) ✅
+
+**Enables**:
+- Phase 9: Battle scenario generation (12+ scenarios)
+- Phase 10: Campaign system (1940-1943 timeline)
+- Commercial Kickstarter product
+- Professional wargaming scenarios
+
+---
+
+## 🚀 Future Versions (Planned)
+
+### **Phase 7: Air Forces Extraction**
+**Planned Version**: Air Forces Schema v1.0
+
+**New Schema Type** (separate from ground forces):
+- Pilots, ground crew, mechanics, armorers
+- Aircraft variants with operational counts
+- Ordnance (ammunition, fuel, bombs)
+- Ground support vehicles (fuel bowsers, bomb dollies)
+- Supply reserves (fuel days, ammo days, sortie rates)
+- Base locations, assignment to ground units
+
+**Scope**: ~100-135 air units
+- Luftwaffe: ~30-40 units (JG 27, StG 2, etc.)
+- RAF/Commonwealth: ~40-50 units (Desert Air Force squadrons)
+- USAAF: ~10-15 units (9th/12th Air Force groups)
+- Regia Aeronautica: ~20-30 units (5ª Squadra Aerea stormi)
+
+---
+
+### **Phase 8: Cross-Linking & Integration**
+**Planned Version**: Schema v3.1 (ground forces enhancement)
+
+**New Fields**:
+- `assigned_air_units` array in ground unit JSONs
+- Air-ground assignment tables
+- Cross-reference validation
+
+**Example**:
+```json
+{
+  "aircraft": {
+    "total": 147,
+    "fighters": {
+      "total": 42,
+      "assigned_units": [
+        {
+          "unit_id": "luftwaffe_1941q2_i_jg27",
+          "unit_name": "I./Jagdgeschwader 27",
+          "commander": "Hauptmann Eduard Neumann",
+          "base": "Gazala",
+          "aircraft": {"Bf 109E-7/Trop": 22, "Bf 109F-2/Trop": 13},
+          "operational": 28,
+          "sortie_rate": 2.5
+        }
+      ]
+    }
+  }
+}
+```
+
+---
+
+### **Phase 9: Scenario Generation**
+**Planned Version**: Scenario Schema v1.0
+
+**12+ Battle Scenarios** with:
+- Complete OOB (ground + air units)
+- Supply states at battle start (fuel days, ammo days, water reserves)
+- Weather conditions (temperature, visibility, storms)
+- Air support assignments (which units available, sortie rates)
+- Victory conditions
+- Historical outcome for validation
+
+**Example Scenarios**:
+- Operation Battleaxe (June 1941)
+- Operation Crusader (November 1941)
+- Gazala (May-June 1942)
+- First/Second El Alamein (July-November 1942)
+- Operation Torch (November 1942)
+- Tunisia Campaign (December 1942 - May 1943)
+
+---
+
+### **Phase 10: Campaign System**
+**Planned Version**: Campaign Schema v1.0
+
+**Campaign Elements**:
+- Quarterly transitions (how units evolved Q to Q)
+- Supply route modeling (Tripoli → Benghazi → Tobruk routes)
+- Weather patterns (seasonal impacts by quarter)
+- Unit evolution tracking (equipment upgrades, reorganizations)
+- Airfield data (Luftwaffe/RAF base locations and capacity)
+
+---
+
+## 📝 Documentation Files Version History
+
+| File | v1.0 | v2.0 | v3.0 (Current) |
+|------|------|------|----------------|
+| `unified_toe_schema.json` | 25 fields | 27-35+ fields | 37-45+ fields + supply/env |
+| `MDBOOK_CHAPTER_TEMPLATE.md` | ~14 sections | 16 sections | 18 sections |
+| `agent_catalog.json` | v1.0 | v2.0 (Anthropic patterns) | v2.0 (unchanged) |
+| `PROJECT_SCOPE.md` | Not created | Not created | v1.0.0 (Oct 13) ✅ |
+| `VERSION_HISTORY.md` | Not created | Not created | v1.0.0 (Oct 13) ✅ |
+| `START_HERE_NEW_SESSION.md` | Basic | Enhanced | v3.0 context |
+
+---
+
+## 🎮 Strategic Purpose Evolution
+
+### **v1.0 Purpose**:
+- Historical reference database
+- Static TO&E documentation
+- Academic research support
+
+### **v2.0 Purpose**:
+- Historical reference with equipment detail
+- MDBook publication quality
+- Wargaming reference (static)
+
+### **v3.0 Purpose** (CURRENT):
+- **Wargame scenario generation** (primary)
+- Historical reference (secondary)
+- Commercial Kickstarter product (target)
+
+**New Capabilities**:
+- Supply line modeling (fuel days, ammo days, operational radius)
+- Weather impact modeling (temperature, storms, seasonal effects)
+- Air-ground integration support (Phase 8+)
+- Battle scenario generation (Phase 9)
+- Complete campaign system (Phase 10)
+
+---
+
+## 📊 Major Architectural Decisions
+
+### **Decision 1: Variable Field Count (v2.0)**
+
+**Problem**: Fixed 25-field schema couldn't handle nation-specific equipment variations
+
+**Example Issues**:
+- German divisions: Extensive halftracks (SdKfz 251, SdKfz 250, SdKfz 10)
+- British divisions: Carriers (Universal Carrier, Bren Carrier) + no halftracks
+- Italian divisions: Very few halftracks, extensive truck reliance
+- American divisions (1942+): M3 halftracks as APCs
+
+**Solution**: 27-35+ variable fields with nation-specific optional categories
+
+**Implementation**:
+- Core 7 categories (required): tanks, light_tanks, armored_cars, motorcycles, trucks, halftracks, specialized_vehicles
+- Optional categories (nation-specific): artillery_tractors, apcs, captured_vehicles, carriers
+
+**Benefit**:
+- Handles German halftrack complexity
+- Accommodates British carrier doctrine
+- Respects Italian equipment limitations
+- Supports American APC integration
+
+---
+
+### **Decision 2: Variant-Level Detail Requirement (v2.0)**
+
+**Problem**: Generic "tanks: 230" reduced historical accuracy and wargaming utility
+
+**Example**:
+- "Panzer III: 200" hides crucial variants (Ausf F/G/H with different armor/guns)
+- Sherman variants (M4, M4A1, M4A2) have different engines/reliability
+- Bf 109 variants (E-7, F-2, G-2) have vastly different performance
+
+**Solution**: Mandatory variant breakdown in ALL equipment categories
+
+**Rule**: `{"tanks": 230}` → ❌ REJECTED
+**Rule**: `{"tanks": {"total": 230, "breakdown": {"Panzer III Ausf F": 60, ...}}}` → ✅ ACCEPTED
+
+**Benefit**:
+- Wargame-quality precision
+- Equipment evolution tracking (Ausf F → G → H progression)
+- Historical accuracy (exact variant deployments)
+- Commercial product differentiation
+
+---
+
+### **Decision 3: Wikipedia Blocking (v3.0)**
+
+**Problem**: 38.9% Wikipedia violation rate in showcase (Gap 3)
+
+**Analysis**:
+- 9 units had Wikipedia sources (out of 18 reviewed)
+- 26 total Wikipedia citations
+- Professional/commercial product requires Tier 1/2 sources only
+
+**Solution**: 4-layer enforcement system blocking Wikipedia at every stage
+
+**Layers**:
+1. **Pre-extraction** (document_parser): Validates sources before work starts
+2. **Research phase** (historical_research): Filters Wikipedia from search results
+3. **Validation** (schema_validator): Scans JSON for Wikipedia citations
+4. **Publication** (book_chapter_generator): Blocks chapter generation if violations found
+
+**Benefit**:
+- Professional-grade research standards
+- Kickstarter credibility (Tier 1/2 sources only)
+- Academic rigor (Tessin, Army Lists, Field Manuals, Archives)
+- Commercial product viability
+
+---
+
+### **Decision 4: Supply/Environment Addition (v3.0)**
+
+**Problem**: Static data couldn't support scenario generation (Phases 9-10)
+
+**Scenario Requirements**:
+- Fuel states: "How many days of fuel did Rommel have at Gazala?"
+- Ammo reserves: "Could British sustain 3-day artillery bombardment?"
+- Operational radius: "How far from Tobruk could DAK operate?"
+- Weather: "What temperature extremes affected tank engine performance?"
+- Terrain: "How did rocky desert vs sand affect mobility?"
+
+**Solution**: Added 5 supply fields + 5 environment fields (Section 6 & 7)
+
+**Supply Fields**:
+- supply_status (qualitative assessment)
+- operational_radius_km (distance from main depot)
+- fuel_reserves_days (at current consumption rate)
+- ammunition_days (combat supply)
+- water_liters_per_day (desert operations critical)
+
+**Environment Fields**:
+- season_quarter (seasonal conditions)
+- temperature_range_c (operational impacts)
+- terrain_type (mobility effects)
+- storm_frequency_days (disruption rate)
+- daylight_hours (operational tempo)
+
+**Benefit**:
+- Scenario-ready output (can generate Phases 9-10)
+- Historical constraints modeled (supply line challenges)
+- Operational realism (weather/terrain impacts)
+- Commercial differentiation (first scenario-ready TO&E database)
+
+---
+
+## ✅ Current Status Summary (October 13, 2025)
+
+### **Active Versions**:
+- **Schema**: v3.0.0 (Ground Forces)
+- **MDBook Template**: v3.0 (18 sections)
+- **Agent Catalog**: v2.0.0 (Wikipedia blocking + Anthropic patterns)
+- **PROJECT_SCOPE**: v1.0.0 (Complete vision documented)
+- **VERSION_HISTORY**: v1.0.0 (This document - NEW)
+
+### **Progress**:
+- **Ground Units**: 167/213 complete (78.4%)
+- **v3.0 Showcase**: 90% complete (Gaps 3/5/8 RESOLVED)
+- **Wikipedia Violations**: 0 (down from 26)
+- **Overall Project**: ~53.4% complete (167 of ~313-348 total units)
+
+### **Next Priorities**:
+1. Complete 1941-Q2 showcase (extract British/Italian Corps units - Gaps 1 & 2)
+2. Complete v3.0 migration (remaining 46 ground units)
+3. Advance to Phase 7 (Air Forces extraction, ~100-135 units)
+
+---
+
+## 📚 Related Documentation
+
+**Strategic Planning**:
+- **PROJECT_SCOPE.md v1.0.0** - Complete project vision, phased approach, success criteria
+
+**Technical Implementation**:
+- **VERSION_HISTORY.md** (this document) - Technical version history, schema evolution
+- **docs/project_context.md** - Architecture and design decisions
+- **CLAUDE.md** - Agent instructions and project overview
+
+**Schema & Standards**:
+- **schemas/unified_toe_schema.json v3.0.0** - Ground forces data structure
+- **docs/MDBOOK_CHAPTER_TEMPLATE.md v3.0** - MDBook chapter template (18 sections)
+- **agents/agent_catalog.json v2.0.0** - Agent definitions with Wikipedia blocking
+
+**Session Management**:
+- **START_HERE_NEW_SESSION.md** - Session startup guide (v3.0 context)
+- **SESSION_SUMMARY.md** - Current session status
+- **WORKFLOW_STATE.json** - Autonomous extraction progress
+
+---
+
+## 🔄 Semi-Automated Update Workflow
+
+### **When Schema Changes** (Example: v3.0 → v3.1):
+
+**Step 1**: Developer edits schema file
+```bash
+# Edit schemas/unified_toe_schema.json
+# Change version: "3.0.0" → "3.1.0"
+```
+
+**Step 2**: Update VERSION_HISTORY.md (REQUIRED)
+```markdown
+## Schema v3.1.0 (YYYY-MM-DD)
+
+**Strategic Rationale**:
+[Why was this change needed? What problem does it solve?]
+
+**Changes**:
+- [List specific changes made]
+
+**Impact**:
+[How does this affect existing units? Migration required?]
+
+**Related**:
+- PROJECT_SCOPE.md: [Which phase/section?]
+- Git commit: [commit hash]
+```
+
+**Step 3**: Validate (automated)
+```bash
+npm run validate:v3      # Check v3.1 compliance
+npm run version:check    # Detect drift (future)
+```
+
+**Step 4**: Commit both files together
+```bash
+git add schemas/unified_toe_schema.json VERSION_HISTORY.md
+git commit -m "feat: Add [feature] to schema v3.1.0"
+```
+
+### **Reminder System**:
+- Git commit template prompts for VERSION_HISTORY.md update
+- Cross-references in CLAUDE.md ensure agents follow protocol
+- Future: `npm run version:check` will detect drift automatically
+
+---
+
+**Version History v1.0.0**
+**Author**: Claude Code Autonomous Orchestrator
+**Date**: 2025-10-13
+**Status**: PRODUCTION - Update with each version change
+
+---
+
+**END OF VERSION HISTORY**
+
+*For strategic scope and project vision, see **PROJECT_SCOPE.md**.*
+*For technical implementation details, see **docs/project_context.md**.*
+*For agent instructions, see **CLAUDE.md**.*

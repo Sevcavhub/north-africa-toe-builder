@@ -732,6 +732,7 @@ This scope is achievable, professionally valuable, and commercially marketable.
 
 ### Core Project Files:
 - **`PROJECT_SCOPE.md`** (this file) - Complete project vision and phased approach
+- **`VERSION_HISTORY.md`** - Technical version history and schema evolution (NEW)
 - **`CLAUDE.md`** - Agent instructions and project overview
 - **`docs/project_context.md`** - Technical architecture and design decisions
 - **`SESSION_SUMMARY.md`** - Current session status and handoff
@@ -781,9 +782,10 @@ When updating PROJECT_SCOPE.md:
 1. **Update version number** (semantic versioning: major.minor.patch)
 2. **Update "Last Updated" date** at top of file
 3. **Add entry to Version History** section with changes
-4. **Update relevant MCP memory** entities/observations if schema changes
-5. **Git commit** with descriptive message: `docs: Update PROJECT_SCOPE to v1.1.0 - [changes]`
-6. **Announce in session** if major changes affect current work
+4. **Update VERSION_HISTORY.md if technical changes** (schema, template, agent modifications)
+5. **Update relevant MCP memory** entities/observations if schema changes
+6. **Git commit** with descriptive message: `docs: Update PROJECT_SCOPE to v1.1.0 - [changes]`
+7. **Announce in session** if major changes affect current work
 
 **Minor updates** (typos, clarifications): Patch version (v1.0.1)
 **New sections/requirements**: Minor version (v1.1.0)

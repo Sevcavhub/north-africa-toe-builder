@@ -67,7 +67,8 @@
 ## Key Files to Reference
 
 ### Project Documentation:
-- `PROJECT_SCOPE.md` - Complete scope (313-348 units, 10 phases)
+- `PROJECT_SCOPE.md` - Complete scope (313-348 units, 10 phases) - **READ FIRST**
+- `VERSION_HISTORY.md` - Technical version history (schema evolution, implementation decisions) - **NEW**
 - `docs/project_context.md` - Architecture and design decisions
 - `CLAUDE.md` - Project instructions for Claude Code
 
@@ -273,4 +274,6 @@ If you need context from previous sessions:
 
 **Ready to continue? Just tell me what you want to work on!** 🚀
 
-**Recommended Next Step**: "Read RE-EXTRACTION_COMPLETE.md then extract British/Italian Corps units (Gaps 1 & 2)"
+**Recommended Next Step**:
+1. "Read VERSION_HISTORY.md to understand technical evolution (schema v1.0 → v2.0 → v3.0)"
+2. "Read RE-EXTRACTION_COMPLETE.md then extract British/Italian Corps units (Gaps 1 & 2)"

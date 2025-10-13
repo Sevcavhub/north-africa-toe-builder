@@ -37,6 +37,63 @@ grep -E "Version|Last Updated|Status" PROJECT_SCOPE.md
 
 ---
 
+## 📖 Version Control & Documentation Standards
+
+**Two Companion Documents Track Project Evolution**:
+
+### PROJECT_SCOPE.md (Strategic)
+- **Purpose**: WHAT we're building and WHY (vision, phases, success criteria)
+- **Audience**: All team members, stakeholders, future sessions
+- **Updates**: When scope, phases, or requirements change
+- **Versioning**: Semantic (v1.0.0 → v1.1.0 → v2.0.0)
+
+### VERSION_HISTORY.md (Technical)
+- **Purpose**: HOW we built it and WHEN (schema evolution, implementation decisions)
+- **Audience**: Developers, agents, technical implementation
+- **Updates**: When schema, templates, agents, or architecture change
+- **Versioning**: Component-based (Schema v3.0, Template v3.0, Agents v2.0.0)
+
+**Version Control Rules**:
+
+1. **When making schema changes**:
+   - Update `schemas/unified_toe_schema.json` with new version
+   - Add entry to VERSION_HISTORY.md with technical details
+   - Update PROJECT_SCOPE.md if scope implications exist
+   - Run validation: `npm run validate:v3`
+
+2. **When modifying MDBook template**:
+   - Update `docs/MDBOOK_CHAPTER_TEMPLATE.md` with new version
+   - Add entry to VERSION_HISTORY.md documenting section changes
+   - Update `scripts/generate_mdbook_chapters.js` if needed
+
+3. **When updating agent catalog**:
+   - Update `agents/agent_catalog.json` with new version
+   - Document in VERSION_HISTORY.md with rationale
+   - Test agents with sample units
+
+4. **Git commit message format**:
+   ```
+   feat: Schema v3.0 - Add supply/logistics fields
+
+   - Added Section 6 (5 fields): fuel_reserves, ammo_days, etc.
+   - Updated validator agent to enforce new requirements
+   - Regenerated 18 showcase units
+
+   See VERSION_HISTORY.md for complete technical details.
+   ```
+
+5. **Semi-automated workflow**:
+   - Machines detect: Schema changes, template modifications, agent updates
+   - Humans document: WHY changes were made, architectural decisions, context
+   - Cross-reference: Both documents link to each other for complete picture
+
+**Quick Reference**:
+- Read VERSION_HISTORY.md to understand technical evolution
+- Read PROJECT_SCOPE.md to understand strategic direction
+- Both documents are LIVING and must stay synchronized
+
+---
+
 ## Project Overview
 
 Multi-agent orchestration system for building detailed Table of Organization & Equipment (TO&E) data from historical military sources. Creates hierarchical military organization data from Theater level down to individual Squad level with full Strategic Command Summary (SCM) detail at every tier.
