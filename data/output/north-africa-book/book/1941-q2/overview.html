@@ -1,0 +1,385 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>1941-Q2 Overview - North Africa Campaign TO&amp;E 1940-1943</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Complete Table of Organization &amp; Equipment for North Africa Campaign, 1940-1943. Extracted from primary sources (Tessin, Army Lists, Field Manuals) with 80%+ confidence.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">North Africa Campaign TO&amp;E 1940-1943</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/north-africa-toe" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/north-africa-toe/edit/main/src/1941-q2/overview.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="1941-q2-overview-april---june-1941"><a class="header" href="#1941-q2-overview-april---june-1941">1941-Q2 Overview (April - June 1941)</a></h1>
+<h2 id="historical-context"><a class="header" href="#historical-context">Historical Context</a></h2>
+<p>The second quarter of 1941 marked a dramatic shift in the North Africa Campaign. What had been an</p>
+<p>Italian theater suddenly became dominated by German tactical leadership, though Italian forces still provided the bulk of Axis military power.</p>
+<h3 id="major-events"><a class="header" href="#major-events">Major Events</a></h3>
+<p><strong>Rommel's First Offensive (March 31 - May 31, 1941)</strong></p>
+<ul>
+<li>German tactical superiority demonstrated despite minimal forces</li>
+<li>Rapid advance reversed British gains from Operation Compass</li>
+<li>Demonstrated effectiveness of combined German-Italian operations</li>
+</ul>
+<p><strong>Siege of Tobruk (April 10, 1941 onward)</strong></p>
+<ul>
+<li>Australian garrison successfully holds critical fortress</li>
+<li>Becomes symbol of Commonwealth resistance</li>
+<li>Ties down Axis forces throughout Q2 1941</li>
+</ul>
+<p><strong>British Retreat to Egyptian Border (April-May 1941)</strong></p>
+<ul>
+<li>Strategic reversal from Cyrenaica gains</li>
+<li>Loss of all territory gained in Operation Compass except Tobruk</li>
+<li>Western Desert Force reorganizes at Egyptian border</li>
+</ul>
+<p><strong>Afrika Korps at Full Strength</strong></p>
+<ul>
+<li>15th Panzer Division arrival complete by May 1941</li>
+<li>Two-division corps operational (5. leichte, 15. Panzer)</li>
+<li>~30,000 German personnel with 300+ tanks</li>
+</ul>
+<p><strong>Operation Battleaxe (June 15-17, 1941)</strong></p>
+<ul>
+<li>British counteroffensive to relieve Tobruk</li>
+<li>Decisive German tactical victory</li>
+<li>RAF's 253 Wing participates (RAAF involvement)</li>
+<li>Demonstrates continued German tactical superiority despite inferior numbers</li>
+</ul>
+<h3 id="theater-command-structure"><a class="header" href="#theater-command-structure">Theater Command Structure</a></h3>
+<p><strong>German Forces</strong>: Generalleutnant Erwin Rommel commanding Deutsches Afrika Korps
+<strong>Italian Forces</strong>: Generale Italo Gariboldi commanding Italian forces in Libya
+<strong>British Forces</strong>: General Archibald Wavell commanding Middle East Command (relieved July 1941)</p>
+<h3 id="key-finding-german-air-power-minimal"><a class="header" href="#key-finding-german-air-power-minimal">Key Finding: German Air Power Minimal</a></h3>
+<p>A critical finding from primary source research: <strong>German air power in Q2 1941 was minimal</strong>.</p>
+<ul>
+<li>Only <strong>I./JG 27</strong> present (30-40 Bf 109 fighters)</li>
+<li>NO dive bomber units (previous data showing StG 3 was incorrect)</li>
+<li>Italian Regia Aeronautica bore <strong>85-90% of Axis air burden</strong> (200-300 aircraft)</li>
+</ul>
+<p>This finding corrects previous historical databases that overstated German air participation by ~75%.</p>
+<h3 id="commonwealth-participation"><a class="header" href="#commonwealth-participation">Commonwealth Participation</a></h3>
+<p><strong>South African Air Force (SAAF)</strong>:</p>
+<ul>
+<li>2 squadrons operational (Hurricane, Maryland)</li>
+<li>Participated in Operation Battleaxe</li>
+</ul>
+<p><strong>Royal Australian Air Force (RAAF)</strong>:</p>
+<ul>
+<li>253 Wing composition (3 squadrons)</li>
+<li>Hurricane and Tomahawk aircraft</li>
+<li>Key role in Operation Battleaxe</li>
+</ul>
+<p><strong>Australian Army</strong>:</p>
+<ul>
+<li>Tobruk garrison (9th Australian Division)</li>
+<li>"Rats of Tobruk" defense becomes legendary</li>
+</ul>
+<h3 id="strategic-balance"><a class="header" href="#strategic-balance">Strategic Balance</a></h3>
+<p><strong>Axis Advantages</strong>:</p>
+<ul>
+<li>German tactical leadership (Rommel)</li>
+<li>Combined arms coordination</li>
+<li>Operational initiative after April offensive</li>
+</ul>
+<p><strong>Allied Advantages</strong>:</p>
+<ul>
+<li>Numerical superiority in aircraft quality (Hurricane/Tomahawk vs CR.42)</li>
+<li>Tobruk fortress anchoring defensive line</li>
+<li>Commonwealth reinforcements arriving</li>
+<li>Superior logistics via short supply lines</li>
+</ul>
+<p><strong>Critical Weakness (Axis)</strong>:</p>
+<ul>
+<li>Extended supply lines from Tripoli</li>
+<li>Limited German air support (only 36 aircraft)</li>
+<li>Dependence on Italian logistics and air power</li>
+</ul>
+<h3 id="data-quality-for-this-quarter"><a class="header" href="#data-quality-for-this-quarter">Data Quality for This Quarter</a></h3>
+<p>This book presents data with transparent quality ratings:</p>
+<div class="table-wrapper"><table><thead><tr><th>Nation</th><th>Ground Forces</th><th>Aircraft</th><th>Overall</th></tr></thead><tbody>
+<tr><td><strong>German</strong></td><td>75% confidence</td><td>95% confidence</td><td>85%</td></tr>
+<tr><td><strong>Italian</strong></td><td>75% confidence</td><td>92% confidence</td><td>83%</td></tr>
+<tr><td><strong>British</strong></td><td>75% confidence</td><td>90% confidence</td><td>82%</td></tr>
+</tbody></table>
+</div>
+<p><strong>Aircraft data</strong> extracted from Tier 1/2 primary sources:</p>
+<ul>
+<li>Tessin Band 14 (German)</li>
+<li>TM E 30-420 (Italian)</li>
+<li>RAF Museum archives (British)</li>
+</ul>
+<p><strong>Ground forces data</strong> from existing databases, awaiting primary source validation in future research phases.</p>
+<h3 id="quarter-timeline"><a class="header" href="#quarter-timeline">Quarter Timeline</a></h3>
+<p><strong>April 1941</strong>:</p>
+<ul>
+<li>April 2: Rommel's offensive begins</li>
+<li>April 10: Siege of Tobruk begins</li>
+<li>April 14: Australian 9th Division isolated in Tobruk</li>
+<li>April 25: German forces reach Egyptian border</li>
+</ul>
+<p><strong>May 1941</strong>:</p>
+<ul>
+<li>May 15: Operation Brevity (limited British counterattack, fails)</li>
+<li>May 26: 15th Panzer Division fully operational</li>
+<li>May 31: Rommel's first offensive concludes</li>
+</ul>
+<p><strong>June 1941</strong>:</p>
+<ul>
+<li>June 15: Operation Battleaxe begins</li>
+<li>June 16: 253 Wing (RAF/RAAF) provides air support</li>
+<li>June 17: Operation Battleaxe fails, British withdraw</li>
+<li>June 21: Operation Barbarossa (German invasion of USSR) begins - shifts strategic focus</li>
+</ul>
+<h3 id="significance-for-the-campaign"><a class="header" href="#significance-for-the-campaign">Significance for the Campaign</a></h3>
+<p>Q2 1941 established patterns that would persist throughout the North Africa Campaign:</p>
+<ol>
+<li><strong>German Tactical Superiority</strong>: Small German forces repeatedly defeated larger British/Commonwealth formations</li>
+<li><strong>Italian Support Role</strong>: Italian forces provided bulk of Axis strength but German leadership</li>
+<li><strong>Commonwealth Integration</strong>: SAAF, RAAF, and Australian Army integral to British operations</li>
+<li><strong>Air Power Balance</strong>: Combined Axis air superiority (236-336 aircraft vs 150-200 British) but quality disadvantage</li>
+<li><strong>Tobruk as Anchor</strong>: Fortress becomes critical to entire theater's dynamics</li>
+</ol>
+<p>The failure of Operation Battleaxe led to Wavell's relief and Auchinleck's appointment as Middle East Commander, setting stage for Operation Crusader (November 1941).</p>
+<hr />
+<p><strong>Next</strong>: <a href="./strategic-command-summary.html">Strategic Command Summary</a> - Complete force tables for all nations</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../introduction.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../1941-q2/strategic-command-summary.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../introduction.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../1941-q2/strategic-command-summary.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

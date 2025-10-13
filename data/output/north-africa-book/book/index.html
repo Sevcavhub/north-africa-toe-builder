@@ -1,0 +1,410 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Introduction - North Africa Campaign TO&amp;E 1940-1943</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Complete Table of Organization &amp; Equipment for North Africa Campaign, 1940-1943. Extracted from primary sources (Tessin, Army Lists, Field Manuals) with 80%+ confidence.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">North Africa Campaign TO&amp;E 1940-1943</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/north-africa-toe" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/north-africa-toe/edit/main/src/introduction.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="introduction"><a class="header" href="#introduction">Introduction</a></h1>
+<h2 id="welcome-to-the-north-africa-campaign-toe-project"><a class="header" href="#welcome-to-the-north-africa-campaign-toe-project">Welcome to the North Africa Campaign TO&amp;E Project</a></h2>
+<p>This book presents a comprehensive reconstruction of the <strong>Table of Organization &amp; Equipment (TO&amp;E)</strong> for all major forces involved in the North Africa Campaign of World War II, spanning from <strong>1940 Q2 through 1943 Q2</strong>.</p>
+<h3 id="project-overview"><a class="header" href="#project-overview">Project Overview</a></h3>
+<p>The North Africa Campaign represents one of the most dynamic and well-documented theaters of World War II. From the initial Italian invasion of Egypt in September 1940 to the final Axis surrender in Tunisia in May 1943, this theater saw:</p>
+<ul>
+<li><strong>Rapid technological evolution</strong> in armored warfare, air power, and combined arms operations</li>
+<li><strong>Multinational forces</strong> representing Germany, Italy, Britain, the Commonwealth (India, Australia, New Zealand, South Africa, Canada), France, and the United States</li>
+<li><strong>Extreme environmental challenges</strong> unique to desert warfare</li>
+<li><strong>Critical strategic importance</strong> controlling Mediterranean sea lanes and access to Middle Eastern oil</li>
+</ul>
+<h3 id="project-goals"><a class="header" href="#project-goals">Project Goals</a></h3>
+<p>This reconstruction aims to:</p>
+<ol>
+<li><strong>Document complete force structures</strong> from Theater level down to Squad level</li>
+<li><strong>Achieve 80%+ confidence</strong> through cross-referenced primary sources</li>
+<li><strong>Provide variant-level detail</strong> for all equipment (no generic "tank" counts)</li>
+<li><strong>Track quarterly evolution</strong> showing how forces changed over 13 quarters</li>
+<li><strong>Include Commonwealth forces</strong> fully integrated with British data</li>
+<li><strong>Enable multiple use cases</strong>: Historical research, wargaming scenarios, database population</li>
+</ol>
+<h3 id="data-sources"><a class="header" href="#data-sources">Data Sources</a></h3>
+<p>Our research follows a <strong>3-tier source waterfall</strong>:</p>
+<h4 id="tier-1-sources-90-confidence"><a class="header" href="#tier-1-sources-90-confidence">Tier 1 Sources (90%+ confidence)</a></h4>
+<ul>
+<li><strong>Georg Tessin, <em>Verbände und Truppen der deutschen Wehrmacht und Waffen-SS</em></strong> (17 volumes) - German forces</li>
+<li><strong>British Army Lists</strong> (quarterly 1941-1943) - British &amp; Commonwealth forces</li>
+<li><strong>U.S. War Department Technical Manuals</strong> (TM E 30-420, TM 30-410) - Axis forces</li>
+<li><strong>Official Field Manuals</strong> - Equipment specifications and organization</li>
+</ul>
+<h4 id="tier-2-sources-75-confidence"><a class="header" href="#tier-2-sources-75-confidence">Tier 2 Sources (75%+ confidence)</a></h4>
+<ul>
+<li><strong>RAF Museum archives and timelines</strong></li>
+<li><strong>Curated historical websites</strong> (Feldgrau.com, Niehorster.com)</li>
+<li><strong>Published unit histories</strong> with proper citations</li>
+</ul>
+<h4 id="tier-3-sources-60-confidence"><a class="header" href="#tier-3-sources-60-confidence">Tier 3 Sources (60%+ confidence)</a></h4>
+<ul>
+<li><strong>General web search</strong> for specific details</li>
+<li><strong>Cross-referenced secondary sources</strong></li>
+</ul>
+<p><strong>Note</strong>: Wikipedia is explicitly excluded from all research.</p>
+<h3 id="methodology-innovation-bidirectional-validation"><a class="header" href="#methodology-innovation-bidirectional-validation">Methodology Innovation: Bidirectional Validation</a></h3>
+<p>This project establishes a <strong>bidirectional validation methodology</strong>:</p>
+<ol>
+<li><strong>Primary Sources First</strong>: Always extract from Tier 1/2 sources</li>
+<li><strong>Cross-Validate</strong>: Check extracted data against existing databases (v4 JSONs)</li>
+<li><strong>Identify Discrepancies</strong>: When primary sources contradict existing data</li>
+<li><strong>Audit Trail</strong>: Document all corrections and validation results</li>
+</ol>
+<p>This approach ensures:</p>
+<ul>
+<li>✅ New extractions are validated when they match existing data</li>
+<li>✅ Existing errors are caught when primary sources contradict them</li>
+<li>✅ Academic rigor is maintained (no circular reasoning)</li>
+<li>✅ Data quality continuously improves</li>
+</ul>
+<h3 id="current-status-1941-q2-complete"><a class="header" href="#current-status-1941-q2-complete">Current Status: 1941-Q2 Complete</a></h3>
+<p>This book's first complete quarter is <strong>1941-Q2 (April - June 1941)</strong>, covering:</p>
+<ul>
+<li><strong>German forces</strong>: Deutsches Afrikakorps arrival and early operations</li>
+<li><strong>Italian forces</strong>: Regia Aeronautica and ground forces</li>
+<li><strong>British forces</strong>: Western Desert Force and RAF Middle East (including Commonwealth)</li>
+</ul>
+<p><strong>Aircraft data</strong>: Extracted at <strong>90-95% confidence</strong> from Tier 1/2 primary sources
+<strong>Ground data</strong>: Currently at <strong>75% confidence</strong> from existing databases, awaiting primary source validation</p>
+<p>This transparency about data quality is intentional - we clearly differentiate what has been validated from primary sources vs. what awaits future validation.</p>
+<h3 id="how-to-read-this-book"><a class="header" href="#how-to-read-this-book">How to Read This Book</a></h3>
+<h4 id="strategic-command-summary-chapters"><a class="header" href="#strategic-command-summary-chapters">Strategic Command Summary Chapters</a></h4>
+<p>Each quarter begins with a <strong>Strategic Command Summary</strong> for each nation, presenting:</p>
+<ul>
+<li>Supreme commanders and theater organization</li>
+<li>Personnel totals (officers, NCOs, enlisted)</li>
+<li>Complete equipment inventories:
+<ul>
+<li><strong>Tanks</strong> (by weight class: heavy, medium, light)</li>
+<li><strong>Ground vehicles</strong> (armored cars, halftracks, trucks, motorcycles)</li>
+<li><strong>Artillery</strong> (field, anti-tank, anti-aircraft)</li>
+<li><strong>Aircraft</strong> (fighters, bombers, reconnaissance, transport)</li>
+</ul>
+</li>
+<li>Supply status and operational readiness</li>
+</ul>
+<h4 id="squadronunit-detail"><a class="header" href="#squadronunit-detail">Squadron/Unit Detail</a></h4>
+<p>For air forces, we provide <strong>squadron-level organization</strong> showing:</p>
+<ul>
+<li>Individual squadron designations (e.g., "No.33 Squadron RAF")</li>
+<li>Aircraft types and counts per squadron</li>
+<li>Operational notes (deployments, battles, reequipping)</li>
+<li>Commonwealth participation explicitly identified</li>
+</ul>
+<h4 id="equipment-database"><a class="header" href="#equipment-database">Equipment Database</a></h4>
+<p>Each quarter includes a complete equipment database with:</p>
+<ul>
+<li><strong>Variant-level specifications</strong> (e.g., "Bf 109E-7" not "Bf 109")</li>
+<li><strong>WITW Equipment IDs</strong> for wargaming cross-reference</li>
+<li><strong>Source citations</strong> for every data point</li>
+<li><strong>Historical context</strong> and operational notes</li>
+</ul>
+<h3 id="data-quality-transparency"><a class="header" href="#data-quality-transparency">Data Quality Transparency</a></h3>
+<p>Throughout this book, you'll see explicit confidence ratings:</p>
+<pre><code>Data Quality:
+- Ground Forces: 75% confidence (v4 data, requires Tessin validation)
+- Aircraft: 95% confidence (Tier 1 - Tessin Band 14 extraction)
+- Overall: 85% confidence
+</code></pre>
+<p>This transparency demonstrates <strong>academic rigor</strong> - we're honest about what has been validated from primary sources vs. what awaits future work.</p>
+<h3 id="project-roadmap"><a class="header" href="#project-roadmap">Project Roadmap</a></h3>
+<p><strong>Completed</strong>:</p>
+<ul>
+<li>✅ Phase 7: Aircraft Extraction methodology (1941-Q2)</li>
+<li>✅ Phase 8: WITW Equipment Mapping</li>
+<li>✅ Phase 9: Integration templates</li>
+<li>✅ Sample Quarter: 1941-Q2 complete integration</li>
+</ul>
+<p><strong>In Progress</strong>:</p>
+<ul>
+<li>📖 MDBook generation (this book!)</li>
+</ul>
+<p><strong>Planned</strong>:</p>
+<ul>
+<li>1941-Q3 through 1943-Q2 aircraft extraction (12 more quarters)</li>
+<li>Ground force validation from Tessin/Army Lists</li>
+<li>Complete TO&amp;E down to company/squad level</li>
+<li>Wargaming scenario generation</li>
+<li>SQL database population</li>
+</ul>
+<h3 id="acknowledgments"><a class="header" href="#acknowledgments">Acknowledgments</a></h3>
+<p>This project builds upon:</p>
+<ul>
+<li><strong>Georg Tessin's monumental work</strong> documenting German military organization</li>
+<li><strong>British Army Lists</strong> providing quarterly Commonwealth force structures</li>
+<li><strong>U.S. War Department</strong> technical intelligence manuals</li>
+<li><strong>RAF Museum</strong> timeline and squadron histories</li>
+<li>The broader historical research community's decades of work</li>
+</ul>
+<h3 id="how-to-contribute"><a class="header" href="#how-to-contribute">How to Contribute</a></h3>
+<p>Data quality improvements welcome:</p>
+<ul>
+<li>Source citations with page numbers</li>
+<li>Unit identification corrections</li>
+<li>Equipment variant clarifications</li>
+<li>Commonwealth force additions</li>
+</ul>
+<hr />
+<h2 id="quick-navigation"><a class="header" href="#quick-navigation">Quick Navigation</a></h2>
+<p><strong>Start here</strong>:</p>
+<ul>
+<li><a href="./1941-q2/overview.html">1941-Q2 Overview</a> - Context and major events</li>
+<li><a href="./1941-q2/strategic-command-summary.html">Strategic Command Summary</a> - Complete force tables</li>
+</ul>
+<p><strong>Deep dives</strong>:</p>
+<ul>
+<li><a href="./1941-q2/air-power-analysis.html">Air Power Analysis</a> - Squadron-level detail</li>
+<li><a href="./methodology/research-methodology.html">Methodology</a> - How we research and validate</li>
+</ul>
+<p><strong>Reference</strong>:</p>
+<ul>
+<li><a href="./appendices/witw-ids.html">WITW Equipment IDs</a> - Wargaming cross-reference</li>
+<li><a href="./appendices/squadron-index.html">Squadron Index</a> - All air units</li>
+</ul>
+<hr />
+<p><em>This book represents ~14 hours of primary source research for 1941-Q2 alone. Each quarter requires 6-8 hours of extraction work. The complete project (13 quarters) represents an estimated 78-104 hours of research.</em></p>
+<p><strong>Last Updated</strong>: 2025-10-12</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+                            <a rel="next prefetch" href="1941-q2/overview.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+                    <a rel="next prefetch" href="1941-q2/overview.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>
