@@ -1,35 +1,38 @@
-# Session Checkpoint - 2025-10-13T02:49:22.705Z
+# Session Checkpoint - 2025-10-13T03:07:04.210Z
 
 ## Progress Summary
 
 - **Total Units:** 213
-- **Completed:** 126 (59.2%)
-- **Remaining:** 87
-- **Last Commit:** 1997139
+- **Completed:** 130 (61.0%)
+- **Remaining:** 83
+- **Last Commit:** 8c04aa9
 
 ## Validation Status
 
-- **Total Validated:** 126
-- **✅ Passed:** 91 (72.2%)
-- **❌ Failed:** 1 ⚠️
-- **⚠️ Warnings:** 34
+- **Total Validated:** 130
+- **✅ Passed:** 93 (71.5%)
+- **❌ Failed:** 2 ⚠️
+- **⚠️ Warnings:** 35
 
 ### Critical Validation Failures
 
 **german_1941-Q1_deutsches_afrikakorps:**
   - ❌ Failed to parse JSON: Expected ',' or ']' after array element in JSON at position 5562 (line 235 column 3)
 
+**german_1941-Q1_deutsches_afrikakorps:**
+  - ❌ Failed to parse JSON: Expected ',' or ']' after array element in JSON at position 5562 (line 235 column 3)
+
 ## Chapter Status
 
-- **JSON Files:** 126
+- **JSON Files:** 130
 - **MDBook Chapters:** 54 ⚠️
-- **Missing Chapters:** 72
+- **Missing Chapters:** 76
   - ❌ france_1942-Q2_1st_free_french_division
   - ❌ france_1943-Q1_division_marche_maroc
   - ❌ germany_1941-Q2_deutsches_afrikakorps
   - ❌ india_1940-Q2_4th_indian_division
   - ❌ italy_1940-Q4_bologna_division
-  - ... and 67 more
+  - ... and 71 more
 
 ## Recent Completions
 
@@ -55,13 +58,13 @@ If this session crashes or needs to resume:
 
 3. **View full progress:**
    - See WORKFLOW_STATE.json for complete list
-   - 126 units saved successfully
+   - 130 units saved successfully
 
 ## Session Info
 
 - **Session ID:** session_initial
-- **Checkpoint Time:** 2025-10-13T02:49:22.672Z
-- **Git Commit:** 1997139
+- **Checkpoint Time:** 2025-10-13T03:07:04.179Z
+- **Git Commit:** 8c04aa9
 
 ---
 
