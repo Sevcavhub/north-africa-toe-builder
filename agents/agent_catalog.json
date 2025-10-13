@@ -1,46 +1,81 @@
 {
-  "version": "1.0.0",
+  "version": "2.0.0",
   "catalog_name": "TO&E Builder Agent Catalog",
-  "last_updated": "2025-10-09",
+  "last_updated": "2025-10-13",
+  "changelog": {
+    "v2.0.0": "Major update: Anthropic patterns integration, Wikipedia blocking (4 layers), supply/logistics extraction (Section 6), weather/environment support (Section 7), all 9 showcase gaps addressed",
+    "v1.0.0": "Initial agent catalog with 16 agents"
+  },
   
   "agents": [
     {
       "agent_id": "document_parser",
       "category": "source_extraction",
-      "role": "Parse source documents and extract raw facts",
+      "version": "2.0.0",
+      "role": "Parse source documents and extract raw facts WITH SOURCE VALIDATION",
       "inputs": ["source_pdf", "document_type", "target_nation", "target_quarter"],
       "outputs": ["raw_facts.json"],
       "capabilities": [
         "PDF text extraction",
         "Table parsing",
         "Figure/diagram interpretation",
-        "Citation tracking"
+        "Citation tracking",
+        "Source validation (Tier 1/2 enforcement)",
+        "Wikipedia blocking",
+        "Supply/logistics extraction (NEW)",
+        "Environmental context extraction (NEW)"
       ],
-      "prompt_template": "You are a military historian extracting data from {document_type}.\n\nTask: Extract ALL factual information about {nation} forces in {quarter}.\n\nFor each fact extracted, provide:\n1. The fact itself\n2. Source citation (page number, section)\n3. Confidence level (0-100)\n4. Category (personnel|equipment|organization|command)\n\nOutput format: JSON array of facts\n\nExample:\n{\n  \"fact_type\": \"command\",\n  \"data\": {\n    \"unit\": \"XXI Corpo d'Armata\",\n    \"commander\": \"Generale di Corpo d'Armata Lorenzo Dalmazzo\",\n    \"rank\": \"Generale di Corpo d'Armata\"\n  },\n  \"source\": \"TM E 30-420, page 45, section 2.3\",\n  \"confidence\": 95\n}\n\nExtract facts now from: {source_content}",
+      "prompt_template": "You are a military historian extracting data from {document_type}.\n\n🚨 CRITICAL: SOURCE VALIDATION (ANTHROPIC PATTERN: Error Prevention)\n\nBEFORE extracting ANY data, validate source type:\n\n✅ ALLOWED Sources (Tier 1/2 ONLY):\n- Tessin Wehrmacht Encyclopedia (17 volumes)\n- British Army Lists (quarterly 1940-1943)\n- TM E 30-420 (Italian Military Forces handbook)\n- US Field Manuals\n- Archive documents (NARA, Bundesarchiv, Imperial War Museum)\n- Official unit histories (regimental, divisional)\n- Feldgrau.com, Niehorster.org, Lexikon der Wehrmacht\n- Service Historique de la Défense (French)\n- Comando Supremo records (Italian)\n\n❌ FORBIDDEN Sources:\n- Wikipedia (ANY language: wikipedia.org, wikipedia.com, de.wikipedia, etc.)\n- Wikia/Fandom sites\n- Uncited web sources\n- Forum posts (Axis History Forum, etc.)\n- Social media\n\nIF SOURCE IS FORBIDDEN: Return immediately:\n{\n  \"error\": \"FORBIDDEN_SOURCE_DETECTED\",\n  \"source_detected\": \"{source_name}\",\n  \"source_type\": \"wikipedia\",\n  \"message\": \"Wikipedia not allowed per project requirements. Use Tier 1/2 sources only.\",\n  \"recommended_alternatives\": [\n    \"For German units: Tessin Wehrmacht Encyclopedia, Feldgrau.com\",\n    \"For British units: British Army Lists, unit war diaries, Imperial War Museum\",\n    \"For Italian units: TM E 30-420, Comando Supremo records\"\n  ]\n}\n\nIF SOURCE IS VALID: Proceed with extraction.\n\n---\n\nTask: Extract ALL factual information about {nation} forces in {quarter}.\n\nEXTRACTION CATEGORIES:\n\n**Section 1-5 (Existing)**:\n1. Command (commander name, rank, HQ location)\n2. Personnel (total strength, officers, NCOs, enlisted)\n3. Equipment (tanks, vehicles, artillery - variant level detail)\n4. Organization (subordinate units, structure)\n5. Aircraft (fighters, bombers, recon - ASSIGNED air support)\n\n**Section 6 (NEW - CRITICAL FOR SCENARIOS): SUPPLY/LOGISTICS**\nExtract with citations:\n1. supply_status (qualitative assessment)\n   - \"What is the operational supply situation?\"\n   - \"Are there fuel shortages? Ammunition constraints?\"\n   - Example: \"Adequate for defensive operations, strained for offensive\"\n   \n2. operational_radius_km (distance from supply depot)\n   - \"How far can units operate from main supply base?\"\n   - \"What is effective range from Tripoli/Benghazi/Tobruk?\"\n   - Example: 350 km from Tripoli\n   \n3. fuel_reserves_days (at current consumption)\n   - \"How many days of fuel are available?\"\n   - \"What is fuel consumption rate?\"\n   - Example: 6.5 days of fuel reserves\n   \n4. ammunition_days (days of combat supply)\n   - \"How many days of ammunition?\"\n   - \"Are specific calibers in shortage?\"\n   - Example: 8 days of ammunition\n   \n5. water_liters_per_day (critical for desert)\n   - \"What is water capacity per man per day?\"\n   - \"How many days of water reserves?\"\n   - Example: 4.5 liters per day per man\n\n**Section 7 (NEW - CRITICAL FOR SCENARIOS): WEATHER/ENVIRONMENT**\nExtract environmental context:\n1. season_quarter\n   - \"What quarter is this? What are seasonal conditions?\"\n   - Example: \"1941-Q2 (April-June) - Late Spring/Early Summer\"\n   \n2. temperature_range_c (min/max Celsius)\n   - \"What are typical temperatures for this period?\"\n   - \"Any extreme heat/cold recorded?\"\n   - Example: {\"min\": 18, \"max\": 35}\n   \n3. terrain_type\n   - \"What terrain does this unit operate in?\"\n   - \"Sand desert? Rocky desert? Coastal plain?\"\n   - Example: \"Coastal plain and rocky desert\"\n   \n4. storm_frequency_days (sandstorms, Ghibli winds)\n   - \"How often do sandstorms occur?\"\n   - \"What is impact on operations?\"\n   - Example: 2-3 days per month\n   \n5. daylight_hours\n   - \"Average daylight hours for this quarter?\"\n   - \"Impact on operational tempo?\"\n   - Example: 13.5 hours\n\n---\n\nOUTPUT FORMAT (ANTHROPIC PATTERN: Clear Structure):\n\n{\n  \"source_validation\": {\n    \"source_name\": \"{document_name}\",\n    \"source_type\": \"tessin_vol_12\",\n    \"tier\": 1,\n    \"confidence\": 95,\n    \"wikipedia_excluded\": false,\n    \"validation_passed\": true\n  },\n  \"facts\": [\n    {\n      \"category\": \"command\",\n      \"data\": {\n        \"unit\": \"XXI Corpo d'Armata\",\n        \"commander\": \"Generale di Corpo d'Armata Lorenzo Dalmazzo\",\n        \"rank\": \"Generale di Corpo d'Armata\"\n      },\n      \"source\": \"TM E 30-420, page 45, section 2.3\",\n      \"confidence\": 95\n    },\n    {\n      \"category\": \"supply_logistics\",\n      \"data\": {\n        \"supply_status\": \"Adequate for defensive operations, strained for offensive operations\",\n        \"operational_radius_km\": 350,\n        \"fuel_reserves_days\": 6.5,\n        \"ammunition_days\": 8,\n        \"water_liters_per_day\": 4.5\n      },\n      \"source\": \"Tessin Vol 12, page 145, logistics section\",\n      \"confidence\": 85\n    },\n    {\n      \"category\": \"weather_environment\",\n      \"data\": {\n        \"season_quarter\": \"1941-Q2 (April-June)\",\n        \"temperature_range_c\": {\"min\": 18, \"max\": 35},\n        \"terrain_type\": \"coastal plain and rocky desert\",\n        \"storm_frequency_days\": 2,\n        \"daylight_hours\": 13.5\n      },\n      \"source\": \"Weather records Q2 1941, page 23\",\n      \"confidence\": 90\n    }\n  ]\n}\n\nExtract facts now from: {source_content}",
       "validation_rules": [
-        "All facts must have source citations",
+        "Source validation MUST pass before extraction begins",
+        "Wikipedia = IMMEDIATE REJECTION with error message",
+        "All facts must have Tier 1/2 source citations",
         "Confidence must be 0-100",
-        "No hallucinated data"
+        "No hallucinated data",
+        "Section 6 (supply/logistics) fields REQUIRED for v3.0 schema",
+        "Section 7 (weather/environment) fields REQUIRED for v3.0 schema",
+        "Supply data must have realistic values (fuel days 1-30, ammo days 1-30, etc.)",
+        "Environmental data must match quarter (temperature appropriate for season)"
+      ],
+      "anthropic_patterns_applied": [
+        "Error Prevention: Source validation before processing",
+        "Clear Tool Interface: Explicit allowed/forbidden sources",
+        "Examples: Concrete output format with real data",
+        "Stopping Conditions: Immediate rejection for forbidden sources"
       ]
     },
     
     {
       "agent_id": "historical_research",
       "category": "source_extraction",
-      "role": "Cross-reference facts across multiple sources",
+      "version": "2.0.0",
+      "role": "Cross-reference facts across multiple sources WITH WIKIPEDIA FILTERING",
       "inputs": ["raw_facts.json", "additional_sources[]"],
-      "outputs": ["verified_facts.json", "conflicts.json"],
+      "outputs": ["verified_facts.json", "conflicts.json", "wikipedia_exclusion_log.json"],
       "capabilities": [
         "Multi-source verification",
         "Conflict identification",
         "Best estimate selection",
-        "Source quality ranking"
+        "Source quality ranking",
+        "Wikipedia filtering (NEW)",
+        "Supply/logistics data verification (NEW)",
+        "Environmental data cross-reference (NEW)"
       ],
-      "prompt_template": "You are verifying historical facts across multiple sources.\n\nPrimary facts: {raw_facts}\nAdditional sources: {source_list}\n\nTask: For each fact, verify against additional sources and identify:\n1. Confirming sources\n2. Conflicting information\n3. Best estimate if conflicts exist\n4. Updated confidence level\n\nOutput verified facts with all supporting/conflicting citations.",
+      "prompt_template": "You are verifying historical facts across multiple sources.\n\n🚨 CRITICAL: WIKIPEDIA FILTERING (ANTHROPIC PATTERN: Error Prevention)\n\nBEFORE processing additional_sources, FILTER OUT forbidden sources:\n\nadditional_sources_filtered = [\n  s for s in additional_sources \n  if 'wikipedia' not in s['url'].lower() \n  and 'wikia' not in s['url'].lower()\n  and 'fandom' not in s['url'].lower()\n]\n\nIF Wikipedia detected in additional_sources:\n- Log warning: \"Wikipedia excluded from {unit_designation} research\"\n- Continue with remaining valid Tier 1/2 sources\n- Add note to conflicts.json:\n  {\n    \"wikipedia_excluded\": true,\n    \"excluded_count\": {count},\n    \"reason\": \"Project requirement: Tier 1/2 sources only\",\n    \"excluded_sources\": [{wikipedia_urls}]\n  }\n\nIF insufficient sources after filtering (<2 Tier 1/2 sources):\n- Flag for manual research\n- Return status: \"INSUFFICIENT_TIER1_SOURCES\"\n- Recommend specific Tier 1/2 alternatives\n\n---\n\nPrimary facts: {raw_facts}\nAdditional sources (FILTERED - Tier 1/2 only): {source_list_filtered}\n\nTask: For each fact (INCLUDING NEW Section 6 & 7), verify against Tier 1/2 sources:\n\n**Section 1-5 Verification (Existing)**:\n1. Command data (commander names, ranks, HQ locations)\n2. Personnel totals (officers, NCOs, enlisted)\n3. Equipment counts (tanks, vehicles, artillery)\n4. Organizational structure\n5. Aircraft assignments\n\n**Section 6 Verification (NEW): SUPPLY/LOGISTICS**\nCross-reference across multiple sources:\n- Fuel reserves: Do multiple sources agree on days available?\n- Ammunition states: Verify caliber-specific shortages\n- Operational radius: Confirm distance from supply depots\n- Water capacity: Verify desert logistics\n- Supply status assessment: Validate qualitative descriptions\n\nIF supply data conflicts:\n- Report range: \"Fuel reserves: 5-8 days (source variance)\"\n- Use most conservative estimate\n- Flag if variance >30%\n\n**Section 7 Verification (NEW): WEATHER/ENVIRONMENT**\nCross-reference environmental data:\n- Temperature ranges: Confirm from weather records\n- Terrain assessments: Verify from unit after-action reports\n- Storm frequency: Cross-check meteorological data\n- Seasonal impacts: Validate from operational histories\n\nIF environmental data conflicts:\n- Prefer official weather service data\n- Use unit reports as secondary confirmation\n- Flag if major discrepancies\n\n---\n\nOUTPUT FORMAT (ANTHROPIC PATTERN: Clear Structure with Error Handling):\n\n{\n  \"wikipedia_filtering\": {\n    \"sources_before_filtering\": 12,\n    \"sources_after_filtering\": 10,\n    \"wikipedia_excluded\": 2,\n    \"excluded_urls\": [\"en.wikipedia.org/...\", \"de.wikipedia.org/...\"],\n    \"tier1_sources_remaining\": 8,\n    \"tier2_sources_remaining\": 2\n  },\n  \"verified_facts\": [\n    {\n      \"fact\": {\n        \"category\": \"supply_logistics\",\n        \"data\": {\n          \"fuel_reserves_days\": 6.5,\n          \"ammunition_days\": 8\n        }\n      },\n      \"confirming_sources\": [\n        {\"source\": \"Tessin Vol 12, page 145\", \"tier\": 1, \"confidence\": 90},\n        {\"source\": \"Bundesarchiv RH 27-5/21\", \"tier\": 1, \"confidence\": 85}\n      ],\n      \"conflicting_sources\": [],\n      \"best_estimate\": {\n        \"fuel_reserves_days\": 6.5,\n        \"ammunition_days\": 8\n      },\n      \"updated_confidence\": 90,\n      \"notes\": \"Two Tier 1 sources agree on fuel/ammo states\"\n    }\n  ],\n  \"conflicts\": [\n    {\n      \"fact_category\": \"personnel\",\n      \"conflicting_data\": [\n        {\"source\": \"Tessin\", \"value\": 15000, \"tier\": 1},\n        {\"source\": \"War Diary\", \"value\": 14500, \"tier\": 1}\n      ],\n      \"resolution\": \"Use mean value: 14750\",\n      \"confidence_penalty\": -5\n    }\n  ],\n  \"insufficient_data_flags\": [\n    {\n      \"category\": \"weather_environment\",\n      \"field\": \"storm_frequency_days\",\n      \"issue\": \"Only 1 Tier 1 source found\",\n      \"recommendation\": \"Search weather service archives for Q2 1941\"\n    }\n  ]\n}\n\nVerify facts now.",
       "validation_rules": [
-        "Conflicts must be explicitly flagged",
-        "At least 2 sources per critical fact",
-        "Confidence adjusted based on source agreement"
+        "Wikipedia MUST be filtered before verification begins",
+        "Conflicts must explicitly flag if Wikipedia was excluded",
+        "Minimum 2 Tier 1/2 sources for supply/logistics data",
+        "Environmental data should be from official weather records when possible",
+        "Confidence adjusted based on source agreement (100% agreement = +0, 50% agreement = -20)",
+        "Supply data variance >30% = flag for manual review",
+        "IF <2 Tier 1 sources after filtering = flag for manual research"
+      ],
+      "anthropic_patterns_applied": [
+        "Error Prevention: Wikipedia filtering before processing",
+        "Stopping Conditions: Insufficient sources flag for human intervention",
+        "Clear Output: Explicit filtering log with counts",
+        "Feedback Loop: Flags issues for manual resolution"
       ]
     },
     
@@ -87,20 +122,33 @@
     {
       "agent_id": "unit_instantiation",
       "category": "structure_organization",
-      "role": "Create specific unit instances from templates",
-      "inputs": ["template.json", "org_tree.json", "unit_specific_data", "parent_unit"],
+      "version": "2.0.0",
+      "role": "Create specific unit instances from templates WITH v3.0 SCHEMA SUPPORT",
+      "inputs": ["template.json", "org_tree.json", "unit_specific_data", "parent_unit", "quarter_context"],
       "outputs": ["{unit_designation}_toe.json"],
       "capabilities": [
         "Template instantiation",
         "Unit-specific modifications",
         "Parent reference linking",
-        "Unique ID assignment"
+        "Unique ID assignment",
+        "Supply/logistics field population (NEW)",
+        "Weather/environment field population (NEW)"
       ],
-      "prompt_template": "You are creating a specific unit instance from a template.\n\nTemplate: {template}\nUnit designation: {unit_designation}\nParent unit: {parent_unit}\nSpecific modifications: {modifications}\n\nTask: Create unit-specific TO&E JSON:\n\n1. Apply template as base\n2. Add unit-specific information:\n   - Actual commander name\n   - Actual personnel count (if different from template)\n   - Equipment variations\n   - Parent formation reference\n3. Maintain full SCM-level detail\n4. Add unit-specific tactical notes\n\nOutput: Complete unit TO&E following unified schema.\n\nCreate unit instance now.",
+      "prompt_template": "You are creating a specific unit instance from a template.\n\nTemplate: {template}\nUnit designation: {unit_designation}\nParent unit: {parent_unit}\nQuarter context: {quarter_context}\nSpecific modifications: {modifications}\n\nTask: Create unit-specific TO&E JSON following Ground Forces Schema v3.0:\n\n1. Apply template as base\n\n2. Add unit-specific information (Sections 1-5):\n   - Actual commander name\n   - Actual personnel count (if different from template)\n   - Equipment variations (variant-level detail)\n   - Parent formation reference\n\n3. **ADD Section 6: SUPPLY/LOGISTICS (NEW v3.0 REQUIRED)**:\n   {\n     \"supply_status\": \"{qualitative_assessment}\",\n     \"operational_radius_km\": {distance_from_supply_depot},\n     \"fuel_reserves_days\": {days_of_fuel},\n     \"ammunition_days\": {days_of_ammo},\n     \"water_liters_per_day\": {water_capacity_per_person}\n   }\n\n   Extract from unit_specific_data or use template defaults.\n   **REQUIRED**: All 5 fields must be present.\n\n4. **ADD Section 7: WEATHER/ENVIRONMENT (NEW v3.0 REQUIRED)**:\n   {\n     \"season_quarter\": \"{quarter} (e.g., 1941-Q2)\",\n     \"temperature_range_c\": {\"min\": {temp_min}, \"max\": {temp_max}},\n     \"terrain_type\": \"{primary_terrain}\",\n     \"storm_frequency_days\": {sandstorm_days_per_month},\n     \"daylight_hours\": {average_daylight_hours}\n   }\n\n   Use quarter_context for environmental data.\n   **REQUIRED**: All 5 fields must be present.\n\n5. Maintain full SCM-level detail at all organizational levels\n\n6. Add unit-specific tactical notes\n\n---\n\nOUTPUT EXAMPLE (v3.0 Schema):\n\n{\n  \"unit_id\": \"germany_1941q2_deutsches_afrikakorps\",\n  \"unit_designation\": \"Deutsches Afrikakorps\",\n  \"nation\": \"germany\",\n  \"quarter\": \"1941-Q2\",\n  \"parent_formation\": \"Panzergruppe Afrika\",\n  \"commander\": {\n    \"name\": \"Generalleutnant Erwin Rommel\",\n    \"rank\": \"Generalleutnant\"\n  },\n  \"personnel\": {\n    \"total\": 45000,\n    \"officers\": 2800,\n    \"ncos\": 8500,\n    \"enlisted\": 33700\n  },\n  ...[Sections 2-5 as before]...\n  \n  \"supply_logistics\": {\n    \"supply_status\": \"Adequate for defensive operations, strained for offensive operations. Primary constraint: fuel delivery from Tripoli (1800km).\",\n    \"operational_radius_km\": 350,\n    \"fuel_reserves_days\": 6.5,\n    \"ammunition_days\": 8,\n    \"water_liters_per_day\": 4.5\n  },\n  \n  \"weather_environment\": {\n    \"season_quarter\": \"1941-Q2 (April-June)\",\n    \"temperature_range_c\": {\"min\": 18, \"max\": 35},\n    \"terrain_type\": \"coastal plain and rocky desert\",\n    \"storm_frequency_days\": 2,\n    \"daylight_hours\": 13.5\n  },\n  \n  \"schema_version\": \"3.0\"\n}\n\nCreate unit instance now following v3.0 schema.",
       "validation_rules": [
         "Must reference parent unit correctly",
-        "All required SCM fields must be present",
-        "Template deviations must be documented"
+        "All required SCM fields must be present (Sections 1-5)",
+        "Section 6 (supply_logistics) REQUIRED with all 5 fields - v3.0",
+        "Section 7 (weather_environment) REQUIRED with all 5 fields - v3.0",
+        "Template deviations must be documented",
+        "schema_version field must be '3.0'",
+        "Supply values must be realistic (fuel/ammo days 1-30)",
+        "Environmental data must match quarter (appropriate temperatures)"
+      ],
+      "anthropic_patterns_applied": [
+        "Clear Tool Interface: Explicit required fields for v3.0",
+        "Examples: Complete output with all new sections",
+        "Validation: Schema version tracking"
       ]
     },
     
@@ -167,20 +215,33 @@
     {
       "agent_id": "bottom_up_aggregator",
       "category": "aggregation_calculation",
-      "role": "Aggregate squad data up to theater SCM",
-      "inputs": ["squad_toe_files[]", "org_tree.json"],
+      "version": "2.0.0",
+      "role": "Aggregate squad data up to theater SCM WITH SUPPLY/LOGISTICS AGGREGATION",
+      "inputs": ["squad_toe_files[]", "org_tree.json", "quarter_context"],
       "outputs": ["aggregated_units[]", "theater_scm.json"],
       "capabilities": [
         "Multi-level summation",
         "Variant aggregation",
         "Personnel rollup",
-        "Top-3 weapon calculation"
+        "Top-3 weapon calculation",
+        "Supply/logistics aggregation (NEW)",
+        "Environmental data handling (NEW)"
       ],
-      "prompt_template": "You are aggregating unit data from squads up to theater level.\n\nSquad files: {squad_files}\nOrganization tree: {org_tree}\n\nTask: For each organizational level, calculate:\n\n1. Total personnel (sum of subordinates + HQ)\n2. Top 3 infantry weapons (aggregate all subordinates)\n3. Equipment by variant (sum across all subordinates)\n4. Vehicles by type\n5. Artillery by caliber\n6. Aircraft by type\n\nProcess:\n- Start with squads\n- Aggregate to platoons\n- Platoons → Companies\n- Companies → Battalions\n- Battalions → Regiments\n- Regiments → Divisions\n- Divisions → Corps\n- Corps → Theater SCM\n\nOutput: Complete unit files at each level with full SCM detail.\n\nAggregate now.",
+      "prompt_template": "You are aggregating unit data from squads up to theater level following v3.0 schema.\n\nSquad files: {squad_files}\nOrganization tree: {org_tree}\nQuarter context: {quarter_context}\n\nTask: For each organizational level, calculate:\n\n**Section 1-5 Aggregation (Existing)**:\n1. Total personnel (sum of subordinates + HQ)\n2. Top 3 infantry weapons (aggregate all subordinates)\n3. Equipment by variant (sum across all subordinates)\n4. Vehicles by type\n5. Artillery by caliber\n6. Aircraft by type (ASSIGNED air support)\n\n**Section 6 Aggregation (NEW): SUPPLY/LOGISTICS**\n\nAGGREGATING Fields:\n- fuel_reserves_days: Calculate theater-level days from total liters\n  - Sum total fuel liters across all units\n  - Divide by average daily consumption rate\n  - Result = theater fuel days\n  \n- ammunition_days: Calculate theater-level days from total rounds\n  - Sum ammunition (by caliber) across all units\n  - Divide by average daily combat consumption\n  - Result = theater ammunition days\n  \n- water_liters_per_day: Sum capacity across all units\n  - Total theater water capacity per day\n  - Critical for desert operations planning\n\nNON-AGGREGATING Fields:\n- operational_radius_km: Report RANGE (min-max), not sum\n  - \"Operational radius: 200-400km depending on unit location\"\n  - NOT: \"Operational radius: 15000km\" (meaningless sum)\n  \n- supply_status: Generate theater-level SUMMARY\n  - Synthesize from subordinate unit statuses\n  - Identify common constraints\n  - Example: \"Theater supply adequate for defensive operations, fuel constraints limit offensive reach beyond 350km from Tripoli.\"\n\n**Section 7 Handling (NEW): WEATHER/ENVIRONMENT**\n\nQuarter-Level Data (NOT unit-specific):\n- Use quarter_context environmental data for ALL units in same quarter\n- DO NOT aggregate (weather is same across theater)\n- Apply to theater SCM:\n  - season_quarter: From quarter_context\n  - temperature_range_c: Theater-wide conditions\n  - terrain_type: Primary terrain (\"varied: coastal plain, rocky desert, sand seas\")\n  - storm_frequency_days: Average across theater\n  - daylight_hours: Quarter average\n\nProcess:\n- Start with squads\n- Aggregate to platoons\n- Platoons → Companies\n- Companies → Battalions\n- Battalions → Regiments\n- Regiments → Divisions\n- Divisions → Corps\n- Corps → Theater SCM\n\nAt EACH level:\n- Aggregate Section 1-5 (sum equipment, personnel)\n- Aggregate Section 6 where applicable (fuel, ammo, water)\n- Report Section 6 ranges where applicable (operational_radius)\n- Apply Section 7 from quarter_context (no aggregation)\n\n---\n\nOUTPUT EXAMPLE (Theater SCM v3.0):\n\n{\n  \"unit_id\": \"germany_1941q2_panzergruppe_afrika\",\n  \"unit_designation\": \"Panzergruppe Afrika\",\n  \"organizational_level\": \"theater\",\n  \"quarter\": \"1941-Q2\",\n  \"personnel\": {\n    \"total\": 125000,\n    \"officers\": 7500,\n    \"ncos\": 22000,\n    \"enlisted\": 95500\n  },\n  \"top_3_weapons\": [\n    {\"weapon\": \"Karabiner 98k\", \"count\": 89500},\n    {\"weapon\": \"MG 34\", \"count\": 5200},\n    {\"weapon\": \"MP 40\", \"count\": 3800}\n  ],\n  ...[Equipment sections]...\n  \n  \"supply_logistics\": {\n    \"supply_status\": \"Theater supply adequate for defensive operations. Primary constraints: 1) Fuel delivery from Tripoli (1800km supply line), 2) Port capacity limitations at Benghazi (damaged), 3) Water transport for forward positions. Offensive operations limited to 300-400km radius from Tripoli without establishing forward dumps.\",\n    \"operational_radius_range\": \"200-400km from primary supply depots\",\n    \"fuel_reserves_days\": 8.2,\n    \"ammunition_days\": 12.5,\n    \"water_capacity_liters_per_day\": 562500\n  },\n  \n  \"weather_environment\": {\n    \"season_quarter\": \"1941-Q2 (April-June)\",\n    \"temperature_range_c\": {\"min\": 15, \"max\": 40},\n    \"terrain_type\": \"varied: coastal plain (Gazala-Tobruk), rocky desert (interior), sand seas (south)\",\n    \"storm_frequency_days\": 3,\n    \"daylight_hours\": 13.5\n  },\n  \n  \"schema_version\": \"3.0\"\n}\n\nAggregate now following v3.0 schema.",
       "validation_rules": [
         "No equipment lost in aggregation",
         "All variants preserved",
-        "Top 3 weapons correctly calculated"
+        "Top 3 weapons correctly calculated",
+        "Supply aggregation: Fuel/ammo/water SUMMED correctly",
+        "operational_radius: Report as RANGE, not sum",
+        "supply_status: Theater-level SUMMARY, not concatenation",
+        "Weather/environment: Use quarter_context (no aggregation)",
+        "Schema version must be '3.0' at all levels"
+      ],
+      "anthropic_patterns_applied": [
+        "Clear Logic: Explicit rules for aggregating vs non-aggregating fields",
+        "Error Prevention: Prevent meaningless sums (operational_radius)",
+        "Examples: Complete theater SCM with proper aggregation"
       ]
     },
     
@@ -207,20 +268,36 @@
     {
       "agent_id": "schema_validator",
       "category": "validation",
-      "role": "Validate JSON against unified TO&E schema",
+      "version": "2.0.0",
+      "role": "Validate JSON against unified TO&E schema v3.0 WITH WIKIPEDIA DETECTION",
       "inputs": ["unit_toe.json", "schema_definition"],
       "outputs": ["validation_result.json"],
       "capabilities": [
         "Schema compliance checking",
         "Required field verification",
         "Data type validation",
-        "Validation rule enforcement"
+        "Validation rule enforcement",
+        "Wikipedia source detection (NEW - CRITICAL)",
+        "Supply/logistics validation (NEW - v3.0)",
+        "Weather/environment validation (NEW - v3.0)"
       ],
-      "prompt_template": "You are validating a unit TO&E file against the unified schema.\n\nUnit file: {unit_file}\nSchema: {schema}\n\nTask: Check ALL requirements:\n\n1. Required fields present\n2. Data types correct\n3. Validation rules satisfied:\n   - tanks.total = sum(heavy + medium + light)\n   - total_personnel ≈ officers + ncos + enlisted (±5%)\n   - ground_vehicles_total ≥ sum(all vehicle categories)\n   - artillery_total ≥ sum(field + AT + AA)\n   - aircraft_total ≥ sum(fighters + bombers + recon + transport)\n4. Allowed values respected\n5. References valid (parent units exist)\n\nOutput: Validation report with:\n- ✓ Passed checks\n- ❌ Failed checks with details\n- ⚠ Warnings (non-critical issues)\n\nValidate now.",
+      "prompt_template": "You are validating a unit TO&E file against the unified schema v3.0.\n\nUnit file: {unit_file}\nSchema: {schema}\nSchema version required: 3.0\n\n🚨 CRITICAL CHECK #1: WIKIPEDIA DETECTION (ANTHROPIC PATTERN: Error Prevention)\n\nBEFORE all other validation, scan for Wikipedia:\n\n1. Extract all source citations from unit_file.validation.sources\n2. Check EACH source URL and title for forbidden patterns:\n   - 'wikipedia.org'\n   - 'wikipedia.com'\n   - 'wikia'\n   - 'fandom'\n   - 'wiki/' (generic)\n\n3. IF Wikipedia detected:\n   CRITICAL ERROR - validation FAILS immediately:\n   {\n     \"validation_status\": \"CRITICAL_FAILURE\",\n     \"reason\": \"WIKIPEDIA_SOURCE_DETECTED\",\n     \"unit\": \"{unit_designation}\",\n     \"forbidden_sources\": [{list_all_wikipedia_urls}],\n     \"action_required\": \"Re-extract unit with document_parser v2.0 using Tier 1/2 sources only\",\n     \"severity\": \"BLOCKING\"\n   }\n\n4. IF sources clean: Proceed with schema validation\n\n---\n\nTask: Check ALL requirements for v3.0 schema:\n\n**Section 1-5 Validation (Existing)**:\n1. Required fields present\n2. Data types correct\n3. Validation rules satisfied:\n   - tanks.total = sum(heavy + medium + light)\n   - total_personnel ≈ officers + ncos + enlisted (±5%)\n   - ground_vehicles_total ≥ sum(all vehicle categories)\n   - artillery_total ≥ sum(field + AT + AA)\n   - aircraft_total ≥ sum(fighters + bombers + recon + transport)\n4. Allowed values respected\n5. References valid (parent units exist)\n\n**Section 6 Validation (NEW - v3.0 REQUIRED)**:\nCheck supply_logistics object exists with ALL 5 fields:\n- supply_status (string, non-empty)\n- operational_radius_km (integer, > 0)\n- fuel_reserves_days (number, ≥ 0, typically 1-30)\n- ammunition_days (number, ≥ 0, typically 1-30)\n- water_liters_per_day (number, > 0, desert operations)\n\nValidation rules:\n- operational_radius_km must be realistic (50-1000km typical)\n- fuel_reserves_days must be realistic (1-30 days typical)\n- ammunition_days must be realistic (1-30 days typical)\n- water_liters_per_day must be realistic (3-6 L/person/day desert)\n\n**Section 7 Validation (NEW - v3.0 REQUIRED)**:\nCheck weather_environment object exists with ALL 5 fields:\n- season_quarter (string, format: \"YYYY-QN\")\n- temperature_range_c (object with min/max integers)\n- terrain_type (string, non-empty)\n- storm_frequency_days (integer, ≥ 0, typically 0-10)\n- daylight_hours (number, 0-24)\n\nValidation rules:\n- temperature_range_c.min < temperature_range_c.max\n- temperature values realistic for North Africa (-5 to 50°C range)\n- storm_frequency_days realistic (0-10 days/month typical)\n- daylight_hours realistic (10-15 hours typical)\n\n**Schema Version Check**:\n- schema_version field must equal \"3.0\"\n- IF schema_version missing or < 3.0: WARNING (needs upgrade)\n\n---\n\nOutput: Validation report with:\n- 🚨 CRITICAL: Wikipedia detected (BLOCKING)\n- ❌ FAILED: Schema violations (with details)\n- ⚠ WARNING: Non-critical issues\n- ✓ PASSED: All checks successful\n\n**Example Output**:\n{\n  \"unit\": \"germany_1941q2_deutsches_afrikakorps\",\n  \"schema_version_required\": \"3.0\",\n  \"schema_version_found\": \"3.0\",\n  \"wikipedia_check\": {\n    \"status\": \"PASS\",\n    \"wikipedia_detected\": false,\n    \"sources_scanned\": 12\n  },\n  \"section_1_5_validation\": {\n    \"status\": \"PASS\",\n    \"checks_passed\": 15,\n    \"checks_failed\": 0\n  },\n  \"section_6_validation\": {\n    \"status\": \"PASS\",\n    \"all_fields_present\": true,\n    \"fields_validated\": [\n      {\"field\": \"supply_status\", \"status\": \"PASS\"},\n      {\"field\": \"operational_radius_km\", \"value\": 350, \"status\": \"PASS\"},\n      {\"field\": \"fuel_reserves_days\", \"value\": 6.5, \"status\": \"PASS\"},\n      {\"field\": \"ammunition_days\", \"value\": 8, \"status\": \"PASS\"},\n      {\"field\": \"water_liters_per_day\", \"value\": 4.5, \"status\": \"PASS\"}\n    ]\n  },\n  \"section_7_validation\": {\n    \"status\": \"PASS\",\n    \"all_fields_present\": true,\n    \"temperature_range_valid\": true,\n    \"fields_validated\": 5\n  },\n  \"overall_status\": \"PASS\",\n  \"severity\": \"NONE\",\n  \"action_required\": \"None - unit ready for production\"\n}\n\nValidate now.",
       "validation_rules": [
-        "All schema rules checked",
-        "Clear error messages",
-        "Severity levels assigned"
+        "Wikipedia check is FIRST and BLOCKING if detected",
+        "All schema v3.0 rules checked",
+        "Section 6 (supply_logistics) ALL 5 fields REQUIRED",
+        "Section 7 (weather_environment) ALL 5 fields REQUIRED",
+        "Schema version must be '3.0'",
+        "Clear error messages with field names and expected values",
+        "Severity levels: CRITICAL (Wikipedia) > FAILED (schema) > WARNING (non-critical)",
+        "Supply values must be realistic (fuel/ammo 1-30 days typical)",
+        "Environmental values must be realistic (temps -5 to 50°C, daylight 10-15 hours)"
+      ],
+      "anthropic_patterns_applied": [
+        "Error Prevention: Wikipedia check first, blocks if detected",
+        "Stopping Conditions: CRITICAL status prevents further processing",
+        "Clear Output: Structured validation report with severity levels",
+        "Examples: Complete validation output structure"
       ]
     },
     
@@ -247,40 +324,72 @@
     {
       "agent_id": "book_chapter_generator",
       "category": "output_generation",
-      "role": "Generate MDBook chapters from unit TO&E files",
+      "version": "2.0.0",
+      "role": "Generate MDBook chapters from unit TO&E files WITH WIKIPEDIA BLOCKING AND v3.0 SECTIONS",
       "inputs": ["unit_toe.json", "chapter_type", "style_guide"],
       "outputs": ["chapter.md"],
       "capabilities": [
         "Markdown generation",
         "Table formatting",
         "Narrative synthesis",
-        "Equipment summary creation"
+        "Equipment summary creation",
+        "Wikipedia pre-publication check (NEW - CRITICAL)",
+        "Supply/logistics section generation (NEW)",
+        "Operational environment section generation (NEW)",
+        "Infantry weapons extraction (NEW - Gap 8 fix)"
       ],
-      "prompt_template": "You are generating a book chapter for {unit_designation}.\n\nUnit data: {unit_toe}\nChapter type: {chapter_type}\nStyle: Professional military history, engaging narrative\n\nTask: Generate markdown chapter with ALL 16 REQUIRED SECTIONS:\n\n1. Header with unit designation and type\n2. Division/Unit Overview (brief narrative introduction)\n3. Command section (commander, HQ, strength)\n4. Personnel strength table\n5-8. Equipment sections with VARIANT BREAKDOWNS AND DETAIL SECTIONS (Armoured, Artillery, Armoured Cars, Infantry Weapons, Transport)\n9. Organizational breakdown (subordinate units)\n10. Supply status\n11. Tactical doctrine section\n12. Critical Equipment Shortages (mission-limiting deficiencies)\n13. Historical context for the quarter\n14. Wargaming data\n15. Data Quality & Known Gaps (confidence score, sources, gaps by priority)\n16. Conclusion with data source footer\n\nCRITICAL - Equipment Table Format with Detail Sections:\n\n## TANKS - Use variant breakdown table + detail section for EACH variant:\n\n| Category | Total | Operational | Readiness |\n|----------|-------|-------------|-----------|\n| **All Tanks** | **228** | **220** | **96.5%** |\n| **Medium Tanks (Cruisers)** | **69** | **66** | **95.7%** |\n| ↳ A13 Mk II (Cruiser Mk IV) | 44 | 42 | 95.5% |\n| ↳ A10 Cruiser Mk II | 10 | 10 | 100% |\n| ↳ Matilda II (Infantry Tank) | 6 | 6 | 100% |\n\nThen IMMEDIATELY follow with detail sections:\n\n### A13 Mk II (Cruiser Mk IV) - 44 tanks\n[Specifications, combat performance, notes]\n\n### A10 Cruiser Mk II - 10 tanks\n[Specifications, combat performance, notes]\n\n### Matilda II (Infantry Tank) - 6 tanks\n[Specifications, combat performance, notes]\n\n## ARTILLERY - EVERY variant gets a detail section:\n\n| Type | Total | Operational | Caliber |\n| **Field Artillery** | **96** | **96** | - |\n| ↳ Ordnance QF 25-pounder | 72 | 72 | 87.6mm |\n| ↳ QF 4.5-inch Howitzer | 24 | 24 | 114mm |\n\nThen detail sections:\n\n### Ordnance QF 25-pounder - 72 guns\n[Range, projectile weight, rate of fire, combat performance]\n\n### QF 4.5-inch Howitzer - 24 guns\n[Range, projectile weight, rate of fire, combat performance]\n\n### Ordnance QF 2-pounder - 48 guns (anti-tank)\n[Penetration, rate of fire, role]\n\n### Bofors 40mm - 36 guns (anti-aircraft)\n[Rate of fire, ceiling, effectiveness]\n\n## ARMORED CARS - Separate section, EVERY variant detailed:\n\n| Type | Count | Role | Unit |\n| ↳ Morris CS9 | 45 | Reconnaissance | 11th Hussars |\n\n### Morris CS9 - 45 vehicles\n[Armament, armor, crew, speed, combat record]\n\n### Rolls-Royce Armoured Car - 30 vehicles\n[Armament, armor, crew, speed, combat record]\n\n## TRANSPORT & VEHICLES - EXCLUDE Tanks and Armored Cars, EVERY variant detailed:\n\n| Category | Count | Percentage |\n| **Trucks** | **1,400** | 55.2% |\n| ↳ Bedford QL | 800 | 3 ton |\n| ↳ Bedford MW | 400 | 15 cwt |\n\n### Bedford QL - 800 trucks\n[Capacity, role, specifications]\n\n### Bedford MW - 400 trucks\n[Capacity, role, specifications]\n\n### BSA M20 - 200 motorcycles\n[Engine, use, specifications]\n\n### Universal Carrier (Bren Carrier) - 468 vehicles\n[Armament, armor, crew, speed, role]\n\nKEY RULES:\n- Show category totals in BOLD\n- Use ↳ symbol for variant sub-items\n- EVERY variant in table MUST have detail section immediately after table\n- Tanks and Armored Cars excluded from Transport & Vehicles table\n- Detail sections include: specifications, combat performance/role, notes\n- WITW IDs in parentheses where available\n\nStyle requirements:\n- Professional but engaging\n- Bold key facts for scannability\n- Complete detail for ALL variants\n- Individual soldier positions for squads\n- Match MDBOOK_CHAPTER_TEMPLATE.md exactly\n\nGenerate chapter now.",
+      "prompt_template": "You are generating a book chapter for {unit_designation}.\n\n🚨 CRITICAL: WIKIPEDIA PRE-PUBLICATION CHECK (ANTHROPIC PATTERN: Error Prevention)\n\nBEFORE generating chapter, validate sources:\n\n1. Extract all source citations from {unit_toe.validation.sources}\n2. Check EACH source for forbidden patterns:\n   - 'wikipedia.org'\n   - 'wikipedia.com'\n   - 'wikia'\n   - 'fandom'\n   - 'wiki/' (generic wiki pattern)\n\n3. IF Wikipedia detected:\n   REJECT chapter generation immediately:\n   {\n     \"error\": \"WIKIPEDIA_IN_SOURCES\",\n     \"chapter\": \"{unit_designation}\",\n     \"forbidden_sources\": [{list_of_wikipedia_urls}],\n     \"message\": \"Chapter contains Wikipedia citations. Unit must be re-extracted with Tier 1/2 sources only.\",\n     \"recommendation\": \"Use document_parser v2.0 with source validation enabled\"\n   }\n\n4. IF sources clean: Proceed with generation\n\n---\n\nUnit data: {unit_toe}\nChapter type: {chapter_type}\nStyle: Professional military history, engaging narrative\n\nTask: Generate markdown chapter with ALL 18 REQUIRED SECTIONS (v3.0 Template):\n\n1. Header with unit designation and type\n2. Division/Unit Overview (brief narrative introduction)\n3. Command section (commander, HQ, strength)\n4. Personnel strength table\n5-8. Equipment sections with VARIANT BREAKDOWNS AND DETAIL SECTIONS (Armoured, Artillery, Armoured Cars, Infantry Weapons, Transport)\n9. Organizational breakdown (subordinate units)\n10. Supply status\n11. Tactical doctrine section\n12. Critical Equipment Shortages (mission-limiting deficiencies)\n13. Historical context for the quarter\n14. Wargaming data\n15. Data Quality & Known Gaps (confidence score, sources, gaps by priority)\n16. Conclusion with data source footer\n\nCRITICAL - Equipment Table Format with Detail Sections:\n\n## TANKS - Use variant breakdown table + detail section for EACH variant:\n\n| Category | Total | Operational | Readiness |\n|----------|-------|-------------|-----------|\n| **All Tanks** | **228** | **220** | **96.5%** |\n| **Medium Tanks (Cruisers)** | **69** | **66** | **95.7%** |\n| ↳ A13 Mk II (Cruiser Mk IV) | 44 | 42 | 95.5% |\n| ↳ A10 Cruiser Mk II | 10 | 10 | 100% |\n| ↳ Matilda II (Infantry Tank) | 6 | 6 | 100% |\n\nThen IMMEDIATELY follow with detail sections:\n\n### A13 Mk II (Cruiser Mk IV) - 44 tanks\n[Specifications, combat performance, notes]\n\n### A10 Cruiser Mk II - 10 tanks\n[Specifications, combat performance, notes]\n\n### Matilda II (Infantry Tank) - 6 tanks\n[Specifications, combat performance, notes]\n\n## ARTILLERY - EVERY variant gets a detail section:\n\n| Type | Total | Operational | Caliber |\n| **Field Artillery** | **96** | **96** | - |\n| ↳ Ordnance QF 25-pounder | 72 | 72 | 87.6mm |\n| ↳ QF 4.5-inch Howitzer | 24 | 24 | 114mm |\n\nThen detail sections:\n\n### Ordnance QF 25-pounder - 72 guns\n[Range, projectile weight, rate of fire, combat performance]\n\n### QF 4.5-inch Howitzer - 24 guns\n[Range, projectile weight, rate of fire, combat performance]\n\n### Ordnance QF 2-pounder - 48 guns (anti-tank)\n[Penetration, rate of fire, role]\n\n### Bofors 40mm - 36 guns (anti-aircraft)\n[Rate of fire, ceiling, effectiveness]\n\n## ARMORED CARS - Separate section, EVERY variant detailed:\n\n| Type | Count | Role | Unit |\n| ↳ Morris CS9 | 45 | Reconnaissance | 11th Hussars |\n\n### Morris CS9 - 45 vehicles\n[Armament, armor, crew, speed, combat record]\n\n### Rolls-Royce Armoured Car - 30 vehicles\n[Armament, armor, crew, speed, combat record]\n\n## TRANSPORT & VEHICLES - EXCLUDE Tanks and Armored Cars, EVERY variant detailed:\n\n| Category | Count | Percentage |\n| **Trucks** | **1,400** | 55.2% |\n| ↳ Bedford QL | 800 | 3 ton |\n| ↳ Bedford MW | 400 | 15 cwt |\n\n### Bedford QL - 800 trucks\n[Capacity, role, specifications]\n\n### Bedford MW - 400 trucks\n[Capacity, role, specifications]\n\n### BSA M20 - 200 motorcycles\n[Engine, use, specifications]\n\n### Universal Carrier (Bren Carrier) - 468 vehicles\n[Armament, armor, crew, speed, role]\n\nKEY RULES:\n- Show category totals in BOLD\n- Use ↳ symbol for variant sub-items\n- EVERY variant in table MUST have detail section immediately after table\n- Tanks and Armored Cars excluded from Transport & Vehicles table\n- Detail sections include: specifications, combat performance/role, notes\n- WITW IDs in parentheses where available\n\nStyle requirements:\n- Professional but engaging\n- Bold key facts for scannability\n- Complete detail for ALL variants\n- Individual soldier positions for squads\n- Match MDBOOK_CHAPTER_TEMPLATE.md exactly\n\nGenerate chapter now.",
       "validation_rules": [
-        "All required sections present",
-        "Tables properly formatted",
-        "Cross-references valid"
+        "Wikipedia pre-publication check MUST pass (CRITICAL - BLOCKING)",
+        "All 18 sections present (v3.0: includes Section 8 Supply & Logistics, Section 9 Operational Environment)",
+        "Section 8 (Supply & Logistics) MUST extract from supply_logistics field",
+        "Section 9 (Operational Environment) MUST extract from weather_environment field",
+        "Infantry Weapons section MUST extract from top_3_infantry_weapons (Gap 8 fix)",
+        "Tables properly formatted with variant breakdowns",
+        "EVERY equipment variant MUST have detail section",
+        "Cross-references valid",
+        "NO Wikipedia sources in bibliography",
+        "Schema version must be 3.0"
+      ],
+      "anthropic_patterns_applied": [
+        "Error Prevention: Wikipedia validation blocks chapter generation",
+        "Stopping Conditions: Immediate rejection if Wikipedia detected",
+        "Clear Examples: Equipment table format with detail sections (in prompt)",
+        "Tool Design: Explicit section extraction requirements"
       ]
     },
-    
+
     {
       "agent_id": "scenario_exporter",
       "category": "output_generation",
-      "role": "Export unit data for wargaming scenarios",
-      "inputs": ["unit_toe.json", "scenario_format"],
+      "version": "2.0.0",
+      "role": "Export unit data for wargaming scenarios WITH SUPPLY STATES AND WEATHER",
+      "inputs": ["unit_toe.json", "scenario_format", "scenario_date"],
       "outputs": ["scenario.{format}"],
       "capabilities": [
         "Multi-format export",
         "OOB generation",
         "Scenario balancing",
-        "WITW integration"
+        "WITW integration",
+        "Supply state export (NEW - CRITICAL FOR SCENARIOS)",
+        "Weather conditions export (NEW - CRITICAL FOR SCENARIOS)",
+        "Operational readiness calculation (NEW)"
       ],
-      "prompt_template": "You are creating a wargaming scenario from unit data.\n\nUnit: {unit_toe}\nFormat: {format}\nScenario type: {scenario_type}\n\nTask: Export unit data in requested format:\n\nFor WITW CSV:\n- Map each equipment item to WITW ID\n- Create force pool entries\n- Set experience/morale levels\n- Add special rules\n\nFor generic JSON:\n- Include all equipment with counts\n- Add wargaming stats\n- Provide setup recommendations\n- Include victory conditions\n\nOutput: Scenario file in requested format.\n\nGenerate now.",
+      "prompt_template": "You are creating a wargaming scenario from unit data.\n\nUnit: {unit_toe}\nFormat: {format}\nScenario type: {scenario_type}\nScenario date: {scenario_date}\n\nTask: Export unit data in requested format WITH v3.0 enhancements:\n\n**For WITW CSV (ENHANCED v3.0)**:\n- Map each equipment item to WITW ID\n- Create force pool entries\n- Set experience/morale levels\n- Add special rules\n- **NEW: Add supply state columns**:\n  - fuel_reserves_days\n  - ammunition_days\n  - water_reserves_days\n  - operational_readiness_percentage\n- **NEW: Add weather header**:\n  - temperature_range (affects unit performance)\n  - visibility (sandstorms = reduced)\n  - storm_probability (for turn-based events)\n  - terrain_effects (mobility modifiers)\n\n**For generic JSON (ENHANCED v3.0)**:\n- Include all equipment with counts\n- Add wargaming stats\n- Provide setup recommendations\n- Include victory conditions\n- **NEW: Supply state object**:\n  ```json\n  \"supply_state\": {\n    \"fuel_days\": {fuel_reserves_days},\n    \"ammo_days\": {ammunition_days},\n    \"water_days\": {calculated_from_capacity},\n    \"operational_radius_km\": {operational_radius_km},\n    \"supply_status\": \"{qualitative_assessment}\",\n    \"readiness\": {percentage}\n  }\n  ```\n- **NEW: Weather conditions object**:\n  ```json\n  \"weather\": {\n    \"quarter\": \"{season_quarter}\",\n    \"temperature_min_c\": {temp_min},\n    \"temperature_max_c\": {temp_max},\n    \"terrain\": \"{terrain_type}\",\n    \"storm_frequency\": {storm_days_per_month},\n    \"visibility\": \"{excellent|good|poor based on weather}\",\n    \"operational_impact\": \"{narrative_description}\"\n  }\n  ```\n\n**Operational Readiness Calculation**:\n- Calculate from equipment operational counts\n- Factor in supply status (low fuel/ammo = reduced readiness)\n- Factor in environmental stress (extreme heat = reduced efficiency)\n- Output as percentage (0-100%)\n\n**Example WITW CSV Row (v3.0)**:\nunit_id,designation,strength,tanks,artillery,fuel_days,ammo_days,water_days,readiness_pct,temp_max,visibility\ngermany_1941q2_dak,Deutsches Afrikakorps,45000,228,120,6.5,8,7,92,35,good\n\n**Example Generic JSON (v3.0)**:\n{\n  \"scenario\": \"Operation Battleaxe\",\n  \"date\": \"1941-06-15\",\n  \"units\": [\n    {\n      \"unit_id\": \"germany_1941q2_dak\",\n      \"oob\": {equipment_data},\n      \"supply_state\": {fuel/ammo/water days},\n      \"weather\": {environmental_conditions},\n      \"starting_position\": \"Halfaya Pass\",\n      \"victory_objectives\": [...]\n    }\n  ]\n}\n\nOutput: Scenario file in requested format with v3.0 supply and weather data.\n\nGenerate now.",
       "validation_rules": [
         "All equipment mapped to game IDs",
         "Format specification followed",
-        "Scenario balanced"
+        "Scenario balanced",
+        "Supply state data included (v3.0 REQUIRED)",
+        "Weather conditions included (v3.0 REQUIRED)",
+        "Operational readiness calculated correctly",
+        "WITW CSV has supply columns: fuel_days, ammo_days, water_days, readiness_pct",
+        "Generic JSON has supply_state and weather objects"
+      ],
+      "anthropic_patterns_applied": [
+        "Clear Examples: Complete CSV row and JSON structure",
+        "Tool Design: Explicit column/field requirements",
+        "Validation: Scenario must be playable with supply constraints"
       ]
     },
     
