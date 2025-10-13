@@ -1,0 +1,557 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>1941-Q2 Overview - North Africa Campaign: Table of Organization &amp; Equipment</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Detailed Table of Organization &amp; Equipment data for North Africa Campaign units (1940-1943)">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">North Africa Campaign: Table of Organization &amp; Equipment</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/yourusername/north-africa-toe-builder" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="1941-q2-overview-april---june-1941"><a class="header" href="#1941-q2-overview-april---june-1941">1941-Q2 Overview (April - June 1941)</a></h1>
+<p><strong>The Quarter of Rommel's Arrival</strong></p>
+<hr />
+<h2 id="strategic-overview"><a class="header" href="#strategic-overview">Strategic Overview</a></h2>
+<p>The <strong>second quarter of 1941</strong> marked a dramatic turning point in the North Africa Campaign. The arrival of German forces under <strong>Generalleutnant Erwin Rommel</strong> transformed what had been a one-sided British offensive into a see-saw battle that would continue for two years.</p>
+<h3 id="timeline-of-major-events"><a class="header" href="#timeline-of-major-events">Timeline of Major Events</a></h3>
+<p><strong>April 1-11, 1941</strong>: <strong>Rommel's First Offensive</strong></p>
+<ul>
+<li>DAK and Italian forces launch surprise offensive</li>
+<li>British forces pushed back 600+ km from El Agheila to Egyptian frontier</li>
+<li>Tobruk garrison (9th Australian Division) isolated but holds</li>
+<li>British lose Cyrenaica gains from Operation Compass</li>
+</ul>
+<p><strong>April 11-30, 1941</strong>: <strong>Initial Tobruk Siege</strong></p>
+<ul>
+<li>German and Italian forces besiege Tobruk fortress</li>
+<li>9th Australian Division defends perimeter</li>
+<li>Royal Navy supplies garrison by sea</li>
+</ul>
+<p><strong>May 1-31, 1941</strong>: <strong>Stalemate and Buildup</strong></p>
+<ul>
+<li><strong>Operation Brevity</strong> (May 15-16): Limited British offensive, marginal gains</li>
+<li>Both sides rebuild forces</li>
+<li>Tobruk siege continues with daily artillery exchanges</li>
+<li>British prepare major relief offensive</li>
+</ul>
+<p><strong>June 1-14, 1941</strong>: <strong>Preparations</strong></p>
+<ul>
+<li>British mass forces for Operation Battleaxe</li>
+<li>German defensive positions strengthened (88mm guns integrated)</li>
+<li>Tobruk garrison conducts raids to disrupt Axis preparations</li>
+</ul>
+<p><strong>June 15-17, 1941</strong>: <strong>Operation Battleaxe</strong></p>
+<ul>
+<li>British offensive to relieve Tobruk</li>
+<li>German defensive victory using 88mm guns and mobile reserves</li>
+<li>British lose 91 tanks, Germans lose 12</li>
+<li><strong>Strategic Result</strong>: Churchill replaces General Wavell with General Auchinleck</li>
+</ul>
+<p><strong>June 18-30, 1941</strong>: <strong>Aftermath</strong></p>
+<ul>
+<li>British withdraw to defensive positions</li>
+<li>Both sides consolidate lines</li>
+<li>Focus shifts to buildup for next offensive (Operation Crusader, November 1941)</li>
+</ul>
+<hr />
+<h2 id="forces-present-1941-q2"><a class="header" href="#forces-present-1941-q2">Forces Present (1941-Q2)</a></h2>
+<h3 id="british--commonwealth-forces-7-divisions"><a class="header" href="#british--commonwealth-forces-7-divisions">British &amp; Commonwealth Forces (7 Divisions)</a></h3>
+<p><strong>Western Desert Force</strong> (from June 17: XIII Corps)</p>
+<ul>
+<li><strong>7th Armoured Division</strong> (10,000 personnel, 228 tanks)</li>
+<li><strong>50th (Northumbrian) Infantry Division</strong> (15,000+ personnel)</li>
+<li><strong>4th Indian Infantry Division</strong> (17,000+ personnel)</li>
+<li><strong>2nd New Zealand Division</strong> (16,700 personnel, dominion force)</li>
+<li><strong>5th Indian Infantry Division</strong> (15,000+ personnel)</li>
+<li><strong>9th Australian Division</strong> (15,000+ personnel, defending Tobruk)</li>
+<li><strong>1st South African Infantry Division</strong> (17,000+ personnel, dominion force)</li>
+</ul>
+<p><strong>Total Strength</strong>: ~105,000+ personnel</p>
+<p><strong>Key Equipment</strong>:</p>
+<ul>
+<li>Cruiser tanks: A13 Mk II, A10, A9</li>
+<li>Infantry tanks: Matilda II (heavily armored)</li>
+<li>Light tanks: Mk VI (reconnaissance only)</li>
+<li>Artillery: 25-pounder guns, 2-pounder AT guns</li>
+</ul>
+<h3 id="german-forces-3-formations"><a class="header" href="#german-forces-3-formations">German Forces (3 Formations)</a></h3>
+<p><strong>Deutsches Afrikakorps</strong> (Generalleutnant Erwin Rommel)</p>
+<ul>
+<li><strong>15. Panzer-Division</strong> (12,000 personnel, 120+ tanks)</li>
+<li><strong>5. leichte Division</strong> (10,500 personnel, 150+ tanks, becoming 21. Panzer-Division in October)</li>
+</ul>
+<p><strong>Total Strength</strong>: ~25,000 personnel</p>
+<p><strong>Key Equipment</strong>:</p>
+<ul>
+<li>Panzer III Ausf G/H (50mm gun)</li>
+<li>Panzer IV Ausf E/F (75mm gun)</li>
+<li>Panzer II (reconnaissance)</li>
+<li>88mm Flak 18/36 (anti-tank role, devastating effectiveness)</li>
+</ul>
+<h3 id="italian-forces-7-8-divisions"><a class="header" href="#italian-forces-7-8-divisions">Italian Forces (7-8 Divisions)</a></h3>
+<p><strong>X Corpo d'Armata</strong> and <strong>XXI Corpo d'Armata</strong></p>
+<ul>
+<li><strong>132ª Divisione corazzata "Ariete"</strong> (7,500 personnel, armored division)</li>
+<li><strong>101ª Divisione motorizzata "Trieste"</strong> (10,000 personnel, motorized)</li>
+<li><strong>55ª Divisione motorizzata "Trento"</strong> (10,000 personnel, motorized)</li>
+<li><strong>17ª Divisione di fanteria "Pavia"</strong> (11,000 personnel, infantry)</li>
+<li><strong>27ª Divisione di fanteria "Brescia"</strong> (11,000 personnel, infantry)</li>
+<li><strong>60ª Divisione di fanteria "Sabratha"</strong> (11,000 personnel, infantry)</li>
+<li><strong>25ª Divisione di Fanteria "Bologna"</strong> (11,000 personnel, infantry)</li>
+<li><strong>55ª Divisione di Fanteria "Savona"</strong> (11,000 personnel, infantry)</li>
+</ul>
+<p><strong>Total Strength</strong>: ~82,000+ personnel</p>
+<p><strong>Key Equipment</strong>:</p>
+<ul>
+<li>M13/40 medium tanks (47mm gun, 42mm armor)</li>
+<li>L3/35 tankettes (obsolete)</li>
+<li>47mm Cannone da 47/32 anti-tank guns</li>
+<li>75mm and 100mm field artillery</li>
+</ul>
+<hr />
+<h2 id="order-of-battle-operation-battleaxe-june-15-17-1941"><a class="header" href="#order-of-battle-operation-battleaxe-june-15-17-1941">Order of Battle: Operation Battleaxe (June 15-17, 1941)</a></h2>
+<h3 id="british-forces-attacking"><a class="header" href="#british-forces-attacking">British Forces (Attacking)</a></h3>
+<p><strong>XIII Corps</strong> (Lieutenant-General Sir Noel Beresford-Peirse)</p>
+<ul>
+<li><strong>7th Armoured Division</strong> (Major-General Sir Michael O'Moore Creagh)
+<ul>
+<li>4th Armoured Brigade (190 tanks: Matilda, cruisers)</li>
+<li>7th Armoured Brigade (156 light tanks)</li>
+<li>7th Support Group (motorized infantry + artillery)</li>
+</ul>
+</li>
+<li><strong>4th Indian Division</strong> (Major-General Frank Messervy)
+<ul>
+<li>11th Indian Infantry Brigade</li>
+<li>22nd Guards Brigade</li>
+</ul>
+</li>
+</ul>
+<p><strong>Air Support</strong>:</p>
+<ul>
+<li>RAF Western Desert Air Force (~200 aircraft)</li>
+</ul>
+<p><strong>Objective</strong>: Relieve Tobruk garrison, destroy DAK</p>
+<h3 id="axis-forces-defending"><a class="header" href="#axis-forces-defending">Axis Forces (Defending)</a></h3>
+<p><strong>Deutsches Afrikakorps</strong> (Generalleutnant Erwin Rommel)</p>
+<ul>
+<li><strong>15. Panzer-Division</strong></li>
+<li><strong>5. leichte Division</strong></li>
+<li>Italian divisions in support (Ariete, Pavia)</li>
+</ul>
+<p><strong>Key Defensive Advantage</strong>: 88mm Flak guns used in anti-tank role</p>
+<p><strong>Result</strong>: German defensive victory</p>
+<ul>
+<li>British: 91 tanks lost, 969 casualties</li>
+<li>Axis: 12 tanks lost, 678 casualties</li>
+<li>Strategic failure leads to Wavell's replacement</li>
+</ul>
+<hr />
+<h2 id="tactical-developments"><a class="header" href="#tactical-developments">Tactical Developments</a></h2>
+<h3 id="german-innovations"><a class="header" href="#german-innovations">German Innovations</a></h3>
+<p><strong>1. 88mm Gun in Anti-Tank Role</strong></p>
+<p>The <strong>8.8cm Flak 18/36</strong> anti-aircraft gun proved devastatingly effective against British tanks:</p>
+<ul>
+<li>Range: 2,000+ meters effective</li>
+<li>Penetration: Could defeat any Allied tank frontally</li>
+<li>Deployment: Hidden in defensive positions, engaged at long range</li>
+</ul>
+<p>British Matilda II tanks (77mm frontal armor) - immune to Italian 47mm guns - were destroyed by 88mm fire at ranges British tanks couldn't return fire.</p>
+<p><strong>2. Mobile Defense Doctrine</strong></p>
+<p>Rommel pioneered mobile defensive tactics:</p>
+<ul>
+<li>Forward screen of anti-tank guns (including 88mm)</li>
+<li>Panzer reserves held back for counterattacks</li>
+<li>Italian infantry holds static positions</li>
+<li>German armor exploits British mistakes</li>
+</ul>
+<p><strong>3. Integrated Combined Arms</strong></p>
+<p>Unlike British separation of infantry and armor, DAK integrated:</p>
+<ul>
+<li>Infantry with anti-tank guns</li>
+<li>Armor with mobile artillery</li>
+<li>Engineers with assault groups</li>
+<li>Tactical air support coordination</li>
+</ul>
+<h3 id="british-challenges"><a class="header" href="#british-challenges">British Challenges</a></h3>
+<p><strong>1. Tank-Infantry Coordination</strong></p>
+<p>British doctrine separated armor (7th Armoured) from infantry (4th Indian), leading to:</p>
+<ul>
+<li>Tanks advancing without infantry support</li>
+<li>Infantry attacking without tank support</li>
+<li>Exploitation failures</li>
+<li>High casualties from anti-tank guns</li>
+</ul>
+<p><strong>2. Equipment Deficiencies</strong></p>
+<ul>
+<li><strong>2-pounder guns</strong> (40mm): Inadequate against Panzer III/IV frontal armor</li>
+<li><strong>Cruiser tank reliability</strong>: Mechanical breakdowns in desert heat</li>
+<li><strong>Light tank obsolescence</strong>: Mk VI useless in combat</li>
+</ul>
+<p><strong>3. Command &amp; Control</strong></p>
+<ul>
+<li>Slow communication compared to German radio nets</li>
+<li>Rigid planning vs. German flexibility</li>
+<li>Poor intelligence on Axis strength and positions</li>
+</ul>
+<hr />
+<h2 id="siege-of-tobruk-april-june-1941"><a class="header" href="#siege-of-tobruk-april-june-1941">Siege of Tobruk (April-June 1941)</a></h2>
+<h3 id="the-garrison"><a class="header" href="#the-garrison">The Garrison</a></h3>
+<p><strong>9th Australian Division</strong> (Major-General Leslie Morshead)</p>
+<ul>
+<li>20th Australian Infantry Brigade</li>
+<li>24th Australian Infantry Brigade</li>
+<li>26th Australian Infantry Brigade</li>
+<li>British artillery and tank units</li>
+<li>Total: ~25,000 troops (including 15,000 Australians)</li>
+</ul>
+<h3 id="the-siege"><a class="header" href="#the-siege">The Siege</a></h3>
+<p><strong>Perimeter</strong>: 30-mile defensive perimeter around Tobruk port
+<strong>Defenses</strong>: Italian-built concrete bunkers, anti-tank ditches, minefields
+<strong>Supply</strong>: Royal Navy destroyers and fast minelayers run nightly supply missions
+<strong>Activity</strong>: Daily artillery exchanges, German assault attempts April-May, Australian night raids</p>
+<p><strong>Result</strong>: Garrison holds through Q2 1941, becomes symbol of Allied resistance</p>
+<h3 id="the-rats-of-tobruk"><a class="header" href="#the-rats-of-tobruk">"The Rats of Tobruk"</a></h3>
+<p>German propaganda radio mockingly called the defenders "rats trapped in Tobruk." The Australians adopted the name proudly, calling themselves the <strong>"Rats of Tobruk"</strong> - a badge of honor for holding the fortress under siege for 241 days total (April-December 1941).</p>
+<hr />
+<h2 id="strategic-context"><a class="header" href="#strategic-context">Strategic Context</a></h2>
+<h3 id="churchills-pressure"><a class="header" href="#churchills-pressure">Churchill's Pressure</a></h3>
+<p>Prime Minister Winston Churchill pressured General Wavell for immediate offensive action:</p>
+<ul>
+<li>Political need for victory after Greece/Crete losses</li>
+<li>Relief of Tobruk garrison (morale issue)</li>
+<li>Demonstrate British capability to Stalin (before Barbarossa)</li>
+</ul>
+<p><strong>Result</strong>: Operation Battleaxe launched prematurely with insufficient forces, leading to defeat and Wavell's replacement.</p>
+<h3 id="rommels-logistics-challenge"><a class="header" href="#rommels-logistics-challenge">Rommel's Logistics Challenge</a></h3>
+<p>Despite tactical victories, Rommel faced critical supply shortages:</p>
+<ul>
+<li>1,500 km supply line from Tripoli</li>
+<li>British interdiction of sea convoys (Malta-based forces)</li>
+<li>Italian Navy unable to guarantee supply deliveries</li>
+<li>Fuel shortages limited offensive operations</li>
+</ul>
+<p><strong>Key Limitation</strong>: DAK could not advance beyond Tobruk due to supply constraints.</p>
+<h3 id="the-wider-war"><a class="header" href="#the-wider-war">The Wider War</a></h3>
+<p><strong>June 22, 1941</strong>: <strong>Operation Barbarossa</strong> begins - Germany invades Soviet Union</p>
+<ul>
+<li>North Africa becomes secondary theater for Germany</li>
+<li>Reinforcements and supplies prioritized for Eastern Front</li>
+<li>Rommel must "do more with less"</li>
+</ul>
+<p><strong>Impact</strong>: Stalemate in North Africa continues through 1941, with neither side able to achieve decisive victory.</p>
+<hr />
+<h2 id="equipment-summary-all-forces"><a class="header" href="#equipment-summary-all-forces">Equipment Summary (All Forces)</a></h2>
+<h3 id="tanks--afvs"><a class="header" href="#tanks--afvs">Tanks &amp; AFVs</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>Nation</th><th>Tanks</th><th>Primary Types</th></tr></thead><tbody>
+<tr><td><strong>British</strong></td><td>~600+</td><td>Matilda II, A13 Cruiser, A10 Cruiser, Mk VI light</td></tr>
+<tr><td><strong>German</strong></td><td>~270</td><td>Panzer III G/H, Panzer IV E/F, Panzer II</td></tr>
+<tr><td><strong>Italian</strong></td><td>~200</td><td>M13/40, M11/39, L3/35 tankette</td></tr>
+<tr><td><strong>Total</strong></td><td>~1,070</td><td></td></tr>
+</tbody></table>
+</div>
+<h3 id="artillery"><a class="header" href="#artillery">Artillery</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>Nation</th><th>Guns</th><th>Primary Types</th></tr></thead><tbody>
+<tr><td><strong>British</strong></td><td>700+</td><td>25-pounder (87.6mm), 2-pounder AT (40mm), Bofors 40mm AA</td></tr>
+<tr><td><strong>German</strong></td><td>300+</td><td>10.5cm leFH 18, 88mm Flak 36, 50mm Pak 38 AT</td></tr>
+<tr><td><strong>Italian</strong></td><td>600+</td><td>75mm Modello 1906, 47mm Cannone da 47/32 AT, 90mm AA</td></tr>
+<tr><td><strong>Total</strong></td><td>1,600+</td><td></td></tr>
+</tbody></table>
+</div>
+<h3 id="personnel"><a class="header" href="#personnel">Personnel</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>Nation</th><th>Total Personnel</th></tr></thead><tbody>
+<tr><td><strong>British &amp; Commonwealth</strong></td><td>~105,000</td></tr>
+<tr><td><strong>German</strong></td><td>~25,000</td></tr>
+<tr><td><strong>Italian</strong></td><td>~82,000</td></tr>
+<tr><td><strong>Total</strong></td><td>~212,000</td></tr>
+</tbody></table>
+</div>
+<hr />
+<h2 id="lessons-learned"><a class="header" href="#lessons-learned">Lessons Learned</a></h2>
+<h3 id="for-british-forces"><a class="header" href="#for-british-forces">For British Forces</a></h3>
+<ol>
+<li><strong>Combined arms integration critical</strong> - Armor and infantry must advance together</li>
+<li><strong>88mm threat</strong> - German anti-tank guns outrange British tanks</li>
+<li><strong>Tank armor inadequate</strong> - Need for heavier armor (led to Churchill and later Cromwell tanks)</li>
+<li><strong>Command structure</strong> - Need for flexible, responsive command vs. rigid planning</li>
+</ol>
+<h3 id="for-german-forces"><a class="header" href="#for-german-forces">For German Forces</a></h3>
+<ol>
+<li><strong>Logistics limit operations</strong> - Cannot sustain offensive beyond supply capacity</li>
+<li><strong>88mm gun effectiveness</strong> - Continue integration into anti-tank role</li>
+<li><strong>Mobile defense success</strong> - Defensive victories buy time despite numerical inferiority</li>
+</ol>
+<h3 id="for-italian-forces"><a class="header" href="#for-italian-forces">For Italian Forces</a></h3>
+<ol>
+<li><strong>Equipment obsolescence</strong> - M13/40 outclassed by British and German armor</li>
+<li><strong>Defensive role</strong> - Best used in static positions while Germans maneuver</li>
+<li><strong>Morale challenges</strong> - Soldiers question strategic value of Libya</li>
+</ol>
+<hr />
+<h2 id="data-coverage-17-units"><a class="header" href="#data-coverage-17-units">Data Coverage: 17 Units</a></h2>
+<p>This book provides complete TO&amp;E data for <strong>17 divisions and formations</strong> active during 1941-Q2:</p>
+<ul>
+<li><strong>British &amp; Commonwealth</strong>: 7 divisions (armored, infantry, dominion forces)</li>
+<li><strong>German</strong>: 1 corps HQ + 2 divisions</li>
+<li><strong>Italian</strong>: 7-8 divisions (armored, motorized, infantry)</li>
+</ul>
+<p>Each unit chapter follows <strong>MDBook Chapter Template v2.0</strong> with <strong>16 required sections</strong> including:</p>
+<ul>
+<li>Complete equipment variant breakdowns</li>
+<li>Commander details and organizational structure</li>
+<li>Historical context specific to 1941-Q2</li>
+<li>Confidence scoring and known data gaps</li>
+<li>Wargaming statistics and scenario suitability</li>
+</ul>
+<hr />
+<h2 id="further-reading"><a class="header" href="#further-reading">Further Reading</a></h2>
+<ul>
+<li>Individual unit chapters (select from table of contents)</li>
+<li><a href="../methodology/research-methodology.html">Research Methodology</a></li>
+<li><a href="../methodology/data-quality.html">Data Quality Standards</a></li>
+<li><a href="../appendices/bibliography.html">Source Bibliography</a></li>
+</ul>
+<hr />
+<p><strong>Period</strong>: April 1 - June 30, 1941
+<strong>Theater</strong>: North Africa (Libya and Egypt)
+<strong>Major Operations</strong>: Rommel's First Offensive, Siege of Tobruk, Operation Brevity, Operation Battleaxe
+<strong>Strategic Result</strong>: Stalemate - Neither side achieves decisive victory</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../introduction.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../1941-q2/british/chapter_7th_armoured_division.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../introduction.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../1941-q2/british/chapter_7th_armoured_division.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

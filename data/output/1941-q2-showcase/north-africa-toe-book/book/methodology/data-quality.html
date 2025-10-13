@@ -1,0 +1,697 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Data Quality Standards - North Africa Campaign: Table of Organization &amp; Equipment</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Detailed Table of Organization &amp; Equipment data for North Africa Campaign units (1940-1943)">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">North Africa Campaign: Table of Organization &amp; Equipment</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/yourusername/north-africa-toe-builder" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="data-quality-standards"><a class="header" href="#data-quality-standards">Data Quality Standards</a></h1>
+<h2 id="overview"><a class="header" href="#overview">Overview</a></h2>
+<p>This project maintains <strong>rigorous quality standards</strong> to ensure historical accuracy and research credibility. All units must meet minimum thresholds before publication.</p>
+<hr />
+<h2 id="minimum-requirements"><a class="header" href="#minimum-requirements">Minimum Requirements</a></h2>
+<h3 id="publication-thresholds"><a class="header" href="#publication-thresholds">Publication Thresholds</a></h3>
+<p><strong>Mandatory Requirements</strong>:</p>
+<ul>
+<li>✅ <strong>Confidence Score</strong>: ≥ 75%</li>
+<li>✅ <strong>Schema Compliance</strong>: 100% (must pass validation)</li>
+<li>✅ <strong>Template Compliance</strong>: All 16 required sections</li>
+<li>✅ <strong>Source Citations</strong>: Minimum 2 sources for critical facts</li>
+<li>✅ <strong>Gap Documentation</strong>: All gaps explicitly documented</li>
+</ul>
+<p><strong>Units failing any requirement</strong> are flagged for additional research before publication.</p>
+<hr />
+<h2 id="confidence-scoring"><a class="header" href="#confidence-scoring">Confidence Scoring</a></h2>
+<h3 id="scoring-rubric"><a class="header" href="#scoring-rubric">Scoring Rubric</a></h3>
+<p><strong>90-100%: Excellent</strong></p>
+<ul>
+<li>Data from Tier 1 primary sources (Tessin, Army Lists, Field Manuals)</li>
+<li>Multiple sources corroborate all critical facts</li>
+<li>Equipment variants verified</li>
+<li>Commander details verified (name, rank, appointment date)</li>
+<li>Minimal gaps (&lt; 5% of data points)</li>
+</ul>
+<p><strong>80-89%: Good</strong></p>
+<ul>
+<li>Mix of Tier 1 and Tier 2 sources</li>
+<li>Core facts verified from primary sources</li>
+<li>Most equipment variants identified</li>
+<li>Some minor gaps (5-10% of data points)</li>
+<li>Estimation clearly flagged</li>
+</ul>
+<p><strong>75-79%: Acceptable</strong></p>
+<ul>
+<li>Primarily Tier 2 sources with some Tier 1</li>
+<li>Critical facts verified</li>
+<li>Equipment categories known, some variant gaps</li>
+<li>Moderate gaps (10-15% of data points)</li>
+<li>Estimation used for non-critical data</li>
+</ul>
+<p><strong>70-74%: Below Threshold</strong></p>
+<ul>
+<li>Heavy reliance on Tier 2/3 sources</li>
+<li>Some critical facts unverified</li>
+<li>Equipment approximated</li>
+<li>Significant gaps (15-20%)</li>
+<li><strong>Requires additional research</strong></li>
+</ul>
+<p><strong>Below 70%: Insufficient</strong></p>
+<ul>
+<li>Too many gaps and uncertainties</li>
+<li>Critical facts missing</li>
+<li><strong>Not published</strong></li>
+</ul>
+<h3 id="confidence-factors"><a class="header" href="#confidence-factors">Confidence Factors</a></h3>
+<p><strong>Positive Factors</strong> (increase confidence):</p>
+<ul>
+<li>Tier 1 primary sources</li>
+<li>Multiple corroborating sources</li>
+<li>Contemporary documents (war diaries)</li>
+<li>Precise equipment variant identification</li>
+<li>Commander details verified</li>
+<li>Unit participation in battles confirmed</li>
+</ul>
+<p><strong>Negative Factors</strong> (decrease confidence):</p>
+<ul>
+<li>Single source for critical facts</li>
+<li>Conflicting source information</li>
+<li>Estimated data points</li>
+<li>Generic equipment categories (no variants)</li>
+<li>Missing commanders or dates</li>
+<li>Gaps in organizational structure</li>
+</ul>
+<hr />
+<h2 id="schema-validation"><a class="header" href="#schema-validation">Schema Validation</a></h2>
+<h3 id="critical-validation-rules"><a class="header" href="#critical-validation-rules">Critical Validation Rules</a></h3>
+<p><strong>Equipment Validation</strong>:</p>
+<ol>
+<li><code>tanks.total = tanks.heavy + tanks.medium + tanks.light</code> (exact match required)</li>
+<li><code>artillery_total ≥ field + anti_tank + anti_aircraft</code> (minimum)</li>
+<li><code>ground_vehicles_total ≥ tanks + trucks + motorcycles</code> (minimum)</li>
+<li>Category totals = sum of all variants (exact)</li>
+</ol>
+<p><strong>Personnel Validation</strong>:</p>
+<ol>
+<li><code>total_personnel ≈ officers + ncos + enlisted</code> (±5% tolerance)</li>
+<li>Percentage calculations sum to 100% (±0.5% rounding)</li>
+<li>Personnel realistic for unit type:
+<ul>
+<li>Division: 10,000-20,000</li>
+<li>Brigade: 3,000-6,000</li>
+<li>Regiment: 1,000-3,000</li>
+</ul>
+</li>
+</ol>
+<p><strong>Organizational Validation</strong>:</p>
+<ol>
+<li>Parent unit exists (division has corps, regiment has division)</li>
+<li>Commander appointed date ≤ quarter end date</li>
+<li>Subordinate units listed with commanders</li>
+<li>Headquarters location documented</li>
+</ol>
+<p><strong>Historical Validation</strong>:</p>
+<ol>
+<li>No anachronisms (equipment existed in quarter)</li>
+<li>Commander verified from 2+ sources</li>
+<li>Unit designation historically accurate</li>
+<li>Battle participation cross-checked</li>
+</ol>
+<h3 id="validation-process"><a class="header" href="#validation-process">Validation Process</a></h3>
+<p><strong>Automated Checks</strong>:</p>
+<ul>
+<li>JSON schema validation (structure)</li>
+<li>Mathematical validation (totals)</li>
+<li>Field presence validation (required fields)</li>
+</ul>
+<p><strong>Manual Checks</strong>:</p>
+<ul>
+<li>Historical accuracy (anachronisms)</li>
+<li>Source quality assessment</li>
+<li>Cross-reference verification</li>
+<li>Gap documentation review</li>
+</ul>
+<hr />
+<h2 id="template-compliance"><a class="header" href="#template-compliance">Template Compliance</a></h2>
+<h3 id="16-required-sections"><a class="header" href="#16-required-sections">16 Required Sections</a></h3>
+<p>All MDBook chapters must include:</p>
+<ol>
+<li>✅ <strong>Header</strong> (unit, nation, quarter, location)</li>
+<li>✅ <strong>Division/Unit Overview</strong> (2-3 paragraphs)</li>
+<li>✅ <strong>Command</strong> (commander, HQ, staff)</li>
+<li>✅ <strong>Personnel Strength</strong> (table with percentages)</li>
+<li>✅ <strong>Armoured Strength</strong> (variant breakdown tables)</li>
+<li>✅ <strong>Artillery Strength</strong> (variant breakdown + detail sections)</li>
+<li>✅ <strong>Armoured Cars</strong> (separate section, NOT in transport)</li>
+<li>✅ <strong>Transport &amp; Vehicles</strong> (NO tanks/armored cars)</li>
+<li>✅ <strong>Organizational Structure</strong> (subordinate units)</li>
+<li>✅ <strong>Supply Status</strong> (fuel, ammo, food, water)</li>
+<li>✅ <strong>Tactical Doctrine</strong> (role, capabilities)</li>
+<li>✅ <strong>Critical Equipment Shortages</strong> (Priority 1/2/3)</li>
+<li>✅ <strong>Historical Context</strong> (quarter-specific events)</li>
+<li>✅ <strong>Wargaming Data</strong> (morale, experience, scenarios)</li>
+<li>✅ <strong>Data Quality &amp; Known Gaps</strong> (confidence, sources, gaps)</li>
+<li>✅ <strong>Conclusion</strong> (assessment + data source footer)</li>
+</ol>
+<h3 id="variant-detail-requirements"><a class="header" href="#variant-detail-requirements">Variant Detail Requirements</a></h3>
+<p><strong>CRITICAL</strong>: Every variant in summary tables must have a detail section</p>
+<p><strong>Example</strong> (Artillery):</p>
+<pre><code class="language-markdown">## Artillery Strength
+
+| Type | Total | Operational |
+|------|-------|-------------|
+| **Field Artillery** | **96** | **96** |
+| ↳ Ordnance QF 25-pounder | 72 | 72 |
+| ↳ QF 4.5-inch Howitzer | 24 | 24 |
+
+### Ordnance QF 25-pounder - 72 guns
+
+**REQUIRED**: Detail section for every variant
+
+**Specifications**: ...
+**Combat Performance**: ...
+</code></pre>
+<p><strong>Compliance Check</strong>:</p>
+<ul>
+<li>Count variants in table</li>
+<li>Count detail sections</li>
+<li>Numbers must match</li>
+</ul>
+<hr />
+<h2 id="source-citation-standards"><a class="header" href="#source-citation-standards">Source Citation Standards</a></h2>
+<h3 id="minimum-citation-requirements"><a class="header" href="#minimum-citation-requirements">Minimum Citation Requirements</a></h3>
+<p><strong>Critical Facts</strong> (require 2+ sources):</p>
+<ul>
+<li>Unit commander name</li>
+<li>Unit designation and nickname</li>
+<li>Parent unit</li>
+<li>Major equipment types</li>
+<li>Participation in major battles</li>
+</ul>
+<p><strong>Important Facts</strong> (require 1+ source):</p>
+<ul>
+<li>Personnel strength</li>
+<li>Equipment variant breakdown</li>
+<li>Subordinate unit commanders</li>
+<li>Headquarters location</li>
+<li>Supply status</li>
+</ul>
+<p><strong>Supplementary Facts</strong> (can be estimated):</p>
+<ul>
+<li>Exact operational percentages</li>
+<li>Minor equipment counts</li>
+<li>Individual weapon counts</li>
+<li>Vehicle distribution</li>
+</ul>
+<h3 id="citation-format"><a class="header" href="#citation-format">Citation Format</a></h3>
+<p><strong>In JSON</strong>:</p>
+<pre><code class="language-json">{
+  "commander": {
+    "name": "Major-General Sir Michael O'Moore Creagh",
+    "rank": "Major-General",
+    "source": "British Army List Q2 1941, page 45"
+  }
+}
+</code></pre>
+<p><strong>In MDBook Chapter</strong>:</p>
+<pre><code class="language-markdown">**Data Sources**:
+- British Army List Q2 1941 (commander, organization)
+- British Armoured Formations 1940 (equipment)
+- desertrats.org.uk (historical context)
+</code></pre>
+<hr />
+<h2 id="gap-documentation"><a class="header" href="#gap-documentation">Gap Documentation</a></h2>
+<h3 id="required-gap-documentation"><a class="header" href="#required-gap-documentation">Required Gap Documentation</a></h3>
+<p><strong>In MDBook Chapter - Section 15: Data Quality &amp; Known Gaps</strong></p>
+<p>Must include:</p>
+<ul>
+<li><strong>Confidence Score</strong>: Percentage with tier description</li>
+<li><strong>Data Sources</strong>: List of sources used</li>
+<li><strong>Known Gaps</strong>: Categorized by severity
+<ul>
+<li><strong>Important</strong>: Core TO&amp;E gaps</li>
+<li><strong>Moderate</strong>: Refinement needed</li>
+<li><strong>Low Priority</strong>: Supplementary details</li>
+</ul>
+</li>
+<li><strong>Research Notes</strong>: Methodology and assumptions</li>
+<li><strong>Gap Resolution Priority</strong>: Color-coded priorities</li>
+<li><strong>Future Improvements</strong>: Areas for refinement</li>
+</ul>
+<p><strong>Example</strong>:</p>
+<pre><code class="language-markdown">## Data Quality &amp; Known Gaps
+
+**Confidence Score**: 85% (High confidence - Tier 1 primary sources)
+
+### Known Data Gaps
+
+**Important Gaps**:
+- 7th Armoured Brigade commander name not confirmed
+
+**Moderate Gaps**:
+- Exact A9 vs A10 cruiser distribution in 6th RTR
+
+**Low Priority**:
+- WITW game IDs not available for most vehicles
+</code></pre>
+<h3 id="gap-categories"><a class="header" href="#gap-categories">Gap Categories</a></h3>
+<p><strong>Important Gaps</strong> (Priority 1):</p>
+<ul>
+<li>Missing commanders</li>
+<li>Unknown unit designations</li>
+<li>Major equipment categories missing</li>
+<li>Organizational structure unclear</li>
+</ul>
+<p><strong>Moderate Gaps</strong> (Priority 2):</p>
+<ul>
+<li>Equipment variant distribution uncertain</li>
+<li>Personnel strength estimated</li>
+<li>Minor subordinate unit details missing</li>
+</ul>
+<p><strong>Low Priority Gaps</strong> (Priority 3):</p>
+<ul>
+<li>Wargaming IDs unavailable</li>
+<li>Exact operational percentages</li>
+<li>Individual weapon counts</li>
+<li>Minor equipment details</li>
+</ul>
+<hr />
+<h2 id="cross-referencing-standards"><a class="header" href="#cross-referencing-standards">Cross-Referencing Standards</a></h2>
+<h3 id="multi-source-verification"><a class="header" href="#multi-source-verification">Multi-Source Verification</a></h3>
+<p><strong>Process</strong>:</p>
+<ol>
+<li><strong>Locate fact in Source A</strong></li>
+<li><strong>Verify in Source B</strong> (different source, ideally different tier)</li>
+<li><strong>If conflict</strong>: Document both values, explain resolution</li>
+<li><strong>If agreement</strong>: Note corroboration in metadata</li>
+</ol>
+<p><strong>Example</strong>:</p>
+<ul>
+<li><strong>Fact</strong>: 7th Armoured Division commander</li>
+<li><strong>Source A</strong>: British Army List Q2 1941 → "Major-General O'Moore Creagh"</li>
+<li><strong>Source B</strong>: desertrats.org.uk → "Major-General Sir Michael O'Moore Creagh"</li>
+<li><strong>Resolution</strong>: Use full name from Source B, note both sources corroborate</li>
+</ul>
+<h3 id="conflict-resolution"><a class="header" href="#conflict-resolution">Conflict Resolution</a></h3>
+<p><strong>When sources conflict</strong>:</p>
+<ol>
+<li><strong>Tier 1 overrides lower tiers</strong></li>
+<li><strong>More specific source</strong> preferred (divisional history &gt; general OOB)</li>
+<li><strong>More recent scholarship</strong> (if equal authority)</li>
+<li><strong>Document conflict</strong> in "Known Gaps"</li>
+</ol>
+<hr />
+<h2 id="estimation-standards"><a class="header" href="#estimation-standards">Estimation Standards</a></h2>
+<h3 id="when-estimation-is-acceptable"><a class="header" href="#when-estimation-is-acceptable">When Estimation is Acceptable</a></h3>
+<p><strong>Acceptable</strong>:</p>
+<ul>
+<li>Personnel strength (using establishment tables)</li>
+<li>Operational percentages (using similar units)</li>
+<li>Minor equipment counts (extrapolated from major categories)</li>
+<li>Subordinate unit strength (proportional allocation)</li>
+</ul>
+<p><strong>NOT Acceptable</strong>:</p>
+<ul>
+<li>Commander names (mark as "Unknown")</li>
+<li>Unit designations (must verify)</li>
+<li>Major equipment types (must verify)</li>
+<li>Battle participation (must verify)</li>
+</ul>
+<h3 id="estimation-documentation"><a class="header" href="#estimation-documentation">Estimation Documentation</a></h3>
+<p><strong>Required</strong>:</p>
+<ul>
+<li><code>"estimated": true</code> flag in JSON</li>
+<li>Explanation of estimation method</li>
+<li>Confidence impact noted</li>
+<li>Documentation in "Known Gaps" section</li>
+</ul>
+<p><strong>Example</strong>:</p>
+<pre><code class="language-json">{
+  "personnel": {
+    "total": 16000,
+    "estimated": true,
+    "estimation_method": "British infantry division establishment table",
+    "confidence_impact": "Reduced confidence by 5%"
+  }
+}
+</code></pre>
+<hr />
+<h2 id="quality-assurance-process"><a class="header" href="#quality-assurance-process">Quality Assurance Process</a></h2>
+<h3 id="multi-stage-review"><a class="header" href="#multi-stage-review">Multi-Stage Review</a></h3>
+<p><strong>Stage 1: Automated Validation</strong></p>
+<ul>
+<li>Schema compliance check</li>
+<li>Mathematical validation</li>
+<li>Required field verification</li>
+<li>Output: Pass/Fail + error report</li>
+</ul>
+<p><strong>Stage 2: Template Compliance</strong></p>
+<ul>
+<li>16 required sections present</li>
+<li>Variant detail sections match summary tables</li>
+<li>Formatting standards met</li>
+<li>Output: Compliance score %</li>
+</ul>
+<p><strong>Stage 3: Historical Accuracy</strong></p>
+<ul>
+<li>Anachronism check (equipment existed in quarter?)</li>
+<li>Commander verification (2+ sources?)</li>
+<li>Battle participation cross-check</li>
+<li>Output: Historical accuracy score</li>
+</ul>
+<p><strong>Stage 4: Manual Review</strong></p>
+<ul>
+<li>Overall coherence and completeness</li>
+<li>Gap documentation adequate?</li>
+<li>Source quality appropriate?</li>
+<li>Output: Final confidence score</li>
+</ul>
+<h3 id="qa-metrics"><a class="header" href="#qa-metrics">QA Metrics</a></h3>
+<p><strong>Unit-Level</strong>:</p>
+<ul>
+<li>Confidence score (target: 80%+)</li>
+<li>Schema compliance (target: 100%)</li>
+<li>Template compliance (target: 100%)</li>
+<li>Source count (target: 5+ sources)</li>
+<li>Cross-reference % (target: 80%+ critical facts)</li>
+</ul>
+<p><strong>Project-Level</strong>:</p>
+<ul>
+<li>Units completed / total planned</li>
+<li>Average confidence score</li>
+<li>Schema compliance rate</li>
+<li>Template compliance rate</li>
+</ul>
+<hr />
+<h2 id="continuous-improvement"><a class="header" href="#continuous-improvement">Continuous Improvement</a></h2>
+<h3 id="iterative-refinement"><a class="header" href="#iterative-refinement">Iterative Refinement</a></h3>
+<ol>
+<li><strong>Publish at 75%+ confidence</strong></li>
+<li><strong>Document all gaps</strong> in "Known Gaps" section</li>
+<li><strong>Prioritize gap filling</strong> (Priority 1 first)</li>
+<li><strong>Research additional sources</strong></li>
+<li><strong>Update units</strong> when new data found</li>
+<li><strong>Track confidence improvement</strong> over time</li>
+</ol>
+<h3 id="version-control"><a class="header" href="#version-control">Version Control</a></h3>
+<p><strong>Track changes</strong>:</p>
+<ul>
+<li>Initial extraction date</li>
+<li>Last updated date</li>
+<li>Schema version</li>
+<li>Template version</li>
+<li>Change log (major updates)</li>
+</ul>
+<p><strong>Example</strong>:</p>
+<pre><code class="language-json">{
+  "metadata": {
+    "extraction_date": "2025-10-10",
+    "last_updated": "2025-10-12",
+    "schema_version": "1.0.0",
+    "template_version": "2.0",
+    "confidence_history": [
+      {"date": "2025-10-10", "score": 78},
+      {"date": "2025-10-12", "score": 85}
+    ]
+  }
+}
+</code></pre>
+<hr />
+<h2 id="quality-checklist"><a class="header" href="#quality-checklist">Quality Checklist</a></h2>
+<h3 id="before-publishing-unit"><a class="header" href="#before-publishing-unit">Before Publishing Unit</a></h3>
+<ul>
+<li><input disabled="" type="checkbox"/>
+Confidence score ≥ 75%</li>
+<li><input disabled="" type="checkbox"/>
+Schema validation passes (100%)</li>
+<li><input disabled="" type="checkbox"/>
+All 16 required sections present</li>
+<li><input disabled="" type="checkbox"/>
+Variant detail sections match summary tables</li>
+<li><input disabled="" type="checkbox"/>
+Critical facts cited (2+ sources)</li>
+<li><input disabled="" type="checkbox"/>
+Commander verified</li>
+<li><input disabled="" type="checkbox"/>
+No anachronisms</li>
+<li><input disabled="" type="checkbox"/>
+All gaps documented in Section 15</li>
+<li><input disabled="" type="checkbox"/>
+Estimation flagged where used</li>
+<li><input disabled="" type="checkbox"/>
+Cross-references verified</li>
+<li><input disabled="" type="checkbox"/>
+Data source footer included</li>
+</ul>
+<hr />
+<h2 id="further-reading"><a class="header" href="#further-reading">Further Reading</a></h2>
+<ul>
+<li><a href="./research-methodology.html">Research Methodology</a> - Overall process</li>
+<li><a href="./source-hierarchy.html">Source Hierarchy</a> - Source quality tiers</li>
+<li><a href="./validation.html">Validation Process</a> - Detailed validation rules</li>
+</ul>
+<hr />
+<p><strong>Last Updated</strong>: 2025-10-12
+<strong>Minimum Standards</strong>: 75% confidence, 100% schema compliance, 16 sections required
+<strong>Target Standards</strong>: 80%+ confidence, 5+ sources, 80%+ cross-reference rate</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../methodology/source-hierarchy.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../methodology/validation.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../methodology/source-hierarchy.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../methodology/validation.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

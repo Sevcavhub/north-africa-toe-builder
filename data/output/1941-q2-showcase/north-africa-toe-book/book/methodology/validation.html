@@ -1,0 +1,718 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Validation Process - North Africa Campaign: Table of Organization &amp; Equipment</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Detailed Table of Organization &amp; Equipment data for North Africa Campaign units (1940-1943)">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">North Africa Campaign: Table of Organization &amp; Equipment</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/yourusername/north-africa-toe-builder" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="validation-process"><a class="header" href="#validation-process">Validation Process</a></h1>
+<h2 id="overview"><a class="header" href="#overview">Overview</a></h2>
+<p>Every unit undergoes <strong>rigorous validation</strong> before publication to ensure data accuracy, schema compliance, and historical plausibility. This page documents the complete validation workflow.</p>
+<hr />
+<h2 id="validation-phases"><a class="header" href="#validation-phases">Validation Phases</a></h2>
+<h3 id="phase-1-schema-validation"><a class="header" href="#phase-1-schema-validation">Phase 1: Schema Validation</a></h3>
+<p><strong>Objective</strong>: Verify JSON structure matches <code>unified_toe_schema.json v1.0.0</code></p>
+<p><strong>Automated Checks</strong>:</p>
+<ul>
+<li>Required fields present</li>
+<li>Data types correct (string, number, boolean, array, object)</li>
+<li>Enum values valid (nation must be lowercase: british, german, italian, american)</li>
+<li>Nested structure correct (commander is object with name/rank/appointed fields)</li>
+</ul>
+<p><strong>Tool</strong>: <code>scripts/lib/validator.js</code></p>
+<p><strong>Example Error</strong>:</p>
+<pre><code>❌ FAIL: Field "nation" must be lowercase
+   Expected: "german"
+   Found: "German"
+</code></pre>
+<p><strong>Pass Criteria</strong>: Zero schema errors</p>
+<hr />
+<h3 id="phase-2-mathematical-validation"><a class="header" href="#phase-2-mathematical-validation">Phase 2: Mathematical Validation</a></h3>
+<p><strong>Objective</strong>: Verify equipment and personnel totals sum correctly</p>
+<h4 id="equipment-validation-rules"><a class="header" href="#equipment-validation-rules">Equipment Validation Rules</a></h4>
+<p><strong>Rule 1: Tank Totals</strong></p>
+<pre><code>tanks.total = tanks.heavy + tanks.medium + tanks.light
+</code></pre>
+<p><strong>Tolerance</strong>: Exact match required (0% tolerance)</p>
+<p><strong>Example</strong>:</p>
+<pre><code class="language-json">{
+  "tanks": {
+    "total": 180,
+    "heavy": 0,
+    "medium": 120,
+    "light": 60
+  }
+}
+</code></pre>
+<p><strong>Validation</strong>: 180 = 0 + 120 + 60 ✅</p>
+<hr />
+<p><strong>Rule 2: Artillery Minimum</strong></p>
+<pre><code>artillery_total ≥ field_artillery + anti_tank + anti_aircraft
+</code></pre>
+<p><strong>Tolerance</strong>: Total must be at least sum of categories (allows for mortars, rocket artillery)</p>
+<p><strong>Example</strong>:</p>
+<pre><code class="language-json">{
+  "artillery": {
+    "total": 200,
+    "field_artillery": 72,
+    "anti_tank": 48,
+    "anti_aircraft": 36,
+    "mortars": 44
+  }
+}
+</code></pre>
+<p><strong>Validation</strong>: 200 ≥ 72 + 48 + 36 = 156 ✅</p>
+<hr />
+<p><strong>Rule 3: Ground Vehicles Minimum</strong></p>
+<pre><code>ground_vehicles_total ≥ tanks + trucks + motorcycles + armored_cars + support_vehicles
+</code></pre>
+<p><strong>Tolerance</strong>: Total must be at least sum of categories</p>
+<hr />
+<p><strong>Rule 4: Category = Sum of Variants</strong></p>
+<pre><code>category_total = sum(all_variants_in_category)
+</code></pre>
+<p><strong>Tolerance</strong>: Exact match required</p>
+<p><strong>Example</strong>:</p>
+<pre><code class="language-json">{
+  "medium_tanks": {
+    "total": 120,
+    "variants": [
+      {"type": "Panzer III Ausf H", "count": 67},
+      {"type": "Panzer III Ausf G", "count": 53}
+    ]
+  }
+}
+</code></pre>
+<p><strong>Validation</strong>: 120 = 67 + 53 ✅</p>
+<hr />
+<h4 id="personnel-validation-rules"><a class="header" href="#personnel-validation-rules">Personnel Validation Rules</a></h4>
+<p><strong>Rule 5: Personnel Totals</strong></p>
+<pre><code>total_personnel ≈ officers + ncos + enlisted
+</code></pre>
+<p><strong>Tolerance</strong>: ±5% (allows for rounding, temporary attachments)</p>
+<p><strong>Example</strong>:</p>
+<pre><code class="language-json">{
+  "personnel": {
+    "total": 10000,
+    "officers": 580,
+    "ncos": 1850,
+    "enlisted": 7570
+  }
+}
+</code></pre>
+<p><strong>Validation</strong>: 10000 vs (580 + 1850 + 7570 = 10000) → 0% difference ✅</p>
+<hr />
+<p><strong>Rule 6: Percentage Totals</strong></p>
+<pre><code>officer_% + nco_% + enlisted_% ≈ 100%
+</code></pre>
+<p><strong>Tolerance</strong>: ±0.5% (rounding)</p>
+<hr />
+<h4 id="hierarchical-validation-rules"><a class="header" href="#hierarchical-validation-rules">Hierarchical Validation Rules</a></h4>
+<p><strong>Rule 7: Parent = Sum of Children</strong></p>
+<pre><code>parent_total ≈ sum(all_child_unit_totals)
+</code></pre>
+<p><strong>Tolerance</strong>: ±5% (allows for corps-level assets, temporary attachments)</p>
+<p><strong>Example</strong>:</p>
+<pre><code>Division: 10,000 personnel
+├─ Brigade A: 3,500
+├─ Brigade B: 3,200
+├─ Brigade C: 3,100
+└─ Division troops: 200
+Total children: 10,000 ✅
+</code></pre>
+<hr />
+<h3 id="phase-3-historical-accuracy-validation"><a class="header" href="#phase-3-historical-accuracy-validation">Phase 3: Historical Accuracy Validation</a></h3>
+<p><strong>Objective</strong>: Verify data is historically plausible for the quarter</p>
+<h4 id="anachronism-checks"><a class="header" href="#anachronism-checks">Anachronism Checks</a></h4>
+<p><strong>Equipment Availability</strong>:</p>
+<ul>
+<li>M4 Sherman not available in 1940-Q2 ❌</li>
+<li>Panzer III Ausf H available 1941-Q1+ ✅</li>
+<li>Tiger I not available until 1942-Q4 ❌</li>
+</ul>
+<p><strong>Process</strong>:</p>
+<ol>
+<li>Check equipment variant against production date database</li>
+<li>Compare production date to quarter date</li>
+<li>Flag if equipment not yet produced</li>
+</ol>
+<p><strong>Example Error</strong>:</p>
+<pre><code>❌ ANACHRONISM: M4 Sherman listed in 1941-Q2
+   First production: 1942-Q2
+   Unit quarter: 1941-Q2
+</code></pre>
+<hr />
+<h4 id="commander-verification"><a class="header" href="#commander-verification">Commander Verification</a></h4>
+<p><strong>Requirements</strong>:</p>
+<ul>
+<li>Commander name verified from 2+ sources</li>
+<li>Appointment date ≤ quarter end date</li>
+<li>Rank appropriate for unit type</li>
+</ul>
+<p><strong>Example</strong>:</p>
+<pre><code class="language-json">{
+  "commander": {
+    "name": "Major-General Sir Michael O'Moore Creagh",
+    "rank": "Major-General",
+    "appointed": "1939-12-04"
+  },
+  "quarter": "1940-Q2"
+}
+</code></pre>
+<p><strong>Validation</strong>: Appointed 1939-12-04, quarter ends 1940-06-30 → Valid ✅</p>
+<hr />
+<h4 id="unit-designation-verification"><a class="header" href="#unit-designation-verification">Unit Designation Verification</a></h4>
+<p><strong>Requirements</strong>:</p>
+<ul>
+<li>Unit designation historically accurate</li>
+<li>Nickname verified (if present)</li>
+<li>Subordinate units existed in quarter</li>
+</ul>
+<p><strong>Example</strong>:</p>
+<ul>
+<li>"7th Armoured Division" ✅</li>
+<li>Nickname: "Desert Rats" ✅ (adopted April 1940)</li>
+<li>Subordinate: "4th Armoured Brigade" ✅ (renamed from "4th Heavy Armoured Brigade" April 14, 1940)</li>
+</ul>
+<hr />
+<h3 id="phase-4-template-compliance-validation"><a class="header" href="#phase-4-template-compliance-validation">Phase 4: Template Compliance Validation</a></h3>
+<p><strong>Objective</strong>: Verify MDBook chapter follows template v2.0</p>
+<h4 id="section-presence-check"><a class="header" href="#section-presence-check">Section Presence Check</a></h4>
+<p><strong>All 16 required sections must be present</strong>:</p>
+<ol>
+<li>✅ Header</li>
+<li>✅ Division/Unit Overview</li>
+<li>✅ Command</li>
+<li>✅ Personnel Strength</li>
+<li>✅ Armoured Strength</li>
+<li>✅ Artillery Strength</li>
+<li>✅ Armoured Cars</li>
+<li>✅ Transport &amp; Vehicles</li>
+<li>✅ Organizational Structure</li>
+<li>✅ Supply Status</li>
+<li>✅ Tactical Doctrine &amp; Capabilities</li>
+<li>✅ Critical Equipment Shortages</li>
+<li>✅ Historical Context</li>
+<li>✅ Wargaming Data</li>
+<li>✅ Data Quality &amp; Known Gaps</li>
+<li>✅ Conclusion</li>
+</ol>
+<p><strong>Automated Check</strong>: Search for section headers in markdown file</p>
+<hr />
+<h4 id="variant-detail-compliance"><a class="header" href="#variant-detail-compliance">Variant Detail Compliance</a></h4>
+<p><strong>Rule</strong>: Every variant in summary table must have detail section</p>
+<p><strong>Process</strong>:</p>
+<ol>
+<li>Parse summary table, extract variants</li>
+<li>Search for detail section for each variant</li>
+<li>Flag missing detail sections</li>
+</ol>
+<p><strong>Example</strong>:</p>
+<pre><code class="language-markdown">## Artillery Strength
+
+| Type | Total |
+|------|-------|
+| **Field Artillery** | **96** |
+| ↳ Ordnance QF 25-pounder | 72 |
+| ↳ QF 4.5-inch Howitzer | 24 |
+
+### Ordnance QF 25-pounder - 72 guns
+✅ Detail section present
+
+### QF 4.5-inch Howitzer - 24 guns
+✅ Detail section present
+</code></pre>
+<p><strong>Validation</strong>: 2 variants in table, 2 detail sections → Pass ✅</p>
+<hr />
+<h4 id="formatting-compliance"><a class="header" href="#formatting-compliance">Formatting Compliance</a></h4>
+<p><strong>Requirements</strong>:</p>
+<ul>
+<li>Category totals use <strong>bold</strong></li>
+<li>Variants use <code>↳</code> symbol (not -, *, •)</li>
+<li>Tables properly formatted</li>
+<li>Readiness percentages calculated correctly</li>
+<li>Data source footer present in Conclusion</li>
+</ul>
+<hr />
+<h3 id="phase-5-cross-reference-validation"><a class="header" href="#phase-5-cross-reference-validation">Phase 5: Cross-Reference Validation</a></h3>
+<p><strong>Objective</strong>: Verify JSON data matches MDBook chapter data</p>
+<h4 id="key-data-points-to-cross-check"><a class="header" href="#key-data-points-to-cross-check">Key Data Points to Cross-Check</a></h4>
+<p><strong>From JSON → MDBook Chapter</strong>:</p>
+<ul>
+<li>Commander name and rank</li>
+<li>Total personnel</li>
+<li>Tank totals (all categories)</li>
+<li>Artillery totals</li>
+<li>Unit designation</li>
+<li>Confidence score</li>
+</ul>
+<p><strong>Process</strong>:</p>
+<ol>
+<li>Read JSON file</li>
+<li>Read MDBook chapter file</li>
+<li>Extract matching data points</li>
+<li>Compare values</li>
+<li>Flag discrepancies</li>
+</ol>
+<p><strong>Example</strong>:</p>
+<pre><code>JSON: "total_personnel": 10000
+MDBook: "**Total Personnel** | **10,000**"
+✅ Match
+</code></pre>
+<hr />
+<h3 id="phase-6-source-quality-validation"><a class="header" href="#phase-6-source-quality-validation">Phase 6: Source Quality Validation</a></h3>
+<p><strong>Objective</strong>: Verify adequate source citations</p>
+<h4 id="citation-requirements"><a class="header" href="#citation-requirements">Citation Requirements</a></h4>
+<p><strong>Critical Facts</strong> (require 2+ sources):</p>
+<ul>
+<li>Unit commander</li>
+<li>Unit designation</li>
+<li>Major equipment types</li>
+<li>Battle participation</li>
+</ul>
+<p><strong>Important Facts</strong> (require 1+ source):</p>
+<ul>
+<li>Personnel strength</li>
+<li>Equipment variants</li>
+<li>Subordinate units</li>
+</ul>
+<p><strong>Process</strong>:</p>
+<ol>
+<li>Identify critical facts</li>
+<li>Check source citations in JSON metadata</li>
+<li>Flag facts with insufficient citations</li>
+</ol>
+<p><strong>Example</strong>:</p>
+<pre><code class="language-json">{
+  "commander": {
+    "name": "Major-General O'Moore Creagh",
+    "sources": [
+      "British Army List Q2 1941, page 45",
+      "desertrats.org.uk"
+    ]
+  }
+}
+</code></pre>
+<p><strong>Validation</strong>: 2 sources for commander → Pass ✅</p>
+<hr />
+<h2 id="validation-outputs"><a class="header" href="#validation-outputs">Validation Outputs</a></h2>
+<h3 id="validation-report-structure"><a class="header" href="#validation-report-structure">Validation Report Structure</a></h3>
+<pre><code class="language-json">{
+  "unit": "britain_1940q2_7th_armoured_division_toe",
+  "validation_date": "2025-10-12",
+  "overall_status": "PASS",
+  "phases": {
+    "phase1_schema": {
+      "status": "PASS",
+      "errors": []
+    },
+    "phase2_mathematical": {
+      "status": "PASS",
+      "warnings": [
+        "Personnel total 9,995 vs sum 10,000 (-0.05% difference - acceptable)"
+      ]
+    },
+    "phase3_historical": {
+      "status": "PASS",
+      "checks": {
+        "anachronisms": "PASS - No anachronistic equipment",
+        "commander": "PASS - Appointment date verified",
+        "designation": "PASS - Unit designation verified"
+      }
+    },
+    "phase4_template": {
+      "status": "PASS",
+      "sections_present": 16,
+      "sections_required": 16,
+      "variant_detail_compliance": "PASS"
+    },
+    "phase5_cross_reference": {
+      "status": "PASS",
+      "mismatches": []
+    },
+    "phase6_source_quality": {
+      "status": "PASS",
+      "sources_total": 7,
+      "tier1_sources": 3,
+      "tier2_sources": 4,
+      "critical_facts_verified": "100%"
+    }
+  },
+  "confidence_score": 85,
+  "recommendation": "PUBLISH"
+}
+</code></pre>
+<hr />
+<h3 id="status-levels"><a class="header" href="#status-levels">Status Levels</a></h3>
+<p><strong>PASS</strong>: No errors, all requirements met
+<strong>PASS_WITH_WARNINGS</strong>: Minor issues, acceptable for publication
+<strong>FAIL</strong>: Critical errors, requires correction before publication</p>
+<hr />
+<h2 id="common-validation-errors"><a class="header" href="#common-validation-errors">Common Validation Errors</a></h2>
+<h3 id="schema-errors"><a class="header" href="#schema-errors">Schema Errors</a></h3>
+<p><strong>Error</strong>: <code>Nation must be lowercase</code></p>
+<pre><code class="language-json">❌ "nation": "German"
+✅ "nation": "german"
+</code></pre>
+<p><strong>Error</strong>: <code>Commander must be object</code></p>
+<pre><code class="language-json">❌ "commander": "Erwin Rommel"
+✅ "commander": {"name": "Erwin Rommel", "rank": "Generalleutnant"}
+</code></pre>
+<p><strong>Error</strong>: <code>Organization level invalid</code></p>
+<pre><code class="language-json">❌ "organization_level": "army"
+✅ "organization_level": "division"
+</code></pre>
+<hr />
+<h3 id="mathematical-errors"><a class="header" href="#mathematical-errors">Mathematical Errors</a></h3>
+<p><strong>Error</strong>: <code>Tank totals don't match</code></p>
+<pre><code class="language-json">❌ "tanks": {"total": 200, "medium": 120, "light": 70}
+   200 ≠ 120 + 70 (=190)
+✅ "tanks": {"total": 190, "medium": 120, "light": 70}
+</code></pre>
+<p><strong>Error</strong>: <code>Personnel sum exceeds total (tolerance &gt; 5%)</code></p>
+<pre><code class="language-json">❌ "personnel": {"total": 10000, "officers": 600, "ncos": 2000, "enlisted": 8000}
+   Sum: 10,600 vs Total: 10,000 = +6% (exceeds ±5% tolerance)
+</code></pre>
+<hr />
+<h3 id="historical-errors"><a class="header" href="#historical-errors">Historical Errors</a></h3>
+<p><strong>Error</strong>: <code>Anachronistic equipment</code></p>
+<pre><code>❌ Unit: 15. Panzer-Division, Quarter: 1940-Q4
+   Equipment: Panzer III Ausf J (first produced 1941-Q2)
+</code></pre>
+<p><strong>Error</strong>: <code>Commander appointed after quarter</code></p>
+<pre><code>❌ Commander: von Bismarck, Appointed: 1941-09-01
+   Quarter: 1941-Q2 (ends 1941-06-30)
+</code></pre>
+<hr />
+<h3 id="template-errors"><a class="header" href="#template-errors">Template Errors</a></h3>
+<p><strong>Error</strong>: <code>Missing required section</code></p>
+<pre><code>❌ Chapter missing Section 12: Critical Equipment Shortages
+</code></pre>
+<p><strong>Error</strong>: <code>Variant detail missing</code></p>
+<pre><code>❌ Table lists "Panzer IV Ausf F" but no detail section found
+</code></pre>
+<p><strong>Error</strong>: <code>Data source footer missing</code></p>
+<pre><code>❌ Conclusion section lacks required footer with schema version, confidence score
+</code></pre>
+<hr />
+<h2 id="validation-tools"><a class="header" href="#validation-tools">Validation Tools</a></h2>
+<h3 id="automated-tools"><a class="header" href="#automated-tools">Automated Tools</a></h3>
+<p><strong>scripts/lib/validator.js</strong>:</p>
+<ul>
+<li>Schema validation</li>
+<li>Mathematical validation</li>
+<li>Cross-reference checking</li>
+</ul>
+<p><strong>Usage</strong>:</p>
+<pre><code class="language-bash">node scripts/lib/validator.js data/output/units/britain_1940q2_7th_armoured_division_toe.json
+</code></pre>
+<hr />
+<h3 id="manual-validation"><a class="header" href="#manual-validation">Manual Validation</a></h3>
+<p><strong>Checklist</strong> (see <a href="./data-quality.html">Data Quality Standards</a>):</p>
+<ul>
+<li><input disabled="" type="checkbox"/>
+Confidence score ≥ 75%</li>
+<li><input disabled="" type="checkbox"/>
+Schema validation passes</li>
+<li><input disabled="" type="checkbox"/>
+All 16 sections present</li>
+<li><input disabled="" type="checkbox"/>
+Variant details match tables</li>
+<li><input disabled="" type="checkbox"/>
+Critical facts cited (2+ sources)</li>
+<li><input disabled="" type="checkbox"/>
+No anachronisms</li>
+<li><input disabled="" type="checkbox"/>
+Commander verified</li>
+<li><input disabled="" type="checkbox"/>
+Gaps documented</li>
+</ul>
+<hr />
+<h2 id="continuous-validation"><a class="header" href="#continuous-validation">Continuous Validation</a></h2>
+<h3 id="version-control"><a class="header" href="#version-control">Version Control</a></h3>
+<p><strong>Track validation over time</strong>:</p>
+<ul>
+<li>Initial validation date</li>
+<li>Last validation date</li>
+<li>Validation history (pass/fail record)</li>
+<li>Fixes applied</li>
+</ul>
+<p><strong>Example</strong>:</p>
+<pre><code class="language-json">{
+  "validation_history": [
+    {
+      "date": "2025-10-10",
+      "status": "FAIL",
+      "issues": ["Tank totals mismatch", "Commander not verified"]
+    },
+    {
+      "date": "2025-10-12",
+      "status": "PASS",
+      "issues": []
+    }
+  ]
+}
+</code></pre>
+<hr />
+<h3 id="re-validation-triggers"><a class="header" href="#re-validation-triggers">Re-Validation Triggers</a></h3>
+<p><strong>Re-validate when</strong>:</p>
+<ul>
+<li>Schema version updated</li>
+<li>Template version updated</li>
+<li>Unit data modified</li>
+<li>New sources added</li>
+<li>Periodic review (quarterly)</li>
+</ul>
+<hr />
+<h2 id="further-reading"><a class="header" href="#further-reading">Further Reading</a></h2>
+<ul>
+<li><a href="./research-methodology.html">Research Methodology</a> - Overall process</li>
+<li><a href="./data-quality.html">Data Quality Standards</a> - Quality requirements</li>
+<li><a href="./source-hierarchy.html">Source Hierarchy</a> - Source quality tiers</li>
+</ul>
+<hr />
+<p><strong>Last Updated</strong>: 2025-10-12
+<strong>Validation Standard</strong>: unified_toe_schema.json v1.0.0 + MDBOOK_CHAPTER_TEMPLATE.md v2.0
+<strong>Pass Requirement</strong>: All 6 phases PASS or PASS_WITH_WARNINGS</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../methodology/data-quality.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../appendices/glossary.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../methodology/data-quality.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../appendices/glossary.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

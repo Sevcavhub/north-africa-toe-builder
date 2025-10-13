@@ -2,6 +2,41 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## ⚠️ CRITICAL - READ FIRST
+
+**📋 COMPLETE PROJECT SCOPE**: See **`PROJECT_SCOPE.md`** in root directory
+
+This is the **LIVING DOCUMENT** defining:
+- ✅ Complete project vision (313-348 total units: ground + air forces)
+- ✅ Phased approach (Ground → Air → Integration → Scenarios → Campaign)
+- ✅ Current status and priorities (Phase 1-6: Ground Forces, 8.5% complete)
+- ✅ Success criteria with supply/logistics/weather requirements
+- ✅ Schema specifications for ground and air forces
+- ✅ Scenario generation as primary purpose
+- ✅ Kickstarter commercial product viability
+
+**🚨 ALL AGENTS AND SESSIONS MUST REFERENCE THIS DOCUMENT 🚨**
+
+**Quick Status Check**:
+```bash
+# See current scope and phase
+cat PROJECT_SCOPE.md | head -50
+
+# Check version and last update
+grep -E "Version|Last Updated|Status" PROJECT_SCOPE.md
+```
+
+**Why This Matters**:
+- **Not just 213 units** - Total scope is 313-348 units (ground + air forces)
+- **Phased approach** - Complete ground forces (Phase 1-6) BEFORE starting air extraction (Phase 7)
+- **Supply/logistics REQUIRED** - Every unit needs fuel reserves, ammo stocks, operational radius
+- **Weather/environment REQUIRED** - Seasonal impacts, terrain effects for scenario generation
+- **Scenario-ready output** - Primary purpose is wargame scenario generation, not just static TO&E
+
+**If PROJECT_SCOPE.md conflicts with other documentation, PROJECT_SCOPE.md is authoritative.**
+
+---
+
 ## Project Overview
 
 Multi-agent orchestration system for building detailed Table of Organization & Equipment (TO&E) data from historical military sources. Creates hierarchical military organization data from Theater level down to individual Squad level with full Strategic Command Summary (SCM) detail at every tier.
@@ -187,9 +222,11 @@ Squad (Full SCM detail + individual soldier positions)
 - `projects/north_africa_campaign.json` - Project configuration with units to build
 
 ### Project Documentation
-- `docs/project_context.md` - Complete project background, architecture, and design decisions
+- **`PROJECT_SCOPE.md`** - **Complete project vision and phased approach (LIVING DOCUMENT - READ FIRST)**
+- `docs/project_context.md` - Technical architecture and design decisions
 - `docs/SOURCE_WORKFLOW.md` - How to work with local documents (Tessin, Army Lists, Field Manuals)
 - `docs/AUTOMATED_WORKFLOW.md` - Agent automation workflow with examples
+- `SESSION_SUMMARY.md` - Current session status and progress
 
 ## Working with Agents
 

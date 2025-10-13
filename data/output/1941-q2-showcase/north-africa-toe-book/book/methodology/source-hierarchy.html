@@ -1,0 +1,634 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Source Hierarchy - North Africa Campaign: Table of Organization &amp; Equipment</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Detailed Table of Organization &amp; Equipment data for North Africa Campaign units (1940-1943)">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">North Africa Campaign: Table of Organization &amp; Equipment</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/yourusername/north-africa-toe-builder" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="source-hierarchy"><a class="header" href="#source-hierarchy">Source Hierarchy</a></h1>
+<h2 id="3-tier-source-prioritization-system"><a class="header" href="#3-tier-source-prioritization-system">3-Tier Source Prioritization System</a></h2>
+<p>This project uses a <strong>3-tier waterfall system</strong> to prioritize source quality and maximize data confidence. Sources are automatically selected from the highest available tier, escalating to lower tiers only when necessary.</p>
+<hr />
+<h2 id="tier-1-primary-sources-90-95-confidence"><a class="header" href="#tier-1-primary-sources-90-95-confidence">Tier 1: Primary Sources (90-95% Confidence)</a></h2>
+<h3 id="definition"><a class="header" href="#definition">Definition</a></h3>
+<p><strong>Official military documents</strong> and <strong>authoritative reference works</strong> compiled from primary records.</p>
+<h3 id="german-units"><a class="header" href="#german-units">German Units</a></h3>
+<p><strong>Georg Tessin: <em>Verbände und Truppen der deutschen Wehrmacht und Waffen-SS im Zweiten Weltkrieg 1939-1945</em></strong></p>
+<ul>
+<li>17-volume Wehrmacht encyclopedia</li>
+<li>Compiled from German military archives (Bundesarchiv)</li>
+<li>Unit-by-unit detail with commanders, composition, equipment</li>
+<li><strong>Location</strong>: <code>Resource Documents/tessin-georg-verbande.../</code></li>
+<li><strong>Confidence</strong>: 95%</li>
+</ul>
+<p><strong>German War Diaries (Kriegstagebuch)</strong></p>
+<ul>
+<li>Original operational records</li>
+<li>Daily entries on strength, operations, losses</li>
+<li><strong>Confidence</strong>: 95%</li>
+</ul>
+<h3 id="british--commonwealth-units"><a class="header" href="#british--commonwealth-units">British &amp; Commonwealth Units</a></h3>
+<p><strong>British Army Lists (Quarterly Publications 1941-1943)</strong></p>
+<ul>
+<li>Official War Office publications</li>
+<li>Commander appointments, unit locations, organizational changes</li>
+<li>Published quarterly</li>
+<li><strong>Location</strong>: <code>Resource Documents/Great Britain Ministry of Defense Books/</code></li>
+<li><strong>Confidence</strong>: 95%</li>
+</ul>
+<p><strong>War Office Establishment Tables</strong></p>
+<ul>
+<li>Authorized strength and equipment for each unit type</li>
+<li>Official TO&amp;E standards</li>
+<li><strong>Confidence</strong>: 90%</li>
+</ul>
+<p><strong>Commonwealth War Diaries</strong></p>
+<ul>
+<li>Australian, New Zealand, South African, Indian official records</li>
+<li>Unit-level operational records</li>
+<li><strong>Confidence</strong>: 95%</li>
+</ul>
+<h3 id="american-units"><a class="header" href="#american-units">American Units</a></h3>
+<p><strong>US Army Field Manuals (FM series)</strong></p>
+<ul>
+<li>Official doctrine and organization</li>
+<li>Equipment specifications</li>
+<li>TO&amp;E tables</li>
+<li><strong>Location</strong>: <code>Resource Documents/</code></li>
+<li><strong>Confidence</strong>: 95%</li>
+</ul>
+<p><strong>US War Department Records</strong></p>
+<ul>
+<li>Official unit histories</li>
+<li>Personnel and equipment records</li>
+<li><strong>Confidence</strong>: 95%</li>
+</ul>
+<h3 id="italian-units"><a class="header" href="#italian-units">Italian Units</a></h3>
+<p><strong>Italian Army Official Records</strong></p>
+<ul>
+<li>Regio Esercito organizational documents</li>
+<li>Divisional war diaries (Diari storici)</li>
+<li><strong>Confidence</strong>: 90%</li>
+</ul>
+<p><strong>Published Italian OOB Archives</strong></p>
+<ul>
+<li>Compiled from Stato Maggiore archives</li>
+<li>Niehorster database Italian section</li>
+<li><strong>Confidence</strong>: 85%</li>
+</ul>
+<hr />
+<h2 id="tier-2-curated-secondary-sources-75-85-confidence"><a class="header" href="#tier-2-curated-secondary-sources-75-85-confidence">Tier 2: Curated Secondary Sources (75-85% Confidence)</a></h2>
+<h3 id="definition-1"><a class="header" href="#definition-1">Definition</a></h3>
+<p><strong>Reputable historical databases</strong> and <strong>specialist websites</strong> maintained by recognized military historians.</p>
+<h3 id="curated-websites"><a class="header" href="#curated-websites">Curated Websites</a></h3>
+<p><strong>Feldgrau.com</strong> (German military research)</p>
+<ul>
+<li>Jason Pipes, editor</li>
+<li>German unit histories and organizational data</li>
+<li>Cross-referenced to primary sources</li>
+<li><strong>Confidence</strong>: 80%</li>
+</ul>
+<p><strong>Dr. Leo Niehorster's World War II Armed Forces Orders of Battle</strong></p>
+<ul>
+<li>Comprehensive OOB database</li>
+<li>Multi-national coverage</li>
+<li>Compiled from official records</li>
+<li><strong>Confidence</strong>: 80%</li>
+</ul>
+<p><strong>desertrats.org.uk</strong> (British 7th Armoured Division)</p>
+<ul>
+<li>Specialist site for 7th Armoured Division</li>
+<li>Veteran accounts and official records</li>
+<li><strong>Confidence</strong>: 80%</li>
+</ul>
+<p><strong>The Long, Long Trail</strong> (British Army 1914-1918, some WWII)</p>
+<ul>
+<li>Chris Baker, editor</li>
+<li>British Army organizational data</li>
+<li><strong>Confidence</strong>: 75%</li>
+</ul>
+<p><strong>Operation Battleaxe OOB</strong></p>
+<ul>
+<li>Specialist research on June 1941 battle</li>
+<li>Cross-referenced multiple sources</li>
+<li><strong>Confidence</strong>: 80%</li>
+</ul>
+<h3 id="published-divisional-histories"><a class="header" href="#published-divisional-histories">Published Divisional Histories</a></h3>
+<p><strong>Examples</strong>:</p>
+<ul>
+<li><em>The Tanks</em> by B.H. Liddell Hart (British armor)</li>
+<li><em>Achtung-Panzer!</em> by Heinz Guderian (German armor)</li>
+<li><em>The Desert Rats</em> by Robin Neillands (7th Armoured Division)</li>
+</ul>
+<p><strong>Confidence</strong>: 75-80% depending on author credentials and source citations</p>
+<h3 id="academic-publications"><a class="header" href="#academic-publications">Academic Publications</a></h3>
+<p><strong>Peer-reviewed journals</strong>:</p>
+<ul>
+<li><em>The Journal of Military History</em></li>
+<li><em>War in History</em></li>
+<li><em>The RUSI Journal</em></li>
+</ul>
+<p><strong>Confidence</strong>: 80-85% (varies by article)</p>
+<hr />
+<h2 id="tier-3-general-secondary-sources-60-75-confidence"><a class="header" href="#tier-3-general-secondary-sources-60-75-confidence">Tier 3: General Secondary Sources (60-75% Confidence)</a></h2>
+<h3 id="definition-2"><a class="header" href="#definition-2">Definition</a></h3>
+<p><strong>General military history</strong> sources without specialized focus or direct primary source access.</p>
+<h3 id="general-websites"><a class="header" href="#general-websites">General Websites</a></h3>
+<p><strong>Axis History Forum</strong></p>
+<ul>
+<li>Community-contributed research</li>
+<li>Variable quality (some excellent, some poor)</li>
+<li><strong>Confidence</strong>: 60-70%</li>
+</ul>
+<p><strong>Wikipedia</strong> (EXCLUDED)</p>
+<ul>
+<li>Not used as a source</li>
+<li>Too variable in quality</li>
+<li>Not cited in this project</li>
+</ul>
+<h3 id="popular-histories"><a class="header" href="#popular-histories">Popular Histories</a></h3>
+<p><strong>Mass-market books</strong>:</p>
+<ul>
+<li>Good narrative, less detailed TO&amp;E data</li>
+<li>Often lack source citations</li>
+<li><strong>Confidence</strong>: 65%</li>
+</ul>
+<p><strong>Examples</strong>:</p>
+<ul>
+<li><em>Rommel: The Desert Fox</em> by Desmond Young</li>
+<li><em>The Desert War</em> by Alan Moorehead</li>
+</ul>
+<h3 id="wargaming-reference-books"><a class="header" href="#wargaming-reference-books">Wargaming Reference Books</a></h3>
+<p><strong>Examples</strong>:</p>
+<ul>
+<li><em>Africa Orientale Italiana</em> (Compass Games)</li>
+<li>Various Osprey Publishing titles</li>
+</ul>
+<p><strong>Confidence</strong>: 65-70% (good for equipment specs, less for exact unit compositions)</p>
+<hr />
+<h2 id="source-waterfall-process"><a class="header" href="#source-waterfall-process">Source Waterfall Process</a></h2>
+<h3 id="automatic-escalation"><a class="header" href="#automatic-escalation">Automatic Escalation</a></h3>
+<p>The system automatically escalates through tiers:</p>
+<ol>
+<li><strong>Search Tier 1</strong>: Check local primary sources (Tessin, Army Lists, Field Manuals)</li>
+<li><strong>If insufficient</strong>: Escalate to Tier 2 (Feldgrau, Niehorster, specialist sites)</li>
+<li><strong>If still insufficient</strong>: Escalate to Tier 3 (general sources)</li>
+<li><strong>If data unavailable</strong>: Mark as "Unknown" with documented search effort</li>
+</ol>
+<h3 id="example-german-15-panzer-division-1941-q2"><a class="header" href="#example-german-15-panzer-division-1941-q2">Example: German 15. Panzer-Division, 1941-Q2</a></h3>
+<p><strong>Step 1: Tier 1 Search</strong></p>
+<ul>
+<li>Search Tessin Volume 3 (Panzer divisions)</li>
+<li><strong>Result</strong>: Commander (von Prittwitz), composition, approximate strength</li>
+<li><strong>Confidence</strong>: 95%</li>
+</ul>
+<p><strong>Step 2: Tier 2 Supplement</strong></p>
+<ul>
+<li>Feldgrau.com for equipment details</li>
+<li><strong>Result</strong>: Panzer III/IV variant breakdown</li>
+<li><strong>Confidence</strong>: 80%</li>
+</ul>
+<p><strong>Step 3: Cross-Reference</strong></p>
+<ul>
+<li>Niehorster database</li>
+<li><strong>Result</strong>: Confirms Tessin data</li>
+<li><strong>Final Confidence</strong>: 90% (Tier 1 + Tier 2 corroboration)</li>
+</ul>
+<hr />
+<h2 id="confidence-scoring-by-tier-mix"><a class="header" href="#confidence-scoring-by-tier-mix">Confidence Scoring by Tier Mix</a></h2>
+<h3 id="pure-tier-1-90-95"><a class="header" href="#pure-tier-1-90-95">Pure Tier 1 (90-95%)</a></h3>
+<ul>
+<li>All data from primary sources</li>
+<li>Multiple primary sources corroborate</li>
+<li>Minimal gaps</li>
+</ul>
+<h3 id="tier-1--tier-2-80-89"><a class="header" href="#tier-1--tier-2-80-89">Tier 1 + Tier 2 (80-89%)</a></h3>
+<ul>
+<li>Core data from Tier 1</li>
+<li>Details supplemented from Tier 2</li>
+<li>Cross-referenced for consistency</li>
+</ul>
+<h3 id="tier-2-heavy-75-79"><a class="header" href="#tier-2-heavy-75-79">Tier 2 Heavy (75-79%)</a></h3>
+<ul>
+<li>Primary data from Tier 2 sources</li>
+<li>Some Tier 1 corroboration</li>
+<li>Known gaps documented</li>
+</ul>
+<h3 id="tier-2--tier-3-70-74"><a class="header" href="#tier-2--tier-3-70-74">Tier 2 + Tier 3 (70-74%)</a></h3>
+<ul>
+<li>Mix of Tier 2 and Tier 3</li>
+<li>Core facts verified</li>
+<li>Multiple gaps</li>
+</ul>
+<h3 id="below-70"><a class="header" href="#below-70">Below 70%</a></h3>
+<ul>
+<li>Insufficient quality</li>
+<li>Requires additional research</li>
+<li>Not published until improved</li>
+</ul>
+<hr />
+<h2 id="source-documentation"><a class="header" href="#source-documentation">Source Documentation</a></h2>
+<h3 id="citation-format"><a class="header" href="#citation-format">Citation Format</a></h3>
+<p>All sources documented with:</p>
+<ul>
+<li><strong>Source name</strong>: Full title/website</li>
+<li><strong>Specific location</strong>: Page number, URL, archive reference</li>
+<li><strong>Access date</strong>: When source was consulted</li>
+<li><strong>Confidence</strong>: Tier assignment</li>
+</ul>
+<p><strong>Example</strong>:</p>
+<pre><code class="language-json">{
+  "source": "Tessin, Georg. Verbände und Truppen der deutschen Wehrmacht, Volume 3",
+  "page": 127,
+  "confidence_tier": 1,
+  "confidence_score": 95,
+  "date_accessed": "2025-10-10"
+}
+</code></pre>
+<h3 id="multiple-sources"><a class="header" href="#multiple-sources">Multiple Sources</a></h3>
+<p>When multiple sources used:</p>
+<ul>
+<li>List all sources</li>
+<li>Note primary source used for each fact</li>
+<li>Document conflicts and resolution</li>
+</ul>
+<hr />
+<h2 id="source-quality-evaluation"><a class="header" href="#source-quality-evaluation">Source Quality Evaluation</a></h2>
+<h3 id="criteria-for-tier-1"><a class="header" href="#criteria-for-tier-1">Criteria for Tier 1</a></h3>
+<ul>
+<li>✅ Official military records</li>
+<li>✅ Contemporary documents (created during war)</li>
+<li>✅ Authoritative compilations from archives</li>
+<li>✅ Published by government or recognized institution</li>
+</ul>
+<h3 id="criteria-for-tier-2"><a class="header" href="#criteria-for-tier-2">Criteria for Tier 2</a></h3>
+<ul>
+<li>✅ Compiled by recognized military historian</li>
+<li>✅ Citations to primary sources</li>
+<li>✅ Peer review or editorial oversight</li>
+<li>✅ Specialized expertise</li>
+</ul>
+<h3 id="criteria-for-tier-3"><a class="header" href="#criteria-for-tier-3">Criteria for Tier 3</a></h3>
+<ul>
+<li>⚠️ General military history</li>
+<li>⚠️ May lack detailed citations</li>
+<li>⚠️ Narrative focus over data precision</li>
+<li>⚠️ Community-contributed (variable quality)</li>
+</ul>
+<hr />
+<h2 id="handling-source-conflicts"><a class="header" href="#handling-source-conflicts">Handling Source Conflicts</a></h2>
+<h3 id="when-sources-disagree"><a class="header" href="#when-sources-disagree">When Sources Disagree</a></h3>
+<p><strong>Priority Order</strong>:</p>
+<ol>
+<li>Tier 1 sources override lower tiers</li>
+<li>More specific source (divisional history &gt; general OOB)</li>
+<li>More recent scholarship (if equally authoritative)</li>
+<li>Multiple sources agreeing override single source</li>
+</ol>
+<p><strong>Documentation</strong>:</p>
+<ul>
+<li>Note all conflicting values</li>
+<li>Explain resolution reasoning</li>
+<li>Include in "Data Quality &amp; Known Gaps" section</li>
+</ul>
+<p><strong>Example</strong>:</p>
+<ul>
+<li>Tessin: "15. Panzer had 120 tanks"</li>
+<li>Feldgrau: "15. Panzer had 142 tanks"</li>
+<li><strong>Resolution</strong>: Use Tessin (Tier 1 &gt; Tier 2)</li>
+<li><strong>Documentation</strong>: "Tank count varies (120-142), Tessin used as authoritative Tier 1 source"</li>
+</ul>
+<hr />
+<h2 id="local-vs-web-sources"><a class="header" href="#local-vs-web-sources">Local vs. Web Sources</a></h2>
+<h3 id="local-primary-sources-preferred"><a class="header" href="#local-primary-sources-preferred">Local Primary Sources (Preferred)</a></h3>
+<p><strong>Advantages</strong>:</p>
+<ul>
+<li>No internet dependency</li>
+<li>Direct access to PDFs</li>
+<li>Searchable text</li>
+<li>Faster processing</li>
+</ul>
+<p><strong>Coverage</strong>:</p>
+<ul>
+<li><strong>German</strong>: Tessin (comprehensive)</li>
+<li><strong>British</strong>: Army Lists (good for 1941-1943)</li>
+<li><strong>US</strong>: Field Manuals (doctrine and TO&amp;E)</li>
+</ul>
+<h3 id="web-sources-supplementary"><a class="header" href="#web-sources-supplementary">Web Sources (Supplementary)</a></h3>
+<p><strong>When Used</strong>:</p>
+<ul>
+<li>Local sources lack detail</li>
+<li>Equipment variant specifications</li>
+<li>Cross-referencing and verification</li>
+<li>Commonwealth units (Australian, New Zealand, South African, Indian)</li>
+</ul>
+<p><strong>Limitations</strong>:</p>
+<ul>
+<li>Internet required</li>
+<li>Variable availability</li>
+<li>Link rot over time</li>
+</ul>
+<hr />
+<h2 id="future-source-expansion"><a class="header" href="#future-source-expansion">Future Source Expansion</a></h2>
+<h3 id="planned-tier-1-additions"><a class="header" href="#planned-tier-1-additions">Planned Tier 1 Additions</a></h3>
+<ul>
+<li><strong>Italian</strong>: Stato Maggiore official records (if accessible)</li>
+<li><strong>British</strong>: WO (War Office) files from National Archives</li>
+<li><strong>US</strong>: NARA (National Archives) records for US units</li>
+<li><strong>Australian</strong>: AWM (Australian War Memorial) unit records</li>
+</ul>
+<h3 id="planned-tier-2-additions"><a class="header" href="#planned-tier-2-additions">Planned Tier 2 Additions</a></h3>
+<ul>
+<li><strong>Osprey Elite series</strong>: Detailed unit studies</li>
+<li><strong>Squadron/Signal Publications</strong>: Equipment references</li>
+<li><strong>Academic dissertations</strong>: Specialist research</li>
+</ul>
+<hr />
+<h2 id="source-access"><a class="header" href="#source-access">Source Access</a></h2>
+<h3 id="local-sources"><a class="header" href="#local-sources">Local Sources</a></h3>
+<p><strong>Location</strong>: <code>Resource Documents/</code></p>
+<ul>
+<li>Tessin volumes (German)</li>
+<li>British Army Lists (British)</li>
+<li>Field Manuals (US)</li>
+</ul>
+<p><strong>Format</strong>: PDF (searchable)</p>
+<h3 id="web-sources"><a class="header" href="#web-sources">Web Sources</a></h3>
+<p><strong>Bookmarked URLs</strong>:</p>
+<ul>
+<li>Feldgrau.com (German)</li>
+<li>Niehorster database (all nations)</li>
+<li>desertrats.org.uk (British 7th Armoured)</li>
+<li>Commonwealth war diaries (Australian, NZ, South African archives)</li>
+</ul>
+<hr />
+<h2 id="quality-assurance"><a class="header" href="#quality-assurance">Quality Assurance</a></h2>
+<h3 id="source-verification"><a class="header" href="#source-verification">Source Verification</a></h3>
+<p>Before using any source:</p>
+<ol>
+<li><strong>Verify authority</strong>: Is author/institution credible?</li>
+<li><strong>Check citations</strong>: Does source cite primary records?</li>
+<li><strong>Assess specificity</strong>: Does source provide detail needed?</li>
+<li><strong>Tier assignment</strong>: Which tier does source belong to?</li>
+</ol>
+<h3 id="continuous-evaluation"><a class="header" href="#continuous-evaluation">Continuous Evaluation</a></h3>
+<ul>
+<li><strong>Monitor source quality</strong> over time</li>
+<li><strong>Reclassify</strong> if errors discovered</li>
+<li><strong>Add new sources</strong> as found</li>
+<li><strong>Remove sources</strong> if proven unreliable</li>
+</ul>
+<hr />
+<h2 id="further-reading"><a class="header" href="#further-reading">Further Reading</a></h2>
+<ul>
+<li><a href="./research-methodology.html">Research Methodology</a> - Overall research process</li>
+<li><a href="./data-quality.html">Data Quality Standards</a> - Quality requirements</li>
+<li><a href="../appendices/bibliography.html">Source Bibliography</a> - Complete source list</li>
+</ul>
+<hr />
+<p><strong>Last Updated</strong>: 2025-10-12
+<strong>Tier 1 Sources</strong>: 7+ major references
+<strong>Tier 2 Sources</strong>: 10+ curated databases
+<strong>Minimum Confidence</strong>: 75% required for publication</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../methodology/research-methodology.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../methodology/data-quality.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../methodology/research-methodology.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../methodology/data-quality.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

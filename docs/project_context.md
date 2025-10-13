@@ -1,4 +1,13 @@
-# North Africa TO&E Multi-Agent Builder - Project Context
+# North Africa TO&E Multi-Agent Builder - Technical Context
+
+> **📋 For complete project scope and vision, see**: [`PROJECT_SCOPE.md`](../PROJECT_SCOPE.md) in root directory
+>
+> **This document covers TECHNICAL ARCHITECTURE. PROJECT_SCOPE.md covers STRATEGIC VISION.**
+>
+> - PROJECT_SCOPE.md = **What we're building** (313-348 units, phased approach, success criteria)
+> - project_context.md = **How we're building it** (technical implementation, agent design)
+
+---
 
 ## Project Goal
 Build a multi-agent orchestration system that creates complete Table of Organization & Equipment (TO&E) data from Theater level down to individual Squad level, with full Strategic Command Summary (SCM) schema detail at every organizational tier.

@@ -1,0 +1,576 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Research Methodology - North Africa Campaign: Table of Organization &amp; Equipment</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Detailed Table of Organization &amp; Equipment data for North Africa Campaign units (1940-1943)">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">North Africa Campaign: Table of Organization &amp; Equipment</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/yourusername/north-africa-toe-builder" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="research-methodology"><a class="header" href="#research-methodology">Research Methodology</a></h1>
+<h2 id="overview"><a class="header" href="#overview">Overview</a></h2>
+<p>This project uses a <strong>systematic, multi-agent approach</strong> to extract and validate Table of Organization &amp; Equipment (TO&amp;E) data from primary historical sources. All data follows rigorous quality standards to ensure historical accuracy and research credibility.</p>
+<hr />
+<h2 id="7-phase-extraction-workflow"><a class="header" href="#7-phase-extraction-workflow">7-Phase Extraction Workflow</a></h2>
+<h3 id="phase-1-source-extraction"><a class="header" href="#phase-1-source-extraction">Phase 1: Source Extraction</a></h3>
+<p><strong>Objective</strong>: Locate and extract raw data from primary source documents</p>
+<p><strong>Process</strong>:</p>
+<ol>
+<li>Identify unit and quarter from project configuration</li>
+<li>Search for sources using 3-tier waterfall (see <a href="./source-hierarchy.html">Source Hierarchy</a>)</li>
+<li>Extract commander, personnel, and equipment data</li>
+<li>Document source citations and page numbers</li>
+<li>Flag gaps and uncertainties</li>
+</ol>
+<p><strong>Agents</strong>: <code>document_parser</code>, <code>historical_research</code></p>
+<p><strong>Output</strong>: Raw extraction JSON with source citations</p>
+<hr />
+<h3 id="phase-2-organization-building"><a class="header" href="#phase-2-organization-building">Phase 2: Organization Building</a></h3>
+<p><strong>Objective</strong>: Construct hierarchical organizational structure</p>
+<p><strong>Process</strong>:</p>
+<ol>
+<li>Identify parent unit (corps, army, theater)</li>
+<li>List subordinate units (brigades, regiments, battalions)</li>
+<li>Map command relationships</li>
+<li>Verify organizational changes during quarter</li>
+<li>Document headquarters locations</li>
+</ol>
+<p><strong>Agents</strong>: <code>org_hierarchy</code>, <code>unit_instantiation</code></p>
+<p><strong>Output</strong>: Complete organizational hierarchy</p>
+<hr />
+<h3 id="phase-3-equipment-distribution"><a class="header" href="#phase-3-equipment-distribution">Phase 3: Equipment Distribution</a></h3>
+<p><strong>Objective</strong>: Distribute equipment from division level down to subordinate units</p>
+<p><strong>Process</strong>:</p>
+<ol>
+<li>Calculate division-level totals</li>
+<li>Allocate equipment to brigades/regiments</li>
+<li>Track equipment to specific variants</li>
+<li>Calculate operational vs. total equipment</li>
+<li>Validate totals sum correctly</li>
+</ol>
+<p><strong>Agents</strong>: <code>theater_allocator</code>, <code>division_cascader</code>, <code>equipment_reconciliation</code></p>
+<p><strong>Output</strong>: Equipment distribution at all organizational levels</p>
+<hr />
+<h3 id="phase-4-aggregation"><a class="header" href="#phase-4-aggregation">Phase 4: Aggregation</a></h3>
+<p><strong>Objective</strong>: Roll up equipment and personnel totals from bottom to top</p>
+<p><strong>Process</strong>:</p>
+<ol>
+<li>Sum equipment from subordinate units</li>
+<li>Calculate personnel totals</li>
+<li>Compute "Top 3" infantry weapons</li>
+<li>Validate parent = sum of children (±5%)</li>
+<li>Flag discrepancies for review</li>
+</ol>
+<p><strong>Agents</strong>: <code>bottom_up_aggregator</code>, <code>top3_calculator</code></p>
+<p><strong>Output</strong>: Validated aggregated totals</p>
+<hr />
+<h3 id="phase-5-validation"><a class="header" href="#phase-5-validation">Phase 5: Validation</a></h3>
+<p><strong>Objective</strong>: Verify schema compliance and historical accuracy</p>
+<p><strong>Process</strong>:</p>
+<ol>
+<li>Validate against <code>unified_toe_schema.json</code></li>
+<li>Check equipment totals (tanks.total = heavy + medium + light)</li>
+<li>Verify personnel totals (total ≈ officers + ncos + enlisted ±5%)</li>
+<li>Cross-check commanders against historical records</li>
+<li>Flag anachronisms (equipment not available in quarter)</li>
+<li>Calculate confidence score</li>
+</ol>
+<p><strong>Agents</strong>: <code>schema_validator</code>, <code>historical_accuracy</code></p>
+<p><strong>Output</strong>: Validation report with pass/fail status</p>
+<hr />
+<h3 id="phase-6-output-generation"><a class="header" href="#phase-6-output-generation">Phase 6: Output Generation</a></h3>
+<p><strong>Objective</strong>: Generate multiple output formats from validated data</p>
+<p><strong>Process</strong>:</p>
+<ol>
+<li><strong>MDBook Chapters</strong>: Generate markdown chapters following template v2.0</li>
+<li><strong>WITW Scenarios</strong>: Export CSV files for wargaming (when WITW IDs available)</li>
+<li><strong>SQL Database</strong>: Generate INSERT statements for relational database</li>
+<li><strong>JSON Files</strong>: Save final unit TO&amp;E JSON</li>
+</ol>
+<p><strong>Agents</strong>: <code>book_chapter_generator</code>, <code>scenario_exporter</code>, <code>sql_populator</code></p>
+<p><strong>Output</strong>: Multi-format deliverables</p>
+<hr />
+<h3 id="phase-7-quality-assurance"><a class="header" href="#phase-7-quality-assurance">Phase 7: Quality Assurance</a></h3>
+<p><strong>Objective</strong>: Final review and gap analysis</p>
+<p><strong>Process</strong>:</p>
+<ol>
+<li>Review all outputs for consistency</li>
+<li>Cross-check JSON vs. MDBook chapter</li>
+<li>Verify template compliance (16 required sections)</li>
+<li>Document known gaps and uncertainties</li>
+<li>Create QA audit report</li>
+</ol>
+<p><strong>Agents</strong>: <code>qa_auditor</code> (orchestrator-workers pattern)</p>
+<p><strong>Output</strong>: QA report with quality metrics</p>
+<hr />
+<h2 id="multi-agent-architecture"><a class="header" href="#multi-agent-architecture">Multi-Agent Architecture</a></h2>
+<h3 id="agent-types"><a class="header" href="#agent-types">Agent Types</a></h3>
+<p><strong>Source &amp; Extraction</strong>:</p>
+<ul>
+<li><code>document_parser</code>: Extract data from PDF/text sources</li>
+<li><code>historical_research</code>: Web research for supplementary data</li>
+</ul>
+<p><strong>Structure &amp; Organization</strong>:</p>
+<ul>
+<li><code>org_hierarchy</code>: Build organizational structure</li>
+<li><code>toe_template</code>: Create standardized TO&amp;E structure</li>
+<li><code>unit_instantiation</code>: Instantiate unit from template</li>
+</ul>
+<p><strong>Equipment Distribution</strong>:</p>
+<ul>
+<li><code>theater_allocator</code>: Allocate equipment at theater level</li>
+<li><code>division_cascader</code>: Cascade equipment to subordinate units</li>
+<li><code>equipment_reconciliation</code>: Reconcile discrepancies</li>
+</ul>
+<p><strong>Aggregation &amp; Calculation</strong>:</p>
+<ul>
+<li><code>bottom_up_aggregator</code>: Roll up totals from subordinates</li>
+<li><code>top3_calculator</code>: Calculate top 3 infantry weapons</li>
+</ul>
+<p><strong>Validation</strong>:</p>
+<ul>
+<li><code>schema_validator</code>: Validate JSON schema compliance</li>
+<li><code>historical_accuracy</code>: Verify historical plausibility</li>
+</ul>
+<p><strong>Output Generation</strong>:</p>
+<ul>
+<li><code>book_chapter_generator</code>: Generate MDBook chapters</li>
+<li><code>scenario_exporter</code>: Export wargaming scenarios</li>
+<li><code>sql_populator</code>: Generate SQL database scripts</li>
+</ul>
+<hr />
+<h2 id="data-quality-principles"><a class="header" href="#data-quality-principles">Data Quality Principles</a></h2>
+<h3 id="1-no-guessing-policy"><a class="header" href="#1-no-guessing-policy">1. No Guessing Policy</a></h3>
+<p><strong>Rule</strong>: If data is not found in sources, mark as "Unknown" or "Estimated"</p>
+<p><strong>Examples</strong>:</p>
+<ul>
+<li>Commander name not found → <code>"commander": "Unknown (not documented in sources)"</code></li>
+<li>Equipment count uncertain → <code>"estimated": true</code> flag</li>
+<li>Personnel strength missing → Document in "Known Gaps" section</li>
+</ul>
+<p><strong>Rationale</strong>: Better to acknowledge gaps than hallucinate false data</p>
+<hr />
+<h3 id="2-due-diligence-in-calculations"><a class="header" href="#2-due-diligence-in-calculations">2. Due Diligence in Calculations</a></h3>
+<p><strong>Rule</strong>: Calculate all totals from component parts when possible</p>
+<p><strong>Examples</strong>:</p>
+<ul>
+<li>Tank totals = sum(heavy + medium + light) - calculate, don't guess</li>
+<li>Personnel totals = sum(officers + NCOs + enlisted) - verify ±5%</li>
+<li>Equipment operational % = (operational / total) × 100 - calculate precisely</li>
+</ul>
+<p><strong>Rationale</strong>: Calculated totals are more reliable than estimated totals</p>
+<hr />
+<h3 id="3-source-citation-requirements"><a class="header" href="#3-source-citation-requirements">3. Source Citation Requirements</a></h3>
+<p><strong>Rule</strong>: Every major fact must cite a source</p>
+<p><strong>Examples</strong>:</p>
+<ul>
+<li>Commander name → British Army List Q2 1941, page 45</li>
+<li>Equipment count → Tessin Vol 3, page 127</li>
+<li>Unit location → War diary entry, 15 June 1941</li>
+</ul>
+<p><strong>Rationale</strong>: Enables verification and builds research credibility</p>
+<hr />
+<h3 id="4-cross-referencing"><a class="header" href="#4-cross-referencing">4. Cross-Referencing</a></h3>
+<p><strong>Rule</strong>: Critical facts require minimum 2 sources</p>
+<p><strong>Critical Facts</strong>:</p>
+<ul>
+<li>Unit commander names</li>
+<li>Unit designations and nicknames</li>
+<li>Major equipment types</li>
+<li>Participation in major battles</li>
+</ul>
+<p><strong>Process</strong>:</p>
+<ol>
+<li>Find fact in Source A</li>
+<li>Verify in Source B</li>
+<li>If conflict, document both versions and reasoning for selection</li>
+</ol>
+<p><strong>Rationale</strong>: Reduces errors from single-source mistakes</p>
+<hr />
+<h3 id="5-quarterly-precision"><a class="header" href="#5-quarterly-precision">5. Quarterly Precision</a></h3>
+<p><strong>Rule</strong>: Data must be specific to the quarter being documented</p>
+<p><strong>Examples</strong>:</p>
+<ul>
+<li>7th Armoured had 228 tanks in 1940-Q2, but 280 in 1941-Q2 - use correct quarter</li>
+<li>Commander O'Moore Creagh appointed December 1939, relieved June 1941 - verify dates</li>
+<li>Equipment variants change (Panzer III Ausf G in Q1, Ausf H in Q2) - track precisely</li>
+</ul>
+<p><strong>Rationale</strong>: Military units change composition rapidly in wartime</p>
+<hr />
+<h2 id="confidence-scoring"><a class="header" href="#confidence-scoring">Confidence Scoring</a></h2>
+<h3 id="scoring-criteria"><a class="header" href="#scoring-criteria">Scoring Criteria</a></h3>
+<p><strong>90-100%</strong>: High Confidence</p>
+<ul>
+<li>Data from Tier 1 primary sources (Tessin, Army Lists, Field Manuals)</li>
+<li>Multiple sources corroborate</li>
+<li>Minimal gaps or uncertainties</li>
+</ul>
+<p><strong>75-89%</strong>: Medium Confidence</p>
+<ul>
+<li>Data from mix of Tier 1 and Tier 2 sources</li>
+<li>Most facts verified, some gaps</li>
+<li>Estimated data clearly flagged</li>
+</ul>
+<p><strong>60-74%</strong>: Acceptable Confidence</p>
+<ul>
+<li>Data primarily from Tier 2/3 sources</li>
+<li>Some critical facts verified</li>
+<li>Multiple gaps documented</li>
+</ul>
+<p><strong>Below 60%</strong>: Insufficient Confidence</p>
+<ul>
+<li>Too many gaps or uncertainties</li>
+<li>Requires additional research before publishing</li>
+</ul>
+<h3 id="minimum-threshold"><a class="header" href="#minimum-threshold">Minimum Threshold</a></h3>
+<p><strong>75% confidence</strong> required for all published units</p>
+<p>Units below 75% are flagged for additional research before inclusion in final output.</p>
+<hr />
+<h2 id="validation-rules"><a class="header" href="#validation-rules">Validation Rules</a></h2>
+<h3 id="equipment-validation"><a class="header" href="#equipment-validation">Equipment Validation</a></h3>
+<ol>
+<li><code>tanks.total = tanks.heavy + tanks.medium + tanks.light</code> (exact)</li>
+<li><code>artillery_total ≥ sum(field + anti_tank + anti_aircraft)</code> (minimum)</li>
+<li><code>ground_vehicles_total ≥ sum(tanks + trucks + motorcycles + support)</code> (minimum)</li>
+<li>Category totals = sum of all variants (exact)</li>
+</ol>
+<h3 id="personnel-validation"><a class="header" href="#personnel-validation">Personnel Validation</a></h3>
+<ol>
+<li><code>total_personnel ≈ officers + ncos + enlisted</code> (±5% tolerance)</li>
+<li>Percentage calculations sum to 100% (±0.5% rounding)</li>
+<li>Personnel counts realistic for unit type (division: 10,000-20,000)</li>
+</ol>
+<h3 id="organizational-validation"><a class="header" href="#organizational-validation">Organizational Validation</a></h3>
+<ol>
+<li>Parent unit total = sum of all child units (±5%)</li>
+<li>Commander appointed date ≤ quarter end date</li>
+<li>Subordinate units exist in historical records</li>
+<li>Headquarters location documented</li>
+</ol>
+<h3 id="historical-validation"><a class="header" href="#historical-validation">Historical Validation</a></h3>
+<ol>
+<li>No anachronisms (equipment available in quarter)</li>
+<li>Commander appointments verified from multiple sources</li>
+<li>Unit participation in battles cross-checked</li>
+<li>Equipment production dates verified</li>
+</ol>
+<hr />
+<h2 id="handling-conflicts"><a class="header" href="#handling-conflicts">Handling Conflicts</a></h2>
+<h3 id="source-conflicts"><a class="header" href="#source-conflicts">Source Conflicts</a></h3>
+<p>When sources disagree:</p>
+<ol>
+<li><strong>Prioritize primary sources</strong> over secondary</li>
+<li><strong>More specific source</strong> wins (e.g., divisional history over general OOB)</li>
+<li><strong>More recent scholarship</strong> if sources equally authoritative</li>
+<li><strong>Document the conflict</strong> in "Data Quality &amp; Known Gaps" section</li>
+</ol>
+<p><strong>Example</strong>:</p>
+<ul>
+<li>Source A: "15. Panzer had 120 tanks"</li>
+<li>Source B: "15. Panzer had 142 tanks"</li>
+<li><strong>Resolution</strong>: Use more specific source (divisional war diary &gt; general OOB)</li>
+<li><strong>Documentation</strong>: "Tank count varies in sources (120-142), used 120 from war diary"</li>
+</ul>
+<h3 id="estimation-when-necessary"><a class="header" href="#estimation-when-necessary">Estimation When Necessary</a></h3>
+<p>When data is unavailable:</p>
+<ol>
+<li><strong>Use establishment tables</strong> (authorized strength) with <code>"estimated": true</code></li>
+<li><strong>Interpolate from adjacent quarters</strong> if reasonable</li>
+<li><strong>Compare to similar units</strong> (e.g., other British infantry divisions)</li>
+<li><strong>Document estimation method</strong> in "Known Gaps" section</li>
+</ol>
+<p><strong>Example</strong>:</p>
+<ul>
+<li>Personnel strength not found for 50th Infantry Division Q2 1941</li>
+<li>British infantry division establishment: 15,000-17,000</li>
+<li>Similar divisions (4th Indian, 5th Indian): 16,500 average</li>
+<li><strong>Estimate</strong>: 16,000 with <code>"estimated": true</code></li>
+<li><strong>Document</strong>: "Personnel estimated from establishment table, exact strength not documented"</li>
+</ul>
+<hr />
+<h2 id="quality-metrics"><a class="header" href="#quality-metrics">Quality Metrics</a></h2>
+<h3 id="unit-level-metrics"><a class="header" href="#unit-level-metrics">Unit-Level Metrics</a></h3>
+<ul>
+<li><strong>Confidence Score</strong>: 75-100% (target: 80%+)</li>
+<li><strong>Schema Compliance</strong>: Pass/Fail (target: 100%)</li>
+<li><strong>Source Citations</strong>: Count (target: 5+ sources)</li>
+<li><strong>Cross-Referenced Facts</strong>: % (target: 80%+)</li>
+<li><strong>Known Gaps</strong>: Count (target: minimize)</li>
+</ul>
+<h3 id="project-level-metrics"><a class="header" href="#project-level-metrics">Project-Level Metrics</a></h3>
+<ul>
+<li><strong>Units Completed</strong>: Count / Total planned</li>
+<li><strong>Average Confidence</strong>: Mean across all units</li>
+<li><strong>Schema Compliance Rate</strong>: % units passing validation</li>
+<li><strong>Template Compliance</strong>: % chapters following template v2.0</li>
+</ul>
+<hr />
+<h2 id="continuous-improvement"><a class="header" href="#continuous-improvement">Continuous Improvement</a></h2>
+<h3 id="gap-filling-process"><a class="header" href="#gap-filling-process">Gap Filling Process</a></h3>
+<ol>
+<li><strong>Document all gaps</strong> during initial extraction</li>
+<li><strong>Prioritize gaps</strong> (Priority 1: critical, Priority 2: important, Priority 3: nice-to-have)</li>
+<li><strong>Research additional sources</strong> for Priority 1 gaps</li>
+<li><strong>Update units</strong> when new sources found</li>
+<li><strong>Track improvement</strong> in confidence scores over time</li>
+</ol>
+<h3 id="version-control"><a class="header" href="#version-control">Version Control</a></h3>
+<p>All unit files tracked with:</p>
+<ul>
+<li><strong>Schema version</strong>: unified_toe_schema.json v1.0.0</li>
+<li><strong>Template version</strong>: MDBOOK_CHAPTER_TEMPLATE.md v2.0</li>
+<li><strong>Last updated date</strong></li>
+<li><strong>Extraction date</strong></li>
+<li><strong>Change log</strong> (when updated)</li>
+</ul>
+<hr />
+<h2 id="further-reading"><a class="header" href="#further-reading">Further Reading</a></h2>
+<ul>
+<li><a href="./source-hierarchy.html">Source Hierarchy</a> - 3-tier source prioritization</li>
+<li><a href="./data-quality.html">Data Quality Standards</a> - Detailed quality requirements</li>
+<li><a href="./validation.html">Validation Process</a> - Schema and historical validation</li>
+</ul>
+<hr />
+<p><strong>Last Updated</strong>: 2025-10-12
+<strong>Applies To</strong>: All units in project
+<strong>Minimum Standards</strong>: 75% confidence, 100% schema compliance, template v2.0 adherence</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../1941-q2/italian/chapter_savona_division.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../methodology/source-hierarchy.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../1941-q2/italian/chapter_savona_division.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../methodology/source-hierarchy.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>
