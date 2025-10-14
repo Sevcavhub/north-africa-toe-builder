@@ -1,11 +1,12 @@
 # North Africa TO&E Builder - Complete Project Scope
 
-**Version**: 1.0.2
+**Version**: 1.0.3
 **Last Updated**: 2025-10-14
 **Status**: 🟢 LIVING DOCUMENT - Subject to updates
-**Current Phase**: Phase 1-6 (Ground Forces) - 71.8% COMPLETE
-**Overall Progress**: ~48.9% complete (153 of ~313-348 total units)
+**Current Phase**: Phase 1-6 (Ground Forces) - 29.6% COMPLETE
+**Overall Progress**: ~20.1% complete (63 of ~313-348 total units)
 **Architecture**: v4.0 (Canonical Output Locations)
+**Critical Issue**: 90 orphaned units not in current scope (see ORPHANED_UNITS_REPORT.md)
 
 ---
 
@@ -28,11 +29,12 @@ This is NOT just a static historical database - it's a **game-ready scenario gen
 
 | Component | Unit Count | Status |
 |-----------|-----------|--------|
-| **Ground Forces** | 213 | 153 complete (71.8%) - Phase 1-6 IN PROGRESS |
+| **Ground Forces** | 213 | 63 complete (29.6%) - Phase 1-6 IN PROGRESS |
 | **Air Force Units** | ~100-135 | Not started - Phase 7 |
 | **Battle Scenarios** | 12+ | Planned - Phase 9 |
 | **Campaign System** | 1 complete | Planned - Phase 10 |
-| **TOTAL** | **~313-348 units** | **~48.9% complete** |
+| **TOTAL** | **~313-348 units** | **~20.1% complete** |
+| **NOTE** | - | 90 additional units completed but NOT in current scope |
 
 ### Scope Clarifications:
 
@@ -54,26 +56,34 @@ This is NOT just a static historical database - it's a **game-ready scenario gen
 
 ## 🗓️ Phased Approach
 
-### **Phase 1-6: Ground Forces Extraction** (IN PROGRESS - 71.8%)
+### **Phase 1-6: Ground Forces Extraction** (IN PROGRESS - 29.6%)
 
 **Goal**: Complete all 213 ground combat units
 
-**Status**: 153/213 complete (71.8%) - **60 units remaining**
+**Status**: 63/213 complete (29.6%) - **150 units remaining**
+
+**CRITICAL DISCOVERY** (October 14, 2025):
+- 153 unit files exist in `data/output/units/`
+- BUT only 63 match the current 213-unit project scope
+- 90 completed units are NOT in current seed file (`projects/north_africa_seed_units.json`)
+- See `ORPHANED_UNITS_REPORT.md` for complete list of orphaned units
 
 **Deliverables**:
-- ✅ 153/213 unit JSON files (complete SCM detail) → CANONICAL: `data/output/units/`
-- ✅ 153/213 MDBook chapters (professional narrative) → CANONICAL: `data/output/chapters/`
+- ✅ 63/213 unit JSON files (complete SCM detail) → CANONICAL: `data/output/units/`
+- ✅ 63/213 MDBook chapters (professional narrative) → CANONICAL: `data/output/chapters/`
 - ⏸️ WITW-format exports (CSV for wargaming) → CANONICAL: `data/output/scenarios/` (pending)
 - ⏸️ SQL database schema (ground forces tables) → pending
+- ⚠️ 90 additional completed units NOT in current scope (decision needed)
 
 **Architecture v4.0 Migration** (October 14, 2025):
 - ✅ Canonical output locations implemented (`data/output/units/`, `data/output/chapters/`)
 - ✅ Duplicate file issue resolved (207 entries → 153 unique units)
 - ✅ Session archive system (`data/output/sessions/` for historical work)
-- ✅ Skip-completed logic added (no re-extraction of finished units)
+- ✅ Skip-completed logic added (filters correctly - shows 150 remaining)
+- ✅ Unit ID matching bug fixed (nation/quarter/designation normalization)
 
-**Remaining Work**: 60 units to reach Phase 1-6 COMPLETE
-**Estimated Time**: ~20-30 hours autonomous processing
+**Remaining Work**: 150 units to reach Phase 1-6 COMPLETE
+**Estimated Time**: ~50-75 hours autonomous processing (~3-5x longer than expected)
 
 ---
 
@@ -649,11 +659,12 @@ WHERE quarter = '1941-Q2' AND operational = TRUE;
 ## 🚀 Current Status & Immediate Priorities
 
 ### Overall Progress (Updated 2025-10-14):
-- **Ground Units**: 153/213 complete (71.8%)
+- **Ground Units**: 63/213 complete (29.6%)
+- **Orphaned Units**: 90 completed units NOT in current scope
 - **Air Force Units**: 0/~100-135 (Phase 7 pending)
-- **Overall**: ~48.9% complete (153 of ~313-348 total units)
+- **Overall**: ~20.1% complete (63 of ~313-348 total units)
 
-### Current Phase: 1-6 (Ground Forces) - Substantial Work Remaining
+### Current Phase: 1-6 (Ground Forces) - MAJOR WORK REMAINING
 
 **Architecture v4.0 Implemented** ✅:
 - ✅ Canonical output locations (`data/output/units/`, `data/output/chapters/`)
@@ -661,24 +672,39 @@ WHERE quarter = '1941-Q2' AND operational = TRUE;
 - ✅ Session archive system in place (62 sessions archived)
 - ✅ Skip-completed logic prevents re-extraction
 - ✅ Migration complete and committed (git 03955a6)
+- ✅ Unit ID matching bug fixed (orchestrator now correctly filters completed units)
 
-**Immediate Priorities** (Next 5-10 sessions):
+**CRITICAL DISCOVERY** (October 14, 2025):
+- Autonomous orchestrator revealed 90 orphaned units
+- These units exist as completed files but aren't in current `north_africa_seed_units.json`
+- Real progress: 63/213 (29.6%), not 153/213 (71.8%)
+- Remaining work: 150 units (not 60!)
 
-1. **Complete Remaining 60 Ground Units**:
-   - **60 units remain** to reach Phase 1-6 COMPLETE (not 11!)
+**Immediate Priorities** (Next 20-30 sessions):
+
+1. **Decide on Orphaned Units**:
+   - ⚠️ **90 completed units** NOT in current scope (60 Italian, 17 British, 9 German, 4 French)
+   - **Option A**: Archive them (if scope was intentionally reduced)
+   - **Option B**: Restore to seed file (if accidentally removed)
+   - **Option C**: Keep for reference (document as out-of-scope)
+   - See `ORPHANED_UNITS_REPORT.md` for complete analysis
+
+2. **Complete Remaining 150 Ground Units**:
+   - **150 units remain** to reach Phase 1-6 COMPLETE (NOT 60!)
    - Use canonical output locations (`data/output/units/`)
-   - Skip-completed logic will filter out 153 finished units automatically
-   - Target: ~20-30 hours autonomous processing
+   - Skip-completed logic working correctly (filters out 63 finished units)
+   - Target: ~50-75 hours autonomous processing (~3-5x longer than expected)
    - Process in batches of 3-5 units with checkpoints
 
-2. **Improve QA Process**:
-   - ⚠️ **Lesson Learned**: Previous QA missed 60-unit discrepancy
+3. **Improve QA Process**:
+   - ⚠️ **Lesson Learned**: QA missed MASSIVE scope mismatch (thought 60 left, actually 150!)
    - Add automated unit counting validation
-   - Cross-check WORKFLOW_STATE.json against canonical directory
-   - Implement pre-session and post-session verification
-   - Add "units remaining" display to session start
+   - Cross-check WORKFLOW_STATE.json against seed file (not just canonical directory)
+   - Implement "orphaned units" detection in session start
+   - Add "units remaining in current scope" display to checkpoints
+   - Verify seed file matches project goals before long extraction runs
 
-3. **Prepare for Phase 7 Transition** (After 213/213):
+4. **Prepare for Phase 7 Transition** (After 213/213 - MUCH LATER):
    - Finalize Air Forces Schema v1.0 specification
    - Design air unit extraction workflow
    - Define air unit naming conventions (luftwaffe_, raf_, usaaf_, regia_)
@@ -789,7 +815,7 @@ This scope is achievable, professionally valuable, and commercially marketable.
 - **Phase 1-6 Status**: NEARING COMPLETION (11 units remaining)
 - **Immediate Priorities**: Architecture v4.0 migration, complete remaining 11 units, prep Phase 7
 
-### v1.0.2 (2025-10-14) - Progress Correction
+### v1.0.2 (2025-10-14) - Progress Correction #1
 - **CORRECTION**: Actual progress is 153/213 units (71.8%), not 202/213 (94.8%)
 - **Reality Check**: 60 units remaining, not 11
 - **Root Cause**: Consolidation script found 153 unique units after deduplication
@@ -798,8 +824,25 @@ This scope is achievable, professionally valuable, and commercially marketable.
 - **QA Improvement**: Added priority to improve unit counting validation
 - **Lesson Learned**: QA process needs automated cross-checks between WORKFLOW_STATE.json and canonical directory
 
+### v1.0.3 (2025-10-14) - CRITICAL DISCOVERY - Progress Correction #2
+- **MAJOR CORRECTION**: Actual progress is 63/213 units (29.6%), NOT 153/213 (71.8%)!
+- **Critical Finding**: 90 of the 153 completed units are NOT in current project scope
+- **Orphaned Units Breakdown**:
+  - 60 Italian units (various quarters/designations)
+  - 17 British/Commonwealth units
+  - 9 German units
+  - 4 French units
+- **Reality Check**: 150 units remaining (NOT 60!), ~50-75 hours work (NOT ~20-30 hours)
+- **Root Cause**: `projects/north_africa_seed_units.json` was modified at some point, removing 90 units from scope
+- **Impact**: Phase 1-6 is only 29.6% complete, overall project ~20.1% complete
+- **Architecture v4.0 Success**: Skip-completed logic working correctly (orchestrator shows 150 remaining)
+- **QA Failure**: MASSIVE scope mismatch went undetected until orchestrator unit ID matching was debugged
+- **Decision Required**: What to do with 90 orphaned units (archive/restore/keep for reference)?
+- **See**: `ORPHANED_UNITS_REPORT.md` for complete analysis and recommendations
+- **Bug Fix**: Fixed autonomous orchestrator unit ID construction (nation mapping + quarter format + designation normalization)
+
 ### Future Updates:
-- **v1.1.0** (TBD): [Air forces schema finalization]
+- **v1.1.0** (TBD): [Orphaned units resolution + Air forces schema finalization]
 - **v1.2.0** (TBD): [Scenario generation specifications]
 - **v1.3.0** (TBD): [Campaign system details]
 

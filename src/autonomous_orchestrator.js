@@ -120,10 +120,25 @@ class AutonomousOrchestrator {
 
       // Filter out already-completed units
       const originalCount = this.project.seed_units.length;
+
+      // Map seed unit nation names to canonical format
+      const nationMap = {
+        'Germany': 'german',
+        'Italy': 'italian',
+        'Britain': 'british',
+        'USA': 'american',
+        'France': 'french'
+      };
+
       this.project.seed_units = this.project.seed_units.filter(unit => {
-        const nation = unit.nation.toLowerCase();
-        const quarter = unit.quarter.toLowerCase().replace('q', '-q');
-        const unitId = `${nation}_${quarter}_${unit.unit_designation}`;
+        const nation = nationMap[unit.nation] || unit.nation.toLowerCase();
+        const quarter = unit.quarter;  // Already in correct format: "1941-Q1"
+
+        // Normalize designation to match WORKFLOW_STATE format
+        const naming = require('../scripts/lib/naming_standard');
+        const designation = naming.normalizeDesignation(unit.unit_designation);
+
+        const unitId = `${nation}_${quarter}_${designation}`;
         return !completed.has(unitId);
       });
 
