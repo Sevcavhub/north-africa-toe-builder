@@ -2,8 +2,8 @@
 
 <!-- AUTO-UPDATED: START - Session Metadata -->
 **Project**: North Africa TO&E Builder - **v3.0.0 (Ground Forces)**
-**Last Updated**: 2025-10-14 06:09
-**Status**: Schema v3.0 Complete, 184/213 units (86.4%)
+**Last Updated**: 2025-10-14 06:39
+**Status**: Schema v3.0 Complete, 208/213 units (97.7%)
 <!-- AUTO-UPDATED: END - Session Metadata -->
 
 ---
@@ -42,7 +42,7 @@
 <!-- AUTO-UPDATED: START - Recently Completed -->
 ### ✅ RECENTLY COMPLETED (Last Session):
 - **Session Date**: 2025-10-14
-- **Units Completed**: 184 units (0 → 184)
+- **Units Completed**: 208 units (0 → 208)
 - **Session Duration**: unknown minutes
 - **Recent Work**:
   - german_1941-Q2_5_leichte_division
@@ -62,8 +62,8 @@
 
 <!-- AUTO-UPDATED: START - Progress Stats -->
 ### 🔨 IN PROGRESS:
-- **Ground Forces Extraction**: 184/213 units (86.4%)
-  - 29 units remaining to complete Phase 1-6
+- **Ground Forces Extraction**: 208/213 units (97.7%)
+  - 5 units remaining to complete Phase 1-6
 - **1941-Q2 Showcase**: 90% complete
   - 10/18 units upgraded to v3.0.0 schema
   - All critical gaps resolved (Gap 3, 5, 8)
