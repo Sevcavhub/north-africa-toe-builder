@@ -1,10 +1,10 @@
 # North Africa TO&E Builder - Complete Project Scope
 
-**Version**: 1.0.1
+**Version**: 1.0.2
 **Last Updated**: 2025-10-14
 **Status**: 🟢 LIVING DOCUMENT - Subject to updates
-**Current Phase**: Phase 1-6 (Ground Forces) - NEARING COMPLETION
-**Overall Progress**: ~64.5% complete (202 of ~313-348 total units)
+**Current Phase**: Phase 1-6 (Ground Forces) - 71.8% COMPLETE
+**Overall Progress**: ~48.9% complete (153 of ~313-348 total units)
 **Architecture**: v4.0 (Canonical Output Locations)
 
 ---
@@ -28,11 +28,11 @@ This is NOT just a static historical database - it's a **game-ready scenario gen
 
 | Component | Unit Count | Status |
 |-----------|-----------|--------|
-| **Ground Forces** | 213 | 202 complete (94.8%) - Phase 1-6 NEARING COMPLETION ✅ |
+| **Ground Forces** | 213 | 153 complete (71.8%) - Phase 1-6 IN PROGRESS |
 | **Air Force Units** | ~100-135 | Not started - Phase 7 |
 | **Battle Scenarios** | 12+ | Planned - Phase 9 |
 | **Campaign System** | 1 complete | Planned - Phase 10 |
-| **TOTAL** | **~313-348 units** | **~64.5% complete** |
+| **TOTAL** | **~313-348 units** | **~48.9% complete** |
 
 ### Scope Clarifications:
 
@@ -54,25 +54,26 @@ This is NOT just a static historical database - it's a **game-ready scenario gen
 
 ## 🗓️ Phased Approach
 
-### **Phase 1-6: Ground Forces Extraction** (NEARING COMPLETION ✅)
+### **Phase 1-6: Ground Forces Extraction** (IN PROGRESS - 71.8%)
 
 **Goal**: Complete all 213 ground combat units
 
-**Status**: 202/213 complete (94.8%) - **11 units remaining**
+**Status**: 153/213 complete (71.8%) - **60 units remaining**
 
 **Deliverables**:
-- ✅ 202/213 unit JSON files (complete SCM detail) → CANONICAL: `data/output/units/`
-- ✅ 202/213 MDBook chapters (professional narrative) → CANONICAL: `data/output/chapters/`
+- ✅ 153/213 unit JSON files (complete SCM detail) → CANONICAL: `data/output/units/`
+- ✅ 153/213 MDBook chapters (professional narrative) → CANONICAL: `data/output/chapters/`
 - ⏸️ WITW-format exports (CSV for wargaming) → CANONICAL: `data/output/scenarios/` (pending)
 - ⏸️ SQL database schema (ground forces tables) → pending
 
 **Architecture v4.0 Migration** (October 14, 2025):
 - ✅ Canonical output locations implemented (`data/output/units/`, `data/output/chapters/`)
-- ✅ Duplicate file issue resolved (207 entries → 202 unique units)
+- ✅ Duplicate file issue resolved (207 entries → 153 unique units)
 - ✅ Session archive system (`data/output/sessions/` for historical work)
 - ✅ Skip-completed logic added (no re-extraction of finished units)
 
-**Remaining Work**: 11 units to reach Phase 1-6 COMPLETE
+**Remaining Work**: 60 units to reach Phase 1-6 COMPLETE
+**Estimated Time**: ~20-30 hours autonomous processing
 
 ---
 
@@ -648,33 +649,36 @@ WHERE quarter = '1941-Q2' AND operational = TRUE;
 ## 🚀 Current Status & Immediate Priorities
 
 ### Overall Progress (Updated 2025-10-14):
-- **Ground Units**: 202/213 complete (94.8%) ✅ NEARING COMPLETION
+- **Ground Units**: 153/213 complete (71.8%)
 - **Air Force Units**: 0/~100-135 (Phase 7 pending)
-- **Overall**: ~64.5% complete (202 of ~313-348 total units)
+- **Overall**: ~48.9% complete (153 of ~313-348 total units)
 
-### Current Phase: 1-6 (Ground Forces) - Final Push
+### Current Phase: 1-6 (Ground Forces) - Substantial Work Remaining
 
-**Architecture v4.0 Implemented**:
+**Architecture v4.0 Implemented** ✅:
 - ✅ Canonical output locations (`data/output/units/`, `data/output/chapters/`)
-- ✅ Duplicate file issue resolved (207 → 202 unique units)
-- ✅ Session archive system in place
+- ✅ Duplicate file issue resolved (207 → 153 unique units)
+- ✅ Session archive system in place (62 sessions archived)
 - ✅ Skip-completed logic prevents re-extraction
+- ✅ Migration complete and committed (git 03955a6)
 
-**Immediate Priorities** (Next 1-2 sessions):
+**Immediate Priorities** (Next 5-10 sessions):
 
-1. **Complete Architecture v4.0 Migration**:
-   - Run `npm run consolidate` (consolidate scattered files)
-   - Run `npm run archive:sessions` (archive old session directories)
-   - Verify canonical structure (`npm run checkpoint`)
-   - Git commit Architecture v4.0
-
-2. **Complete Remaining 11 Ground Units**:
-   - 11 units remain to reach Phase 1-6 COMPLETE
+1. **Complete Remaining 60 Ground Units**:
+   - **60 units remain** to reach Phase 1-6 COMPLETE (not 11!)
    - Use canonical output locations (`data/output/units/`)
-   - Skip-completed logic will filter out 202 finished units
-   - Target: ~3-5 hours autonomous processing
+   - Skip-completed logic will filter out 153 finished units automatically
+   - Target: ~20-30 hours autonomous processing
+   - Process in batches of 3-5 units with checkpoints
 
-3. **Prepare for Phase 7 Transition**:
+2. **Improve QA Process**:
+   - ⚠️ **Lesson Learned**: Previous QA missed 60-unit discrepancy
+   - Add automated unit counting validation
+   - Cross-check WORKFLOW_STATE.json against canonical directory
+   - Implement pre-session and post-session verification
+   - Add "units remaining" display to session start
+
+3. **Prepare for Phase 7 Transition** (After 213/213):
    - Finalize Air Forces Schema v1.0 specification
    - Design air unit extraction workflow
    - Define air unit naming conventions (luftwaffe_, raf_, usaaf_, regia_)
@@ -785,6 +789,15 @@ This scope is achievable, professionally valuable, and commercially marketable.
 - **Phase 1-6 Status**: NEARING COMPLETION (11 units remaining)
 - **Immediate Priorities**: Architecture v4.0 migration, complete remaining 11 units, prep Phase 7
 
+### v1.0.2 (2025-10-14) - Progress Correction
+- **CORRECTION**: Actual progress is 153/213 units (71.8%), not 202/213 (94.8%)
+- **Reality Check**: 60 units remaining, not 11
+- **Root Cause**: Consolidation script found 153 unique units after deduplication
+- **Impact**: ~20-30 hours work remaining for Phase 1-6 (not ~3-5 hours)
+- **Overall Progress**: 48.9% complete (153 of ~313-348 total units)
+- **QA Improvement**: Added priority to improve unit counting validation
+- **Lesson Learned**: QA process needs automated cross-checks between WORKFLOW_STATE.json and canonical directory
+
 ### Future Updates:
 - **v1.1.0** (TBD): [Air forces schema finalization]
 - **v1.2.0** (TBD): [Scenario generation specifications]
@@ -810,7 +823,7 @@ When updating PROJECT_SCOPE.md:
 
 ---
 
-**END OF PROJECT SCOPE v1.0.1**
+**END OF PROJECT SCOPE v1.0.2**
 
 **All agents, all sessions, all future work must reference this document.**
 
