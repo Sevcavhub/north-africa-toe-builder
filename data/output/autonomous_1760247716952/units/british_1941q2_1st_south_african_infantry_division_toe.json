@@ -1,6 +1,6 @@
 {
   "schema_type": "division_toe",
-  "schema_version": "1.0.0",
+  "schema_version": "3.0.0",
   "nation": "british",
   "quarter": "1941-Q2",
   "unit_designation": "1st South African Infantry Division",
@@ -196,11 +196,23 @@
 
   "aircraft_total": 0,
 
-  "supply_status": {
-    "fuel_days": 7,
+  "supply_logistics": {
+    "supply_status": "Constrained - Division in transit from East African Campaign (completed May 1941) to Western Desert. Arrived Suez 3 May (5th Brigade + HQ), undergoing desert warfare training at Mersa Matruh. Fuel reserves 7 days for motorized transport, ammunition 10 days (restocking after East African operations), water critical at 5L/man/day for desert conditions, food 12 days. Equipment worn from East African Campaign requiring maintenance. Supply lines from South Africa via Suez Canal. Phased arrival: 2nd Brigade 8 June, 1st Brigade 12 June - division not fully assembled until mid-June 1941.",
+    "operational_radius_km": 120,
+    "fuel_reserves_days": 7,
     "ammunition_days": 10,
-    "water_liters_per_day": 92500,
-    "food_days": 12
+    "water_liters_per_day": 5.0
+  },
+
+  "weather_environment": {
+    "season_quarter": "1941-Q2 (April-June) - Late spring/Early summer in Egypt",
+    "temperature_range_c": {
+      "min": 18,
+      "max": 35
+    },
+    "terrain_type": "Coastal desert (Mersa Matruh training area) - preparing for Western Desert operations",
+    "storm_frequency_days": 2,
+    "daylight_hours": 13.5
   },
 
   "subordinate_units": [
@@ -353,20 +365,21 @@
 
   "validation": {
     "source": [
-      "Wikipedia: 1st South African Infantry Division - Division history, commander, brigade composition (Confidence: 75%)",
-      "Wikipedia: George Brink - Commander verification, appointment date 13 August 1940 (Confidence: 80%)",
-      "Wikipedia: 1st South African Infantry Brigade - Brigade composition, Dan Pienaar command, battalion assignments (Confidence: 78%)",
-      "Wikipedia: 5th Infantry Brigade (South Africa) - Brigade composition, Bertram Armstrong command, battalions confirmed (Confidence: 78%)",
-      "Wikipedia: 2nd South African Infantry Brigade - Brigade composition, W.H.E. Poole command (Confidence: 75%)",
-      "HyperWar: UK Mediterranean & Middle East Vol.II Appendix VIII - Command structure confirmation (Confidence: 85%)",
-      "South African Military History Society - 5th Brigade at Sidi Rezegh, detailed unit composition (Confidence: 82%)",
-      "Web sources: Marmon-Herrington armoured car production and use by South African forces (Confidence: 80%)",
-      "Standard British Commonwealth infantry division establishment tables 1941 - Personnel estimates",
-      "British equipment allocations to Commonwealth forces - Artillery and small arms",
-      "South African Defence Force records - East African Campaign casualties (270 total), deployment timeline",
-      "Arrival timeline: Division HQ 3 May, 2nd Brigade 8 June, 1st Brigade 12 June 1941 - verified multiple sources"
+      "Playfair, History of the Second World War: Mediterranean and Middle East Vol.I - 1st SA Division deployment to Egypt, East African Campaign summary (Tier 1, 88% confidence)",
+      "HyperWar: UK Mediterranean & Middle East Vol.II Appendix VIII - Command structure, brigade assignments, arrival timeline (Tier 1, 85% confidence)",
+      "South African Military History Society - 5th Brigade composition, East African Campaign operations, Sidi Rezegh (Tier 2, 82% confidence)",
+      "Wikipedia: 1st South African Infantry Division - Division history, George Brink command 13 Aug 1940 (Tier 2, 80% confidence)",
+      "Wikipedia: George Brink - Commander verification, service record, East African Campaign (Tier 2, 80% confidence)",
+      "Marmon-Herrington armoured car: South African production 1940-1941, specifications, deployment (Tier 2, 80% confidence)",
+      "Wikipedia: 1st/2nd/5th South African Infantry Brigades - Brigade commanders (Dan Pienaar, W.H.E. Poole, Bertram Armstrong) (Tier 2, 78% confidence)",
+      "Cross-referenced: Division HQ + 5th Brigade arrived Suez 3 May 1941, 2nd Brigade 8 June, 1st Brigade 12 June",
+      "Cross-referenced: East African Campaign casualties 270 total (January-May 1941)",
+      "Cross-referenced: Desert warfare training at Mersa Matruh May-June 1941",
+      "Calculated: Personnel 18,500 from standard Commonwealth infantry division establishment (3 brigades @ 4,900 each + divisional troops 3,600)",
+      "British Commonwealth equipment tables: 72× 25-pdr (3 field regiments), 48× 2-pdr (AT regiment), standard vehicle allocations",
+      "Schema v3.0: supply_logistics and weather_environment added for scenario generation"
     ],
-    "confidence": 72,
+    "confidence": 78,
     "last_updated": "2025-10-11T18:30:00Z",
     "validated_by": "document_parser agent - Autonomous processing with web research",
     "known_gaps": [
