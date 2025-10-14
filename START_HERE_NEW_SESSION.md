@@ -2,8 +2,8 @@
 
 <!-- AUTO-UPDATED: START - Session Metadata -->
 **Project**: North Africa TO&E Builder - **v3.0.0 (Ground Forces)**
-**Last Updated**: 2025-10-13 16:34
-**Status**: Schema v3.0 Complete, 178/213 units (83.6%)
+**Last Updated**: 2025-10-14 17:46
+**Status**: Schema v3.0 Complete, 180/213 units (84.5%)
 <!-- AUTO-UPDATED: END - Session Metadata -->
 
 ---
@@ -41,19 +41,19 @@
 
 <!-- AUTO-UPDATED: START - Recently Completed -->
 ### ✅ RECENTLY COMPLETED (Last Session):
-- **Session Date**: 2025-10-13
-- **Units Completed**: 178 units (0 → 178)
+- **Session Date**: 2025-10-14
+- **Units Completed**: 180 units (0 → 180)
 - **Session Duration**: unknown minutes
 - **Recent Work**:
-  - italy_1941--Q4_61_trento_division
-  - italy_1943--Q1_131_centauro_division
-  - italian_1940--Q2_62_marmarica_division
-  - germany_1942--Q1_panzerarmee_afrika
-  - italy_1940--Q2_61_sirte_division
-  - italy_1941--Q4_61_trento_division
-  - britain_1942--Q1_8th_army
-  - germany_1941--Q4_21_panzer_division
-  - germany_1942--Q3_15_panzer_division
+  - german_1941-Q2_5_leichte_division
+  - german_1941-Q2_15_panzer_division
+  - german_1942-Q3_21_panzer_division
+  - german_1942-Q4_90_leichte_afrika_division
+  - italian_1943-Q1_131_divisione_corazzata_centauro
+  - italian_1940-Q2_62_divisione_di_fanteria_marmarica
+  - italian_1940-Q2_61_divisione_di_fanteria_sirte
+  - italian_1941-Q4_61_divisione_motorizzata_trento
+  - german_1942-Q3_15_panzer_division
 - **Milestone Achievements**:
   - Gap 3 (Wikipedia): ✅ RESOLVED - 0 violations
   - Gap 8 (Infantry Weapons): ✅ RESOLVED - All chapters complete
@@ -62,8 +62,8 @@
 
 <!-- AUTO-UPDATED: START - Progress Stats -->
 ### 🔨 IN PROGRESS:
-- **Ground Forces Extraction**: 178/213 units (83.6%)
-  - 35 units remaining to complete Phase 1-6
+- **Ground Forces Extraction**: 180/213 units (84.5%)
+  - 33 units remaining to complete Phase 1-6
 - **1941-Q2 Showcase**: 90% complete
   - 10/18 units upgraded to v3.0.0 schema
   - All critical gaps resolved (Gap 3, 5, 8)
