@@ -373,6 +373,121 @@ Files follow pattern: `{nation}_{quarter}_{unit_designation}_toe.json`
 **Implementation:**
 All scripts MUST use `scripts/lib/naming_standard.js` to generate filenames for consistency.
 
+---
+
+## 📁 Output Directory Architecture (Architecture v4.0)
+
+**CRITICAL**: As of Architecture v4.0 (October 14, 2025), the project uses **canonical output locations** to prevent duplicate files and ensure single source of truth for all phases.
+
+### Canonical Output Structure
+
+```
+data/output/
+├── units/              ⭐ CANONICAL - All ground unit TO&E files (Phase 1-6)
+├── chapters/           ⭐ CANONICAL - All MDBook chapters (Phase 1-6)
+├── air_units/          ⭐ CANONICAL - Air force units (Phase 7+, future)
+├── air_chapters/       ⭐ CANONICAL - Air force chapters (Phase 7+, future)
+├── scenarios/          ⭐ CANONICAL - Battle scenarios (Phase 9+, future)
+├── campaign/           ⭐ CANONICAL - Campaign data (Phase 10+, future)
+└── sessions/           📦 ARCHIVE - Historical session work (read-only)
+```
+
+### ⚠️ CRITICAL RULES
+
+**DO**:
+- ✅ ALWAYS use `scripts/lib/canonical_paths.js` for path operations
+- ✅ Write unit JSON files to `data/output/units/` ONLY
+- ✅ Write MDBook chapters to `data/output/chapters/` ONLY
+- ✅ Scan canonical directories for completed units
+- ✅ Use `paths.getUnitPath(nation, quarter, unit)` helper functions
+
+**DON'T**:
+- ❌ NEVER create new `autonomous_*` or `session_*` directories in `data/output/`
+- ❌ NEVER write unit files to session directories
+- ❌ NEVER recursively scan `data/output/` for units
+- ❌ NEVER hardcode output paths (use canonical_paths.js)
+
+### Using Canonical Paths in Scripts
+
+```javascript
+const paths = require('./scripts/lib/canonical_paths');
+
+// ✅ CORRECT: Use canonical paths
+const unitPath = paths.getUnitPath('german', '1941q2', '15_panzer_division');
+// Returns: data/output/units/german_1941q2_15_panzer_division_toe.json
+
+const chapterPath = paths.getChapterPath('german', '1941q2', '15_panzer_division');
+// Returns: data/output/chapters/chapter_german_1941q2_15_panzer_division.md
+
+// ✅ CORRECT: Ensure directories exist
+await paths.ensureCanonicalDirectoriesExist();
+
+// ✅ CORRECT: Check if path is canonical
+const isCanonical = paths.isCanonicalPath(somePath);
+```
+
+```javascript
+// ❌ WRONG: Hardcoded paths
+const unitPath = 'data/output/autonomous_1760133539236/units/german_1941q2_15_panzer_division_toe.json';
+
+// ❌ WRONG: Creating session directories for unit files
+const sessionDir = `data/output/autonomous_${Date.now()}`;
+fs.mkdirSync(sessionDir + '/units');
+```
+
+### Session Archive System
+
+**Historical session directories** are archived to `data/output/sessions/`:
+- Contains old `autonomous_*` and `session_*` directories
+- Preserves audit trail and research notes
+- **READ-ONLY** - never use for production work
+- See `data/output/sessions/README.md` for archive details
+
+**Valid uses of archived sessions**:
+- Reviewing historical extraction process
+- Checking session-specific reports
+- Understanding how a unit was researched
+- Audit trail / quality verification
+
+**Invalid uses**:
+- ❌ Reading unit TO&E data (use canonical location!)
+- ❌ Generating MDBook chapters from archived units
+- ❌ Cross-referencing between units (use canonical!)
+
+### Migration Scripts
+
+**One-time migration** (if needed):
+```bash
+# Consolidate scattered files to canonical locations
+npm run consolidate
+
+# Archive old session directories
+npm run archive:sessions
+
+# Verify structure
+npm run checkpoint
+```
+
+These scripts should only be run once during Architecture v4.0 migration.
+
+### Why Canonical Locations?
+
+**Problem**: Before v4.0, each autonomous session created its own timestamped directory. Same unit existed in 5-7 locations, causing:
+- Duplicate counting (207 entries for 202 unique units)
+- Unclear which file was authoritative
+- Future phases (7-10) couldn't determine source of truth
+- Re-extraction of already-completed units
+
+**Solution**: Single canonical location for each output type, ensuring:
+- Unique files (one version per unit)
+- Clear authority (canonical location is source of truth)
+- Phase 7-10 readiness (air forces, scenarios, campaign)
+- No duplicate work (skip-completed logic)
+
+See `VERSION_HISTORY.md` Architecture v4.0 entry for complete technical details.
+
+---
+
 ## Task System
 
 ### Task Directory Structure

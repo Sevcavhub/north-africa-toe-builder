@@ -28,6 +28,7 @@
 
 const fs = require('fs').promises;
 const path = require('path');
+const paths = require('../scripts/lib/canonical_paths');
 
 /**
  * Autonomous Orchestrator Manager
@@ -42,7 +43,14 @@ class AutonomousOrchestrator {
   constructor() {
     this.projectPath = 'projects/north_africa_campaign.json';
     this.project = null;
-    this.outputDir = path.join(__dirname, '../data/output/autonomous_' + Date.now());
+
+    // Architecture v4.0: Use canonical output locations
+    this.canonicalUnitsDir = paths.UNITS_DIR;
+    this.canonicalChaptersDir = paths.CHAPTERS_DIR;
+
+    // Session directory for reports/logs ONLY (not unit files)
+    this.sessionWorkDir = paths.getSessionDir(`autonomous_${Date.now()}`);
+    this.outputDir = this.sessionWorkDir; // For backwards compatibility with reports
   }
 
   /**
@@ -101,16 +109,46 @@ class AutonomousOrchestrator {
       process.exit(1);
     }
 
+    // Architecture v4.0: Skip already-completed units (prevent duplicates)
+    try {
+      const workflowStatePath = path.join(__dirname, '../WORKFLOW_STATE.json');
+      const workflowData = await fs.readFile(workflowStatePath, 'utf-8');
+      const workflowState = JSON.parse(workflowData);
+
+      // Deduplicate completed list (safety check)
+      const completed = new Set(workflowState.completed || []);
+
+      // Filter out already-completed units
+      const originalCount = this.project.seed_units.length;
+      this.project.seed_units = this.project.seed_units.filter(unit => {
+        const nation = unit.nation.toLowerCase();
+        const quarter = unit.quarter.toLowerCase().replace('q', '-q');
+        const unitId = `${nation}_${quarter}_${unit.unit_designation}`;
+        return !completed.has(unitId);
+      });
+
+      if (completed.size > 0) {
+        console.log(`✅ Found ${completed.size} already-completed units in WORKFLOW_STATE.json`);
+        console.log(`🎯 Filtered: ${originalCount} → ${this.project.seed_units.length} remaining units to process\n`);
+      }
+    } catch (error) {
+      console.warn('⚠️  Could not load WORKFLOW_STATE.json - processing all units');
+      console.warn(`   ${error.message}\n`);
+    }
+
     console.log(`📋 Project: ${this.project.project_name}`);
     console.log(`📍 Campaign: ${this.project.scope.theater}`);
     console.log(`🎯 Units: ${this.project.seed_units.length} unit-quarters\n`);
 
-    // Create output directory
+    // Architecture v4.0: Ensure canonical directories exist
+    await paths.ensureCanonicalDirectoriesExist();
+
+    // Create session work directory for reports/logs
     await fs.mkdir(this.outputDir, { recursive: true });
-    await fs.mkdir(path.join(this.outputDir, 'units'), { recursive: true });
     await fs.mkdir(path.join(this.outputDir, 'reports'), { recursive: true });
 
-    console.log(`📁 Output directory: ${this.outputDir}\n`);
+    console.log(`📁 Canonical units directory: ${this.canonicalUnitsDir}`);
+    console.log(`📁 Session work directory: ${this.outputDir}\n`);
 
     // Save orchestration metadata
     const metadata = {
@@ -154,7 +192,8 @@ class AutonomousOrchestrator {
 Start autonomous orchestration for the North Africa TO&E project.
 
 Project file: ${this.projectPath}
-Output directory: ${this.outputDir}
+Units output directory (CANONICAL): ${this.canonicalUnitsDir}
+Session work directory (reports/logs): ${this.outputDir}
 Units to process: ${this.project.seed_units.length}
 
 **MCP CAPABILITIES:**
@@ -206,7 +245,7 @@ For each unit in projects/north_africa_seed_units.json:
 - Generate complete TO&E JSON files for each unit
 - Validate against schemas/unified_toe_schema.json
 - Use MCP ide__getDiagnostics for schema validation
-- Save to ${this.outputDir}/units/
+- Save to CANONICAL location: ${this.canonicalUnitsDir}
 - If SQLite MCP available: Ensure database and JSON files are in sync
 - If Git MCP available: Commit completed phase with summary
 
@@ -223,7 +262,8 @@ For each unit in projects/north_africa_seed_units.json:
 - If Git MCP available: Final commit with complete summary
 
 **FINAL DELIVERABLES:**
-- ${this.project.seed_units.length} TO&E JSON files (${this.outputDir}/units/)
+- ${this.project.seed_units.length} TO&E JSON files → CANONICAL: ${this.canonicalUnitsDir}
+- Session reports and logs → ${this.outputDir}
 - SQLite database (if MCP available): ${this.outputDir.replace(/\\/g, '/')}/../toe_database.db
 - Validation reports
 - Progress logs
@@ -244,7 +284,8 @@ Begin orchestration now!
     console.log('─'.repeat(80));
     console.log('\n4. Watch Claude work autonomously!');
     console.log('5. Check progress in real-time via TodoWrite updates');
-    console.log('6. Review outputs in: ' + this.outputDir);
+    console.log('6. Review unit files in: ' + this.canonicalUnitsDir);
+    console.log('7. Review reports in: ' + this.outputDir);
     console.log('\n═'.repeat(80) + '\n');
   }
 
@@ -274,8 +315,8 @@ Check the todo list in Claude Code chat for real-time progress.
 
 All generated files will appear in:
 \`\`\`
+${this.canonicalUnitsDir}/     # Generated TO&E JSON files (CANONICAL)
 ${this.outputDir}/
-├── units/                    # Generated TO&E JSON files
 ├── reports/                  # Validation and summary reports
 └── orchestration_metadata.json
 \`\`\`
@@ -284,7 +325,7 @@ ${this.outputDir}/
 
 To see real-time progress:
 1. Watch the Claude Code chat for TodoWrite updates
-2. Check ${this.outputDir}/units/ for new files
+2. Check ${this.canonicalUnitsDir}/ for new unit files
 3. Monitor completion messages in chat
 
 ## Units Being Processed

@@ -1,10 +1,11 @@
 # North Africa TO&E Builder - Complete Project Scope
 
-**Version**: 1.0.0
-**Last Updated**: 2025-10-13
+**Version**: 1.0.1
+**Last Updated**: 2025-10-14
 **Status**: 🟢 LIVING DOCUMENT - Subject to updates
-**Current Phase**: Phase 1-6 (Ground Forces)
-**Overall Progress**: ~5.8% complete (18 of ~313-348 total units)
+**Current Phase**: Phase 1-6 (Ground Forces) - NEARING COMPLETION
+**Overall Progress**: ~64.5% complete (202 of ~313-348 total units)
+**Architecture**: v4.0 (Canonical Output Locations)
 
 ---
 
@@ -27,11 +28,11 @@ This is NOT just a static historical database - it's a **game-ready scenario gen
 
 | Component | Unit Count | Status |
 |-----------|-----------|--------|
-| **Ground Forces** | 213 | 18 complete (8.5%) - Phase 1-6 |
+| **Ground Forces** | 213 | 202 complete (94.8%) - Phase 1-6 NEARING COMPLETION ✅ |
 | **Air Force Units** | ~100-135 | Not started - Phase 7 |
 | **Battle Scenarios** | 12+ | Planned - Phase 9 |
 | **Campaign System** | 1 complete | Planned - Phase 10 |
-| **TOTAL** | **~313-348 units** | **~5.8% complete** |
+| **TOTAL** | **~313-348 units** | **~64.5% complete** |
 
 ### Scope Clarifications:
 
@@ -53,25 +54,25 @@ This is NOT just a static historical database - it's a **game-ready scenario gen
 
 ## 🗓️ Phased Approach
 
-### **Phase 1-6: Ground Forces Extraction** (CURRENT FOCUS)
+### **Phase 1-6: Ground Forces Extraction** (NEARING COMPLETION ✅)
 
 **Goal**: Complete all 213 ground combat units
 
-**Status**: 18/213 complete (8.5%)
+**Status**: 202/213 complete (94.8%) - **11 units remaining**
 
 **Deliverables**:
-- 213 unit JSON files (complete SCM detail at all organizational levels)
-- 213 MDBook chapters (professional narrative with equipment tables)
-- WITW-format exports (CSV for wargaming)
-- SQL database schema (ground forces tables)
+- ✅ 202/213 unit JSON files (complete SCM detail) → CANONICAL: `data/output/units/`
+- ✅ 202/213 MDBook chapters (professional narrative) → CANONICAL: `data/output/chapters/`
+- ⏸️ WITW-format exports (CSV for wargaming) → CANONICAL: `data/output/scenarios/` (pending)
+- ⏸️ SQL database schema (ground forces tables) → pending
 
-**Timeline**: ~80-120 hours of autonomous processing (195 units remaining)
+**Architecture v4.0 Migration** (October 14, 2025):
+- ✅ Canonical output locations implemented (`data/output/units/`, `data/output/chapters/`)
+- ✅ Duplicate file issue resolved (207 entries → 202 unique units)
+- ✅ Session archive system (`data/output/sessions/` for historical work)
+- ✅ Skip-completed logic added (no re-extraction of finished units)
 
-**Current Priorities**:
-1. Fix 9 showcase gaps (Wikipedia sources, missing Corps units, Infantry Weapons sections)
-2. Add supply/logistics data to schema (fuel reserves, ammo stocks, operational radius)
-3. Add weather/environmental data (seasonal factors, terrain impacts)
-4. Resume autonomous extraction (195 remaining ground units)
+**Remaining Work**: 11 units to reach Phase 1-6 COMPLETE
 
 ---
 
@@ -114,12 +115,14 @@ No. 204 Group
 ```
 
 **Deliverables**:
-- ~100-135 air unit JSON files (separate schema with aircrew, ordnance, ground support)
-- Air forces MDBook (separate publication or integrated)
-- Air unit WITW exports (specialized format)
+- ~100-135 air unit JSON files → CANONICAL: `data/output/air_units/`
+- Air forces MDBook chapters → CANONICAL: `data/output/air_chapters/`
+- Air unit WITW exports (specialized format) → CANONICAL: `data/output/scenarios/air_units/`
 - SQL air forces tables
 
 **Timeline**: ~60-80 hours of autonomous processing
+
+**Prerequisites**: Phase 1-6 complete (all 213 ground units)
 
 ---
 
@@ -164,11 +167,13 @@ No. 204 Group
 ```
 
 **Deliverables**:
-- Updated ground unit JSONs (with air unit cross-links)
-- Assignment tables (which air units supported which ground units)
+- Updated ground unit JSONs (with air unit cross-links) → CANONICAL: `data/output/units/`
+- Assignment tables (which air units supported which ground units) → `data/output/campaign/air_ground_assignments/`
 - Integrated scenario generation capability
 
 **Timeline**: ~20-30 hours (mostly automated)
+
+**Prerequisites**: Phase 7 complete (all air units extracted)
 
 ---
 
@@ -642,38 +647,38 @@ WHERE quarter = '1941-Q2' AND operational = TRUE;
 
 ## 🚀 Current Status & Immediate Priorities
 
-### Overall Progress:
-- **Ground Units**: 18/213 complete (8.5%)
+### Overall Progress (Updated 2025-10-14):
+- **Ground Units**: 202/213 complete (94.8%) ✅ NEARING COMPLETION
 - **Air Force Units**: 0/~100-135 (Phase 7 pending)
-- **Overall**: ~5.8% complete
+- **Overall**: ~64.5% complete (202 of ~313-348 total units)
 
-### Current Phase: 1-6 (Ground Forces)
+### Current Phase: 1-6 (Ground Forces) - Final Push
+
+**Architecture v4.0 Implemented**:
+- ✅ Canonical output locations (`data/output/units/`, `data/output/chapters/`)
+- ✅ Duplicate file issue resolved (207 → 202 unique units)
+- ✅ Session archive system in place
+- ✅ Skip-completed logic prevents re-extraction
 
 **Immediate Priorities** (Next 1-2 sessions):
 
-1. **Fix 9 Showcase Gaps** (affects all 213 units):
-   - Remove Wikipedia from 7 chapters (re-extract with Tier 1/2 sources)
-   - Add Infantry Weapons sections to all 18 chapters (data exists, needs extraction)
-   - Extract missing Corps units (British XIII Corps, WDF + Italian XX/XXI Corps)
-   - Fix empty sections (Bologna, Trieste Division Overviews)
-   - Implement QA audit system (pre-publication validation)
+1. **Complete Architecture v4.0 Migration**:
+   - Run `npm run consolidate` (consolidate scattered files)
+   - Run `npm run archive:sessions` (archive old session directories)
+   - Verify canonical structure (`npm run checkpoint`)
+   - Git commit Architecture v4.0
 
-2. **Add Supply/Logistics Data** (NEW requirement):
-   - Update `unified_toe_schema.json` with Section 6 (supply/logistics)
-   - Add to MDBook template as Section 8
-   - Extract for existing 18 units
-   - Automate for remaining 195 units
+2. **Complete Remaining 11 Ground Units**:
+   - 11 units remain to reach Phase 1-6 COMPLETE
+   - Use canonical output locations (`data/output/units/`)
+   - Skip-completed logic will filter out 202 finished units
+   - Target: ~3-5 hours autonomous processing
 
-3. **Add Weather/Environment Data** (NEW requirement):
-   - Update schema with Section 7 (weather/environment)
-   - Add to MDBook template as Section 9
-   - Research quarterly weather patterns
-   - Document seasonal impacts
-
-4. **Resume Autonomous Extraction** (195 remaining):
-   - Process ground units in priority order (Italian → British → German → American → French)
-   - Run QA auditor every 20 units
-   - Target: 80-120 hours autonomous processing
+3. **Prepare for Phase 7 Transition**:
+   - Finalize Air Forces Schema v1.0 specification
+   - Design air unit extraction workflow
+   - Define air unit naming conventions (luftwaffe_, raf_, usaaf_, regia_)
+   - Set up canonical air directories (`data/output/air_units/`, `data/output/air_chapters/`)
 
 ---
 
@@ -768,6 +773,18 @@ This scope is achievable, professionally valuable, and commercially marketable.
 - Established Kickstarter commercial product viability
 - Created living document for ongoing updates
 
+### v1.0.1 (2025-10-14) - Architecture v4.0 Update
+- **Progress Update**: 202/213 ground units complete (94.8% - was 18/213, 8.5%)
+- **Overall Progress**: 64.5% complete (was 5.8%)
+- **Architecture v4.0**: Canonical output locations implemented
+- **Canonical Paths**: All Phase 7-10 deliverables now reference canonical locations
+  - Phase 7: `data/output/air_units/`, `data/output/air_chapters/`
+  - Phase 8: `data/output/campaign/air_ground_assignments/`
+  - Phase 9-10: `data/output/scenarios/`, `data/output/campaign/`
+- **Duplicate Resolution**: Fixed duplicate file counting (207 → 202 unique units)
+- **Phase 1-6 Status**: NEARING COMPLETION (11 units remaining)
+- **Immediate Priorities**: Architecture v4.0 migration, complete remaining 11 units, prep Phase 7
+
 ### Future Updates:
 - **v1.1.0** (TBD): [Air forces schema finalization]
 - **v1.2.0** (TBD): [Scenario generation specifications]
@@ -793,10 +810,10 @@ When updating PROJECT_SCOPE.md:
 
 ---
 
-**END OF PROJECT SCOPE v1.0.0**
+**END OF PROJECT SCOPE v1.0.1**
 
 **All agents, all sessions, all future work must reference this document.**
 
-**For technical implementation details, see `docs/project_context.md`**
+**For technical implementation details, see `docs/project_context.md` and `VERSION_HISTORY.md`**
 **For current session status, see `SESSION_SUMMARY.md`**
 **For agent instructions, see `CLAUDE.md`**

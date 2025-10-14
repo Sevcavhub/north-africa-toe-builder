@@ -415,6 +415,120 @@ npm run qa:v3           # Full QA pipeline
 
 ---
 
+### **Architecture v4.0: Canonical Output Locations (October 14, 2025)**
+
+**Git Commit**: Pending (current implementation)
+
+**🚨 BREAKING CHANGES - Output Directory Structure**
+
+**Strategic Rationale**:
+Duplicate file problem discovered after sessions showed 202 units complete but WORKFLOW_STATE.json had 207 entries. Same unit existed in 5-7 locations across different `autonomous_*` session directories. Root cause: Each `npm run start:autonomous` created new timestamped directory (`autonomous_TIMESTAMP/`) with no consolidation to canonical location. This would "mess up future steps and phases" (user quote) - particularly Phase 7 (Air Forces), Phase 8 (Cross-linking), and Phase 9 (Scenario Generation) which require single source of truth for unit files.
+
+**Problem Analysis**:
+- `german_1941q2_15_panzer_division_toe.json` existed in 7 locations
+- Session management scripts recursively scanned entire `data/output/` tree
+- No "skip completed" logic in autonomous orchestrator
+- Future phases couldn't determine which file was authoritative
+- Count inflation caused by duplicate tracking
+
+**Solution**: Canonical output architecture with single source of truth
+
+**Architectural Changes**:
+
+**1. Canonical Output Locations** (single source of truth):
+```
+data/output/
+├── units/              ⭐ CANONICAL - All ground unit TO&E files
+├── chapters/           ⭐ CANONICAL - All MDBook chapters
+├── air_units/          ⭐ CANONICAL - Air force units (Phase 7+)
+├── air_chapters/       ⭐ CANONICAL - Air force chapters (Phase 7+)
+├── scenarios/          ⭐ CANONICAL - Battle scenarios (Phase 9+)
+├── campaign/           ⭐ CANONICAL - Campaign data (Phase 10+)
+└── sessions/           📦 Archive - Historical session work (read-only)
+```
+
+**2. Centralized Path Library** (`scripts/lib/canonical_paths.js`):
+- Single source of truth for all output paths
+- Helper functions: `getUnitPath()`, `getChapterPath()`, `getAirUnitPath()`
+- Prevents future path drift across 40+ scripts
+- Future-proofs Phase 7-10 expansion
+
+**3. Session Archive System**:
+- Historical `autonomous_*` directories moved to `data/output/sessions/`
+- Preserves audit trail and research notes
+- Prevents confusion between active and archived work
+- Clear separation: canonical (active) vs sessions (historical)
+
+**4. Migration Tools**:
+- `scripts/consolidate_canonical.js` - Finds latest version of each unit, copies to canonical
+- `scripts/archive_old_sessions.js` - Moves old session directories to archive
+- `data/output/sessions/README.md` - Archive documentation and warnings
+
+**5. Updated Session Management**:
+- `scripts/create_checkpoint.js` - Flat scan of canonical directory only (no recursion)
+- `scripts/session_start.js` - Uses canonical paths, deduplicates on read
+- `scripts/session_end.js` - Added deduplication safety check
+- All scanning functions now use `Map` to ensure unique unit counts
+
+**6. Autonomous Orchestrator Fixes**:
+- `src/autonomous_orchestrator.js` - Uses canonical output locations
+- Added skip-completed logic (filters WORKFLOW_STATE.json against seed_units)
+- Session directory created for reports/logs only (not unit files)
+- Prevents re-extraction of already-completed units
+
+**NPM Scripts** (`package.json`):
+- `consolidate` - Run one-time migration to canonical structure
+- `archive:sessions` - Move old session directories to archive
+
+**Impact**:
+- **BREAKING**: All scripts must use `canonical_paths.js` (40+ files affected)
+- **Fixed**: Duplicate counting (207 → actual unique count)
+- **Fixed**: No more re-extraction of completed units
+- **Enabled**: Clean foundation for Phase 7-10 (air forces, scenarios, campaign)
+- **Migration Required**: Run `npm run consolidate && npm run archive:sessions`
+
+**Deduplication Strategy**:
+```javascript
+// Example from session_start.js
+const uniqueMap = new Map();
+for (const unit of completed) {
+    const unitId = `${unit.nation}_${unit.quarter}_${unit.unit}`;
+    if (!uniqueMap.has(unitId)) {
+        uniqueMap.set(unitId, unit);
+    }
+}
+return Array.from(uniqueMap.values());
+```
+
+**Files Changed**:
+- `scripts/lib/canonical_paths.js` - NEW (centralized path definitions)
+- `scripts/consolidate_canonical.js` - NEW (migration tool)
+- `scripts/archive_old_sessions.js` - NEW (archival tool)
+- `data/output/sessions/README.md` - NEW (archive documentation)
+- `package.json` - Added consolidate and archive:sessions scripts
+- `scripts/create_checkpoint.js` - Fixed recursive scanning, uses canonical paths
+- `scripts/session_start.js` - Uses canonical paths, added deduplication
+- `scripts/session_end.js` - Added deduplication safety check
+- `src/autonomous_orchestrator.js` - Uses canonical paths, skip-completed logic
+- `CLAUDE.md` - Updated output directory documentation
+- `PROJECT_SCOPE.md` - Marked Phase 1-6 complete, updated Phase 7-10 paths
+- `VERSION_HISTORY.md` - This entry
+
+**Related**:
+- Resolves duplicate file issue discovered in session summary discrepancy
+- Enables clean Phase 7 transition (Air Forces extraction)
+- PROJECT_SCOPE.md: Phases 7-10 require single source of truth
+
+**Validation**:
+```bash
+# After migration:
+npm run consolidate        # Find latest versions, copy to canonical
+npm run archive:sessions   # Move old sessions to archive
+npm run checkpoint         # Verify correct count (should be 213/213)
+```
+
+---
+
 ## 🔢 Field Count Evolution Summary
 
 | Version | Fixed Fields | Ground Vehicle Categories | Supply | Environment | Total Range |

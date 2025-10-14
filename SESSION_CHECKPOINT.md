@@ -1,18 +1,18 @@
-# Session Checkpoint - 2025-10-14T13:56:35.501Z
+# Session Checkpoint - 2025-10-14T14:19:04.814Z
 
 ## Progress Summary
 
 - **Total Units:** 213
-- **Completed:** 213 (100.0%)
-- **Remaining:** 0
-- **Last Commit:** e60990e
+- **Completed:** 153 (71.8%)
+- **Remaining:** 60
+- **Last Commit:** 34e7590
 
 ## Validation Status
 
-- **Total Validated:** 213
-- **✅ Passed:** 188 (88.3%)
+- **Total Validated:** 153
+- **✅ Passed:** 140 (91.5%)
 - **❌ Failed:** 3 ⚠️
-- **⚠️ Warnings:** 22
+- **⚠️ Warnings:** 10
 
 ### Critical Validation Failures
 
@@ -28,23 +28,23 @@
 
 ## Chapter Status
 
-- **JSON Files:** 213
+- **JSON Files:** 153
 - **MDBook Chapters:** 0 ⚠️
-- **Missing Chapters:** 213
-  - ❌ british_1941-Q2_1st_south_african_infantry_division
-  - ❌ british_1941-Q2_2nd_new_zealand_division
-  - ❌ british_1941-Q2_4th_indian_infantry_division
-  - ❌ british_1941-Q2_50th_northumbrian_infantry_division
-  - ❌ british_1941-Q2_5th_indian_infantry_division
-  - ... and 208 more
+- **Missing Chapters:** 153
+  - ❌ american_1942-Q4_1st_armored_division
+  - ❌ american_1942-Q4_1st_infantry_division
+  - ❌ american_1942-Q4_3rd_infantry_division
+  - ❌ american_1942-Q4_9th_infantry_division
+  - ❌ american_1943-Q1_1st_infantry_division
+  - ... and 148 more
 
 ## Recent Completions
 
+- ✅ italian_1942-Q4_132_ariete_division
+- ✅ italian_1942-Q4_133a_divisione_corazzata_littorio
+- ✅ italian_1942-Q4_185a_divisione_paracadutisti_folgore
+- ✅ italian_1942-Q4_185_divisione_paracadutisti_folgore
 - ✅ italian_1943-Q1_131_divisione_corazzata_centauro
-- ✅ italian_1940-Q2_62_divisione_di_fanteria_marmarica
-- ✅ italian_1940-Q2_61_divisione_di_fanteria_sirte
-- ✅ italian_1941-Q4_61_divisione_motorizzata_trento
-- ✅ german_1942-Q3_15_panzer_division
 
 ## Recovery Instructions
 
@@ -62,13 +62,13 @@ If this session crashes or needs to resume:
 
 3. **View full progress:**
    - See WORKFLOW_STATE.json for complete list
-   - 213 units saved successfully
+   - 153 units saved successfully
 
 ## Session Info
 
 - **Session ID:** session_initial
-- **Checkpoint Time:** 2025-10-14T13:56:35.470Z
-- **Git Commit:** e60990e
+- **Checkpoint Time:** 2025-10-14T14:19:04.782Z
+- **Git Commit:** 34e7590
 
 ---
 

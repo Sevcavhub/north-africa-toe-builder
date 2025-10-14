@@ -17,6 +17,7 @@ const fs = require('fs').promises;
 const path = require('path');
 const { execSync } = require('child_process');
 const { storeSessionStats, storePattern, storeDecision, storeQualityIssue } = require('./memory_mcp_helpers');
+const paths = require('./lib/canonical_paths');
 
 const PROJECT_ROOT = path.join(__dirname, '..');
 const WORKFLOW_STATE_PATH = path.join(PROJECT_ROOT, 'WORKFLOW_STATE.json');
@@ -25,7 +26,14 @@ const SESSION_SUMMARY_PATH = path.join(PROJECT_ROOT, 'SESSION_SUMMARY.md');
 async function readWorkflowState() {
     try {
         const data = await fs.readFile(WORKFLOW_STATE_PATH, 'utf-8');
-        return JSON.parse(data);
+        const state = JSON.parse(data);
+
+        // Deduplicate completed array (Architecture v4.0 safety check)
+        if (state && state.completed && Array.isArray(state.completed)) {
+            state.completed = Array.from(new Set(state.completed));
+        }
+
+        return state;
     } catch (error) {
         return null;
     }

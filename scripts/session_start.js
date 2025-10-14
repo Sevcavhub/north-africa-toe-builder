@@ -17,6 +17,7 @@ const path = require('path');
 const { execSync } = require('child_process');
 const { queryProjectKnowledge } = require('./memory_mcp_helpers');
 const naming = require('./lib/naming_standard');
+const paths = require('./lib/canonical_paths');
 
 const PROJECT_ROOT = path.join(__dirname, '..');
 const WORKFLOW_STATE_PATH = path.join(PROJECT_ROOT, 'WORKFLOW_STATE.json');
@@ -31,39 +32,43 @@ async function readWorkflowState() {
 }
 
 async function getCompletedUnits() {
-    // Scan for completed unit files (same as create_checkpoint.js)
-    const unitsDir = path.join(PROJECT_ROOT, 'data/output');
+    // Scan CANONICAL units directory ONLY (Architecture v4.0)
+    const canonicalUnitsDir = paths.UNITS_DIR;
     const completed = [];
 
     try {
-        // Find all unit JSON files recursively
-        const findUnits = (dir) => {
-            const items = require('fs').readdirSync(dir, { withFileTypes: true });
-            for (const item of items) {
-                const fullPath = path.join(dir, item.name);
-                if (item.isDirectory()) {
-                    findUnits(fullPath);
-                } else if (item.name.endsWith('_toe.json') && !item.name.startsWith('unit_')) {
-                    // Extract unit info from filename
-                    const match = item.name.match(/^([a-z]+)_(\d{4}[-]?q\d)_(.+)_toe\.json$/i);
-                    if (match) {
-                        completed.push({
-                            nation: match[1],
-                            quarter: match[2].toUpperCase().replace(/Q/, '-Q'),
-                            unit: match[3],
-                            filename: item.name
-                        });
-                    }
+        // Simple flat scan of canonical directory (NO recursion)
+        const files = await fs.readdir(canonicalUnitsDir);
+
+        for (const filename of files) {
+            if (filename.endsWith('_toe.json') && !filename.startsWith('unit_')) {
+                // Extract unit info from filename
+                const match = filename.match(/^([a-z]+)_(\d{4}[-]?q\d)_(.+)_toe\.json$/i);
+                if (match) {
+                    completed.push({
+                        nation: match[1],
+                        quarter: match[2].toUpperCase().replace(/Q/, '-Q'),
+                        unit: match[3],
+                        filename: filename
+                    });
                 }
             }
-        };
-
-        findUnits(unitsDir);
+        }
     } catch (error) {
-        console.warn('⚠️  Could not scan units directory:', error.message);
+        console.warn('⚠️  Could not scan canonical units directory:', error.message);
+        console.warn(`   Location: ${canonicalUnitsDir}`);
     }
 
-    return completed;
+    // Deduplicate by unit ID (should not have duplicates in canonical, but safety check)
+    const uniqueMap = new Map();
+    for (const unit of completed) {
+        const unitId = `${unit.nation}_${unit.quarter}_${unit.unit}`;
+        if (!uniqueMap.has(unitId)) {
+            uniqueMap.set(unitId, unit);
+        }
+    }
+
+    return Array.from(uniqueMap.values());
 }
 
 async function syncWorkflowState(scannedUnits, currentState) {

@@ -16,6 +16,7 @@ const path = require('path');
 const { execSync } = require('child_process');
 const { validateUnitFile } = require('./lib/validator');
 const naming = require('./lib/naming_standard');
+const paths = require('./lib/canonical_paths');
 
 const PROJECT_ROOT = path.join(__dirname, '..');
 const WORKFLOW_STATE_PATH = path.join(PROJECT_ROOT, 'WORKFLOW_STATE.json');
@@ -40,89 +41,73 @@ async function readWorkflowState() {
 }
 
 async function getCompletedUnits() {
-    // Scan for completed unit files
-    const unitsDir = path.join(PROJECT_ROOT, 'data/output');
+    // Scan CANONICAL units directory ONLY (Architecture v4.0)
+    const canonicalUnitsDir = paths.UNITS_DIR;
     const completed = [];
 
     try {
-        // Find all unit JSON files recursively
-        const findUnits = (dir) => {
-            const items = require('fs').readdirSync(dir, { withFileTypes: true });
-            for (const item of items) {
-                const fullPath = path.join(dir, item.name);
-                if (item.isDirectory()) {
-                    findUnits(fullPath);
-                } else if (item.name.endsWith('_toe.json') && !item.name.startsWith('unit_')) {
-                    // Extract unit info from filename using naming standard
-                    const parsed = naming.parseFilename(item.name);
-                    if (parsed) {
-                        completed.push({
-                            nation: parsed.nation,
-                            quarter: parsed.quarter.toUpperCase().replace(/Q/, '-Q'),
-                            unit: parsed.designation,
-                            filename: item.name
-                        });
-                    }
+        // Simple flat scan of canonical directory (NO recursion)
+        const files = await fs.readdir(canonicalUnitsDir);
+
+        for (const filename of files) {
+            if (filename.endsWith('_toe.json') && !filename.startsWith('unit_')) {
+                // Extract unit info from filename using naming standard
+                const parsed = naming.parseFilename(filename);
+                if (parsed) {
+                    completed.push({
+                        nation: parsed.nation,
+                        quarter: parsed.quarter.toUpperCase().replace(/Q/, '-Q'),
+                        unit: parsed.designation,
+                        filename: filename
+                    });
                 }
             }
-        };
-
-        findUnits(unitsDir);
+        }
     } catch (error) {
-        console.warn('⚠️  Could not scan units directory:', error.message);
+        console.warn('⚠️  Could not scan canonical units directory:', error.message);
+        console.warn(`   Location: ${canonicalUnitsDir}`);
     }
 
-    return completed;
+    // Deduplicate by unit ID (should not have duplicates in canonical, but safety check)
+    const uniqueMap = new Map();
+    for (const unit of completed) {
+        const unitId = `${unit.nation}_${unit.quarter}_${unit.unit}`;
+        if (!uniqueMap.has(unitId)) {
+            uniqueMap.set(unitId, unit);
+        }
+    }
+
+    return Array.from(uniqueMap.values());
 }
 
 async function checkChapterStatus(completedUnits) {
-    // Check if corresponding MDBook chapters exist for each JSON file
+    // Check if corresponding MDBook chapters exist in CANONICAL location (Architecture v4.0)
     const chapterStatus = {
         total: completedUnits.length,
         found: 0,
         missing: []
     };
 
-    for (const unit of completedUnits) {
-        // Look for chapter files in all autonomous session directories
-        const outputDir = path.join(PROJECT_ROOT, 'data/output');
-        let chapterFound = false;
+    try {
+        // Check canonical chapters directory only
+        const canonicalChaptersDir = paths.CHAPTERS_DIR;
+        const chapterFiles = await fs.readdir(canonicalChaptersDir);
 
-        try {
-            const checkDir = (dir) => {
-                const items = require('fs').readdirSync(dir, { withFileTypes: true });
-                for (const item of items) {
-                    if (item.isDirectory()) {
-                        const fullPath = path.join(dir, item.name);
-                        if (item.name === 'north_africa_book') {
-                            // Check for chapter file
-                            const srcDir = path.join(fullPath, 'src');
-                            if (require('fs').existsSync(srcDir)) {
-                                const chapterPattern = new RegExp(`chapter_${unit.nation}_.*${unit.unit.replace(/_/g, '.*')}\\.md`, 'i');
-                                const files = require('fs').readdirSync(srcDir);
-                                if (files.some(f => chapterPattern.test(f))) {
-                                    chapterFound = true;
-                                    return true;
-                                }
-                            }
-                        } else if (!item.name.startsWith('.')) {
-                            checkDir(fullPath);
-                        }
-                    }
-                }
-                return false;
-            };
+        for (const unit of completedUnits) {
+            // Build expected chapter filename
+            const quarterNormalized = unit.quarter.replace('-Q', 'q').toLowerCase();
+            const expectedPattern = new RegExp(`chapter_${unit.nation}_${quarterNormalized}_.*${unit.unit.replace(/_/g, '.*')}\\.md`, 'i');
 
-            checkDir(outputDir);
-        } catch (error) {
-            // Ignore errors, just mark as not found
+            const chapterFound = chapterFiles.some(f => expectedPattern.test(f));
+
+            if (chapterFound) {
+                chapterStatus.found++;
+            } else {
+                chapterStatus.missing.push(`${unit.nation}_${unit.quarter}_${unit.unit}`);
+            }
         }
-
-        if (chapterFound) {
-            chapterStatus.found++;
-        } else {
-            chapterStatus.missing.push(`${unit.nation}_${unit.quarter}_${unit.unit}`);
-        }
+    } catch (error) {
+        console.warn('⚠️  Could not check canonical chapters directory:', error.message);
     }
 
     return chapterStatus;
@@ -222,7 +207,7 @@ If this session crashes or needs to resume:
 }
 
 async function validateCompletedUnits(completedUnits) {
-    // Validate all completed unit JSON files
+    // Validate all completed unit JSON files from CANONICAL location (Architecture v4.0)
     const validationStatus = {
         total: completedUnits.length,
         passed: 0,
@@ -232,46 +217,31 @@ async function validateCompletedUnits(completedUnits) {
     };
 
     for (const unit of completedUnits) {
-        // Find the file path
-        const outputDir = path.join(PROJECT_ROOT, 'data/output');
-        let filePath = null;
+        // File path is in canonical location (simple join, no search needed)
+        const filePath = path.join(paths.UNITS_DIR, unit.filename);
 
         try {
-            const findFile = (dir) => {
-                const items = require('fs').readdirSync(dir, { withFileTypes: true });
-                for (const item of items) {
-                    const fullPath = path.join(dir, item.name);
-                    if (item.isDirectory()) {
-                        const found = findFile(fullPath);
-                        if (found) return found;
-                    } else if (item.name === unit.filename) {
-                        return fullPath;
-                    }
-                }
-                return null;
-            };
+            // Check file exists
+            await fs.access(filePath);
 
-            filePath = findFile(outputDir);
+            // Validate the file
+            const result = validateUnitFile(filePath);
+
+            if (result.critical.length === 0 && result.warnings.length === 0) {
+                validationStatus.passed++;
+            } else if (result.critical.length > 0) {
+                validationStatus.failed++;
+                validationStatus.violations.push({
+                    unit: `${unit.nation}_${unit.quarter}_${unit.unit}`,
+                    critical: result.critical,
+                    warnings: result.warnings
+                });
+            } else {
+                validationStatus.warnings++;
+            }
         } catch (error) {
-            // Ignore search errors
-        }
-
-        if (!filePath) continue;
-
-        // Validate the file
-        const result = validateUnitFile(filePath);
-
-        if (result.critical.length === 0 && result.warnings.length === 0) {
-            validationStatus.passed++;
-        } else if (result.critical.length > 0) {
-            validationStatus.failed++;
-            validationStatus.violations.push({
-                unit: `${unit.nation}_${unit.quarter}_${unit.unit}`,
-                critical: result.critical,
-                warnings: result.warnings
-            });
-        } else {
-            validationStatus.warnings++;
+            // File not found or validation error
+            console.warn(`⚠️  Could not validate ${unit.filename}:`, error.message);
         }
     }
 
