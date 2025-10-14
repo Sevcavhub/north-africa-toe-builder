@@ -20,28 +20,73 @@ const nationKeyMap = {
   'french_units': 'France'
 };
 
-// Build set of all seed unit IDs
+// Build map of seed units (for fuzzy matching)
+const seedUnits = [];
 nations.forEach(key => {
   if (seed[key]) {
     seed[key].forEach(unit => {
       unit.quarters.forEach(quarter => {
         const nation = nationMap[nationKeyMap[key]];
-        const designation = naming.normalizeDesignation(unit.designation);
-        const unitId = `${nation}_${quarter}_${designation}`;
-        seedSet.add(unitId);
+        seedUnits.push({
+          nation: nation,
+          quarter: quarter,
+          designation: unit.designation,
+          normalized: naming.normalizeDesignation(unit.designation)
+        });
       });
     });
   }
 });
 
-// Find units in WORKFLOW_STATE but not in seed
-const notInSeed = state.completed.filter(id => !seedSet.has(id));
+console.log('Total seed units:', seedUnits.length);
+
+// Use fuzzy matching to find which completed units match seed
+const matchedUnits = new Set();
+const notInSeed = [];
+
+state.completed.forEach(completedId => {
+  // Parse completed ID: nation_quarter_designation
+  const parts = completedId.split('_');
+  if (parts.length < 3) {
+    notInSeed.push(completedId);
+    return;
+  }
+
+  const nation = parts[0];
+  const quarter = parts[1];
+  const designation = parts.slice(2).join('_');
+
+  // Try to find matching seed unit using fuzzy logic
+  let found = false;
+  for (const seedUnit of seedUnits) {
+    if (seedUnit.nation !== nation || seedUnit.quarter !== quarter) continue;
+
+    // Use naming standard's fuzzy matching logic
+    // Check if key words overlap
+    const seedWords = seedUnit.normalized.split('_').filter(w => w.length > 2);
+    const completedWords = designation.split('_').filter(w => w.length > 2);
+
+    // Count matching words
+    const matches = seedWords.filter(w => completedWords.includes(w)).length;
+
+    // Need at least 60% of words to match
+    if (matches >= Math.min(seedWords.length, completedWords.length) * 0.6) {
+      found = true;
+      matchedUnits.add(completedId);
+      break;
+    }
+  }
+
+  if (!found) {
+    notInSeed.push(completedId);
+  }
+});
 
 console.log('Units in WORKFLOW_STATE but NOT in seed file:', notInSeed.length);
 console.log('\nFirst 10 examples:');
 notInSeed.slice(0, 10).forEach(id => console.log('  ', id));
 
-// Group by nation
+// Group orphaned by nation
 const byNation = {};
 notInSeed.forEach(id => {
   const nation = id.split('_')[0];
@@ -55,15 +100,49 @@ Object.entries(byNation).forEach(([nation, units]) => {
   units.forEach(id => console.log('  -', id));
 });
 
-// Also check the reverse - seed units not in WORKFLOW_STATE
-const notCompleted = Array.from(seedSet).filter(id => !state.completed.includes(id));
+// Check which seed units are NOT completed yet
+const notCompleted = [];
+seedUnits.forEach(seedUnit => {
+  // Build expected pattern for this seed unit
+  const seedNation = seedUnit.nation;
+  const seedQuarter = seedUnit.quarter;
+  const seedNorm = seedUnit.normalized;
+
+  // Check if any completed unit matches this seed unit
+  let found = false;
+  for (const completedId of state.completed) {
+    const parts = completedId.split('_');
+    if (parts.length < 3) continue;
+
+    const nation = parts[0];
+    const quarter = parts[1];
+    const designation = parts.slice(2).join('_');
+
+    if (nation !== seedNation || quarter !== seedQuarter) continue;
+
+    // Fuzzy match
+    const seedWords = seedNorm.split('_').filter(w => w.length > 2);
+    const completedWords = designation.split('_').filter(w => w.length > 2);
+    const matches = seedWords.filter(w => completedWords.includes(w)).length;
+
+    if (matches >= Math.min(seedWords.length, completedWords.length) * 0.6) {
+      found = true;
+      break;
+    }
+  }
+
+  if (!found) {
+    notCompleted.push(`${seedNation}_${seedQuarter}_${seedNorm}`);
+  }
+});
+
 console.log('\n\nSeed units NOT in WORKFLOW_STATE:', notCompleted.length);
 console.log('(These are the remaining units to complete)');
 
-console.log('\n=== SUMMARY ===');
-console.log('Current seed file: 213 units');
-console.log('WORKFLOW_STATE completed: 153 units');
-console.log('Matching current scope: ' + (153 - notInSeed.length) + ' units');
+console.log('\n=== SUMMARY (with fuzzy matching) ===');
+console.log('Current seed file: ' + seedUnits.length + ' units');
+console.log('WORKFLOW_STATE completed: ' + state.completed.length + ' units');
+console.log('Matching current scope: ' + matchedUnits.size + ' units');
 console.log('Orphaned (not in scope): ' + notInSeed.length + ' units');
 console.log('Remaining to complete: ' + notCompleted.length + ' units');
-console.log('REAL progress: ' + ((153 - notInSeed.length) / 213 * 100).toFixed(1) + '%');
+console.log('REAL progress: ' + (matchedUnits.size / seedUnits.length * 100).toFixed(1) + '%');

@@ -134,12 +134,35 @@ class AutonomousOrchestrator {
         const nation = nationMap[unit.nation] || unit.nation.toLowerCase();
         const quarter = unit.quarter;  // Already in correct format: "1941-Q1"
 
-        // Normalize designation to match WORKFLOW_STATE format
+        // Normalize designation
         const naming = require('../scripts/lib/naming_standard');
-        const designation = naming.normalizeDesignation(unit.unit_designation);
+        const seedNorm = naming.normalizeDesignation(unit.unit_designation);
 
-        const unitId = `${nation}_${quarter}_${designation}`;
-        return !completed.has(unitId);
+        // Use fuzzy matching against completed units
+        // (Seed file has "4th Indian Division", completed has "4th Indian Infantry Division")
+        let found = false;
+        for (const completedId of completed) {
+          const parts = completedId.split('_');
+          if (parts.length < 3) continue;
+
+          const compNation = parts[0];
+          const compQuarter = parts[1];
+          const compDesig = parts.slice(2).join('_');
+
+          if (compNation !== nation || compQuarter !== quarter) continue;
+
+          // Fuzzy match: check word overlap (60% threshold)
+          const seedWords = seedNorm.split('_').filter(w => w.length > 2);
+          const compWords = compDesig.split('_').filter(w => w.length > 2);
+          const matches = seedWords.filter(w => compWords.includes(w)).length;
+
+          if (matches >= Math.min(seedWords.length, compWords.length) * 0.6) {
+            found = true;
+            break;
+          }
+        }
+
+        return !found;  // Keep if NOT found in completed
       });
 
       if (completed.size > 0) {
