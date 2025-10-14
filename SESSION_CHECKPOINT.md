@@ -1,18 +1,18 @@
-# Session Checkpoint - 2025-10-14T13:09:37.877Z
+# Session Checkpoint - 2025-10-14T13:32:17.585Z
 
 ## Progress Summary
 
 - **Total Units:** 213
-- **Completed:** 202 (94.8%)
-- **Remaining:** 11
-- **Last Commit:** 16a89af
+- **Completed:** 205 (96.2%)
+- **Remaining:** 8
+- **Last Commit:** 38dba30
 
 ## Validation Status
 
-- **Total Validated:** 202
-- **✅ Passed:** 185 (91.6%)
+- **Total Validated:** 205
+- **✅ Passed:** 185 (90.2%)
 - **❌ Failed:** 3 ⚠️
-- **⚠️ Warnings:** 14
+- **⚠️ Warnings:** 17
 
 ### Critical Validation Failures
 
@@ -28,15 +28,15 @@
 
 ## Chapter Status
 
-- **JSON Files:** 202
+- **JSON Files:** 205
 - **MDBook Chapters:** 0 ⚠️
-- **Missing Chapters:** 202
+- **Missing Chapters:** 205
   - ❌ british_1941-Q2_1st_south_african_infantry_division
   - ❌ british_1941-Q2_2nd_new_zealand_division
   - ❌ british_1941-Q2_4th_indian_infantry_division
   - ❌ british_1941-Q2_50th_northumbrian_infantry_division
   - ❌ british_1941-Q2_5th_indian_infantry_division
-  - ... and 197 more
+  - ... and 200 more
 
 ## Recent Completions
 
@@ -62,13 +62,13 @@ If this session crashes or needs to resume:
 
 3. **View full progress:**
    - See WORKFLOW_STATE.json for complete list
-   - 202 units saved successfully
+   - 205 units saved successfully
 
 ## Session Info
 
 - **Session ID:** session_initial
-- **Checkpoint Time:** 2025-10-14T13:09:37.846Z
-- **Git Commit:** 16a89af
+- **Checkpoint Time:** 2025-10-14T13:32:17.552Z
+- **Git Commit:** 38dba30
 
 ---
 
