@@ -1,16 +1,17 @@
 {
-  "schema_type": "unified_toe",
-  "schema_version": "1.0.0",
+  "schema_type": "division_toe",
+  "schema_version": "3.0.0",
   "nation": "british",
   "quarter": "1940-Q3",
   "unit_designation": "7th Armoured Division",
   "organization_level": "division",
-  "commander": {
-    "rank": "Major-General",
-    "name": "Michael O'Moore Creagh",
-    "start_date": "1939-11-01",
-    "end_date": "1941-11-01",
-    "confidence": 95
+
+  "command": {
+    "commander": {
+      "name": "Michael O'Moore Creagh",
+      "rank": "Major-General",
+      "appointment_date": "1939-11-01"
+    }
   },
   "personnel": {
     "officers": 520,
@@ -146,13 +147,23 @@
       "percentage": 2.1
     }
   ],
-  "supply_status": {
+  "supply_logistics": {
+    "supply_status": "Fair - stretched supply lines, limited spares. Ammunition: 7 days, Food: 14 days, Water critical at 3 days due to desert conditions.",
+    "operational_radius_km": 150,
+    "fuel_reserves_days": 5,
     "ammunition_days": 7,
-    "fuel_days": 5,
-    "food_days": 14,
-    "water_days": 3,
-    "maintenance_status": "Fair - stretched supply lines, limited spares",
-    "confidence": 75
+    "water_liters_per_day": 4.5
+  },
+
+  "weather_environment": {
+    "season_quarter": "1940-Q3 (July-September) - Summer in North Africa",
+    "temperature_range_c": {
+      "min": 22,
+      "max": 42
+    },
+    "terrain_type": "Desert and coastal plain (Egypt-Libya border)",
+    "storm_frequency_days": 1,
+    "daylight_hours": 13.0
   },
   "subordinate_units": [
     {
