@@ -18,6 +18,7 @@
 const { execSync } = require('child_process');
 const fs = require('fs');
 const path = require('path');
+const naming = require('./lib/naming_standard');
 
 const PROJECT_ROOT = path.join(__dirname, '..');
 const KEN_PROMPT_PATH = path.join(PROJECT_ROOT, 'STRICT AUTONOMOUS MODE - Ken Prompt.md');
@@ -99,29 +100,15 @@ function scanCompletedFiles() {
 }
 
 function isCompleted(nation, designation, quarter, completedFiles) {
-    const cleanDesignation = designation.toLowerCase()
-        .replace(/[^a-z0-9]/g, '_')
-        .replace(/_+/g, '_')
-        .replace(/^_|_$/g, '');
-
-    const cleanQuarter = quarter.replace('-', '').toLowerCase();
-
+    // Use canonical naming standard for matching
     return completedFiles.some(filename => {
-        const fnameLower = filename.toLowerCase();
-        return fnameLower.includes(nation.toLowerCase()) &&
-               (fnameLower.includes(quarter.toLowerCase()) || fnameLower.includes(cleanQuarter)) &&
-               fnameLower.includes(cleanDesignation.replace(/^[0-9]+_/, ''));
+        return naming.matchesUnit(filename, nation, quarter, designation);
     });
 }
 
 function calculateAllQuartersProgress(seedUnits, completedFiles) {
-    const nations = {
-        'german_units': 'germany',
-        'italian_units': 'italy',
-        'british_units': 'britain',
-        'usa_units': 'usa',
-        'french_units': 'france'
-    };
+    // Use canonical naming standard
+    const nations = naming.NATION_MAP;
 
     const quarters = [
         '1940-Q2', '1940-Q3', '1940-Q4',
@@ -175,13 +162,8 @@ function calculateAllQuartersProgress(seedUnits, completedFiles) {
 
 function getNextBatchForQuarter(quarter, seedUnits, completedFiles) {
     const needed = [];
-    const nations = {
-        'german_units': 'germany',
-        'italian_units': 'italy',
-        'british_units': 'britain',
-        'usa_units': 'usa',
-        'french_units': 'france'
-    };
+    // Use canonical naming standard
+    const nations = naming.NATION_MAP;
 
     for (const [key, nation] of Object.entries(nations)) {
         const units = seedUnits[key] || [];

@@ -16,6 +16,7 @@ const fs = require('fs').promises;
 const path = require('path');
 const { execSync } = require('child_process');
 const { queryProjectKnowledge } = require('./memory_mcp_helpers');
+const naming = require('./lib/naming_standard');
 
 const PROJECT_ROOT = path.join(__dirname, '..');
 const WORKFLOW_STATE_PATH = path.join(PROJECT_ROOT, 'WORKFLOW_STATE.json');
@@ -148,26 +149,19 @@ async function getSeedUnits() {
         const data = await fs.readFile(seedPath, 'utf-8');
         const seeds = JSON.parse(data);
 
-        // Convert to flat list
+        // Convert to flat list using canonical naming standard
         const units = [];
-        const nationMap = {
-            'german_units': 'germany',
-            'italian_units': 'italy',
-            'british_units': 'britain',
-            'usa_units': 'usa',
-            'french_units': 'france'
-        };
 
         for (const [key, value] of Object.entries(seeds)) {
             if (Array.isArray(value)) {
                 for (const unit of value) {
                     for (const quarter of unit.quarters) {
-                        const nation = nationMap[key] || key.replace('_units', '');
-                        const unitId = `${nation}_${quarter.toLowerCase().replace(/-/, '')}_${unit.designation.toLowerCase().replace(/[^a-z0-9]/g, '_')}`;
+                        const nation = naming.NATION_MAP[key] || key.replace('_units', '');
+                        const unitId = naming.generateFilename(nation, quarter, unit.designation).replace('_toe.json', '');
                         units.push({
                             id: unitId,
-                            nation: nation,
-                            quarter: quarter,
+                            nation: naming.normalizeNation(nation),
+                            quarter: naming.normalizeQuarter(quarter),
                             designation: unit.designation
                         });
                     }

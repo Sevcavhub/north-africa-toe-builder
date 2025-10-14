@@ -1,40 +1,48 @@
-# Session Checkpoint - 2025-10-13T23:34:02.485Z
+# Session Checkpoint - 2025-10-14T00:39:31.334Z
 
 ## Progress Summary
 
 - **Total Units:** 213
-- **Completed:** 178 (83.6%)
-- **Remaining:** 35
-- **Last Commit:** 6bc9c30
+- **Completed:** 177 (83.1%)
+- **Remaining:** 36
+- **Last Commit:** 272c124
 
 ## Validation Status
 
-- **Total Validated:** 178
-- **✅ Passed:** 136 (76.4%)
-- **❌ Failed:** 0 ✅
-- **⚠️ Warnings:** 42
+- **Total Validated:** 177
+- **✅ Passed:** 137 (77.4%)
+- **❌ Failed:** 1 ⚠️
+- **⚠️ Warnings:** 39
 
-**All units passed validation** ✅
+### Critical Validation Failures
+
+**italian_1941-Q1_savona_division:**
+  - ❌ Invalid nation: "Italy" (allowed: german, italian, british, american, french)
+  - ❌ Missing required field: schema_type
+  - ❌ Missing required field: schema_version
+  - ❌ Missing required field: unit_designation
+  - ❌ Missing required field: organization_level
+  - ❌ Missing required field: validation
 
 ## Chapter Status
 
-- **JSON Files:** 178
-- **MDBook Chapters:** 72 ⚠️
-- **Missing Chapters:** 106
-  - ❌ britain_1941--Q2_1st_south_african_division
-  - ❌ britain_1941--Q2_5th_indian_division
-  - ❌ germany_1941-Q2_deutsches_afrikakorps
-  - ❌ italy_1941--Q2_bologna_division
-  - ❌ italy_1941--Q2_savona_division
-  - ... and 101 more
+- **JSON Files:** 177
+- **MDBook Chapters:** 0 ⚠️
+- **Missing Chapters:** 177
+  - ❌ british_1941-Q2_1st_south_african_infantry_division
+  - ❌ british_1941-Q2_2nd_new_zealand_division
+  - ❌ british_1941-Q2_4th_indian_infantry_division
+  - ❌ british_1941-Q2_50th_northumbrian_infantry_division
+  - ❌ british_1941-Q2_5th_indian_infantry_division
+  - ... and 172 more
 
 ## Recent Completions
 
-- ✅ italy_1940--Q2_61_sirte_division
-- ✅ italy_1941--Q4_61_trento_division
-- ✅ britain_1942--Q1_8th_army
-- ✅ germany_1941--Q4_21_panzer_division
-- ✅ germany_1942--Q3_15_panzer_division
+- ✅ italian_1943-Q1_131_divisione_corazzata_centauro
+- ✅ italian_1940-Q2_62_divisione_di_fanteria_marmarica
+- ✅ italian_1940-Q2_61_divisione_di_fanteria_sirte
+- ✅ italian_1941-Q4_61_divisione_motorizzata_trento
+- ✅ german_1942-Q3_15_panzer_division
 
 ## Recovery Instructions
 
@@ -52,13 +60,13 @@ If this session crashes or needs to resume:
 
 3. **View full progress:**
    - See WORKFLOW_STATE.json for complete list
-   - 178 units saved successfully
+   - 177 units saved successfully
 
 ## Session Info
 
 - **Session ID:** session_initial
-- **Checkpoint Time:** 2025-10-13T23:34:02.454Z
-- **Git Commit:** 6bc9c30
+- **Checkpoint Time:** 2025-10-14T00:39:31.303Z
+- **Git Commit:** 272c124
 
 ---
 

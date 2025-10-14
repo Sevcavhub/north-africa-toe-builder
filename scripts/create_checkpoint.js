@@ -15,6 +15,7 @@ const fs = require('fs').promises;
 const path = require('path');
 const { execSync } = require('child_process');
 const { validateUnitFile } = require('./lib/validator');
+const naming = require('./lib/naming_standard');
 
 const PROJECT_ROOT = path.join(__dirname, '..');
 const WORKFLOW_STATE_PATH = path.join(PROJECT_ROOT, 'WORKFLOW_STATE.json');
@@ -52,13 +53,13 @@ async function getCompletedUnits() {
                 if (item.isDirectory()) {
                     findUnits(fullPath);
                 } else if (item.name.endsWith('_toe.json') && !item.name.startsWith('unit_')) {
-                    // Extract unit info from filename
-                    const match = item.name.match(/^([a-z]+)_(\d{4}[-]?q\d)_(.+)_toe\.json$/i);
-                    if (match) {
+                    // Extract unit info from filename using naming standard
+                    const parsed = naming.parseFilename(item.name);
+                    if (parsed) {
                         completed.push({
-                            nation: match[1],
-                            quarter: match[2].toUpperCase().replace(/Q/, '-Q'),
-                            unit: match[3],
+                            nation: parsed.nation,
+                            quarter: parsed.quarter.toUpperCase().replace(/Q/, '-Q'),
+                            unit: parsed.designation,
                             filename: item.name
                         });
                     }

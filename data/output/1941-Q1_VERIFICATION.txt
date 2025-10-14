@@ -1,0 +1,33 @@
+1941-Q1 UNIT VERIFICATION REPORT
+Generated: $(date)
+
+EXPECTED UNITS (from north_africa_seed_units.json): 15
+
+GERMAN UNITS (2):
+✅ 5. leichte Division - data/output/autonomous_1760133539236/units/germany_1941q1_5_leichte_division_toe.json
+✅ Deutsches Afrikakorps - data/output/autonomous_1760323831033/units/german_1941q1_deutsches_afrikakorps_toe.json
+
+ITALIAN UNITS (7):
+✅ Ariete Division - data/output/autonomous_1760155681040/units/italy_1941q1_ariete_division_toe.json
+✅ Trieste Division - data/output/autonomous_1760155681040/units/italy_1941q1_trieste_division_toe.json
+✅ Bologna Division - data/output/autonomous_1760155681040/units/italy_1941q1_bologna_division_toe.json
+✅ Brescia Division - data/output/autonomous_1760155681040/units/italy_1941q1_brescia_division_toe.json
+✅ Pavia Division - data/output/autonomous_1760323831033/units/italian_1941q1_pavia_division_toe.json
+✅ Trento Division - data/output/autonomous_1760247716952/units/italy_1941-q1_trento_division_toe.json
+✅ Savona Division - data/output/autonomous_1760323831033/units/italian_1941q1_savona_division_toe.json
+
+BRITISH/COMMONWEALTH UNITS (6):
+✅ 7th Armoured Division - data/output/autonomous_1760323831033/units/british_1941q1_7th_armoured_division_toe.json
+✅ 4th Indian Division - data/output/autonomous_1760323831033/units/british_1941q1_4th_indian_division_toe.json
+✅ 5th Indian Division - data/output/autonomous_1760247716952/units/britain_1941-q1_5th_indian_division_toe.json
+✅ 2nd New Zealand Division - data/output/autonomous_1760323831033/units/british_1941q1_2nd_new_zealand_division_toe.json
+✅ 9th Australian Division - data/output/autonomous_1760323831033/units/british_1941q1_9th_australian_division_toe.json
+✅ 1st South African Division - data/output/autonomous_1760323831033/units/british_1941q1_1st_south_african_division_toe.json
+
+RESULT: 15/15 COMPLETE (100%)
+
+SESSION:READY SCRIPT BUG:
+The isCompleted() function in scripts/session_ready.js:101-115 fails to match files due to:
+1. Nation name variations (germany vs german, britain vs british, italy vs italian)
+2. Quarter format variations (1941-q1 vs 1941q1 vs 1941-Q1)
+3. Designation cleaning logic doesn't handle all cases properly

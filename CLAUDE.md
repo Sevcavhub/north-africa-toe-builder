@@ -360,6 +360,19 @@ Enforced by `schema_validator` agent:
 Files follow pattern: `{nation}_{quarter}_{unit_designation}_toe.json`
 - Example: `german_1941q2_15th_panzer_division_toe.json`
 
+**CANONICAL NATION VALUES (CRITICAL - USE EXACTLY):**
+- `german` (NOT germany) - All German Wehrmacht units
+- `italian` (NOT italy) - All Italian Regio Esercito units
+- `british` (NOT britain) - All British & Commonwealth units (includes Australia, New Zealand, India, South Africa, Canada, Colonial Forces)
+- `american` (NOT usa) - All United States Army units
+- `french` (NOT france) - All Free French forces
+
+**Quarter Format:**
+- Lowercase, no hyphen: `1941q2` (NOT 1941-Q2, NOT 1941-q2, NOT 1941Q2)
+
+**Implementation:**
+All scripts MUST use `scripts/lib/naming_standard.js` to generate filenames for consistency.
+
 ## Task System
 
 ### Task Directory Structure
