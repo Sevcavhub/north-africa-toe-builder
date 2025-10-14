@@ -1,40 +1,35 @@
-# Session Checkpoint - 2025-10-14T01:38:26.735Z
+# Session Checkpoint - 2025-10-14T05:25:50.412Z
 
 ## Progress Summary
 
 - **Total Units:** 213
-- **Completed:** 186 (87.3%)
-- **Remaining:** 27
-- **Last Commit:** 3d5eb2a
+- **Completed:** 184 (86.4%)
+- **Remaining:** 29
+- **Last Commit:** 0dcb5ac
 
 ## Validation Status
 
-- **Total Validated:** 186
-- **✅ Passed:** 146 (78.5%)
+- **Total Validated:** 184
+- **✅ Passed:** 170 (92.4%)
 - **❌ Failed:** 1 ⚠️
-- **⚠️ Warnings:** 39
+- **⚠️ Warnings:** 13
 
 ### Critical Validation Failures
 
-**italian_1941-Q1_savona_division:**
-  - ❌ Invalid nation: "Italy" (allowed: german, italian, british, american, french)
-  - ❌ Missing required field: schema_type
-  - ❌ Missing required field: schema_version
-  - ❌ Missing required field: unit_designation
-  - ❌ Missing required field: organization_level
-  - ❌ Missing required field: validation
+**british_1941-Q4_2nd_new_zealand_division:**
+  - ❌ Failed to parse JSON: Expected ',' or ']' after array element in JSON at position 7506 (line 268 column 3)
 
 ## Chapter Status
 
-- **JSON Files:** 186
+- **JSON Files:** 184
 - **MDBook Chapters:** 0 ⚠️
-- **Missing Chapters:** 186
+- **Missing Chapters:** 184
   - ❌ british_1941-Q2_1st_south_african_infantry_division
   - ❌ british_1941-Q2_2nd_new_zealand_division
   - ❌ british_1941-Q2_4th_indian_infantry_division
   - ❌ british_1941-Q2_50th_northumbrian_infantry_division
   - ❌ british_1941-Q2_5th_indian_infantry_division
-  - ... and 181 more
+  - ... and 179 more
 
 ## Recent Completions
 
@@ -60,13 +55,13 @@ If this session crashes or needs to resume:
 
 3. **View full progress:**
    - See WORKFLOW_STATE.json for complete list
-   - 186 units saved successfully
+   - 184 units saved successfully
 
 ## Session Info
 
 - **Session ID:** session_initial
-- **Checkpoint Time:** 2025-10-14T01:38:26.703Z
-- **Git Commit:** 3d5eb2a
+- **Checkpoint Time:** 2025-10-14T05:25:50.380Z
+- **Git Commit:** 0dcb5ac
 
 ---
 
