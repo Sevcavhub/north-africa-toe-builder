@@ -516,14 +516,23 @@ ${batchResult.batch.length > 0 ? batchResult.batch.map((u, i) => `${i + 1}. ${u.
 - Template violations detected in generated chapters
 - Source documents unavailable for nation/quarter
 
-**AUTONOMOUS EXECUTION:**
-Begin processing the 3-unit batch now using:
-- Task tool for parallel agent processing
+**GENERAL AGENT WORKFLOW:**
+1. ✅ CONFIRM these units with user (or allow adjustments)
+2. ✅ ONLY AFTER confirmation → Launch Task tool with autonomous orchestrator
+3. ✅ Specialized agents do ALL extraction, validation, chapter generation
+4. ❌ DO NOT perform extraction yourself as general agent
+
+**When user confirms, launch autonomous orchestrator with:**
+- Task tool (subagent_type='general-purpose')
+- Prompt: "Run autonomous orchestration for these 3 units using specialized sub-agents"
 - Extended thinking for complex source analysis
 - TodoWrite to track progress
 - Automatic checkpoint after batch completion
 
-Ready to start? Confirm and I'll begin autonomous orchestration.`);
+📋 **USER**: Review the 3 units above. Reply with:
+   • "Proceed" → Start autonomous orchestration for these units
+   • "Change to [quarter/strategy]" → Adjust selection first
+   • "Use [specific units]" → Custom unit list`);
 
     console.log('');
     console.log('─'.repeat(80));
