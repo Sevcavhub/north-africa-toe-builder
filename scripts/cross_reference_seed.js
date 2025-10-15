@@ -15,7 +15,7 @@ const fs = require('fs');
 const path = require('path');
 
 // Load all source data
-const seedFile = JSON.parse(fs.readFileSync('projects/north_africa_seed_units.json', 'utf8'));
+const seedFile = JSON.parse(fs.readFileSync('projects/north_africa_seed_units_COMPLETE.json', 'utf8'));
 const nafzigerIndex = JSON.parse(fs.readFileSync('Resource Documents/Nafziger Collection/WWII/North_Africa_Index/NORTH_AFRICA_FILES.json', 'utf8'));
 const completedAnalysis = JSON.parse(fs.readFileSync('data/output/COMPLETED_UNITS_ANALYSIS.json', 'utf8'));
 
@@ -280,7 +280,7 @@ console.log('Step 7: Generating validation report...');
 const report = {
     analysis_date: new Date().toISOString(),
     sources: {
-        seed_file: 'projects/north_africa_seed_units.json',
+        seed_file: 'projects/north_africa_seed_units_COMPLETE.json',
         nafziger_index: 'Resource Documents/Nafziger Collection/WWII/North_Africa_Index/NORTH_AFRICA_FILES.json',
         completed_units: 'data/output/COMPLETED_UNITS_ANALYSIS.json'
     },

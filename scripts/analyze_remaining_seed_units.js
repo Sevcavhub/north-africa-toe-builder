@@ -6,7 +6,7 @@ const path = require('path');
  * Uses fuzzy matching to account for name variations
  */
 
-const seedPath = path.join(__dirname, '../projects/north_africa_seed_units.json');
+const seedPath = path.join(__dirname, '../projects/north_africa_seed_units_COMPLETE.json');
 const statePath = path.join(__dirname, '../WORKFLOW_STATE.json');
 
 const seed = JSON.parse(fs.readFileSync(seedPath, 'utf-8'));
@@ -203,7 +203,7 @@ for (const [nation, units] of Object.entries(orphansByNation)) {
 // Save analysis
 const output = {
   analysis_date: new Date().toISOString(),
-  seed_file: 'projects/north_africa_seed_units.json',
+  seed_file: 'projects/north_africa_seed_units_COMPLETE.json',
   total_seed_units: allSeedUnits.length,
   completed_from_seed: completed.length,
   remaining_from_seed: remaining.length,

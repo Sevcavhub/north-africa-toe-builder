@@ -62,6 +62,25 @@ function verifyCitation(source, quote) {
   const fuzzyScore = fuzzyMatch(normalizedQuote, normalizedSource);
 
   if (fuzzyScore > 80) {
+    // NEW RULE: If quote contains numbers, verify those numbers exist in source
+    // This catches hallucinations where agent adds fake data to a real quote
+    const quoteNumbers = quote.match(/\d+/g) || [];
+    const sourceNumbers = new Set(sourceText.match(/\d+/g) || []);
+
+    if (quoteNumbers.length > 0) {
+      const missingNumbers = quoteNumbers.filter(num => !sourceNumbers.has(num));
+
+      if (missingNumbers.length > 0) {
+        return {
+          verified: false,
+          match_score: fuzzyScore,
+          error: `Quote contains numbers (${missingNumbers.join(', ')}) NOT found in source`,
+          suggestion: 'Agent likely added fabricated numerical data to a real quote',
+          note: 'Text structure matches but numerical claims are hallucinated'
+        };
+      }
+    }
+
     return {
       verified: true,
       match_score: fuzzyScore,

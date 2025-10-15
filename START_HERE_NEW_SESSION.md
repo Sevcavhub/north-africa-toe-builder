@@ -42,8 +42,9 @@
 <!-- AUTO-UPDATED: START - Recently Completed -->
 ### ✅ RECENTLY COMPLETED (Last Session):
 - **Session Date**: 2025-10-15
-- **Units Completed**: 150 units (0 → 150)
+- **Units Completed**: 150 unit-quarters (0 → 150)
 - **Session Duration**: unknown minutes
+- **Completion Rate**: 35.7% of total project
 - **Recent Work**:
   - italian_1942q3_133a_divisione_corazzata_littorio
   - italian_1942q3_185_divisione_paracadutisti_folgore
@@ -54,20 +55,14 @@
   - italian_1942q4_185_divisione_paracadutisti_folgore
   - italian_1942q4_185a_divisione_paracadutisti_folgore
   - italian_1943q1_131_divisione_corazzata_centauro
-- **Milestone Achievements**:
-  - Gap 3 (Wikipedia): ✅ RESOLVED - 0 violations
-  - Gap 8 (Infantry Weapons): ✅ RESOLVED - All chapters complete
-  - Gap 5 (Empty Sections): ✅ RESOLVED - Bologna & Trieste complete
 <!-- AUTO-UPDATED: END - Recently Completed -->
 
 <!-- AUTO-UPDATED: START - Progress Stats -->
 ### 🔨 IN PROGRESS:
-- **Ground Forces Extraction**: 150/420 units (35.7%)
-  - 270 units remaining to complete Phase 1-6
-- **1941-Q2 Showcase**: 90% complete
-  - 10/18 units upgraded to v3.0.0 schema
-  - All critical gaps resolved (Gap 3, 5, 8)
-  - Remaining: Corps Roll-ups (Gaps 1 & 2)
+- **Ground Forces Extraction**: 150/420 unit-quarters (35.7%)
+  - 270 unit-quarters remaining to complete Phase 1-6
+  - 117 unique units total
+  - Target: All 117 combat units across all quarters (1940-1943)
 <!-- AUTO-UPDATED: END - Progress Stats -->
 
 ### 📋 NEXT PRIORITIES:

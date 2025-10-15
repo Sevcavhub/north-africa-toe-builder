@@ -42,13 +42,13 @@ async function getCompletedUnits() {
 
         for (const filename of files) {
             if (filename.endsWith('_toe.json') && !filename.startsWith('unit_')) {
-                // Extract unit info from filename
-                const match = filename.match(/^([a-z]+)_(\d{4}[-]?q\d)_(.+)_toe\.json$/i);
-                if (match) {
+                // Extract unit info from filename using naming standard
+                const parsed = naming.parseFilename(filename);
+                if (parsed) {
                     completed.push({
-                        nation: match[1],
-                        quarter: match[2].toUpperCase().replace(/Q/, '-Q'),
-                        unit: match[3],
+                        nation: parsed.nation,
+                        quarter: parsed.quarter, // Keep normalized format (1942q4)
+                        unit: parsed.designation,
                         filename: filename
                     });
                 }
@@ -80,12 +80,16 @@ async function syncWorkflowState(scannedUnits, currentState) {
         // Out of sync - update state
         const newState = currentState || {
             last_updated: new Date().toISOString(),
-            total_units: 213,
+            total_unit_quarters: 420,
+            total_unique_units: 117,
+            completed_count: 0,
+            completion_percentage: 0,
             completed: [],
             in_progress: [],
             pending: [],
             session_id: `session_${Date.now()}`,
-            last_commit: null
+            last_commit: null,
+            seed_file: 'projects/north_africa_seed_units_COMPLETE.json'
         };
 
         newState.completed = scannedIds;
@@ -150,7 +154,7 @@ async function queryMemoryMCP() {
 async function getSeedUnits() {
     // Load seed units to know what we need to process
     try {
-        const seedPath = path.join(PROJECT_ROOT, 'projects/north_africa_seed_units.json');
+        const seedPath = path.join(PROJECT_ROOT, 'projects/north_africa_seed_units_COMPLETE.json');
         const data = await fs.readFile(seedPath, 'utf-8');
         const seeds = JSON.parse(data);
 
@@ -158,8 +162,15 @@ async function getSeedUnits() {
         const units = [];
 
         for (const [key, value] of Object.entries(seeds)) {
-            if (Array.isArray(value)) {
+            // Only process nation unit arrays (german_units, italian_units, etc.)
+            if (key.endsWith('_units') && Array.isArray(value)) {
                 for (const unit of value) {
+                    // Safety check: ensure unit has quarters array
+                    if (!unit.quarters || !Array.isArray(unit.quarters)) {
+                        console.warn(`⚠️  Skipping unit without quarters: ${unit.designation || 'unknown'}`);
+                        continue;
+                    }
+
                     for (const quarter of unit.quarters) {
                         const nation = naming.NATION_MAP[key] || key.replace('_units', '');
                         const unitId = naming.generateFilename(nation, quarter, unit.designation).replace('_toe.json', '');
@@ -208,14 +219,15 @@ function displaySessionInfo(state, memory, nextBatch) {
     console.log('');
 
     if (state) {
-        const completedCount = state.completed.length;
-        const remaining = state.total_units - completedCount;
-        const percentComplete = ((completedCount / state.total_units) * 100).toFixed(1);
+        const completedCount = state.completed_count || state.completed.length;
+        const remaining = (state.total_unit_quarters || 420) - completedCount;
+        const percentComplete = ((completedCount / (state.total_unit_quarters || 420)) * 100).toFixed(1);
 
         console.log('📊 **PROGRESS SUMMARY**\n');
-        console.log(`   Total Units:     ${state.total_units}`);
-        console.log(`   Completed:       ${completedCount} (${percentComplete}%)`);
-        console.log(`   Remaining:       ${remaining}`);
+        console.log(`   Total Unit-Quarters: ${state.total_unit_quarters || 420}`);
+        console.log(`   Unique Units:        ${state.total_unique_units || 117}`);
+        console.log(`   Completed:           ${completedCount} (${percentComplete}%)`);
+        console.log(`   Remaining:           ${remaining}`);
         console.log(`   Last Updated:    ${new Date(state.last_updated).toLocaleString()}`);
         console.log(`   Last Commit:     ${state.last_commit || 'N/A'}`);
         console.log('');

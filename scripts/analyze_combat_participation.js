@@ -16,7 +16,7 @@ const fs = require('fs');
 const path = require('path');
 
 // Load data
-const seedFile = JSON.parse(fs.readFileSync('projects/north_africa_seed_units.json', 'utf8'));
+const seedFile = JSON.parse(fs.readFileSync('projects/north_africa_seed_units_COMPLETE.json', 'utf8'));
 const completedAnalysis = JSON.parse(fs.readFileSync('data/output/COMPLETED_UNITS_ANALYSIS.json', 'utf8'));
 
 console.log('='.repeat(80));

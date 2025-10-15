@@ -69,6 +69,17 @@ function validateAgentOutput(agentOutput, agentId) {
         if (data.source_quote.length < 50) {
           errors.push(`VIOLATION: Field '${field}' source_quote too short (${data.source_quote.length} chars, need 50+ for verbatim quote)`);
         }
+
+        // NEW RULE: Check if quote supports numerical claims
+        // If value contains numbers, quote must also contain numbers
+        if (data.value && typeof data.value === 'object') {
+          const hasNumericalValue = Object.values(data.value).some(v => typeof v === 'number');
+          const quoteHasNumbers = /\d+/.test(data.source_quote);
+
+          if (hasNumericalValue && !quoteHasNumbers) {
+            errors.push(`VIOLATION: Field '${field}' claims numerical data (${JSON.stringify(data.value)}) but source_quote contains NO NUMBERS - likely hallucination`);
+          }
+        }
       }
 
       // Check confidence score for verified data

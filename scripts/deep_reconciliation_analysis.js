@@ -84,7 +84,7 @@ async function analyzeProject() {
         : [];
 
     const workflowState = readJSON('WORKFLOW_STATE.json');
-    const seedFile = readJSON('projects/north_africa_seed_units.json');
+    const seedFile = readJSON('projects/north_africa_seed_units_COMPLETE.json');
     const projectScope = fs.readFileSync('PROJECT_SCOPE.md', 'utf8');
 
     console.log(`  - Canonical directory: ${canonicalFiles.length} files`);

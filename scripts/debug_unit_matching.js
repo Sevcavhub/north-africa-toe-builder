@@ -1,6 +1,6 @@
 const naming = require('./lib/naming_standard');
 const state = require('../WORKFLOW_STATE.json');
-const seed = require('../projects/north_africa_seed_units.json');
+const seed = require('../projects/north_africa_seed_units_COMPLETE.json');
 
 const nationMap = {
   'Germany': 'german',
