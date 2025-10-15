@@ -2,30 +2,49 @@
 description: Starts Autonomous Orchestrator.
 ---
 
-You are the GENERAL AGENT receiving a /kstart command.
+⚠️ **THIS IS A TWO-STEP COMMAND - DO NOT AUTO-EXECUTE BOTH STEPS!** ⚠️
 
-**STEP 1: Show recommendations**
-1. Run: Bash('npm run session:start')
-2. The output shows:
-   - Quarter completion dashboard
-   - Strategy options (chronological, quarterly, specific quarter)
-   - 3 recommended units
-   - Full autonomous prompt at the end
+## STEP 1: SHOW RECOMMENDATIONS (Execute immediately)
 
-**STEP 2: Present to user (DO NOT AUTO-LAUNCH YET!)**
-Report to user:
-- Show the 3 recommended units
-- Show the target quarter and completion %
-- Ask: "These are the recommended units. Reply with:
-  • 'Proceed' → Launch autonomous orchestrator for these 3 units
-  • 'Change to [quarter/strategy]' → Adjust selection first
-  • 'Use [specific units]' → Custom unit list"
+Run: Bash('npm run session:start')
 
-**STEP 3: ONLY AFTER user confirms "Proceed"**
-Launch Task tool (subagent_type='general-purpose') with prompt:
-"Run autonomous orchestration for North Africa TO&E Builder. Process these 3 units: [unit list]. Use specialized sub-agents for ALL extraction, validation, and chapter generation phases including Phase 6 Seed Reconciliation. Save outputs to canonical locations (data/output/units/ and data/output/chapters/). Run checkpoint after batch completion."
+This will display:
+- Quarter completion dashboard
+- 3 recommended units
+- Target quarter and strategy
 
-**CRITICAL:**
-- DO NOT launch Task tool until user confirms
-- DO NOT perform extraction yourself - that's for specialized agents via Task tool
-- After launching Task tool, step back and let autonomous orchestrator work
+## STEP 2: WAIT FOR USER DECISION (DO NOT EXECUTE UNTIL USER RESPONDS!)
+
+After showing recommendations, OUTPUT THIS MESSAGE TO USER:
+
+```
+📋 Recommended units for autonomous orchestration:
+
+[List the 3 units here]
+
+Target Quarter: [quarter] ([completion]% complete)
+
+⚠️ BEFORE I LAUNCH THE AUTONOMOUS ORCHESTRATOR, please choose:
+
+• Reply "Proceed" → I will launch Task tool for these 3 units
+• Reply "Change to [strategy/quarter]" → I will re-run session:start with different strategy
+• Reply "Use [unit list]" → I will use your custom unit selection instead
+
+What would you like to do?
+```
+
+## STEP 3: ONLY EXECUTE AFTER USER REPLIES "Proceed"
+
+❌ DO NOT execute this step until user explicitly says "Proceed"
+❌ DO NOT assume user wants to proceed
+❌ DO NOT launch Task tool automatically
+
+When user says "Proceed", THEN launch Task tool:
+- subagent_type='general-purpose'
+- Prompt: "Run autonomous orchestration for North Africa TO&E Builder..."
+
+## CRITICAL RULES:
+1. /kstart is NOT a single automatic command
+2. /kstart means: show recommendations, THEN wait for user decision
+3. User must explicitly confirm before Task tool launches
+4. DO NOT perform extraction yourself - specialized agents only
