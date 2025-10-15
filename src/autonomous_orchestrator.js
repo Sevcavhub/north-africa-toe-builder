@@ -299,6 +299,34 @@ For each unit in projects/north_africa_seed_units.json:
 - Generate final orchestration summary
 - If Git MCP available: Final commit with complete summary
 
+**PHASE 6: Seed Reconciliation (Human-in-Loop Checkpoint)**
+CRITICAL: This phase prevents autonomous override of authoritative seed data!
+- Compare extracted units against authoritative seed list (projects/north_africa_seed_units_COMPLETE.json)
+- For each nation/quarter combination:
+  * Load seed units for that nation/quarter
+  * Load extracted units from canonical location (data/output/units/)
+  * Detect discrepancies:
+    - Missing units (seed lists unit, agent didn't extract)
+    - Quarter mismatches (agent found different quarter than seed)
+    - Establishment transitions (informal → formal status changes)
+    - Source ambiguity (conflicting information between sources)
+    - Administrative vs combat status differences
+- Check pattern database (data/pattern_database.json) for known edge cases
+- Apply pattern-based resolution:
+  * ≥95% confidence → Auto-resolve (learned from past human decisions)
+  * 75-94% confidence → Recommend action, flag for review
+  * <75% confidence → PAUSE and require human review
+- Save reconciliation report (data/output/reconciliation_report.json)
+- If discrepancies require human review:
+  * Save human review queue (data/output/human_review_queue.json)
+  * Provide evidence from both seed (authoritative) and agent (secondary sources)
+  * Offer 4 decision options with reasoning and evidence weights
+  * PAUSE workflow until user makes decision
+  * Update pattern database with user's decision for future automation
+- NEVER autonomously override seed data (95% confidence from authoritative sources)
+- If Memory MCP available: Store reconciliation patterns for cross-session learning
+- Pattern learning enables gradual automation: 0% → 45% → 70% → 85% → 95% over multiple occurrences
+
 **FINAL DELIVERABLES:**
 - ${this.project.seed_units.length} TO&E JSON files → CANONICAL: ${this.canonicalUnitsDir}
 - Session reports and logs → ${this.outputDir}
