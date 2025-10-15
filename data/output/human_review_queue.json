@@ -1,0 +1,114 @@
+{
+  "queue_version": "1.0.0",
+  "created": "2025-10-15T00:00:00Z",
+  "status": "ACTIVE",
+  "pending_decisions": 1,
+
+  "decision_1": {
+    "decision_id": "xx_mobile_corps_q2_1941_informal_status",
+    "priority": "HIGH",
+    "blocking_workflow": true,
+
+    "context": {
+      "unit": "Italian XX Mobile Corps (XX Corpo d'Armata Motorizzato)",
+      "nation": "Italy",
+      "quarter": "1941-Q2 (April-June 1941)",
+      "discrepancy_type": "Quarter mismatch - Informal vs Formal establishment status"
+    },
+
+    "seed_says": {
+      "present_in_quarter": "1941-Q2",
+      "battles": ["Tobruk siege"],
+      "confidence": 95,
+      "source_quality": "Tier 1 (US Army CMH, Imperial War Museum, Operation Crusader OOBs)"
+    },
+
+    "agent_found": {
+      "formal_establishment": "August 15, 1941 (1941-Q3)",
+      "confidence": 85,
+      "source_quality": "Tier 2 (Military History Fandom)",
+      "notes": "Ariete Division (XX Corps primary unit) arrived January 1941 and fought at Tobruk Q2. Formal corps HQ may have been established later."
+    },
+
+    "question": "Should the autonomous orchestrator extract XX Mobile Corps for 1941-Q2 despite the quarter discrepancy?",
+
+    "options": [
+      {
+        "id": 1,
+        "label": "EXTRACT Q2 AS INFORMAL UNIT",
+        "description": "Accept seed authority. Extract XX Corps for Q2 as 'informal/transitional' status, noting formal establishment in Q3. Extract again for Q3+ with formal status.",
+        "impact": "Captures Q2 Tobruk operations, respects seed data, creates Q2 historical snapshot",
+        "effort": "HIGH - Additional source research needed for Q2 informal structure",
+        "recommendation": "PRIMARY (70% weight)"
+      },
+      {
+        "id": 2,
+        "label": "SKIP Q2, EXTRACT Q3 ONLY",
+        "description": "Accept agent finding. Skip Q2 extraction, only extract XX Corps starting Q3 with formal establishment.",
+        "impact": "Cleaner data, one establishment date, but contradicts 95%-confidence seed data",
+        "effort": "LOW - No additional work",
+        "recommendation": "SECONDARY (20% weight)"
+      },
+      {
+        "id": 3,
+        "label": "RESEARCH PRIMARY SOURCES",
+        "description": "Pause for primary source research. Seek Italian/German archives to establish ground truth for Q2 status.",
+        "impact": "Resolves definitively, highest data quality, creates precedent",
+        "effort": "VERY HIGH - Archive research required (weeks)",
+        "recommendation": "TERTIARY (40% weight if time permits)"
+      },
+      {
+        "id": 4,
+        "label": "FLAG FOR FUTURE RESOLUTION",
+        "description": "Document discrepancy, proceed without Q2 extraction, revisit during quality improvement phase.",
+        "impact": "Doesn't block work, honest about uncertainty, but leaves gap",
+        "effort": "LOW - Document and move on",
+        "recommendation": "FALLBACK (25% weight)"
+      }
+    ],
+
+    "evidence_summary": {
+      "for_q2_extraction": [
+        "Seed has 95% confidence (Tier 1 sources)",
+        "Seed explicitly lists Tobruk siege battles in Q2",
+        "Ariete Division (XX Corps primary unit) present and fighting Q2",
+        "Historical precedent: Italian corps often informal before formal HQ",
+        "Seed compiled by authoritative institutions (US Army CMH, Imperial War Museum)"
+      ],
+      "against_q2_extraction": [
+        "Agent found formal establishment August 15, 1941 (Q3)",
+        "No primary Italian documents located for Q2 structure",
+        "Formal HQ establishment may postdate subordinate units' operations",
+        "Risk of speculating about informal structure without evidence"
+      ]
+    },
+
+    "recommended_decision": {
+      "option": 1,
+      "reasoning": "Seed data is authoritative (95% Tier 1) and explicit about Q2 battle participation. Historical reality shows Italian formations often operated before formal establishment. Recommend extraction with 'informal/transitional' status note. Pattern database will learn from this decision to automate similar future cases."
+    },
+
+    "user_action_required": {
+      "step_1": "Review reconciliation_report.json for full analysis",
+      "step_2": "Review evidence_summary above",
+      "step_3": "Select Option 1, 2, 3, or 4",
+      "step_4": "Provide reasoning for decision (brief sentence or paragraph)",
+      "step_5": "Update pattern_database.json with decision",
+      "step_6": "Resume workflow"
+    },
+
+    "decision_template": {
+      "option_selected": "[1, 2, 3, or 4]",
+      "reasoning": "[Your explanation for why you chose this option]",
+      "pattern_learning": "[Should this decision apply to similar future cases? Yes/No]",
+      "confidence_in_decision": "[Low/Medium/High]"
+    }
+  },
+
+  "workflow_status": {
+    "paused": true,
+    "paused_at_phase": "Phase 6 - Seed Reconciliation",
+    "resume_when": "User provides decision for xx_mobile_corps_q2_1941",
+    "estimated_resume_time": "Within 24 hours of user review"
+  }
+}

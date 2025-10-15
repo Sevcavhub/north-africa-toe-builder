@@ -1,0 +1,248 @@
+{
+  "reconciliation_version": "1.0.0",
+  "execution_date": "2025-10-15T00:00:00Z",
+  "orchestrator": "Autonomous Orchestrator - Phase 6 Validator",
+  "seed_file": "projects/north_africa_seed_units_COMPLETE.json",
+  "extracted_units_location": "data/output/units/",
+
+  "summary": {
+    "total_seed_units_checked": 3,
+    "seed_nation_quarter": "Italian 1941-Q2",
+    "extracted_units_found": 1,
+    "missing_units": 1,
+    "extra_units": 0,
+    "mismatches": 1,
+    "confidence_flags": 1
+  },
+
+  "reconciliation_results": [
+    {
+      "unit_id": "italian_1941q2_xx_mobile_corps",
+      "status": "MISSING_FROM_EXTRACTION",
+      "severity": "HIGH",
+      "requires_human_review": true,
+
+      "seed_data": {
+        "designation": "XX Mobile Corps",
+        "also_known_as": "XX Motorised Corps",
+        "nation": "Italy",
+        "quarter": "1941-Q2",
+        "type": "corps",
+        "battles": [
+          "Tobruk siege"
+        ],
+        "confidence": 95,
+        "source_tier": "Tier 1 (Authoritative historical sources)"
+      },
+
+      "agent_finding": {
+        "found_in_quarter": "NOT_FOUND_Q2",
+        "found_in_quarter_alternate": "1941-Q3",
+        "reason": "Formal establishment date: August 15, 1941 (1941-Q3)",
+        "source": "Military History Fandom - Italian XX Motorised Corps",
+        "confidence": 85,
+        "source_tier": "Tier 2 (Curated web sources)"
+      },
+
+      "discrepancy_analysis": {
+        "discrepancy_type": "quarter_mismatch_informal_formal_status",
+        "pattern_match": "informal_italian_corps_q2_1941_PENDING",
+        "explanation": "Seed lists XX Mobile Corps active in 1941-Q2 with Tobruk siege battles (95% confidence). Agent research found formal establishment on August 15, 1941 (1941-Q3). This suggests the corps may have existed informally or in transitional status during Q2 before formal establishment in Q3.",
+
+        "evidence_seed": {
+          "weight": 95,
+          "reasoning": "Seed file has 95% confidence for Q2 1941 presence, lists specific battle participation (Tobruk siege), indicates XX Corps as established formation. Seed compiled from authoritative sources (US Army Center of Military History, Imperial War Museum, Operation Crusader OOBs)."
+        },
+
+        "evidence_agent": {
+          "weight": 85,
+          "reasoning": "Agent found clear formal establishment date of August 15, 1941 from Military Wiki (Tier 2 source). Agent also found that Ariete Division (XX Corps' primary component) arrived in North Africa January 1941 and participated in Tobruk siege. However, formal corps headquarters may have been established later than subordinate divisions' arrival."
+        },
+
+        "pattern_database_match": {
+          "pattern_id": "informal_italian_corps_q2_1941_PENDING",
+          "pattern_confidence": 0,
+          "automation_ready": false,
+          "status": "FIRST_OCCURRENCE_AWAITING_HUMAN_DECISION",
+          "description": "Italian corps existed informally before formal establishment. Seed lists battles during informal period, agent found later formal establishment date."
+        }
+      },
+
+      "resolution_options": [
+        {
+          "option": 1,
+          "action": "EXTRACT_Q2_AS_INFORMAL_UNIT",
+          "reasoning": "Accept seed authority (95% confidence). Extract XX Mobile Corps for 1941-Q2 as 'informal' or 'transitional' status unit. Note formal establishment occurred Q3 but operational elements active Q2. Extract again for Q3 with formal status.",
+          "pros": [
+            "Respects authoritative seed data (95% confidence)",
+            "Accounts for historical reality of informal command structures",
+            "Captures Tobruk siege participation documented in seed",
+            "Provides Q2 historical snapshot"
+          ],
+          "cons": [
+            "Agent could not locate primary sources for Q2 structure",
+            "May duplicate unit if Q3 extraction also occurs",
+            "Informal status means TO&E details uncertain"
+          ],
+          "recommendation_weight": 70,
+          "human_effort": "HIGH - Requires additional source research for Q2 informal structure"
+        },
+        {
+          "option": 2,
+          "action": "SKIP_Q2_EXTRACT_Q3_ONLY",
+          "reasoning": "Accept agent finding (85% confidence formal establishment Q3). Skip Q2 extraction, only extract XX Corps for 1941-Q3 and later quarters when formally established.",
+          "pros": [
+            "Cleaner data model (one establishment date)",
+            "Avoids speculation about informal Q2 structure",
+            "Agent found clear formal establishment date",
+            "Reduces duplicate unit risk"
+          ],
+          "cons": [
+            "Contradicts seed data (95% confidence)",
+            "Loses Q2 Tobruk siege battle participation",
+            "Seed explicitly lists XX Corps in Q2 with high confidence",
+            "May miss operational history"
+          ],
+          "recommendation_weight": 20,
+          "human_effort": "LOW - Accept agent finding, no additional work"
+        },
+        {
+          "option": 3,
+          "action": "RESEARCH_PRIMARY_SOURCES",
+          "reasoning": "Discrepancy requires primary source research to determine ground truth. Seek Italian Army archives, German Afrika Korps records, British intelligence summaries for April-June 1941 to establish definitively whether XX Corps headquarters existed in Q2.",
+          "pros": [
+            "Resolves discrepancy definitively",
+            "Establishes ground truth from primary sources",
+            "Improves data quality to Tier 1",
+            "Creates precedent for similar cases"
+          ],
+          "cons": [
+            "Requires significant research time",
+            "May not yield definitive answer (archives incomplete)",
+            "Delays project completion",
+            "May find conflicting primary sources"
+          ],
+          "recommendation_weight": 40,
+          "human_effort": "VERY HIGH - Italian/German archive research required"
+        },
+        {
+          "option": 4,
+          "action": "FLAG_FOR_FUTURE_RESOLUTION",
+          "reasoning": "Document discrepancy, flag for future research, proceed with project without XX Corps Q2 extraction for now. Revisit when more sources available or during Phase 7+ quality improvement.",
+          "pros": [
+            "Doesn't block current work",
+            "Honest about data uncertainty",
+            "Can revisit later with better sources",
+            "Documents gap transparently"
+          ],
+          "cons": [
+            "Leaves gap in Q2 Italian forces",
+            "Seed data ignored",
+            "May confuse users expecting complete coverage",
+            "Postpones resolution indefinitely"
+          ],
+          "recommendation_weight": 25,
+          "human_effort": "LOW - Document and move on"
+        }
+      ],
+
+      "recommended_action": {
+        "primary": "OPTION_1_EXTRACT_Q2_AS_INFORMAL",
+        "reasoning": "The seed file has 95% confidence (Tier 1 sources) that XX Mobile Corps participated in Tobruk siege during 1941-Q2. This high confidence warrants extraction even if formal establishment occurred later. Historical precedent shows Italian corps often operated informally before formal HQ establishment. Recommend extracting Q2 as 'informal/transitional' unit with note about Q3 formal establishment. Pattern database will learn from this decision for future similar cases."
+      },
+
+      "impact_assessment": {
+        "scope": "Single unit missing from Q2 Italian forces",
+        "strategic_importance": "HIGH - XX Mobile Corps was Italy's primary armored formation in North Africa",
+        "battle_coverage": "Tobruk siege scenarios incomplete without XX Corps",
+        "data_completeness": "Italian 1941-Q2 forces incomplete without XX Corps (missing 1 of 3 targeted units)",
+        "kickstarter_impact": "MODERATE - Wargame scenarios for Tobruk siege require XX Corps",
+        "user_expectation": "Users expect XX Corps in Q2 based on seed list"
+      }
+    },
+
+    {
+      "unit_id": "italian_1941q2_xxi_corps",
+      "status": "SUCCESSFULLY_EXTRACTED",
+      "severity": "NONE",
+      "requires_human_review": false,
+
+      "seed_data": {
+        "designation": "XXI Corps",
+        "nation": "Italy",
+        "quarter": "1941-Q2",
+        "confidence": 95
+      },
+
+      "extracted_file": "data/output/units/italian_1941q2_xxi_corps_toe.json",
+      "extraction_confidence": 78,
+      "validation": "PASSED"
+    },
+
+    {
+      "unit_id": "british_1941q2_xiii_corps",
+      "status": "SUCCESSFULLY_EXTRACTED",
+      "severity": "NONE",
+      "requires_human_review": false,
+
+      "seed_data": {
+        "designation": "XIII Corps",
+        "nation": "Britain",
+        "quarter": "1941-Q2",
+        "confidence": 95
+      },
+
+      "extracted_file": "data/output/units/british_1941q2_xiii_corps_toe.json",
+      "extraction_confidence": 76,
+      "validation": "PASSED"
+    }
+  ],
+
+  "human_decision_queue": {
+    "pending_decisions": 1,
+    "urgent_decisions": 1,
+    "decision_required_before_proceeding": true,
+
+    "decision_1": {
+      "decision_id": "xx_mobile_corps_q2_1941_informal_status",
+      "unit": "Italian XX Mobile Corps (1941-Q2)",
+      "question": "Should XX Mobile Corps be extracted for 1941-Q2 as an informal/transitional unit despite formal establishment in Q3?",
+      "options": [1, 2, 3, 4],
+      "recommended": 1,
+      "deadline": "Before Phase 7 (Air Forces extraction)",
+      "assigned_to": "User",
+      "created": "2025-10-15T00:00:00Z"
+    }
+  },
+
+  "pattern_database_updates": {
+    "new_patterns_identified": 1,
+    "patterns_updated": 1,
+
+    "pattern_update": {
+      "pattern_id": "informal_italian_corps_q2_1941_PENDING",
+      "status": "AWAITING_FIRST_HUMAN_DECISION",
+      "occurrences": 1,
+      "confidence": 0,
+      "automation_threshold": 95,
+      "learning_status": "Once human decides, pattern confidence will increase to 45% (first occurrence). After 3+ consistent decisions (≥95% confidence), pattern can auto-resolve future cases."
+    }
+  },
+
+  "next_steps": [
+    "⏸️  WORKFLOW PAUSED - Human decision required for XX Mobile Corps Q2 1941",
+    "User must review reconciliation_report.json and human_review_queue.json",
+    "User must select Option 1, 2, 3, or 4 for XX Corps Q2 resolution",
+    "Upon decision, pattern_database.json will be updated with reasoning",
+    "Workflow can resume after decision recorded",
+    "Future similar cases will reference this decision for gradual automation"
+  ],
+
+  "phase_6_protection_status": {
+    "seed_override_prevented": true,
+    "human_review_triggered": true,
+    "pattern_learning_active": true,
+    "automation_threshold_not_met": true,
+    "rationale": "Phase 6 successfully detected discrepancy between 95%-confidence seed data and 85%-confidence agent finding. Pattern confidence (0%) is below automation threshold (95%), triggering mandatory human review. No autonomous override of seed data occurred. System functioning as designed."
+  }
+}

@@ -1,16 +1,16 @@
-# Session Checkpoint - 2025-10-15T04:02:55.711Z
+# Session Checkpoint - 2025-10-15T16:02:43.790Z
 
 ## Progress Summary
 
 - **Total Unit-Quarters:** 420
-- **Completed:** 150 (35.7%)
-- **Remaining:** 270
-- **Last Commit:** 0f75748
+- **Completed:** 154 (36.7%)
+- **Remaining:** 266
+- **Last Commit:** 1803208
 
 ## Validation Status
 
-- **Total Validated:** 152
-- **✅ Passed:** 141 (92.8%)
+- **Total Validated:** 154
+- **✅ Passed:** 143 (92.9%)
 - **❌ Failed:** 1 ⚠️
 - **⚠️ Warnings:** 10
 
@@ -22,8 +22,8 @@
 
 ## Chapter Status
 
-- **JSON Files:** 152
-- **MDBook Chapters:** 0 ⚠️
+- **JSON Files:** 154
+- **MDBook Chapters:** 2 ⚠️
 - **Missing Chapters:** 152
   - ❌ american_1942q4_1st_armored_division
   - ❌ american_1942q4_1st_infantry_division
@@ -56,13 +56,13 @@ If this session crashes or needs to resume:
 
 3. **View full progress:**
    - See WORKFLOW_STATE.json for complete list
-   - 150 units saved successfully
+   - 154 units saved successfully
 
 ## Session Info
 
 - **Session ID:** complete_seed_generated
-- **Checkpoint Time:** 2025-10-15T04:02:55.680Z
-- **Git Commit:** 0f75748
+- **Checkpoint Time:** 2025-10-15T16:02:43.759Z
+- **Git Commit:** 1803208
 
 ---
 
