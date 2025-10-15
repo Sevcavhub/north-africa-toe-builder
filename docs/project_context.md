@@ -42,7 +42,7 @@ Squad TO&E (Full SCM detail + individual soldier positions)
 
 ## Agent Architecture
 
-### 15 Specialist Agents Organized in 6 Categories
+### 16 Specialist Agents Organized in 6 Categories
 
 #### 1. Source & Extraction (2 agents)
 - **document_parser**: Parse PDFs and extract facts with citations
@@ -62,9 +62,10 @@ Squad TO&E (Full SCM detail + individual soldier positions)
 - **bottom_up_aggregator**: Aggregate squad → platoon → company → ... → theater
 - **top3_calculator**: Calculate top 3 weapons at each level
 
-#### 5. Validation (2 agents)
+#### 5. Validation (3 agents)
 - **schema_validator**: Validate against unified TO&E schema
 - **historical_accuracy**: Verify against historical sources
+- **seed_reconciliation_validator**: Compare extracted units vs authoritative seed list, learn patterns from human decisions (Anthropic evaluator-optimizer pattern)
 
 #### 6. Output & Generation (3 agents)
 - **book_chapter_generator**: Generate MDBook markdown chapters
@@ -98,7 +99,16 @@ Squad TO&E (Full SCM detail + individual soldier positions)
 - Historical accuracy verification
 - Math validation (parent = sum of children)
 
-**Phase 6: Output Generation**
+**Phase 6: Seed Reconciliation (Human-in-Loop Checkpoint)**
+- Compare extracted units against authoritative seed list
+- Detect discrepancies (missing units, quarter mismatches, contradictions)
+- Check pattern database for known edge cases
+- Auto-resolve high-confidence patterns (≥95%)
+- Flag uncertain cases for human review (<75%)
+- Learn from human decisions to build pattern database
+- Prevent agents from autonomously overriding seed data
+
+**Phase 7: Output Generation**
 - Generate MDBook chapters
 - Export wargaming scenarios
 - Create SQL database scripts

@@ -214,12 +214,12 @@ npm run start:claude
 ## Architecture Overview
 
 ### Multi-Agent System
-15 specialized AI agents organized in 6 categories:
+16 specialized AI agents organized in 6 categories:
 1. **Source & Extraction**: document_parser, historical_research
 2. **Structure & Organization**: org_hierarchy, toe_template, unit_instantiation
 3. **Equipment Distribution**: theater_allocator, division_cascader, equipment_reconciliation
 4. **Aggregation & Calculation**: bottom_up_aggregator, top3_calculator
-5. **Validation**: schema_validator, historical_accuracy
+5. **Validation**: schema_validator, historical_accuracy, seed_reconciliation_validator
 6. **Output Generation**: book_chapter_generator, scenario_exporter, sql_populator
 
 ### Orchestration Modes
@@ -228,7 +228,7 @@ Two operational modes:
 **1. API-based (`src/orchestrator.js`)**
 - Direct Claude API integration
 - Runs all agents automatically in sequence
-- 6-phase workflow: Source Extraction → Organization Building → Equipment Distribution → Aggregation → Validation → Output Generation
+- 7-phase workflow: Source Extraction → Organization Building → Equipment Distribution → Aggregation → Validation → Seed Reconciliation → Output Generation
 - Requires ANTHROPIC_API_KEY in .env
 
 **2. File-based (`src/file_orchestrator.js`)**
@@ -273,7 +273,7 @@ Squad (Full SCM detail + individual soldier positions)
 - `src/source_scanner.js` - Source document discovery and cataloging
 
 ### Configuration & Definitions
-- `agents/agent_catalog.json` - All 15 agent definitions with prompts and validation rules
+- `agents/agent_catalog.json` - All 16 agent definitions with prompts and validation rules
 - `schemas/unified_toe_schema.json` - Complete data structure for all organizational levels
 - `sources/sources_catalog.json` - Source document catalog with confidence levels
 - `projects/north_africa_campaign.json` - Project configuration with units to build
@@ -569,10 +569,11 @@ Commanders and equipment allocations change quarterly - always verify data match
 
 Current implementation status:
 - ✅ Architecture designed
-- ✅ All 15 agents defined with enhanced prompts
+- ✅ All 16 agents defined with enhanced prompts (including seed reconciliation validator)
 - ✅ Unified schema complete
 - ✅ File-based orchestration working
 - ✅ Source waterfall system implemented
+- ✅ 7-phase workflow with human-in-loop checkpoint
 - ⏸️ API-based orchestration in progress
 - ⏸️ Web source integration pending
 
