@@ -1,0 +1,292 @@
+{
+  "metadata": {
+    "created": "2025-10-14T23:40:00.000Z",
+    "purpose": "Document semantic reasoning for 18 valid alias matches",
+    "validation_method": "Military unit identity reasoning (not fuzzy string matching)",
+    "total_alias_matches": 18,
+    "false_positives_removed": 9
+  },
+  "reasoning_categories": {
+    "type_descriptors": {
+      "description": "Type words (Infantry, Armoured) added/removed - same unit",
+      "count": 8,
+      "examples": [
+        "4th Indian Division ↔ 4th Indian Infantry Division",
+        "51st Highland Division ↔ 51st Highland Infantry Division"
+      ]
+    },
+    "regional_names": {
+      "description": "Regional nicknames added - same unit",
+      "count": 2,
+      "examples": [
+        "50th Infantry Division ↔ 50th Northumbrian Infantry Division"
+      ]
+    },
+    "theater_designations": {
+      "description": "Theater names (Afrika) added - same unit",
+      "count": 5,
+      "examples": [
+        "90. leichte Division ↔ 90. leichte Afrika Division"
+      ]
+    },
+    "accent_normalization": {
+      "description": "Accent characters normalized",
+      "count": 1,
+      "examples": [
+        "Française ↔ Francaise"
+      ]
+    },
+    "division_numbers": {
+      "description": "Division numbers added to Italian units",
+      "count": 2,
+      "examples": [
+        "Trieste Division ↔ 101st Trieste Division"
+      ]
+    }
+  },
+  "valid_alias_matches": [
+    {
+      "canonical_id": "british_1940q2_4th_indian_division",
+      "seed_designation": "4th Indian Division",
+      "file_designation": "4th Indian Infantry Division",
+      "reason": "Type descriptor added",
+      "explanation": "'Infantry' is implicit type for Indian divisions. 4th Indian Division = 4th Indian Infantry Division (same unit).",
+      "unit_number_match": true,
+      "category": "type_descriptors"
+    },
+    {
+      "canonical_id": "british_1940q3_4th_indian_division",
+      "seed_designation": "4th Indian Division",
+      "file_designation": "4th Indian Infantry Division",
+      "reason": "Type descriptor added",
+      "explanation": "Same as above - type descriptor is optional for well-known units.",
+      "unit_number_match": true,
+      "category": "type_descriptors"
+    },
+    {
+      "canonical_id": "british_1940q4_4th_indian_division",
+      "seed_designation": "4th Indian Division",
+      "file_designation": "4th Indian Infantry Division",
+      "reason": "Type descriptor added",
+      "explanation": "Same as above - type descriptor is optional for well-known units.",
+      "unit_number_match": true,
+      "category": "type_descriptors"
+    },
+    {
+      "canonical_id": "british_1941q2_1st_south_african_division",
+      "seed_designation": "1st South African Division",
+      "file_designation": "1st South African Infantry Division",
+      "reason": "Type descriptor added",
+      "explanation": "'Infantry' is implicit type for South African divisions. Same unit with more specific type.",
+      "unit_number_match": true,
+      "category": "type_descriptors"
+    },
+    {
+      "canonical_id": "british_1941q2_4th_indian_division",
+      "seed_designation": "4th Indian Division",
+      "file_designation": "4th Indian Infantry Division",
+      "reason": "Type descriptor added",
+      "explanation": "Same as above - type descriptor is optional.",
+      "unit_number_match": true,
+      "category": "type_descriptors"
+    },
+    {
+      "canonical_id": "british_1941q2_50th_infantry_division",
+      "seed_designation": "50th Infantry Division",
+      "file_designation": "50th Northumbrian Infantry Division",
+      "reason": "Regional nickname added",
+      "explanation": "'Northumbrian' is regional designation/nickname. 50th Infantry Division recruited from Northumberland. Same unit.",
+      "unit_number_match": true,
+      "category": "regional_names"
+    },
+    {
+      "canonical_id": "british_1941q2_5th_indian_division",
+      "seed_designation": "5th Indian Division",
+      "file_designation": "5th Indian Infantry Division",
+      "reason": "Type descriptor added",
+      "explanation": "'Infantry' is implicit type. Same unit with type specified.",
+      "unit_number_match": true,
+      "category": "type_descriptors"
+    },
+    {
+      "canonical_id": "british_1941q3_50th_infantry_division",
+      "seed_designation": "50th Infantry Division",
+      "file_designation": "50th Northumbrian Infantry Division",
+      "reason": "Regional nickname added",
+      "explanation": "Same as above - Northumbrian is regional nickname for 50th.",
+      "unit_number_match": true,
+      "category": "regional_names"
+    },
+    {
+      "canonical_id": "british_1941q3_5th_indian_division",
+      "seed_designation": "5th Indian Division",
+      "file_designation": "5th Indian Infantry Division",
+      "reason": "Type descriptor added",
+      "explanation": "Same as above - type descriptor is optional.",
+      "unit_number_match": true,
+      "category": "type_descriptors"
+    },
+    {
+      "canonical_id": "british_1942q4_51st_highland_division",
+      "seed_designation": "51st Highland Division",
+      "file_designation": "51st Highland Infantry Division",
+      "reason": "Type descriptor added",
+      "explanation": "'Infantry' is implicit type. 51st Highland Division = 51st Highland Infantry Division (same unit).",
+      "unit_number_match": true,
+      "category": "type_descriptors"
+    },
+    {
+      "canonical_id": "french_1942q4_1re_division_fran_aise_libre",
+      "seed_designation": "1re Division Française Libre",
+      "file_designation": "1re Division Francaise Libre",
+      "reason": "Accent normalization",
+      "explanation": "Française (with cedilla) vs Francaise (without) - just accent character difference, same unit.",
+      "unit_number_match": true,
+      "category": "accent_normalization"
+    },
+    {
+      "canonical_id": "german_1941q3_90_leichte_division",
+      "seed_designation": "90. leichte Division",
+      "file_designation": "90. leichte Afrika Division",
+      "reason": "Theater designation added",
+      "explanation": "'Afrika' is theater designation. 90. leichte Division served in Africa, commonly called 90. leichte Afrika Division. Same unit.",
+      "unit_number_match": true,
+      "category": "theater_designations"
+    },
+    {
+      "canonical_id": "german_1941q4_90_leichte_division",
+      "seed_designation": "90. leichte Division",
+      "file_designation": "90. leichte Afrika Division",
+      "reason": "Theater designation added",
+      "explanation": "Same as above - Afrika is theater designation, not identity change.",
+      "unit_number_match": true,
+      "category": "theater_designations"
+    },
+    {
+      "canonical_id": "german_1942q1_90_leichte_division",
+      "seed_designation": "90. leichte Division",
+      "file_designation": "90. leichte Afrika Division",
+      "reason": "Theater designation added",
+      "explanation": "Same as above - Afrika is theater designation.",
+      "unit_number_match": true,
+      "category": "theater_designations"
+    },
+    {
+      "canonical_id": "german_1942q3_164_leichte_division",
+      "seed_designation": "164. leichte Division",
+      "file_designation": "164. leichte Afrika Division",
+      "reason": "Theater designation added",
+      "explanation": "'Afrika' is theater designation. 164. leichte Division served in Africa. Same unit.",
+      "unit_number_match": true,
+      "category": "theater_designations"
+    },
+    {
+      "canonical_id": "german_1942q3_90_leichte_division",
+      "seed_designation": "90. leichte Division",
+      "file_designation": "90. leichte Afrika Division",
+      "reason": "Theater designation added",
+      "explanation": "Same as above - Afrika is theater designation.",
+      "unit_number_match": true,
+      "category": "theater_designations"
+    },
+    {
+      "canonical_id": "italian_1941q1_trieste_division",
+      "seed_designation": "Trieste Division",
+      "file_designation": "101st Trieste Division",
+      "reason": "Division number added",
+      "explanation": "Trieste Division is officially 101st Motorized Division 'Trieste'. Division number added for specificity. Same unit.",
+      "unit_number_match": true,
+      "category": "division_numbers"
+    },
+    {
+      "canonical_id": "italian_1942q4_ariete_division",
+      "seed_designation": "Ariete Division",
+      "file_designation": "132 Ariete Division",
+      "reason": "Division number added",
+      "explanation": "Ariete Division is officially 132nd Armored Division 'Ariete'. Division number added for specificity. Same unit.",
+      "unit_number_match": true,
+      "category": "division_numbers"
+    }
+  ],
+  "false_positives_removed": [
+    {
+      "canonical_id": "american_1943q1_1st_armored_division",
+      "seed_designation": "1st Armored Division",
+      "incorrect_file": "1st Infantry Division",
+      "reason": "DIFFERENT UNITS",
+      "explanation": "1st Armored Division ≠ 1st Infantry Division. Different unit types with different numbers in US Army structure.",
+      "unit_number_match": false
+    },
+    {
+      "canonical_id": "american_1943q1_3rd_infantry_division",
+      "seed_designation": "3rd Infantry Division",
+      "incorrect_file": "1st Infantry Division",
+      "reason": "DIFFERENT UNITS",
+      "explanation": "3rd Infantry Division ≠ 1st Infantry Division. Different division numbers (3rd ≠ 1st).",
+      "unit_number_match": false
+    },
+    {
+      "canonical_id": "american_1943q1_9th_infantry_division",
+      "seed_designation": "9th Infantry Division",
+      "incorrect_file": "1st Infantry Division",
+      "reason": "DIFFERENT UNITS",
+      "explanation": "9th Infantry Division ≠ 1st Infantry Division. Different division numbers (9th ≠ 1st).",
+      "unit_number_match": false
+    },
+    {
+      "canonical_id": "british_1941q1_5th_indian_division",
+      "seed_designation": "5th Indian Division",
+      "incorrect_file": "4th Indian Division",
+      "reason": "DIFFERENT UNITS",
+      "explanation": "5th Indian Division ≠ 4th Indian Division. Different division numbers (5th ≠ 4th).",
+      "unit_number_match": false
+    },
+    {
+      "canonical_id": "british_1941q3_1st_south_african_division",
+      "seed_designation": "1st South African Division",
+      "incorrect_file": "2nd South African Infantry Division",
+      "reason": "DIFFERENT UNITS",
+      "explanation": "1st South African Division ≠ 2nd South African Division. Different division numbers (1st ≠ 2nd).",
+      "unit_number_match": false
+    },
+    {
+      "canonical_id": "british_1942q3_1st_armoured_division",
+      "seed_designation": "1st Armoured Division",
+      "incorrect_file": "10th Armoured Division",
+      "reason": "DIFFERENT UNITS",
+      "explanation": "1st Armoured Division ≠ 10th Armoured Division. Different division numbers (1st ≠ 10th).",
+      "unit_number_match": false
+    },
+    {
+      "canonical_id": "german_1942q2_15_panzer_division",
+      "seed_designation": "15. Panzer-Division",
+      "incorrect_file": "21. Panzer-Division",
+      "reason": "DIFFERENT UNITS",
+      "explanation": "15. Panzer-Division ≠ 21. Panzer-Division. Different division numbers (15 ≠ 21).",
+      "unit_number_match": false
+    },
+    {
+      "canonical_id": "german_1943q1_15_panzer_division",
+      "seed_designation": "15. Panzer-Division",
+      "incorrect_file": "10. Panzer-Division",
+      "reason": "DIFFERENT UNITS",
+      "explanation": "15. Panzer-Division ≠ 10. Panzer-Division. Different division numbers (15 ≠ 10).",
+      "unit_number_match": false
+    },
+    {
+      "canonical_id": "german_1943q1_21_panzer_division",
+      "seed_designation": "21. Panzer-Division",
+      "incorrect_file": "10. Panzer-Division",
+      "reason": "DIFFERENT UNITS",
+      "explanation": "21. Panzer-Division ≠ 10. Panzer-Division. Different division numbers (21 ≠ 10).",
+      "unit_number_match": false
+    }
+  ],
+  "summary": {
+    "total_fuzzy_matches_before_validation": 27,
+    "valid_alias_matches": 18,
+    "false_positives_removed": 9,
+    "false_positive_rate": "33.3%",
+    "key_insight": "Fuzzy string matching (60% word overlap) produced 33% false positives because it ignores unit numbers, which are core identity. Semantic reasoning correctly identifies that '4th Indian Division' and '4th Indian Infantry Division' are the SAME unit (type descriptor added), while '4th Indian Division' and '5th Indian Division' are DIFFERENT units (different numbers)."
+  }
+}

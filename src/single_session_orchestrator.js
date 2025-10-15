@@ -17,6 +17,7 @@
 const fs = require('fs').promises;
 const path = require('path');
 const { SourceWaterfall } = require('./source_waterfall');
+const { UnitCompletionChecker } = require('../scripts/lib/unit_completion_checker');
 
 class SingleSessionOrchestrator {
   constructor(projectPath) {
@@ -24,6 +25,7 @@ class SingleSessionOrchestrator {
     this.project = null;
     this.agents = new Map();
     this.sessionDir = path.join(__dirname, '../data/output/session_' + Date.now());
+    this.completionChecker = new UnitCompletionChecker();
   }
 
   async initialize() {
@@ -34,10 +36,69 @@ class SingleSessionOrchestrator {
 
     // Load project
     const projectData = await fs.readFile(this.projectPath, 'utf-8');
-    this.project = JSON.parse(projectData);
+    const rawProject = JSON.parse(projectData);
+
+    // Transform seed file structure to orchestrator format
+    // Seed file has nation-specific arrays (german_units, italian_units, etc.)
+    // Each unit has designation + quarters array
+    // Transform to flat array with nation, quarter, unit_designation
+    const seedUnits = [];
+
+    const nationMappings = {
+      'german_units': 'german',
+      'italian_units': 'italian',
+      'british_units': 'british',
+      'usa_units': 'american',
+      'french_units': 'french'
+    };
+
+    for (const [arrayName, nation] of Object.entries(nationMappings)) {
+      const units = rawProject[arrayName] || [];
+      for (const unit of units) {
+        for (const quarter of unit.quarters) {
+          seedUnits.push({
+            nation: nation,
+            quarter: quarter,
+            unit_designation: unit.designation
+          });
+        }
+      }
+    }
+
+    this.project = {
+      ...rawProject,
+      seed_units: seedUnits,
+      project_name: rawProject.description || 'North Africa Campaign',
+      source_strategy: rawProject.source_strategy || {
+        waterfall_priority: [
+          {
+            tier: 1,
+            name: 'Local Documents',
+            sources: ['Tessin Wehrmacht Encyclopedia', 'British Army Lists', 'US Field Manuals'],
+            confidence_base: 90
+          },
+          {
+            tier: 2,
+            name: 'Curated Web Sources',
+            sources: ['Feldgrau.com', 'Niehorster.org'],
+            confidence_base: 75
+          },
+          {
+            tier: 3,
+            name: 'General Web Search',
+            sources: ['web_search'],
+            confidence_base: 60
+          }
+        ],
+        confidence_threshold: 75,
+        fallback_enabled: true
+      },
+      resource_documents_path: rawProject.resource_documents_path || 'Resource Documents'
+    };
 
     console.log(`Project: ${this.project.project_name}`);
-    console.log(`Units: ${this.project.seed_units.length}`);
+    console.log(`Total unit-quarters: ${this.project.seed_units.length}`);
+    console.log(`Unique units: ${rawProject.total_units || 'N/A'}\n`);
 
     // Load agents
     const catalogPath = path.join(__dirname, '../agents/agent_catalog.json');
@@ -62,15 +123,52 @@ class SingleSessionOrchestrator {
    */
   async generateAllPrompts() {
     console.log('📝 GENERATING ALL PROMPTS\n');
-    console.log('This will create prompt files for every unit.');
-    console.log('You can then process them in Claude Code at your own pace.\n');
+
+    // Filter out completed units
+    const filterResult = this.completionChecker.filterIncomplete(this.project.seed_units);
+    const stats = this.completionChecker.getStats();
+
+    console.log('Completion Status:');
+    console.log(`  Total seed units: ${filterResult.stats.total}`);
+    console.log(`  Already completed: ${filterResult.stats.completed} (${filterResult.stats.completion_percentage}%)`);
+    console.log(`  Need extraction: ${filterResult.stats.incomplete}\n`);
+
+    if (stats.available) {
+      console.log('Completion by nation:');
+      for (const [nation, nationStats] of Object.entries(stats.by_nation)) {
+        const pct = ((nationStats.completed / nationStats.total) * 100).toFixed(1);
+        console.log(`  ${nation}: ${nationStats.completed}/${nationStats.total} (${pct}%)`);
+      }
+      console.log();
+    }
+
+    if (filterResult.completed.length > 0) {
+      console.log(`Skipping ${filterResult.completed.length} completed units:\n`);
+      for (const unit of filterResult.completed.slice(0, 5)) {
+        console.log(`  ✓ ${unit.nation} ${unit.unit_designation} (${unit.quarter})`);
+        console.log(`    File: ${unit.completion.file} (${unit.completion.matchType} match)`);
+      }
+      if (filterResult.completed.length > 5) {
+        console.log(`  ... and ${filterResult.completed.length - 5} more`);
+      }
+      console.log();
+    }
+
+    const incompleteUnits = filterResult.incomplete;
+
+    if (incompleteUnits.length === 0) {
+      console.log('🎉 All units are already completed! No prompts to generate.\n');
+      return [];
+    }
+
+    console.log(`Generating prompts for ${incompleteUnits.length} incomplete units...\n`);
 
     const promptIndex = [];
 
-    for (let i = 0; i < this.project.seed_units.length; i++) {
-      const unit = this.project.seed_units[i];
+    for (let i = 0; i < incompleteUnits.length; i++) {
+      const unit = incompleteUnits[i];
 
-      console.log(`[${i + 1}/${this.project.seed_units.length}] ${unit.nation} ${unit.unit_designation} (${unit.quarter})`);
+      console.log(`[${i + 1}/${incompleteUnits.length}] ${unit.nation} ${unit.unit_designation} (${unit.quarter})`);
 
       try {
         // PHASE 1: Prepare source

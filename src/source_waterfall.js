@@ -189,21 +189,29 @@ class SourceWaterfall {
    * Get local source files for a nation
    */
   getLocalSourcesForNation(nation, availableSources) {
+    // Normalize nation name (accept both lowercase and capitalized)
+    const nationKey = nation.toLowerCase();
+
     const sourceMap = {
-      'Germany': ['Tessin Wehrmacht Encyclopedia (German)'],
-      'Italy': ['TM 30-410 British Army Handbook', 'British Army Lists (British/Commonwealth)'],
-      'Britain': ['British Army Lists (British/Commonwealth)', 'TM 30-410 British Army Handbook'],
-      'Commonwealth': ['British Army Lists (British/Commonwealth)', 'TM 30-410 British Army Handbook'],
-      'India': ['British Army Lists (British/Commonwealth)', 'TM 30-410 British Army Handbook'],
-      'Australia': ['British Army Lists (British/Commonwealth)', 'TM 30-410 British Army Handbook'],
-      'New Zealand': ['British Army Lists (British/Commonwealth)', 'TM 30-410 British Army Handbook'],
-      'Canada': ['British Army Lists (British/Commonwealth)', 'TM 30-410 British Army Handbook'],
-      'South Africa': ['British Army Lists (British/Commonwealth)', 'TM 30-410 British Army Handbook'],
-      'USA': ['US Field Manuals (USA)', 'TM 30-410 British Army Handbook'],
-      'France': ['British Army Lists (British/Commonwealth)', 'TM 30-410 British Army Handbook']
+      'german': ['Tessin Wehrmacht Encyclopedia (German)'],
+      'germany': ['Tessin Wehrmacht Encyclopedia (German)'],
+      'italian': ['TM 30-410 British Army Handbook', 'British Army Lists (British/Commonwealth)'],
+      'italy': ['TM 30-410 British Army Handbook', 'British Army Lists (British/Commonwealth)'],
+      'british': ['British Army Lists (British/Commonwealth)', 'TM 30-410 British Army Handbook'],
+      'britain': ['British Army Lists (British/Commonwealth)', 'TM 30-410 British Army Handbook'],
+      'commonwealth': ['British Army Lists (British/Commonwealth)', 'TM 30-410 British Army Handbook'],
+      'india': ['British Army Lists (British/Commonwealth)', 'TM 30-410 British Army Handbook'],
+      'australia': ['British Army Lists (British/Commonwealth)', 'TM 30-410 British Army Handbook'],
+      'new zealand': ['British Army Lists (British/Commonwealth)', 'TM 30-410 British Army Handbook'],
+      'canada': ['British Army Lists (British/Commonwealth)', 'TM 30-410 British Army Handbook'],
+      'south africa': ['British Army Lists (British/Commonwealth)', 'TM 30-410 British Army Handbook'],
+      'american': ['US Field Manuals (USA)', 'TM 30-410 British Army Handbook'],
+      'usa': ['US Field Manuals (USA)', 'TM 30-410 British Army Handbook'],
+      'french': ['British Army Lists (British/Commonwealth)', 'TM 30-410 British Army Handbook'],
+      'france': ['British Army Lists (British/Commonwealth)', 'TM 30-410 British Army Handbook']
     };
 
-    return sourceMap[nation] || [];
+    return sourceMap[nationKey] || [];
   }
 
   /**
@@ -349,8 +357,9 @@ class SourceWaterfall {
    */
   generateSearchPatterns(unitDesignation, nation) {
     const patterns = [];
+    const nationKey = nation.toLowerCase();
 
-    if (nation === 'Germany') {
+    if (nationKey === 'german' || nationKey === 'germany') {
       // German abbreviations
       let pattern = unitDesignation;
 
@@ -385,7 +394,7 @@ class SourceWaterfall {
         patterns.push(`${number}\\.?\\s*Panzer-Division`);
         patterns.push(`${number}\\.?\\s*leichte\\s*Division`);
       }
-    } else if (nation === 'Italy') {
+    } else if (nationKey === 'italian' || nationKey === 'italy') {
       // Italian patterns
       let pattern = unitDesignation;
 
@@ -396,7 +405,7 @@ class SourceWaterfall {
         patterns.push(`${baseName}\\s*Division`);
         patterns.push(`Div\\.?\\s*${baseName}`);
       }
-    } else if (nation === 'Britain' || nation === 'Commonwealth') {
+    } else if (nationKey === 'british' || nationKey === 'britain' || nationKey === 'commonwealth') {
       // British/Commonwealth patterns
       const numberMatch = unitDesignation.match(/(\d+)(st|nd|rd|th)?/);
       if (numberMatch) {
@@ -407,7 +416,7 @@ class SourceWaterfall {
         patterns.push(unitDesignation.replace(/(\d+)(st|nd|rd|th)/, `$1`));
         patterns.push(unitDesignation.replace('Armoured', 'Armo?u?red')); // UK/US spelling
       }
-    } else if (nation === 'USA') {
+    } else if (nationKey === 'american' || nationKey === 'usa') {
       // US patterns
       patterns.push(unitDesignation);
       patterns.push(unitDesignation.replace('Armored', 'Armo?u?red')); // US/UK spelling

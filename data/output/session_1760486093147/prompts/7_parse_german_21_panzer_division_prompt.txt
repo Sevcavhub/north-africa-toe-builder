@@ -1,0 +1,373 @@
+You are a military historian extracting data from Tessin Wehrmacht Encyclopedia (German).
+
+🚨 CRITICAL: SOURCE VALIDATION (ANTHROPIC PATTERN: Error Prevention)
+
+BEFORE extracting ANY data, validate source type:
+
+✅ ALLOWED Sources (Tier 1/2 ONLY):
+- Nafziger Collection (10,049 OOB & TO&E documents, 1939-1945) - PRIMARY OOB SOURCE
+- Tessin Wehrmacht Encyclopedia (17 volumes)
+- British Army Lists (quarterly 1940-1943)
+- TM E 30-420 (Italian Military Forces handbook)
+- US Field Manuals
+- Archive documents (NARA, Bundesarchiv, Imperial War Museum)
+- Official unit histories (regimental, divisional)
+- Feldgrau.com, Niehorster.org, Lexikon der Wehrmacht
+- Service Historique de la Défense (French)
+- Comando Supremo records (Italian)
+
+❌ FORBIDDEN Sources:
+- Wikipedia (ANY language: wikipedia.org, wikipedia.com, de.wikipedia, etc.)
+- Wikia/Fandom sites
+- Uncited web sources
+- Forum posts (Axis History Forum, etc.)
+- Social media
+
+IF SOURCE IS FORBIDDEN: Return immediately:
+{
+  "error": "FORBIDDEN_SOURCE_DETECTED",
+  "source_detected": "{source_name}",
+  "source_type": "wikipedia",
+  "message": "Wikipedia not allowed per project requirements. Use Tier 1/2 sources only.",
+  "recommended_alternatives": [
+    "For German units: Nafziger Collection (OOB files), Tessin Wehrmacht Encyclopedia, Feldgrau.com",
+    "For British units: Nafziger Collection (OOB files), British Army Lists, unit war diaries, Imperial War Museum",
+    "For Italian units: Nafziger Collection (OOB files), TM E 30-420, Comando Supremo records",
+    "For TO&E validation: Nafziger Collection (TO&E files 1939-1945)"
+  ]
+}
+
+IF SOURCE IS VALID: Proceed with extraction.
+
+---
+
+Task: Extract ALL factual information about german forces in 1943-Q2.
+
+EXTRACTION CATEGORIES:
+
+**Section 1-5 (Existing)**:
+1. Command (commander name, rank, HQ location)
+2. Personnel (total strength, officers, NCOs, enlisted)
+3. Equipment (tanks, vehicles, artillery - variant level detail)
+4. Organization (subordinate units, structure)
+5. Aircraft (fighters, bombers, recon - ASSIGNED air support)
+
+**Section 6 (NEW - CRITICAL FOR SCENARIOS): SUPPLY/LOGISTICS**
+Extract with citations:
+1. supply_status (qualitative assessment)
+   - "What is the operational supply situation?"
+   - "Are there fuel shortages? Ammunition constraints?"
+   - Example: "Adequate for defensive operations, strained for offensive"
+   
+2. operational_radius_km (distance from supply depot)
+   - "How far can units operate from main supply base?"
+   - "What is effective range from Tripoli/Benghazi/Tobruk?"
+   - Example: 350 km from Tripoli
+   
+3. fuel_reserves_days (at current consumption)
+   - "How many days of fuel are available?"
+   - "What is fuel consumption rate?"
+   - Example: 6.5 days of fuel reserves
+   
+4. ammunition_days (days of combat supply)
+   - "How many days of ammunition?"
+   - "Are specific calibers in shortage?"
+   - Example: 8 days of ammunition
+   
+5. water_liters_per_day (critical for desert)
+   - "What is water capacity per man per day?"
+   - "How many days of water reserves?"
+   - Example: 4.5 liters per day per man
+
+**Section 7 (NEW - CRITICAL FOR SCENARIOS): WEATHER/ENVIRONMENT**
+Extract environmental context:
+1. season_quarter
+   - "What quarter is this? What are seasonal conditions?"
+   - Example: "1941-Q2 (April-June) - Late Spring/Early Summer"
+   
+2. temperature_range_c (min/max Celsius)
+   - "What are typical temperatures for this period?"
+   - "Any extreme heat/cold recorded?"
+   - Example: {"min": 18, "max": 35}
+   
+3. terrain_type
+   - "What terrain does this unit operate in?"
+   - "Sand desert? Rocky desert? Coastal plain?"
+   - Example: "Coastal plain and rocky desert"
+   
+4. storm_frequency_days (sandstorms, Ghibli winds)
+   - "How often do sandstorms occur?"
+   - "What is impact on operations?"
+   - Example: 2-3 days per month
+   
+5. daylight_hours
+   - "Average daylight hours for this quarter?"
+   - "Impact on operational tempo?"
+   - Example: 13.5 hours
+
+---
+
+OUTPUT FORMAT (ANTHROPIC PATTERN: Clear Structure):
+
+{
+  "source_validation": {
+    "source_name": "{document_name}",
+    "source_type": "tessin_vol_12",
+    "tier": 1,
+    "confidence": 95,
+    "wikipedia_excluded": false,
+    "validation_passed": true
+  },
+  "facts": [
+    {
+      "category": "command",
+      "data": {
+        "unit": "XXI Corpo d'Armata",
+        "commander": "Generale di Corpo d'Armata Lorenzo Dalmazzo",
+        "rank": "Generale di Corpo d'Armata"
+      },
+      "source": "TM E 30-420, page 45, section 2.3",
+      "confidence": 95
+    },
+    {
+      "category": "supply_logistics",
+      "data": {
+        "supply_status": "Adequate for defensive operations, strained for offensive operations",
+        "operational_radius_km": 350,
+        "fuel_reserves_days": 6.5,
+        "ammunition_days": 8,
+        "water_liters_per_day": 4.5
+      },
+      "source": "Tessin Vol 12, page 145, logistics section",
+      "confidence": 85
+    },
+    {
+      "category": "weather_environment",
+      "data": {
+        "season_quarter": "1941-Q2 (April-June)",
+        "temperature_range_c": {"min": 18, "max": 35},
+        "terrain_type": "coastal plain and rocky desert",
+        "storm_frequency_days": 2,
+        "daylight_hours": 13.5
+      },
+      "source": "Weather records Q2 1941, page 23",
+      "confidence": 90
+    }
+  ]
+}
+
+Extract facts now from: --- Section 1: 21. Panzer-Division ---
+95
+8 8. Jäger-Division
+Unterstellung:
+a) als 8. Inf.Div.:
+1939 Sept. vIu 14. Armee Süd Osten Südpolen Okt./Dez. VII 4. Armee »B° Westen Eifel
+1940 Jan. VIH 4. Armee „B* Westen Eifel Mai VIN 4. Armee „A“ Westen Belgien, Frankreich Juni vu z. Vfg. „B” Westen Frankreich Juli VII 7. Armee „B Westen Rouen Aug./Dez. va 9. Armee A” Westen Rouen
+1941 Jan./Apr. VII 9. Armee „A” Westen Rouen
+Mai VI 9. Armee „B" Osten Ostpreußen Juni/Okt. VII 9. Armee Mitte Osten Brjansk, Wjasma Nov. z. Vfg. 4. Armee Mitte Osten Moshaisk, Moskau b) als 8. lei. Inf.Div.: Dez. VIN 1. Armee I Fni Westen Frankreich 1942 Jan./Febr. VIH 1. Armee „D* Westen Frankreich März/Juni x 16. Armee Nord Osten Demjansk c) als 8. Jäger-Div.: Juli x 16. Armee Nord Osten Demjansk Aug./Dez. u 16. Armee Nord Osten Demjansk 1943 Jan./Febr. u 16. Armee Nord Osten Demjansk März/Mai x 16. Armee Nord Osten Ilmensee Juni z. Vfg. 16. Armee Nord Osten Ilmensee Juli/Dez. x 16. Armee Nord Osten Ilmensee 1944 Jan./Febr. x 16. Armee Nord Osten Ilmensee März XXXVII 18. Armee Nord Osten Pleskau April z.Vfg. - Nord Osten Pleskau Mai/Sept. XVII 8. Armee Südukr. Osten Karpathenpässe Okt./Nov.: XVII 8. Armee Süd Osten Nordung., Slowakei Dez. XXIX 8. Armee Süd Osten Nordung., Slowakei 1945 Jan. xXXIX 8. Armee Süd Osten Nordung., Slowakei Febr./März LXXII 8. Armee Süd Osten Slowakei, Mähren April XXIX 1.Pz.Armee Mitte Osten Slowakei, Mähren Mai XXIV 1.Pz. Armee Mitte Osten Mähren
+Feldersatz-Btl. 8 * 26. 8. 1939 im WK VIII; wird Jan. 1940 II./IR 442; 24. 3. 1941 erneut aufgestellt, mehrfach aufgelöst; 15. 6. 1943 endgültig etatisiert. U: 8. Inf.Div., 8. leichte Inf.Div., 8. Jäger-Div. (s. oben)
+Infanterie-Ers.Rgt.8 * 26.8.1939 in Troppau WK VII als Stab für die Ersatzbataillone der 8. Inf.Div.; Nov. 1939 umgegliedert in Stab Inf.Rgt.189; 9.1.1940 wieder errichtet; Dez. 1940 nach Metz in den WK XII verlegt. 1.10.1942 Res.Inf.Rgt. 8,
+Res.Grenadier-Rgt. 8 am 7.11.1942 und nach Südwestfrankreich verlegt, 1943 in Castres, dann bei Nizza; bildet Okt. 1944 den Stab Gren.Rgt. 285 (148. ID).
+G: 1939: IEB 28 Neiße, 38 Glatz, 84 Cosel
+1940: IEB 28 Neiße, 84 Cosel, 164 Teschen
+1941: IEB 28, 84, 164 sämtl. Metz
+1943: RGB 7 Castelneudery, RJgB. 28 Castres, RGB 164 Albi U: Div. 168, sp. 148, 1.10. 1942 148. Res.Div.
+96
+ei ei ei
+ut
+et;
+Infanterie 8
+Infanterie-Rgt. 8 * 1.1.1921 als 8. (Preuß.) Inf.Rgt.; 1.10.1934 Inf.Rgt. Frankfurt; 15.10.1935 Inf.Rgt.8; FStO Fran kfurt (III. Lübben), WK Ill; 1.2.1940 Abgabe Stab II. und 5. Kp. an Inf.Rgt. 29, werden ersetzt; 27. 10. 1940 motorisiert unter Abgabe der besp. Teile an die IR. 415 und 418 der 123. ID,
+Grenadier-Rgt. (mot.) 8 seit 15. 10. 1942; Jan. 1943 in Stalingrad vernichtet. Neuaufstellung am 1.3.1943 in Frankreich durch das am 25. 11. 1942 errich- tete Gren.Rgt. (mot.) 149 und aus Resten des alten Rgts. 28. 4. 1944 aufgefrischt mit neuen Fp.Nummern bei OB Südwest umgestellt auf freie Gliederung; die 4., 8., 12.Kp. werden schw. Kp., eine 15. (Pi.) Kp- wird gebildet,
+Panzergrenadier-Rgt. 8 seit 1.12. 1944, aber in freier Gliederung mit drei Bataillonen. G: 1939 I. 1-4, II. 5-8, III. 9-12, 13, 14 (1944 auch 15)
+U: 3. Inf.Div.: 1939 Pommern, Polen, 1940 Luxemburg, Frankreich (Champagne), 3, Inf.Div. (mot.): 1941 Nordrußland (4. Pz.Armee), Mittelrußland (4. Armee), 1942 Mittelrußland (4. Pz.A.), Südrußland (6. A.), 1943 Stalingrad, Wiederauf- stellung in Frankreich, 3. Pz.Gren.Div. (seit 23. 6. 1943): 1943 Erankreich, Italien, 1944/45 Italien
+E: 8 Frankfurt/Oder WK III
+Ergänzungs-Bil. Infanterie-Rgt. 8 * 10.11.1938, FStO Frankfurt/Oder WK III; wird bei Mobilmachung III./IR 479 (258. Inf.Div.) der 4. Welle.
+Infanterie-Ers.Btl.8 * 26.8.1939 in Fran kfurt/O. WK III; wird 1.12.1940 motorisiert, 1.10.1942 geteilt in Ers. und Ausb.Btl.,
+Grenadier-Ers.Btl. (mot.) 8 Frankfurt/Oder am 7.11.1942; 15.4. 1943 die Stäbe des Gren.Ers. und Gren.Ausb.Btl. wieder zum Gren.Ers. u. Ausb.Btl. (mot.) 8 zusammengelegt; 10. 8.1943 abermals geteilt in Ers. und Res.Btl., Ers.Btl. bleibt in Frankfurt/O.,
+Panzergrenadier-Ers.Btl. 8 seit 1. 12. 1944.
+U: Div. 163, 30. 11.1939 Div. 143, 23.6.1941 Div. 153, 15. 5. 1942 Div. (mot.) 233, 10. 8. 1943 Kdr. d. Panzertruppen III Ersatztruppe für 3. Inf.Div., seit 1940 mot.
+Res.Grenadier-Btl. (mot.) 8 * 10. 8. 1943 in Frankfurt/O. WK III aus dem Gren.Ers. u. Ausb. Btl.8 und nach Dänemark (Give) verlegt; Dez. 1944 in Olgod; wird April 1945 1./Pz.Gren. Rgt. 42 (?).
+U: 233. Res.Pz.Div., Dänemark
+8. Gebirgs-Division
+* März 1944 in Lappland beabsichtigt aus Geb.Jäger-Rgt. 139; Fp.Nummer für den Stab erteilt. Bildung erfolgte jedoch als Stab Div.Gruppe Kräutler (K), der später 140. Div. z. b. V. wurde.
+8. Gebirgs-Division (WK VII, E 1./98 Garmisch)
+* Febr. 1945 durch Umbenennung der 157. Geb.Div. in Italien in 8. Geb.Div. Die Ein- heiten behalten ihre bisherigen Bezeichnungen:
+Geb.Jäger-Rgt. 296 I.-Il. (AO. Mittenwald)
+Geb.Jäger-Rgt. 297° 1.-I. (AO. Brannenburg)
+97
+8 8. Gebirgs-Division
+[a L——.
+Geb.Art.Rgt.1057_ I-—IV.
+Div.Einheiten 1057 (Pz.Jäg. 157) Die Division kam 1945 im Raum Rovereto—Trient in amerikanische Gefangenschaft. Unterstellung: 1945 März/April XIV 14. Armee ne® Süden Norditalien
+Jagd-Kdo. 8 * 22. 12. 1941 im WK XVIIl aus einer Walküreeinheit mit 2 Kp. und 3. MGK zum Partisaneneinsatz bei Hgr. Nord in Rußland. Sommer 1942 für die Bildung der Pz.Jg. u. Aufkl.Abt. 218 verwendet. Die am 25. 2. 1942 in Arys WK I gebildete 4. Kp. wird 1./Jagd-Btl. 8.
+U: Heerestruppe, Nordrußland (Ilmensee)
+Jagd-Btl. 8 * 1.7. 1942 in Arys WK I mit der 4./Jagd-Kdo. 8 (jetzt 1.) als Stamm, Jäger-Btl. 8 seit 6. 7. 1942; Frühj. 1944 als zusätzliche 9. Kp. in das Gren.Rgt. 509 (292. ID) eingegliedert. U: Heerestruppe, Mittelrußland (Wel.Luki, Orel, Gomel)
+Heeresdienststelle 8, zuletzt in Koblenz WK XII war bereits 1938 in Gkdo. Eifel umgebildet worden.
+Grenzwacht-Abschnitt 8 (Ausb.Leiter Görlitz) mit Unterabschnitten I, II (Abschn. Kdo. 4), nach der Besetzung des Sudetenlandes in Landshut (I. 1-4, I. 5-7) wurde infolge Aufhebung der Grenze mit der Tschechoslowakei nicht aufgerufen.
+Festungs-Rgt.Stab 8 * Sept. 1944 im WK II (nur Stab) für Warschau, Festungs-Infanterie-Rgt. 8, Jan. 1945 mit vier Btl., 16. Kp. und 17. Pak; I. aus Fest. Btl. 1401, II., IH. aus ?, IV. aus Fest.MG-Btl. 24, die 17. aus Fest.Pak 1/V. Nach Räumung Warschaus (18. 1. 1945) am 27. 2.1945 aufgelöst. U: Fest.Div. Warschau
+Maschinengewehr-Btl. 8 * 15.10. 1935, FStO Züllichau WK III; 5. 2. 1940 umge- gliedert in 1.—3. MG-Schtz., 4. schw. und 5. Krad-MG-Kp., dazu 6. Pi. und 7. Pz.Jg. Kp. aus den Grenzwacht-Rgt. 66 und 76, geht 1941 als eine der ersten deutschen Ein- heiten nach Libyen. 1.4.1942 auf Befehl der 21. Pz.Div. aufgelöst, ersetzt das auf- geriebene 1./Schtz.Rgt. 104. Die 6. (Pi.) bereits 1. 8. 1941 1./Pz.Pi.Btl. 200, die Pz.Jg. Kp. jetzt 2./Pz.Jg.Abt. 190.
+U: Heerestruppe, 1941 5. leichte, sp. 21. Panzer-Division, seit dem 14. 9.1941 Schtz. Rgt. 104 unterstellt
+Schule VII für Offz. Anwärter der Infanterie * 1.10.1942 in Hannover WK XI mit einer Lehrgruppe,
+Schule VIH für Fahnenjunker der Infanterie, Hannover, seit 23.4.1943; 1.8.1943 verstärkt durch zwei Lehrgruppen, 1944 in Wetzlar WK IX; stellt Febr. 1945 1300 Mann des Lehr- gangs 18B als Stamm zu den Gren. (Führernachwuchs)-Rgt. 1237, 1241 und 1242.
+Heeres-Unteroffiziers-Schule 8 für Infanterie * Nov. 1944 in Frankenstein WK VIII aus der dort seit 1940 bestehenden, Anfang 1944 in eine Uffz.Schule umgewandelten Uffz.Vor- schule.
+98
+Schnelle Truppen 8
+C. Schnelle Truppen t. 8. Panzer-Division (WK III, E 8 (Schtz.) Freienwalde, sp. Eberswalde) K * 16.10.1939 aus der 3. leichten Division (FStO Cottbus) durch Umbenennung. Von den
+Armeetruppen Ostpreußen trat I./Panzer-Rgt. 10 hinzu, die am 20. 10. 1939 auf ein Rgt. p erweitert wurde. Die beiden Kav.Schtz.Rgt. 8 und 9 wurden am 1. 4, 1940 zum Schützen- ; Rgt. 8 zusammengefaßt, das Aufkl.Rgt. 8 am gleichen Tage in die Aufkl.Abt. 90 (bei der 10. Pz.Div.) und 59 geteilt 8. Schützen-Brig. (neu) Schützen-Rgt.8 III. (Stab aus Schtz. 9 Sorau, I. aus 1./8 Cottbus, II. aus II./8 Cottbus, III. aus 1./9 Sorau)
+er
+” Kradschtz.Btl.8 aus II./9 Sorau Panzer-Rgt.10 1.1. (FStO für I. Zinten) Panzer-Abt. 67 (FStO Gr. Glienecke) el Art.Rgt. 80 1., II. (FStO Cottbus) Div.Einheiten 59 (aber Pz.Jg. 43, Nachr. 84) Am 1.1.1941 wurde die Panzer-Abt. 67 in IIL./10 umbenannt und das Schützen-Rgt. 28 r neu gebildet. Das Art.Rgt. 80 erhielt in der schw. Art.Abt. 645 eine dritte Abteilung. de 8. Schützen-Brig. Schützen-Rgt. 8 L,II. (Stab und I. aus Stab u. III./8 (fr. 1/9), II. neu gebildet) Schützen-Rgt.28 1.,II. (Stab neu, I. u. II. aus 1., 11./8) st Kradschtz.Btl. 8 e Panzer-Rgt.10_ III. (III. aus Pz.Abt. 67) Art.Rgt. 80 1.—II. (III. aus Art.Abt. 645) Div.Einheiten 59 (aber Pz.Jg. 43, Nachr. 84) Beim Panzer-Rgt. schied am 8. 5. 1942 die II. Abt. aus und wurde III/Pz.Rgt.2, am <; 16.9. auch der Stab und die III. Sie wurden zur Verfügung OKH gestellt und später in ’ Stab Pz.Brig. 10, resp. Panzer-Abt. 302 umbenannt, Bei der Division blieb nur die 5A I. Abteilung. Die Aufkl.Abt. 59 wurde aufgelöst und mit dem Kradschtz.Btl. 8 vereinigt, af- dieses 1943 in Pz.Aufkl.Abt. 8 umbenannt. Hinzu kam die Heeres-Flakart.Abt. 286. Jg Pz.Gren.Regt. 8 LI. er Pz.Gren.Rgt.28 I1,I. PR Pz.Aufkl.Abt. 8 ö Panzer-Rgt.10 nur I. Abt. Art.Rgt. 80 1—II. H.Flakart.Abt. 286 ar Div.Einheiten 59 (Pz.Jg.Abt. 43, Nachr.Abt. 84) irkt Als am 1.12.1944 die Gren.Rgt. (mot.) der Pz.Gren.Divisionen in Pz.Gren.Regimenter ‚hr- umbenannt wurden, mußte das Pz.Gren.Rgt. 8 dem älteren Rgt. 8 (Frankfurt) der 3. Pz. Gren.Div. in der Nummer weichen und erhielt die Nummer 98. Auch wurde das Panzer- Rgt. 10 wieder durch Stab und II. vervollständigt. aus Pz.Gren.Rgt.28 1,Il. 'or- Pz.Gren.Rgt.98 1,1. (fr. 8)
+Pz.Aufkl.Abt. 8
+8 8. Panzer-Division
+Panzer-Rgt. 10 1,1. (sonst unverändert) Die Division kam 1945 bei Brünn und Deutsch-Brod in russische Gefangenschaft.
+Unterstellung: 1939 Dez. z. Vfg. BE Westen Niederrhein 1940 Jan. z. Vfg. „B“ Westen Niederrhein Mai z. Vfg. 12. Armee Pe Sa Westen Eifel, Belgien Juni XXXXI  Guderian (12) „A“ Westen Frankreich Jul/Okt. XV 2. Armee fi &z Westen Frankreich Nov./Dez. XXXXI 16. Armee „A“ Westen Frankreich 1941 Jan./Febr. z. Vfg. 1. Armee ser Heimat — März XXXXI 2. Armee FD ai Westen Frankreich April XXXXVI 4. Pz.Gru. = Südosten Jugoslawien Mai/Juni BdE im Protektorat Heimat -— Juli LVI 4. Pz.Gru. Nord Osten Pleskau, Luga Aug. z. Vfg. 4. Pz.Gru. Nord Osten Narwa, Leningrad Sept. XXXXlI 16. Armee Nord Osten Waldai Okt./Dez. XXXIX 18. Armee Nord Osten Waldai 1942 Jan. z. Vfg. Nord Osten Leningrad Febr. z. Vfg. 16. Armee Nord Osten Leningrad März/Juli XXXIX 16. Armee Nord Osten Cholm Aug./Nov. Brandenberger Nord Osten Cholm Dez. LIX _ Mitte Osten Smolensk, Briansk 1943 Jan. LIX _ Mitte Osten Smolensk, Briansk Febr./März XXXXIII 3.Pz.Armee Mitte Osten Welish Apr./Juli z. Vfg. Mitte Osten Orel Aug. XXI 2.Pz. Armee Mitte Osten Orel Sept. LVI 2. Armee Mitte Osten Desna Okt. LIX 4. Pz. Armee Süd Osten Kiew Nov. xm 4. Pz. Armee Süd Osten Shitomir Dez. XXXXU 4.Pz.Armee Süd Osten Shitomir 1944 Jan. z. Vfg. 4.Pz. Armee Süd Osten Winniza Febr./März XXXXVIII 4. Pz.Armee Süd Osten Tarnopol April x 4.Pz. Armee Nordukr. Osten Tarnopol Mai z. Vfg. - Nordukr. Osten Tarnopol Juni z. Vfg. 1.Pz. Armee Nordukr. Osten Brody, Lemberg Juli II 1. Pz. Armee Nordukr. Osten Brody, Lemberg Aug. LIX 17. Armee Nordukr. Osten Brody, Lemberg Sept. XXIV 1.Pz.Armee Nordukr. Osten Karpathen Okt. XxXIV 1.Pz.Armee „A“ Osten Slowakei Nov. z. Vfg. _ , Osten Slowakei Dez. XXIX 8. Armee Süd Osten Budapest 1945 Jan. LVII 6. Armee Süd Osten Budapest Febr./März 17. Armee Mitte Osten Mähr. Ostrau
+Apr./Mai z.Vfg. 1.Pz. Armee Mitte Osten Mähren
+100
+Schnelle Truppen 8
+8. Panzer-Brigade * 10.11.1938 in Sagan WK VII für die Panzerregimenter (15 und 31) der 5. Pz.Div., wird 1942 Stab 100. Pz.Brig. U: 5. Panzer-Div.: 1939 Polen, 1940 Frankreich, 1941 Balkan, 1942 Mittelrußland E: 15 Sagan WK VIII
+Panzer-Rgt. 8 * 6. 10. 1936, FStO Böblingen, WK V; stand 1939 bei der 10. Pz.Div. in der Tschechoslowakei; 8. 11.1941 verstärkt durch die am 1.9. 1941 aufgestellte 1. und 2. leichte Pz.Kp. auf 8 Kp. Mai 1943 in Tunis vernichtet.
+G: 1939 I. 1-3, Il. 4-6 1941 1. 1-4, II. 5-8 U: 10. Panzer-Div.: 1939 Ostpreußen, 1940 Luxemburg, Frankreich 15. Panzer-Div. (18.1. 1941): Mai 1941 Afrika, 1942/43 Afrika E: 7 Vaihingen, Böblingen WK V
+Panzer-Abt. 8 * Okt. 1943 bei OB West (WK V) an Stelle des in Afrika vernichteten Rgts. als Abt. zu 3 Kp., wird der 20. Pz.Gren.Div. zugeteilt. U: 20. Pz.Gren.Div.: 1943 Südrußland, 1944 Nordukraine, Weichsel, 1945 Weichsel- 1 bogen, Schlesien E: 7 Böblingen WK V
+Panzerabwehr-Abt. 8 * 6. 10. 1936 in Neuhammer, FStO Freu denthal WK VII, bei Mobilmachung dazu als 4. die 1./MGK 48, Panzerjäger-Abt. 8 seit 21. 3. 1940, 22. 11. 1940: die 2, wird 2./102 und ersetzt, 1. wird 29.1.1942 Pz.Jg.Kp. 601, 2. am 2.9.1943 auf Sturmgesch. umbewaffnet und in St. ;k Gesch. Abt. 1008 umbenannt; 10.1. 1944 3. (Fla.) Kp. hinzu. k U: 8. Inf./8. leichte Inf./8. Jäger-Div. (s. oben) E: 8 Breslau-Rosenthal, Mutzig, Oppeln, WK VIII
+Panzerabwehr-Ers.Abt. 8 * 26. 8.1939 in Sagan WK VIII, 15. 10. 1939 nach Breslau-Rosen- thal verlegt,
+Panzerjäger-Ers.Abt. 8 am 1.4.1940. Dez. 1940 nach Mutzig /Elsaß in den WK V verlegt. 1.10.1942 geteilt in Ers.Abt. und Ausb.Abt. Beide 12.10.1942 nah Oppeln in den WK VII zurückverlegt, 10.4.1943 zusammengelegt als Pz.Jg.Ers. u. Ausb.Abt. 8 Oppeln. U: Div. 158, 1. 10.1942 Div. 178 (mot.)
+Panzer-Jagd-Verband (ung.) 8 * April 1945 (Vfg. 6. 2. 1945) im WK XIII zu 3 Pz.Jagd- gruppen (30 Pz.Jagd-Kdos.), Einsatz fraglich.
+Festungs-Pak-Verband VIII * Nov. und Dez. 1944 im WK XXI mit den Fest.Pak-Kp. 1/VII bis 14/VII und 31/VII. U: Heerestruppe Trzebinia, Einsatz bei Lodz, Warthbrücken, Posen (183 Vermißte) E: WKV
+8. Schützen-Brigade * 4. 11. 1939 im WK III aus dem Stab des Kav.Schtz.Rgt. 9 (FStO Sorau) als Stab für die Schützen-Einheiten der 8. Pz.Div. (I., II. Kav.Schtz. 8, 1., II. Kav. Schtz. 9, 17. Kp.),
+8. Panzergrenadier-Brigade seit dem 5. 7. 1942. Nov. 1942 aufgelöst.
+U: 8. Panzer-Div.
+101
+8 Kavallerie-Schützen-Rgt. 8
+Kavallerie-Schützen-Rgt. 8 * 10.11.1938, FStO Cottbus WK III, ohne eigenen Rgt. Stab, Kav.Schtz.Rgt. 9 unterstellt,
+Schützen-Rgt. 8 seit dem 1.4. 1940, Stab aus Stab Kav.Schtz.Rgt. 9, III. aus 1./9 (FStO Sorau). 6.1.1941 Abgabe I. und II. an Schützen-Rgt. 28, III. wird I. das II. neu aus Abgaben gebildet, so daß mit Ausnahme der 6. u. 7. Kp. das Rgt. nur aus Teilen des alten Kav.Schtz.Rgt. 9 bestand,
+Panzergrenadier-Rgt. 8 seit 5.7.1942. Als am 1.12. 1944 das ältere Gren.Rgt. (mot.) 8 aus Frankfurt die Bezeichnung Pz.Gren.Rgt. 8 erhielt, mußte das Rgt. seine Nummer in 98 vertauschen (Ss. d.).
+G: 1939 I. 1-4, II. 5-8, alles Schwadr. 1940 I. 1-4, II. 5-8, II. 9—12, 13, jetzt Kp. 19411. 1-5, II. 6-10, 11 sIG 1942 1. 1-4, II. 5-8, 9 sIG und (1944) 10. Pi.Kp.
+U: 3. leichte Div.: 1939 Schlesien, Polen 8. Panzer-Div.: 1940 Luxemburg, Frankreich (Aisne), 1941 Jugoslawien, Nordruß- land, 1942 Nordrußland, Nov. Mittelrußland, 1943 Mittelrußland (Orel), Südruß- land (Kiew), 1944 Nordukraine, Galizien, Nov. Ungarn
+E: 8 Sorau, Freienwalde, Eberswalde, Schwedt, Neuruppin, WK Bi
+Schützen-Ers.Btl. 8 * 28.8.1939 in Sorau WK III, 7.2.1940 nach Bad Freienwalde, 28. 10. 1940 nach Eberswalde verlegt, Panzergrenadier-Ers.Btl. 8 am 16.7.1942. 12. 8.1943 aufgeteilt in Ers. und Ausb. (Res.) Btl,, Ers.Btl. in Schwedt, sp. Neuruppin. U: Div.143, 1.2.1940 Div.153, 15.5.1942 Div. (mot.) 233, 12.8.1943 Kdr. d. Panzer- truppen III Ersatztruppe für 3. lei. Div., sp. 8. Pz.Div.
+Res.Panzergrenadier-Btl. 8 * 12.8.1943 in Eberswalde WK IN aus dem Pz.Gren.Ers.Btl. 8 und nach Dänemark (Odder) verlegt, Dez. 1944 in Vilbjärg. Febr. 1945 zur Aufstellung der Pz.Div. Holstein verwendet und am 15. 2.1945 wieder aufgestellt. Stab aus dem Stab Pz. Gren.Ers. u. Ausb.Rgt. 16 WK VI. April 1945 mobil als 1./Pz.Gren.Rgt. 50.
+U: 233. Res.Pz.Div. Dänemark
+Panzergrenadier-Rgt. 8 seit 1. 12. 1944, s. unter Inf.Rgt. 8. Panzergrenadier-Ers.Bil. 8 seit 1. 12. 1944, s. unter Inf.Ers.Btl. 8.
+Kradschützen-Btl. 8 * 1.4.1940 aus dem Il. (Kradschtz.) Kav.Schtz.Rgt. 9, FStO Sorau WK III; 25.1.1942 Pz.Aufkl.Abt. 59 eingegliedert, Panzer-Aufklärungs-Abt. 8 seit 1. 4. 1943; 25. 8. 1944 bis 30. 9. 1944 auf Tr.Üb.Pl. Wild- flecken (WK IX) umgegliedert (gepanzert). U: 8. Panzer-Div. E: 8 (Schtz.) Sorau, Freienwalde, Eberswalde, 1941 3 (Kradschtz.) Freienwalde, 22. 11. 1943 E 4 (Pz.Aufkl.) Stahnsdorf WK III
+Aufklärungs-Rgt. (mot.) 8 * 10.11.1938, FStO Lüben WK VII (I. noch Stettin WK II); 1.4.1940 aufgelöst, I. wird Pz.Aufkl.Abt. 90 (der 10. Pz.Div.), II. wird Pz. Aufkl.Abt. 59 (der 8. Panzer-Div.).
+G: 1. 1-4, 11.5-8
+U: 3. leichte Div.: 1939 Schlesien, Polen (I. det. bei 10. Pz.Div. Tschechoslowakei, Ost- preußen)
+E: 8 (mot. Aufkl.) Wohlau WK VIII, 20. 11.1939 E3 Stahnsdorf
+102
+uß- uß-
+rau
+ild-
+
+--- Section 2: 21. Panzer-Division ---
+Div.Einheiten 8 Die Division kam bei Brünn in russische Gefangenschaft.
+95
+8 8. Jäger-Division
+Unterstellung:
+a) als 8. Inf.Div.:
+1939 Sept. vIu 14. Armee Süd Osten Südpolen Okt./Dez. VII 4. Armee »B° Westen Eifel
+1940 Jan. VIH 4. Armee „B* Westen Eifel Mai VIN 4. Armee „A“ Westen Belgien, Frankreich Juni vu z. Vfg. „B” Westen Frankreich Juli VII 7. Armee „B Westen Rouen Aug./Dez. va 9. Armee A” Westen Rouen
+1941 Jan./Apr. VII 9. Armee „A” Westen Rouen
+Mai VI 9. Armee „B" Osten Ostpreußen Juni/Okt. VII 9. Armee Mitte Osten Brjansk, Wjasma Nov. z. Vfg. 4. Armee Mitte Osten Moshaisk, Moskau b) als 8. lei. Inf.Div.: Dez. VIN 1. Armee I Fni Westen Frankreich 1942 Jan./Febr. VIH 1. Armee „D* Westen Frankreich März/Juni x 16. Armee Nord Osten Demjansk c) als 8. Jäger-Div.: Juli x 16. Armee Nord Osten Demjansk Aug./Dez. u 16. Armee Nord Osten Demjansk 1943 Jan./Febr. u 16. Armee Nord Osten Demjansk März/Mai x 16. Armee Nord Osten Ilmensee Juni z. Vfg. 16. Armee Nord Osten Ilmensee Juli/Dez. x 16. Armee Nord Osten Ilmensee 1944 Jan./Febr. x 16. Armee Nord Osten Ilmensee März XXXVII 18. Armee Nord Osten Pleskau April z.Vfg. - Nord Osten Pleskau Mai/Sept. XVII 8. Armee Südukr. Osten Karpathenpässe Okt./Nov.: XVII 8. Armee Süd Osten Nordung., Slowakei Dez. XXIX 8. Armee Süd Osten Nordung., Slowakei 1945 Jan. xXXIX 8. Armee Süd Osten Nordung., Slowakei Febr./März LXXII 8. Armee Süd Osten Slowakei, Mähren April XXIX 1.Pz.Armee Mitte Osten Slowakei, Mähren Mai XXIV 1.Pz. Armee Mitte Osten Mähren
+Feldersatz-Btl. 8 * 26. 8. 1939 im WK VIII; wird Jan. 1940 II./IR 442; 24. 3. 1941 erneut aufgestellt, mehrfach aufgelöst; 15. 6. 1943 endgültig etatisiert. U: 8. Inf.Div., 8. leichte Inf.Div., 8. Jäger-Div. (s. oben)
+Infanterie-Ers.Rgt.8 * 26.8.1939 in Troppau WK VII als Stab für die Ersatzbataillone der 8. Inf.Div.; Nov. 1939 umgegliedert in Stab Inf.Rgt.189; 9.1.1940 wieder errichtet; Dez. 1940 nach Metz in den WK XII verlegt. 1.10.1942 Res.Inf.Rgt. 8,
+Res.Grenadier-Rgt. 8 am 7.11.1942 und nach Südwestfrankreich verlegt, 1943 in Castres, dann bei Nizza; bildet Okt. 1944 den Stab Gren.Rgt. 285 (148. ID).
+G: 1939: IEB 28 Neiße, 38 Glatz, 84 Cosel
+1940: IEB 28 Neiße, 84 Cosel, 164 Teschen
+1941: IEB 28, 84, 164 sämtl. Metz
+1943: RGB 7 Castelneudery, RJgB. 28 Castres, RGB 164 Albi U: Div. 168, sp. 148, 1.10. 1942 148. Res.Div.
+96
+ei ei ei
+ut
+et;
+Infanterie 8
+Infanterie-Rgt. 8 * 1.1.1921 als 8. (Preuß.) Inf.Rgt.; 1.10.1934 Inf.Rgt. Frankfurt; 15.10.1935 Inf.Rgt.8; FStO Fran kfurt (III. Lübben), WK Ill; 1.2.1940 Abgabe Stab II. und 5. Kp. an Inf.Rgt. 29, werden ersetzt; 27. 10. 1940 motorisiert unter Abgabe der besp. Teile an die IR. 415 und 418 der 123. ID,
+Grenadier-Rgt. (mot.) 8 seit 15. 10. 1942; Jan. 1943 in Stalingrad vernichtet. Neuaufstellung am 1.3.1943 in Frankreich durch das am 25. 11. 1942 errich- tete Gren.Rgt. (mot.) 149 und aus Resten des alten Rgts. 28. 4. 1944 aufgefrischt mit neuen Fp.Nummern bei OB Südwest umgestellt auf freie Gliederung; die 4., 8., 12.Kp. werden schw. Kp., eine 15. (Pi.) Kp- wird gebildet,
+Panzergrenadier-Rgt. 8 seit 1.12. 1944, aber in freier Gliederung mit drei Bataillonen. G: 1939 I. 1-4, II. 5-8, III. 9-12, 13, 14 (1944 auch 15)
+U: 3. Inf.Div.: 1939 Pommern, Polen, 1940 Luxemburg, Frankreich (Champagne), 3, Inf.Div. (mot.): 1941 Nordrußland (4. Pz.Armee), Mittelrußland (4. Armee), 1942 Mittelrußland (4. Pz.A.), Südrußland (6. A.), 1943 Stalingrad, Wiederauf- stellung in Frankreich, 3. Pz.Gren.Div. (seit 23. 6. 1943): 1943 Erankreich, Italien, 1944/45 Italien
+E: 8 Frankfurt/Oder WK III
+Ergänzungs-Bil. Infanterie-Rgt. 8 * 10.11.1938, FStO Frankfurt/Oder WK III; wird bei Mobilmachung III./IR 479 (258. Inf.Div.) der 4. Welle.
+Infanterie-Ers.Btl.8 * 26.8.1939 in Fran kfurt/O. WK III; wird 1.12.1940 motorisiert, 1.10.1942 geteilt in Ers. und Ausb.Btl.,
+Grenadier-Ers.Btl. (mot.) 8 Frankfurt/Oder am 7.11.1942; 15.4. 1943 die Stäbe des Gren.Ers. und Gren.Ausb.Btl. wieder zum Gren.Ers. u. Ausb.Btl. (mot.) 8 zusammengelegt; 10. 8.1943 abermals geteilt in Ers. und Res.Btl., Ers.Btl. bleibt in Frankfurt/O.,
+Panzergrenadier-Ers.Btl. 8 seit 1. 12. 1944.
+U: Div. 163, 30. 11.1939 Div. 143, 23.6.1941 Div. 153, 15. 5. 1942 Div. (mot.) 233, 10. 8. 1943 Kdr. d. Panzertruppen III Ersatztruppe für 3. Inf.Div., seit 1940 mot.
+Res.Grenadier-Btl. (mot.) 8 * 10. 8. 1943 in Frankfurt/O. WK III aus dem Gren.Ers. u. Ausb. Btl.8 und nach Dänemark (Give) verlegt; Dez. 1944 in Olgod; wird April 1945 1./Pz.Gren. Rgt. 42 (?).
+U: 233. Res.Pz.Div., Dänemark
+8. Gebirgs-Division
+* März 1944 in Lappland beabsichtigt aus Geb.Jäger-Rgt. 139; Fp.Nummer für den Stab erteilt. Bildung erfolgte jedoch als Stab Div.Gruppe Kräutler (K), der später 140. Div. z. b. V. wurde.
+8. Gebirgs-Division (WK VII, E 1./98 Garmisch)
+* Febr. 1945 durch Umbenennung der 157. Geb.Div. in Italien in 8. Geb.Div. Die Ein- heiten behalten ihre bisherigen Bezeichnungen:
+Geb.Jäger-Rgt. 296 I.-Il. (AO. Mittenwald)
+Geb.Jäger-Rgt. 297° 1.-I. (AO. Brannenburg)
+97
+8 8. Gebirgs-Division
+[a L——.
+Geb.Art.Rgt.1057_ I-—IV.
+Div.Einheiten 1057 (Pz.Jäg. 157) Die Division kam 1945 im Raum Rovereto—Trient in amerikanische Gefangenschaft. Unterstellung: 1945 März/April XIV 14. Armee ne® Süden Norditalien
+Jagd-Kdo. 8 * 22. 12. 1941 im WK XVIIl aus einer Walküreeinheit mit 2 Kp. und 3. MGK zum Partisaneneinsatz bei Hgr. Nord in Rußland. Sommer 1942 für die Bildung der Pz.Jg. u. Aufkl.Abt. 218 verwendet. Die am 25. 2. 1942 in Arys WK I gebildete 4. Kp. wird 1./Jagd-Btl. 8.
+U: Heerestruppe, Nordrußland (Ilmensee)
+Jagd-Btl. 8 * 1.7. 1942 in Arys WK I mit der 4./Jagd-Kdo. 8 (jetzt 1.) als Stamm, Jäger-Btl. 8 seit 6. 7. 1942; Frühj. 1944 als zusätzliche 9. Kp. in das Gren.Rgt. 509 (292. ID) eingegliedert. U: Heerestruppe, Mittelrußland (Wel.Luki, Orel, Gomel)
+Heeresdienststelle 8, zuletzt in Koblenz WK XII war bereits 1938 in Gkdo. Eifel umgebildet worden.
+Grenzwacht-Abschnitt 8 (Ausb.Leiter Görlitz) mit Unterabschnitten I, II (Abschn. Kdo. 4), nach der Besetzung des Sudetenlandes in Landshut (I. 1-4, I. 5-7) wurde infolge Aufhebung der Grenze mit der Tschechoslowakei nicht aufgerufen.
+Festungs-Rgt.Stab 8 * Sept. 1944 im WK II (nur Stab) für Warschau, Festungs-Infanterie-Rgt. 8, Jan. 1945 mit vier Btl., 16. Kp. und 17. Pak; I. aus Fest. Btl. 1401, II., IH. aus ?, IV. aus Fest.MG-Btl. 24, die 17. aus Fest.Pak 1/V. Nach Räumung Warschaus (18. 1. 1945) am 27. 2.1945 aufgelöst. U: Fest.Div. Warschau
+Maschinengewehr-Btl. 8 * 15.10. 1935, FStO Züllichau WK III; 5. 2. 1940 umge- gliedert in 1.—3. MG-Schtz., 4. schw. und 5. Krad-MG-Kp., dazu 6. Pi. und 7. Pz.Jg. Kp. aus den Grenzwacht-Rgt. 66 und 76, geht 1941 als eine der ersten deutschen Ein- heiten nach Libyen. 1.4.1942 auf Befehl der 21. Pz.Div. aufgelöst, ersetzt das auf- geriebene 1./Schtz.Rgt. 104. Die 6. (Pi.) bereits 1. 8. 1941 1./Pz.Pi.Btl. 200, die Pz.Jg. Kp. jetzt 2./Pz.Jg.Abt. 190.
+U: Heerestruppe, 1941 5. leichte, sp. 21. Panzer-Division, seit dem 14. 9.1941 Schtz. Rgt. 104 unterstellt
+Schule VII für Offz. Anwärter der Infanterie * 1.10.1942 in Hannover WK XI mit einer Lehrgruppe,
+Schule VIH für Fahnenjunker der Infanterie, Hannover, seit 23.4.1943; 1.8.1943 verstärkt durch zwei Lehrgruppen, 1944 in Wetzlar WK IX; stellt Febr. 1945 1300 Mann des Lehr- gangs 18B als Stamm zu den Gren. (Führernachwuchs)-Rgt. 1237, 1241 und 1242.
+Heeres-Unteroffiziers-Schule 8 für Infanterie * Nov. 1944 in Frankenstein WK VIII aus der dort seit 1940 bestehenden, Anfang 1944 in eine Uffz.Schule umgewandelten Uffz.Vor- schule.
+98
+Schnelle Truppen 8
+C. Schnelle Truppen t. 8. Panzer-Division (WK III, E 8 (Schtz.) Freienwalde, sp. Eberswalde) K * 16.10.1939 aus der 3. leichten Division (FStO Cottbus) durch Umbenennung. Von den
+Armeetruppen Ostpreußen trat I./Panzer-Rgt. 10 hinzu, die am 20. 10. 1939 auf ein Rgt. p erweitert wurde. Die beiden Kav.Schtz.Rgt. 8 und 9 wurden am 1. 4, 1940 zum Schützen- ; Rgt. 8 zusammengefaßt, das Aufkl.Rgt. 8 am gleichen Tage in die Aufkl.Abt. 90 (bei der 10. Pz.Div.) und 59 geteilt 8. Schützen-Brig. (neu) Schützen-Rgt.8 III. (Stab aus Schtz. 9 Sorau, I. aus 1./8 Cottbus, II. aus II./8 Cottbus, III. aus 1./9 Sorau)
+er
+” Kradschtz.Btl.8 aus II./9 Sorau Panzer-Rgt.10 1.1. (FStO für I. Zinten) Panzer-Abt. 67 (FStO Gr. Glienecke) el Art.Rgt. 80 1., II. (FStO Cottbus) Div.Einheiten 59 (aber Pz.Jg. 43, Nachr. 84) Am 1.1.1941 wurde die Panzer-Abt. 67 in IIL./10 umbenannt und das Schützen-Rgt. 28 r neu gebildet. Das Art.Rgt. 80 erhielt in der schw. Art.Abt. 645 eine dritte Abteilung. de 8. Schützen-Brig. Schützen-Rgt. 8 L,II. (Stab und I. aus Stab u. III./8 (fr. 1/9), II. neu gebildet) Schützen-Rgt.28 1.,II. (Stab neu, I. u. II. aus 1., 11./8) st Kradschtz.Btl. 8 e Panzer-Rgt.10_ III. (III. aus Pz.Abt. 67) Art.Rgt. 80 1.—II. (III. aus Art.Abt. 645) Div.Einheiten 59 (aber Pz.Jg. 43, Nachr. 84) Beim Panzer-Rgt. schied am 8. 5. 1942 die II. Abt. aus und wurde III/Pz.Rgt.2, am <; 16.9. auch der Stab und die III. Sie wurden zur Verfügung OKH gestellt und später in ’ Stab Pz.Brig. 10, resp. Panzer-Abt. 302 umbenannt, Bei der Division blieb nur die 5A I. Abteilung. Die Aufkl.Abt. 59 wurde aufgelöst und mit dem Kradschtz.Btl. 8 vereinigt, af- dieses 1943 in Pz.Aufkl.Abt. 8 umbenannt. Hinzu kam die Heeres-Flakart.Abt. 286. Jg Pz.Gren.Regt. 8 LI. er Pz.Gren.Rgt.28 I1,I. PR Pz.Aufkl.Abt. 8 ö Panzer-Rgt.10 nur I. Abt. Art.Rgt. 80 1—II. H.Flakart.Abt. 286 ar Div.Einheiten 59 (Pz.Jg.Abt. 43, Nachr.Abt. 84) irkt Als am 1.12.1944 die Gren.Rgt. (mot.) der Pz.Gren.Divisionen in Pz.Gren.Regimenter ‚hr- umbenannt wurden, mußte das Pz.Gren.Rgt. 8 dem älteren Rgt. 8 (Frankfurt) der 3. Pz. Gren.Div. in der Nummer weichen und erhielt die Nummer 98. Auch wurde das Panzer- Rgt. 10 wieder durch Stab und II. vervollständigt. aus Pz.Gren.Rgt.28 1,Il. 'or- Pz.Gren.Rgt.98 1,1. (fr. 8)
+Pz.Aufkl.Abt. 8
+8 8. Panzer-Division
+Panzer-Rgt. 10 1,1. (sonst unverändert) Die Division kam 1945 bei Brünn und Deutsch-Brod in russische Gefangenschaft.
+Unterstellung: 1939 Dez. z. Vfg. BE Westen Niederrhein 1940 Jan. z. Vfg. „B“ Westen Niederrhein Mai z. Vfg. 12. Armee Pe Sa Westen Eifel, Belgien Juni XXXXI  Guderian (12) „A“ Westen Frankreich Jul/Okt. XV 2. Armee fi &z Westen Frankreich Nov./Dez. XXXXI 16. Armee „A“ Westen Frankreich 1941 Jan./Febr. z. Vfg. 1. Armee ser Heimat — März XXXXI 2. Armee FD ai Westen Frankreich April XXXXVI 4. Pz.Gru. = Südosten Jugoslawien Mai/Juni BdE im Protektorat Heimat -— Juli LVI 4. Pz.Gru. Nord Osten Pleskau, Luga Aug. z. Vfg. 4. Pz.Gru. Nord Osten Narwa, Leningrad Sept. XXXXlI 16. Armee Nord Osten Waldai Okt./Dez. XXXIX 18. Armee Nord Osten Waldai 1942 Jan. z. Vfg. Nord Osten Leningrad Febr. z. Vfg. 16. Armee Nord Osten Leningrad März/Juli XXXIX 16. Armee Nord Osten Cholm Aug./Nov. Brandenberger Nord Osten Cholm Dez. LIX _ Mitte Osten Smolensk, Briansk 1943 Jan. LIX _ Mitte Osten Smolensk, Briansk Febr./März XXXXIII 3.Pz.Armee Mitte Osten Welish Apr./Juli z. Vfg. Mitte Osten Orel Aug. XXI 2.Pz. Armee Mitte Osten Orel Sept. LVI 2. Armee Mitte Osten Desna Okt. LIX 4. Pz. Armee Süd Osten Kiew Nov. xm 4. Pz. Armee Süd Osten Shitomir Dez. XXXXU 4.Pz.Armee Süd Osten Shitomir 1944 Jan. z. Vfg. 4.Pz. Armee Süd Osten Winniza Febr./März XXXXVIII 4. Pz.Armee Süd Osten Tarnopol April x 4.Pz. Armee Nordukr. Osten Tarnopol Mai z. Vfg. - Nordukr. Osten Tarnopol Juni z. Vfg. 1.Pz. Armee Nordukr. Osten Brody, Lemberg Juli II 1. Pz. Armee Nordukr. Osten Brody, Lemberg Aug. LIX 17. Armee Nordukr. Osten Brody, Lemberg Sept. XXIV 1.Pz.Armee Nordukr. Osten Karpathen Okt. XxXIV 1.Pz.Armee „A“ Osten Slowakei Nov. z. Vfg. _ , Osten Slowakei Dez. XXIX 8. Armee Süd Osten Budapest 1945 Jan. LVII 6. Armee Süd Osten Budapest Febr./März 17. Armee Mitte Osten Mähr. Ostrau
+Apr./Mai z.Vfg. 1.Pz. Armee Mitte Osten Mähren
+100
+Schnelle Truppen 8
+8. Panzer-Brigade * 10.11.1938 in Sagan WK VII für die Panzerregimenter (15 und 31) der 5. Pz.Div., wird 1942 Stab 100. Pz.Brig. U: 5. Panzer-Div.: 1939 Polen, 1940 Frankreich, 1941 Balkan, 1942 Mittelrußland E: 15 Sagan WK VIII
+Panzer-Rgt. 8 * 6. 10. 1936, FStO Böblingen, WK V; stand 1939 bei der 10. Pz.Div. in der Tschechoslowakei; 8. 11.1941 verstärkt durch die am 1.9. 1941 aufgestellte 1. und 2. leichte Pz.Kp. auf 8 Kp. Mai 1943 in Tunis vernichtet.
+G: 1939 I. 1-3, Il. 4-6 1941 1. 1-4, II. 5-8 U: 10. Panzer-Div.: 1939 Ostpreußen, 1940 Luxemburg, Frankreich 15. Panzer-Div. (18.1. 1941): Mai 1941 Afrika, 1942/43 Afrika E: 7 Vaihingen, Böblingen WK V
+Panzer-Abt. 8 * Okt. 1943 bei OB West (WK V) an Stelle des in Afrika vernichteten Rgts. als Abt. zu 3 Kp., wird der 20. Pz.Gren.Div. zugeteilt. U: 20. Pz.Gren.Div.: 1943 Südrußland, 1944 Nordukraine, Weichsel, 1945 Weichsel- 1 bogen, Schlesien E: 7 Böblingen WK V
+Panzerabwehr-Abt. 8 * 6. 10. 1936 in Neuhammer, FStO Freu denthal WK VII, bei Mobilmachung dazu als 4. die 1./MGK 48, Panzerjäger-Abt. 8 seit 21. 3. 1940, 22. 11. 1940: die 2, wird 2./102 und ersetzt, 1. wird 29.1.1942 Pz.Jg.Kp. 601, 2. am 2.9.1943 auf Sturmgesch. umbewaffnet und in St. ;k Gesch. Abt. 1008 umbenannt; 10.1. 1944 3. (Fla.) Kp. hinzu. k U: 8. Inf./8. leichte Inf./8. Jäger-Div. (s. oben) E: 8 Breslau-Rosenthal, Mutzig, Oppeln, WK VIII
+Panzerabwehr-Ers.Abt. 8 * 26. 8.1939 in Sagan WK VIII, 15. 10. 1939 nach Breslau-Rosen- thal verlegt,
+Panzerjäger-Ers.Abt. 8 am 1.4.1940. Dez. 1940 nach Mutzig /Elsaß in den WK V verlegt. 1.10.1942 geteilt in Ers.Abt. und Ausb.Abt. Beide 12.10.1942 nah Oppeln in den WK VII zurückverlegt, 10.4.1943 zusammengelegt als Pz.Jg.Ers. u. Ausb.Abt. 8 Oppeln. U: Div. 158, 1. 10.1942 Div. 178 (mot.)
+Panzer-Jagd-Verband (ung.) 8 * April 1945 (Vfg. 6. 2. 1945) im WK XIII zu 3 Pz.Jagd- gruppen (30 Pz.Jagd-Kdos.), Einsatz fraglich.
+Festungs-Pak-Verband VIII * Nov. und Dez. 1944 im WK XXI mit den Fest.Pak-Kp. 1/VII bis 14/VII und 31/VII. U: Heerestruppe Trzebinia, Einsatz bei Lodz, Warthbrücken, Posen (183 Vermißte) E: WKV
+8. Schützen-Brigade * 4. 11. 1939 im WK III aus dem Stab des Kav.Schtz.Rgt. 9 (FStO Sorau) als Stab für die Schützen-Einheiten der 8. Pz.Div. (I., II. Kav.Schtz. 8, 1., II. Kav. Schtz. 9, 17. Kp.),
+8. Panzergrenadier-Brigade seit dem 5. 7. 1942. Nov. 1942 aufgelöst.
+U: 8. Panzer-Div.
+101
+8 Kavallerie-Schützen-Rgt. 8
+Kavallerie-Schützen-Rgt. 8 * 10.11.1938, FStO Cottbus WK III, ohne eigenen Rgt. Stab, Kav.Schtz.Rgt. 9 unterstellt,
+Schützen-Rgt. 8 seit dem 1.4. 1940, Stab aus Stab Kav.Schtz.Rgt. 9, III. aus 1./9 (FStO Sorau). 6.1.1941 Abgabe I. und II. an Schützen-Rgt. 28, III. wird I. das II. neu aus Abgaben gebildet, so daß mit Ausnahme der 6. u. 7. Kp. das Rgt. nur aus Teilen des alten Kav.Schtz.Rgt. 9 bestand,
+Panzergrenadier-Rgt. 8 seit 5.7.1942. Als am 1.12. 1944 das ältere Gren.Rgt. (mot.) 8 aus Frankfurt die Bezeichnung Pz.Gren.Rgt. 8 erhielt, mußte das Rgt. seine Nummer in 98 vertauschen (Ss. d.).
+G: 1939 I. 1-4, II. 5-8, alles Schwadr. 1940 I. 1-4, II. 5-8, II. 9—12, 13, jetzt Kp. 19411. 1-5, II. 6-10, 11 sIG 1942 1. 1-4, II. 5-8, 9 sIG und (1944) 10. Pi.Kp.
+U: 3. leichte Div.: 1939 Schlesien, Polen 8. Panzer-Div.: 1940 Luxemburg, Frankreich (Aisne), 1941 Jugoslawien, Nordruß- land, 1942 Nordrußland, Nov. Mittelrußland, 1943 Mittelrußland (Orel), Südruß- land (Kiew), 1944 Nordukraine, Galizien, Nov. Ungarn
+E: 8 Sorau, Freienwalde, Eberswalde, Schwedt, Neuruppin, WK Bi
+Schützen-Ers.Btl. 8 * 28.8.1939 in Sorau WK III, 7.2.1940 nach Bad Freienwalde, 28. 10. 1940 nach Eberswalde verlegt, Panzergrenadier-Ers.Btl. 8 am 16.7.1942. 12. 8.1943 aufgeteilt in Ers. und Ausb. (Res.) Btl,, Ers.Btl. in Schwedt, sp. Neuruppin. U: Div.143, 1.2.1940 Div.153, 15.5.1942 Div. (mot.) 233, 12.8.1943 Kdr. d. Panzer- truppen III Ersatztruppe für 3. lei. Div., sp. 8. Pz.Div.
+Res.Panzergrenadier-Btl. 8 * 12.8.1943 in Eberswalde WK IN aus dem Pz.Gren.Ers.Btl. 8 und nach Dänemark (Odder) verlegt, Dez. 1944 in Vilbjärg. Febr. 1945 zur Aufstellung der Pz.Div. Holstein verwendet und am 15. 2.1945 wieder aufgestellt. Stab aus dem Stab Pz. Gren.Ers. u. Ausb.Rgt. 16 WK VI. April 1945 mobil als 1./Pz.Gren.Rgt. 50.
+U: 233. Res.Pz.Div. Dänemark
+Panzergrenadier-Rgt. 8 seit 1. 12. 1944, s. unter Inf.Rgt. 8. Panzergrenadier-Ers.Bil. 8 seit 1. 12. 1944, s. unter Inf.Ers.Btl. 8.
+Kradschützen-Btl. 8 * 1.4.1940 aus dem Il. (Kradschtz.) Kav.Schtz.Rgt. 9, FStO Sorau WK III; 25.1.1942 Pz.Aufkl.Abt. 59 eingegliedert, Panzer-Aufklärungs-Abt. 8 seit 1. 4. 1943; 25. 8. 1944 bis 30. 9. 1944 auf Tr.Üb.Pl. Wild- flecken (WK IX) umgegliedert (gepanzert). U: 8. Panzer-Div. E: 8 (Schtz.) Sorau, Freienwalde, Eberswalde, 1941 3 (Kradschtz.) Freienwalde, 22. 11. 1943 E 4 (Pz.Aufkl.) Stahnsdorf WK III
+Aufklärungs-Rgt. (mot.) 8 * 10.11.1938, FStO Lüben WK VII (I. noch Stettin WK II); 1.4.1940 aufgelöst, I. wird Pz.Aufkl.Abt. 90 (der 10. Pz.Div.), II. wird Pz. Aufkl.Abt. 59 (der 8. Panzer-Div.).
+G: 1. 1-4, 11.5-8
+U: 3. leichte Div.: 1939 Schlesien, Polen (I. det. bei 10. Pz.Div. Tschechoslowakei, Ost- preußen)
+E: 8 (mot. Aufkl.) Wohlau WK VIII, 20. 11.1939 E3 Stahnsdorf
+102
+uß- uß-
+rau
+
+---
+
+RESPONSE FORMAT:
+
+Provide your response as a JSON object or array following the schema described above.
+
+Your JSON response will be saved automatically.
+
+Do NOT include explanatory text before or after the JSON - provide ONLY valid JSON.
+
+If you need to include notes, add them in a "notes" field within the JSON.
