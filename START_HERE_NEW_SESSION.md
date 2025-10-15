@@ -2,8 +2,8 @@
 
 <!-- AUTO-UPDATED: START - Session Metadata -->
 **Project**: North Africa TO&E Builder - **v3.0.0 (Ground Forces)**
-**Last Updated**: 2025-10-14 06:56
-**Status**: Schema v3.0 Complete, 213/213 units (100.0%)
+**Last Updated**: 2025-10-15 20:53
+**Status**: Schema v3.0 Complete, 150/420 units (35.7%)
 <!-- AUTO-UPDATED: END - Session Metadata -->
 
 ---
@@ -41,19 +41,19 @@
 
 <!-- AUTO-UPDATED: START - Recently Completed -->
 ### ✅ RECENTLY COMPLETED (Last Session):
-- **Session Date**: 2025-10-14
-- **Units Completed**: 213 units (0 → 213)
+- **Session Date**: 2025-10-15
+- **Units Completed**: 150 units (0 → 150)
 - **Session Duration**: unknown minutes
 - **Recent Work**:
-  - german_1941-Q2_5_leichte_division
-  - german_1941-Q2_15_panzer_division
-  - german_1942-Q3_21_panzer_division
-  - german_1942-Q4_90_leichte_afrika_division
-  - italian_1943-Q1_131_divisione_corazzata_centauro
-  - italian_1940-Q2_62_divisione_di_fanteria_marmarica
-  - italian_1940-Q2_61_divisione_di_fanteria_sirte
-  - italian_1941-Q4_61_divisione_motorizzata_trento
-  - german_1942-Q3_15_panzer_division
+  - italian_1942q3_133a_divisione_corazzata_littorio
+  - italian_1942q3_185_divisione_paracadutisti_folgore
+  - italian_1942q4_101_divisione_motorizzata_trieste
+  - italian_1942q4_102_divisione_motorizzata_trento
+  - italian_1942q4_132_ariete_division
+  - italian_1942q4_133a_divisione_corazzata_littorio
+  - italian_1942q4_185_divisione_paracadutisti_folgore
+  - italian_1942q4_185a_divisione_paracadutisti_folgore
+  - italian_1943q1_131_divisione_corazzata_centauro
 - **Milestone Achievements**:
   - Gap 3 (Wikipedia): ✅ RESOLVED - 0 violations
   - Gap 8 (Infantry Weapons): ✅ RESOLVED - All chapters complete
@@ -62,8 +62,8 @@
 
 <!-- AUTO-UPDATED: START - Progress Stats -->
 ### 🔨 IN PROGRESS:
-- **Ground Forces Extraction**: 213/213 units (100.0%)
-  - 0 units remaining to complete Phase 1-6
+- **Ground Forces Extraction**: 150/420 units (35.7%)
+  - 270 units remaining to complete Phase 1-6
 - **1941-Q2 Showcase**: 90% complete
   - 10/18 units upgraded to v3.0.0 schema
   - All critical gaps resolved (Gap 3, 5, 8)

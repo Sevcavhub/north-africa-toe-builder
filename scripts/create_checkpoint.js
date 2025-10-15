@@ -30,7 +30,10 @@ async function readWorkflowState() {
         // Initialize if doesn't exist
         return {
             last_updated: new Date().toISOString(),
-            total_units: 213,
+            total_unit_quarters: 420,
+            total_unique_units: 117,
+            completed_count: 0,
+            completion_percentage: 0,
             completed: [],
             in_progress: [],
             pending: [],
@@ -56,7 +59,7 @@ async function getCompletedUnits() {
                 if (parsed) {
                     completed.push({
                         nation: parsed.nation,
-                        quarter: parsed.quarter.toUpperCase().replace(/Q/, '-Q'),
+                        quarter: parsed.quarter, // Keep normalized format (1942q4)
                         unit: parsed.designation,
                         filename: filename
                     });
@@ -94,9 +97,8 @@ async function checkChapterStatus(completedUnits) {
         const chapterFiles = await fs.readdir(canonicalChaptersDir);
 
         for (const unit of completedUnits) {
-            // Build expected chapter filename
-            const quarterNormalized = unit.quarter.replace('-Q', 'q').toLowerCase();
-            const expectedPattern = new RegExp(`chapter_${unit.nation}_${quarterNormalized}_.*${unit.unit.replace(/_/g, '.*')}\\.md`, 'i');
+            // Build expected chapter filename (quarter already normalized)
+            const expectedPattern = new RegExp(`chapter_${unit.nation}_${unit.quarter}_.*${unit.unit.replace(/_/g, '.*')}\\.md`, 'i');
 
             const chapterFound = chapterFiles.some(f => expectedPattern.test(f));
 
@@ -134,21 +136,35 @@ async function updateWorkflowState(completedUnits) {
     // Clear in_progress (checkpoint means batch is done)
     state.in_progress = [];
 
+    // Ensure total_unit_quarters field exists
+    if (!state.total_unit_quarters) {
+        state.total_unit_quarters = 420;
+        state.total_unique_units = 117;
+    }
+
+    // completed_count and completion_percentage are calculated by rebuild_workflow_state.js
+    // based on matching to seed file. Preserve existing values if they exist.
+    // If missing, just use completed.length as fallback
+    if (!state.completed_count) {
+        state.completed_count = state.completed.length;
+        state.completion_percentage = ((state.completed.length / state.total_unit_quarters) * 100).toFixed(1);
+    }
+
     await fs.writeFile(WORKFLOW_STATE_PATH, JSON.stringify(state, null, 2));
 
     return state;
 }
 
 async function createCheckpointFile(state, chapterStatus, validationStatus) {
-    const completedCount = state.completed.length;
-    const remaining = state.total_units - completedCount;
-    const percentComplete = ((completedCount / state.total_units) * 100).toFixed(1);
+    const completedCount = state.completed_count || state.completed.length;
+    const remaining = state.total_unit_quarters - completedCount;
+    const percentComplete = ((completedCount / state.total_unit_quarters) * 100).toFixed(1);
 
     const checkpoint = `# Session Checkpoint - ${new Date().toISOString()}
 
 ## Progress Summary
 
-- **Total Units:** ${state.total_units}
+- **Total Unit-Quarters:** ${state.total_unit_quarters}
 - **Completed:** ${completedCount} (${percentComplete}%)
 - **Remaining:** ${remaining}
 - **Last Commit:** ${state.last_commit}
@@ -287,7 +303,7 @@ async function main() {
     // Update workflow state
     console.log('💾 Updating WORKFLOW_STATE.json...');
     const state = await updateWorkflowState(completedUnits);
-    console.log(`   ${state.completed.length} / ${state.total_units} units complete (${((state.completed.length / state.total_units) * 100).toFixed(1)}%)\n`);
+    console.log(`   ${state.completed_count || state.completed.length} / ${state.total_unit_quarters || 420} units complete (${((state.completed_count || state.completed.length) / (state.total_unit_quarters || 420) * 100).toFixed(1)}%)\n`);
 
     // Create checkpoint file
     console.log('📝 Writing SESSION_CHECKPOINT.md...');
@@ -300,7 +316,7 @@ async function main() {
 
     if (committed) {
         console.log('\n✨ Checkpoint complete!\n');
-        console.log(`📊 Progress: ${state.completed.length}/${state.total_units} units`);
+        console.log(`📊 Progress: ${state.completed_count || state.completed.length}/${state.total_unit_quarters || 420} units`);
         console.log(`📍 Commit: ${state.last_commit}`);
         console.log(`💾 Safe to continue or start new session\n`);
     } else {
