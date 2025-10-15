@@ -28,40 +28,53 @@ const TARGET_QUARTER = process.argv[2] || '1941-Q2';
 
 async function main() {
     console.log('\n' + '═'.repeat(80));
-    console.log('  🚀 SESSION READY - Autonomous Workflow Starter (FIXED)');
+    console.log('  🚀 SESSION READY - Autonomous Workflow Starter (Architecture v4.0)');
     console.log('═'.repeat(80));
     console.log('');
 
-    // Step 1: Create autonomous session folder
+    // Step 1: Ensure canonical directories exist (Architecture v4.0)
+    const canonicalUnitsDir = path.join(PROJECT_ROOT, 'data/output/units');
+    const canonicalChaptersDir = path.join(PROJECT_ROOT, 'data/output/chapters');
     const sessionId = 'autonomous_' + Date.now();
-    const sessionDir = path.join(PROJECT_ROOT, 'data/output', sessionId);
-    const unitsDir = path.join(sessionDir, 'units');
 
     try {
-        fs.mkdirSync(sessionDir, { recursive: true });
-        fs.mkdirSync(unitsDir, { recursive: true });
-        console.log(`📁 Created session folder: ${sessionId}\n`);
+        fs.mkdirSync(canonicalUnitsDir, { recursive: true });
+        fs.mkdirSync(canonicalChaptersDir, { recursive: true });
+        console.log(`📁 Using canonical output locations (Architecture v4.0)`);
+        console.log(`   Units: data/output/units/`);
+        console.log(`   Chapters: data/output/chapters/\n`);
     } catch (error) {
-        console.error(`❌ Failed to create session folder: ${error.message}`);
+        console.error(`❌ Failed to create canonical directories: ${error.message}`);
         process.exit(1);
     }
 
-    // Step 2: Scan actual files
-    console.log('📊 Scanning actual unit files...\n');
+    // Step 2: Load authoritative workflow state (single source of truth)
+    console.log('📊 Loading workflow state...\n');
+    const workflowState = JSON.parse(fs.readFileSync(path.join(PROJECT_ROOT, 'WORKFLOW_STATE.json'), 'utf-8'));
+    const completedList = new Set(workflowState.completed || []);
+
+    // Use completed_count from workflow state (authoritative matched count, not total files)
+    const totalCompleted = workflowState.completed_count;
+    const totalFiles = completedList.size;
+
+    console.log(`   ✅ Authoritative completion: ${totalCompleted}/${workflowState.total_unit_quarters} (${workflowState.completion_percentage}%)`);
+    console.log(`   📦 Total files: ${totalFiles} (includes ${totalFiles - totalCompleted} out-of-scope units)\n`);
+
+    // Also count files in canonical directory for reference
     const completedFiles = scanCompletedFiles();
-    console.log(`   Found ${completedFiles.length} completed units\n`);
+    const outOfScopeCount = completedFiles.length - totalCompleted;
 
-    // Step 3: Load seed units
-    const seedUnits = JSON.parse(fs.readFileSync(path.join(PROJECT_ROOT, 'projects/north_africa_seed_units.json'), 'utf-8'));
+    // Step 3: Load seed units (COMPLETE seed with all 117 combat units)
+    const seedUnits = JSON.parse(fs.readFileSync(path.join(PROJECT_ROOT, 'projects/north_africa_seed_units_COMPLETE.json'), 'utf-8'));
 
-    // Step 4: Calculate ALL quarter progress
-    const allQuartersProgress = calculateAllQuartersProgress(seedUnits, completedFiles);
+    // Step 4: Calculate ALL quarter progress using authoritative completed list
+    const allQuartersProgress = calculateAllQuartersProgress(seedUnits, completedList);
 
     // Step 5: Get target quarter progress
     const targetQuarterProgress = allQuartersProgress.find(q => q.quarter === TARGET_QUARTER);
 
     // Step 6: Get next 3 units for target quarter
-    const nextBatch = getNextBatchForQuarter(TARGET_QUARTER, seedUnits, completedFiles);
+    const nextBatch = getNextBatchForQuarter(TARGET_QUARTER, seedUnits, completedList);
 
     // Step 7: Read Ken's guidelines
     let kenPrompt = '';
@@ -71,39 +84,71 @@ async function main() {
         console.warn('⚠️  Ken prompt not found, skipping guidelines');
     }
 
-    // Step 8: Generate ready-to-paste prompt
-    displayReadyPrompt(completedFiles.length, allQuartersProgress, targetQuarterProgress, nextBatch, sessionId);
+    // Step 8: Generate ready-to-paste prompt with authoritative completion count
+    displayReadyPrompt(totalCompleted, allQuartersProgress, targetQuarterProgress, nextBatch, sessionId, totalFiles);
 }
 
 function scanCompletedFiles() {
     const completedFiles = [];
-    const outputDir = path.join(PROJECT_ROOT, 'data/output');
+    // Architecture v4.0: Scan ONLY canonical location (data/output/units/)
+    const canonicalUnitsDir = path.join(PROJECT_ROOT, 'data/output/units');
 
-    function scanDir(dir) {
-        try {
-            const items = fs.readdirSync(dir, { withFileTypes: true });
-            for (const item of items) {
-                const fullPath = path.join(dir, item.name);
-                if (item.isDirectory()) {
-                    scanDir(fullPath);
-                } else if (item.name.endsWith('_toe.json') && !item.name.startsWith('unit_')) {
-                    completedFiles.push(item.name);
-                }
-            }
-        } catch (error) {
-            // Ignore errors
+    try {
+        if (!fs.existsSync(canonicalUnitsDir)) {
+            console.warn('⚠️  Canonical units directory does not exist yet');
+            return completedFiles;
         }
+
+        const items = fs.readdirSync(canonicalUnitsDir, { withFileTypes: true });
+        for (const item of items) {
+            if (item.isFile() && item.name.endsWith('_toe.json') && !item.name.startsWith('unit_')) {
+                completedFiles.push(item.name);
+            }
+        }
+    } catch (error) {
+        console.warn(`⚠️  Error scanning canonical units directory: ${error.message}`);
     }
 
-    scanDir(outputDir);
     return completedFiles;
 }
 
-function isCompleted(nation, designation, quarter, completedFiles) {
-    // Use canonical naming standard for matching
-    return completedFiles.some(filename => {
-        return naming.matchesUnit(filename, nation, quarter, designation);
-    });
+function isCompleted(nation, designation, quarter, completedSet) {
+    // Generate canonical ID and check if it exists in WORKFLOW_STATE.json completed list
+    // Format: nation_quarter_designation (with underscores, lowercase, normalized)
+    const normalizedQuarter = quarter.toLowerCase().replace(/-/g, '');  // 1941-Q2 → 1941q2
+    const normalizedDesignation = designation.toLowerCase()
+        .replace(/[^a-z0-9]+/g, '_')  // Replace non-alphanumeric with underscore
+        .replace(/^_+|_+$/g, '');      // Remove leading/trailing underscores
+
+    const canonicalId = `${nation}_${normalizedQuarter}_${normalizedDesignation}`;
+
+    // Check exact match
+    if (completedSet.has(canonicalId)) {
+        return true;
+    }
+
+    // Check with quarter format variation (1941q2 vs 1941-Q2)
+    const altQuarter = quarter;  // Keep original format
+    const altCanonicalId = `${nation}_${altQuarter}_${normalizedDesignation}`;
+    if (completedSet.has(altCanonicalId)) {
+        return true;
+    }
+
+    // Fuzzy match: Check if any completed ID starts with nation_quarter and contains key words from designation
+    const prefix = `${nation}_${normalizedQuarter}`;
+    const prefixAlt = `${nation}_${altQuarter}`;
+    const designationWords = designation.toLowerCase().split(/\s+/).filter(w => w.length > 3);
+
+    for (const completedId of completedSet) {
+        if (completedId.startsWith(prefix) || completedId.startsWith(prefixAlt)) {
+            const match = designationWords.every(word => completedId.includes(word.substring(0, 4)));
+            if (match) {
+                return true;
+            }
+        }
+    }
+
+    return false;
 }
 
 function calculateAllQuartersProgress(seedUnits, completedFiles) {
@@ -184,13 +229,19 @@ function getNextBatchForQuarter(quarter, seedUnits, completedFiles) {
     return needed.slice(0, 3);
 }
 
-function displayReadyPrompt(totalCompleted, allQuartersProgress, targetQuarterProgress, nextBatch, sessionId) {
-    const totalUnits = 213; // From project config
+function displayReadyPrompt(totalCompleted, allQuartersProgress, targetQuarterProgress, nextBatch, sessionId, totalFiles) {
+    const totalUnits = 420; // Total unit-quarters from complete seed (117 unique units)
     const percentComplete = ((totalCompleted / totalUnits) * 100).toFixed(1);
+    const outOfScopeFiles = totalFiles - totalCompleted;
 
     console.log('═'.repeat(80));
     console.log('  📊 QUARTER COMPLETION DASHBOARD');
     console.log('═'.repeat(80));
+    console.log('');
+    console.log(`📈 Seed Completion: ${totalCompleted}/${totalUnits} unit-quarters (${percentComplete}%)`);
+    if (outOfScopeFiles > 0) {
+        console.log(`📦 Total files in canonical directory: ${totalFiles} (includes ${outOfScopeFiles} out-of-scope units)`);
+    }
     console.log('');
 
     // Show top candidates
@@ -223,9 +274,6 @@ function displayReadyPrompt(totalCompleted, allQuartersProgress, targetQuarterPr
     console.log('');
     console.log('─'.repeat(80));
     console.log('');
-
-    // Overall progress
-    console.log(`📊 **OVERALL PROGRESS:** ${totalCompleted}/${totalUnits} units (${percentComplete}%)\n`);
 
     console.log('═'.repeat(80));
     console.log('  📢 COPY THE MESSAGE BELOW AND PASTE INTO CLAUDE CODE CHAT');
@@ -272,14 +320,15 @@ ${nextBatch.length > 0 ? nextBatch.map((u, i) => `${i + 1}. ${u.nation} - ${u.de
 - Section 15: Data Quality & Known Gaps (honest assessment)
 - **Confidence threshold**: ≥ 75%
 
-**OUTPUT PATH (ALREADY CREATED FOR YOU):**
-✅ Session folder: data/output/${sessionId}/
-✅ Units folder: data/output/${sessionId}/units/
+**OUTPUT PATH (Architecture v4.0 - Canonical Locations):**
+✅ Units: data/output/units/
+✅ Chapters: data/output/chapters/
 
-⚠️  **MANDATORY**: Save ALL files to:
-   data/output/${sessionId}/units/[unit_file].json
+⚠️  **MANDATORY**: Save ALL files to CANONICAL locations:
+   - Unit JSON: data/output/units/[unit_file].json
+   - MDBook chapters: data/output/chapters/[chapter_file].md
 
-   **NEVER** write to: data/output/units/ (deprecated legacy location)
+   **NEVER** create session folders (data/output/autonomous_*/ or data/output/session_*/)
 
 **STOP CONDITIONS:**
 - Validation fails after 2 regeneration attempts

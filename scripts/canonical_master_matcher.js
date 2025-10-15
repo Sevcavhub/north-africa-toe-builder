@@ -138,11 +138,12 @@ for (const masterUnit of masterDirectory.canonical_units) {
 
             // Special handling for Italian units: extract division name from patterns like:
             // "25ª Divisione di Fanteria 'Bologna'" → "bologna division"
+            // "61ª Divisione di Fanteria "Sirte"" → "sirte division"
             // "132 Divisione Corazzata Ariete" → "ariete division"
             let extractedItalianName = null;
             if (fileInfo.nation === 'italian') {
-                // Pattern 1: Name in quotes (e.g., 'Bologna', 'Ariete')
-                const quotedMatch = fileDesignationLower.match(/'([^']+)'/);
+                // Pattern 1: Name in quotes (BOTH single AND double quotes)
+                const quotedMatch = fileDesignationLower.match(/['"]([^'"]+)['"]/);
                 if (quotedMatch) {
                     extractedItalianName = quotedMatch[1] + ' division';
                 } else {

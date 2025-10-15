@@ -73,9 +73,9 @@ class AutonomousOrchestrator {
       process.exit(1);
     }
 
-    // Load seed units from separate file
+    // Load seed units from separate file (COMPLETE seed with all 117 combat units)
     try {
-      const seedUnitsPath = path.join(path.dirname(this.projectPath), 'north_africa_seed_units.json');
+      const seedUnitsPath = path.join(path.dirname(this.projectPath), 'north_africa_seed_units_COMPLETE.json');
       const seedData = await fs.readFile(seedUnitsPath, 'utf-8');
       const seedUnits = JSON.parse(seedData);
 

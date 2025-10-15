@@ -128,8 +128,8 @@ async function updateStartHereNewSession(state, sessionStats, lastCompleted = []
         const dateStr = now.toISOString().split('T')[0]; // 2025-10-13
         const timeStr = now.toTimeString().split(' ')[0].slice(0, 5); // 14:45
 
-        const completedCount = state ? state.completed.length : 0;
-        const totalUnits = state ? state.total_units : 213;
+        const completedCount = state ? state.completed_count : 0;
+        const totalUnits = state ? state.total_unit_quarters : 420;
         const remaining = totalUnits - completedCount;
         const percentComplete = ((completedCount / totalUnits) * 100).toFixed(1);
 
@@ -194,16 +194,16 @@ async function generateSessionSummary(state, startTime, uncommitted) {
     const endTime = new Date();
     const duration = startTime ? Math.round((endTime - new Date(startTime)) / 1000 / 60) : 'unknown';
 
-    const completedCount = state ? state.completed.length : 0;
-    const remaining = state ? (state.total_units - completedCount) : 213;
-    const percentComplete = state ? ((completedCount / state.total_units) * 100).toFixed(1) : '0.0';
+    const completedCount = state ? state.completed_count : 0;
+    const remaining = state ? (state.total_unit_quarters - completedCount) : 420;
+    const percentComplete = state ? ((completedCount / state.total_unit_quarters) * 100).toFixed(1) : '0.0';
 
     const summary = `# Session Summary - ${endTime.toISOString()}
 
 ## Session Statistics
 
 - **Duration:** ${duration} minutes
-- **Units Completed:** ${completedCount} / ${state?.total_units || 213}
+- **Units Completed:** ${completedCount} / ${state?.total_unit_quarters || 420}
 - **Progress:** ${percentComplete}%
 - **Units Remaining:** ${remaining}
 
@@ -264,11 +264,11 @@ function displayEndSummary(state, uncommitted, duration) {
     console.log('');
 
     if (state) {
-        const completedCount = state.completed.length;
-        const percentComplete = ((completedCount / state.total_units) * 100).toFixed(1);
+        const completedCount = state.completed_count;
+        const percentComplete = ((completedCount / state.total_unit_quarters) * 100).toFixed(1);
 
         console.log(`📊 **FINAL PROGRESS**\n`);
-        console.log(`   Units Completed: ${completedCount} / ${state.total_units} (${percentComplete}%)`);
+        console.log(`   Units Completed: ${completedCount} / ${state.total_unit_quarters} (${percentComplete}%)`);
         console.log(`   Last Commit:     ${state.last_commit || 'N/A'}`);
         console.log('');
     }
@@ -336,7 +336,7 @@ async function main() {
 
     // Calculate session statistics
     const sessionStats = {
-        completed_count: state ? state.completed.length : 0,
+        completed_count: state ? state.completed_count : 0,
         duration: startTime ? Math.round((Date.now() - new Date(startTime)) / 1000 / 60) : 'unknown',
         patterns: [], // Would be populated from analysis
         issues: [],   // Would be populated from validation

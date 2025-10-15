@@ -59,7 +59,7 @@ class IntelligentOrchestrator {
 
     try {
       // Load seed units
-      const seedPath = path.join(path.dirname(this.projectPath), 'north_africa_seed_units.json');
+      const seedPath = path.join(path.dirname(this.projectPath), 'north_africa_seed_units_COMPLETE.json');
       const seedData = await fs.readFile(seedPath, 'utf-8');
       const seedUnits = JSON.parse(seedData);
 
@@ -99,7 +99,7 @@ class IntelligentOrchestrator {
       return this.discoveredUnits;
     } catch (error) {
       console.error(`\n❌ Error loading seed units: ${error.message}`);
-      console.error(`   Make sure projects/north_africa_seed_units.json exists\n`);
+      console.error(`   Make sure projects/north_africa_seed_units_COMPLETE.json exists\n`);
       throw error;
     }
   }
