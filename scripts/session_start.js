@@ -1,18 +1,24 @@
 #!/usr/bin/env node
 
 /**
- * Session Start - Initialize new work session
+ * Session Start - Initialize new work session with strategy selection
  *
  * Prepares for autonomous work by:
  * 1. Reading WORKFLOW_STATE.json to find resume point
  * 2. Querying Memory MCP for project knowledge (if available)
- * 3. Displaying session info and next units to process
- * 4. Generating suggested next batch
+ * 3. Showing quarter completion dashboard
+ * 4. Offering strategy choice: Chronological vs Quarter Completion
+ * 5. Generating appropriate next batch (3 units)
  *
- * Usage: node scripts/session_start.js
+ * Usage:
+ *   node scripts/session_start.js               # Interactive (prompts for strategy)
+ *   node scripts/session_start.js chronological # Earliest quarter
+ *   node scripts/session_start.js quarter       # Highest completion %
+ *   node scripts/session_start.js 1941-Q2       # Specific quarter
  */
 
 const fs = require('fs').promises;
+const fssync = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
 const { queryProjectKnowledge } = require('./memory_mcp_helpers');
@@ -32,22 +38,19 @@ async function readWorkflowState() {
 }
 
 async function getCompletedUnits() {
-    // Scan CANONICAL units directory ONLY (Architecture v4.0)
     const canonicalUnitsDir = paths.UNITS_DIR;
     const completed = [];
 
     try {
-        // Simple flat scan of canonical directory (NO recursion)
         const files = await fs.readdir(canonicalUnitsDir);
 
         for (const filename of files) {
             if (filename.endsWith('_toe.json') && !filename.startsWith('unit_')) {
-                // Extract unit info from filename using naming standard
                 const parsed = naming.parseFilename(filename);
                 if (parsed) {
                     completed.push({
                         nation: parsed.nation,
-                        quarter: parsed.quarter, // Keep normalized format (1942q4)
+                        quarter: parsed.quarter,
                         unit: parsed.designation,
                         filename: filename
                     });
@@ -56,10 +59,8 @@ async function getCompletedUnits() {
         }
     } catch (error) {
         console.warn('⚠️  Could not scan canonical units directory:', error.message);
-        console.warn(`   Location: ${canonicalUnitsDir}`);
     }
 
-    // Deduplicate by unit ID (should not have duplicates in canonical, but safety check)
     const uniqueMap = new Map();
     for (const unit of completed) {
         const unitId = `${unit.nation}_${unit.quarter}_${unit.unit}`;
@@ -72,12 +73,10 @@ async function getCompletedUnits() {
 }
 
 async function syncWorkflowState(scannedUnits, currentState) {
-    // Compare scanned files with state and update if out of sync
     const scannedIds = scannedUnits.map(u => `${u.nation}_${u.quarter}_${u.unit}`);
     const stateIds = currentState ? currentState.completed : [];
 
     if (scannedIds.length !== stateIds.length) {
-        // Out of sync - update state
         const newState = currentState || {
             last_updated: new Date().toISOString(),
             total_unit_quarters: 420,
@@ -95,7 +94,6 @@ async function syncWorkflowState(scannedUnits, currentState) {
         newState.completed = scannedIds;
         newState.last_updated = new Date().toISOString();
 
-        // Save updated state
         await fs.writeFile(WORKFLOW_STATE_PATH, JSON.stringify(newState, null, 2));
 
         return {
@@ -113,7 +111,6 @@ async function syncWorkflowState(scannedUnits, currentState) {
 }
 
 async function queryMemoryMCP() {
-    // Query project knowledge using helper module
     console.log('🧠 Querying project knowledge...');
 
     try {
@@ -125,7 +122,6 @@ async function queryMemoryMCP() {
             console.log('   💾 Using local cache (Memory MCP not available)');
         }
 
-        // If no patterns/decisions in cache, use defaults
         if (knowledge.patterns.length === 0 && knowledge.decisions.length === 0) {
             console.log('   📝 Loading default knowledge base\n');
             return {
@@ -152,20 +148,16 @@ async function queryMemoryMCP() {
 }
 
 async function getSeedUnits() {
-    // Load seed units to know what we need to process
     try {
         const seedPath = path.join(PROJECT_ROOT, 'projects/north_africa_seed_units_COMPLETE.json');
         const data = await fs.readFile(seedPath, 'utf-8');
         const seeds = JSON.parse(data);
 
-        // Convert to flat list using canonical naming standard
         const units = [];
 
         for (const [key, value] of Object.entries(seeds)) {
-            // Only process nation unit arrays (german_units, italian_units, etc.)
             if (key.endsWith('_units') && Array.isArray(value)) {
                 for (const unit of value) {
-                    // Safety check: ensure unit has quarters array
                     if (!unit.quarters || !Array.isArray(unit.quarters)) {
                         console.warn(`⚠️  Skipping unit without quarters: ${unit.designation || 'unknown'}`);
                         continue;
@@ -185,18 +177,99 @@ async function getSeedUnits() {
             }
         }
 
-        return units;
+        return { units, seeds };
     } catch (error) {
         console.warn('⚠️  Could not load seed units:', error.message);
-        return [];
+        return { units: [], seeds: {} };
     }
 }
 
-function getNextBatch(allUnits, completed, batchSize = 3) {
-    // Filter to pending units
+function isCompleted(nation, designation, quarter, completedSet) {
+    const normalizedQuarter = quarter.toLowerCase().replace(/-/g, '');
+    const normalizedDesignation = designation.toLowerCase()
+        .replace(/[^a-z0-9]+/g, '_')
+        .replace(/^_+|_+$/g, '');
+
+    const canonicalId = `${nation}_${normalizedQuarter}_${normalizedDesignation}`;
+
+    if (completedSet.has(canonicalId)) {
+        return true;
+    }
+
+    const altCanonicalId = `${nation}_${quarter}_${normalizedDesignation}`;
+    if (completedSet.has(altCanonicalId)) {
+        return true;
+    }
+
+    const prefix = `${nation}_${normalizedQuarter}`;
+    const prefixAlt = `${nation}_${quarter}`;
+    const designationWords = designation.toLowerCase().split(/\s+/).filter(w => w.length > 3);
+
+    for (const completedId of completedSet) {
+        if (completedId.startsWith(prefix) || completedId.startsWith(prefixAlt)) {
+            const match = designationWords.every(word => completedId.includes(word.substring(0, 4)));
+            if (match) {
+                return true;
+            }
+        }
+    }
+
+    return false;
+}
+
+function calculateAllQuartersProgress(seedUnits, completedSet) {
+    const nations = naming.NATION_MAP;
+
+    const quarters = [
+        '1940-Q2', '1940-Q3', '1940-Q4',
+        '1941-Q1', '1941-Q2', '1941-Q3', '1941-Q4',
+        '1942-Q1', '1942-Q2', '1942-Q3', '1942-Q4',
+        '1943-Q1', '1943-Q2'
+    ];
+
+    const quarterStats = [];
+
+    quarters.forEach(quarter => {
+        let totalUnits = 0;
+        let completedUnits = 0;
+        const missingUnits = [];
+
+        for (const [key, nation] of Object.entries(nations)) {
+            const units = seedUnits[key] || [];
+            const quarterUnits = units.filter(u => u.quarters && u.quarters.includes(quarter));
+
+            quarterUnits.forEach(u => {
+                totalUnits++;
+                if (isCompleted(nation, u.designation, quarter, completedSet)) {
+                    completedUnits++;
+                } else {
+                    missingUnits.push({
+                        nation: nation.charAt(0).toUpperCase() + nation.slice(1),
+                        designation: u.designation
+                    });
+                }
+            });
+        }
+
+        if (totalUnits > 0) {
+            const percentage = Math.round((completedUnits / totalUnits) * 100);
+            quarterStats.push({
+                quarter,
+                total: totalUnits,
+                completed: completedUnits,
+                remaining: totalUnits - completedUnits,
+                percentage,
+                missing: missingUnits
+            });
+        }
+    });
+
+    return quarterStats;
+}
+
+function getNextBatchChronological(allUnits, completed, batchSize = 3) {
     const pending = allUnits.filter(u => !completed.includes(u.id));
 
-    // Group by quarter for logical batching
     const byQuarter = {};
     for (const unit of pending) {
         if (!byQuarter[unit.quarter]) {
@@ -205,14 +278,112 @@ function getNextBatch(allUnits, completed, batchSize = 3) {
         byQuarter[unit.quarter].push(unit);
     }
 
-    // Get next batch from earliest quarter
     const quarters = Object.keys(byQuarter).sort();
-    if (quarters.length === 0) return [];
+    if (quarters.length === 0) return { batch: [], quarter: null, strategy: 'chronological' };
 
-    return byQuarter[quarters[0]].slice(0, batchSize);
+    const selectedQuarter = quarters[0];
+    return {
+        batch: byQuarter[selectedQuarter].slice(0, batchSize),
+        quarter: selectedQuarter,
+        strategy: 'chronological'
+    };
 }
 
-function displaySessionInfo(state, memory, nextBatch) {
+function getNextBatchQuarterCompletion(quarterStats, seedUnits, completedSet, batchSize = 3) {
+    // Sort by completion percentage descending, then by remaining ascending
+    const sorted = [...quarterStats]
+        .filter(q => q.remaining > 0)
+        .sort((a, b) => {
+            if (b.percentage !== a.percentage) {
+                return b.percentage - a.percentage;
+            }
+            return a.remaining - b.remaining;
+        });
+
+    if (sorted.length === 0) return { batch: [], quarter: null, strategy: 'quarter_completion' };
+
+    const targetQuarter = sorted[0].quarter;
+    const batch = getNextBatchForQuarter(targetQuarter, seedUnits, completedSet, batchSize);
+
+    return {
+        batch,
+        quarter: targetQuarter,
+        strategy: 'quarter_completion'
+    };
+}
+
+function getNextBatchForQuarter(quarter, seedUnits, completedSet, batchSize = 3) {
+    const needed = [];
+    const nations = naming.NATION_MAP;
+
+    for (const [key, nation] of Object.entries(nations)) {
+        const units = seedUnits[key] || [];
+        const quarterUnits = units.filter(u => u.quarters && u.quarters.includes(quarter));
+
+        quarterUnits.forEach(u => {
+            if (!isCompleted(nation, u.designation, quarter, completedSet)) {
+                needed.push({
+                    nation: nation.charAt(0).toUpperCase() + nation.slice(1),
+                    designation: u.designation,
+                    quarter: quarter
+                });
+            }
+        });
+    }
+
+    return needed.slice(0, batchSize);
+}
+
+function displayQuarterDashboard(quarterStats, totalCompleted) {
+    const totalUnits = 420;
+    const percentComplete = ((totalCompleted / totalUnits) * 100).toFixed(1);
+
+    console.log('═'.repeat(80));
+    console.log('  📊 QUARTER COMPLETION DASHBOARD');
+    console.log('═'.repeat(80));
+    console.log('');
+    console.log(`📈 Seed Completion: ${totalCompleted}/${totalUnits} unit-quarters (${percentComplete}%)`);
+    console.log('');
+
+    const topCandidates = quarterStats
+        .filter(q => q.percentage >= 40 && q.remaining <= 10 && q.remaining > 0)
+        .slice(0, 3);
+
+    if (topCandidates.length > 0) {
+        console.log('🏆 **TOP CANDIDATES FOR COMPLETION:**\n');
+        topCandidates.forEach((q, i) => {
+            const medal = i === 0 ? '🥇' : i === 1 ? '🥈' : i === 2 ? '🥉' : '  ';
+            console.log(`   ${medal} ${q.quarter}: ${q.percentage}% Complete (${q.completed}/${q.total} units)`);
+            console.log(`      Only ${q.remaining} units missing:`);
+            q.missing.slice(0, 5).forEach((u, idx) => {
+                const connector = idx === q.missing.length - 1 || idx === 4 ? '└─' : '├─';
+                console.log(`      ${connector} ${u.nation} - ${u.designation}`);
+            });
+            if (q.missing.length > 5) {
+                console.log(`      ... and ${q.missing.length - 5} more`);
+            }
+            console.log('');
+        });
+    }
+
+    console.log('📋 **ALL QUARTERS RANKED:**\n');
+    console.log('Quarter      | Progress         | Status');
+    console.log('-------------|------------------|----------------------------------');
+    quarterStats.forEach(q => {
+        const status = q.percentage === 100 ? '✅ COMPLETE' :
+                      q.percentage >= 80 ? `${q.remaining} missing ⭐ CLOSEST` :
+                      q.percentage >= 50 ? `${q.remaining} missing` :
+                      `${q.remaining} remaining`;
+        const progressStr = `${q.completed}/${q.total} (${q.percentage}%)`;
+        console.log(`${q.quarter.padEnd(12)} | ${progressStr.padEnd(16)} | ${status}`);
+    });
+
+    console.log('');
+    console.log('─'.repeat(80));
+    console.log('');
+}
+
+function displaySessionPrompt(state, memory, batchResult, quarterStats) {
     console.log('═'.repeat(80));
     console.log('  SESSION START - NORTH AFRICA TO&E BUILDER');
     console.log('═'.repeat(80));
@@ -239,11 +410,6 @@ function displaySessionInfo(state, memory, nextBatch) {
             });
             console.log('');
         }
-    } else {
-        console.log('🆕 **NEW SESSION**\n');
-        console.log('   No previous progress found');
-        console.log('   Starting from beginning');
-        console.log('');
     }
 
     if (memory.patterns.length > 0) {
@@ -262,26 +428,129 @@ function displaySessionInfo(state, memory, nextBatch) {
         console.log('');
     }
 
-    if (nextBatch.length > 0) {
-        console.log('🚀 **SUGGESTED NEXT BATCH** (3 units)\n');
-        nextBatch.forEach((unit, i) => {
+    const strategyName = batchResult.strategy === 'chronological' ? 'CHRONOLOGICAL ORDER' : 'QUARTER COMPLETION';
+    const targetQuarter = batchResult.quarter;
+    const quarterProgress = quarterStats.find(q => q.quarter === targetQuarter);
+
+    console.log(`🎯 **STRATEGY: ${strategyName}**`);
+    if (targetQuarter) {
+        console.log(`   Target Quarter: ${targetQuarter}`);
+        if (quarterProgress) {
+            console.log(`   Progress: ${quarterProgress.completed}/${quarterProgress.total} (${quarterProgress.percentage}%)`);
+        }
+    }
+    console.log('');
+
+    if (batchResult.batch.length > 0) {
+        console.log('🚀 **NEXT BATCH** (3 units)\n');
+        batchResult.batch.forEach((unit, i) => {
             console.log(`   ${i + 1}. ${unit.nation.toUpperCase()} - ${unit.designation} (${unit.quarter})`);
         });
-        console.log('');
-        console.log('   Run in Claude Code chat:');
-        console.log('   ```');
-        console.log('   npm run start:autonomous');
-        console.log('   ```');
-        console.log('   Then paste the autonomous prompt and specify these 3 units');
         console.log('');
     }
 
     console.log('═'.repeat(80));
     console.log('');
+    console.log('📢 **COPY THE MESSAGE BELOW AND PASTE INTO CLAUDE CODE CHAT**');
+    console.log('═'.repeat(80));
+    console.log('');
+    console.log('─'.repeat(80));
+    console.log('');
+
+    const completedCount = state ? (state.completed_count || state.completed.length) : 0;
+    const totalUnits = 420;
+    const percentComplete = ((completedCount / totalUnits) * 100).toFixed(1);
+
+    console.log(`Start autonomous orchestration session.
+
+**CURRENT PROGRESS:**
+- Overall: ${completedCount}/${totalUnits} units (${percentComplete}%)
+- Last scan: ${new Date().toLocaleString()}
+
+**STRATEGY: ${strategyName}**${targetQuarter ? `
+Target Quarter: ${targetQuarter}` : ''}${quarterProgress ? `
+Progress: ${quarterProgress.completed}/${quarterProgress.total} (${quarterProgress.percentage}%)` : ''}
+
+**NEXT BATCH (3 units):**
+${batchResult.batch.length > 0 ? batchResult.batch.map((u, i) => `${i + 1}. ${u.nation} - ${u.designation} (${u.quarter})`).join('\n') : '✅ No units remaining!'}
+
+**SESSION PROTOCOL (Ken's 3-3-3 Rule):**
+✅ Session started (progress loaded above)
+🔄 Process these 3 units in parallel (batch of 3)
+💾 After batch complete: Bash('npm run checkpoint')
+📊 Check validation: Review SESSION_CHECKPOINT.md for chapter status
+🏁 When done: Bash('npm run session:end')
+
+**UNIFIED SCHEMA COMPLIANCE (schemas/UNIFIED_SCHEMA_EXAMPLES.md):**
+- **CRITICAL**: Use top-level fields (nation, quarter, organization_level)
+- **NEVER** nest unit_identification, personnel_summary, equipment_summary
+- Commander MUST be nested object: commander.name, commander.rank
+- Nation values lowercase only: german, italian, british, american, french
+- Tank totals MUST match: total = heavy + medium + light
+- **Validation**: Run scripts/lib/validator.js before saving
+- **Examples**: See schemas/UNIFIED_SCHEMA_EXAMPLES.md for correct/incorrect structures
+
+**TEMPLATE COMPLIANCE (v2.0 - 16 Sections from MDBOOK_CHAPTER_TEMPLATE.md):**
+- Section 3: Command (commander, HQ, staff) - REQUIRED
+- Section 5: Artillery (summary + detail for EVERY variant)
+- Section 6: Armored Cars (separate section with details, NOT in transport)
+- Section 7: Transport (NO tanks/armored cars, all variants detailed)
+- Section 12: Critical Equipment Shortages (Priority 1/2/3)
+- Section 15: Data Quality & Known Gaps (honest assessment)
+- **Confidence threshold**: ≥ 75%
+
+**OUTPUT PATH (Architecture v4.0 - Canonical Locations):**
+✅ Units: data/output/units/
+✅ Chapters: data/output/chapters/
+
+⚠️  **MANDATORY**: Save ALL files to CANONICAL locations:
+   - Unit JSON: data/output/units/[unit_file].json
+   - MDBook chapters: data/output/chapters/[chapter_file].md
+
+   **NEVER** create session folders (data/output/autonomous_*/ or data/output/session_*/)
+
+**STOP CONDITIONS:**
+- Validation fails after 2 regeneration attempts
+- Confidence score < 75% for any unit
+- Critical gaps cannot be resolved (missing commander, no equipment data)
+- Template violations detected in generated chapters
+- Source documents unavailable for nation/quarter
+
+**AUTONOMOUS EXECUTION:**
+Begin processing the 3-unit batch now using:
+- Task tool for parallel agent processing
+- Extended thinking for complex source analysis
+- TodoWrite to track progress
+- Automatic checkpoint after batch completion
+
+Ready to start? Confirm and I'll begin autonomous orchestration.`);
+
+    console.log('');
+    console.log('─'.repeat(80));
+    console.log('');
+    console.log('═'.repeat(80));
+    console.log('');
+    console.log('💡 **TIPS:**');
+    console.log('   - Claude will process units autonomously using Task tool');
+    console.log('   - Checkpoint runs automatically after batch (updates state)');
+    console.log('   - Session:end syncs final state and creates summary');
+    if (targetQuarter && quarterProgress) {
+        console.log(`   - Once ${targetQuarter} complete, run QA agent for quality review`);
+    }
+    console.log('');
+    console.log('📚 **FULL GUIDELINES:** See "STRICT AUTONOMOUS MODE - Ken Prompt.md"');
+    console.log('');
+    console.log('═'.repeat(80));
+    console.log('');
+
+    console.log('💡 **TIP:** Run `npm run session:end` when finished to save progress\n');
 }
 
 async function main() {
     console.log('');
+
+    // Get strategy from CLI arg
+    const strategyArg = process.argv[2];
 
     // Read workflow state
     let state = await readWorkflowState();
@@ -303,20 +572,57 @@ async function main() {
     const memory = await queryMemoryMCP();
 
     // Get all seed units
-    const allUnits = await getSeedUnits();
+    const { units: allUnits, seeds: seedUnits } = await getSeedUnits();
 
-    // Calculate next batch
+    // Calculate quarter stats
     const completed = state ? state.completed : [];
-    const nextBatch = getNextBatch(allUnits, completed);
+    const completedSet = new Set(completed);
+    const quarterStats = calculateAllQuartersProgress(seedUnits, completedSet);
 
-    // Display session info
-    displaySessionInfo(state, memory, nextBatch);
+    // Sort by completion percentage descending
+    quarterStats.sort((a, b) => b.percentage - a.percentage);
+
+    // Display quarter dashboard
+    const totalCompleted = state ? (state.completed_count || completed.length) : 0;
+    displayQuarterDashboard(quarterStats, totalCompleted);
+
+    // Determine strategy and get batch
+    let batchResult;
+
+    if (!strategyArg) {
+        // Interactive: show both options
+        console.log('🎯 **STRATEGY SELECTION**\n');
+        console.log('Choose extraction strategy:\n');
+        console.log('  1. CHRONOLOGICAL - Process earliest quarter first');
+        console.log('     (Systematic, complete timeline coverage)\n');
+        console.log('  2. QUARTER COMPLETION - Target highest completion % quarter');
+        console.log('     (Quick wins, complete quarters faster)\n');
+        console.log('  3. SPECIFIC QUARTER - Choose a specific quarter to target\n');
+        console.log('Default: Type "1" for chronological, "2" for quarter completion, or quarter like "1941-Q2"');
+        console.log('You can also run: npm run session:start chronological|quarter|1941-Q2\n');
+
+        // For now, default to quarter completion (highest %)
+        batchResult = getNextBatchQuarterCompletion(quarterStats, seedUnits, completedSet);
+        console.log(`Using default strategy: QUARTER COMPLETION (${batchResult.quarter})\n`);
+    } else if (strategyArg === 'chronological' || strategyArg === '1') {
+        batchResult = getNextBatchChronological(allUnits, completed);
+    } else if (strategyArg === 'quarter' || strategyArg === '2') {
+        batchResult = getNextBatchQuarterCompletion(quarterStats, seedUnits, completedSet);
+    } else {
+        // Assume it's a specific quarter
+        batchResult = {
+            batch: getNextBatchForQuarter(strategyArg, seedUnits, completedSet),
+            quarter: strategyArg,
+            strategy: 'specific_quarter'
+        };
+    }
+
+    // Display session prompt
+    displaySessionPrompt(state, memory, batchResult, quarterStats);
 
     // Write session start marker
     const sessionLog = path.join(PROJECT_ROOT, 'SESSION_ACTIVE.txt');
-    await fs.writeFile(sessionLog, `Session started: ${new Date().toISOString()}\n`);
-
-    console.log('💡 **TIP:** Run `npm run session:end` when finished to save progress\n');
+    await fs.writeFile(sessionLog, `Session started: ${new Date().toISOString()}\nStrategy: ${batchResult.strategy}\nTarget: ${batchResult.quarter}\n`);
 }
 
 // Run
