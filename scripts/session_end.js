@@ -148,12 +148,10 @@ async function updateStartHereNewSession(state, sessionStats, lastCompleted = []
             /<!-- AUTO-UPDATED: START - Progress Stats -->[\s\S]*?<!-- AUTO-UPDATED: END - Progress Stats -->/,
             `<!-- AUTO-UPDATED: START - Progress Stats -->
 ### 🔨 IN PROGRESS:
-- **Ground Forces Extraction**: ${completedCount}/${totalUnits} units (${percentComplete}%)
-  - ${remaining} units remaining to complete Phase 1-6
-- **1941-Q2 Showcase**: 90% complete
-  - 10/18 units upgraded to v3.0.0 schema
-  - All critical gaps resolved (Gap 3, 5, 8)
-  - Remaining: Corps Roll-ups (Gaps 1 & 2)
+- **Ground Forces Extraction**: ${completedCount}/${totalUnits} unit-quarters (${percentComplete}%)
+  - ${remaining} unit-quarters remaining to complete Phase 1-6
+  - ${state.total_unique_units || 117} unique units total
+  - Target: All 117 combat units across all quarters (1940-1943)
 <!-- AUTO-UPDATED: END - Progress Stats -->`
         );
 
@@ -170,14 +168,11 @@ async function updateStartHereNewSession(state, sessionStats, lastCompleted = []
             `<!-- AUTO-UPDATED: START - Recently Completed -->
 ### ✅ RECENTLY COMPLETED (Last Session):
 - **Session Date**: ${dateStr}
-- **Units Completed**: ${unitsCompleted} units (${prevCompleted} → ${completedCount})
+- **Units Completed**: ${unitsCompleted} unit-quarters (${prevCompleted} → ${completedCount})
 - **Session Duration**: ${sessionStats.duration} minutes
+- **Completion Rate**: ${percentComplete}% of total project
 - **Recent Work**:
 ${recentWork}
-- **Milestone Achievements**:
-  - Gap 3 (Wikipedia): ✅ RESOLVED - 0 violations
-  - Gap 8 (Infantry Weapons): ✅ RESOLVED - All chapters complete
-  - Gap 5 (Empty Sections): ✅ RESOLVED - Bologna & Trieste complete
 <!-- AUTO-UPDATED: END - Recently Completed -->`
         );
 

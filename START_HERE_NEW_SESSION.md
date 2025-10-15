@@ -2,7 +2,7 @@
 
 <!-- AUTO-UPDATED: START - Session Metadata -->
 **Project**: North Africa TO&E Builder - **v3.0.0 (Ground Forces)**
-**Last Updated**: 2025-10-15 20:53
+**Last Updated**: 2025-10-15 20:56
 **Status**: Schema v3.0 Complete, 150/420 units (35.7%)
 <!-- AUTO-UPDATED: END - Session Metadata -->
 
@@ -260,7 +260,7 @@ If you need context from previous sessions:
 **Primary Purpose**: Generate wargaming scenarios with realistic supply/logistics constraints
 
 **Scope**: 313-348 units total
-- 213 Ground Forces (Phase 1-6) ← **Current Focus**
+- **420 unit-quarters** (117 unique units) - Ground Forces (Phase 1-6) ← **Current Focus**
 - ~100-135 Air Forces (Phase 7)
 - Campaign system (Phase 8-10)
 
