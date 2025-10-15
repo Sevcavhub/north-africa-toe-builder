@@ -332,7 +332,50 @@
         "Doctrine conformance assessed"
       ]
     },
-    
+
+    {
+      "agent_id": "seed_reconciliation_validator",
+      "version": "1.0.0",
+      "category": "validation",
+      "pattern": "evaluator_optimizer_with_learning",
+      "anthropic_cookbook_reference": "https://github.com/anthropics/claude-cookbooks/tree/main/patterns/agents",
+      "role": "Validate extracted units against seed list, detect discrepancies, learn patterns for edge cases like informal units, and flag items requiring human review",
+      "inputs": ["seed_units.json", "extracted_units.json", "pattern_database.json", "human_decisions.json"],
+      "outputs": ["reconciliation_report.json", "human_review_queue.json", "updated_patterns.json"],
+      "capabilities": [
+        "Seed vs extracted unit comparison",
+        "Quarter mismatch detection",
+        "Missing unit identification",
+        "Pattern learning from edge cases",
+        "Confidence scoring based on historical patterns",
+        "Human-in-loop checkpoint generation",
+        "Automated decision support for known patterns"
+      ],
+      "learning_mechanism": {
+        "pattern_types": ["informal_units", "quarter_mismatches", "establishment_transitions", "source_ambiguity", "administrative_vs_combat_status"],
+        "confidence_thresholds": {"auto_accept": 95, "review_recommended": 75, "human_required": 74}
+      },
+      "validation_rules": [
+        "CRITICAL: All seed units must be accounted for",
+        "CRITICAL: Discrepancies must include seed AND agent evidence",
+        "CRITICAL: Never auto-resolve unless pattern confidence ≥95%",
+        "CRITICAL: Battle participation mismatch is HIGH priority",
+        "Pattern learning must track human decisions",
+        "Human review queue must have clear decision prompts"
+      ],
+      "anthropic_patterns_applied": [
+        "Evaluator Pattern: Systematic comparison against criteria",
+        "Optimizer Pattern: Learn from human decisions",
+        "Memory Pattern: Maintain pattern_database across runs",
+        "Human-in-Loop: Flag uncertain cases, never override authoritative data"
+      ],
+      "integration_points": {
+        "orchestrator_phase": "Phase 6 - Final Validation",
+        "runs_after": ["all_unit_extractions_complete"],
+        "outputs_to": ["human_review_queue.json", "reconciliation_report.json", "updated_pattern_database.json"]
+      }
+    },
+
     {
       "agent_id": "book_chapter_generator",
       "category": "output_generation",

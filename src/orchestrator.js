@@ -103,9 +103,12 @@ class AgentOrchestrator {
       
       // PHASE 5: Validation
       await this.executePhase5();
-      
-      // PHASE 6: Output Generation
-      await this.executePhase6();
+
+      // PHASE 6: Seed Reconciliation (Human-in-Loop Checkpoint)
+      await this.executePhase6_SeedReconciliation(nation, quarter);
+
+      // PHASE 7: Output Generation
+      await this.executePhase7();
       
       const duration = ((Date.now() - startTime) / 1000).toFixed(2);
       console.log(`\n${'='.repeat(60)}`);
@@ -324,11 +327,70 @@ class AgentOrchestrator {
     console.log(`\n✓ Phase 5 complete: ${allUnits.length} units validated\n`);
   }
   
-  async executePhase6() {
-    console.log('\n📝 PHASE 6: Output Generation\n');
-    
+  async executePhase6_SeedReconciliation(nation, quarter) {
+    console.log('\n🔍 PHASE 6: Seed Reconciliation (Human-in-Loop Checkpoint)\n');
+
+    // Load seed units for this nation/quarter
+    const seedUnits = await this.loadSeedUnits(nation, quarter);
+    console.log(`  Loaded ${seedUnits.length} seed units for ${nation} ${quarter}`);
+
+    // Get all extracted units
+    const extractedUnits = this.state.get('allUnits');
+    console.log(`  Extracted ${extractedUnits.length} units`);
+
+    // Load pattern database
+    const patternDatabase = await this.loadPatternDatabase();
+    console.log(`  Loaded pattern database (${patternDatabase.statistics.total_patterns} patterns)`);
+
+    // Run seed reconciliation validator
+    const reconciliation = await this.runAgent("seed_reconciliation_validator", {
+      seed_units: seedUnits,
+      extracted_units: extractedUnits,
+      pattern_database: patternDatabase,
+      human_decisions: patternDatabase.human_decision_history
+    });
+
+    this.state.set('reconciliation', reconciliation);
+
+    // Display summary
+    const summary = reconciliation.reconciliation_summary;
+    console.log(`\n  Reconciliation Results:`);
+    console.log(`    ✓ Fully matched: ${summary.fully_matched}/${summary.total_seed_units}`);
+    console.log(`    ⚠ Discrepancies: ${summary.discrepancies}`);
+    console.log(`      - Auto-resolved: ${summary.auto_resolved}`);
+    console.log(`      - Review recommended: ${summary.review_recommended}`);
+    console.log(`      - Human required: ${summary.human_required}`);
+
+    // Save reconciliation report
+    await this.saveReconciliationReport(reconciliation);
+
+    // Check if human review is needed
+    if (reconciliation.human_review_queue.length > 0) {
+      console.log(`\n  ⚠ HUMAN REVIEW REQUIRED for ${reconciliation.human_review_queue.length} items`);
+      console.log(`    Review queue saved to: data/output/human_review_queue.json`);
+      await this.saveHumanReviewQueue(reconciliation.human_review_queue);
+
+      // Save updated pattern database (with new patterns detected)
+      if (reconciliation.new_patterns_detected.length > 0) {
+        console.log(`    New patterns detected: ${reconciliation.new_patterns_detected.length}`);
+        await this.updatePatternDatabase(patternDatabase, reconciliation.new_patterns_detected);
+      }
+
+      console.log(`\n  ⏸ Workflow paused - please review discrepancies and update pattern database`);
+      console.log(`    To resume: provide human decisions and re-run orchestrator`);
+
+      // In non-interactive mode, throw to halt workflow
+      throw new Error('Human review required - see human_review_queue.json');
+    }
+
+    console.log(`\n✓ Phase 6 complete: All seed units accounted for\n`);
+  }
+
+  async executePhase7() {
+    console.log('\n📝 PHASE 7: Output Generation\n');
+
     const allUnits = this.state.get('allUnits');
-    
+
     // Generate book chapters
     console.log('  Generating book chapters...');
     const chapters = [];
@@ -340,7 +402,7 @@ class AgentOrchestrator {
       chapters.push(chapter);
       await this.saveChapter(chapter, unit.unit_designation);
     }
-    
+
     // Generate scenarios
     console.log('  Generating wargaming scenarios...');
     const scenarios = await this.runAgent("scenario_exporter", {
@@ -348,15 +410,15 @@ class AgentOrchestrator {
       format: "witw_csv"
     });
     await this.saveScenarios(scenarios);
-    
+
     // Generate SQL
     console.log('  Generating SQL database...');
     const sql = await this.runAgent("sql_populator", {
       units: allUnits
     });
     await this.saveSQL(sql);
-    
-    console.log(`\n✓ Phase 6 complete: All outputs generated\n`);
+
+    console.log(`\n✓ Phase 7 complete: All outputs generated\n`);
   }
   
   // Helper methods
@@ -398,6 +460,94 @@ class AgentOrchestrator {
     const schemaPath = path.join(__dirname, '../schemas/unified_toe_schema.json');
     const data = await fs.readFile(schemaPath, 'utf8');
     return JSON.parse(data);
+  }
+
+  async loadSeedUnits(nation, quarter) {
+    // Load the complete seed file
+    const seedPath = path.join(__dirname, '../projects/north_africa_seed_units_COMPLETE.json');
+    try {
+      const data = await fs.readFile(seedPath, 'utf8');
+      const seedData = JSON.parse(data);
+
+      // Determine nation key
+      const nationKey = `${nation}_units`;
+
+      // Filter units for this quarter
+      const unitsForQuarter = [];
+      if (seedData[nationKey]) {
+        for (const unit of seedData[nationKey]) {
+          if (unit.quarters.includes(quarter)) {
+            unitsForQuarter.push({
+              designation: unit.designation,
+              type: unit.type,
+              quarter: quarter,
+              battles: unit.battles || [],
+              confidence: unit.confidence,
+              also_known_as: unit.also_known_as || null,
+              note: unit.note || null
+            });
+          }
+        }
+      }
+
+      return unitsForQuarter;
+    } catch (error) {
+      console.warn(`⚠ Could not load seed units: ${error.message}`);
+      return [];
+    }
+  }
+
+  async loadPatternDatabase() {
+    const dbPath = path.join(__dirname, '../data/pattern_database.json');
+    try {
+      const data = await fs.readFile(dbPath, 'utf8');
+      return JSON.parse(data);
+    } catch (error) {
+      console.warn(`⚠ Could not load pattern database, using empty: ${error.message}`);
+      return {
+        learned_patterns: [],
+        human_decision_history: [],
+        statistics: {
+          total_patterns: 0,
+          pending_patterns: 0,
+          confirmed_patterns: 0,
+          automation_ready: 0
+        }
+      };
+    }
+  }
+
+  async saveReconciliationReport(reconciliation) {
+    const outputDir = path.join(__dirname, '../data/output');
+    await fs.mkdir(outputDir, { recursive: true });
+
+    const filepath = path.join(outputDir, 'reconciliation_report.json');
+    await fs.writeFile(filepath, JSON.stringify(reconciliation, null, 2));
+    console.log(`    Reconciliation report saved to: ${filepath}`);
+  }
+
+  async saveHumanReviewQueue(reviewQueue) {
+    const outputDir = path.join(__dirname, '../data/output');
+    await fs.mkdir(outputDir, { recursive: true });
+
+    const filepath = path.join(outputDir, 'human_review_queue.json');
+    await fs.writeFile(filepath, JSON.stringify(reviewQueue, null, 2));
+  }
+
+  async updatePatternDatabase(currentDb, newPatterns) {
+    // Add new patterns to database
+    for (const pattern of newPatterns) {
+      currentDb.learned_patterns.push(pattern);
+    }
+
+    // Update statistics
+    currentDb.statistics.total_patterns = currentDb.learned_patterns.length;
+    currentDb.statistics.pending_patterns = currentDb.learned_patterns.filter(p => p.status === 'PENDING_FIRST_HUMAN_DECISION').length;
+
+    // Save updated database
+    const dbPath = path.join(__dirname, '../data/pattern_database.json');
+    await fs.writeFile(dbPath, JSON.stringify(currentDb, null, 2));
+    console.log(`    Pattern database updated: ${dbPath}`);
   }
   
   async saveUnitFile(unit) {
@@ -441,12 +591,13 @@ class AgentOrchestrator {
   generateReport() {
     const allUnits = this.state.get('allUnits') || [];
     const validationResults = this.state.get('validationResults') || [];
-    
-    return {
+    const reconciliation = this.state.get('reconciliation');
+
+    const report = {
       status: "success",
       summary: {
         units_created: allUnits.length,
-        phases_completed: 6,
+        phases_completed: 7,
         validation_passed: validationResults.filter(r => r.schemaResult.valid).length,
         validation_total: validationResults.length
       },
@@ -461,6 +612,18 @@ class AgentOrchestrator {
         sql: `data/output/sql/`
       }
     };
+
+    // Add reconciliation summary if available
+    if (reconciliation) {
+      report.seed_reconciliation = {
+        total_seed_units: reconciliation.reconciliation_summary.total_seed_units,
+        fully_matched: reconciliation.reconciliation_summary.fully_matched,
+        discrepancies: reconciliation.reconciliation_summary.discrepancies,
+        human_review_required: reconciliation.human_review_queue.length
+      };
+    }
+
+    return report;
   }
   
   countByLevel(units) {

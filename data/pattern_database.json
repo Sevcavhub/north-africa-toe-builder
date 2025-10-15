@@ -1,0 +1,140 @@
+{
+  "version": "1.0.0",
+  "last_updated": "2025-10-15",
+  "description": "Learning database for seed reconciliation validator. Tracks patterns from human decisions to enable gradual automation.",
+
+  "pattern_types": {
+    "informal_units": {
+      "description": "Units that existed informally before formal establishment",
+      "examples": ["Italian XX Corps Q2 1941"],
+      "decision_logic": "Extract as informal/transitional if seed lists battles during that quarter"
+    },
+    "quarter_mismatches": {
+      "description": "Agent finds unit in different quarter than seed",
+      "examples": [],
+      "decision_logic": "Check battle participation to determine correct quarter"
+    },
+    "establishment_transitions": {
+      "description": "Units transitioning from informal to formal status",
+      "examples": [],
+      "decision_logic": "Extract both quarters if significant operational change"
+    },
+    "source_ambiguity": {
+      "description": "Conflicting information between sources",
+      "examples": [],
+      "decision_logic": "Tier 1 sources > Tier 2 > Agent web search"
+    },
+    "administrative_vs_combat_status": {
+      "description": "Unit administratively exists but not combat-ready, or vice versa",
+      "examples": [],
+      "decision_logic": "Seed lists battles = combat status takes precedence"
+    }
+  },
+
+  "learned_patterns": [
+    {
+      "pattern_id": "informal_italian_corps_q2_1941_PENDING",
+      "pattern_type": "informal_units",
+      "status": "PENDING_FIRST_HUMAN_DECISION",
+      "confidence": 0,
+      "occurrences": 0,
+
+      "pattern_definition": {
+        "conditions": {
+          "nation": "Italy",
+          "unit_type": "corps",
+          "quarter_mismatch": true,
+          "seed_has_battles": true,
+          "agent_found_later_quarter": true,
+          "agent_reason": "formal establishment"
+        },
+        "resolution": "TBD - awaiting human decision",
+        "applicable_when": "Italian corps, seed lists Q2 battles, agent finds Q3 formal establishment"
+      },
+
+      "example_case": {
+        "seed": {
+          "designation": "XX Mobile Corps",
+          "nation": "Italy",
+          "quarter": "1941-Q2",
+          "battles": ["Tobruk siege"],
+          "confidence": 95
+        },
+        "agent_finding": {
+          "found_quarter": "1941-Q3",
+          "reason": "Formal establishment August 15, 1941",
+          "confidence": 90
+        },
+        "human_decision": null,
+        "decision_reasoning": null
+      },
+
+      "learning_metadata": {
+        "first_occurrence": "2025-10-15",
+        "last_updated": "2025-10-15",
+        "total_occurrences": 1,
+        "human_decisions": [],
+        "consistency_score": 0,
+        "ready_for_automation": false
+      }
+    }
+  ],
+
+  "confidence_calculation": {
+    "formula": "base_confidence * occurrence_weight * consistency_weight * recency_weight",
+    "base_confidence": {
+      "single_occurrence": 45,
+      "two_occurrences": 70,
+      "three_plus_occurrences": 85
+    },
+    "consistency_weight": {
+      "all_same_decision": 1.0,
+      "mostly_same_80_percent": 0.9,
+      "mixed_decisions": 0.5
+    },
+    "recency_weight": {
+      "within_7_days": 1.1,
+      "within_30_days": 1.0,
+      "older_than_90_days": 0.9
+    },
+    "occurrence_weight": {
+      "1": 0.5,
+      "2": 0.75,
+      "3": 0.9,
+      "5_plus": 1.0
+    },
+    "automation_threshold": 95
+  },
+
+  "human_decision_history": [
+    {
+      "decision_id": "pending_xx_corps_q2_1941",
+      "date": "2025-10-15",
+      "discrepancy": {
+        "seed_unit": "XX Mobile Corps 1941-Q2",
+        "agent_finding": "Found Q3 1941 formal establishment"
+      },
+      "user_decision": null,
+      "reasoning": null,
+      "pattern_created": "informal_italian_corps_q2_1941_PENDING",
+      "status": "AWAITING_USER_INPUT"
+    }
+  ],
+
+  "statistics": {
+    "total_patterns": 1,
+    "pending_patterns": 1,
+    "confirmed_patterns": 0,
+    "automation_ready": 0,
+    "total_human_decisions": 0,
+    "automation_rate": "0%"
+  },
+
+  "next_steps": [
+    "Process human decision for XX Corps Q2 1941",
+    "Update pattern with decision and reasoning",
+    "Increment confidence if similar case appears",
+    "Track consistency across similar cases",
+    "Enable automation when confidence ≥95%"
+  ]
+}
