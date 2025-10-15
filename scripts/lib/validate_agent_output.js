@@ -115,6 +115,35 @@ function validateAgentOutput(agentOutput, agentId) {
     errors.push('VIOLATION: sources_checked is empty - must document search process');
   }
 
+  // Rule 4b: WIKIPEDIA ABSOLUTELY FORBIDDEN
+  // Check all source fields for Wikipedia/wiki references
+  const wikiPatterns = [/wikipedia/i, /\bwiki\b/i, /wikia/i, /fandom\.com/i];
+
+  // Check verified_from_sources
+  if (results.verified_from_sources) {
+    for (const [field, data] of Object.entries(results.verified_from_sources)) {
+      if (data && data.source) {
+        const hasWiki = wikiPatterns.some(pattern => pattern.test(data.source));
+        if (hasWiki) {
+          errors.push(`VIOLATION: Field '${field}' cites WIKIPEDIA/WIKI source: "${data.source}" - FORBIDDEN per Rule 6`);
+        }
+      }
+    }
+  }
+
+  // Check sources_checked
+  if (results.sources_checked) {
+    for (const sourceEntry of results.sources_checked) {
+      if (sourceEntry.source) {
+        const hasWiki = wikiPatterns.some(pattern => pattern.test(sourceEntry.source));
+        if (hasWiki && sourceEntry.status === 'FOUND') {
+          // Wiki found and USED = violation
+          errors.push(`VIOLATION: sources_checked includes WIKIPEDIA/WIKI as FOUND source: "${sourceEntry.source}" - must be EXCLUDED`);
+        }
+      }
+    }
+  }
+
   // Rule 5: Check validation_checklist
   if (results.validation_checklist) {
     const checklist = results.validation_checklist;
@@ -165,8 +194,8 @@ function runTests() {
       verified_from_sources: {
         commander: {
           value: 'Gen. Carlo Spatocco',
-          source: 'Wikipedia - XX Motorised Corps (Italy)',
-          source_quote: 'The commander from 16 March 1941 to 15 August 1941 was General Carlo Spatocco who led the corps',
+          source: 'Lewin (1998) Rommel as Military Commander, page 47',
+          source_quote: 'The Italian XX Motorised Corps under General Spatocco was placed under German operational control in March 1941',
           confidence: 85
         },
         corps_hq_personnel: null
