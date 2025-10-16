@@ -1,0 +1,518 @@
+{
+  "schema_version": "1.0.0",
+  "created": "2025-10-15",
+  "description": "Comprehensive source catalog for exhaustive search protocol. Agents MUST check ALL applicable sources before reporting data gaps to user.",
+  "search_protocol": {
+    "rule": "NEVER accept null/unknown without trying ALL sources in applicable tier",
+    "tiers": [
+      "Tier 1: Local primary documents (check FIRST, ALWAYS)",
+      "Tier 2: Curated web sources (check if Tier 1 incomplete)",
+      "Tier 3: Specialized archives (check for critical gaps)",
+      "General web search ONLY as last resort (NO Wikipedia)"
+    ]
+  },
+  "nations": {
+    "german": {
+      "primary_sources": {
+        "tier_1_local": [
+          {
+            "source_id": "tessin_volumes",
+            "name": "Tessin Wehrmacht Encyclopedia (17 volumes)",
+            "path": "Resource Documents/tessin-georg-verbande.../",
+            "coverage": "1939-1945, all German units",
+            "confidence": 95,
+            "fields_provided": [
+              "unit_designation",
+              "organization_level",
+              "parent_unit",
+              "subordinate_units",
+              "commander",
+              "formation_date",
+              "equipment_allocations",
+              "strength_reports"
+            ]
+          },
+          {
+            "source_id": "german_field_manuals",
+            "name": "German Field Manuals (KStN, H.Dv.)",
+            "path": "Resource Documents/German Field Manuals/",
+            "coverage": "Standard TO&E templates",
+            "confidence": 90,
+            "fields_provided": [
+              "unit_structure",
+              "personnel_allocations",
+              "equipment_allocations",
+              "weapon_types",
+              "vehicle_types"
+            ]
+          }
+        ],
+        "tier_2_curated_web": [
+          {
+            "source_id": "feldgrau",
+            "name": "Feldgrau.com",
+            "url": "https://www.feldgrau.com/",
+            "coverage": "German units, commanders, organization",
+            "confidence": 80,
+            "check_sections": [
+              "Unit histories",
+              "Commander biographies",
+              "Order of Battle",
+              "Equipment allocations"
+            ]
+          },
+          {
+            "source_id": "niehorster",
+            "name": "Dr. Leo Niehorster's Orders of Battle",
+            "url": "http://www.niehorster.org/",
+            "coverage": "German TO&E quarterly snapshots",
+            "confidence": 85,
+            "check_sections": [
+              "North Africa OOB",
+              "Division structures",
+              "Corps assignments",
+              "Equipment tables"
+            ]
+          },
+          {
+            "source_id": "lexikon_wehrmacht",
+            "name": "Lexikon der Wehrmacht",
+            "url": "https://www.lexikon-der-wehrmacht.de/",
+            "coverage": "German units and personnel",
+            "confidence": 75,
+            "check_sections": [
+              "Unit pages",
+              "Commander entries",
+              "Equipment lists"
+            ]
+          },
+          {
+            "source_id": "axis_history",
+            "name": "Axis History Forum",
+            "url": "https://forum.axishistory.com/",
+            "coverage": "German units, primary source discussions",
+            "confidence": 70,
+            "check_sections": [
+              "Unit forum threads",
+              "Primary source citations",
+              "Researcher contributions"
+            ]
+          }
+        ],
+        "tier_3_specialized": [
+          {
+            "source_id": "bundesarchiv",
+            "name": "German Federal Archives (Bundesarchiv)",
+            "url": "https://www.bundesarchiv.de/",
+            "coverage": "Original Wehrmacht records",
+            "confidence": 95,
+            "access": "Online catalog + digitized records",
+            "check_for": [
+              "Unit war diaries (Kriegstagebücher)",
+              "Personnel files",
+              "Strength reports",
+              "Equipment inventories"
+            ]
+          },
+          {
+            "source_id": "nara_german",
+            "name": "NARA German Military Records",
+            "url": "https://www.archives.gov/",
+            "coverage": "Captured German documents",
+            "confidence": 90,
+            "access": "Online catalog, some digitized",
+            "check_for": [
+              "T-78: Wehrmacht High Command records",
+              "T-312: Army Group command files",
+              "T-314: German Army operations",
+              "T-315: Panzer Army records"
+            ]
+          }
+        ]
+      },
+      "critical_gaps_research": {
+        "commander": [
+          "Tessin volumes → Feldgrau commander biographies → Lexikon der Wehrmacht → Bundesarchiv personnel files"
+        ],
+        "equipment": [
+          "German Field Manuals (KStN) → Tessin equipment tables → Niehorster OOB → Bundesarchiv strength reports"
+        ],
+        "subordinate_units": [
+          "Tessin organization charts → Niehorster OOB → NARA German records"
+        ]
+      }
+    },
+    "italian": {
+      "primary_sources": {
+        "tier_1_local": [
+          {
+            "source_id": "italian_war_ministry",
+            "name": "Italian War Ministry Records (if available)",
+            "path": "Resource Documents/Italian/",
+            "coverage": "Italian Regio Esercito units",
+            "confidence": 90,
+            "note": "Check if local copies exist",
+            "fields_provided": [
+              "unit_designation",
+              "commanders",
+              "organization",
+              "equipment"
+            ]
+          }
+        ],
+        "tier_2_curated_web": [
+          {
+            "source_id": "regio_esercito",
+            "name": "Regio Esercito Online Resources",
+            "url": "http://www.regioesercito.it/",
+            "coverage": "Italian army units 1940-1943",
+            "confidence": 75,
+            "check_sections": [
+              "Corps pages",
+              "Division histories",
+              "Commander lists",
+              "North Africa campaign"
+            ]
+          },
+          {
+            "source_id": "comandosupremo",
+            "name": "Comando Supremo",
+            "url": "http://comandosupremo.com/",
+            "coverage": "Italian forces in WWII",
+            "confidence": 80,
+            "check_sections": [
+              "Unit histories",
+              "Order of Battle",
+              "Equipment data",
+              "North Africa operations"
+            ]
+          },
+          {
+            "source_id": "niehorster_italian",
+            "name": "Niehorster Italian OOB",
+            "url": "http://www.niehorster.org/",
+            "coverage": "Italian TO&E by quarter",
+            "confidence": 85,
+            "check_sections": [
+              "North Africa Italian forces",
+              "Corps structures",
+              "Division breakdowns"
+            ]
+          }
+        ],
+        "tier_3_specialized": [
+          {
+            "source_id": "italian_state_archive",
+            "name": "Archivio Centrale dello Stato",
+            "url": "https://www.archiviocentrale.beniculturali.it/",
+            "coverage": "Italian military records",
+            "confidence": 90,
+            "access": "Online catalog, limited digitization",
+            "check_for": [
+              "War Ministry files",
+              "Commander service records",
+              "Unit strength reports",
+              "Equipment inventories"
+            ]
+          },
+          {
+            "source_id": "italian_military_archive",
+            "name": "Ufficio Storico dello Stato Maggiore dell'Esercito",
+            "url": "https://www.esercito.difesa.it/storia/",
+            "coverage": "Italian Army Historical Office",
+            "confidence": 95,
+            "access": "Request access to records",
+            "check_for": [
+              "Official unit histories",
+              "Commander assignments",
+              "War diaries",
+              "Campaign studies"
+            ]
+          },
+          {
+            "source_id": "nara_italian",
+            "name": "NARA Italian Military Records",
+            "url": "https://www.archives.gov/",
+            "coverage": "Captured Italian documents",
+            "confidence": 85,
+            "access": "Online catalog",
+            "check_for": [
+              "T-821: Italian military records",
+              "Regio Esercito documents"
+            ]
+          }
+        ]
+      },
+      "critical_gaps_research": {
+        "commander": [
+          "Comando Supremo → Regio Esercito online → Italian State Archive → Ufficio Storico records → NARA Italian files"
+        ],
+        "equipment": [
+          "Comando Supremo equipment tables → Niehorster OOB → Italian Military Archive → British Intelligence assessments"
+        ],
+        "unit_existence": [
+          "Niehorster OOB → Comando Supremo → Italian War Ministry records → German liaison reports → British Intelligence"
+        ]
+      }
+    },
+    "british": {
+      "primary_sources": {
+        "tier_1_local": [
+          {
+            "source_id": "british_army_lists",
+            "name": "British Army Lists (Quarterly 1941-1943)",
+            "path": "Resource Documents/Great Britain Ministery of Defense Books/",
+            "coverage": "All British & Commonwealth units, commanders",
+            "confidence": 95,
+            "fields_provided": [
+              "unit_designation",
+              "commanders",
+              "formation_dates",
+              "parent_units",
+              "theater_assignments"
+            ]
+          },
+          {
+            "source_id": "british_field_manuals",
+            "name": "British Army Field Service Regulations",
+            "path": "Resource Documents/British Field Manuals/",
+            "coverage": "Standard TO&E templates",
+            "confidence": 90,
+            "fields_provided": [
+              "unit_structure",
+              "personnel_allocations",
+              "equipment_tables",
+              "weapon_types"
+            ]
+          }
+        ],
+        "tier_2_curated_web": [
+          {
+            "source_id": "british_military_history",
+            "name": "British Military History",
+            "url": "http://www.britishmilitaryhistory.co.uk/",
+            "coverage": "British units, commanders, operations",
+            "confidence": 80,
+            "check_sections": [
+              "Unit histories",
+              "Commander biographies",
+              "Order of Battle",
+              "North Africa campaign"
+            ]
+          },
+          {
+            "source_id": "long_long_trail",
+            "name": "The Long, Long Trail",
+            "url": "http://www.longlongtrail.co.uk/",
+            "coverage": "British Army organization",
+            "confidence": 75,
+            "check_sections": [
+              "Unit structures",
+              "Commander lists",
+              "Equipment data"
+            ]
+          },
+          {
+            "source_id": "niehorster_british",
+            "name": "Niehorster British Commonwealth OOB",
+            "url": "http://www.niehorster.org/",
+            "coverage": "British & Commonwealth TO&E",
+            "confidence": 85,
+            "check_sections": [
+              "North Africa British forces",
+              "Commonwealth divisions",
+              "Corps structures"
+            ]
+          }
+        ],
+        "tier_3_specialized": [
+          {
+            "source_id": "national_archives_uk",
+            "name": "The National Archives (UK)",
+            "url": "https://www.nationalarchives.gov.uk/",
+            "coverage": "British military records",
+            "confidence": 95,
+            "access": "Online catalog + digitized war diaries",
+            "check_for": [
+              "War diaries (WO 169, WO 170, WO 175)",
+              "Commander files",
+              "Strength returns",
+              "Equipment states"
+            ]
+          },
+          {
+            "source_id": "australian_war_memorial",
+            "name": "Australian War Memorial",
+            "url": "https://www.awm.gov.au/",
+            "coverage": "Australian forces records",
+            "confidence": 90,
+            "access": "Online collection",
+            "check_for": [
+              "Unit war diaries",
+              "Personnel records",
+              "Equipment data"
+            ]
+          },
+          {
+            "source_id": "nz_archives",
+            "name": "Archives New Zealand",
+            "url": "https://archives.govt.nz/",
+            "coverage": "New Zealand forces",
+            "confidence": 90,
+            "access": "Online catalog",
+            "check_for": [
+              "NZEF records",
+              "Unit histories",
+              "Commander files"
+            ]
+          },
+          {
+            "source_id": "india_office_records",
+            "name": "British Library - India Office Records",
+            "url": "https://www.bl.uk/",
+            "coverage": "Indian Army units",
+            "confidence": 90,
+            "access": "Online catalog + digitized records",
+            "check_for": [
+              "Indian Army lists",
+              "Unit records",
+              "Commander files"
+            ]
+          }
+        ]
+      },
+      "critical_gaps_research": {
+        "commander": [
+          "British Army Lists → British Military History → National Archives UK war diaries → Commonwealth archives"
+        ],
+        "equipment": [
+          "British Field Service Regulations → Niehorster OOB → National Archives equipment states → War Office records"
+        ],
+        "commonwealth_units": [
+          "British Army Lists → Australian War Memorial → Archives NZ → India Office Records → unit war diaries"
+        ]
+      }
+    },
+    "american": {
+      "primary_sources": {
+        "tier_1_local": [
+          {
+            "source_id": "us_field_manuals",
+            "name": "US Army Field Manuals",
+            "path": "Resource Documents/US Field Manuals/",
+            "coverage": "Standard TO&E, doctrine",
+            "confidence": 95,
+            "fields_provided": [
+              "unit_structure",
+              "personnel_allocations",
+              "equipment_tables",
+              "weapon_types"
+            ]
+          }
+        ],
+        "tier_2_curated_web": [
+          {
+            "source_id": "usarmyhistory",
+            "name": "US Army Center of Military History",
+            "url": "https://history.army.mil/",
+            "coverage": "Official US Army histories",
+            "confidence": 95,
+            "check_sections": [
+              "Unit histories",
+              "Campaign studies",
+              "Order of Battle",
+              "Equipment data"
+            ]
+          },
+          {
+            "source_id": "niehorster_us",
+            "name": "Niehorster US OOB",
+            "url": "http://www.niehorster.org/",
+            "coverage": "US Army TO&E by date",
+            "confidence": 85,
+            "check_sections": [
+              "North Africa US forces",
+              "Corps structures",
+              "Division breakdowns"
+            ]
+          }
+        ],
+        "tier_3_specialized": [
+          {
+            "source_id": "nara_us",
+            "name": "National Archives (NARA) - US Military Records",
+            "url": "https://www.archives.gov/",
+            "coverage": "Official US military records",
+            "confidence": 95,
+            "access": "Extensive online catalog + digitized records",
+            "check_for": [
+              "Unit records (RG 407)",
+              "Commander files",
+              "Strength reports",
+              "Equipment inventories",
+              "After Action Reports"
+            ]
+          },
+          {
+            "source_id": "army_heritage",
+            "name": "US Army Heritage and Education Center",
+            "url": "https://ahec.armywarcollege.edu/",
+            "coverage": "US Army historical materials",
+            "confidence": 90,
+            "access": "Online catalog + digitized collections",
+            "check_for": [
+              "Unit histories",
+              "Commander papers",
+              "Combat interviews",
+              "Historical studies"
+            ]
+          }
+        ]
+      },
+      "critical_gaps_research": {
+        "commander": [
+          "US Army CMH → NARA personnel files → Army Heritage Center → unit histories"
+        ],
+        "equipment": [
+          "US Field Manuals → Niehorster OOB → NARA unit records → equipment states"
+        ],
+        "organization": [
+          "US Army CMH → NARA unit records → After Action Reports"
+        ]
+      }
+    }
+  },
+  "cross_reference_sources": {
+    "description": "Enemy assessments and intelligence reports provide cross-validation",
+    "british_intelligence_on_axis": [
+      {
+        "source_id": "british_intel_reports",
+        "name": "British Intelligence Assessments of Axis Forces",
+        "location": "National Archives UK (WO 208 series)",
+        "use_for": "Validating German/Italian unit data",
+        "confidence": 80
+      }
+    ],
+    "german_reports_on_allies": [
+      {
+        "source_id": "german_intel_reports",
+        "name": "German Intelligence on Allied Forces",
+        "location": "NARA (T-78 series) / Bundesarchiv",
+        "use_for": "Validating British/US unit data",
+        "confidence": 75
+      }
+    ]
+  },
+  "search_checklist_template": {
+    "description": "Agent must complete this checklist before reporting data gaps",
+    "checklist": [
+      "✓ All Tier 1 local sources checked",
+      "✓ All Tier 2 curated web sources checked",
+      "✓ Tier 3 specialized archives consulted (for critical gaps only)",
+      "✓ Cross-reference sources checked (enemy intelligence)",
+      "✓ Regimental/unit histories searched",
+      "✓ Contemporary newspapers/periodicals searched (if applicable)",
+      "✓ Academic publications searched (JSTOR, Google Scholar)"
+    ]
+  }
+}

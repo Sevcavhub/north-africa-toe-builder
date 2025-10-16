@@ -1,5 +1,5 @@
 {
-  "schema_version": "3.0.0",
+  "schema_version": "3.1.0",
   "schema_name": "Unified TO&E Schema (All Organizational Levels) - Ground Forces",
   "description": "Common schema for theater, corps, division, regiment, battalion, company, platoon, and squad levels. Every level includes full Strategic Command Summary (SCM) detail with supply/logistics and environmental factors for scenario generation.",
   "file_naming": "{nation}_{quarter}_{unit_designation}_toe.json",
@@ -449,10 +449,26 @@
       "structure": {
         "source": "array of strings",
         "confidence": "integer (0-100)",
+        "tier": "integer (1-4, NEW v3.1 - extraction quality tier)",
+        "status": "string (production_ready|review_recommended|partial_needs_research|research_brief_created)",
         "last_updated": "string (ISO date)",
         "validated_by": "string (optional)",
-        "known_gaps": "array of strings",
-        "aggregation_status": "string (calculated|manually_entered|mixed)"
+        "known_gaps": "array of strings (deprecated in favor of gap_documentation)",
+        "aggregation_status": "string (calculated|manually_entered|mixed)",
+        "required_field_gaps": "array of strings (NEW v3.1 - list of required fields with gaps)",
+        "gap_documentation": {
+          "type": "object (NEW v3.1 - detailed gap information for Tier 2-3)",
+          "structure": {
+            "{field_name}": {
+              "status": "unknown|estimated|partial",
+              "reason": "string (why data unavailable)",
+              "sources_checked": "array of strings (sources consulted)",
+              "confidence_impact": "integer (negative impact on overall confidence)",
+              "mitigation": "string (how to resolve gap, optional)",
+              "estimate_method": "string (for estimated values, optional)"
+            }
+          }
+        }
       }
     }
   },
@@ -465,7 +481,7 @@
     "aircraft_total ≥ sum(fighters + bombers + reconnaissance + transport)",
     "All variant counts must be positive integers",
     "operational counts must be <= total counts",
-    "supreme_commander must not be 'Unknown' unless confidence < 50%",
+    "supreme_commander must not be 'Unknown' unless (confidence < 50% AND tier >= 3) OR gap is documented in gap_documentation",
     "Parent-child relationships: sum of subordinate totals = parent total (±5%)",
     "individual_positions array populated ONLY for squad_toe schema_type",
     "supply_logistics object REQUIRED with all 5 fields (v3.0)",
@@ -477,10 +493,17 @@
   ],
   
   "data_quality": {
-    "required_confidence": "75% minimum for all data",
+    "required_confidence": "75% minimum for Tier 1 (production_ready)",
+    "tier_thresholds": {
+      "tier_1": "75-100% confidence - All required fields present - production_ready",
+      "tier_2": "60-74% confidence - Minor gaps in optional fields OR well-documented required field gaps - review_recommended",
+      "tier_3": "50-59% confidence - Missing some required fields, substantial data exists - partial_needs_research",
+      "tier_4": "<50% confidence - Insufficient data for extraction - research_brief_created"
+    },
     "sources": "Minimum 2 sources per critical fact",
     "validation": "Equipment counts cross-checked against historical records",
-    "aggregation_check": "Bottom-up validation from squad to theater"
+    "aggregation_check": "Bottom-up validation from squad to theater",
+    "gap_handling": "Tier 2-3 extractions document gaps in gap_documentation object with mitigation strategies"
   },
   
   "notes": [
@@ -492,6 +515,22 @@
   ],
 
   "changelog": {
+    "3.1.0": {
+      "date": "2025-10-15",
+      "changes": [
+        "Added tiered extraction system (Tier 1-4) to handle incomplete data gracefully",
+        "Added validation.tier field (1-4) to indicate extraction quality",
+        "Added validation.status field (production_ready|review_recommended|partial_needs_research|research_brief_created)",
+        "Added validation.required_field_gaps array to list missing required fields",
+        "Added validation.gap_documentation object for detailed gap information",
+        "Updated data_quality section with tier thresholds (Tier 1: 75%+, Tier 2: 60-74%, Tier 3: 50-59%, Tier 4: <50%)",
+        "Updated supreme_commander validation rule to allow documented gaps in Tier 2-3",
+        "Deprecated validation.known_gaps in favor of gap_documentation",
+        "Purpose: Enable partial extraction with documented gaps instead of all-or-nothing approach"
+      ],
+      "breaking_changes": false,
+      "migration": "Existing v3.0 units can be upgraded by adding tier=1, status='production_ready' to validation object"
+    },
     "3.0.0": {
       "date": "2025-10-13",
       "changes": [

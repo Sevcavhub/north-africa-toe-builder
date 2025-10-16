@@ -1,7 +1,7 @@
 # North Africa TO&E Builder - Version History
 
 **Companion Document**: PROJECT_SCOPE.md v1.0.0
-**Last Updated**: 2025-10-13
+**Last Updated**: 2025-10-15
 **Status**: 🟢 LIVING DOCUMENT - Updated with each version change
 
 ---
@@ -529,6 +529,218 @@ npm run checkpoint         # Verify correct count (should be 213/213)
 
 ---
 
+### **Agent Catalog v3.2.0: Exhaustive Search Protocol + Human-in-the-Loop (October 15, 2025)**
+
+**Git Commit**: Pending (current implementation)
+
+**Strategic Rationale**:
+User feedback revealed that autonomous tier-based extraction (v3.1.0) was making decisions without user input. When Italian XXI Corps Q2 1941 commander was unknown, agent autonomously created Tier 2 extraction instead of exhausting ALL available sources first and then pausing for user guidance. User's critical rule: "I will never accept null or unknown without trying further search options, even if I am doing them." The system needs to be "Smart Pause-and-Ask" not "Fully Autonomous Decision-Making."
+
+**Problem Analysis**:
+- v3.1.0 tiered extraction allowed agents to classify extractions (Tier 1-4) and proceed autonomously
+- Agent reported commander gap after checking only 3 sources, but didn't try all available research options
+- User expected: exhaustive search → detailed gap report → pause → await user instruction
+- Agent provided: quick classification → autonomous tier decision → continue
+- Quote: "the agent should have tried all those research options before telling me it couldn't find the commander"
+
+**Solution**: Exhaustive Search Protocol with mandatory source catalog checking and human-in-the-loop collaboration
+
+**New Files Created**:
+
+**1. Exhaustive Search Catalog** (`sources/exhaustive_search_catalog.json`):
+- Comprehensive source catalog for ALL nations (German, Italian, British, American)
+- **Tier 1 (local)**: Tessin volumes, Army Lists, Field Manuals
+- **Tier 2 (web)**: Feldgrau, Niehorster, Comando Supremo, Archives online catalogs
+- **Tier 3 (specialized)**: Bundesarchiv, NARA, National Archives UK, Italian State Archives
+- **Cross-reference**: British Intelligence (WO 208), German liaison reports
+- Nation-specific search paths for critical gaps (commander, equipment, unit existence)
+
+**Example - Italian Commander Search Protocol**:
+```
+Italian XXI Corps Commander Gap → Must check:
+1. Tier 1: Italian War Ministry records, Tessin Vol 12
+2. Tier 2: Comando Supremo, Niehorster OOB, Regio Esercito online
+3. Tier 3: Italian State Archive, Ufficio Storico, NARA T-821
+4. Cross-ref: British Intelligence WO 208, German liaison reports
+ONLY THEN report gap with all sources tried
+```
+
+**Agent Catalog Changes** (`agents/agent_catalog.json`):
+
+**historical_research v3.1.0 → v3.2.0** (exhaustive_search):
+- **Version**: 3.1.0_tiered_extraction → **3.2.0_exhaustive_search**
+- **New input**: exhaustive_search_catalog.json
+- **New outputs**: search_report.json, awaiting_user_guidance.json
+
+**New Capabilities** (v3.2.0):
+- ✅ EXHAUSTIVE SEARCH PROTOCOL - Must check ALL Tier 1 sources before gaps reported
+- ✅ Comprehensive source catalog integration
+- ✅ Pause-and-report mechanism (agent STOPS after exhaustive search)
+- ✅ Human-in-the-loop collaboration (awaits user guidance)
+
+**Updated Prompt Template**:
+```
+=== 🔍 EXHAUSTIVE SEARCH MANDATE (NEW v3.2.0) ===
+
+**CRITICAL RULE**: You MUST check ALL applicable sources from exhaustive_search_catalog.json BEFORE reporting any data gaps.
+
+**NEVER accept null or unknown without trying ALL available sources.**
+
+**Search Order**:
+1. ✅ Check ALL Tier 1 local sources (MANDATORY)
+2. ✅ Check ALL Tier 2 curated web sources (if Tier 1 incomplete)
+3. ✅ Check Tier 3 specialized archives (for critical gaps: commander, unit existence)
+4. ✅ Check cross-reference sources (enemy intelligence reports)
+5. ⏸️ PAUSE and report findings to user with detailed search_report
+6. ⏳ AWAIT user guidance on how to proceed
+
+**DO NOT make autonomous tier decisions - report findings and WAIT for user instructions.**
+```
+
+**New Output Structure**:
+```json
+{
+  "research_results": { /* as before - verified facts, estimates, sources_checked */ },
+
+  "exhaustive_search_report": {
+    "search_complete": true,
+    "tier1_sources_checked": [
+      {"source": "Tessin Vol 12", "status": "CHECKED", "result": "Found subordinate units, missing commander"}
+    ],
+    "tier2_sources_checked": [
+      {"source": "Comando Supremo", "status": "CHECKED", "result": "Found unit designation, no commander info"}
+    ],
+    "tier3_sources_checked": [
+      {"source": "Italian State Archive", "status": "CHECKED", "result": "Catalog entry found, digitized records not available"}
+    ],
+    "critical_gaps_identified": [
+      {
+        "field": "commander",
+        "status": "UNKNOWN after exhaustive search",
+        "sources_tried": 6,
+        "potential_next_steps": [
+          "Request Italian Military Historical Office archives access",
+          "Check Gen. Navarini's service file (requires in-person visit)",
+          "Review British Intelligence WO 208 assessments",
+          "Search Italian contemporary newspapers"
+        ]
+      }
+    ],
+    "data_summary": {
+      "fields_verified": ["subordinate_units", "organization_level"],
+      "fields_estimated": ["equipment_totals"],
+      "fields_unknown": ["commander"],
+      "overall_confidence": 65
+    }
+  },
+
+  "awaiting_user_guidance": {
+    "status": "PAUSED",
+    "reason": "Exhaustive search complete, gaps identified, awaiting user decision",
+    "question_for_user": "Commander for Italian XXI Corps Q2 1941 unknown after checking:
+- Tier 1: Tessin, Italian War Ministry (not available locally)
+- Tier 2: Comando Supremo, Niehorster, Regio Esercito online
+- Tier 3: Italian State Archive (catalog only), NARA T-821
+
+Potential next steps:
+1. Request Italian Military Historical Office archives access
+2. Check Gen. Navarini's service file (requires in-person visit)
+3. Review British Intelligence WO 208 assessments
+4. Search Italian contemporary newspapers
+
+How would you like to proceed?",
+    "user_options_context": "You can:
+- Instruct me to pursue specific research avenues
+- Accept extraction with commander = null and document the gap
+- Mark unit for future research when archive access available
+- Provide commander information if you have it from other sources"
+  }
+}
+```
+
+**New Validation Rules**:
+- `CRITICAL: EXHAUSTIVE SEARCH REQUIRED - Check ALL Tier 1 sources before reporting gaps`
+- `CRITICAL: For critical gaps (commander, unit existence), check Tier 3 specialized archives`
+- `CRITICAL: Output MUST include exhaustive_search_report showing ALL sources checked`
+- `CRITICAL: Output MUST include awaiting_user_guidance with pause status`
+- `CRITICAL: DO NOT make autonomous tier decisions - report findings and PAUSE`
+- `exhaustive_search_report.tier1_sources_checked MUST have at least 1 entry`
+- `If critical gap remains, tier3_sources_checked MUST have at least 1 entry`
+- `awaiting_user_guidance.question_for_user MUST present findings and ask for direction`
+
+**Key Changes from v3.1.0**:
+1. ❌ **REMOVED**: Autonomous tier decision-making (Tier 1-4 classification)
+2. ❌ **REMOVED**: Agent proceeds after classification
+3. ✅ **ADDED**: Exhaustive source checking mandate (ALL Tier 1, then Tier 2, then Tier 3)
+4. ✅ **ADDED**: exhaustive_search_report with ALL sources checked
+5. ✅ **ADDED**: awaiting_user_guidance pause mechanism
+6. ✅ **ADDED**: potential_next_steps for each critical gap
+7. ⏸️ **NEW**: Agent PAUSES after exhaustive search
+8. ⏳ **NEW**: User provides direct instruction (not numbered options)
+
+**Workflow Comparison**:
+
+**v3.1.0 (Autonomous)**:
+```
+1. Check 2-3 sources
+2. Find gap (commander unknown)
+3. Classify as Tier 2 (60-74% confidence)
+4. Create gap documentation
+5. Proceed autonomously with extraction
+6. User sees completed Tier 2 extraction
+```
+
+**v3.2.0 (Exhaustive Search + Human-in-Loop)**:
+```
+1. Check ALL Tier 1 sources (Tessin, Italian War Ministry)
+2. Check ALL Tier 2 sources (Comando Supremo, Niehorster, Regio Esercito)
+3. Check Tier 3 sources for critical gaps (Italian State Archive, NARA T-821)
+4. Compile exhaustive_search_report (6+ sources checked)
+5. Identify potential_next_steps
+6. PAUSE and present findings to user
+7. AWAIT user direct instruction
+8. User says: "Check British Intelligence WO 208" or "Accept with null commander"
+9. Agent follows user's explicit instruction
+```
+
+**Impact**:
+- **User collaboration**: Agent reports findings and awaits guidance instead of autonomous decisions
+- **Exhaustive research**: ALL available sources checked before accepting null/unknown
+- **Transparency**: User sees exactly which sources were checked and what was found/not found
+- **Flexibility**: User can direct agent to pursue specific research avenues
+- **Quality**: No more "quick classification" - comprehensive search required
+- **Breaking change**: Agents must now pause and await user input (not fully autonomous)
+
+**Future Work** (Next TODOs):
+1. Implement pause/resume mechanism in orchestrator
+2. Update orchestrator to handle awaiting_user_guidance status
+3. Create interaction pattern for user to provide direct instructions
+4. Test with Italian XXI Corps Q2 1941 extraction
+5. Update other agents (document_parser, org_hierarchy) if needed
+
+**Files Changed**:
+- `sources/exhaustive_search_catalog.json` - NEW (comprehensive source catalog)
+- `agents/agent_catalog.json` - Updated historical_research v3.2.0
+- `VERSION_HISTORY.md` - This entry
+
+**Related**:
+- User feedback: "the agent should have tried all those research options before telling me it couldn't find the commander"
+- User rule: "I will never accept null or unknown without trying further search options, even if I am doing them"
+- Previous version: v3.1.0_tiered_extraction (autonomous tier decisions)
+
+**Validation**:
+```bash
+# Test exhaustive search protocol:
+# 1. Agent must check sources/exhaustive_search_catalog.json
+# 2. Agent must try ALL Tier 1 sources first
+# 3. Agent must try Tier 3 for critical gaps
+# 4. Agent must output exhaustive_search_report
+# 5. Agent must output awaiting_user_guidance
+# 6. Agent must PAUSE (not proceed autonomously)
+```
+
+---
+
 ## 🔢 Field Count Evolution Summary
 
 | Version | Fixed Fields | Ground Vehicle Categories | Supply | Environment | Total Range |
@@ -574,10 +786,18 @@ npm run checkpoint         # Verify correct count (should be 213/213)
 
 ## 🤖 Agent Catalog Evolution
 
-| Version | Agents | Key Features | Wikipedia | v3.0 Schema | Status |
-|---------|--------|--------------|-----------|-------------|--------|
-| **v1.0** | 15 | Basic orchestration | Allowed | No | Deprecated |
-| **v2.0** | 15 | 4-layer Wikipedia blocking, Anthropic patterns | BLOCKED | Yes | **CURRENT** |
+| Version | Agents | Key Features | Wikipedia | v3.0 Schema | Human-in-Loop | Status |
+|---------|--------|--------------|-----------|-------------|---------------|--------|
+| **v1.0** | 15 | Basic orchestration | Allowed | No | No | Deprecated |
+| **v2.0** | 15 | 4-layer Wikipedia blocking, Anthropic patterns | BLOCKED | Yes | No | Superseded |
+| **v3.2** | 15 | Exhaustive search protocol, pause-and-report | BLOCKED | Yes | **YES** | **CURRENT** |
+
+**v3.2 Enhancements** (NEW):
+- **Exhaustive Search Protocol**: Must check ALL Tier 1 sources before reporting gaps
+- **Comprehensive Source Catalog**: Nation-specific search paths for all unit types
+- **Pause-and-Report**: Agent pauses after exhaustive search and awaits user guidance
+- **Human-in-the-Loop**: User provides direct instructions (no autonomous tier decisions)
+- **Transparency**: exhaustive_search_report shows ALL sources checked with results
 
 **v2.0 Enhancements**:
 - **Error Prevention**: Source validation before processing begins

@@ -1,17 +1,17 @@
-# Session Checkpoint - 2025-10-15T16:02:43.790Z
+# Session Checkpoint - 2025-10-16T00:37:37.265Z
 
 ## Progress Summary
 
 - **Total Unit-Quarters:** 420
-- **Completed:** 154 (36.7%)
-- **Remaining:** 266
-- **Last Commit:** 1803208
+- **Completed:** 152 (36.2%)
+- **Remaining:** 268
+- **Last Commit:** 86cc770
 
 ## Validation Status
 
-- **Total Validated:** 154
-- **✅ Passed:** 143 (92.9%)
-- **❌ Failed:** 1 ⚠️
+- **Total Validated:** 153
+- **✅ Passed:** 141 (92.2%)
+- **❌ Failed:** 2 ⚠️
 - **⚠️ Warnings:** 10
 
 ### Critical Validation Failures
@@ -20,17 +20,20 @@
   - ❌ Uses nested structure (unit_identification.*) instead of unified schema top-level fields
   - ❌ Tank total mismatch: total=118 but heavy+medium+light=0
 
+**italian_1941q2_xxi_corps:**
+  - ❌ Commander name is NULL but confidence is 65% (should have commander name when confidence ≥ 50%)
+
 ## Chapter Status
 
-- **JSON Files:** 154
-- **MDBook Chapters:** 2 ⚠️
-- **Missing Chapters:** 152
+- **JSON Files:** 153
+- **MDBook Chapters:** 0 ⚠️
+- **Missing Chapters:** 153
   - ❌ american_1942q4_1st_armored_division
   - ❌ american_1942q4_1st_infantry_division
   - ❌ american_1942q4_3rd_infantry_division
   - ❌ american_1942q4_9th_infantry_division
   - ❌ american_1943q1_1st_infantry_division
-  - ... and 147 more
+  - ... and 148 more
 
 ## Recent Completions
 
@@ -56,13 +59,13 @@ If this session crashes or needs to resume:
 
 3. **View full progress:**
    - See WORKFLOW_STATE.json for complete list
-   - 154 units saved successfully
+   - 152 units saved successfully
 
 ## Session Info
 
 - **Session ID:** complete_seed_generated
-- **Checkpoint Time:** 2025-10-15T16:02:43.759Z
-- **Git Commit:** 1803208
+- **Checkpoint Time:** 2025-10-16T00:37:37.231Z
+- **Git Commit:** 86cc770
 
 ---
 

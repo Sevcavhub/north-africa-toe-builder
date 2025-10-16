@@ -1,7 +1,7 @@
 # MDBook Chapter Template - TO&E Unit Documentation
 
-**Version:** 3.0
-**Updated:** 2025-10-13
+**Version:** 3.1
+**Updated:** 2025-10-15
 **Purpose:** Standard format for all MDBook chapters generated from TO&E JSON files (Ground Forces)
 
 ---
@@ -492,10 +492,26 @@ This section identifies critical equipment shortages that significantly impact u
 
 **REQUIRED SECTION** - Transparency about data completeness
 
+**NEW v3.1.0**: Section must include TIER and STATUS information from validation object
+
 ```markdown
 ## Data Quality & Known Gaps
 
-**Confidence Score**: [X]% ([High/Medium/Acceptable] confidence - [Source tier description])
+---
+
+### ⭐ EXTRACTION QUALITY
+
+**Tier**: [1-4] ([Tier Name])
+**Status**: [production_ready|review_recommended|partial_needs_research|research_brief_created]
+**Confidence Score**: [X]% ([Confidence description])
+
+**Tier Definitions**:
+- **Tier 1 (75-100%)**: Production Ready - All required fields present
+- **Tier 2 (60-74%)**: Review Recommended - Minor documented gaps acceptable
+- **Tier 3 (50-59%)**: Partial Needs Research - Substantial data, critical gaps remain
+- **Tier 4 (<50%)**: Research Brief Created - Insufficient data for extraction
+
+---
 
 ### Data Sources
 
@@ -506,7 +522,20 @@ This unit's TO&E was compiled from:
 
 ### Known Data Gaps
 
-The following information could not be confirmed from available sources:
+**FOR TIER 2-3 ONLY**: Document each gap from `gap_documentation` object
+
+#### Required Field Gaps
+
+**[Field Name]** (e.g., "Commander Name"):
+- **Status**: [unknown|estimated|partial]
+- **Reason**: [Why data unavailable]
+- **Sources Checked**: [List sources consulted]
+- **Confidence Impact**: [-X%]
+- **How to Resolve**: [Mitigation strategy]
+
+**[Additional gaps as needed]**
+
+#### Optional Field Gaps
 
 **Important Gaps** (affect core TO&E understanding):
 - [Gap 1: e.g., "7th Armoured Brigade commander name not confirmed"]
@@ -538,8 +567,57 @@ When additional sources become available, the following areas would benefit from
 2. [Area 2]
 ```
 
+**TIER 2 EXAMPLE (Italian XXI Corps 1941-Q2 - 65% confidence)**:
+
+```markdown
+## Data Quality & Known Gaps
+
+---
+
+### ⭐ EXTRACTION QUALITY
+
+**Tier**: 2 (Review Recommended)
+**Status**: review_recommended
+**Confidence Score**: 65% (Acceptable with documented gaps)
+
+**Tier Explanation**: This unit was extracted with Tier 2 quality. The extraction is substantially complete with 1 documented gap in a required field (commander name for interim period). This is acceptable for review and use, with the understanding that one data point is documented as unknown.
+
+---
+
+### Data Sources
+
+This unit's TO&E was compiled from:
+- **Primary Sources**: TM E 30-420 (Italian Military Forces handbook, para 50)
+- **Secondary Sources**: Lewin (1998) Rommel as Military Commander
+- **Cross-Referenced**: 3 sources consulted, subordinate units and organizational structure verified
+
+### Known Data Gaps
+
+#### Required Field Gaps
+
+**Commander Name** (Jan-Jul 1941 interim period):
+- **Status**: unknown
+- **Reason**: Interim command period between Gen. Carlo Spatocco (departed Dec 20, 1940) and Gen. Enea Navarini (appointed Aug 1, 1941). No sources document acting commander for Jan-Jul 1941.
+- **Sources Checked**:
+  - ❌ Lewin (1998) Rommel as Military Commander - mentions Gen. Spatocco for earlier period
+  - ❌ Nafziger Collection - no OOB file for Q2 1941 informal corps period
+  - ❌ TM E 30-420 para 50 - shows organizational structure only, no personnel
+- **Confidence Impact**: -10%
+- **How to Resolve**: Check Italian War Ministry records (Ufficio Storico) or Gen. Navarini's service file for appointment documentation. Alternately, accept "Acting Commander Unknown (interim period)" if 65% confidence acceptable for use case.
+
+#### Optional Field Gaps
+
+**Low Priority**:
+- WITW game IDs not available (awaiting one-time batch mapping)
+- Chief of Staff name unknown for informal corps period
+```
+
 **FORMATTING RULES**:
-- Always show confidence score prominently
+- **TIER 1**: Standard gap documentation (optional gaps only)
+- **TIER 2**: **MANDATORY** Required Field Gaps section with detailed gap_documentation
+- **TIER 3**: Similar to Tier 2 but more gaps, emphasize "Partial Needs Research" status
+- **TIER 4**: Would not generate chapter (research brief only)
+- Always show tier and status prominently at top
 - Categorize gaps by severity (Important/Moderate/Low)
 - Be specific about what's missing (not vague "some commanders unknown")
 - Note what HAS been verified, not just what's missing
@@ -678,10 +756,17 @@ When manually editing chapters:
 
 ---
 
-**Template Version:** 3.0
+**Template Version:** 3.1
 **Author:** Claude Code Autonomous Orchestrator
-**Date:** 2025-10-13
+**Date:** 2025-10-15
 **Status:** PRODUCTION STANDARD - All chapters must comply
+
+**v3.1 Changes:**
+- Enhanced Section 16: Data Quality & Known Gaps with TIER system
+- Added mandatory EXTRACTION QUALITY subsection showing Tier, Status, Confidence
+- Added Required Field Gaps documentation for Tier 2-3 extractions
+- Included Tier 2 example (Italian XXI Corps) showing gap documentation
+- Updated to support schema v3.1.0 tiered extraction system
 
 **v3.0 Changes:**
 - Added Section 8: Infantry Weapons (Gap 8 fix)
