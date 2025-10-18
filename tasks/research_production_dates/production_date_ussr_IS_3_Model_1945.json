@@ -1,0 +1,44 @@
+{
+  "task_id": "production_date_ussr_IS_3_Model_1945",
+  "agent_id": "historical_research",
+  "created_at": "2025-10-17T14:45:10.627Z",
+  "status": "pending",
+  "vehicle": "IS-3 Model 1945",
+  "country": "ussr",
+  "research_question": "What are the exact production start and end dates for the IS-3 Model 1945?",
+  "current_data": {
+    "original_production_period": "1945*",
+    "parsed_start": "1945-01",
+    "parsed_end": null
+  },
+  "sources_to_check": [
+    {
+      "source": "JANES_WW2_TANKS",
+      "priority": 1,
+      "status": "checked",
+      "result": "not_found"
+    },
+    {
+      "source": "WWIITANKS_UK",
+      "priority": 2,
+      "url": "https://wwiitanks.co.uk",
+      "status": "pending"
+    },
+    {
+      "source": "ONWAR_TANKS",
+      "priority": 3,
+      "url": "https://www.onwar.com/wwii/tanks/ussr/su006is3.html",
+      "status": "already_extracted",
+      "note": "Source of original data - may have more detail on references page"
+    }
+  ],
+  "output_format": {
+    "production_start": "YYYY-MM format",
+    "production_start_precision": "year|month|day",
+    "production_end": "YYYY-MM format",
+    "production_end_precision": "year|month|day",
+    "sources_used": "array of source citations",
+    "confidence": "0-100",
+    "notes": "any caveats or uncertainties"
+  }
+}
