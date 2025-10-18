@@ -663,6 +663,82 @@ The Western Desert Force's logistics situation in June 1940 was characterized by
 
 **Assessment**: The Western Desert Force's supply situation in June 1940 was adequate for its defensive mission and limited offensive operations (raids and reconnaissance). However, sustained offensive operations of the type that would characterize Operation Compass in December 1940 would require substantial supply buildup, forward dump establishment, and perhaps most critically, resolution of the spare parts shortage that limited vehicle operational availability.
 
+## Operational Environment
+
+The Western Desert Force operated during the late spring and early summer of 1940 (April-June), a period characterized by moderate temperatures transitioning to summer heat. This quarter represented the end of the optimal campaigning season in North Africa, with operational conditions deteriorating as summer approached.
+
+### Climate and Weather
+
+**Quarter**: 1940-Q2 (April-June) - Late spring/Early summer in North Africa
+
+**Temperature Range**: Daily temperatures ranged from a minimum of 15°C (59°F) in the early morning to a maximum of 32°C (90°F) during midday. These moderate temperatures were favorable for operations compared to the extreme heat of high summer (July-August), when daytime temperatures could exceed 45°C (113°F) and severely limit operational tempo.
+
+**Daylight Hours**: Approximately 13.5 hours of daylight provided extended operating windows for both reconnaissance and combat operations. The long days allowed armoured formations to conduct extended movements and engagements, though the heat built substantially by afternoon.
+
+**Storm Frequency**: Desert sandstorms (Khamsin winds) occurred approximately 2 days per month during this period. These storms, while less frequent than in spring months (March-April), could reduce visibility to near-zero and temporarily halt all operations. Sand ingress during storms accelerated mechanical wear on vehicles and required intensive maintenance afterward.
+
+### Terrain Characteristics
+
+**Terrain Type**: The Western Desert Force's operational area consisted of coastal desert and rocky plateau along the Egyptian-Libyan border region. The terrain was characterized by:
+
+- **Coastal Plain**: A narrow band of relatively firm, flat ground running along the Mediterranean coast. This area provided the best going for wheeled vehicles and supported the coastal road—the primary supply route.
+- **Rocky Plateau**: Inland from the coast, the terrain transitioned to rocky desert with gravel surfaces and occasional escarpments. This terrain, while more difficult than the coastal plain, was generally firm enough to support armoured vehicles.
+- **Wadis**: Dry riverbeds cutting across the plateau provided natural defensive positions and concealment but could channel movement and create ambush opportunities.
+- **Limited Water**: Natural water sources were essentially nonexistent. All water had to be transported or obtained from coastal wells.
+
+The Egyptian-Libyan frontier itself was marked by a barbed-wire fence (the "wire"), constructed by the Italians in the 1930s to prevent migration. This fence served as a tactical reference point but presented minimal obstacle to military forces.
+
+### Environmental Impact on Operations
+
+**Vehicle Performance**: The desert environment imposed severe demands on all vehicles:
+
+- **Overheating**: Radiators designed for European climates struggled in temperatures exceeding 30°C. Units conducted much movement during cooler morning and evening hours, with midday used for maintenance and rest.
+- **Sand Ingress**: Fine desert sand infiltrated engines, transmissions, and other mechanical components, causing accelerated wear. Air filter clogging was a constant concern, requiring frequent cleaning and replacement.
+- **Track Wear**: Tank tracks wore out far more rapidly on the abrasive desert surface than in European theaters. Some tanks required track replacement after only 500-1,000 miles—a quarter of their European track life.
+- **Tire Failures**: Sharp desert rocks caused frequent tire punctures. Units developed techniques for partial tire deflation to improve traction in sand while accepting increased puncture risk.
+
+**Personnel Considerations**: Desert conditions affected human performance significantly:
+
+- **Water Requirements**: Each soldier required a minimum of 4.5 liters of water per day, with requirements increasing to 6-7 liters during active operations or periods of extreme heat. Water discipline was critical—units that neglected proper hydration suffered heat casualties.
+- **Heat Stress**: Even the moderate temperatures of April-June could cause heat exhaustion during strenuous activity. Afternoon operations were avoided when possible, with preference given to dawn and dusk operations.
+- **Sun Protection**: Troops required sun helmets, sunglasses, and appropriate clothing to prevent sunburn and sun stroke. The intense desert sun caused rapid deterioration of exposed equipment and uniforms.
+- **Dust and Sand**: Fine dust caused respiratory problems and eye irritation. Goggles and face coverings were essential for personnel in open vehicles.
+
+**Visibility and Navigation**: The flat, featureless desert terrain presented unique challenges:
+
+- **Long Sightlines**: The open terrain allowed excellent visibility—vehicles could be spotted from many miles away, making concealment difficult. Dust clouds from moving columns were visible from even greater distances.
+- **Navigation Difficulty**: With few landmarks, navigation required sun compasses, careful map reading, and experience. Units that lacked desert navigation expertise could easily become lost.
+- **Mirage Effects**: Heat shimmer and mirages made accurate range estimation difficult and could cause false sightings.
+
+### Desert Warfare Adaptations
+
+By Q2 1940, British and Commonwealth forces had developed substantial expertise in desert operations, drawing on experience dating back to the 1920s:
+
+**Equipment Modifications**:
+- Sand filters and screens for vehicle air intakes
+- Additional radiator capacity and cooling modifications
+- Sun compasses for navigation
+- Extra water and fuel storage tanks
+- Sand channels and mats for vehicle recovery
+- Desert camouflage nets and paint schemes
+
+**Tactical Adaptations**:
+- Conduct of operations during cooler morning and evening hours
+- Use of dispersed formations to reduce dust signatures
+- Emphasis on maintenance during midday heat
+- Aggressive water discipline and supply planning
+- Navigation by sun compass and terrain association
+- Use of wadis for concealment and defensive positions
+
+**Logistical Considerations**:
+- Water transport consumed significant vehicle capacity
+- Fuel consumption increased in desert conditions (30-40% higher than European operations)
+- Spare parts requirements far exceeded peacetime planning assumptions
+- Medical supplies for heat casualties and gastrointestinal illnesses
+- Enhanced maintenance schedules to counter accelerated wear
+
+These environmental factors shaped every aspect of Western Desert Force operations. The relatively moderate conditions of April-June 1940 allowed sustained operations that would have been far more difficult during the extreme heat of summer. However, even these favorable conditions imposed significant constraints on operational tempo, logistics, and equipment readiness—constraints that required constant attention and adaptation.
+
 ## Tactical Doctrine & Capabilities
 
 The Western Desert Force's tactical doctrine in June 1940 represented an evolution of British military thought, adapted to the unique conditions of desert warfare. The vast, open terrain of the Western Desert demanded mobile operations, flexible command, and combined-arms cooperation fundamentally different from the trench warfare mindset that had dominated British thinking after World War I.
