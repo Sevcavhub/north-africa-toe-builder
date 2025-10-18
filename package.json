@@ -29,7 +29,13 @@
     "memory:export": "node scripts/memory_mcp_helpers.js export",
     "memory:clear": "node scripts/memory_mcp_helpers.js clear",
     "git:commit": "node scripts/git_auto_commit.js",
-    "git:push": "node scripts/git_auto_commit.js && git push"
+    "git:push": "node scripts/git_auto_commit.js && git push",
+    "scrape:wwiitanks": "node scripts/scrape_wwiitanks.js",
+    "scrape:wwiitanks:test": "node scripts/scrape_wwiitanks_test.js",
+    "scrape:wwiitanks:test:guns": "node scripts/scrape_wwiitanks_test_guns.js",
+    "scrape:wwiitanks:test:pagination": "node scripts/scrape_wwiitanks_pagination_test.js",
+    "scrape:guns:enhanced": "node scripts/scrape_wwiitanks_enhanced_guns_v2.js",
+    "scrape:guns:enhanced:test": "node scripts/test_enhanced_gun_scraper.js"
   },
   "keywords": [
     "military",
@@ -42,7 +48,8 @@
   "license": "MIT",
   "dependencies": {
     "dotenv": "^17.2.3",
-    "node-fetch": "^2.6.7"
+    "node-fetch": "^2.6.7",
+    "puppeteer": "^21.0.0"
   },
   "devDependencies": {
     "better-sqlite3": "^12.4.1",
