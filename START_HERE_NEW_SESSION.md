@@ -142,7 +142,8 @@ npm run orchestrate         # API-based orchestration (uses tokens)
 
 ### Session Management:
 ```bash
-npm run session:start       # Start new work session
+npm run session:start       # Start new work session3
+
 npm run session:end         # End session with checkpoint
 npm run checkpoint          # Mid-session checkpoint
 ```
