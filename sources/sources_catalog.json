@@ -1,6 +1,6 @@
 {
-  "catalog_version": "1.1.0",
-  "last_updated": "2025-10-10",
+  "catalog_version": "1.2.0",
+  "last_updated": "2025-10-17",
   "source_categories": {
     "local_documents": {
       "british": [
@@ -179,6 +179,25 @@
           "best_for": ["german_unit_histories", "commander_verification", "unit_organization", "afrika_korps"],
           "notes": "DEFINITIVE GERMAN SOURCE - Most comprehensive reference for German military units. Use for all German unit verification."
         }
+      ],
+      "multi_nation": [
+        {
+          "source_id": "JANES_WW2_TANKS",
+          "title": "Jane's World War II Tanks and Fighting Vehicles - The Complete Guide",
+          "nations": ["All"],
+          "author": "Leland Ness",
+          "publisher": "HarperCollins Publishers",
+          "date": "1939-1945",
+          "confidence_rating": 90,
+          "type": "comprehensive_reference",
+          "file_paths": [
+            "D:\\north-africa-toe-builder\\Resource Documents\\Janes-ww2-Tanks-And-Fighting-Vehicles.txt"
+          ],
+          "file_size_lines": 88257,
+          "coverage": "Complete WWII AFV reference covering all nations - specifications, production dates, variants, armament, development history, operational use. Includes Germany, USA, UK, USSR, Italy, Japan, France, and minor nations.",
+          "best_for": ["production_dates", "afv_specifications", "variant_identification", "armament_data", "development_history", "multi_nation_comparisons"],
+          "notes": "TIER 1 LOCAL SOURCE - Comprehensive Jane's reference in text format. 88,257 lines covering all major and minor AFVs. Use for production dates, specifications, and cross-nation comparisons. OCR text may have some artifacts in header/footer sections but vehicle data is clean."
+        }
       ]
     },
     "web_sources": [
@@ -229,6 +248,29 @@
         "type": "specialized_research",
         "coverage": "German command structure, Panzer Army Africa organization",
         "best_for": ["command_structure", "leadership_changes", "operational_timeline"]
+      },
+      {
+        "source_id": "ONWAR_TANKS",
+        "title": "OnWar.com - Tanks of World War II",
+        "url": "https://www.onwar.com/wwii/tanks/index.html",
+        "confidence_rating": 80,
+        "type": "afv_specifications_database",
+        "nations": ["All"],
+        "coverage": "Complete AFV specifications database - 213 vehicles covering Germany (69), USSR (48), USA (24), UK (24), Japan (22), Italy (12), France (6), Hungary (6), Romania (2). Technical specifications, production data, armor, armament, mobility.",
+        "best_for": ["afv_specifications", "production_dates", "armor_protection", "mobility_data", "armament_specs", "technical_drawings"],
+        "notes": "Tier 2 curated source - Uses 75 primary/secondary references (see sources/onwar_references.json). Good for cross-referencing production dates and specifications. Already scraped to data/output/afv_data/afv_complete_with_specs.csv",
+        "references_file": "sources/onwar_references.json"
+      },
+      {
+        "source_id": "WWIITANKS_UK",
+        "title": "WW2 Tanks - Complete Database",
+        "url": "https://wwiitanks.co.uk",
+        "confidence_rating": 82,
+        "type": "afv_database",
+        "nations": ["All"],
+        "coverage": "Comprehensive WWII tank database covering all major nations - production dates, variants, specifications, armament data, operational history",
+        "best_for": ["production_dates", "variant_identification", "armament_specifications", "operational_deployment", "cross_nation_comparisons"],
+        "notes": "Tier 2 web source - Well-maintained database with good production date information and gun/armament data. Use for filling AFV production gaps and armament specifications."
       }
     ]
   },
@@ -291,6 +333,19 @@
       "TESSIN_COMPLETE (95%)",
       "US_G2_ITALIAN_OOB_1943 (95%)",
       "DESERT_RATS (85%)"
+    ],
+    "production_dates": [
+      "JANES_WW2_TANKS (90%)",
+      "WWIITANKS_UK (82%)",
+      "ONWAR_TANKS (80%)",
+      "FELDGRAU (87% for German)",
+      "NIEHORSTER (82%)"
+    ],
+    "afv_specifications": [
+      "JANES_WW2_TANKS (90%)",
+      "ONWAR_TANKS (80%)",
+      "WWIITANKS_UK (82%)",
+      "FELDGRAU (87% for German)"
     ]
   },
   "usage_notes": {
