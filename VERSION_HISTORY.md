@@ -529,6 +529,138 @@ npm run checkpoint         # Verify correct count (should be 213/213)
 
 ---
 
+### **Agent Catalog v3.2.1: Seed Authority + No Pending Fix (October 15, 2025)**
+
+**Git Commit**: Pending (current implementation)
+
+**Strategic Rationale**:
+Live testing revealed protocol violation - agent marked Tier 2 sources as "PENDING" instead of actually checking them, then concluded "unit doesn't exist" without exhausting available sources. User corrected: **"Seed is saying they did, Seed overrides agents."** Agent found historical context through user intervention that should have been discovered during Tier 2 search.
+
+**Problem Identified** (Autonomous session 10/15/2025):
+- Agent checked Tier 1 (British Army Lists) for XIII Corps, XXX Corps
+- Agent marked Tier 2 sources as **"PENDING: Web access required"** instead of checking them
+- Agent concluded "unit did not exist in Q2 1941" and paused
+- User found valid Tier 2 sources (British Military History PDFs) proving units DID exist
+- For Italian XX Mobile Corps: User provided historical context (= Ariete Division, Gen. de Stefanis) that should have been in Tier 2 sources
+
+**Root Cause**:
+1. No enforcement that Tier 2 sources must be CHECKED (not marked PENDING)
+2. No rule establishing seed data as authoritative ground truth
+3. Agent could conclude "doesn't exist" after only Tier 1 sources
+
+**Solution**: Add explicit seed authority rule and ban PENDING status
+
+**Changes**:
+
+**1. Version Update**:
+- `historical_research` v3.2.0_exhaustive_search → **v3.2.1_seed_authority**
+
+**2. New Capabilities**:
+```json
+"SEED DATA AUTHORITY - Respects seed as ground truth (v3.2.1 - NEW)",
+"NO PENDING STATUS - Must actually check all sources (v3.2.1 - NEW)"
+```
+
+**3. Updated Prompt Template** (top of EXHAUSTIVE SEARCH MANDATE):
+```
+🚨 **SEED DATA IS AUTHORITATIVE** 🚨
+
+If the project seed data says a unit exists in a quarter, it EXISTS. Your job is to FIND the data, not question unit existence.
+
+**SEED OVERRIDES ALL AGENT CONCLUSIONS.**
+
+Never conclude "unit doesn't exist" unless:
+1. ✅ You've checked ALL Tier 1 sources
+2. ✅ You've checked ALL Tier 2 sources
+3. ✅ You've checked Tier 3 specialized archives
+4. ✅ User explicitly confirms unit truly doesn't exist
+
+❌ **NO "PENDING" STATUS ALLOWED** ❌
+
+NEVER mark sources as "PENDING" or "NOT CHECKED". You MUST actually CHECK each source.
+
+Valid status values:
+- "CHECKED" - Source was accessed and searched
+- "NOT_FOUND" - Source doesn't exist or unavailable
+- "ACCESS_DENIED" - Source requires credentials/payment
+
+"PENDING" will cause output REJECTION.
+```
+
+**4. New Validation Rules**:
+```
+"CRITICAL: SEED DATA IS AUTHORITATIVE - Never contradict seed unit existence",
+"CRITICAL: NO PENDING STATUS - Any source marked 'PENDING' will REJECT output",
+"CRITICAL: EXHAUSTIVE SEARCH REQUIRED - Check ALL Tier 1 AND Tier 2 sources before reporting gaps",
+"CRITICAL: Before concluding unit doesn't exist, ALL Tier 2 sources must show status 'CHECKED'"
+```
+
+**Case Studies from Live Test**:
+
+**British XIII Corps Q2 1941**:
+- **Agent said**: "Unit did not exist in Q2 1941 (formed Q3 1941)"
+- **Sources checked**: British Army Lists April & July 1941 (Tier 1)
+- **Sources marked PENDING**: British Military History, Niehorster (Tier 2)
+- **User found**: https://www.britishmilitaryhistory.co.uk/wp-content/uploads/sites/124/2020/09/XIII-Corps-History-Personnel-V2_1.pdf
+- **Lesson**: Agent should have CHECKED Tier 2, would have found this source
+
+**British XXX Corps Q2 1941**:
+- **Agent said**: "Unit did not exist in Q2 1941 (formed Q3 1941)"
+- **Sources checked**: British Army Lists (Tier 1)
+- **Sources marked PENDING**: British Military History (Tier 2)
+- **User found**: https://www.britishmilitaryhistory.co.uk/wp-content/uploads/sites/124/2025/08/30-Corps-History-and-Personnel-V2_1.pdf
+- **Lesson**: Same as XIII Corps - Tier 2 should have been CHECKED
+
+**Italian XX Mobile Corps Q2 1941**:
+- **Agent said**: "Unit existence unconfirmed in Q2 1941"
+- **Sources checked**: TME 30-420, Italian War Ministry (Tier 1)
+- **Sources marked PENDING**: Comando Supremo, Regio Esercito online (Tier 2)
+- **User provided**: "XX Mobile Corps = Ariete Division (informal designation during Operation Sonnenblume), Commander: Gen. Giuseppe de Stefanis"
+- **Lesson**: Historical context (informal designations, operational names) should be discovered in Tier 2 Italian sources
+
+**Impact**:
+- **Prevents premature existence conclusions**: Agent must exhaust Tier 2 before saying "doesn't exist"
+- **Enforces actual source checking**: No more "PENDING - would need to check"
+- **Respects seed authority**: Seed says unit exists → agent finds the data
+- **Historical accuracy**: Discovers informal designations, operational names, temporary formations
+
+**Workflow Change**:
+
+**v3.2.0 (BEFORE)**:
+```
+1. Check Tier 1 (British Army Lists)
+2. Mark Tier 2 as "PENDING: Web access required"  ❌
+3. Conclude "unit doesn't exist"  ❌
+4. Pause
+```
+
+**v3.2.1 (AFTER)**:
+```
+1. Check Tier 1 (British Army Lists)
+2. Actually CHECK all Tier 2 sources (British Military History, Niehorster)  ✅
+3. Find XIII Corps history PDF with Q2 1941 data  ✅
+4. Extract commander, subordinate units, operations
+5. Only pause if gaps remain after Tier 2 exhausted
+```
+
+**Files Changed**:
+- `agents/agent_catalog.json` - historical_research v3.2.0 → v3.2.1
+- `VERSION_HISTORY.md` - This entry
+- `PROTOCOL_FIX_v3.2.1.md` - Detailed fix documentation (reference)
+
+**Related**:
+- User feedback: "Seed is saying they did, Seed overrides agents"
+- User feedback: "XX Mobile Corps = Ariete Division, Commander Gen. Giuseppe de Stefanis"
+- Previous version: v3.2.0_exhaustive_search (had PENDING issue)
+- Protocol fix doc: PROTOCOL_FIX_v3.2.1.md
+
+**Next Actions**:
+- Resume autonomous orchestration with v3.2.1 protocol
+- Verify agent CHECKS Tier 2 sources (not marks PENDING)
+- Extract all 3 units with user-provided sources/context
+
+---
+
 ### **Agent Catalog v3.2.0: Exhaustive Search Protocol + Human-in-the-Loop (October 15, 2025)**
 
 **Git Commit**: Pending (current implementation)
