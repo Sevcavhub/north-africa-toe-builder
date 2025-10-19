@@ -1297,10 +1297,220 @@ How would you like to proceed?",
 
 ---
 
+### **Phase 5: Equipment Matching & Database Integration (October 14-18, 2025)**
+
+**Git Commits**: Multiple commits (database setup, import scripts, matcher development)
+
+**🚨 ARCHITECTURAL ADDITION - Equipment Database**
+
+**Strategic Rationale**:
+Historical sources (Tessin Wehrmacht Encyclopedia, British Army Lists, US Field Manuals) provide equipment **QUANTITIES** but lack detailed **SPECIFICATIONS** needed for:
+1. MDBook chapters (variant specs: armor values, gun penetration, performance data)
+2. WITW scenario exports (canonical equipment IDs for game import)
+3. Combat modeling (penetration tables, ammunition characteristics)
+
+**Problem Statement**:
+- Agents extract "60x Panzer III Ausf F" from Tessin Vol 12
+- Tessin doesn't specify: armor thickness (50mm front), gun penetration (60mm @ 100m), production dates (1940-1941)
+- WWIITANKS database has this data, but agents can't extract it from narrative documents
+- **Solution**: Three-source integration provides both historical counts AND detailed specifications
+
+**Architectural Solution**:
+
+**1. Three-Source Data Integration**:
+
+| Source | Data Type | Count | Purpose | Quality |
+|--------|-----------|-------|---------|---------|
+| **WITW Baseline** | Canonical IDs | 469 items | Scenario exports (game IDs) | 100% (canonical) |
+| **OnWar** | AFV specs | 213 vehicles | Production data, basic specs | 85-90% |
+| **WWIITANKS** | AFV + Gun specs | 612 AFVs, 343 guns | Armor, penetration, ammunition | 90-95% |
+
+**2. Database Schema** (SQLite `database/master_database.db`):
+
+**11 tables created**:
+
+**Core Equipment Tables**:
+- `equipment` (469 WITW baseline items with match links)
+- `guns` (343 guns: caliber, penetration, ammunition)
+- `ammunition` (162 ammunition types with characteristics)
+- `penetration_data` (1,296 penetration values: gun vs armor at distances)
+
+**Unit Assignment Tables**:
+- `units` (144 WITW units: divisions, corps, armies)
+- `unit_equipment` (equipment assignments: which units have which equipment)
+
+**Metadata & Provenance**:
+- `match_reviews` (equipment matching decisions with confidence scores)
+- `import_log` (data provenance: import timestamp, source file, imported by whom)
+
+**Source Data Tables**:
+- `afv_data` (OnWar: 213 AFVs)
+- `wwiitanks_afv_data` (WWIITANKS: 612 AFVs)
+- `wwiitanks_gun_data` (WWIITANKS: 343 guns)
+
+**3. Equipment Matcher v2.1** (`tools/equipment_matcher_v2.py`):
+
+**Interactive CLI Features**:
+- **Type Detection**: GUN vs AFV vs SOFT_SKIN vs AIRCRAFT
+- **Name Normalization**: Handles "H-39" vs "H39" vs "H 39" (model number variants)
+- **Cross-Nation Matching**: Loads all 343 guns + 825 AFVs (for captured/lend-lease equipment)
+- **Match Confidence Scoring**: 100% = exact, 85% = partial, 70% = word match
+- **Summary Category Filtering**: Auto-excludes "Total Light Tanks" aggregate categories
+- **Soft-Skin Auto-Approval**: Quick confirmation for trucks/halftracks
+- **Multiple Gun Match Selection**: Numbered menu when multiple guns match
+- **Research Agent Integration**: Automated web search for missing equipment data
+
+**Bug Fixes (v2.1)**:
+- **Name normalization failure**: "H-39" vs "H39" now match correctly (regex fix)
+- **Cross-nation loading**: All nations' data loaded (not just target nation)
+- **Summary category pollution**: Auto-filter excludes aggregate categories
+
+**4. Integration Workflow**:
+
+```
+Phase 6 (Unit Extraction):
+  Historical Sources → Agents extract COUNTS → Unit JSON
+  ↓
+Enrichment (Post-Processing):
+  Unit JSON + Database → Enrichment script → Enriched Unit JSON (counts + specs)
+  ↓
+Output Generation:
+  ├─ MDBook Chapters (uses enriched units for variant specifications)
+  ├─ WITW Scenarios (uses witw_id for game export + battle context narratives)
+  └─ SQL Database (complete data for custom queries)
+```
+
+**5. Detail Level Standards** (CRITICAL - scope clarification):
+
+**MDBook Chapters** (Human Readers):
+- ✅ Equipment counts, variant names, key specs (gun, armor, crew)
+- ✅ Production context, tactical analysis
+- ❌ NO full penetration tables (1,296 values - overwhelming)
+- ❌ NO WITW equipment IDs (game-specific)
+
+**WITW Scenarios** (Wargamers):
+- ✅ WITW equipment IDs (canonical identifiers)
+- ✅ Equipment counts, operational readiness
+- ✅ Battle context (historical situation, date, location)
+- ✅ Victory conditions (narrative objectives for each side)
+- ✅ Weather/terrain/supply states (operational context)
+- ✅ Strategic objectives (concise narrative)
+- ❌ NO detailed production history essays
+- ❌ NO long-form tactical analysis (keep concise)
+
+**SQL Database** (Developers/Analysts):
+- ✅ EVERYTHING - all data from all sources
+- ✅ All 1,296 penetration values, 162 ammunition types
+- ✅ Complete provenance (sources, confidence, timestamps)
+- ✅ Cross-nation transfers (captured, lend-lease)
+
+**Matching Progress** (as of October 18, 2025):
+- [x] French: 20/20 items → **COMPLETE** (100%)
+  - 4 perfect AFV matches (Hotchkiss H39, Renault R35, Somua S35, Char B1 bis)
+  - 5 researched items with comprehensive findings
+  - 2 British lend-lease correctly identified (QF 25-pdr, QF 6-pdr)
+- [ ] American: 81 items → Next
+- [ ] German: 98 items → Pending
+- [ ] British: 196 items → Pending (largest)
+- [ ] Italian: 74 items → Pending
+
+**Total**: 20/469 items matched (4.3%)
+
+**Files Created**:
+
+**Scripts & Tools**:
+- `scripts/import_witw_baseline.js` - Import WITW baseline (469 items)
+- `scripts/import_guns.js` - Import WWIITANKS guns (343 guns + ammo + penetration)
+- `scripts/import_units.js` - Import WITW units (144 units)
+- `tools/equipment_matcher_v2.py` - Interactive equipment matcher (v2.1)
+- `tools/apply_research_findings.py` - Apply research results to database
+- `tools/show_french_results.py` - Query French equipment matching results
+
+**Documentation**:
+- `EQUIPMENT_MATCHING_SCOPE_ANALYSIS.md` - Comprehensive scope analysis
+- `FRENCH_MATCHING_COMPLETE.md` - French equipment session summary
+- `FRENCH_RESEARCH_SUMMARY.md` - Research findings (5 items)
+- `data/research_requests/french_research_database_updates.sql` - Database updates
+
+**Enrichment Tools** (TO BE CREATED in Phase 6):
+- `scripts/enrich_units_with_database.js` - Add database specs to unit JSON files
+- `scripts/generate_scenario_exports.js` - Export WITW CSV with equipment IDs
+
+**Impact**:
+
+**On PROJECT_SCOPE.md**:
+- Restructured "Phase 1-6" into distinct phases:
+  - Phase 1-4: Database Infrastructure (COMPLETE ✅)
+  - Phase 5: Equipment Matching & Database Integration (IN PROGRESS - 4.3%)
+  - Phase 6: Ground Forces Unit Extraction (IN PROGRESS - 28.1%)
+- Updated from v1.0.6 → v1.0.7 with Phase 5 documentation
+- Documented detail level standards for all three outputs (books/scenarios/database)
+
+**On CLAUDE.md**:
+- Added complete "Equipment Database Architecture (Phase 5)" section
+- Updated phase tracking references (Phase 1-4 complete, Phase 5 & 6 in progress)
+- Documented three-source integration, database schema, matching workflow
+- Clarified detail level standards for agent awareness
+
+**On Workflow**:
+- Agents extract counts from historical sources (no change to agent behavior)
+- Post-processing enrichment adds database specs to unit JSONs (new step)
+- Chapter generation uses enriched units with specifications (enhanced output)
+- Scenario exports use WITW IDs from database (new capability)
+
+**🚨 CRITICAL DEPENDENCIES - Scripts Required Before Phase 6**:
+
+**THESE SCRIPTS MUST BE CREATED BEFORE PHASE 6 CAN USE DATABASE SPECS**:
+
+1. **`scripts/enrich_units_with_database.js`** (REQUIRED)
+   - Add database specifications to unit JSON files
+   - Input: Unit JSON with counts → Output: Enriched unit with counts + specs
+   - Status: TO BE CREATED after equipment matching complete
+   - Blocks: MDBook chapter generation with variant specifications
+
+2. **`scripts/generate_scenario_exports.js`** (REQUIRED)
+   - Export WITW-format CSV with equipment IDs and battle narratives
+   - Input: Enriched unit JSONs → Output: WITW CSV with battle context
+   - Status: TO BE CREATED after equipment matching complete
+   - Blocks: Phase 9 scenario generation
+
+**Without these scripts**:
+- Phase 6 unit JSONs will lack detailed specifications (only counts)
+- MDBook chapters will miss variant specs (armor, gun, performance)
+- Phase 9 scenarios cannot export with WITW equipment IDs
+- Battle narratives, victory conditions, supply states won't be included
+
+**Current Status**:
+- Phase 5 equipment matching: 20/469 matched (4.3%)
+- ~6-8 hours autonomous matching remaining
+- Script development: ~4-6 hours after matching complete
+
+**User Feedback Addressed**:
+- User concern: "This was a pivot slightly from the project scope" → **CONFIRMED**
+- Equipment matching was NOT documented in PROJECT_SCOPE.md → **NOW DOCUMENTED**
+- Detail level unclear (books vs scenarios) → **NOW CLEARLY DEFINED**
+- WITW/OnWar/WWIITANKS merge undocumented → **NOW FULLY DOCUMENTED**
+
+**Next Actions**:
+1. Complete remaining 449 equipment items (American → British → German → Italian)
+2. Create enrichment scripts (add database specs to unit JSONs)
+3. Update chapter generation to use enriched units
+4. Create scenario export scripts with WITW IDs and battle narratives
+5. Test complete workflow: extraction → enrichment → books/scenarios
+
+**Estimated Completion**:
+- Equipment matching: ~6-8 hours autonomous (449 items)
+- Enrichment script development: ~2-3 hours
+- Chapter generation updates: ~1-2 hours
+- Scenario export development: ~2-3 hours
+- **Total Phase 5**: ~12-16 hours to complete
+
+---
+
 ## 📚 Related Documentation
 
 **Strategic Planning**:
-- **PROJECT_SCOPE.md v1.0.0** - Complete project vision, phased approach, success criteria
+- **PROJECT_SCOPE.md v1.0.7** - Complete project vision, phased approach (updated with Phase 5), success criteria
 
 **Technical Implementation**:
 - **VERSION_HISTORY.md** (this document) - Technical version history, schema evolution

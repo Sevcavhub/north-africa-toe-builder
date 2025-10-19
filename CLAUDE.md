@@ -8,10 +8,14 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This is the **LIVING DOCUMENT** defining:
 - ✅ Complete project vision (313-348 total units: ground + air forces)
-- ✅ Phased approach (Ground → Air → Integration → Scenarios → Campaign)
-- ✅ Current status and priorities (Phase 1-6: Ground Forces, 8.5% complete)
+- ✅ Phased approach (Database → Equipment Matching → Ground Forces → Air → Scenarios → Campaign)
+- ✅ Current status and priorities:
+  - Phase 1-4: Database Infrastructure (COMPLETE ✅)
+  - Phase 5: Equipment Matching (IN PROGRESS - 4.3%, 20/469 items)
+  - Phase 6: Ground Forces Unit Extraction (IN PROGRESS - 28.1%, 118/420 unit-quarters)
 - ✅ Success criteria with supply/logistics/weather requirements
 - ✅ Schema specifications for ground and air forces
+- ✅ Equipment database integration (WITW/OnWar/WWIITANKS)
 - ✅ Scenario generation as primary purpose
 - ✅ Kickstarter commercial product viability
 
@@ -28,7 +32,11 @@ grep -E "Version|Last Updated|Status" PROJECT_SCOPE.md
 
 **Why This Matters**:
 - **Not just 213 units** - Total scope is 313-348 units (ground + air forces)
-- **Phased approach** - Complete ground forces (Phase 1-6) BEFORE starting air extraction (Phase 7)
+- **Phased approach** - Complete Phase 1-6 (Ground Forces) BEFORE starting Phase 7 (Air Forces)
+  - Phase 1-4: Database Infrastructure (COMPLETE ✅)
+  - Phase 5: Equipment Matching (IN PROGRESS - 4.3%)
+  - Phase 6: Ground Forces Unit Extraction (IN PROGRESS - 28.1%)
+- **Equipment database integration** - WITW/OnWar/WWIITANKS merge provides specifications (Phase 5)
 - **Supply/logistics REQUIRED** - Every unit needs fuel reserves, ammo stocks, operational radius
 - **Weather/environment REQUIRED** - Seasonal impacts, terrain effects for scenario generation
 - **Scenario-ready output** - Primary purpose is wargame scenario generation, not just static TO&E
@@ -236,6 +244,284 @@ Two operational modes:
 - Each agent runs in separate Claude Code terminal session
 - Task coordination via file system (`tasks/pending/`, `tasks/in_progress/`, `tasks/completed/`)
 - Enables true multi-agent independence with human review between phases
+
+---
+
+## 🗄️ Equipment Database Architecture (Phase 5)
+
+**As of October 2025**, the project uses a **three-source equipment database** to provide comprehensive specifications beyond what historical documents contain.
+
+### Strategic Rationale
+
+**The Problem**:
+- Historical sources (Tessin, Army Lists, Field Manuals) provide equipment **QUANTITIES**
+  - Example: "60x Panzer III Ausf F" (from Tessin Vol 12)
+- But these sources **DON'T provide detailed specifications**:
+  - Armor thickness values
+  - Gun penetration tables
+  - Production dates and quantities
+  - Performance data (speed, range, crew)
+
+**The Solution**:
+- **Phase 5 (Equipment Matching)** links WITW baseline to detailed specifications
+- Agents extract counts from historical sources
+- Database provides specifications for enrichment
+- Result: Both historical accuracy (counts) AND detailed specs (combat modeling)
+
+---
+
+### Three-Source Integration
+
+**Source 1: WITW Baseline** (469 equipment items)
+- **Purpose**: Canonical equipment IDs for wargaming scenario exports
+- **File**: `sources/WITW_EQUIPMENT_BASELINE.json`
+- **Content**: Equipment names, nations, categories, WITW game IDs
+- **Authority**: Source of truth for scenario WITW CSV exports
+- **Quality**: 100% (canonical game data)
+
+**Source 2: OnWar** (213 AFVs)
+- **Purpose**: Production data and basic specifications
+- **Files**: `sources/afv_data_onwar_*.json` (by nation)
+- **Content**: Production quantities, weights, crew sizes, dimensions
+- **Quality**: 85-90% confidence (curated military reference site)
+- **Use Case**: Production context for MDBook chapters
+
+**Source 3: WWIITANKS** (612 AFVs + 343 guns)
+- **Purpose**: Detailed combat specifications
+- **Files**: `sources/wwiitanks_*.json`
+- **Content**:
+  - Armor values (front, side, rear, turret - all angles)
+  - Gun penetration tables (1,296 penetration data points)
+  - Ammunition types (162 types with characteristics)
+  - Performance data (speed, range, operational radius)
+- **Quality**: 90-95% confidence (specialist tank/gun database)
+- **Use Case**: Technical specs for MDBook chapters, penetration modeling for database
+
+---
+
+### Database Schema (master_database.db)
+
+**11 tables in SQLite database**:
+
+**Core Equipment Tables**:
+- `equipment` - WITW baseline (469 items) with match links to OnWar/WWIITANKS
+- `guns` - 343 guns with full specifications (caliber, penetration, ammunition)
+- `ammunition` - 162 ammunition types with characteristics
+- `penetration_data` - 1,296 penetration values (gun vs armor at various distances)
+
+**Unit Assignment Tables**:
+- `units` - 144 WITW units (divisions, corps, armies)
+- `unit_equipment` - Equipment assignments (which units have which equipment)
+
+**Metadata & Provenance Tables**:
+- `match_reviews` - Equipment matching decisions with confidence scores
+- `import_log` - Data provenance tracking (when imported, by whom, from what source)
+
+**Source Data Tables**:
+- `afv_data` - OnWar AFV data (213 vehicles)
+- `wwiitanks_afv_data` - WWIITANKS AFV data (612 vehicles)
+- `wwiitanks_gun_data` - WWIITANKS gun data (343 guns)
+
+---
+
+### Equipment Matching Workflow (Phase 5)
+
+**Interactive CLI Matching Process**:
+
+```
+WITW Baseline (469 items by nation)
+  ↓
+Equipment Matcher (tools/equipment_matcher_v2.py)
+  ├─ Type Detection (GUN vs AFV vs SOFT_SKIN vs AIRCRAFT)
+  ├─ Name Normalization (handles "H-39" vs "H39" vs "H 39")
+  ├─ Cross-Nation Matching (all 343 guns, 825 AFVs loaded for captured/lend-lease)
+  ├─ Match Confidence Scoring (100% = exact, 85% = partial, 70% = word match)
+  └─ Research Agent (if no match found - automated web search)
+  ↓
+Database (match_reviews table)
+  ├─ Approved matches (linked to OnWar/WWIITANKS)
+  ├─ Rejected matches (no suitable match found)
+  └─ Researched items (comprehensive findings from web search)
+```
+
+**Matching Progress** (as of October 18, 2025):
+- [x] French: 20/20 items → **COMPLETE** (100%)
+- [ ] American: 81 items → Next
+- [ ] German: 98 items → Pending
+- [ ] British: 196 items → Pending (largest)
+- [ ] Italian: 74 items → Pending
+
+**Total**: 20/469 items matched (4.3% complete)
+
+---
+
+### Unit Enrichment Workflow (Phase 6 Integration)
+
+**How Equipment Data Flows**:
+
+```
+Step 1: Historical Source Extraction (Agents)
+  Tessin Vol 12: "60x Panzer III Ausf F, 20x Panzer IV Ausf D"
+  ↓
+  document_parser → historical_research → unit_instantiation
+  ↓
+  Unit JSON (COUNTS ONLY):
+  {
+    "tanks": {
+      "Panzer III Ausf F": 60,
+      "Panzer IV Ausf D": 20
+    }
+  }
+
+Step 2: Database Enrichment (Post-Processing)
+  scripts/enrich_units_with_database.js
+  ↓
+  Query database for each variant
+  ↓
+  Enriched Unit JSON (COUNTS + SPECS):
+  {
+    "tanks": {
+      "Panzer III Ausf F": {
+        "count": 60,                        // from Tessin
+        "witw_id": "GER_PANZER_III_AUSF_F", // from WITW baseline
+        "armament": "50mm KwK 38 L/42",     // from WWIITANKS
+        "armor_mm": {
+          "front": 50,
+          "side": 30,
+          "rear": 21
+        },                                   // from WWIITANKS
+        "crew": 5,                           // from OnWar
+        "production": "435 units (1940-1941)" // from OnWar
+      }
+    }
+  }
+
+Step 3: Output Generation
+  ├─ MDBook Chapters (uses enriched units for variant specs)
+  ├─ WITW Scenarios (uses witw_id for game export)
+  └─ SQL Database (complete data for custom queries)
+```
+
+---
+
+### Detail Level Standards (Critical for Output)
+
+**MDBook Chapters** (Human Readers):
+- ✅ Equipment counts (from historical sources)
+- ✅ Variant names (specific model designations)
+- ✅ Key specifications (main gun, armor, crew)
+- ✅ Production context (dates, quantities)
+- ✅ Tactical analysis (how equipment was used in combat)
+- ❌ NO full penetration tables (1,296 values - overwhelming for readers)
+- ❌ NO WITW equipment IDs (game-specific identifiers)
+
+**WITW Scenarios** (Wargamers):
+- ✅ WITW equipment IDs (canonical identifiers for game import)
+- ✅ Equipment counts (historical)
+- ✅ Operational readiness (ready vs damaged percentages)
+- ✅ All vehicles including soft-skin (trucks, halftracks - critical for logistics)
+- ✅ **Battle context** (historical situation, date, location)
+- ✅ **Victory conditions** (narrative description of objectives for each side)
+- ✅ **Weather/terrain conditions** (operational context affecting gameplay)
+- ✅ **Supply states** (fuel days, ammo days, water reserves at scenario start)
+- ✅ **Strategic objectives** (what each side is trying to achieve - concise narrative)
+- ❌ NO detailed equipment production history essays (overwhelming for players)
+- ❌ NO long-form tactical analysis (keep concise for quick player reference)
+
+**SQL Database** (Developers/Analysts):
+- ✅ EVERYTHING - all data from all sources
+- ✅ All 1,296 penetration data points
+- ✅ All 162 ammunition types with characteristics
+- ✅ Complete provenance (sources, confidence levels, import timestamps)
+- ✅ Cross-nation equipment transfers (captured equipment, lend-lease)
+
+**Rationale**:
+- **Books** = Understanding historical formations (narrative focus)
+- **Scenarios** = Playing the game with historical accuracy (gameplay + battle context)
+- **Database** = Source of truth for everything (complete data for custom queries)
+
+---
+
+### Scripts & Tools for Equipment Database
+
+**Import Scripts** (Phase 1-4 - COMPLETE):
+- `scripts/import_witw_baseline.js` - Import WITW baseline (469 items)
+- `scripts/import_guns.js` - Import WWIITANKS guns (343 guns + ammunition + penetration)
+- `scripts/import_units.js` - Import WITW units (144 units)
+
+**Matching Tools** (Phase 5 - IN PROGRESS):
+- `tools/equipment_matcher_v2.py` - Interactive equipment matching (v2.1)
+- `tools/apply_research_findings.py` - Apply research results to database
+- `tools/show_french_results.py` - Query French equipment matching results
+
+**Enrichment Tools** (Phase 6 - TO BE CREATED):
+
+**🚨 CRITICAL - THESE SCRIPTS MUST BE CREATED BEFORE PHASE 6 CAN USE DATABASE SPECS**:
+
+1. **`scripts/enrich_units_with_database.js`** (REQUIRED)
+   - Add database specifications to unit JSON files
+   - Input: Unit JSON with counts (from agents)
+   - Output: Enriched unit JSON with counts + specs (armor, gun, crew, production)
+   - Status: TO BE CREATED after equipment matching complete (469 items)
+   - Blocks: MDBook chapter generation with variant specifications
+
+2. **`scripts/generate_scenario_exports.js`** (REQUIRED)
+   - Export WITW-format CSV with equipment IDs and battle narratives
+   - Input: Enriched unit JSON files
+   - Output: WITW scenario CSV (equipment IDs, counts, battle context, victory conditions, supply states)
+   - Status: TO BE CREATED after equipment matching complete
+   - Blocks: Phase 9 scenario generation
+
+**Without these scripts**:
+- Phase 6 unit JSONs will only have counts, no detailed specifications
+- MDBook chapters will miss variant specs (armor values, gun penetration, performance)
+- Phase 9 scenarios cannot export with WITW equipment IDs
+- Battle narratives, victory conditions, supply states won't be included in scenarios
+
+---
+
+### Working with Equipment Database
+
+**Query Equipment Specifications**:
+```python
+import sqlite3
+conn = sqlite3.connect('database/master_database.db')
+cursor = conn.cursor()
+
+# Get gun specifications with penetration data
+cursor.execute("""
+    SELECT e.canonical_id, e.name, g.caliber, g.penetration_100m, g.penetration_500m
+    FROM equipment e
+    JOIN guns g ON e.wwiitanks_gun_id = g.gun_id
+    WHERE e.nation = 'german' AND e.category = 'field_artillery'
+""")
+
+# Get AFV armor values
+cursor.execute("""
+    SELECT e.canonical_id, e.name, a.armor_front_mm, a.armor_side_mm
+    FROM equipment e
+    JOIN wwiitanks_afv_data a ON e.wwiitanks_afv_id = a.afv_id
+    WHERE e.nation = 'german' AND e.category = 'medium_tank'
+""")
+```
+
+**Run Equipment Matcher**:
+```bash
+# Match equipment for a nation
+python tools/equipment_matcher_v2.py --nation american
+
+# View matching results
+python tools/show_french_results.py
+```
+
+**Enrich Unit JSON** (future):
+```bash
+# Add database specs to unit JSON
+node scripts/enrich_units_with_database.js \
+  --unit germany_1941q2_15_panzer_division_toe.json
+```
+
+---
 
 ### Data Hierarchy
 ```

@@ -1,0 +1,29 @@
+# Western Desert Force - 1940Q2
+
+**Date**: 1940-06-01
+
+**Location**: Mediterranean
+
+## Situation
+
+{'formation_history': 'Western Desert Force formed 17 June 1940 from headquarters of 6th Infantry Division. Created in response to Italian declaration of war (10 June 1940) to defend Egypt and Suez Canal. Predecessor to XIII Corps (redesignated 1 January 1941) and ultimately Eighth Army.', 'operational_status': 'Defensive posture June 1940. First combat operations 11 June 1940 when 11th Hussars crossed into Libya. Conducting aggressive reconnaissance and border patrols awaiting Italian offensive. Preparing defensive positions at Mersa Matruh and forward screening positions.', 'quarter_events': ['10 June 1940: Italy declares war on Britain and France', '11 June 1940: First combat - 11th Hussars raid into Libya, 70 Italian POWs', "17 June 1940: Western Desert Force officially formed under Major-General O'Connor", 'June 1940: Construction of Baggush Box headquarters and supply depot', 'June 1940: Integration of New Zealand signals detachment into corps communications'], 'commonwealth_forces': 'Corps includes British (7th Armoured Division) and Indian Army (4th Indian Division) formations. New Zealand signals detachment providing technical support for corps communications. Represents early example of British Commonwealth integrated command in WW2.', 'strategic_context': "Fall of France (June 1940) leaves Britain isolated. Western Desert Force faces Italian 10th Army in Libya (~250,000 men vs WDF's ~31,000). Egypt and Suez Canal vital to British Empire communications. WDF must defend with limited resources while reinforcements mobilize."}
+
+## Axis Objective
+
+Maintain defensive positions and inflict maximum casualties on Allied forces.
+
+## Allied Objective
+
+Advance and secure strategic objectives while minimizing casualties.
+
+## Conditions
+
+- **Weather**: Clear
+- **Terrain**: Desert
+- **Special Rules**: None
+
+## Equipment
+
+Total equipment items: 0
+
+See `equipment.csv` for complete equipment list.

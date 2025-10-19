@@ -1,0 +1,29 @@
+# 102 Divisione Motorizzata Trento - 1942Q4
+
+**Date**: 1942-12-01
+
+**Location**: Mediterranean
+
+## Situation
+
+{'operations': [{'name': 'First Battle of El Alamein', 'dates': '1-27 July 1942', 'role': 'Defensive operations after arrival from Gazala retreat', 'outcome': 'Success - held El Alamein line against British attacks'}, {'name': 'Battle of Alam Halfa', 'dates': '30 August - 5 September 1942', 'role': 'Reserve position, not heavily engaged', 'outcome': 'Axis offensive failed, Trento casualties light'}, {'name': 'Second Battle of El Alamein', 'dates': '23 October - 4 November 1942', 'role': 'Defensive position on Miteirya Ridge, subjected to massive British artillery bombardment', 'outcome': 'Catastrophic - By 25 October, division lost 50% infantry and most artillery. Division effectively destroyed.'}, {'name': 'Declaration of Loss', 'dates': '25 November 1942', 'role': "Division officially declared 'lost due to wartime events'", 'outcome': 'Division ceased to exist as organized formation'}], 'combat_effectiveness': "Good until El Alamein, then catastrophic. Division was veteran formation with extensive North Africa experience since February 1941. Fought well at First El Alamein and Alam Halfa. However, Second Battle of El Alamein (23 Oct - 4 Nov 1942) destroyed the division. Positioned on exposed Miteirya Ridge, subjected to overwhelming British artillery and air attacks. By 25 October (just 2 days into battle), division had lost 50% infantry and most artillery. Declared 'lost' 25 November 1942.", 'notable_engagements': ['First Battle of El Alamein (July 1942)', 'Battle of Alam Halfa (Aug-Sept 1942)', 'Second Battle of El Alamein - Miteirya Ridge (Oct 1942)']}
+
+## Axis Objective
+
+Maintain defensive positions and inflict maximum casualties on Allied forces.
+
+## Allied Objective
+
+Advance and secure strategic objectives while minimizing casualties.
+
+## Conditions
+
+- **Weather**: Clear
+- **Terrain**: Desert
+- **Special Rules**: None
+
+## Equipment
+
+Total equipment items: 9
+
+See `equipment.csv` for complete equipment list.

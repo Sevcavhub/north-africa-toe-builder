@@ -1,0 +1,29 @@
+# 1St South African Division - 1941Q4
+
+**Date**: 1941-12-01
+
+**Location**: North Africa
+
+## Situation
+
+British Division deployed in North Africa during 1941Q4.
+
+## Axis Objective
+
+Maintain defensive positions and inflict maximum casualties on Allied forces.
+
+## Allied Objective
+
+Advance and secure strategic objectives while minimizing casualties.
+
+## Conditions
+
+- **Weather**: Clear
+- **Terrain**: Desert
+- **Special Rules**: None
+
+## Equipment
+
+Total equipment items: 7
+
+See `equipment.csv` for complete equipment list.

@@ -1,0 +1,29 @@
+# 2Nd South African Infantry Division - 1941Q3
+
+**Date**: 1941-09-01
+
+**Location**: North Africa
+
+## Situation
+
+British Division deployed in North Africa during 1941Q3.
+
+## Axis Objective
+
+Maintain defensive positions and inflict maximum casualties on Allied forces.
+
+## Allied Objective
+
+Advance and secure strategic objectives while minimizing casualties.
+
+## Conditions
+
+- **Weather**: Clear
+- **Terrain**: Desert
+- **Special Rules**: None
+
+## Equipment
+
+Total equipment items: 9
+
+See `equipment.csv` for complete equipment list.
