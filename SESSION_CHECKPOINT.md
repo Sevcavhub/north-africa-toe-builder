@@ -1,27 +1,23 @@
-# Session Checkpoint - 2025-10-19T06:15:11.758Z
+# Session Checkpoint - 2025-10-19T06:18:57.838Z
 
 ## Progress Summary
 
 - **Total Unit-Quarters:** 420
 - **Completed:** 152 (36.2%)
 - **Remaining:** 268
-- **Last Commit:** d29b693
+- **Last Commit:** 469cc5d
 
 ## Validation Status
 
 - **Total Validated:** 153
 - **✅ Passed:** 141 (92.2%)
-- **❌ Failed:** 2 ⚠️
-- **⚠️ Warnings:** 10
+- **❌ Failed:** 1 ⚠️
+- **⚠️ Warnings:** 11
 
 ### Critical Validation Failures
 
 **german_1942q4_15_panzer_division:**
-  - ❌ Uses nested structure (unit_identification.*) instead of unified schema top-level fields
   - ❌ Tank total mismatch: total=118 but heavy+medium+light=0
-
-**italian_1941q2_xxi_corps:**
-  - ❌ Commander name is NULL but confidence is 65% (should have commander name when confidence ≥ 50%)
 
 ## Chapter Status
 
@@ -64,8 +60,8 @@ If this session crashes or needs to resume:
 ## Session Info
 
 - **Session ID:** complete_seed_generated
-- **Checkpoint Time:** 2025-10-19T06:15:11.726Z
-- **Git Commit:** d29b693
+- **Checkpoint Time:** 2025-10-19T06:18:57.806Z
+- **Git Commit:** 469cc5d
 
 ---
 

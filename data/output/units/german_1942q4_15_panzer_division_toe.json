@@ -1,20 +1,17 @@
 {
-  "schema_version": "3.0",
-  "unit_identification": {
-    "unit_id": "german_1942q4_15_panzer_division",
-    "unit_designation": "15. Panzer-Division",
-    "unit_type": "division",
-    "nation": "german",
-    "time_period": {
-      "year": 1942,
-      "quarter": 4,
-      "date_range": "October - December 1942"
-    },
-    "theater": "North Africa",
-    "operational_context": "Second Battle of El Alamein (23 Oct - 11 Nov 1942), retreat to Tunisia",
-    "parent_formation": "Deutsches Afrikakorps, Panzerarmee Afrika"
-  },
-  "command_structure": {
+  "schema_type": "division_toe",
+  "schema_version": "3.1.0",
+
+  "nation": "german",
+  "quarter": "1942-Q4",
+  "unit_designation": "15. Panzer-Division",
+  "unit_type": "armored_division",
+  "organization_level": "division",
+  "parent_formation": "Deutsches Afrikakorps, Panzerarmee Afrika",
+  "theater": "North Africa",
+  "operational_context": "Second Battle of El Alamein (23 Oct - 11 Nov 1942), retreat to Tunisia",
+
+  "command": {
     "commander": {
       "name": "Generalmajor Gustav von Vaerst",
       "rank": "Generalmajor",
@@ -434,78 +431,83 @@
       }
     }
   },
-  "personnel_summary": {
-    "officers": 485,
-    "ncos": 1450,
-    "enlisted": 6985,
-    "total_personnel": 8920,
-    "notes": "Theoretical establishment strength. Actual combat strength at El Alamein (late October 1942) significantly reduced: approximately 4,500-5,000 effectives. By 2 November 1942, Afrika Korps (both 15. and 21. Panzer combined) reduced to ~2,000 men."
+  "total_personnel": 8920,
+  "officers": 485,
+  "ncos": 1450,
+  "enlisted": 6985,
+  "personnel_notes": "Theoretical establishment strength. Actual combat strength at El Alamein (late October 1942) significantly reduced: approximately 4,500-5,000 effectives. By 2 November 1942, Afrika Korps (both 15. and 21. Panzer combined) reduced to ~2,000 men.",
+
+  "tanks": {
+    "panzer_ii": 9,
+    "panzer_iii_short_50mm": 27,
+    "panzer_iii_long_50mm": 53,
+    "panzer_iv_short_75mm": 14,
+    "panzer_iv_long_75mm": 15,
+    "total": 118,
+    "notes": "Establishment strength. Actual operational strength by late October 1942: approximately 40-50 tanks. By early November post-Alamein: only 12 tanks operational."
   },
-  "equipment_summary": {
-    "tanks": {
-      "panzer_ii": 9,
-      "panzer_iii_short_50mm": 27,
-      "panzer_iii_long_50mm": 53,
-      "panzer_iv_short_75mm": 14,
-      "panzer_iv_long_75mm": 15,
-      "total": 118,
-      "notes": "Establishment strength. Actual operational strength by late October 1942: approximately 40-50 tanks. By early November post-Alamein: only 12 tanks operational."
+
+  "armored_vehicles": {
+    "armored_cars_heavy_sdkfz_232": 8,
+    "armored_cars_light_sdkfz_222": 12,
+    "marder_ii_tank_destroyer": 8,
+    "total": 28
+  },
+
+  "artillery": {
+    "field_guns": {
+      "lefh_18_105mm": 24,
+      "sfh_18_150mm": 12,
+      "total_field_artillery": 36
     },
-    "armored_vehicles": {
-      "armored_cars_heavy_sdkfz_232": 8,
-      "armored_cars_light_sdkfz_222": 12,
-      "marder_ii_tank_destroyer": 8,
-      "total": 28
+    "anti_tank_guns": {
+      "pak_38_50mm": 18,
+      "pak_40_75mm": 0,
+      "total_antitank": 18,
+      "notes": "Plus 8 self-propelled 76.2mm on Marder II chassis"
     },
-    "artillery": {
-      "field_guns": {
-        "lefh_18_105mm": 24,
-        "sfh_18_150mm": 12,
-        "total_field_artillery": 36
-      },
-      "anti_tank_guns": {
-        "pak_38_50mm": 18,
-        "pak_40_75mm": 0,
-        "total_antitank": 18,
-        "notes": "Plus 8 self-propelled 76.2mm on Marder II chassis"
-      },
-      "anti_aircraft": {
-        "flak_38_20mm": 24,
-        "flak_36_37mm": 12,
-        "flak_18_88mm": 8,
-        "total_flak": 44
-      },
-      "infantry_guns": {
-        "leig_18_75mm": 18,
-        "sig_33_150mm": 12,
-        "total_infantry_guns": 30
-      },
-      "mortars": {
-        "granatwerfer_34_50mm": 72,
-        "granatwerfer_34_81mm": 48,
-        "total_mortars": 120
-      }
+    "anti_aircraft": {
+      "flak_38_20mm": 24,
+      "flak_36_37mm": 12,
+      "flak_18_88mm": 8,
+      "total_flak": 44
     },
-    "small_arms": {
-      "rifles_kar98k": 6200,
-      "submachine_guns_mp38_40": 780,
-      "light_machine_guns_mg34": 285,
-      "heavy_machine_guns_mg34": 98,
-      "pistols": 1250,
-      "antitank_rifles_pzb_39": 42
+    "infantry_guns": {
+      "leig_18_75mm": 18,
+      "sig_33_150mm": 12,
+      "total_infantry_guns": 30
     },
-    "vehicles": {
-      "trucks_light": 280,
-      "trucks_medium": 385,
-      "trucks_heavy": 125,
-      "cars_light": 95,
-      "motorcycles": 245,
-      "prime_movers": 56,
-      "recovery_vehicles": 12,
-      "total_vehicles": 1198,
-      "notes": "Vehicle strength severely impacted by desert conditions and lack of spare parts. Estimated 60-70% operational by October 1942."
+    "mortars": {
+      "granatwerfer_34_50mm": 72,
+      "granatwerfer_34_81mm": 48,
+      "total_mortars": 120
     }
   },
+
+  "artillery_total": 248,
+
+  "small_arms": {
+    "rifles_kar98k": 6200,
+    "submachine_guns_mp38_40": 780,
+    "light_machine_guns_mg34": 285,
+    "heavy_machine_guns_mg34": 98,
+    "pistols": 1250,
+    "antitank_rifles_pzb_39": 42
+  },
+
+  "vehicles": {
+    "trucks_light": 280,
+    "trucks_medium": 385,
+    "trucks_heavy": 125,
+    "cars_light": 95,
+    "motorcycles": 245,
+    "prime_movers": 56,
+    "recovery_vehicles": 12,
+    "total_vehicles": 1198,
+    "notes": "Vehicle strength severely impacted by desert conditions and lack of spare parts. Estimated 60-70% operational by October 1942."
+  },
+
+  "ground_vehicles_total": 1344,
   "supply_logistics": {
     "fuel_reserves": {
       "fuel_on_hand_liters": 85000,
@@ -572,69 +574,28 @@
       "higher_command": "Oberbefehlshaber Süd (Kesselring)"
     }
   },
-  "sources": [
-    {
-      "source_id": "tessin_band_05",
-      "source_type": "primary",
-      "title": "Tessin, Georg - Verbände und Truppen der deutschen Wehrmacht und Waffen-SS - Band 05",
-      "confidence": 95,
-      "pages": "27-30",
-      "notes": "Detailed formation history, subordinate units, command relationships, organizational changes"
-    },
-    {
-      "source_id": "lexikon_wehrmacht_15pd",
-      "source_type": "secondary",
-      "title": "Lexikon der Wehrmacht - 15. Panzerdivision",
-      "url": "https://www.lexikon-der-wehrmacht.de/Gliederungen/Panzerdivisionen/15PD-R.htm",
-      "confidence": 85,
-      "notes": "Unit organization, subordinate formations, operational history"
-    },
-    {
-      "source_id": "lexikon_wehrmacht_pgr115",
-      "source_type": "secondary",
-      "title": "Lexikon der Wehrmacht - Panzergrenadier-Regiment 115",
-      "url": "https://www.lexikon-der-wehrmacht.de/Gliederungen/Panzergrenadierregimenter/PGR115-R.htm",
-      "confidence": 88,
-      "notes": "Detailed regiment structure, company organization, equipment transfers October 1942"
-    },
-    {
-      "source_id": "traces_of_war",
-      "source_type": "secondary",
-      "title": "TracesOfWar.com - Panzerarmee Afrika",
-      "url": "https://www.tracesofwar.com/articles/5614/Rise-and-fall-of-the-Panzerarmee-Afrika.htm",
-      "confidence": 80,
-      "notes": "Afrika Korps tank strengths, El Alamein battle details, casualty figures"
-    },
-    {
-      "source_id": "warfare_history_network",
-      "source_type": "secondary",
-      "title": "Warfare History Network - Afrika Korps at El Alamein",
-      "url": "https://warfarehistorynetwork.com/article/the-afrika-korps-at-el-alamein-beginning-of-the-end/",
-      "confidence": 75,
-      "notes": "Strategic context, German strength figures, British superiority details"
-    },
-    {
-      "source_id": "dak_blog",
-      "source_type": "tertiary",
-      "title": "Deutsches Afrikakorps Online Archive",
-      "url": "http://deutsches-afrikakorps.blogspot.com/2010/12/15th-panzer-division.html",
-      "confidence": 70,
-      "notes": "Order of battle, operational history overview, unit identifications"
-    }
-  ],
-  "data_quality": {
-    "overall_confidence": 82,
-    "completeness": 85,
-    "source_verification": "Multiple sources consulted. Tessin primary source (Band 05) provides authoritative organizational structure. Web sources confirm operational details and El Alamein battle specifics.",
-    "gaps_and_limitations": [
+  "validation": {
+    "source": [
+      "Tessin, Georg - Verbände und Truppen der deutschen Wehrmacht und Waffen-SS - Band 05 (pp. 27-30)",
+      "Lexikon der Wehrmacht - 15. Panzerdivision",
+      "Lexikon der Wehrmacht - Panzergrenadier-Regiment 115",
+      "TracesOfWar.com - Panzerarmee Afrika",
+      "Warfare History Network - Afrika Korps at El Alamein",
+      "Deutsches Afrikakorps Online Archive"
+    ],
+    "confidence": 82,
+    "tier": 1,
+    "status": "validated",
+    "last_updated": "2025-10-18",
+    "aggregation_status": "bottom_up_aggregated",
+    "known_gaps": [
       "Exact personnel strength by sub-unit estimated from doctrinal establishments and known attrition",
       "Precise tank distribution by model and battalion approximated from general Afrika Korps data",
       "Exact fuel and ammunition quantities estimated from operational histories and supply crisis documentation",
       "Individual officer assignments below division level not fully documented",
       "Medical, veterinary, and administrative sub-unit details incomplete"
     ],
-    "methodology": "Combined Tessin archival data (organizational structure, unit designations, command appointments) with operational histories (battle participation, strength figures, equipment losses) and doctrinal manuals (establishment strengths). Cross-referenced multiple secondary sources for El Alamein period specifics.",
-    "validator_notes": "Schema v3.0 compliant. Supply/logistics section added per Phase 3 requirements. Personnel and equipment totals calculated from sub-unit aggregation with adjustment for known combat losses by October 1942."
+    "methodology": "Combined Tessin archival data (organizational structure, unit designations, command appointments) with operational histories (battle participation, strength figures, equipment losses) and doctrinal manuals (establishment strengths). Cross-referenced multiple secondary sources for El Alamein period specifics."
   },
   "generation_metadata": {
     "generated_by": "Claude Code - Autonomous Orchestrator v2.0",
