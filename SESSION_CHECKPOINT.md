@@ -1,29 +1,27 @@
-# Session Checkpoint - 2025-10-19T16:49:56.414Z
+# Session Checkpoint - 2025-10-19T16:57:12.474Z
 
 ## Progress Summary
 
 - **Total Unit-Quarters:** 420
 - **Completed:** 152 (36.2%)
 - **Remaining:** 268
-- **Last Commit:** 6fc06c0
+- **Last Commit:** 9aaf3d1
 
 ## Validation Status
 
-- **Total Validated:** 173
-- **✅ Passed:** 143 (82.7%)
+- **Total Validated:** 174
+- **✅ Passed:** 143 (82.2%)
 - **❌ Failed:** 0 ✅
-- **⚠️ Warnings:** 30
+- **⚠️ Warnings:** 31
 
 **All units passed validation** ✅
 
 ## Chapter Status
 
-- **JSON Files:** 173
-- **MDBook Chapters:** 170 ⚠️
-- **Missing Chapters:** 3
-  - ❌ italian_1940q3_60_sabratha_division
-  - ❌ italian_1940q3_61_sirte_division
-  - ❌ italian_1940q3_62_marmarica_division
+- **JSON Files:** 174
+- **MDBook Chapters:** 173 ⚠️
+- **Missing Chapters:** 1
+  - ❌ german_1942q1_deutsches_afrikakorps
 
 ## Recent Completions
 
@@ -54,8 +52,8 @@ If this session crashes or needs to resume:
 ## Session Info
 
 - **Session ID:** complete_seed_generated
-- **Checkpoint Time:** 2025-10-19T16:49:56.382Z
-- **Git Commit:** 6fc06c0
+- **Checkpoint Time:** 2025-10-19T16:57:12.442Z
+- **Git Commit:** 9aaf3d1
 
 ---
 
