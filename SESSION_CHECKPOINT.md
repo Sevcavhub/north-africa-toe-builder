@@ -1,29 +1,30 @@
-# Session Checkpoint - 2025-10-19T17:17:34.951Z
+# Session Checkpoint - 2025-10-19T18:34:44.528Z
 
 ## Progress Summary
 
 - **Total Unit-Quarters:** 420
 - **Completed:** 152 (36.2%)
 - **Remaining:** 268
-- **Last Commit:** 5b03d65
+- **Last Commit:** 5f20228
 
 ## Validation Status
 
-- **Total Validated:** 177
-- **✅ Passed:** 146 (82.5%)
+- **Total Validated:** 181
+- **✅ Passed:** 146 (80.7%)
 - **❌ Failed:** 0 ✅
-- **⚠️ Warnings:** 31
+- **⚠️ Warnings:** 35
 
 **All units passed validation** ✅
 
 ## Chapter Status
 
-- **JSON Files:** 177
-- **MDBook Chapters:** 174 ⚠️
-- **Missing Chapters:** 3
-  - ❌ british_1942q1_1st_armoured_division
-  - ❌ german_1942q1_15_panzer_division
-  - ❌ german_1942q1_21_panzer_division
+- **JSON Files:** 181
+- **MDBook Chapters:** 177 ⚠️
+- **Missing Chapters:** 4
+  - ❌ british_1941q4_xiii_corps
+  - ❌ british_1941q4_xxx_corps
+  - ❌ italian_1941q4_xxi_corps
+  - ❌ italian_1941q4_xx_corps
 
 ## Recent Completions
 
@@ -54,8 +55,8 @@ If this session crashes or needs to resume:
 ## Session Info
 
 - **Session ID:** complete_seed_generated
-- **Checkpoint Time:** 2025-10-19T17:17:34.921Z
-- **Git Commit:** 5b03d65
+- **Checkpoint Time:** 2025-10-19T18:34:44.496Z
+- **Git Commit:** 5f20228
 
 ---
 
