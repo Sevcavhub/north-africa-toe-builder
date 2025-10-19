@@ -1,18 +1,18 @@
-# Session Checkpoint - 2025-10-19T22:16:16.576Z
+# Session Checkpoint - 2025-10-19T22:21:03.180Z
 
 ## Progress Summary
 
 - **Total Unit-Quarters:** 420
 - **Completed:** 152 (36.2%)
 - **Remaining:** 268
-- **Last Commit:** 8e98283
+- **Last Commit:** 814cb60
 
 ## Validation Status
 
-- **Total Validated:** 202
-- **✅ Passed:** 147 (72.8%)
+- **Total Validated:** 205
+- **✅ Passed:** 147 (71.7%)
 - **❌ Failed:** 1 ⚠️
-- **⚠️ Warnings:** 54
+- **⚠️ Warnings:** 57
 
 ### Critical Validation Failures
 
@@ -22,15 +22,15 @@
 
 ## Chapter Status
 
-- **JSON Files:** 202
+- **JSON Files:** 205
 - **MDBook Chapters:** 183 ⚠️
-- **Missing Chapters:** 19
+- **Missing Chapters:** 22
+  - ❌ british_1941q1_6th_australian_division
   - ❌ british_1941q4_70th_infantry_division
+  - ❌ german_1941q1_21_panzer_division
+  - ❌ german_1941q1_90_light_division
   - ❌ german_1941q4_panzergruppe_afrika
-  - ❌ italian_1941q1_catanzaro_division
-  - ❌ italian_1941q1_cirene_division
-  - ❌ italian_1941q1_marmarica_division
-  - ... and 14 more
+  - ... and 17 more
 
 ## Recent Completions
 
@@ -61,8 +61,8 @@ If this session crashes or needs to resume:
 ## Session Info
 
 - **Session ID:** complete_seed_generated
-- **Checkpoint Time:** 2025-10-19T22:16:16.544Z
-- **Git Commit:** 8e98283
+- **Checkpoint Time:** 2025-10-19T22:21:03.148Z
+- **Git Commit:** 814cb60
 
 ---
 
