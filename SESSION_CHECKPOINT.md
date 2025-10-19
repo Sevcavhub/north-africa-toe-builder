@@ -1,11 +1,11 @@
-# Session Checkpoint - 2025-10-19T14:02:00.772Z
+# Session Checkpoint - 2025-10-19T14:05:44.757Z
 
 ## Progress Summary
 
 - **Total Unit-Quarters:** 420
 - **Completed:** 152 (36.2%)
 - **Remaining:** 268
-- **Last Commit:** 8f555fc
+- **Last Commit:** 31b26ca
 
 ## Validation Status
 
@@ -19,14 +19,8 @@
 ## Chapter Status
 
 - **JSON Files:** 160
-- **MDBook Chapters:** 154 ⚠️
-- **Missing Chapters:** 6
-  - ❌ italian_1941q2_ariete_division
-  - ❌ italian_1941q2_bologna_division
-  - ❌ italian_1941q2_pavia_division
-  - ❌ italian_1941q2_savona_division
-  - ❌ italian_1941q2_trento_division
-  - ... and 1 more
+- **MDBook Chapters:** 160 ✅
+- **All chapters present** ✅
 
 ## Recent Completions
 
@@ -57,8 +51,8 @@ If this session crashes or needs to resume:
 ## Session Info
 
 - **Session ID:** complete_seed_generated
-- **Checkpoint Time:** 2025-10-19T14:02:00.741Z
-- **Git Commit:** 8f555fc
+- **Checkpoint Time:** 2025-10-19T14:05:44.718Z
+- **Git Commit:** 31b26ca
 
 ---
 
