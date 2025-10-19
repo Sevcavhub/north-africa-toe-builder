@@ -1,26 +1,31 @@
-# Session Checkpoint - 2025-10-19T15:36:06.121Z
+# Session Checkpoint - 2025-10-19T15:47:48.195Z
 
 ## Progress Summary
 
 - **Total Unit-Quarters:** 420
 - **Completed:** 152 (36.2%)
 - **Remaining:** 268
-- **Last Commit:** 80619f8
+- **Last Commit:** 1173c1a
 
 ## Validation Status
 
-- **Total Validated:** 164
-- **✅ Passed:** 143 (87.2%)
-- **❌ Failed:** 0 ✅
-- **⚠️ Warnings:** 21
+- **Total Validated:** 166
+- **✅ Passed:** 143 (86.1%)
+- **❌ Failed:** 1 ⚠️
+- **⚠️ Warnings:** 22
 
-**All units passed validation** ✅
+### Critical Validation Failures
+
+**italian_1940q2_10th_army:**
+  - ❌ Missing required field: validation
 
 ## Chapter Status
 
-- **JSON Files:** 164
-- **MDBook Chapters:** 164 ✅
-- **All chapters present** ✅
+- **JSON Files:** 166
+- **MDBook Chapters:** 164 ⚠️
+- **Missing Chapters:** 2
+  - ❌ italian_1940q2_10th_army
+  - ❌ italian_1940q2_60_sabratha_division
 
 ## Recent Completions
 
@@ -51,8 +56,8 @@ If this session crashes or needs to resume:
 ## Session Info
 
 - **Session ID:** complete_seed_generated
-- **Checkpoint Time:** 2025-10-19T15:36:06.081Z
-- **Git Commit:** 80619f8
+- **Checkpoint Time:** 2025-10-19T15:47:48.164Z
+- **Git Commit:** 1173c1a
 
 ---
 
