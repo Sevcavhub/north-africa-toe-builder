@@ -1,20 +1,27 @@
-# Session Checkpoint - 2025-10-19T22:21:03.180Z
+# Session Checkpoint - 2025-10-19T23:16:23.110Z
 
 ## Progress Summary
 
 - **Total Unit-Quarters:** 420
 - **Completed:** 152 (36.2%)
 - **Remaining:** 268
-- **Last Commit:** 814cb60
+- **Last Commit:** 5c94815
 
 ## Validation Status
 
-- **Total Validated:** 205
-- **✅ Passed:** 147 (71.7%)
-- **❌ Failed:** 1 ⚠️
-- **⚠️ Warnings:** 57
+- **Total Validated:** 208
+- **✅ Passed:** 147 (70.7%)
+- **❌ Failed:** 3 ⚠️
+- **⚠️ Warnings:** 58
 
 ### Critical Validation Failures
+
+**italian_1941q1_sirte_division:**
+  - ❌ Uses nested structure (unit_identification.*) instead of unified schema top-level fields
+  - ❌ Tank total mismatch: total=52 but heavy+medium+light=0
+
+**italian_1941q1_xxii_corps:**
+  - ❌ Tank total mismatch: total=65 but heavy+medium+light=0
 
 **italian_1941q3_101_divisione_motorizzata_trieste:**
   - ❌ Missing required field: schema_type
@@ -22,8 +29,8 @@
 
 ## Chapter Status
 
-- **JSON Files:** 205
-- **MDBook Chapters:** 183 ⚠️
+- **JSON Files:** 208
+- **MDBook Chapters:** 186 ⚠️
 - **Missing Chapters:** 22
   - ❌ british_1941q1_6th_australian_division
   - ❌ british_1941q4_70th_infantry_division
@@ -61,8 +68,8 @@ If this session crashes or needs to resume:
 ## Session Info
 
 - **Session ID:** complete_seed_generated
-- **Checkpoint Time:** 2025-10-19T22:21:03.148Z
-- **Git Commit:** 814cb60
+- **Checkpoint Time:** 2025-10-19T23:16:23.079Z
+- **Git Commit:** 5c94815
 
 ---
 
