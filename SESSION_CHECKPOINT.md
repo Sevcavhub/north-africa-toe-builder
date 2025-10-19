@@ -1,30 +1,20 @@
-# Session Checkpoint - 2025-10-19T13:45:13.157Z
+# Session Checkpoint - 2025-10-19T13:51:05.623Z
 
 ## Progress Summary
 
 - **Total Unit-Quarters:** 420
 - **Completed:** 152 (36.2%)
 - **Remaining:** 268
-- **Last Commit:** bce5bd0
+- **Last Commit:** cba5ad2
 
 ## Validation Status
 
 - **Total Validated:** 159
 - **✅ Passed:** 142 (89.3%)
-- **❌ Failed:** 3 ⚠️
-- **⚠️ Warnings:** 14
+- **❌ Failed:** 0 ✅
+- **⚠️ Warnings:** 17
 
-### Critical Validation Failures
-
-**italian_1941q2_ariete_division:**
-  - ❌ Uses nested structure (unit_identification.*) instead of unified schema top-level fields
-  - ❌ Tank total mismatch: total=80 but heavy+medium+light=0
-
-**italian_1941q2_bologna_division:**
-  - ❌ Failed to parse JSON: Expected ',' or ']' after array element in JSON at position 10107 (line 367 column 3)
-
-**italian_1941q2_trieste_division:**
-  - ❌ Missing required field: schema_type
+**All units passed validation** ✅
 
 ## Chapter Status
 
@@ -66,8 +56,8 @@ If this session crashes or needs to resume:
 ## Session Info
 
 - **Session ID:** complete_seed_generated
-- **Checkpoint Time:** 2025-10-19T13:45:13.125Z
-- **Git Commit:** bce5bd0
+- **Checkpoint Time:** 2025-10-19T13:51:05.591Z
+- **Git Commit:** cba5ad2
 
 ---
 
