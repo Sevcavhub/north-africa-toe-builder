@@ -1,26 +1,30 @@
-# Session Checkpoint - 2025-10-19T15:48:51.501Z
+# Session Checkpoint - 2025-10-19T16:12:00.401Z
 
 ## Progress Summary
 
 - **Total Unit-Quarters:** 420
 - **Completed:** 152 (36.2%)
 - **Remaining:** 268
-- **Last Commit:** dedaf1b
+- **Last Commit:** 64ae88a
 
 ## Validation Status
 
-- **Total Validated:** 166
-- **✅ Passed:** 143 (86.1%)
+- **Total Validated:** 170
+- **✅ Passed:** 143 (84.1%)
 - **❌ Failed:** 0 ✅
-- **⚠️ Warnings:** 23
+- **⚠️ Warnings:** 27
 
 **All units passed validation** ✅
 
 ## Chapter Status
 
-- **JSON Files:** 166
-- **MDBook Chapters:** 166 ✅
-- **All chapters present** ✅
+- **JSON Files:** 170
+- **MDBook Chapters:** 166 ⚠️
+- **Missing Chapters:** 4
+  - ❌ british_1941q3_xiii_corps
+  - ❌ british_1941q3_xxx_corps
+  - ❌ italian_1941q3_xxi_corps
+  - ❌ italian_1941q3_xx_corps
 
 ## Recent Completions
 
@@ -51,8 +55,8 @@ If this session crashes or needs to resume:
 ## Session Info
 
 - **Session ID:** complete_seed_generated
-- **Checkpoint Time:** 2025-10-19T15:48:51.470Z
-- **Git Commit:** dedaf1b
+- **Checkpoint Time:** 2025-10-19T16:12:00.369Z
+- **Git Commit:** 64ae88a
 
 ---
 
