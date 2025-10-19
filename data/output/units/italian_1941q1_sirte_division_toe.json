@@ -1,63 +1,57 @@
 {
-  "unit_identification": {
-    "unit_id": "italian_1941q1_sirte_division",
-    "nation": "italian",
-    "unit_type": "division",
-    "unit_designation": "61ª Divisione di Fanteria \"Sirte\"",
-    "unit_name_english": "61st Infantry Division \"Sirte\"",
-    "formation_date": "1937-05-09",
-    "time_period": "1941-Q1",
-    "start_date": "1941-01-01",
-    "end_date": "1941-01-22",
-    "theater": "North Africa",
-    "location": "Tobruk, Libya",
-    "parent_formation": "XXII Corpo d'Armata"
-  },
-  "command_structure": {
-    "commanding_officer": {
+  "schema_type": "division_toe",
+  "schema_version": "3.1.0",
+  "nation": "italian",
+  "quarter": "1941-Q1",
+  "unit_designation": "61ª Divisione di Fanteria \"Sirte\"",
+  "unit_name_english": "61st Infantry Division \"Sirte\"",
+  "unit_type": "auto_transportable_infantry_division",
+  "organization_level": "division",
+  "formation_date": "1937-05-09",
+  "start_date": "1941-01-01",
+  "end_date": "1941-01-22",
+  "theater": "North Africa",
+  "location": "Tobruk, Libya",
+  "parent_formation": "XXII Corpo d'Armata",
+
+  "command": {
+    "commander": {
       "name": "Generale di Divisione Vincenzo della Mura",
       "rank": "Major General",
-      "from_date": "1940-09-01",
-      "to_date": "1941-01-22",
-      "confidence": 90,
-      "sources": ["Wikipedia - 61st Infantry Division Sirte", "Battle of Tobruk historical records"]
+      "appointment_date": "1940-09-01",
+      "end_date": "1941-01-22"
     },
     "chief_of_staff": {
       "name": "Unknown",
-      "rank": "Colonel",
-      "confidence": 0
-    }
+      "rank": "Colonel"
+    },
+    "headquarters_location": "Tobruk, Libya"
   },
-  "personnel_strength": {
-    "total_personnel": 9200,
-    "officers": 350,
-    "ncos": 1150,
-    "enlisted": 7700,
-    "combat_effectives": 7500,
-    "support_personnel": 1700,
-    "confidence": 75,
-    "notes": "Estimated from standard Italian auto-transportable division strength. Division was part of 25,000-man Tobruk garrison under XXII Corps."
-  },
+
+  "total_personnel": 9200,
+  "officers": 350,
+  "ncos": 1150,
+  "enlisted": 7700,
+  "combat_effectives": 7500,
+  "support_personnel": 1700,
+
   "organizational_structure": {
     "type": "auto_transportable_infantry_division",
     "regiments": [
       {
         "designation": "69º Reggimento Fanteria \"Ancona\"",
         "type": "infantry",
-        "battalions": 3,
-        "confidence": 95
+        "battalions": 3
       },
       {
         "designation": "70º Reggimento Fanteria \"Ancona\"",
         "type": "infantry",
-        "battalions": 3,
-        "confidence": 95
+        "battalions": 3
       },
       {
         "designation": "43º Reggimento Artiglieria \"Sirte\"",
         "type": "artillery",
-        "batteries": 9,
-        "confidence": 90
+        "batteries": 9
       }
     ],
     "support_units": [
@@ -87,105 +81,174 @@
         "type": "signals",
         "strength": 120
       }
-    ],
-    "confidence": 80,
-    "notes": "Structure confirmed from multiple sources. Auto-transportable classification means partial motorization."
+    ]
   },
-  "equipment_summary": {
-    "tanks": {
+
+  "ground_vehicles_total": 530,
+
+  "tanks": {
+    "heavy_tanks": 0,
+    "medium_tanks": 20,
+    "light_tanks": 32,
+    "total": 52,
+    "variants": {
       "M11/39 medium tank": {
-        "authorized": 20,
-        "actual": 20,
+        "count": 20,
         "operational": 7,
-        "confidence": 95,
-        "notes": "Only 7 of 20 M11/39 tanks were operational. Three weeks of repairs brought total to 10 serviceable.",
-        "sources": ["Battle of Tobruk records"]
+        "classification": "medium",
+        "notes": "Only 7 of 20 M11/39 tanks were operational. Three weeks of repairs brought total to 10 serviceable."
       },
       "L3/35 tankette": {
-        "authorized": 45,
-        "actual": 32,
+        "count": 32,
         "operational": 32,
-        "confidence": 90,
-        "notes": "Standard Italian tankette, obsolete by 1941",
-        "sources": ["Battle of Tobruk records"]
-      },
-      "total": 52
+        "classification": "light",
+        "notes": "Standard Italian tankette, obsolete by 1941"
+      }
+    }
+  },
+
+  "artillery_total": 52,
+
+  "artillery": {
+    "field_artillery": {
+      "total": 36,
+      "variants": [
+        {
+          "type": "75/27 mod. 06 field gun",
+          "count": 24,
+          "caliber": "75mm",
+          "notes": "Standard Italian field gun"
+        },
+        {
+          "type": "100/17 mod. 14 field howitzer",
+          "count": 12,
+          "caliber": "100mm",
+          "notes": "100mm howitzer for divisional artillery"
+        }
+      ]
     },
-    "artillery": {
-      "75/27 mod. 06 field gun": {
-        "count": 24,
-        "confidence": 80,
-        "notes": "Standard Italian field gun, 75mm caliber"
-      },
-      "100/17 mod. 14 field howitzer": {
-        "count": 12,
-        "confidence": 75,
-        "notes": "100mm howitzer for divisional artillery"
-      },
-      "47/32 mod. 35 anti-tank gun": {
-        "count": 8,
-        "confidence": 70,
-        "notes": "Standard Italian anti-tank gun"
-      },
-      "20mm Breda mod. 35 AA gun": {
-        "count": 8,
-        "confidence": 70,
-        "notes": "Light anti-aircraft defense"
-      },
-      "total": 52
+    "anti_tank": {
+      "total": 8,
+      "variants": [
+        {
+          "type": "47/32 mod. 35 anti-tank gun",
+          "count": 8,
+          "caliber": "47mm",
+          "notes": "Standard Italian anti-tank gun"
+        }
+      ]
     },
-    "mortars": {
-      "81mm mod. 35 mortar": {
+    "anti_aircraft": {
+      "total": 8,
+      "variants": [
+        {
+          "type": "20mm Breda mod. 35 AA gun",
+          "count": 8,
+          "caliber": "20mm",
+          "notes": "Light anti-aircraft defense"
+        }
+      ]
+    }
+  },
+
+  "mortars": {
+    "total": 54,
+    "variants": [
+      {
+        "type": "81mm mod. 35 mortar",
         "count": 54,
-        "confidence": 85,
+        "caliber": "81mm",
         "notes": "Standard Italian infantry mortar, 9 per battalion"
-      },
-      "total": 54
-    },
-    "machine_guns": {
-      "Breda mod. 30 LMG": {
+      }
+    ]
+  },
+
+  "machine_guns": {
+    "total": 288,
+    "variants": [
+      {
+        "type": "Breda mod. 30 LMG",
         "count": 180,
-        "confidence": 75,
         "notes": "Squad automatic weapon"
       },
-      "Fiat-Revelli mod. 14/35 HMG": {
+      {
+        "type": "Fiat-Revelli mod. 14/35 HMG",
         "count": 72,
-        "confidence": 75,
         "notes": "Heavy machine gun for support companies"
       },
-      "Breda mod. 37 HMG": {
+      {
+        "type": "Breda mod. 37 HMG",
         "count": 36,
-        "confidence": 75,
         "notes": "Modern heavy machine gun"
-      },
-      "total": 288
-    },
-    "ground_vehicles": {
-      "trucks": {
-        "count": 450,
-        "confidence": 70,
-        "notes": "Auto-transportable division had partial motorization"
-      },
-      "motorcycles": {
-        "count": 80,
-        "confidence": 65
-      },
-      "total": 530
-    },
-    "small_arms": {
-      "Carcano mod. 91 rifle": {
-        "count": 7200,
-        "confidence": 75
-      },
-      "Beretta mod. 38 SMG": {
-        "count": 350,
-        "confidence": 70
-      },
-      "total": 7550
-    },
-    "confidence": 75,
-    "notes": "Equipment counts based on standard Italian auto-transportable division TO&E, adjusted for actual tank numbers confirmed at Tobruk."
+      }
+    ]
   },
+
+  "transport_vehicles": {
+    "total": 530,
+    "trucks": {
+      "total": 450,
+      "notes": "Auto-transportable division had partial motorization"
+    },
+    "motorcycles": {
+      "total": 80
+    }
+  },
+
+  "small_arms": {
+    "total": 7550,
+    "variants": [
+      {
+        "type": "Carcano mod. 91 rifle",
+        "count": 7200
+      },
+      {
+        "type": "Beretta mod. 38 SMG",
+        "count": 350
+      }
+    ]
+  },
+
+  "top_3_infantry_weapons": {
+    "primary": {
+      "weapon": "Carcano mod. 91 rifle",
+      "count": 7200,
+      "percentage_of_total": 95.4,
+      "description": "Standard Italian bolt-action rifle"
+    },
+    "secondary": {
+      "weapon": "Beretta mod. 38 SMG",
+      "count": 350,
+      "percentage_of_total": 4.6,
+      "description": "Submachine gun for NCOs and assault troops"
+    },
+    "tertiary": {
+      "weapon": "Breda mod. 30 LMG",
+      "count": 180,
+      "percentage_of_total": 2.4,
+      "description": "Squad automatic weapon"
+    }
+  },
+
+  "supply_logistics": {
+    "fuel_reserves_days": 3,
+    "ammunition_days": 5,
+    "water_liters_per_day": 45000,
+    "food_ration_days": 7,
+    "operational_radius_km": 80,
+    "supply_route": "Coastal road from Benghazi",
+    "supply_status": "Critical - Encircled January 1941, no resupply possible",
+    "notes": "Supply situation deteriorated rapidly after encirclement on 7 January 1941. Division isolated for two weeks before destruction."
+  },
+
+  "morale_readiness": {
+    "morale_rating": 60,
+    "training_level": 65,
+    "combat_effectiveness": 50,
+    "equipment_serviceability": 45,
+    "notes": "Morale declined during encirclement. Only 7 of 20 medium tanks operational. Division classified as 'combat ineffective' by mid-January 1941."
+  },
+
   "combat_history_summary": {
     "formation_history": "Formed 9 May 1937 in Misrata, Italian Libya. Named for the Libyan city of Sirte. Recruited from Calabria, sharing depots with 27th Division Brescia.",
     "1941q1_operations": [
@@ -218,55 +281,24 @@
       "Siege of Tobruk (January 1941)",
       "Fall of Tobruk (21-22 January 1941)"
     ],
-    "final_disposition": "Division destroyed 21-22 January 1941 during British capture of Tobruk. Never reconstituted.",
-    "confidence": 95
+    "final_disposition": "Division destroyed 21-22 January 1941 during British capture of Tobruk. Never reconstituted."
   },
-  "supply_logistics": {
-    "fuel_reserves_days": 3,
-    "ammunition_days": 5,
-    "water_liters_per_day": 45000,
-    "food_ration_days": 7,
-    "operational_radius_km": 80,
-    "supply_route": "Coastal road from Benghazi",
-    "supply_status": "Critical - Encircled January 1941, no resupply possible",
-    "confidence": 70,
-    "notes": "Supply situation deteriorated rapidly after encirclement on 7 January 1941. Division isolated for two weeks before destruction."
-  },
-  "morale_readiness": {
-    "morale_rating": 60,
-    "training_level": 65,
-    "combat_effectiveness": 50,
-    "equipment_serviceability": 45,
-    "notes": "Morale declined during encirclement. Only 7 of 20 medium tanks operational. Division classified as 'combat ineffective' by mid-January 1941.",
-    "confidence": 75
-  },
-  "metadata": {
-    "extraction_date": "2025-10-19",
-    "sources": [
-      {
-        "title": "61st Infantry Division 'Sirte' - Wikipedia",
-        "type": "web_encyclopedia",
-        "confidence": 75,
-        "url": "https://en.wikipedia.org/wiki/61st_Infantry_Division_%22Sirte%22"
-      },
-      {
-        "title": "Battle of Tobruk (1941) - Wikipedia",
-        "type": "web_encyclopedia",
-        "confidence": 80,
-        "url": "https://en.wikipedia.org/wiki/Battle_of_Tobruk_(1941)"
-      },
-      {
-        "title": "Organization of Italian Divisions 1939-1943",
-        "author": "Nafziger Collection",
-        "type": "reference_document",
-        "confidence": 85,
-        "notes": "CARL 1943-1945 collection, provides standard divisional organization"
-      },
-      {
-        "title": "Italian Army Order of Battle 1940-1943",
-        "type": "historical_document",
-        "confidence": 75
-      }
+
+  "validation": {
+    "source": [
+      "61st Infantry Division 'Sirte' - Wikipedia",
+      "Battle of Tobruk (1941) - Wikipedia",
+      "Organization of Italian Divisions 1939-1943 - Nafziger Collection",
+      "Italian Army Order of Battle 1940-1943"
+    ],
+    "confidence": 75,
+    "last_updated": "2025-10-19",
+    "known_gaps": [
+      "Exact battalion-level organization not specified in sources",
+      "Equipment counts are estimates based on standard TO&E",
+      "Personnel casualties breakdown not available",
+      "Chief of Staff and subordinate commanders unknown",
+      "Detailed combat performance metrics unavailable"
     ],
     "data_quality": {
       "overall_confidence": 75,
@@ -275,13 +307,6 @@
       "equipment_estimated": true,
       "organizational_structure_verified": true
     },
-    "gaps_and_limitations": [
-      "Exact battalion-level organization not specified in sources",
-      "Equipment counts are estimates based on standard TO&E",
-      "Personnel casualties breakdown not available",
-      "Chief of Staff and subordinate commanders unknown",
-      "Detailed combat performance metrics unavailable"
-    ],
     "research_notes": "Combined web research with Nafziger standard Italian division organization. Commander and major equipment verified from Battle of Tobruk sources. Division was destroyed after only 15 days of combat at Tobruk, limiting available operational data."
   }
 }

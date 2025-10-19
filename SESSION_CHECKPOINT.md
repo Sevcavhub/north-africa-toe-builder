@@ -1,27 +1,20 @@
-# Session Checkpoint - 2025-10-19T23:16:23.110Z
+# Session Checkpoint - 2025-10-19T23:20:28.361Z
 
 ## Progress Summary
 
 - **Total Unit-Quarters:** 420
 - **Completed:** 152 (36.2%)
 - **Remaining:** 268
-- **Last Commit:** 5c94815
+- **Last Commit:** ce32b23
 
 ## Validation Status
 
 - **Total Validated:** 208
-- **✅ Passed:** 147 (70.7%)
-- **❌ Failed:** 3 ⚠️
+- **✅ Passed:** 149 (71.6%)
+- **❌ Failed:** 1 ⚠️
 - **⚠️ Warnings:** 58
 
 ### Critical Validation Failures
-
-**italian_1941q1_sirte_division:**
-  - ❌ Uses nested structure (unit_identification.*) instead of unified schema top-level fields
-  - ❌ Tank total mismatch: total=52 but heavy+medium+light=0
-
-**italian_1941q1_xxii_corps:**
-  - ❌ Tank total mismatch: total=65 but heavy+medium+light=0
 
 **italian_1941q3_101_divisione_motorizzata_trieste:**
   - ❌ Missing required field: schema_type
@@ -68,8 +61,8 @@ If this session crashes or needs to resume:
 ## Session Info
 
 - **Session ID:** complete_seed_generated
-- **Checkpoint Time:** 2025-10-19T23:16:23.079Z
-- **Git Commit:** 5c94815
+- **Checkpoint Time:** 2025-10-19T23:20:28.330Z
+- **Git Commit:** ce32b23
 
 ---
 
