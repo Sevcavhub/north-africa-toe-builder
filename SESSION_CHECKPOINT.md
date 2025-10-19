@@ -1,26 +1,29 @@
-# Session Checkpoint - 2025-10-19T16:26:52.272Z
+# Session Checkpoint - 2025-10-19T16:48:43.985Z
 
 ## Progress Summary
 
 - **Total Unit-Quarters:** 420
 - **Completed:** 152 (36.2%)
 - **Remaining:** 268
-- **Last Commit:** e62acb9
+- **Last Commit:** 689169b
 
 ## Validation Status
 
-- **Total Validated:** 170
-- **✅ Passed:** 143 (84.1%)
+- **Total Validated:** 173
+- **✅ Passed:** 143 (82.7%)
 - **❌ Failed:** 0 ✅
-- **⚠️ Warnings:** 27
+- **⚠️ Warnings:** 30
 
 **All units passed validation** ✅
 
 ## Chapter Status
 
-- **JSON Files:** 170
-- **MDBook Chapters:** 170 ✅
-- **All chapters present** ✅
+- **JSON Files:** 173
+- **MDBook Chapters:** 170 ⚠️
+- **Missing Chapters:** 3
+  - ❌ italian_1940q3_60_sabratha_division
+  - ❌ italian_1940q3_61_sirte_division
+  - ❌ italian_1940q3_62_marmarica_division
 
 ## Recent Completions
 
@@ -51,8 +54,8 @@ If this session crashes or needs to resume:
 ## Session Info
 
 - **Session ID:** complete_seed_generated
-- **Checkpoint Time:** 2025-10-19T16:26:52.241Z
-- **Git Commit:** e62acb9
+- **Checkpoint Time:** 2025-10-19T16:48:43.952Z
+- **Git Commit:** 689169b
 
 ---
 
