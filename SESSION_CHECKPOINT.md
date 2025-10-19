@@ -1,26 +1,41 @@
-# Session Checkpoint - 2025-10-19T06:25:05.309Z
+# Session Checkpoint - 2025-10-19T13:45:13.157Z
 
 ## Progress Summary
 
 - **Total Unit-Quarters:** 420
 - **Completed:** 152 (36.2%)
 - **Remaining:** 268
-- **Last Commit:** 55baeea
+- **Last Commit:** bce5bd0
 
 ## Validation Status
 
-- **Total Validated:** 153
-- **✅ Passed:** 142 (92.8%)
-- **❌ Failed:** 0 ✅
-- **⚠️ Warnings:** 11
+- **Total Validated:** 159
+- **✅ Passed:** 142 (89.3%)
+- **❌ Failed:** 3 ⚠️
+- **⚠️ Warnings:** 14
 
-**All units passed validation** ✅
+### Critical Validation Failures
+
+**italian_1941q2_ariete_division:**
+  - ❌ Uses nested structure (unit_identification.*) instead of unified schema top-level fields
+  - ❌ Tank total mismatch: total=80 but heavy+medium+light=0
+
+**italian_1941q2_bologna_division:**
+  - ❌ Failed to parse JSON: Expected ',' or ']' after array element in JSON at position 10107 (line 367 column 3)
+
+**italian_1941q2_trieste_division:**
+  - ❌ Missing required field: schema_type
 
 ## Chapter Status
 
-- **JSON Files:** 153
-- **MDBook Chapters:** 153 ✅
-- **All chapters present** ✅
+- **JSON Files:** 159
+- **MDBook Chapters:** 154 ⚠️
+- **Missing Chapters:** 5
+  - ❌ italian_1941q2_ariete_division
+  - ❌ italian_1941q2_bologna_division
+  - ❌ italian_1941q2_pavia_division
+  - ❌ italian_1941q2_trento_division
+  - ❌ italian_1941q2_trieste_division
 
 ## Recent Completions
 
@@ -51,8 +66,8 @@ If this session crashes or needs to resume:
 ## Session Info
 
 - **Session ID:** complete_seed_generated
-- **Checkpoint Time:** 2025-10-19T06:25:05.278Z
-- **Git Commit:** 55baeea
+- **Checkpoint Time:** 2025-10-19T13:45:13.125Z
+- **Git Commit:** bce5bd0
 
 ---
 
