@@ -1,11 +1,11 @@
-# Session Checkpoint - 2025-10-19T15:33:30.460Z
+# Session Checkpoint - 2025-10-19T15:35:21.363Z
 
 ## Progress Summary
 
 - **Total Unit-Quarters:** 420
 - **Completed:** 152 (36.2%)
 - **Remaining:** 268
-- **Last Commit:** 5098707
+- **Last Commit:** 0791fc2
 
 ## Validation Status
 
@@ -17,7 +17,8 @@
 ### Critical Validation Failures
 
 **british_1941q2_2nd_new_zealand_division:**
-  - ❌ Uses nested structure (unit_identification.*) instead of unified schema top-level fields
+  - ❌ Missing required field: organization_level
+  - ❌ Missing required field: validation
 
 ## Chapter Status
 
@@ -54,8 +55,8 @@ If this session crashes or needs to resume:
 ## Session Info
 
 - **Session ID:** complete_seed_generated
-- **Checkpoint Time:** 2025-10-19T15:33:30.421Z
-- **Git Commit:** 5098707
+- **Checkpoint Time:** 2025-10-19T15:35:21.318Z
+- **Git Commit:** 0791fc2
 
 ---
 
