@@ -1,30 +1,28 @@
-# Session Checkpoint - 2025-10-19T18:34:44.528Z
+# Session Checkpoint - 2025-10-19T18:54:27.975Z
 
 ## Progress Summary
 
 - **Total Unit-Quarters:** 420
 - **Completed:** 152 (36.2%)
 - **Remaining:** 268
-- **Last Commit:** 5f20228
+- **Last Commit:** 19e94ec
 
 ## Validation Status
 
-- **Total Validated:** 181
-- **✅ Passed:** 146 (80.7%)
+- **Total Validated:** 183
+- **✅ Passed:** 147 (80.3%)
 - **❌ Failed:** 0 ✅
-- **⚠️ Warnings:** 35
+- **⚠️ Warnings:** 36
 
 **All units passed validation** ✅
 
 ## Chapter Status
 
-- **JSON Files:** 181
-- **MDBook Chapters:** 177 ⚠️
-- **Missing Chapters:** 4
-  - ❌ british_1941q4_xiii_corps
-  - ❌ british_1941q4_xxx_corps
-  - ❌ italian_1941q4_xxi_corps
-  - ❌ italian_1941q4_xx_corps
+- **JSON Files:** 183
+- **MDBook Chapters:** 181 ⚠️
+- **Missing Chapters:** 2
+  - ❌ british_1941q4_4th_indian_division
+  - ❌ british_1941q4_6th_australian_division
 
 ## Recent Completions
 
@@ -55,8 +53,8 @@ If this session crashes or needs to resume:
 ## Session Info
 
 - **Session ID:** complete_seed_generated
-- **Checkpoint Time:** 2025-10-19T18:34:44.496Z
-- **Git Commit:** 5f20228
+- **Checkpoint Time:** 2025-10-19T18:54:27.943Z
+- **Git Commit:** 19e94ec
 
 ---
 
