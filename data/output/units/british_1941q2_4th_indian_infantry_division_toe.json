@@ -1,6 +1,6 @@
 {
   "schema_type": "division_toe",
-  "schema_version": "1.0.0",
+  "schema_version": "3.1.0",
   "nation": "british",
   "quarter": "1941-Q2",
   "unit_designation": "4th Indian Infantry Division",
@@ -173,11 +173,23 @@
     }
   },
   "aircraft_total": 0,
-  "supply_status": {
-    "fuel_days": 8,
+  "supply_logistics": {
+    "supply_status": "Adequate for defensive operations but constrained for sustained offensive. Division recently returned from East Africa campaign (April 1941) and is reconstituting supplies. Primary constraints: fuel delivery from Egyptian depots (150-250km), ammunition stockpiling for Operation Battleaxe, water resupply in desert conditions. 5th Brigade detached to Syria in June reduces divisional logistics burden.",
+    "operational_radius_km": 200,
+    "fuel_reserves_days": 8,
     "ammunition_days": 12,
     "water_liters_per_day": 85000,
-    "food_days": 14
+    "food_rations_days": 14
+  },
+  "weather_environment": {
+    "season_quarter": "1941-Q2 (April-June)",
+    "temperature_range_c": {
+      "min": 18,
+      "max": 38
+    },
+    "terrain_type": "coastal plain and rocky desert (Egypt/Cyrenaica border region)",
+    "storm_frequency_days": 2,
+    "environmental_notes": "Late spring transitioning to summer. Temperatures rising sharply by June. Khamsin sandstorms common April-May (2-3 days per month). Coastal areas more moderate than inland desert. Division transitioning from East African mountain/highland climate back to desert conditions. Water discipline critical - 5 liters per man per day minimum. Dust and sand affect vehicle maintenance. Limited vegetation for cover in desert terrain."
   },
   "subordinate_units": [
     {
@@ -317,8 +329,8 @@
       "East African Campaign records - Battle of Keren participation confirmed"
     ],
     "confidence": 75,
-    "last_updated": "2025-10-11T15:45:00Z",
-    "validated_by": "book_chapter_generator agent - Regenerated with flat schema structure matching 7th Armoured Division format",
+    "last_updated": "2025-10-19T00:00:00Z",
+    "validated_by": "schema_upgrade_v3.1.0 - Added supply_logistics and weather_environment sections for scenario generation",
     "known_gaps": [
       "Specific field artillery regiment designations (2 of 3 regiments unknown)",
       "Brigade commander names not identified in available sources",

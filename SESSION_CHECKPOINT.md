@@ -1,26 +1,31 @@
-# Session Checkpoint - 2025-10-19T14:05:44.757Z
+# Session Checkpoint - 2025-10-19T14:53:35.876Z
 
 ## Progress Summary
 
 - **Total Unit-Quarters:** 420
 - **Completed:** 152 (36.2%)
 - **Remaining:** 268
-- **Last Commit:** 31b26ca
+- **Last Commit:** 2fd13b3
 
 ## Validation Status
 
-- **Total Validated:** 160
-- **✅ Passed:** 143 (89.4%)
-- **❌ Failed:** 0 ✅
-- **⚠️ Warnings:** 17
+- **Total Validated:** 164
+- **✅ Passed:** 143 (87.2%)
+- **❌ Failed:** 1 ⚠️
+- **⚠️ Warnings:** 20
 
-**All units passed validation** ✅
+### Critical Validation Failures
+
+**british_1941q2_2nd_new_zealand_division:**
+  - ❌ Uses nested structure (unit_identification.*) instead of unified schema top-level fields
 
 ## Chapter Status
 
-- **JSON Files:** 160
-- **MDBook Chapters:** 160 ✅
-- **All chapters present** ✅
+- **JSON Files:** 164
+- **MDBook Chapters:** 162 ⚠️
+- **Missing Chapters:** 2
+  - ❌ british_1941q2_2nd_south_african_division
+  - ❌ british_1941q2_7th_australian_division
 
 ## Recent Completions
 
@@ -51,8 +56,8 @@ If this session crashes or needs to resume:
 ## Session Info
 
 - **Session ID:** complete_seed_generated
-- **Checkpoint Time:** 2025-10-19T14:05:44.718Z
-- **Git Commit:** 31b26ca
+- **Checkpoint Time:** 2025-10-19T14:53:35.845Z
+- **Git Commit:** 2fd13b3
 
 ---
 
