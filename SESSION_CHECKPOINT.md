@@ -1,32 +1,36 @@
-# Session Checkpoint - 2025-10-19T19:49:34.360Z
+# Session Checkpoint - 2025-10-19T22:16:16.576Z
 
 ## Progress Summary
 
 - **Total Unit-Quarters:** 420
 - **Completed:** 152 (36.2%)
 - **Remaining:** 268
-- **Last Commit:** 453e25d
+- **Last Commit:** 8e98283
 
 ## Validation Status
 
-- **Total Validated:** 191
-- **✅ Passed:** 148 (77.5%)
-- **❌ Failed:** 0 ✅
-- **⚠️ Warnings:** 43
+- **Total Validated:** 202
+- **✅ Passed:** 147 (72.8%)
+- **❌ Failed:** 1 ⚠️
+- **⚠️ Warnings:** 54
 
-**All units passed validation** ✅
+### Critical Validation Failures
+
+**italian_1941q3_101_divisione_motorizzata_trieste:**
+  - ❌ Missing required field: schema_type
+  - ❌ Missing required field: schema_version
 
 ## Chapter Status
 
-- **JSON Files:** 191
+- **JSON Files:** 202
 - **MDBook Chapters:** 183 ⚠️
-- **Missing Chapters:** 8
+- **Missing Chapters:** 19
   - ❌ british_1941q4_70th_infantry_division
   - ❌ german_1941q4_panzergruppe_afrika
-  - ❌ italian_1941q4_101_trieste_division
-  - ❌ italian_1941q4_102_trento_division
-  - ❌ italian_1941q4_132_ariete_division
-  - ... and 3 more
+  - ❌ italian_1941q1_catanzaro_division
+  - ❌ italian_1941q1_cirene_division
+  - ❌ italian_1941q1_marmarica_division
+  - ... and 14 more
 
 ## Recent Completions
 
@@ -57,8 +61,8 @@ If this session crashes or needs to resume:
 ## Session Info
 
 - **Session ID:** complete_seed_generated
-- **Checkpoint Time:** 2025-10-19T19:49:34.329Z
-- **Git Commit:** 453e25d
+- **Checkpoint Time:** 2025-10-19T22:16:16.544Z
+- **Git Commit:** 8e98283
 
 ---
 
