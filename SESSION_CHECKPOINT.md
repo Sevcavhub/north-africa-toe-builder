@@ -1,11 +1,11 @@
-# Session Checkpoint - 2025-10-16T00:37:37.265Z
+# Session Checkpoint - 2025-10-19T06:15:11.758Z
 
 ## Progress Summary
 
 - **Total Unit-Quarters:** 420
 - **Completed:** 152 (36.2%)
 - **Remaining:** 268
-- **Last Commit:** 86cc770
+- **Last Commit:** d29b693
 
 ## Validation Status
 
@@ -26,14 +26,14 @@
 ## Chapter Status
 
 - **JSON Files:** 153
-- **MDBook Chapters:** 0 ⚠️
-- **Missing Chapters:** 153
+- **MDBook Chapters:** 16 ⚠️
+- **Missing Chapters:** 137
   - ❌ american_1942q4_1st_armored_division
   - ❌ american_1942q4_1st_infantry_division
   - ❌ american_1942q4_3rd_infantry_division
   - ❌ american_1942q4_9th_infantry_division
   - ❌ american_1943q1_1st_infantry_division
-  - ... and 148 more
+  - ... and 132 more
 
 ## Recent Completions
 
@@ -64,8 +64,8 @@ If this session crashes or needs to resume:
 ## Session Info
 
 - **Session ID:** complete_seed_generated
-- **Checkpoint Time:** 2025-10-16T00:37:37.231Z
-- **Git Commit:** 86cc770
+- **Checkpoint Time:** 2025-10-19T06:15:11.726Z
+- **Git Commit:** d29b693
 
 ---
 
