@@ -1,16 +1,16 @@
-# Session Checkpoint - 2025-10-19T16:57:12.474Z
+# Session Checkpoint - 2025-10-19T17:17:34.951Z
 
 ## Progress Summary
 
 - **Total Unit-Quarters:** 420
 - **Completed:** 152 (36.2%)
 - **Remaining:** 268
-- **Last Commit:** 9aaf3d1
+- **Last Commit:** 5b03d65
 
 ## Validation Status
 
-- **Total Validated:** 174
-- **✅ Passed:** 143 (82.2%)
+- **Total Validated:** 177
+- **✅ Passed:** 146 (82.5%)
 - **❌ Failed:** 0 ✅
 - **⚠️ Warnings:** 31
 
@@ -18,10 +18,12 @@
 
 ## Chapter Status
 
-- **JSON Files:** 174
-- **MDBook Chapters:** 173 ⚠️
-- **Missing Chapters:** 1
-  - ❌ german_1942q1_deutsches_afrikakorps
+- **JSON Files:** 177
+- **MDBook Chapters:** 174 ⚠️
+- **Missing Chapters:** 3
+  - ❌ british_1942q1_1st_armoured_division
+  - ❌ german_1942q1_15_panzer_division
+  - ❌ german_1942q1_21_panzer_division
 
 ## Recent Completions
 
@@ -52,8 +54,8 @@ If this session crashes or needs to resume:
 ## Session Info
 
 - **Session ID:** complete_seed_generated
-- **Checkpoint Time:** 2025-10-19T16:57:12.442Z
-- **Git Commit:** 9aaf3d1
+- **Checkpoint Time:** 2025-10-19T17:17:34.921Z
+- **Git Commit:** 5b03d65
 
 ---
 
