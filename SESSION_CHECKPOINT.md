@@ -1,26 +1,20 @@
-# Session Checkpoint - 2025-10-20T01:14:28.254Z
+# Session Checkpoint - 2025-10-20T01:15:06.289Z
 
 ## Progress Summary
 
 - **Total Unit-Quarters:** 420
 - **Completed:** 152 (36.2%)
 - **Remaining:** 268
-- **Last Commit:** a11a442
+- **Last Commit:** 1e2f74c
 
 ## Validation Status
 
 - **Total Validated:** 211
 - **✅ Passed:** 149 (70.6%)
-- **❌ Failed:** 3 ⚠️
-- **⚠️ Warnings:** 59
+- **❌ Failed:** 1 ⚠️
+- **⚠️ Warnings:** 61
 
 ### Critical Validation Failures
-
-**italian_1941q1_ariete_division:**
-  - ❌ Missing required field: organization_level
-
-**italian_1941q1_trento_division:**
-  - ❌ Missing required field: organization_level
 
 **italian_1941q3_101_divisione_motorizzata_trieste:**
   - ❌ Missing required field: schema_type
@@ -67,8 +61,8 @@ If this session crashes or needs to resume:
 ## Session Info
 
 - **Session ID:** complete_seed_generated
-- **Checkpoint Time:** 2025-10-20T01:14:28.222Z
-- **Git Commit:** a11a442
+- **Checkpoint Time:** 2025-10-20T01:15:06.258Z
+- **Git Commit:** 1e2f74c
 
 ---
 
