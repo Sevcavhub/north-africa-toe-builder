@@ -1,0 +1,271 @@
+{
+  "version": "1.0.0",
+  "generated": "2025-10-20",
+  "description": "Machine-readable extraction dependency rules for autonomous agents",
+
+  "dependency_types": {
+    "hierarchical": {
+      "description": "Parent unit must exist before child unit (same nation, same quarter)",
+      "blocking": true,
+      "enforcement": "strict"
+    },
+    "temporal": {
+      "description": "Same unit across quarters must be extracted sequentially (Q1→Q2→Q3→Q4)",
+      "blocking": true,
+      "enforcement": "strict"
+    },
+    "equipment": {
+      "description": "Equipment sharing between units (informational only)",
+      "blocking": false,
+      "enforcement": "none"
+    },
+    "cross_nation": {
+      "description": "Units from different nations have no dependencies",
+      "blocking": false,
+      "enforcement": "none"
+    }
+  },
+
+  "hierarchy_order": [
+    "army_group",
+    "army",
+    "corps",
+    "division",
+    "brigade",
+    "regiment",
+    "battalion"
+  ],
+
+  "extraction_rules": {
+    "rule_1_hierarchical": {
+      "type": "hierarchical",
+      "rule": "Must extract parent formation before subordinate units in same quarter",
+      "implementation": "For each unit, identify parent_formation field. If parent exists and not yet extracted, wait.",
+      "example": "Cannot extract 'XIII Corps 1942-Q1' until '8th Army 1942-Q1' complete"
+    },
+    "rule_2_temporal": {
+      "type": "temporal",
+      "rule": "Must extract quarters sequentially for same unit (Q1→Q2→Q3→Q4)",
+      "implementation": "For each unit appearing in multiple quarters, sort by quarter and extract in order",
+      "example": "Cannot extract 'Trieste Division 1942-Q2' until 'Trieste Division 1942-Q1' complete"
+    },
+    "rule_3_parallel_nations": {
+      "type": "cross_nation",
+      "rule": "Units from different nations can be extracted in parallel (no cross-nation dependencies)",
+      "implementation": "Group units by nation within same year, run extraction agents in parallel",
+      "example": "Can extract 'German 15. Pz.Div 1942-Q2' and 'British 7th Armoured 1942-Q2' simultaneously"
+    },
+    "rule_4_skip_completed": {
+      "type": "optimization",
+      "rule": "Always check WORKFLOW_STATE.json before extraction. Skip if already complete.",
+      "implementation": "canonicalId = nation_quarter_designation. Check if in workflow.completed[]",
+      "example": "Skip 'british_1941q4_7th_armoured_division' if in WORKFLOW_STATE.json completed array"
+    }
+  },
+
+  "extraction_phases": {
+    "phase_order": [
+      "armies",
+      "corps",
+      "divisions",
+      "brigades"
+    ],
+    "description": "Within each year-quarter, extract in this order to satisfy hierarchical dependencies"
+  },
+
+  "recommended_strategy": {
+    "name": "Chronological-First with Parallel Nations",
+    "approach": [
+      "1. Group all remaining units by year (1940, 1941, 1942, 1943)",
+      "2. Within each year, extract chronologically (Q1→Q2→Q3→Q4)",
+      "3. Within each quarter, extract hierarchically (armies→corps→divisions)",
+      "4. Within each hierarchy level, parallelize by nation (5 agents max)",
+      "5. Within each nation-hierarchy, parallelize divisions (if parent extracted)"
+    ],
+    "rationale": [
+      "Preserves historical continuity (temporal sequences satisfied naturally)",
+      "Maximizes parallelization (5 nations simultaneously in 1942-1943)",
+      "Satisfies hierarchical dependencies (phase-based extraction within quarter)",
+      "Enables 'changed since' narrative for multi-quarter units"
+    ]
+  },
+
+  "parallel_capacity": {
+    "1940": {
+      "nations": ["italian"],
+      "max_parallel_agents": 1,
+      "total_unit_quarters": 42
+    },
+    "1941": {
+      "nations": ["italian", "british", "french"],
+      "max_parallel_agents": 3,
+      "total_unit_quarters": 40
+    },
+    "1942": {
+      "nations": ["german", "italian", "british", "american", "french"],
+      "max_parallel_agents": 5,
+      "total_unit_quarters": 119
+    },
+    "1943": {
+      "nations": ["german", "italian", "british", "american", "french"],
+      "max_parallel_agents": 5,
+      "total_unit_quarters": 106
+    }
+  },
+
+  "temporal_sequences": [
+    {
+      "unit": "4th Indian Division",
+      "nation": "british",
+      "quarters": ["1940-Q2", "1940-Q3", "1940-Q4", "1941-Q2", "1941-Q3", "1942-Q1", "1942-Q2", "1942-Q3", "1942-Q4", "1943-Q1", "1943-Q2"],
+      "sequence_length": 11,
+      "extraction_order": "sequential"
+    },
+    {
+      "unit": "Trieste Division",
+      "nation": "italian",
+      "quarters": ["1941-Q1", "1941-Q3", "1941-Q4", "1942-Q1", "1942-Q2", "1942-Q3", "1942-Q4", "1943-Q1", "1943-Q2"],
+      "sequence_length": 9,
+      "extraction_order": "sequential"
+    },
+    {
+      "unit": "XXI Corps",
+      "nation": "italian",
+      "quarters": ["1940-Q4", "1941-Q1", "1942-Q1", "1942-Q2", "1942-Q3", "1942-Q4", "1943-Q1", "1943-Q2"],
+      "sequence_length": 8,
+      "extraction_order": "sequential"
+    }
+  ],
+
+  "hierarchical_dependencies_by_quarter": {
+    "1940-Q3": [
+      {"parent": "10th Army", "child": "XXII Corps", "nation": "italian"}
+    ],
+    "1940-Q4": [
+      {"parent": "10th Army", "child": "XXI Corps", "nation": "italian"},
+      {"parent": "10th Army", "child": "XXII Corps", "nation": "italian"}
+    ],
+    "1942-Q1": [
+      {"parent": "Panzerarmee Afrika", "child": "Panzergruppe Afrika", "nation": "german"},
+      {"parent": "8th Army", "child": "XIII Corps", "nation": "british"},
+      {"parent": "8th Army", "child": "XXX Corps", "nation": "british"}
+    ],
+    "1942-Q2": [
+      {"parent": "Panzerarmee Afrika", "child": "Deutsches Afrikakorps", "nation": "german"},
+      {"parent": "8th Army", "child": "XIII Corps", "nation": "british"},
+      {"parent": "8th Army", "child": "XXX Corps", "nation": "british"}
+    ],
+    "1942-Q3": [
+      {"parent": "8th Army", "child": "XIII Corps", "nation": "british"},
+      {"parent": "8th Army", "child": "XXX Corps", "nation": "british"},
+      {"parent": "8th Army", "child": "X Corps", "nation": "british"}
+    ],
+    "1942-Q4": [
+      {"parent": "First Army", "child": "XIII Corps", "nation": "british"},
+      {"parent": "First Army", "child": "XXX Corps", "nation": "british"},
+      {"parent": "First Army", "child": "V Corps", "nation": "british"},
+      {"parent": "First Army", "child": "IX Corps", "nation": "british"}
+    ],
+    "1943-Q1": [
+      {"parent": "Panzerarmee Afrika", "child": "Deutsches Afrikakorps", "nation": "german"},
+      {"parent": "First Italian Army", "child": "XXI Corps", "nation": "italian"},
+      {"parent": "First Italian Army", "child": "X Corps", "nation": "italian"},
+      {"parent": "First Italian Army", "child": "XIX Corps", "nation": "italian"},
+      {"parent": "8th Army", "child": "XIII Corps", "nation": "british"},
+      {"parent": "8th Army", "child": "XXX Corps", "nation": "british"},
+      {"parent": "8th Army", "child": "X Corps", "nation": "british"},
+      {"parent": "8th Army", "child": "V Corps", "nation": "british"},
+      {"parent": "8th Army", "child": "IX Corps", "nation": "british"}
+    ],
+    "1943-Q2": [
+      {"parent": "5th Panzer Army", "child": "Deutsches Afrikakorps", "nation": "german"},
+      {"parent": "First Italian Army", "child": "XXI Corps", "nation": "italian"},
+      {"parent": "First Italian Army", "child": "X Corps", "nation": "italian"},
+      {"parent": "First Italian Army", "child": "XIX Corps", "nation": "italian"},
+      {"parent": "8th Army", "child": "XIII Corps", "nation": "british"},
+      {"parent": "8th Army", "child": "XXX Corps", "nation": "british"},
+      {"parent": "8th Army", "child": "X Corps", "nation": "british"},
+      {"parent": "8th Army", "child": "V Corps", "nation": "british"},
+      {"parent": "8th Army", "child": "IX Corps", "nation": "british"}
+    ]
+  },
+
+  "implementation_pseudocode": {
+    "check_can_extract": {
+      "inputs": ["nation", "quarter", "designation"],
+      "logic": [
+        "1. Create canonical_id = nation_quarter_designation",
+        "2. Check WORKFLOW_STATE.json: if canonical_id in completed[], return FALSE",
+        "3. Check hierarchical: does this unit have parent_formation?",
+        "   a. If YES, check if parent already extracted in same quarter",
+        "   b. If parent not extracted, return FALSE (must wait)",
+        "4. Check temporal: is this unit appearing in previous quarter?",
+        "   a. If YES, check if previous quarter already extracted",
+        "   b. If previous quarter not extracted, return FALSE (must wait)",
+        "5. All checks passed: return TRUE (safe to extract)"
+      ],
+      "returns": "boolean (true if safe to extract, false if dependencies not met)"
+    },
+    "get_next_batch": {
+      "inputs": ["year", "quarter", "nation"],
+      "logic": [
+        "1. Load all remaining units for year-quarter-nation",
+        "2. Filter to current hierarchy phase (armies, then corps, then divisions)",
+        "3. For each unit in phase:",
+        "   a. Run check_can_extract(nation, quarter, designation)",
+        "   b. If TRUE, add to extraction_batch[]",
+        "4. Return extraction_batch (all units safe to extract in parallel)"
+      ],
+      "returns": "array of units ready for parallel extraction"
+    }
+  },
+
+  "validation_checkpoints": {
+    "after_each_unit": {
+      "checks": [
+        "Schema validation (schema_validator agent)",
+        "File written to canonical location (data/output/units/)",
+        "WORKFLOW_STATE.json updated (add to completed[])"
+      ]
+    },
+    "after_each_quarter": {
+      "checks": [
+        "All hierarchical dependencies satisfied (no orphan corps without parent army)",
+        "Temporal continuity maintained (no gaps in quarter sequences)"
+      ]
+    },
+    "after_each_year": {
+      "checks": [
+        "Progress metrics updated",
+        "Checkpoint created (CHECKPOINT_{year}.json)",
+        "Human review opportunity"
+      ]
+    }
+  },
+
+  "error_handling": {
+    "dependency_not_met": {
+      "action": "Skip unit, add to pending queue, retry after dependencies satisfied"
+    },
+    "extraction_failed": {
+      "action": "Log error, mark unit as failed, continue with other units, human review required"
+    },
+    "validation_failed": {
+      "action": "Mark unit as failed, save error report, continue with other units, human review required"
+    },
+    "duplicate_extraction_attempt": {
+      "action": "Skip (already in WORKFLOW_STATE.json completed[])"
+    }
+  },
+
+  "progress_tracking": {
+    "metrics": [
+      "total_remaining: 307 unit-quarters",
+      "by_year: {1940: 42, 1941: 40, 1942: 119, 1943: 106}",
+      "by_nation: {german: 34, italian: 130, british: 108, american: 17, french: 18}",
+      "completion_percentage: 27% (113/420 complete)"
+    ],
+    "update_frequency": "After each unit extracted",
+    "reporting": "Generate progress report after each year complete"
+  }
+}
