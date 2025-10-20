@@ -1,20 +1,23 @@
-# Session Checkpoint - 2025-10-20T01:15:18.764Z
+# Session Checkpoint - 2025-10-20T02:55:41.223Z
 
 ## Progress Summary
 
 - **Total Unit-Quarters:** 420
 - **Completed:** 152 (36.2%)
 - **Remaining:** 268
-- **Last Commit:** cb1706e
+- **Last Commit:** 291c684
 
 ## Validation Status
 
-- **Total Validated:** 211
-- **✅ Passed:** 149 (70.6%)
-- **❌ Failed:** 1 ⚠️
-- **⚠️ Warnings:** 61
+- **Total Validated:** 212
+- **✅ Passed:** 148 (69.8%)
+- **❌ Failed:** 2 ⚠️
+- **⚠️ Warnings:** 62
 
 ### Critical Validation Failures
+
+**german_1941q1_5th_light_division:**
+  - ❌ Tank total mismatch: total=130 but heavy+medium+light=122
 
 **italian_1941q3_101_divisione_motorizzata_trieste:**
   - ❌ Missing required field: schema_type
@@ -22,8 +25,8 @@
 
 ## Chapter Status
 
-- **JSON Files:** 211
-- **MDBook Chapters:** 189 ⚠️
+- **JSON Files:** 212
+- **MDBook Chapters:** 190 ⚠️
 - **Missing Chapters:** 22
   - ❌ british_1941q1_6th_australian_division
   - ❌ british_1941q4_70th_infantry_division
@@ -61,8 +64,8 @@ If this session crashes or needs to resume:
 ## Session Info
 
 - **Session ID:** complete_seed_generated
-- **Checkpoint Time:** 2025-10-20T01:15:18.732Z
-- **Git Commit:** cb1706e
+- **Checkpoint Time:** 2025-10-20T02:55:41.191Z
+- **Git Commit:** 291c684
 
 ---
 
