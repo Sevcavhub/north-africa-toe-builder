@@ -1,20 +1,26 @@
-# Session Checkpoint - 2025-10-19T23:20:36.040Z
+# Session Checkpoint - 2025-10-20T01:14:28.254Z
 
 ## Progress Summary
 
 - **Total Unit-Quarters:** 420
 - **Completed:** 152 (36.2%)
 - **Remaining:** 268
-- **Last Commit:** bd33087
+- **Last Commit:** a11a442
 
 ## Validation Status
 
-- **Total Validated:** 208
-- **✅ Passed:** 149 (71.6%)
-- **❌ Failed:** 1 ⚠️
-- **⚠️ Warnings:** 58
+- **Total Validated:** 211
+- **✅ Passed:** 149 (70.6%)
+- **❌ Failed:** 3 ⚠️
+- **⚠️ Warnings:** 59
 
 ### Critical Validation Failures
+
+**italian_1941q1_ariete_division:**
+  - ❌ Missing required field: organization_level
+
+**italian_1941q1_trento_division:**
+  - ❌ Missing required field: organization_level
 
 **italian_1941q3_101_divisione_motorizzata_trieste:**
   - ❌ Missing required field: schema_type
@@ -22,8 +28,8 @@
 
 ## Chapter Status
 
-- **JSON Files:** 208
-- **MDBook Chapters:** 186 ⚠️
+- **JSON Files:** 211
+- **MDBook Chapters:** 189 ⚠️
 - **Missing Chapters:** 22
   - ❌ british_1941q1_6th_australian_division
   - ❌ british_1941q4_70th_infantry_division
@@ -61,8 +67,8 @@ If this session crashes or needs to resume:
 ## Session Info
 
 - **Session ID:** complete_seed_generated
-- **Checkpoint Time:** 2025-10-19T23:20:36.009Z
-- **Git Commit:** bd33087
+- **Checkpoint Time:** 2025-10-20T01:14:28.222Z
+- **Git Commit:** a11a442
 
 ---
 
