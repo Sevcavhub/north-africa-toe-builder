@@ -203,12 +203,18 @@ function isCompleted(nation, designation, quarter, completedSet) {
 
     const prefix = `${nation}_${normalizedQuarter}`;
     const prefixAlt = `${nation}_${quarter}`;
-    const designationWords = designation.toLowerCase().split(/\s+/).filter(w => w.length > 3);
+    // Keep ALL words including short ones like "XX", "XXI", "15", "5th"
+    const designationWords = designation.toLowerCase().split(/\s+/).filter(w => w.length > 0);
 
     for (const completedId of completedSet) {
         if (completedId.startsWith(prefix) || completedId.startsWith(prefixAlt)) {
-            const match = designationWords.every(word => completedId.includes(word.substring(0, 4)));
-            if (match) {
+            // Match key identifiers (numbers, roman numerals, division names)
+            const match = designationWords.some(word => {
+                // Keep full word for short identifiers (XX, XXI, 15, etc.)
+                const searchTerm = word.length <= 3 ? word : word.substring(0, 4);
+                return completedId.includes(searchTerm);
+            });
+            if (match && designationWords.length > 0) {
                 return true;
             }
         }
