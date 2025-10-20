@@ -1,23 +1,20 @@
-# Session Checkpoint - 2025-10-20T03:17:17.753Z
+# Session Checkpoint - 2025-10-20T03:17:53.789Z
 
 ## Progress Summary
 
 - **Total Unit-Quarters:** 420
 - **Completed:** 152 (36.2%)
 - **Remaining:** 268
-- **Last Commit:** febed34
+- **Last Commit:** b38bfa7
 
 ## Validation Status
 
 - **Total Validated:** 216
 - **✅ Passed:** 148 (68.5%)
-- **❌ Failed:** 2 ⚠️
-- **⚠️ Warnings:** 66
+- **❌ Failed:** 1 ⚠️
+- **⚠️ Warnings:** 67
 
 ### Critical Validation Failures
-
-**german_1941q1_5th_light_division:**
-  - ❌ Tank total mismatch: total=130 but heavy+medium+light=122
 
 **italian_1941q3_101_divisione_motorizzata_trieste:**
   - ❌ Missing required field: schema_type
@@ -64,8 +61,8 @@ If this session crashes or needs to resume:
 ## Session Info
 
 - **Session ID:** complete_seed_generated
-- **Checkpoint Time:** 2025-10-20T03:17:17.721Z
-- **Git Commit:** febed34
+- **Checkpoint Time:** 2025-10-20T03:17:53.758Z
+- **Git Commit:** b38bfa7
 
 ---
 
