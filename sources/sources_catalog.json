@@ -29,10 +29,22 @@
           "confidence_rating": 85,
           "type": "historical_reference",
           "file_paths": [
+            "D:\\north-africa-toe-builder\\data\\output\\pdf_extracts\\682349763-Battle-Orders-028-Desert-Rats-British-8th-Army-in-North-Africa-1941-43_pages_1-10.txt",
+            "D:\\north-africa-toe-builder\\data\\output\\pdf_extracts\\682349763-Battle-Orders-028-Desert-Rats-British-8th-Army-in-North-Africa-1941-43_pages_11-20.txt",
+            "D:\\north-africa-toe-builder\\data\\output\\pdf_extracts\\682349763-Battle-Orders-028-Desert-Rats-British-8th-Army-in-North-Africa-1941-43_pages_21-30.txt",
+            "D:\\north-africa-toe-builder\\data\\output\\pdf_extracts\\682349763-Battle-Orders-028-Desert-Rats-British-8th-Army-in-North-Africa-1941-43_pages_31-40.txt",
+            "D:\\north-africa-toe-builder\\data\\output\\pdf_extracts\\682349763-Battle-Orders-028-Desert-Rats-British-8th-Army-in-North-Africa-1941-43_pages_41-50.txt",
+            "D:\\north-africa-toe-builder\\data\\output\\pdf_extracts\\682349763-Battle-Orders-028-Desert-Rats-British-8th-Army-in-North-Africa-1941-43_pages_51-60.txt",
+            "D:\\north-africa-toe-builder\\data\\output\\pdf_extracts\\682349763-Battle-Orders-028-Desert-Rats-British-8th-Army-in-North-Africa-1941-43_pages_61-70.txt",
+            "D:\\north-africa-toe-builder\\data\\output\\pdf_extracts\\682349763-Battle-Orders-028-Desert-Rats-British-8th-Army-in-North-Africa-1941-43_pages_71-80.txt",
+            "D:\\north-africa-toe-builder\\data\\output\\pdf_extracts\\682349763-Battle-Orders-028-Desert-Rats-British-8th-Army-in-North-Africa-1941-43_pages_81-90.txt",
+            "D:\\north-africa-toe-builder\\data\\output\\pdf_extracts\\682349763-Battle-Orders-028-Desert-Rats-British-8th-Army-in-North-Africa-1941-43_pages_91-100.txt",
             "D:\\north-africa-toe-builder\\Resource Documents\\British_PRIMARY_SOURCES\\682349763-Battle-Orders-028-Desert-Rats-British-8th-Army-in-North-Africa-1941-43.pdf"
           ],
-          "coverage": "8th Army organization, operations, equipment in North Africa",
-          "best_for": ["north_africa_specific", "8th_army_units", "operational_context"]
+          "text_format": "OCR extracted text from scanned PDF (pages 1-100 in 10-page chunks)",
+          "coverage": "8th Army organization, operations, equipment in North Africa. Artillery units (2-pdr, 6-pdr, 25-pdr), tank specifications (Stuart, Crusader, Matilda, Valentine), infantry battalions, support companies, operational doctrine",
+          "best_for": ["north_africa_specific", "8th_army_units", "operational_context", "equipment_specs", "artillery_organization", "armor_tactics"],
+          "notes": "OCR text files extracted October 2025 using Tesseract. High quality extraction with accurate technical specifications and unit details. Use text files to avoid PDF API token errors."
         },
         {
           "source_id": "BRITISH_ARMY_LISTS",
@@ -353,6 +365,7 @@
     "cross_reference_minimum": "Use at least 2 sources for critical facts (commanders, unit designations)",
     "conflict_resolution": "When sources conflict, prioritize: Official manuals > Army Lists/Tessin > Research databases > Specialized sites",
     "gzipped_files": "British Army Lists and Tessin files are gzipped - need to decompress before reading",
-    "text_extraction": "TM30-410 has both PDF and extracted text - use text files for faster searching"
+    "text_extraction": "TM30-410 and DESERT_RATS have both PDF and extracted text - use text files for faster searching and to avoid API token errors",
+    "ocr_text_files": "DESERT_RATS OCR text files (Oct 2025) provide clean, readable text avoiding PDF parsing errors. Text files are listed FIRST in file_paths array - agents should prefer them over PDFs."
   }
 }

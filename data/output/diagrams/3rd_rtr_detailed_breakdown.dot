@@ -1,0 +1,311 @@
+// 3rd Royal Tank Regiment - Detailed Equipment Breakdown
+// June 1942 - Individual tank level detail
+// Similar to Hermann Göring Division example
+
+digraph G {
+    rankdir=TB;
+    bgcolor="white";
+    node [fontname="Arial", fontsize=9];
+
+    // Regiment HQ
+    regiment [
+        shape=box,
+        style="filled,rounded",
+        fillcolor="#8B4513",
+        fontcolor="white",
+        label="3rd Royal Tank Regiment\n52 tanks total\n(40x Crusader III, 12x Stuart)",
+        fontsize=11,
+        width=3
+    ];
+
+    // Regimental HQ Squadron
+    rhq [
+        shape=box,
+        style="filled",
+        fillcolor="#D2691E",
+        fontcolor="white",
+        label="Regimental HQ\n4 tanks",
+        fontsize=10
+    ];
+
+    // Squadrons (Company equivalent)
+    sqn_a [
+        shape=box,
+        style="filled",
+        fillcolor="#D2691E",
+        fontcolor="white",
+        label="A Squadron\n16 tanks",
+        fontsize=10
+    ];
+
+    sqn_b [
+        shape=box,
+        style="filled",
+        fillcolor="#D2691E",
+        fontcolor="white",
+        label="B Squadron\n16 tanks",
+        fontsize=10
+    ];
+
+    sqn_c [
+        shape=box,
+        style="filled",
+        fillcolor="#D2691E",
+        fontcolor="white",
+        label="C Squadron\n16 tanks",
+        fontsize=10
+    ];
+
+    // Hierarchy
+    regiment -> rhq;
+    regiment -> sqn_a;
+    regiment -> sqn_b;
+    regiment -> sqn_c;
+
+    // ===== DETAILED BREAKOUT: A Squadron =====
+
+    sqn_a_detail [
+        shape=box,
+        style="filled,bold",
+        fillcolor="#FFE4B5",
+        label="A Squadron Detail\n(16 tanks)",
+        fontsize=10
+    ];
+
+    sqn_a -> sqn_a_detail [style=bold, color=red];
+
+    // Squadron HQ
+    sqn_a_hq [
+        shape=box,
+        style="filled",
+        fillcolor="#87CEEB",
+        label="Squadron HQ\n4 tanks",
+        fontsize=9
+    ];
+
+    // Troops (Platoon equivalent - 4 tanks each)
+    troop_1 [
+        shape=box,
+        style="filled",
+        fillcolor="#87CEEB",
+        label="1 Troop\n4 tanks",
+        fontsize=9
+    ];
+
+    troop_2 [
+        shape=box,
+        style="filled",
+        fillcolor="#87CEEB",
+        label="2 Troop\n4 tanks",
+        fontsize=9
+    ];
+
+    troop_3 [
+        shape=box,
+        style="filled",
+        fillcolor="#87CEEB",
+        label="3 Troop\n4 tanks",
+        fontsize=9
+    ];
+
+    sqn_a_detail -> sqn_a_hq;
+    sqn_a_detail -> troop_1;
+    sqn_a_detail -> troop_2;
+    sqn_a_detail -> troop_3;
+
+    // ===== INDIVIDUAL TANKS - Squadron HQ =====
+
+    hq_tank1 [
+        shape=none,
+        label="",
+        image="D:/north-africa-toe-builder/data/assets/tank_silhouettes/british/crusader_mk3.png",
+        width=0.5,
+        height=0.25
+    ];
+    hq_label1 [shape=plaintext, label="A00\nCrusader III\n(Squadron Leader)"];
+
+    hq_tank2 [
+        shape=none,
+        label="",
+        image="D:/north-africa-toe-builder/data/assets/tank_silhouettes/british/crusader_mk3.png",
+        width=0.5,
+        height=0.25
+    ];
+    hq_label2 [shape=plaintext, label="A01\nCrusader III\n(2IC)"];
+
+    hq_tank3 [
+        shape=none,
+        label="",
+        image="D:/north-africa-toe-builder/data/assets/tank_silhouettes/british/crusader_mk3.png",
+        width=0.5,
+        height=0.25
+    ];
+    hq_label3 [shape=plaintext, label="A02\nCrusader III"];
+
+    hq_tank4 [
+        shape=none,
+        label="",
+        image="D:/north-africa-toe-builder/data/assets/tank_silhouettes/british/m3_stuart.png",
+        width=0.4,
+        height=0.2
+    ];
+    hq_label4 [shape=plaintext, label="A03\nStuart\n(Recce)"];
+
+    sqn_a_hq -> hq_tank1 [style=dashed];
+    hq_tank1 -> hq_label1 [style=invis];
+    sqn_a_hq -> hq_tank2 [style=dashed];
+    hq_tank2 -> hq_label2 [style=invis];
+    sqn_a_hq -> hq_tank3 [style=dashed];
+    hq_tank3 -> hq_label3 [style=invis];
+    sqn_a_hq -> hq_tank4 [style=dashed];
+    hq_tank4 -> hq_label4 [style=invis];
+
+    // ===== INDIVIDUAL TANKS - 1 Troop =====
+
+    t1_tank1 [
+        shape=none,
+        label="",
+        image="D:/north-africa-toe-builder/data/assets/tank_silhouettes/british/crusader_mk3.png",
+        width=0.5,
+        height=0.25
+    ];
+    t1_label1 [shape=plaintext, label="A11\nCrusader III\n(Troop Leader)"];
+
+    t1_tank2 [
+        shape=none,
+        label="",
+        image="D:/north-africa-toe-builder/data/assets/tank_silhouettes/british/crusader_mk3.png",
+        width=0.5,
+        height=0.25
+    ];
+    t1_label2 [shape=plaintext, label="A12\nCrusader III"];
+
+    t1_tank3 [
+        shape=none,
+        label="",
+        image="D:/north-africa-toe-builder/data/assets/tank_silhouettes/british/crusader_mk3.png",
+        width=0.5,
+        height=0.25
+    ];
+    t1_label3 [shape=plaintext, label="A13\nCrusader III"];
+
+    t1_tank4 [
+        shape=none,
+        label="",
+        image="D:/north-africa-toe-builder/data/assets/tank_silhouettes/british/crusader_mk3.png",
+        width=0.5,
+        height=0.25
+    ];
+    t1_label4 [shape=plaintext, label="A14\nCrusader III"];
+
+    troop_1 -> t1_tank1 [style=dashed];
+    t1_tank1 -> t1_label1 [style=invis];
+    troop_1 -> t1_tank2 [style=dashed];
+    t1_tank2 -> t1_label2 [style=invis];
+    troop_1 -> t1_tank3 [style=dashed];
+    t1_tank3 -> t1_label3 [style=invis];
+    troop_1 -> t1_tank4 [style=dashed];
+    t1_tank4 -> t1_label4 [style=invis];
+
+    // ===== INDIVIDUAL TANKS - 2 Troop =====
+
+    t2_tank1 [
+        shape=none,
+        label="",
+        image="D:/north-africa-toe-builder/data/assets/tank_silhouettes/british/crusader_mk3.png",
+        width=0.5,
+        height=0.25
+    ];
+    t2_label1 [shape=plaintext, label="A21\nCrusader III\n(Troop Leader)"];
+
+    t2_tank2 [
+        shape=none,
+        label="",
+        image="D:/north-africa-toe-builder/data/assets/tank_silhouettes/british/crusader_mk3.png",
+        width=0.5,
+        height=0.25
+    ];
+    t2_label2 [shape=plaintext, label="A22\nCrusader III"];
+
+    t2_tank3 [
+        shape=none,
+        label="",
+        image="D:/north-africa-toe-builder/data/assets/tank_silhouettes/british/crusader_mk3.png",
+        width=0.5,
+        height=0.25
+    ];
+    t2_label3 [shape=plaintext, label="A23\nCrusader III"];
+
+    t2_tank4 [
+        shape=none,
+        label="",
+        image="D:/north-africa-toe-builder/data/assets/tank_silhouettes/british/crusader_mk3.png",
+        width=0.5,
+        height=0.25
+    ];
+    t2_label4 [shape=plaintext, label="A24\nCrusader III"];
+
+    troop_2 -> t2_tank1 [style=dashed];
+    t2_tank1 -> t2_label1 [style=invis];
+    troop_2 -> t2_tank2 [style=dashed];
+    t2_tank2 -> t2_label2 [style=invis];
+    troop_2 -> t2_tank3 [style=dashed];
+    t2_tank3 -> t2_label3 [style=invis];
+    troop_2 -> t2_tank4 [style=dashed];
+    t2_tank4 -> t2_label4 [style=invis];
+
+    // ===== INDIVIDUAL TANKS - 3 Troop =====
+
+    t3_tank1 [
+        shape=none,
+        label="",
+        image="D:/north-africa-toe-builder/data/assets/tank_silhouettes/british/crusader_mk3.png",
+        width=0.5,
+        height=0.25
+    ];
+    t3_label1 [shape=plaintext, label="A31\nCrusader III\n(Troop Leader)"];
+
+    t3_tank2 [
+        shape=none,
+        label="",
+        image="D:/north-africa-toe-builder/data/assets/tank_silhouettes/british/crusader_mk3.png",
+        width=0.5,
+        height=0.25
+    ];
+    t3_label2 [shape=plaintext, label="A32\nCrusader III"];
+
+    t3_tank3 [
+        shape=none,
+        label="",
+        image="D:/north-africa-toe-builder/data/assets/tank_silhouettes/british/crusader_mk3.png",
+        width=0.5,
+        height=0.25
+    ];
+    t3_label3 [shape=plaintext, label="A33\nCrusader III"];
+
+    t3_tank4 [
+        shape=none,
+        label="",
+        image="D:/north-africa-toe-builder/data/assets/tank_silhouettes/british/crusader_mk3.png",
+        width=0.5,
+        height=0.25
+    ];
+    t3_label4 [shape=plaintext, label="A34\nCrusader III"];
+
+    troop_3 -> t3_tank1 [style=dashed];
+    t3_tank1 -> t3_label1 [style=invis];
+    troop_3 -> t3_tank2 [style=dashed];
+    t3_tank2 -> t3_label2 [style=invis];
+    troop_3 -> t3_tank3 [style=dashed];
+    t3_tank3 -> t3_label3 [style=invis];
+    troop_3 -> t3_tank4 [style=dashed];
+    t3_tank4 -> t3_label4 [style=invis];
+
+    // Layout hints
+    {rank=same; rhq; sqn_a; sqn_b; sqn_c;}
+    {rank=same; sqn_a_hq; troop_1; troop_2; troop_3;}
+    {rank=same; hq_tank1; hq_tank2; hq_tank3; hq_tank4;}
+    {rank=same; t1_tank1; t1_tank2; t1_tank3; t1_tank4;}
+    {rank=same; t2_tank1; t2_tank2; t2_tank3; t2_tank4;}
+    {rank=same; t3_tank1; t3_tank2; t3_tank3; t3_tank4;}
+}

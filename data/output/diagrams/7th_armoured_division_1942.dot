@@ -1,0 +1,243 @@
+// 7th Armoured Division (Desert Rats) - June 1942
+// Organization diagram with tank silhouettes
+//
+// To render this diagram:
+// 1. Install Graphviz: https://graphviz.org/download/
+// 2. Run: dot -Tpng 7th_armoured_division_1942.dot -o 7th_armoured_division_1942.png
+// 3. Or: dot -Tsvg 7th_armoured_division_1942.dot -o 7th_armoured_division_1942.svg
+
+digraph G {
+    // Graph settings
+    rankdir=TB;
+    bgcolor="white";
+    node [fontname="Arial", fontsize=10];
+    edge [color="#666666"];
+
+    // Division HQ
+    div [
+        shape=box,
+        style="filled,rounded",
+        fillcolor="#8B4513",
+        fontcolor="white",
+        label="7th Armoured Division\nMaj-Gen Frank Messervy\n252 tanks total",
+        fontsize=12,
+        width=3
+    ];
+
+    // Brigades
+    brig4 [
+        shape=box,
+        style="filled,rounded",
+        fillcolor="#D2691E",
+        fontcolor="white",
+        label="4th Armoured Brigade\n156 tanks",
+        fontsize=11,
+        width=2.5
+    ];
+
+    brig22 [
+        shape=box,
+        style="filled,rounded",
+        fillcolor="#D2691E",
+        fontcolor="white",
+        label="22nd Armoured Brigade\n96 tanks",
+        fontsize=11,
+        width=2.5
+    ];
+
+    // 4th Armoured Brigade Regiments
+    rtr3 [
+        shape=box,
+        style="filled",
+        fillcolor="#87CEEB",
+        label="3rd Royal Tank Regiment\n52 tanks",
+        fontsize=10
+    ];
+
+    rtr5 [
+        shape=box,
+        style="filled",
+        fillcolor="#87CEEB",
+        label="5th Royal Tank Regiment\n52 tanks",
+        fontsize=10
+    ];
+
+    hussars8 [
+        shape=box,
+        style="filled",
+        fillcolor="#87CEEB",
+        label="8th Hussars\n52 tanks",
+        fontsize=10
+    ];
+
+    // 22nd Armoured Brigade Regiments
+    gloucester [
+        shape=box,
+        style="filled",
+        fillcolor="#87CEEB",
+        label="2nd Royal Gloucester Hussars\n48 tanks",
+        fontsize=10
+    ];
+
+    london3 [
+        shape=box,
+        style="filled",
+        fillcolor="#87CEEB",
+        label="3rd County of London Yeomanry\n48 tanks",
+        fontsize=10
+    ];
+
+    // Tank silhouettes for 3rd RTR
+    // Using simple SVG placeholders - replace with detailed silhouettes later
+    crusader_rtr3 [
+        shape=none,
+        label="",
+        image="../../assets/tank_silhouettes/british/crusader_mk3.svg",
+        width=0.8,
+        height=0.4,
+        imagescale=true
+    ];
+
+    crusader_label_rtr3 [
+        shape=plaintext,
+        label="40x Crusader Mk III"
+    ];
+
+    stuart_rtr3 [
+        shape=none,
+        label="",
+        image="../../assets/tank_silhouettes/british/m3_stuart.svg",
+        width=0.6,
+        height=0.3,
+        imagescale=true
+    ];
+
+    stuart_label_rtr3 [
+        shape=plaintext,
+        label="12x Stuart"
+    ];
+
+    // Tank silhouettes for 5th RTR
+    crusader_rtr5 [
+        shape=none,
+        label="",
+        image="../../assets/tank_silhouettes/british/crusader_mk3.svg",
+        width=0.8,
+        height=0.4,
+        imagescale=true
+    ];
+
+    crusader_label_rtr5 [
+        shape=plaintext,
+        label="40x Crusader Mk III"
+    ];
+
+    stuart_rtr5 [
+        shape=none,
+        label="",
+        image="../../assets/tank_silhouettes/british/m3_stuart.svg",
+        width=0.6,
+        height=0.3,
+        imagescale=true
+    ];
+
+    stuart_label_rtr5 [
+        shape=plaintext,
+        label="12x Stuart"
+    ];
+
+    // Tank silhouettes for 8th Hussars
+    grant_hussars [
+        shape=none,
+        label="",
+        image="../../assets/tank_silhouettes/british/m3_grant.svg",
+        width=0.9,
+        height=0.4,
+        imagescale=true
+    ];
+
+    grant_label_hussars [
+        shape=plaintext,
+        label="40x Grant"
+    ];
+
+    stuart_hussars [
+        shape=none,
+        label="",
+        image="../../assets/tank_silhouettes/british/m3_stuart.svg",
+        width=0.6,
+        height=0.3,
+        imagescale=true
+    ];
+
+    stuart_label_hussars [
+        shape=plaintext,
+        label="12x Stuart"
+    ];
+
+    // 22nd Armoured Brigade tanks
+    crusader_gloucester [
+        shape=none,
+        label="",
+        image="../../assets/tank_silhouettes/british/crusader_mk3.svg",
+        width=0.8,
+        height=0.4,
+        imagescale=true
+    ];
+
+    crusader_label_gloucester [
+        shape=plaintext,
+        label="48x Crusader Mk III"
+    ];
+
+    crusader_london [
+        shape=none,
+        label="",
+        image="../../assets/tank_silhouettes/british/crusader_mk3.svg",
+        width=0.8,
+        height=0.4,
+        imagescale=true
+    ];
+
+    crusader_label_london [
+        shape=plaintext,
+        label="48x Crusader Mk III"
+    ];
+
+    // Hierarchy
+    div -> brig4;
+    div -> brig22;
+
+    brig4 -> rtr3;
+    brig4 -> rtr5;
+    brig4 -> hussars8;
+
+    brig22 -> gloucester;
+    brig22 -> london3;
+
+    // Equipment connections
+    rtr3 -> crusader_rtr3 [style=dashed, arrowhead=none];
+    crusader_rtr3 -> crusader_label_rtr3 [style=invis];
+    rtr3 -> stuart_rtr3 [style=dashed, arrowhead=none];
+    stuart_rtr3 -> stuart_label_rtr3 [style=invis];
+
+    rtr5 -> crusader_rtr5 [style=dashed, arrowhead=none];
+    crusader_rtr5 -> crusader_label_rtr5 [style=invis];
+    rtr5 -> stuart_rtr5 [style=dashed, arrowhead=none];
+    stuart_rtr5 -> stuart_label_rtr5 [style=invis];
+
+    hussars8 -> grant_hussars [style=dashed, arrowhead=none];
+    grant_hussars -> grant_label_hussars [style=invis];
+    hussars8 -> stuart_hussars [style=dashed, arrowhead=none];
+    stuart_hussars -> stuart_label_hussars [style=invis];
+
+    gloucester -> crusader_gloucester [style=dashed, arrowhead=none];
+    crusader_gloucester -> crusader_label_gloucester [style=invis];
+
+    london3 -> crusader_london [style=dashed, arrowhead=none];
+    crusader_london -> crusader_label_london [style=invis];
+
+    // Layout hints
+    {rank=same; brig4; brig22;}
+    {rank=same; rtr3; rtr5; hussars8; gloucester; london3;}
+}

@@ -1,0 +1,132 @@
+// 3rd Royal Tank Regiment - Hermann Göring Style Layout
+// Vertical organization on LEFT, horizontal tank rows on RIGHT
+// June 1942
+
+digraph G {
+    // Layout: LEFT to RIGHT for tank rows
+    rankdir=LR;
+    bgcolor="white";
+    node [fontname="Arial", fontsize=9, shape=box, style="", color=black, fillcolor=none];
+    edge [color=black, arrowhead=none];
+
+    // Title
+    title [shape=plaintext, fontsize=14, label="3rd Royal Tank Regiment\nJune 1942\n52 tanks (40x Crusader III, 12x Stuart)"];
+
+    // ===== SECTION 1: REGIMENT OVERVIEW =====
+
+    subgraph cluster_overview {
+        label="Regiment Overview";
+        fontsize=11;
+        style=dashed;
+
+        // Organizational units (LEFT column)
+        reg_hq [label="Regimental HQ\n4 tanks"];
+        sqn_a [label="A Squadron\n16 tanks"];
+        sqn_b [label="B Squadron\n16 tanks"];
+        sqn_c [label="C Squadron\n16 tanks"];
+
+        // Tank rows (RIGHT side) - RHQ
+        rhq_t1 [shape=none, label="", image="D:/north-africa-toe-builder/data/assets/tank_silhouettes/british/crusader_mk3.png", width=0.4, height=0.2];
+        rhq_t2 [shape=none, label="", image="D:/north-africa-toe-builder/data/assets/tank_silhouettes/british/crusader_mk3.png", width=0.4, height=0.2];
+        rhq_t3 [shape=none, label="", image="D:/north-africa-toe-builder/data/assets/tank_silhouettes/british/crusader_mk3.png", width=0.4, height=0.2];
+        rhq_t4 [shape=none, label="", image="D:/north-africa-toe-builder/data/assets/tank_silhouettes/british/m3_stuart.png", width=0.35, height=0.18];
+
+        // Tank rows - A Squadron (16 tanks)
+        a_t1 [shape=none, label="", image="D:/north-africa-toe-builder/data/assets/tank_silhouettes/british/crusader_mk3.png", width=0.4, height=0.2];
+        a_t2 [shape=none, label="", image="D:/north-africa-toe-builder/data/assets/tank_silhouettes/british/crusader_mk3.png", width=0.4, height=0.2];
+        a_t3 [shape=none, label="", image="D:/north-africa-toe-builder/data/assets/tank_silhouettes/british/crusader_mk3.png", width=0.4, height=0.2];
+        a_t4 [shape=none, label="", image="D:/north-africa-toe-builder/data/assets/tank_silhouettes/british/crusader_mk3.png", width=0.4, height=0.2];
+        a_t5 [shape=none, label="", image="D:/north-africa-toe-builder/data/assets/tank_silhouettes/british/crusader_mk3.png", width=0.4, height=0.2];
+        a_t6 [shape=none, label="", image="D:/north-africa-toe-builder/data/assets/tank_silhouettes/british/crusader_mk3.png", width=0.4, height=0.2];
+        a_t7 [shape=none, label="", image="D:/north-africa-toe-builder/data/assets/tank_silhouettes/british/crusader_mk3.png", width=0.4, height=0.2];
+        a_t8 [shape=none, label="", image="D:/north-africa-toe-builder/data/assets/tank_silhouettes/british/crusader_mk3.png", width=0.4, height=0.2];
+        a_t9 [shape=none, label="", image="D:/north-africa-toe-builder/data/assets/tank_silhouettes/british/crusader_mk3.png", width=0.4, height=0.2];
+        a_t10 [shape=none, label="", image="D:/north-africa-toe-builder/data/assets/tank_silhouettes/british/crusader_mk3.png", width=0.4, height=0.2];
+        a_t11 [shape=none, label="", image="D:/north-africa-toe-builder/data/assets/tank_silhouettes/british/crusader_mk3.png", width=0.4, height=0.2];
+        a_t12 [shape=none, label="", image="D:/north-africa-toe-builder/data/assets/tank_silhouettes/british/crusader_mk3.png", width=0.4, height=0.2];
+        a_t13 [shape=none, label="", image="D:/north-africa-toe-builder/data/assets/tank_silhouettes/british/crusader_mk3.png", width=0.4, height=0.2];
+        a_t14 [shape=none, label="", image="D:/north-africa-toe-builder/data/assets/tank_silhouettes/british/crusader_mk3.png", width=0.4, height=0.2];
+        a_t15 [shape=none, label="", image="D:/north-africa-toe-builder/data/assets/tank_silhouettes/british/crusader_mk3.png", width=0.4, height=0.2];
+        a_t16 [shape=none, label="", image="D:/north-africa-toe-builder/data/assets/tank_silhouettes/british/m3_stuart.png", width=0.35, height=0.18];
+
+        // Tank rows - B Squadron (simplified - 16 tanks)
+        b_t1 [shape=none, label="", image="D:/north-africa-toe-builder/data/assets/tank_silhouettes/british/crusader_mk3.png", width=0.4, height=0.2];
+        b_t2 [shape=none, label="", image="D:/north-africa-toe-builder/data/assets/tank_silhouettes/british/crusader_mk3.png", width=0.4, height=0.2];
+        b_t3 [shape=none, label="", image="D:/north-africa-toe-builder/data/assets/tank_silhouettes/british/crusader_mk3.png", width=0.4, height=0.2];
+        b_t4 [shape=none, label="", image="D:/north-africa-toe-builder/data/assets/tank_silhouettes/british/crusader_mk3.png", width=0.4, height=0.2];
+        b_etc [shape=plaintext, label="... (16 tanks total)"];
+
+        // Tank rows - C Squadron (simplified - 16 tanks)
+        c_t1 [shape=none, label="", image="D:/north-africa-toe-builder/data/assets/tank_silhouettes/british/crusader_mk3.png", width=0.4, height=0.2];
+        c_t2 [shape=none, label="", image="D:/north-africa-toe-builder/data/assets/tank_silhouettes/british/crusader_mk3.png", width=0.4, height=0.2];
+        c_t3 [shape=none, label="", image="D:/north-africa-toe-builder/data/assets/tank_silhouettes/british/crusader_mk3.png", width=0.4, height=0.2];
+        c_t4 [shape=none, label="", image="D:/north-africa-toe-builder/data/assets/tank_silhouettes/british/crusader_mk3.png", width=0.4, height=0.2];
+        c_etc [shape=plaintext, label="... (16 tanks total)"];
+
+        // Connect units to their tanks (horizontal rows)
+        reg_hq -> rhq_t1 -> rhq_t2 -> rhq_t3 -> rhq_t4;
+        sqn_a -> a_t1 -> a_t2 -> a_t3 -> a_t4 -> a_t5 -> a_t6 -> a_t7 -> a_t8 -> a_t9 -> a_t10 -> a_t11 -> a_t12 -> a_t13 -> a_t14 -> a_t15 -> a_t16;
+        sqn_b -> b_t1 -> b_t2 -> b_t3 -> b_t4 -> b_etc;
+        sqn_c -> c_t1 -> c_t2 -> c_t3 -> c_t4 -> c_etc;
+
+        // Keep organizational units in vertical alignment
+        {rank=same; reg_hq; rhq_t1; rhq_t2; rhq_t3; rhq_t4;}
+        {rank=same; sqn_a; a_t1; a_t2; a_t3; a_t4; a_t5; a_t6; a_t7; a_t8; a_t9; a_t10; a_t11; a_t12; a_t13; a_t14; a_t15; a_t16;}
+        {rank=same; sqn_b; b_t1; b_t2; b_t3; b_t4; b_etc;}
+        {rank=same; sqn_c; c_t1; c_t2; c_t3; c_t4; c_etc;}
+    }
+
+    // ===== SECTION 2: DETAILED BREAKOUT - A Squadron =====
+
+    subgraph cluster_detail {
+        label="A Squadron - Detailed Breakout";
+        fontsize=11;
+        style=dashed;
+
+        // Organizational units (LEFT column)
+        detail_header [shape=plaintext, label="A Squadron\n16 tanks"];
+        sqn_hq_d [label="Squadron HQ\n4 tanks"];
+        troop1_d [label="1 Troop\n4 tanks"];
+        troop2_d [label="2 Troop\n4 tanks"];
+        troop3_d [label="3 Troop\n4 tanks"];
+
+        // Tank rows - Squadron HQ
+        shq_t1 [shape=none, label="", image="D:/north-africa-toe-builder/data/assets/tank_silhouettes/british/crusader_mk3.png", width=0.4, height=0.2];
+        shq_t2 [shape=none, label="", image="D:/north-africa-toe-builder/data/assets/tank_silhouettes/british/crusader_mk3.png", width=0.4, height=0.2];
+        shq_t3 [shape=none, label="", image="D:/north-africa-toe-builder/data/assets/tank_silhouettes/british/crusader_mk3.png", width=0.4, height=0.2];
+        shq_t4 [shape=none, label="", image="D:/north-africa-toe-builder/data/assets/tank_silhouettes/british/m3_stuart.png", width=0.35, height=0.18];
+
+        // Tank rows - 1 Troop
+        t1_t1 [shape=none, label="", image="D:/north-africa-toe-builder/data/assets/tank_silhouettes/british/crusader_mk3.png", width=0.4, height=0.2];
+        t1_t2 [shape=none, label="", image="D:/north-africa-toe-builder/data/assets/tank_silhouettes/british/crusader_mk3.png", width=0.4, height=0.2];
+        t1_t3 [shape=none, label="", image="D:/north-africa-toe-builder/data/assets/tank_silhouettes/british/crusader_mk3.png", width=0.4, height=0.2];
+        t1_t4 [shape=none, label="", image="D:/north-africa-toe-builder/data/assets/tank_silhouettes/british/crusader_mk3.png", width=0.4, height=0.2];
+
+        // Tank rows - 2 Troop
+        t2_t1 [shape=none, label="", image="D:/north-africa-toe-builder/data/assets/tank_silhouettes/british/crusader_mk3.png", width=0.4, height=0.2];
+        t2_t2 [shape=none, label="", image="D:/north-africa-toe-builder/data/assets/tank_silhouettes/british/crusader_mk3.png", width=0.4, height=0.2];
+        t2_t3 [shape=none, label="", image="D:/north-africa-toe-builder/data/assets/tank_silhouettes/british/crusader_mk3.png", width=0.4, height=0.2];
+        t2_t4 [shape=none, label="", image="D:/north-africa-toe-builder/data/assets/tank_silhouettes/british/crusader_mk3.png", width=0.4, height=0.2];
+
+        // Tank rows - 3 Troop
+        t3_t1 [shape=none, label="", image="D:/north-africa-toe-builder/data/assets/tank_silhouettes/british/crusader_mk3.png", width=0.4, height=0.2];
+        t3_t2 [shape=none, label="", image="D:/north-africa-toe-builder/data/assets/tank_silhouettes/british/crusader_mk3.png", width=0.4, height=0.2];
+        t3_t3 [shape=none, label="", image="D:/north-africa-toe-builder/data/assets/tank_silhouettes/british/crusader_mk3.png", width=0.4, height=0.2];
+        t3_t4 [shape=none, label="", image="D:/north-africa-toe-builder/data/assets/tank_silhouettes/british/crusader_mk3.png", width=0.4, height=0.2];
+
+        // Connect units to their tanks (horizontal rows)
+        sqn_hq_d -> shq_t1 -> shq_t2 -> shq_t3 -> shq_t4;
+        troop1_d -> t1_t1 -> t1_t2 -> t1_t3 -> t1_t4;
+        troop2_d -> t2_t1 -> t2_t2 -> t2_t3 -> t2_t4;
+        troop3_d -> t3_t1 -> t3_t2 -> t3_t3 -> t3_t4;
+
+        // Horizontal alignment
+        {rank=same; sqn_hq_d; shq_t1; shq_t2; shq_t3; shq_t4;}
+        {rank=same; troop1_d; t1_t1; t1_t2; t1_t3; t1_t4;}
+        {rank=same; troop2_d; t2_t1; t2_t2; t2_t3; t2_t4;}
+        {rank=same; troop3_d; t3_t1; t3_t2; t3_t3; t3_t4;}
+    }
+
+    // Overall hierarchy
+    title -> reg_hq [style=invis];
+}

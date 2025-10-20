@@ -9,6 +9,8 @@
     "agent": "node src/agent_runner.js",
     "search": "node scripts/search_sources.js",
     "prepare": "node scripts/prepare_source_for_agent.js",
+    "extract:pdf": "node scripts/extract_pdf_chunks.js",
+    "ocr:pdf": "python scripts/ocr_pdf_chunks.py",
     "mcp:setup": "node scripts/setup-mcp.js",
     "mcp:test": "node scripts/test-mcp.js",
     "validate": "node scripts/validate-schema.js",
@@ -49,7 +51,7 @@
   "dependencies": {
     "dotenv": "^17.2.3",
     "node-fetch": "^2.6.7",
-    "pdf-parse": "^2.4.3",
+    "pdf-parse": "^1.1.1",
     "pdf2json": "^4.0.0",
     "puppeteer": "^21.0.0"
   },
