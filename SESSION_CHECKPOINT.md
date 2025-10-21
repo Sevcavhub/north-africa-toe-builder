@@ -1,18 +1,18 @@
-# Session Checkpoint - 2025-10-21T04:56:09.408Z
+# Session Checkpoint - 2025-10-21T05:03:37.489Z
 
 ## Progress Summary
 
 - **Total Unit-Quarters:** 420
 - **Completed:** 152 (36.2%)
 - **Remaining:** 268
-- **Last Commit:** 2d7c741
+- **Last Commit:** bf176a6
 
 ## Validation Status
 
 - **Total Validated:** 249
 - **✅ Passed:** 151 (60.6%)
-- **❌ Failed:** 12 ⚠️
-- **⚠️ Warnings:** 86
+- **❌ Failed:** 10 ⚠️
+- **⚠️ Warnings:** 88
 
 ### Critical Validation Failures
 
@@ -25,19 +25,13 @@
 **british_1942q2_xxx_corps:**
   - ❌ Tank total mismatch: total=573 but heavy+medium+light=0
 
-... and 9 more. Run `npm run validate` for full report.
+... and 7 more. Run `npm run validate` for full report.
 
 ## Chapter Status
 
 - **JSON Files:** 249
-- **MDBook Chapters:** 221 ⚠️
-- **Missing Chapters:** 28
-  - ❌ british_1941q1_6th_australian_division
-  - ❌ british_1941q4_70th_infantry_division
-  - ❌ german_1941q1_21_panzer_division
-  - ❌ german_1941q1_90_light_division
-  - ❌ german_1941q4_panzergruppe_afrika
-  - ... and 23 more
+- **MDBook Chapters:** 249 ✅
+- **All chapters present** ✅
 
 ## Recent Completions
 
@@ -68,8 +62,8 @@ If this session crashes or needs to resume:
 ## Session Info
 
 - **Session ID:** complete_seed_generated
-- **Checkpoint Time:** 2025-10-21T04:56:09.377Z
-- **Git Commit:** 2d7c741
+- **Checkpoint Time:** 2025-10-21T05:03:37.458Z
+- **Git Commit:** bf176a6
 
 ---
 
