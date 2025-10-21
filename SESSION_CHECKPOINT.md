@@ -1,26 +1,29 @@
-# Session Checkpoint - 2025-10-21T13:05:20.494Z
+# Session Checkpoint - 2025-10-21T13:38:46.669Z
 
 ## Progress Summary
 
 - **Total Unit-Quarters:** 420
 - **Completed:** 152 (36.2%)
 - **Remaining:** 268
-- **Last Commit:** 2327a74
+- **Last Commit:** 4f270d0
 
 ## Validation Status
 
-- **Total Validated:** 249
-- **✅ Passed:** 151 (60.6%)
+- **Total Validated:** 252
+- **✅ Passed:** 151 (59.9%)
 - **❌ Failed:** 0 ✅
-- **⚠️ Warnings:** 98
+- **⚠️ Warnings:** 101
 
 **All units passed validation** ✅
 
 ## Chapter Status
 
-- **JSON Files:** 249
-- **MDBook Chapters:** 249 ✅
-- **All chapters present** ✅
+- **JSON Files:** 252
+- **MDBook Chapters:** 249 ⚠️
+- **Missing Chapters:** 3
+  - ❌ german_1942q3_ramcke_parachute_brigade
+  - ❌ italian_1942q3_xxi_corps
+  - ❌ italian_1942q3_xx_mobile_corps
 
 ## Recent Completions
 
@@ -51,8 +54,8 @@ If this session crashes or needs to resume:
 ## Session Info
 
 - **Session ID:** complete_seed_generated
-- **Checkpoint Time:** 2025-10-21T13:05:20.456Z
-- **Git Commit:** 2327a74
+- **Checkpoint Time:** 2025-10-21T13:38:46.628Z
+- **Git Commit:** 4f270d0
 
 ---
 
