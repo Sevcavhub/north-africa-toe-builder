@@ -1,25 +1,31 @@
-# Session Checkpoint - 2025-10-21T15:44:31.543Z
+# Session Checkpoint - 2025-10-21T16:06:10.896Z
 
 ## Progress Summary
 
 - **Total Unit-Quarters:** 420
 - **Completed:** 152 (36.2%)
 - **Remaining:** 268
-- **Last Commit:** aadeffa
+- **Last Commit:** 0e4cd7b
 
 ## Validation Status
 
-- **Total Validated:** 260
-- **✅ Passed:** 151 (58.1%)
-- **❌ Failed:** 0 ✅
-- **⚠️ Warnings:** 109
+- **Total Validated:** 263
+- **✅ Passed:** 151 (57.4%)
+- **❌ Failed:** 2 ⚠️
+- **⚠️ Warnings:** 110
 
-**All units passed validation** ✅
+### Critical Validation Failures
+
+**british_1942q4_6th_armoured_division:**
+  - ❌ Commander name is NULL but confidence is 82% (should have commander name when confidence ≥ 50%)
+
+**british_1942q4_78th_infantry_division:**
+  - ❌ Commander name is NULL but confidence is 80% (should have commander name when confidence ≥ 50%)
 
 ## Chapter Status
 
-- **JSON Files:** 260
-- **MDBook Chapters:** 260 ✅
+- **JSON Files:** 263
+- **MDBook Chapters:** 263 ✅
 - **All chapters present** ✅
 
 ## Recent Completions
@@ -51,8 +57,8 @@ If this session crashes or needs to resume:
 ## Session Info
 
 - **Session ID:** complete_seed_generated
-- **Checkpoint Time:** 2025-10-21T15:44:31.511Z
-- **Git Commit:** aadeffa
+- **Checkpoint Time:** 2025-10-21T16:06:10.864Z
+- **Git Commit:** 0e4cd7b
 
 ---
 

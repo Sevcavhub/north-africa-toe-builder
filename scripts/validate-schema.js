@@ -210,8 +210,9 @@ async function validateUnitFile(filePath, schema) {
         }
 
         // Check 6: Commander validation
-        // Support both schema v3.1.0 (command.commander.name) and v3.0.0 (commander.name)
-        const commanderName = unit.command?.commander?.name ||
+        // Support schema v3.1.0 nested structure (commander.commander.name)
+        const commanderName = unit.commander?.commander?.name ||
+                              unit.command?.commander?.name ||
                               unit.command?.commander_name ||
                               unit.commander?.name ||
                               null;

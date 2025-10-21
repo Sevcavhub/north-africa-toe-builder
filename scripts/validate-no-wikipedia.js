@@ -218,8 +218,8 @@ class WikipediaValidator {
     console.log(`${BOLD}Wikipedia Source Validator v3.0.0${RESET}`);
     console.log('Scanning for forbidden Wikipedia sources...\n');
 
-    // Determine target
-    const target = targetPath || process.argv[2] || 'data/units';
+    // Determine target (Architecture v4.0 - canonical location)
+    const target = targetPath || process.argv[2] || 'data/output/units';
 
     if (!fs.existsSync(target)) {
       console.error(`${RED}ERROR${RESET}: Target not found: ${target}`);
