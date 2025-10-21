@@ -1,20 +1,23 @@
-# Session Checkpoint - 2025-10-20T23:31:41.136Z
+# Session Checkpoint - 2025-10-21T00:02:58.346Z
 
 ## Progress Summary
 
 - **Total Unit-Quarters:** 420
 - **Completed:** 152 (36.2%)
 - **Remaining:** 268
-- **Last Commit:** 4f10329
+- **Last Commit:** 7176f9e
 
 ## Validation Status
 
-- **Total Validated:** 226
-- **✅ Passed:** 148 (65.5%)
-- **❌ Failed:** 5 ⚠️
-- **⚠️ Warnings:** 73
+- **Total Validated:** 229
+- **✅ Passed:** 148 (64.6%)
+- **❌ Failed:** 6 ⚠️
+- **⚠️ Warnings:** 75
 
 ### Critical Validation Failures
+
+**italian_1940q4_10th_army:**
+  - ❌ Failed to parse JSON: Expected ',' or ']' after array element in JSON at position 12961 (line 440 column 5)
 
 **italian_1941q2_xx_mobile_corps:**
   - ❌ Commander name is NULL but confidence is 75% (should have commander name when confidence ≥ 50%)
@@ -23,15 +26,12 @@
   - ❌ Missing required field: schema_type
   - ❌ Missing required field: schema_version
 
-**italian_1942q1_bologna_division:**
-  - ❌ Missing required field: validation
-
-... and 2 more. Run `npm run validate` for full report.
+... and 3 more. Run `npm run validate` for full report.
 
 ## Chapter Status
 
-- **JSON Files:** 226
-- **MDBook Chapters:** 201 ⚠️
+- **JSON Files:** 229
+- **MDBook Chapters:** 204 ⚠️
 - **Missing Chapters:** 25
   - ❌ british_1941q1_6th_australian_division
   - ❌ british_1941q4_70th_infantry_division
@@ -69,8 +69,8 @@ If this session crashes or needs to resume:
 ## Session Info
 
 - **Session ID:** complete_seed_generated
-- **Checkpoint Time:** 2025-10-20T23:31:41.105Z
-- **Git Commit:** 4f10329
+- **Checkpoint Time:** 2025-10-21T00:02:58.315Z
+- **Git Commit:** 7176f9e
 
 ---
 
