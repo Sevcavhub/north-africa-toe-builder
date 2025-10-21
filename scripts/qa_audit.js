@@ -41,22 +41,38 @@ function analyzeUnit(filePath) {
             low: []
         };
 
+        // Convert all gaps to text format (handle both string and object formats)
+        const gapTexts = [];
+
         knownGaps.forEach(gap => {
-            const lowerGap = gap.toLowerCase();
-            if (lowerGap.includes('commander') && lowerGap.includes('name unknown')) {
-                gapCategories.moderate.push(gap);
-            } else if (lowerGap.includes('exact') || lowerGap.includes('precise')) {
-                gapCategories.moderate.push(gap);
-            } else if (lowerGap.includes('not identified') || lowerGap.includes('not confirmed')) {
-                gapCategories.moderate.push(gap);
-            } else if (lowerGap.includes('detailed breakdown') || lowerGap.includes('specific dates')) {
-                gapCategories.low.push(gap);
-            } else if (lowerGap.includes('strength') || lowerGap.includes('personnel')) {
-                gapCategories.important.push(gap);
-            } else if (lowerGap.includes('artillery') || lowerGap.includes('equipment')) {
-                gapCategories.important.push(gap);
+            // Handle both string format and structured object format
+            let gapText;
+            if (typeof gap === 'string') {
+                gapText = gap;
+            } else if (typeof gap === 'object' && gap !== null) {
+                // Structured format: {field, reason, mitigation}
+                gapText = `${gap.field || ''} ${gap.reason || ''}`.trim();
             } else {
-                gapCategories.low.push(gap);
+                gapText = '';
+            }
+
+            gapTexts.push(gapText);
+
+            const lowerGap = gapText.toLowerCase();
+            if (lowerGap.includes('commander') && lowerGap.includes('name unknown')) {
+                gapCategories.moderate.push(gapText);
+            } else if (lowerGap.includes('exact') || lowerGap.includes('precise')) {
+                gapCategories.moderate.push(gapText);
+            } else if (lowerGap.includes('not identified') || lowerGap.includes('not confirmed')) {
+                gapCategories.moderate.push(gapText);
+            } else if (lowerGap.includes('detailed breakdown') || lowerGap.includes('specific dates')) {
+                gapCategories.low.push(gapText);
+            } else if (lowerGap.includes('strength') || lowerGap.includes('personnel')) {
+                gapCategories.important.push(gapText);
+            } else if (lowerGap.includes('artillery') || lowerGap.includes('equipment')) {
+                gapCategories.important.push(gapText);
+            } else {
+                gapCategories.low.push(gapText);
             }
         });
 
@@ -74,7 +90,7 @@ function analyzeUnit(filePath) {
                 moderate: gapCategories.moderate.length,
                 low: gapCategories.low.length
             },
-            gaps: knownGaps,
+            gaps: gapTexts, // Use converted text array instead of raw gaps
             sources: (validation.source || []).length,
             lastUpdated: validation.last_updated || 'unknown'
         };
@@ -88,8 +104,8 @@ function analyzeUnit(filePath) {
     }
 }
 
-// Main analysis
-const outputDir = path.join(__dirname, '..', 'data', 'output');
+// Main analysis (Architecture v4.0 - canonical location only)
+const outputDir = path.join(__dirname, '..', 'data', 'output', 'units');
 const unitFiles = findUnitFiles(outputDir);
 
 console.log(`Found ${unitFiles.length} unit JSON files\n`);
