@@ -1,18 +1,18 @@
-# Session Checkpoint - 2025-10-21T00:02:58.346Z
+# Session Checkpoint - 2025-10-21T00:27:41.267Z
 
 ## Progress Summary
 
 - **Total Unit-Quarters:** 420
 - **Completed:** 152 (36.2%)
 - **Remaining:** 268
-- **Last Commit:** 7176f9e
+- **Last Commit:** 1e6022c
 
 ## Validation Status
 
-- **Total Validated:** 229
-- **✅ Passed:** 148 (64.6%)
+- **Total Validated:** 232
+- **✅ Passed:** 150 (64.7%)
 - **❌ Failed:** 6 ⚠️
-- **⚠️ Warnings:** 75
+- **⚠️ Warnings:** 76
 
 ### Critical Validation Failures
 
@@ -30,8 +30,8 @@
 
 ## Chapter Status
 
-- **JSON Files:** 229
-- **MDBook Chapters:** 204 ⚠️
+- **JSON Files:** 232
+- **MDBook Chapters:** 207 ⚠️
 - **Missing Chapters:** 25
   - ❌ british_1941q1_6th_australian_division
   - ❌ british_1941q4_70th_infantry_division
@@ -42,10 +42,10 @@
 
 ## Recent Completions
 
-- ✅ italian_1942q4_132_ariete_division
-- ✅ italian_1942q4_133a_divisione_corazzata_littorio
 - ✅ italian_1942q4_185a_divisione_paracadutisti_folgore
 - ✅ italian_1942q4_185_divisione_paracadutisti_folgore
+- ✅ italian_1942q4_xxi_corps
+- ✅ italian_1942q4_xx_mobile_corps
 - ✅ italian_1943q1_131_divisione_corazzata_centauro
 
 ## Recovery Instructions
@@ -69,8 +69,8 @@ If this session crashes or needs to resume:
 ## Session Info
 
 - **Session ID:** complete_seed_generated
-- **Checkpoint Time:** 2025-10-21T00:02:58.315Z
-- **Git Commit:** 7176f9e
+- **Checkpoint Time:** 2025-10-21T00:27:41.236Z
+- **Git Commit:** 1e6022c
 
 ---
 
