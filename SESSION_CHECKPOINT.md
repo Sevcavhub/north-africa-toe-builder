@@ -1,37 +1,36 @@
-# Session Checkpoint - 2025-10-21T04:20:34.133Z
+# Session Checkpoint - 2025-10-21T04:56:09.408Z
 
 ## Progress Summary
 
 - **Total Unit-Quarters:** 420
 - **Completed:** 152 (36.2%)
 - **Remaining:** 268
-- **Last Commit:** af138af
+- **Last Commit:** 2d7c741
 
 ## Validation Status
 
-- **Total Validated:** 246
-- **✅ Passed:** 151 (61.4%)
-- **❌ Failed:** 9 ⚠️
+- **Total Validated:** 249
+- **✅ Passed:** 151 (60.6%)
+- **❌ Failed:** 12 ⚠️
 - **⚠️ Warnings:** 86
 
 ### Critical Validation Failures
 
-**italian_1940q4_10th_army:**
-  - ❌ Failed to parse JSON: Expected ',' or ']' after array element in JSON at position 12961 (line 440 column 5)
+**british_1942q2_8th_army:**
+  - ❌ Tank total mismatch: total=849 but heavy+medium+light=0
 
-**italian_1941q2_xx_mobile_corps:**
-  - ❌ Commander name is NULL but confidence is 75% (should have commander name when confidence ≥ 50%)
+**british_1942q2_xiii_corps:**
+  - ❌ Failed to parse JSON: Expected ',' or ']' after array element in JSON at position 5684 (line 166 column 3)
 
-**italian_1941q3_101_divisione_motorizzata_trieste:**
-  - ❌ Missing required field: schema_type
-  - ❌ Missing required field: schema_version
+**british_1942q2_xxx_corps:**
+  - ❌ Tank total mismatch: total=573 but heavy+medium+light=0
 
-... and 6 more. Run `npm run validate` for full report.
+... and 9 more. Run `npm run validate` for full report.
 
 ## Chapter Status
 
-- **JSON Files:** 246
-- **MDBook Chapters:** 218 ⚠️
+- **JSON Files:** 249
+- **MDBook Chapters:** 221 ⚠️
 - **Missing Chapters:** 28
   - ❌ british_1941q1_6th_australian_division
   - ❌ british_1941q4_70th_infantry_division
@@ -69,8 +68,8 @@ If this session crashes or needs to resume:
 ## Session Info
 
 - **Session ID:** complete_seed_generated
-- **Checkpoint Time:** 2025-10-21T04:20:34.102Z
-- **Git Commit:** af138af
+- **Checkpoint Time:** 2025-10-21T04:56:09.377Z
+- **Git Commit:** 2d7c741
 
 ---
 
