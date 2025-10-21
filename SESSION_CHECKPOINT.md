@@ -1,48 +1,44 @@
-# Session Checkpoint - 2025-10-21T03:51:37.989Z
+# Session Checkpoint - 2025-10-21T04:01:38.405Z
 
 ## Progress Summary
 
 - **Total Unit-Quarters:** 420
 - **Completed:** 152 (36.2%)
 - **Remaining:** 268
-- **Last Commit:** e618050
+- **Last Commit:** 66ac98a
 
 ## Validation Status
 
-- **Total Validated:** 250
-- **✅ Passed:** 150 (60.0%)
-- **❌ Failed:** 14 ⚠️
+- **Total Validated:** 243
+- **✅ Passed:** 150 (61.7%)
+- **❌ Failed:** 7 ⚠️
 - **⚠️ Warnings:** 86
 
 ### Critical Validation Failures
 
-**german_1942q2_15_panzer_division_artillerie_regiment_33:**
+**italian_1940q4_10th_army:**
+  - ❌ Failed to parse JSON: Expected ',' or ']' after array element in JSON at position 12961 (line 440 column 5)
+
+**italian_1941q2_xx_mobile_corps:**
+  - ❌ Commander name is NULL but confidence is 75% (should have commander name when confidence ≥ 50%)
+
+**italian_1941q3_101_divisione_motorizzata_trieste:**
   - ❌ Missing required field: schema_type
-  - ❌ Missing required field: unit_designation
-  - ❌ Missing required field: validation
+  - ❌ Missing required field: schema_version
 
-**german_1942q2_15_panzer_division_aufklarung_abteilung_33:**
-  - ❌ Failed to parse JSON: Expected ',' or ']' after array element in JSON at position 1619 (line 67 column 3)
-
-**german_1942q2_15_panzer_division_panzer_regiment_8:**
-  - ❌ Tank total mismatch: total=143 but heavy+medium+light=0
-  - ❌ Missing required field: schema_type
-  - ❌ Missing required field: unit_designation
-  - ❌ Missing required field: validation
-
-... and 11 more. Run `npm run validate` for full report.
+... and 4 more. Run `npm run validate` for full report.
 
 ## Chapter Status
 
-- **JSON Files:** 250
-- **MDBook Chapters:** 219 ⚠️
-- **Missing Chapters:** 31
+- **JSON Files:** 243
+- **MDBook Chapters:** 218 ⚠️
+- **Missing Chapters:** 25
   - ❌ british_1941q1_6th_australian_division
   - ❌ british_1941q4_70th_infantry_division
   - ❌ german_1941q1_21_panzer_division
   - ❌ german_1941q1_90_light_division
   - ❌ german_1941q4_panzergruppe_afrika
-  - ... and 26 more
+  - ... and 20 more
 
 ## Recent Completions
 
@@ -73,8 +69,8 @@ If this session crashes or needs to resume:
 ## Session Info
 
 - **Session ID:** complete_seed_generated
-- **Checkpoint Time:** 2025-10-21T03:51:37.958Z
-- **Git Commit:** e618050
+- **Checkpoint Time:** 2025-10-21T04:01:38.375Z
+- **Git Commit:** 66ac98a
 
 ---
 
