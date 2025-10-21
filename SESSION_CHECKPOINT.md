@@ -1,17 +1,17 @@
-# Session Checkpoint - 2025-10-21T04:01:38.405Z
+# Session Checkpoint - 2025-10-21T04:20:34.133Z
 
 ## Progress Summary
 
 - **Total Unit-Quarters:** 420
 - **Completed:** 152 (36.2%)
 - **Remaining:** 268
-- **Last Commit:** 66ac98a
+- **Last Commit:** af138af
 
 ## Validation Status
 
-- **Total Validated:** 243
-- **✅ Passed:** 150 (61.7%)
-- **❌ Failed:** 7 ⚠️
+- **Total Validated:** 246
+- **✅ Passed:** 151 (61.4%)
+- **❌ Failed:** 9 ⚠️
 - **⚠️ Warnings:** 86
 
 ### Critical Validation Failures
@@ -26,19 +26,19 @@
   - ❌ Missing required field: schema_type
   - ❌ Missing required field: schema_version
 
-... and 4 more. Run `npm run validate` for full report.
+... and 6 more. Run `npm run validate` for full report.
 
 ## Chapter Status
 
-- **JSON Files:** 243
+- **JSON Files:** 246
 - **MDBook Chapters:** 218 ⚠️
-- **Missing Chapters:** 25
+- **Missing Chapters:** 28
   - ❌ british_1941q1_6th_australian_division
   - ❌ british_1941q4_70th_infantry_division
   - ❌ german_1941q1_21_panzer_division
   - ❌ german_1941q1_90_light_division
   - ❌ german_1941q4_panzergruppe_afrika
-  - ... and 20 more
+  - ... and 23 more
 
 ## Recent Completions
 
@@ -69,8 +69,8 @@ If this session crashes or needs to resume:
 ## Session Info
 
 - **Session ID:** complete_seed_generated
-- **Checkpoint Time:** 2025-10-21T04:01:38.375Z
-- **Git Commit:** 66ac98a
+- **Checkpoint Time:** 2025-10-21T04:20:34.102Z
+- **Git Commit:** af138af
 
 ---
 
