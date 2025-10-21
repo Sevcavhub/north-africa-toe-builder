@@ -283,6 +283,86 @@ Showcase analysis revealed 38.9% Wikipedia violation rate (Gap 3). Professional-
 
 ---
 
+### **Schema v3.1.1: Quarter Format Correction (October 21, 2025)**
+
+**Git Commit**: Current session
+
+**Problem**: Schema specification incorrectly specified quarter format as `YYYY-QN` (uppercase Q, with hyphen), but orchestrator has always generated `yyyyqn` format (lowercase, no hyphen). This caused validator warnings and confusion about the correct standard.
+
+**Investigation**:
+- Orchestrator (`src/autonomous_orchestrator.js`) uses `canonical_paths.js` which normalizes to `1942q4` format
+- `naming_standard.js` also normalizes to lowercase, no hyphen
+- Recently created units (e.g., `british_1943q1_51st_highland_infantry_division_toe.json`) have `"quarter": "1943q1"`
+- Schema file (`schemas/unified_toe_schema.json`) incorrectly specified `YYYY-QN` format
+
+**Root Cause**: Schema documentation was out of sync with implementation. The code was always correct, the documentation was wrong.
+
+**Changes**:
+
+**1. Schema Definition** (`schemas/unified_toe_schema.json`):
+```json
+// BEFORE (WRONG):
+"quarter": {
+  "format": "YYYY-QN",
+  "example": "1942-Q4"
+}
+
+// AFTER (CORRECT):
+"quarter": {
+  "format": "yyyyqn",
+  "example": "1942q4",
+  "description": "Quarter identifier (lowercase, no hyphen)"
+}
+```
+
+**2. Validator** (`scripts/validate-schema.js`):
+```javascript
+// BEFORE (WRONG):
+if (quarter !== 'unknown' && !/^\d{4}-Q[1-4]$/.test(quarter)) {
+    result.warnings.push(`Quarter format should be YYYY-QN: "${quarter}"`);
+}
+
+// AFTER (CORRECT):
+if (quarter !== 'unknown' && !/^\d{4}q[1-4]$/.test(quarter)) {
+    result.warnings.push(`Quarter format should be yyyyqn (lowercase, no hyphen): "${quarter}"`);
+}
+```
+
+**3. Unit Files Reverted** (265 files):
+- Reverted incorrect "fix" that changed `"quarter": "1942q4"` → `"quarter": "1942-Q4"`
+- All unit files now use correct `yyyyqn` format consistently
+
+**4. QA Auditor** (`scripts/qa_audit.js`):
+- Added header documenting Phase 6 status and confidence thresholds
+- Updated low confidence threshold from <80% to <60% (Phase 6 reality)
+- Removed hardcoded session directory filter
+- Architecture v4.0 compliance (scans canonical `data/output/units/` only)
+
+**5. Documentation** (`CLAUDE.md`):
+- Added explicit quarter format standard section
+- Clarified both filename and JSON content use `yyyyqn` format
+- Added rationale (matches orchestrator standard)
+
+**Migration Required**: None - this corrects documentation to match existing implementation
+
+**Validation**:
+```bash
+npm run validate:v3  # 0 quarter format warnings
+node scripts/qa_audit.js  # All 270 units parse correctly
+```
+
+**Impact**:
+- ✅ Documentation now matches implementation
+- ✅ Validator accepts correct format, rejects incorrect format
+- ✅ QA auditor aligned with Phase 6 reality
+- ✅ No breaking changes to actual data
+
+**Related**:
+- User observed orchestrator generating `1942q4` format in current session
+- This is the CORRECT format, not a bug
+
+---
+
 ### **Schema v3.0.0: Ground Forces + Supply/Environment (October 13, 2025)**
 
 **Git Commit**: 846de80 (CURRENT VERSION)

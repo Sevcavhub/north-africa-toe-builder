@@ -653,8 +653,11 @@ Files follow pattern: `{nation}_{quarter}_{unit_designation}_toe.json`
 - `american` (NOT usa) - All United States Army units
 - `french` (NOT france) - All Free French forces
 
-**Quarter Format:**
-- Lowercase, no hyphen: `1941q2` (NOT 1941-Q2, NOT 1941-q2, NOT 1941Q2)
+**Quarter Format (CRITICAL - STANDARDIZED OCTOBER 2025):**
+- **Filename**: Lowercase, no hyphen: `1941q2` (NOT 1941-Q2, NOT 1941-q2, NOT 1941Q2)
+- **JSON Content**: Lowercase, no hyphen: `"quarter": "1941q2"` (NOT "1941-Q2")
+- **Rationale**: Matches orchestrator output standard, canonical_paths.js normalization
+- **Schema**: `schemas/unified_toe_schema.json` specifies format as `yyyyqn` (lowercase, no hyphen)
 
 **Implementation:**
 All scripts MUST use `scripts/lib/naming_standard.js` to generate filenames for consistency.
