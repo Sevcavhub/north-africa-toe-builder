@@ -66,8 +66,10 @@ function validateUnit(unit) {
     }
 
     // Check 6: Commander validation
+    // Support both schema v3.1.0 (command.commander.name) and v3.0.0 (commander.name)
     const commanderName = unit.command?.commander?.name ||
                           unit.command?.commander_name ||
+                          unit.commander?.name ||
                           null;
 
     if (!commanderName && confidence >= 50) {
@@ -106,9 +108,9 @@ function validateUnit(unit) {
         return 0;
     };
 
-    const tanksHeavy = getTankCount(tanks.heavy_tanks);
-    const tanksMedium = getTankCount(tanks.medium_tanks);
-    const tanksLight = getTankCount(tanks.light_tanks);
+    const tanksHeavy = getTankCount(tanks.heavy) || getTankCount(tanks.heavy_tanks);
+    const tanksMedium = getTankCount(tanks.medium) || getTankCount(tanks.medium_tanks);
+    const tanksLight = getTankCount(tanks.light) || getTankCount(tanks.light_tanks);
 
     if (tanksTotal > 0) {
         const sum = tanksHeavy + tanksMedium + tanksLight;
