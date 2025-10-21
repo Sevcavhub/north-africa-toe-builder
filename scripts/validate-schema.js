@@ -192,9 +192,9 @@ async function validateUnitFile(filePath, schema) {
             result.critical.push(`Invalid nation: "${nation}" (allowed: ${ALLOWED_NATIONS.join(', ')})`);
         }
 
-        // Check 3: Quarter format
-        if (quarter !== 'unknown' && !/^\d{4}-Q[1-4]$/.test(quarter)) {
-            result.warnings.push(`Quarter format should be YYYY-QN: "${quarter}"`);
+        // Check 3: Quarter format (lowercase, no hyphen)
+        if (quarter !== 'unknown' && !/^\d{4}q[1-4]$/.test(quarter)) {
+            result.warnings.push(`Quarter format should be yyyyqn (lowercase, no hyphen): "${quarter}"`);
         }
 
         // Check 4: Organization level
