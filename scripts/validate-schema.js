@@ -138,32 +138,22 @@ async function main() {
 
 /**
  * Scan for all unit JSON files
+ * Updated for Architecture v4.0 - uses canonical locations
  */
 async function scanForUnitFiles() {
-    const outputDir = path.join(PROJECT_ROOT, 'data/output');
+    // Architecture v4.0: Use canonical location for all units
+    const unitsDir = path.join(PROJECT_ROOT, 'data/output/units');
     const files = [];
 
     try {
-        const sessions = await fs.readdir(outputDir);
-
-        for (const session of sessions) {
-            if (!session.startsWith('autonomous_')) continue;
-
-            const unitsDir = path.join(outputDir, session, 'units');
-            try {
-                const unitFiles = await fs.readdir(unitsDir);
-                for (const file of unitFiles) {
-                    if (file.endsWith('_toe.json')) {
-                        files.push(path.join(unitsDir, file));
-                    }
-                }
-            } catch (error) {
-                // Session might not have units directory
-                continue;
+        const unitFiles = await fs.readdir(unitsDir);
+        for (const file of unitFiles) {
+            if (file.endsWith('_toe.json')) {
+                files.push(path.join(unitsDir, file));
             }
         }
     } catch (error) {
-        console.error(`❌ Error scanning output directory: ${error.message}`);
+        console.error(`❌ Error scanning units directory: ${error.message}`);
     }
 
     return files;
@@ -220,8 +210,10 @@ async function validateUnitFile(filePath, schema) {
         }
 
         // Check 6: Commander validation
+        // Support both schema v3.1.0 (command.commander.name) and v3.0.0 (commander.name)
         const commanderName = unit.command?.commander?.name ||
                               unit.command?.commander_name ||
+                              unit.commander?.name ||
                               null;
 
         if (!commanderName && confidence >= 50) {
@@ -260,9 +252,9 @@ async function validateUnitFile(filePath, schema) {
             return 0;
         };
 
-        const tanksHeavy = getTankCount(tanks.heavy_tanks);
-        const tanksMedium = getTankCount(tanks.medium_tanks);
-        const tanksLight = getTankCount(tanks.light_tanks);
+        const tanksHeavy = getTankCount(tanks.heavy) || getTankCount(tanks.heavy_tanks);
+        const tanksMedium = getTankCount(tanks.medium) || getTankCount(tanks.medium_tanks);
+        const tanksLight = getTankCount(tanks.light) || getTankCount(tanks.light_tanks);
 
         if (tanksTotal > 0) {
             const sum = tanksHeavy + tanksMedium + tanksLight;
