@@ -1,26 +1,38 @@
-# Session Checkpoint - 2025-10-21T13:52:40.514Z
+# Session Checkpoint - 2025-10-21T14:11:49.802Z
 
 ## Progress Summary
 
 - **Total Unit-Quarters:** 420
 - **Completed:** 152 (36.2%)
 - **Remaining:** 268
-- **Last Commit:** ee72ce2
+- **Last Commit:** 3d9d420
 
 ## Validation Status
 
-- **Total Validated:** 252
-- **✅ Passed:** 151 (59.9%)
-- **❌ Failed:** 0 ✅
+- **Total Validated:** 255
+- **✅ Passed:** 151 (59.2%)
+- **❌ Failed:** 3 ⚠️
 - **⚠️ Warnings:** 101
 
-**All units passed validation** ✅
+### Critical Validation Failures
+
+**british_1942q3_8th_army:**
+  - ❌ Failed to parse JSON: Expected ',' or ']' after array element in JSON at position 8448 (line 189 column 3)
+
+**british_1942q3_xiii_corps:**
+  - ❌ Failed to parse JSON: Expected ',' or ']' after array element in JSON at position 9242 (line 180 column 3)
+
+**british_1942q3_xxx_corps:**
+  - ❌ Failed to parse JSON: Expected ',' or ']' after array element in JSON at position 11934 (line 208 column 3)
 
 ## Chapter Status
 
-- **JSON Files:** 252
-- **MDBook Chapters:** 252 ✅
-- **All chapters present** ✅
+- **JSON Files:** 255
+- **MDBook Chapters:** 252 ⚠️
+- **Missing Chapters:** 3
+  - ❌ british_1942q3_8th_army
+  - ❌ british_1942q3_xiii_corps
+  - ❌ british_1942q3_xxx_corps
 
 ## Recent Completions
 
@@ -51,8 +63,8 @@ If this session crashes or needs to resume:
 ## Session Info
 
 - **Session ID:** complete_seed_generated
-- **Checkpoint Time:** 2025-10-21T13:52:40.474Z
-- **Git Commit:** ee72ce2
+- **Checkpoint Time:** 2025-10-21T14:11:49.763Z
+- **Git Commit:** 3d9d420
 
 ---
 
