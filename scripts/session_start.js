@@ -170,7 +170,8 @@ async function getSeedUnits() {
                             id: unitId,
                             nation: naming.normalizeNation(nation),
                             quarter: naming.normalizeQuarter(quarter),
-                            designation: unit.designation
+                            designation: unit.designation,
+                            type: unit.type || 'unknown'
                         });
                     }
                 }
@@ -288,8 +289,28 @@ function getNextBatchChronological(allUnits, completed, batchSize = 3) {
     if (quarters.length === 0) return { batch: [], quarter: null, strategy: 'chronological' };
 
     const selectedQuarter = quarters[0];
+
+    // Priority: division → brigade → regiment → corps → army → theater
+    const orgLevelPriority = {
+        'division': 1,
+        'brigade': 2,
+        'regiment': 3,
+        'corps': 4,
+        'army': 5,
+        'theater': 6,
+        'unknown': 99
+    };
+
+    // Sort by organization level priority (divisions first)
+    const quarterUnits = byQuarter[selectedQuarter];
+    quarterUnits.sort((a, b) => {
+        const aPriority = orgLevelPriority[a.type] || 99;
+        const bPriority = orgLevelPriority[b.type] || 99;
+        return aPriority - bPriority;
+    });
+
     return {
-        batch: byQuarter[selectedQuarter].slice(0, batchSize),
+        batch: quarterUnits.slice(0, batchSize),
         quarter: selectedQuarter,
         strategy: 'chronological'
     };
@@ -331,11 +352,30 @@ function getNextBatchForQuarter(quarter, seedUnits, completedSet, batchSize = 3)
                 needed.push({
                     nation: nation.charAt(0).toUpperCase() + nation.slice(1),
                     designation: u.designation,
-                    quarter: quarter
+                    quarter: quarter,
+                    type: u.type || 'unknown'
                 });
             }
         });
     }
+
+    // Priority: division → brigade → regiment → corps → army → theater
+    const orgLevelPriority = {
+        'division': 1,
+        'brigade': 2,
+        'regiment': 3,
+        'corps': 4,
+        'army': 5,
+        'theater': 6,
+        'unknown': 99
+    };
+
+    // Sort by organization level priority (divisions first)
+    needed.sort((a, b) => {
+        const aPriority = orgLevelPriority[a.type] || 99;
+        const bPriority = orgLevelPriority[b.type] || 99;
+        return aPriority - bPriority;
+    });
 
     return needed.slice(0, batchSize);
 }
