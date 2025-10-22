@@ -494,23 +494,19 @@ ${batchResult.batch.length > 0 ? batchResult.batch.map((u, i) => `${i + 1}. ${u.
 - Template violations detected in generated chapters
 - Source documents unavailable for nation/quarter
 
-**GENERAL AGENT WORKFLOW:**
-1. ✅ CONFIRM these units with user (or allow adjustments)
-2. ✅ ONLY AFTER confirmation → Launch Task tool with autonomous orchestrator
-3. ✅ Specialized agents do ALL extraction, validation, chapter generation
-4. ❌ DO NOT perform extraction yourself as general agent
+**AUTONOMOUS WORKFLOW:**
+Process these 3 units now using:
+1. 📋 **TodoWrite**: Create task list for all 3 units (extraction → validation → chapter generation)
+2. 🔍 **Extraction**: For each unit, extract data from source documents (Tessin, Army Lists, Field Manuals)
+   - Use Glob to find relevant source PDFs in Resource Documents/
+   - Use Read to examine source content
+   - Use extended thinking for complex analysis when sources conflict
+3. ✅ **Validation**: Schema compliance (unified_toe_schema.json) + template compliance (MDBOOK_CHAPTER_TEMPLATE.md)
+4. 📖 **Chapter Generation**: Create MDBook chapter for each unit (16 sections, v2.0 standard)
+5. 💾 **Checkpoint**: After all 3 units complete, run: Bash('npm run checkpoint')
+6. 🏁 **Session End**: When batch done, run: Bash('npm run session:end')
 
-**When user confirms, launch autonomous orchestrator with:**
-- Task tool (subagent_type='general-purpose')
-- Prompt: "Run autonomous orchestration for these 3 units using specialized sub-agents"
-- Extended thinking for complex source analysis
-- TodoWrite to track progress
-- Automatic checkpoint after batch completion
-
-📋 **USER**: Review the 3 units above. Reply with:
-   • "Proceed" → Start autonomous orchestration for these units
-   • "Change to [quarter/strategy]" → Adjust selection first
-   • "Use [specific units]" → Custom unit list`);
+Begin autonomous orchestration now.`);
 
     console.log('');
     console.log('─'.repeat(80));
