@@ -1,25 +1,29 @@
-# Session Checkpoint - 2025-10-22T03:56:09.785Z
+# Session Checkpoint - 2025-10-22T04:15:52.488Z
 
 ## Progress Summary
 
 - **Total Unit-Quarters:** 419
 - **Completed:** 190 (45.3%)
 - **Remaining:** 229
-- **Last Commit:** a9c5189
+- **Last Commit:** 86a4502
 
 ## Validation Status
 
-- **Total Validated:** 233
-- **✅ Passed:** 164 (70.4%)
-- **❌ Failed:** 0 ✅
+- **Total Validated:** 234
+- **✅ Passed:** 164 (70.1%)
+- **❌ Failed:** 1 ⚠️
 - **⚠️ Warnings:** 69
 
-**All units passed validation** ✅
+### Critical Validation Failures
+
+**british_1940q3_4th_indian_division:**
+  - ❌ Uses nested structure (unit_identification.*) instead of unified schema top-level fields
+  - ❌ Commander name is NULL but confidence is 87% (should have commander name when confidence ≥ 50%)
 
 ## Chapter Status
 
-- **JSON Files:** 233
-- **MDBook Chapters:** 232 ⚠️
+- **JSON Files:** 234
+- **MDBook Chapters:** 233 ⚠️
 - **Missing Chapters:** 1
   - ❌ german_1943q1_15_panzer_division
 
@@ -52,8 +56,8 @@ If this session crashes or needs to resume:
 ## Session Info
 
 - **Session ID:** complete_seed_generated
-- **Checkpoint Time:** 2025-10-22T03:56:09.751Z
-- **Git Commit:** a9c5189
+- **Checkpoint Time:** 2025-10-22T04:15:52.456Z
+- **Git Commit:** 86a4502
 
 ---
 
