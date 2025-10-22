@@ -25,6 +25,7 @@ const { queryProjectKnowledge } = require('./memory_mcp_helpers');
 const naming = require('./lib/naming_standard');
 const paths = require('./lib/canonical_paths');
 const matching = require('./lib/matching');
+const { validateAndRepairState } = require('./lib/state_validator');
 
 const PROJECT_ROOT = path.join(__dirname, '..');
 const WORKFLOW_STATE_PATH = path.join(PROJECT_ROOT, 'WORKFLOW_STATE.json');
@@ -32,7 +33,18 @@ const WORKFLOW_STATE_PATH = path.join(PROJECT_ROOT, 'WORKFLOW_STATE.json');
 async function readWorkflowState() {
     try {
         const data = await fs.readFile(WORKFLOW_STATE_PATH, 'utf-8');
-        return JSON.parse(data);
+        const parsedState = JSON.parse(data);
+        
+        // Validate and auto-repair if needed
+        const { state, repairs } = validateAndRepairState(parsedState, true);
+        
+        // If repairs were made, save the corrected state
+        if (repairs.length > 0) {
+            await fs.writeFile(WORKFLOW_STATE_PATH, JSON.stringify(state, null, 2));
+            console.log('✅ WORKFLOW_STATE.json has been auto-repaired and saved\n');
+        }
+        
+        return state;
     } catch (error) {
         return null;
     }
@@ -406,7 +418,7 @@ function displaySessionPrompt(state, memory, batchResult, quarterStats) {
     console.log('');
 
     if (state) {
-        const completedCount = state.completed_count || state.completed.length;
+        const completedCount = state.completed.length;
         const remaining = (state.total_unit_quarters || 420) - completedCount;
         const percentComplete = ((completedCount / (state.total_unit_quarters || 420)) * 100).toFixed(1);
 
@@ -473,7 +485,7 @@ function displaySessionPrompt(state, memory, batchResult, quarterStats) {
     console.log('─'.repeat(80));
     console.log('');
 
-    const completedCount = state ? (state.completed_count || state.completed.length) : 0;
+    const completedCount = state ? (state.completed.length) : 0;
     const totalUnits = 420;
     const percentComplete = ((completedCount / totalUnits) * 100).toFixed(1);
 
@@ -608,7 +620,7 @@ async function main() {
     quarterStats.sort((a, b) => b.percentage - a.percentage);
 
     // Display quarter dashboard
-    const totalCompleted = state ? (state.completed_count || completed.length) : 0;
+    const totalCompleted = state ? (completed.length) : 0;
     displayQuarterDashboard(quarterStats, totalCompleted);
 
     // Determine strategy and get batch
