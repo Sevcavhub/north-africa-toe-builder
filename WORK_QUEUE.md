@@ -1,9 +1,9 @@
 # North Africa Work Queue
 
-**Generated**: 2025-10-22T21:19:34.816Z
+**Generated**: 2025-10-22T22:01:00.204Z
 
-**Progress**: 217/419 units complete (51.8%)
-**Remaining**: 202 units
+**Progress**: 216/419 units complete (51.6%)
+**Remaining**: 203 units
 
 ---
 
@@ -21,19 +21,22 @@
 
 1. **ITALIAN** - 1940-Q3 - 4th CC.NN. Division '3 Gennaio' _(division)_
 2. **ITALIAN** - 1940-Q3 - XXII Corpo d'Armata (XXII Corps) _(corps)_
-3. **BRITISH** - 1940-Q4 - 1st South African Division _(infantry_division)_
+3. **ITALIAN** - 1940-Q3 - 10ª Armata (Italian 10th Army) _(army)_
 
 ---
 
 ## 📋 Full Queue (Chronological + Echelon Order)
 
-### 1940-Q3 (15/17 complete)
+### 1940-Q3 (14/17 complete)
 
 **DIVISION** (1 remaining):
 - [ ] ITALIAN - 4th CC.NN. Division '3 Gennaio'
 
 **CORPS** (1 remaining):
 - [ ] ITALIAN - XXII Corpo d'Armata (XXII Corps)
+
+**ARMY** (1 remaining):
+- [ ] ITALIAN - 10ª Armata (Italian 10th Army)
 
 ### 1940-Q4 (7/24 complete)
 
@@ -369,7 +372,7 @@
 
 ---
 
-## ✅ Completed (217 units)
+## ✅ Completed (216 units)
 
 <details>
 <summary>Show completed units</summary>
@@ -385,7 +388,7 @@
 - [x] ITALIAN - 10ª Armata (Italian 10th Army) _(army)_
 - [x] BRITISH - Western Desert Force _(unknown)_
 
-### 1940-Q3 (15 complete)
+### 1940-Q3 (14 complete)
 
 - [x] BRITISH - 4th Indian Division _(infantry_division)_
 - [x] BRITISH - 7th Armoured Division _(division)_
@@ -400,7 +403,6 @@
 - [x] ITALIAN - Sabratha Division _(infantry_division)_
 - [x] ITALIAN - Savona Division _(infantry_division)_
 - [x] ITALIAN - Sirte Division _(infantry_division)_
-- [x] ITALIAN - 10ª Armata (Italian 10th Army) _(army)_
 - [x] BRITISH - Western Desert Force _(unknown)_
 
 ### 1940-Q4 (7 complete)

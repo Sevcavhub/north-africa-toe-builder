@@ -1,24 +1,27 @@
-# Session Checkpoint - 2025-10-22T21:19:34.831Z
+# Session Checkpoint - 2025-10-22T22:01:00.218Z
 
 ## Progress Summary
 
 - **Total Unit-Quarters:** 419
-- **Completed:** 251 (59.9%)
-- **Remaining:** 168
-- **Last Commit:** 519666b
+- **Completed:** 253 (60.4%)
+- **Remaining:** 166
+- **Last Commit:** c961c82
 
 ## Validation Status
 
 - **Total Validated:** 253
 - **✅ Passed:** 173 (68.4%)
-- **❌ Failed:** 1 ⚠️
-- **⚠️ Warnings:** 79
+- **❌ Failed:** 2 ⚠️
+- **⚠️ Warnings:** 78
 
 ### Critical Validation Failures
 
 **british_1940q3_4th_indian_division:**
   - ❌ Uses nested structure (unit_identification.*) instead of unified schema top-level fields
   - ❌ Commander name is NULL but confidence is 87% (should have commander name when confidence ≥ 50%)
+
+**british_1940q4_1_south_african_division:**
+  - ❌ Missing required field: schema_type
 
 ## Chapter Status
 
@@ -52,13 +55,13 @@ If this session crashes or needs to resume:
 
 3. **View full progress:**
    - See WORKFLOW_STATE.json for complete list
-   - 251 units saved successfully
+   - 253 units saved successfully
 
 ## Session Info
 
 - **Session ID:** complete_seed_generated
-- **Checkpoint Time:** 2025-10-22T21:19:34.727Z
-- **Git Commit:** 519666b
+- **Checkpoint Time:** 2025-10-22T22:01:00.116Z
+- **Git Commit:** c961c82
 
 ---
 
