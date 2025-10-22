@@ -1,0 +1,156 @@
+# RE-EXTRACTION SESSION: Weak Source Units - Batch 1
+
+## 🚨 CRITICAL SOURCE REQUIREMENTS
+
+**ABSOLUTE RULES:**
+- ❌ **NO WIKIPEDIA SOURCES ALLOWED** - Any Wikipedia citation = immediate rejection
+- ✅ **MINIMUM 2 PRIMARY SOURCES** - Required for all data points
+- ✅ **Cross-reference all facts** - No single-source claims
+- ✅ **Document confidence levels** - 85%+ for divisions, 80%+ for brigades/corps
+
+## 📚 APPROVED PRIMARY SOURCES BY NATION
+
+**German Units:**
+- **Tessin** - Verbände und Truppen der deutschen Wehrmacht (MANDATORY for all German units)
+- Nafziger Collection
+- Feldgrau.net (curated tier-1 only)
+
+**Italian Units:**
+- **TM E 30-420** - Handbook on Italian Military Forces (August 1943)
+- Order of Battle of the Italian Army - USA HQ G-2 (July 1943)
+- Nafziger Collection
+
+**British Units:**
+- **British Army Lists** - Quarterly publications (local Resource Documents/)
+- Playfair - Official History Mediterranean & Middle East
+- Prasad - Official History Indian Armed Forces
+- Nafziger Collection
+
+**American Units:**
+- **US Field Manuals** - FM 101-10, TO&E documents
+- US Army organizational records
+- Nafziger Collection
+
+**French Units:**
+- Free French Brigade/Division records
+- Nafziger Collection
+- Playfair Official History
+
+## 📋 BATCH 1 - UNITS TO EXTRACT (3 units)
+
+
+### Unit 1: 4th Indian Division
+
+- **Nation**: British
+- **Quarter**: 1940-Q3
+- **Type**: infantry_division
+- **Required Sources**: British Army Lists, Playfair/Prasad, Nafziger Collection
+
+**Extraction Checklist:**
+- [ ] Located British Army Lists coverage
+- [ ] Located Playfair/Prasad coverage
+- [ ] Cross-referenced all equipment counts
+- [ ] Verified commander name from 2+ sources
+- [ ] Documented all confidence levels
+- [ ] NO Wikipedia citations
+
+
+### Unit 2: Pavia Division
+
+- **Nation**: Italian
+- **Quarter**: 1940-Q3
+- **Type**: infantry_division
+- **Required Sources**: TM E 30-420, Order of Battle Italian Army, Nafziger Collection
+
+**Extraction Checklist:**
+- [ ] Located TM E 30-420 coverage
+- [ ] Located Order of Battle Italian Army coverage
+- [ ] Cross-referenced all equipment counts
+- [ ] Verified commander name from 2+ sources
+- [ ] Documented all confidence levels
+- [ ] NO Wikipedia citations
+
+
+### Unit 3: Brescia Division
+
+- **Nation**: Italian
+- **Quarter**: 1940-Q3
+- **Type**: infantry_division
+- **Required Sources**: TM E 30-420, Order of Battle Italian Army, Nafziger Collection
+
+**Extraction Checklist:**
+- [ ] Located TM E 30-420 coverage
+- [ ] Located Order of Battle Italian Army coverage
+- [ ] Cross-referenced all equipment counts
+- [ ] Verified commander name from 2+ sources
+- [ ] Documented all confidence levels
+- [ ] NO Wikipedia citations
+
+
+## 🎯 QUALITY STANDARDS
+
+**validation.source Array Must Include:**
+1. Full citation with page numbers/document identifiers
+2. Confidence percentage (85%+ required)
+3. Tier classification (Tier 1 = 90%+, Tier 2 = 75-89%)
+4. Cross-reference notes for conflicting data
+
+**Example Good Source Entry:**
+```json
+"validation": {
+  "source": [
+    "Tessin, Georg - Verbände und Truppen Band 06, pages 140-141 - 90. leichte Division organization (Tier 1, 95% confidence)",
+    "Nafziger Collection OOB 941JKOC - 90. leichte Division Nov 1941 - Equipment counts cross-referenced (Tier 1, 92% confidence)",
+    "Feldgrau.net - 90. leichte Division commanders verified against Tessin (Tier 1, 88% confidence)"
+  ],
+  "confidence": 92
+}
+```
+
+**Example BAD Source Entry (REJECT):**
+```json
+"validation": {
+  "source": [
+    "Wikipedia: 90th Light Division - formation history",  // ❌ REJECT - Wikipedia not allowed
+    "Web search results"  // ❌ REJECT - Not specific enough
+  ]
+}
+```
+
+## 🔄 WORKFLOW
+
+1. **Load Source Documents**
+   - German: Check Resource Documents/tessin-georg-verbande.../
+   - British: Check Resource Documents/Great Britain Ministry of Defense Books/
+   - All: Check Resource Documents/Nafziger Collection/
+
+2. **Extract with Cross-Reference**
+   - Find unit in Source A → note all data points
+   - Find unit in Source B → verify/reconcile with Source A
+   - Document any conflicts with resolution reasoning
+
+3. **Validate Output**
+   - Run: `npm run validate` on each generated file
+   - Verify: NO Wikipedia citations
+   - Verify: Minimum 2 primary sources
+   - Verify: Confidence ≥85% (divisions) or ≥80% (brigades)
+
+4. **Save and Checkpoint**
+   - Save to data/output/units/
+   - Run: `npm run checkpoint`
+   - Verify: Validation passes
+
+## 📊 EXPECTED OUTPUT
+
+**Total Time**: 30-45 minutes for 3 units (thorough source cross-referencing)
+**Success Criteria**:
+- ✅ 3 units extracted
+- ✅ 0 Wikipedia citations
+- ✅ All units pass validation
+- ✅ Average confidence ≥85%
+
+---
+
+**Ready to begin re-extraction with strict source requirements?**
+
+Respond "proceed" to start autonomous extraction of Batch 1.
