@@ -1,11 +1,11 @@
-# Session Checkpoint - 2025-10-22T04:25:21.476Z
+# Session Checkpoint - 2025-10-22T04:27:24.541Z
 
 ## Progress Summary
 
 - **Total Unit-Quarters:** 419
 - **Completed:** 190 (45.3%)
 - **Remaining:** 229
-- **Last Commit:** 72ed9de
+- **Last Commit:** 178e6bc
 
 ## Validation Status
 
@@ -23,12 +23,9 @@
 ## Chapter Status
 
 - **JSON Files:** 237
-- **MDBook Chapters:** 233 ⚠️
-- **Missing Chapters:** 4
-  - ❌ british_1941q4_2nd_south_african_division
-  - ❌ british_1941q4_czechoslovakian_11th_infantry_battalion
+- **MDBook Chapters:** 236 ⚠️
+- **Missing Chapters:** 1
   - ❌ german_1943q1_15_panzer_division
-  - ❌ italian_1941q4_133_divisione_corazzata_littorio
 
 ## Recent Completions
 
@@ -59,8 +56,8 @@ If this session crashes or needs to resume:
 ## Session Info
 
 - **Session ID:** complete_seed_generated
-- **Checkpoint Time:** 2025-10-22T04:25:21.444Z
-- **Git Commit:** 72ed9de
+- **Checkpoint Time:** 2025-10-22T04:27:24.510Z
+- **Git Commit:** 178e6bc
 
 ---
 
