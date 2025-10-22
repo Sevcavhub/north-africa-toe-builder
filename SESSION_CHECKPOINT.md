@@ -1,16 +1,16 @@
-# Session Checkpoint - 2025-10-22T05:26:29.821Z
+# Session Checkpoint - 2025-10-22T05:43:33.542Z
 
 ## Progress Summary
 
 - **Total Unit-Quarters:** 419
-- **Completed:** 190 (45.3%)
-- **Remaining:** 229
-- **Last Commit:** 909153d
+- **Completed:** 240 (57.3%)
+- **Remaining:** 179
+- **Last Commit:** 66d2491
 
 ## Validation Status
 
-- **Total Validated:** 240
-- **✅ Passed:** 169 (70.4%)
+- **Total Validated:** 241
+- **✅ Passed:** 170 (70.5%)
 - **❌ Failed:** 1 ⚠️
 - **⚠️ Warnings:** 70
 
@@ -22,8 +22,8 @@
 
 ## Chapter Status
 
-- **JSON Files:** 240
-- **MDBook Chapters:** 239 ⚠️
+- **JSON Files:** 241
+- **MDBook Chapters:** 240 ⚠️
 - **Missing Chapters:** 1
   - ❌ german_1943q1_15_panzer_division
 
@@ -51,13 +51,13 @@ If this session crashes or needs to resume:
 
 3. **View full progress:**
    - See WORKFLOW_STATE.json for complete list
-   - 190 units saved successfully
+   - 240 units saved successfully
 
 ## Session Info
 
 - **Session ID:** complete_seed_generated
-- **Checkpoint Time:** 2025-10-22T05:26:29.790Z
-- **Git Commit:** 909153d
+- **Checkpoint Time:** 2025-10-22T05:43:33.511Z
+- **Git Commit:** 66d2491
 
 ---
 
