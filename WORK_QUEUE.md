@@ -1,9 +1,9 @@
 # North Africa Work Queue
 
-**Generated**: 2025-10-22T06:40:19.784Z
+**Generated**: 2025-10-22T14:44:26.382Z
 
-**Progress**: 211/419 units complete (50.4%)
-**Remaining**: 208 units
+**Progress**: 214/419 units complete (51.1%)
+**Remaining**: 205 units
 
 ---
 
@@ -19,23 +19,20 @@
 
 ## 🎯 Next Up (Next Session)
 
-1. **ITALIAN** - 1940-Q3 - 1st Libyan Division _(division)_
-2. **ITALIAN** - 1940-Q3 - 2nd Libyan Division _(division)_
-3. **ITALIAN** - 1940-Q3 - 4th CC.NN. Division '3 Gennaio' _(division)_
+1. **ITALIAN** - 1940-Q3 - 4th CC.NN. Division '3 Gennaio' _(division)_
+2. **ITALIAN** - 1940-Q3 - Cirene Division _(infantry_division)_
+3. **ITALIAN** - 1940-Q3 - Savona Division _(infantry_division)_
 
 ---
 
 ## 📋 Full Queue (Chronological + Echelon Order)
 
-### 1940-Q3 (10/17 complete)
+### 1940-Q3 (13/17 complete)
 
-**DIVISION** (3 remaining):
-- [ ] ITALIAN - 1st Libyan Division
-- [ ] ITALIAN - 2nd Libyan Division
+**DIVISION** (1 remaining):
 - [ ] ITALIAN - 4th CC.NN. Division '3 Gennaio'
 
-**INFANTRY_DIVISION** (3 remaining):
-- [ ] ITALIAN - Catanzaro Division
+**INFANTRY_DIVISION** (2 remaining):
 - [ ] ITALIAN - Cirene Division
 - [ ] ITALIAN - Savona Division
 
@@ -379,7 +376,7 @@
 
 ---
 
-## ✅ Completed (211 units)
+## ✅ Completed (214 units)
 
 <details>
 <summary>Show completed units</summary>
@@ -395,12 +392,15 @@
 - [x] ITALIAN - 10ª Armata (Italian 10th Army) _(army)_
 - [x] BRITISH - Western Desert Force _(unknown)_
 
-### 1940-Q3 (10 complete)
+### 1940-Q3 (13 complete)
 
 - [x] BRITISH - 4th Indian Division _(infantry_division)_
 - [x] BRITISH - 7th Armoured Division _(division)_
+- [x] ITALIAN - 1st Libyan Division _(division)_
+- [x] ITALIAN - 2nd Libyan Division _(division)_
 - [x] ITALIAN - Bologna Division _(infantry_division)_
 - [x] ITALIAN - Brescia Division _(infantry_division)_
+- [x] ITALIAN - Catanzaro Division _(infantry_division)_
 - [x] ITALIAN - Marmarica Division _(infantry_division)_
 - [x] ITALIAN - Pavia Division _(infantry_division)_
 - [x] ITALIAN - Sabratha Division _(infantry_division)_
