@@ -115,12 +115,17 @@ async function checkChapterStatus(completedUnits) {
     return chapterStatus;
 }
 
-async function updateWorkflowState(completedUnits) {
+async function updateWorkflowState(completedUnits, previousState) {
     const state = await readWorkflowState();
 
     // Update completed list
+    const oldCompleted = new Set(state.completed || []);
     state.completed = completedUnits.map(u => `${u.nation}_${u.quarter}_${u.unit}`);
     state.last_updated = new Date().toISOString();
+
+    // Calculate units completed in this batch
+    const newCompleted = state.completed.filter(u => !oldCompleted.has(u));
+    const batchSize = newCompleted.length;
 
     // Get last git commit
     try {
@@ -150,9 +155,30 @@ async function updateWorkflowState(completedUnits) {
         state.completion_percentage = ((state.completed.length / state.total_unit_quarters) * 100).toFixed(1);
     }
 
+    // Increment session counter by batch size
+    if (!state.current_session_count) {
+        state.current_session_count = 0;
+    }
+    state.current_session_count += batchSize;
+
     await fs.writeFile(WORKFLOW_STATE_PATH, JSON.stringify(state, null, 2));
 
-    return state;
+    return { state, batchSize };
+}
+
+async function regenerateWorkQueue() {
+    try {
+        const generateScript = path.join(PROJECT_ROOT, 'scripts/generate_work_queue.js');
+        execSync(`node "${generateScript}"`, {
+            cwd: PROJECT_ROOT,
+            stdio: 'pipe',
+            encoding: 'utf-8'
+        });
+        return true;
+    } catch (error) {
+        console.warn('⚠️  Failed to regenerate work queue:', error.message);
+        return false;
+    }
 }
 
 async function createCheckpointFile(state, chapterStatus, validationStatus) {
@@ -302,8 +328,18 @@ async function main() {
 
     // Update workflow state
     console.log('💾 Updating WORKFLOW_STATE.json...');
-    const state = await updateWorkflowState(completedUnits);
-    console.log(`   ${state.completed_count || state.completed.length} / ${state.total_unit_quarters || 420} units complete (${((state.completed_count || state.completed.length) / (state.total_unit_quarters || 420) * 100).toFixed(1)}%)\n`);
+    const { state, batchSize } = await updateWorkflowState(completedUnits);
+    console.log(`   ${state.completed_count || state.completed.length} / ${state.total_unit_quarters || 420} units complete (${((state.completed_count || state.completed.length) / (state.total_unit_quarters || 420) * 100).toFixed(1)}%)`);
+    console.log(`   Session counter: ${state.current_session_count || 0}/12 units this session${batchSize > 0 ? ` (+${batchSize} from this batch)` : ''}\n`);
+
+    // Regenerate work queue
+    console.log('📋 Regenerating work queue...');
+    const queueRegenerated = await regenerateWorkQueue();
+    if (queueRegenerated) {
+        console.log('   ✅ WORK_QUEUE.md updated with latest progress\n');
+    } else {
+        console.log('   ⚠️  Work queue regeneration failed (non-critical)\n');
+    }
 
     // Create checkpoint file
     console.log('📝 Writing SESSION_CHECKPOINT.md...');
@@ -318,7 +354,17 @@ async function main() {
         console.log('\n✨ Checkpoint complete!\n');
         console.log(`📊 Progress: ${state.completed_count || state.completed.length}/${state.total_unit_quarters || 420} units`);
         console.log(`📍 Commit: ${state.last_commit}`);
-        console.log(`💾 Safe to continue or start new session\n`);
+        console.log(`🔢 Session: ${state.current_session_count || 0}/12 units this session`);
+
+        // Warn if approaching session limit
+        if ((state.current_session_count || 0) >= 12) {
+            console.log('\n⚠️  SESSION LIMIT REACHED (12 units)');
+            console.log('   Run `npm run session:end` to reset counter for next session');
+        } else if ((state.current_session_count || 0) >= 9) {
+            console.log(`\n⚠️  Approaching session limit (${12 - (state.current_session_count || 0)} units remaining)`);
+        }
+
+        console.log(`\n💾 Safe to continue or start new session\n`);
     } else {
         console.log('\n⚠️  Checkpoint saved locally (git commit failed)');
         console.log('   Run `git add . && git commit` manually\n');

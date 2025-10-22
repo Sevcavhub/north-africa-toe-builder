@@ -1,18 +1,18 @@
-# Session Checkpoint - 2025-10-22T05:49:11.424Z
+# Session Checkpoint - 2025-10-22T06:11:31.285Z
 
 ## Progress Summary
 
 - **Total Unit-Quarters:** 419
-- **Completed:** 241 (57.5%)
-- **Remaining:** 178
-- **Last Commit:** ec12ccd
+- **Completed:** 244 (58.2%)
+- **Remaining:** 175
+- **Last Commit:** 35f3417
 
 ## Validation Status
 
-- **Total Validated:** 241
-- **✅ Passed:** 170 (70.5%)
+- **Total Validated:** 244
+- **✅ Passed:** 170 (69.7%)
 - **❌ Failed:** 1 ⚠️
-- **⚠️ Warnings:** 70
+- **⚠️ Warnings:** 73
 
 ### Critical Validation Failures
 
@@ -22,10 +22,11 @@
 
 ## Chapter Status
 
-- **JSON Files:** 241
-- **MDBook Chapters:** 240 ⚠️
-- **Missing Chapters:** 1
+- **JSON Files:** 244
+- **MDBook Chapters:** 242 ⚠️
+- **Missing Chapters:** 2
   - ❌ german_1943q1_15_panzer_division
+  - ❌ italian_1940q3_25_divisione_di_fanteria_bologna
 
 ## Recent Completions
 
@@ -51,13 +52,13 @@ If this session crashes or needs to resume:
 
 3. **View full progress:**
    - See WORKFLOW_STATE.json for complete list
-   - 241 units saved successfully
+   - 244 units saved successfully
 
 ## Session Info
 
 - **Session ID:** complete_seed_generated
-- **Checkpoint Time:** 2025-10-22T05:49:11.393Z
-- **Git Commit:** ec12ccd
+- **Checkpoint Time:** 2025-10-22T06:11:31.189Z
+- **Git Commit:** 35f3417
 
 ---
 

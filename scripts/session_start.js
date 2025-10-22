@@ -253,113 +253,65 @@ function calculateAllQuartersProgress(seedUnits, completedSet) {
     return quarterStats;
 }
 
-function getNextBatchChronological(allUnits, completed, batchSize = 3) {
-    const pending = allUnits.filter(u => !completed.includes(u.id));
+/**
+ * Read next batch from WORK_QUEUE.md
+ *
+ * Replaces dynamic strategy selection with simple queue reading.
+ * Takes next 3 unchecked units from the queue.
+ */
+async function getNextBatchFromQueue(batchSize = 3) {
+    try {
+        const queuePath = path.join(PROJECT_ROOT, 'WORK_QUEUE.md');
+        const queueContent = await fs.readFile(queuePath, 'utf-8');
 
-    const byQuarter = {};
-    for (const unit of pending) {
-        if (!byQuarter[unit.quarter]) {
-            byQuarter[unit.quarter] = [];
+        // Parse the "Next Up" section
+        const nextUpMatch = queueContent.match(/## 🎯 Next Up \(Next Session\)\n\n([\s\S]*?)\n---/);
+
+        if (!nextUpMatch) {
+            console.warn('⚠️  Could not find "Next Up" section in WORK_QUEUE.md');
+            return { batch: [], strategy: 'work_queue' };
         }
-        byQuarter[unit.quarter].push(unit);
+
+        const nextUpSection = nextUpMatch[1];
+
+        // Parse unit lines (format: "1. **NATION** - quarter - designation _(echelon)_")
+        const unitRegex = /\d+\.\s+\*\*([A-Z]+)\*\*\s+-\s+(\S+)\s+-\s+([^_]+)_\(([^)]+)\)_/g;
+        const batch = [];
+        let match;
+
+        while ((match = unitRegex.exec(nextUpSection)) !== null && batch.length < batchSize) {
+            const [, nation, quarter, designation, echelon] = match;
+            batch.push({
+                nation: nation.charAt(0).toUpperCase() + nation.slice(1).toLowerCase(),
+                quarter: quarter,
+                designation: designation.trim(),
+                type: echelon.trim()
+            });
+        }
+
+        return {
+            batch,
+            strategy: 'work_queue'
+        };
+    } catch (error) {
+        console.warn('⚠️  Could not read WORK_QUEUE.md:', error.message);
+        console.warn('   Falling back to empty batch');
+        return { batch: [], strategy: 'work_queue' };
     }
-
-    const quarters = Object.keys(byQuarter).sort();
-    if (quarters.length === 0) return { batch: [], quarter: null, strategy: 'chronological' };
-
-    const selectedQuarter = quarters[0];
-
-    // Priority: division → brigade → regiment → corps → army → theater
-    const orgLevelPriority = {
-        'division': 1,
-        'brigade': 2,
-        'regiment': 3,
-        'corps': 4,
-        'army': 5,
-        'theater': 6,
-        'unknown': 99
-    };
-
-    // Sort by organization level priority (divisions first)
-    const quarterUnits = byQuarter[selectedQuarter];
-    quarterUnits.sort((a, b) => {
-        const aPriority = orgLevelPriority[a.type] || 99;
-        const bPriority = orgLevelPriority[b.type] || 99;
-        return aPriority - bPriority;
-    });
-
-    return {
-        batch: quarterUnits.slice(0, batchSize),
-        quarter: selectedQuarter,
-        strategy: 'chronological'
-    };
 }
 
-function getNextBatchQuarterCompletion(quarterStats, seedUnits, completedSet, batchSize = 3) {
-    // Sort by completion percentage descending, then by remaining ascending
-    const sorted = [...quarterStats]
-        .filter(q => q.remaining > 0)
-        .sort((a, b) => {
-            if (b.percentage !== a.percentage) {
-                return b.percentage - a.percentage;
-            }
-            return a.remaining - b.remaining;
-        });
+/**
+ * Initialize or reset session counter in workflow state
+ */
+async function initializeSessionCounter(state) {
+    if (!state) return state;
 
-    if (sorted.length === 0) return { batch: [], quarter: null, strategy: 'quarter_completion' };
-
-    const targetQuarter = sorted[0].quarter;
-    const batch = getNextBatchForQuarter(targetQuarter, seedUnits, completedSet, batchSize);
-
-    return {
-        batch,
-        quarter: targetQuarter,
-        strategy: 'quarter_completion'
-    };
-}
-
-function getNextBatchForQuarter(quarter, seedUnits, completedSet, batchSize = 3) {
-    const needed = [];
-    const nations = naming.NATION_MAP;
-
-    for (const [key, nation] of Object.entries(nations)) {
-        const units = seedUnits[key] || [];
-        const quarterUnits = units.filter(u => u.quarters && u.quarters.includes(quarter));
-
-        quarterUnits.forEach(u => {
-            if (!isCompleted(nation, u.designation, quarter, u.aliases || [], completedSet)) {
-                needed.push({
-                    nation: nation.charAt(0).toUpperCase() + nation.slice(1),
-                    designation: u.designation,
-                    quarter: quarter,
-                    type: u.type || 'unknown'
-                });
-            }
-        });
+    // Initialize session_count if it doesn't exist
+    if (state.current_session_count === undefined) {
+        state.current_session_count = 0;
     }
 
-    // Priority: division → brigade → regiment → corps → army → theater
-    // Helper function to get priority (handles division subtypes like armoured_division, panzer_division, etc.)
-    const getPriority = (type) => {
-        if (!type) return 99;
-        const t = type.toLowerCase();
-        if (t.includes('division')) return 1;
-        if (t.includes('brigade') || t.includes('column')) return 2;
-        if (t.includes('regiment')) return 3;
-        if (t.includes('corps')) return 4;
-        if (t.includes('army')) return 5;
-        if (t.includes('theater')) return 6;
-        return 99;
-    };
-
-    // Sort by organization level priority (divisions first)
-    needed.sort((a, b) => {
-        const aPriority = getPriority(a.type);
-        const bPriority = getPriority(b.type);
-        return aPriority - bPriority;
-    });
-
-    return needed.slice(0, batchSize);
+    return state;
 }
 
 function displayQuarterDashboard(quarterStats, totalCompleted) {
@@ -411,7 +363,7 @@ function displayQuarterDashboard(quarterStats, totalCompleted) {
     console.log('');
 }
 
-function displaySessionPrompt(state, memory, batchResult, quarterStats) {
+function displaySessionPrompt(state, memory, batchResult) {
     console.log('═'.repeat(80));
     console.log('  SESSION START - NORTH AFRICA TO&E BUILDER');
     console.log('═'.repeat(80));
@@ -456,21 +408,17 @@ function displaySessionPrompt(state, memory, batchResult, quarterStats) {
         console.log('');
     }
 
-    const strategyName = batchResult.strategy === 'chronological' ? 'CHRONOLOGICAL ORDER' : 'QUARTER COMPLETION';
-    const targetQuarter = batchResult.quarter;
-    const quarterProgress = quarterStats.find(q => q.quarter === targetQuarter);
+    // Show work queue session progress
+    const sessionCount = state ? (state.current_session_count || 0) : 0;
+    const canContinue = sessionCount < 12;
 
-    console.log(`🎯 **STRATEGY: ${strategyName}**`);
-    if (targetQuarter) {
-        console.log(`   Target Quarter: ${targetQuarter}`);
-        if (quarterProgress) {
-            console.log(`   Progress: ${quarterProgress.completed}/${quarterProgress.total} (${quarterProgress.percentage}%)`);
-        }
-    }
+    console.log(`📋 **WORK QUEUE STATUS**`);
+    console.log(`   Session Progress: ${sessionCount}/12 units this session`);
+    console.log(`   Units Remaining: ${canContinue ? 'Ready for next batch' : '⚠️  Session limit reached (12 units)'}`);
     console.log('');
 
     if (batchResult.batch.length > 0) {
-        console.log('🚀 **NEXT BATCH** (3 units)\n');
+        console.log('🚀 **NEXT BATCH** (3 units from WORK_QUEUE.md)\n');
         batchResult.batch.forEach((unit, i) => {
             console.log(`   ${i + 1}. ${unit.nation.toUpperCase()} - ${unit.designation} (${unit.quarter})`);
         });
@@ -493,11 +441,13 @@ function displaySessionPrompt(state, memory, batchResult, quarterStats) {
 
 **CURRENT PROGRESS:**
 - Overall: ${completedCount}/${totalUnits} units (${percentComplete}%)
+- Session: ${sessionCount}/12 units this session${!canContinue ? ' ⚠️  LIMIT REACHED' : ''}
 - Last scan: ${new Date().toLocaleString()}
 
-**STRATEGY: ${strategyName}**${targetQuarter ? `
-Target Quarter: ${targetQuarter}` : ''}${quarterProgress ? `
-Progress: ${quarterProgress.completed}/${quarterProgress.total} (${quarterProgress.percentage}%)` : ''}
+**WORK QUEUE (Chronological + Echelon Order):**
+- Processing units from WORK_QUEUE.md in order
+- Divisions before corps before armies (bottom-up aggregation)
+- Auto-marks complete on checkpoint
 
 **NEXT BATCH (3 units):**
 ${batchResult.batch.length > 0 ? batchResult.batch.map((u, i) => `${i + 1}. ${u.nation} - ${u.designation} (${u.quarter})`).join('\n') : '✅ No units remaining!'}
@@ -571,9 +521,7 @@ ${batchResult.batch.length > 0 ? batchResult.batch.map((u, i) => `${i + 1}. ${u.
     console.log('   - Claude will process units autonomously using Task tool');
     console.log('   - Checkpoint runs automatically after batch (updates state)');
     console.log('   - Session:end syncs final state and creates summary');
-    if (targetQuarter && quarterProgress) {
-        console.log(`   - Once ${targetQuarter} complete, run QA agent for quality review`);
-    }
+    console.log('   - Work queue processes units in chronological + echelon order');
     console.log('');
     console.log('📚 **FULL GUIDELINES:** See "STRICT AUTONOMOUS MODE - Ken Prompt.md"');
     console.log('');
@@ -585,9 +533,6 @@ ${batchResult.batch.length > 0 ? batchResult.batch.map((u, i) => `${i + 1}. ${u.
 
 async function main() {
     console.log('');
-
-    // Get strategy from CLI arg
-    const strategyArg = process.argv[2];
 
     // Read workflow state
     let state = await readWorkflowState();
@@ -605,13 +550,29 @@ async function main() {
         console.log(`   ✅ State in sync: ${scannedUnits.length} units\n`);
     }
 
+    // Initialize session counter
+    state = await initializeSessionCounter(state);
+
+    // Check session limit
+    const sessionCount = state.current_session_count || 0;
+    if (sessionCount >= 12) {
+        console.log('⚠️  **SESSION LIMIT REACHED**\n');
+        console.log('   You have processed 12 units this session (4 batches of 3).');
+        console.log('   This is the recommended limit to prevent AI drift/hallucination.\n');
+        console.log('   To continue:');
+        console.log('   1. Run: npm run checkpoint (to save current progress)');
+        console.log('   2. Run: npm run session:end (to reset session counter)');
+        console.log('   3. Start a new session: npm run session:start\n');
+        return;
+    }
+
     // Query Memory MCP
     const memory = await queryMemoryMCP();
 
-    // Get all seed units
-    const { units: allUnits, seeds: seedUnits } = await getSeedUnits();
+    // Get all seed units (still needed for quarter dashboard)
+    const { seeds: seedUnits } = await getSeedUnits();
 
-    // Calculate quarter stats
+    // Calculate quarter stats for dashboard display
     const completed = state ? state.completed : [];
     const completedSet = new Set(completed);
     const quarterStats = calculateAllQuartersProgress(seedUnits, completedSet);
@@ -623,43 +584,16 @@ async function main() {
     const totalCompleted = state ? (completed.length) : 0;
     displayQuarterDashboard(quarterStats, totalCompleted);
 
-    // Determine strategy and get batch
-    let batchResult;
-
-    if (!strategyArg) {
-        // Interactive: show both options
-        console.log('🎯 **STRATEGY SELECTION**\n');
-        console.log('Choose extraction strategy:\n');
-        console.log('  1. CHRONOLOGICAL - Process earliest quarter first');
-        console.log('     (Systematic, complete timeline coverage)\n');
-        console.log('  2. QUARTER COMPLETION - Target highest completion % quarter');
-        console.log('     (Quick wins, complete quarters faster)\n');
-        console.log('  3. SPECIFIC QUARTER - Choose a specific quarter to target\n');
-        console.log('Default: Type "1" for chronological, "2" for quarter completion, or quarter like "1941-Q2"');
-        console.log('You can also run: npm run session:start chronological|quarter|1941-Q2\n');
-
-        // For now, default to quarter completion (highest %)
-        batchResult = getNextBatchQuarterCompletion(quarterStats, seedUnits, completedSet);
-        console.log(`Using default strategy: QUARTER COMPLETION (${batchResult.quarter})\n`);
-    } else if (strategyArg === 'chronological' || strategyArg === '1') {
-        batchResult = getNextBatchChronological(allUnits, completed);
-    } else if (strategyArg === 'quarter' || strategyArg === '2') {
-        batchResult = getNextBatchQuarterCompletion(quarterStats, seedUnits, completedSet);
-    } else {
-        // Assume it's a specific quarter
-        batchResult = {
-            batch: getNextBatchForQuarter(strategyArg, seedUnits, completedSet),
-            quarter: strategyArg,
-            strategy: 'specific_quarter'
-        };
-    }
+    // Read next batch from WORK_QUEUE.md
+    console.log('📋 Reading work queue...\n');
+    const batchResult = await getNextBatchFromQueue();
 
     // Display session prompt
-    displaySessionPrompt(state, memory, batchResult, quarterStats);
+    displaySessionPrompt(state, memory, batchResult);
 
     // Write session start marker
     const sessionLog = path.join(PROJECT_ROOT, 'SESSION_ACTIVE.txt');
-    await fs.writeFile(sessionLog, `Session started: ${new Date().toISOString()}\nStrategy: ${batchResult.strategy}\nTarget: ${batchResult.quarter}\n`);
+    await fs.writeFile(sessionLog, `Session started: ${new Date().toISOString()}\nStrategy: work_queue\nSession count: ${sessionCount}/12\n`);
 }
 
 // Run
