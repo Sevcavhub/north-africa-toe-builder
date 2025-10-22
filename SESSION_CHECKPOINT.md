@@ -1,18 +1,18 @@
-# Session Checkpoint - 2025-10-22T14:44:26.396Z
+# Session Checkpoint - 2025-10-22T15:36:10.392Z
 
 ## Progress Summary
 
 - **Total Unit-Quarters:** 419
 - **Completed:** 244 (58.2%)
 - **Remaining:** 175
-- **Last Commit:** 2bea6e6
+- **Last Commit:** 67b84a2
 
 ## Validation Status
 
-- **Total Validated:** 248
-- **✅ Passed:** 173 (69.8%)
-- **❌ Failed:** 2 ⚠️
-- **⚠️ Warnings:** 73
+- **Total Validated:** 251
+- **✅ Passed:** 175 (69.7%)
+- **❌ Failed:** 1 ⚠️
+- **⚠️ Warnings:** 75
 
 ### Critical Validation Failures
 
@@ -20,20 +20,13 @@
   - ❌ Uses nested structure (unit_identification.*) instead of unified schema top-level fields
   - ❌ Commander name is NULL but confidence is 87% (should have commander name when confidence ≥ 50%)
 
-**italian_1940q3_1st_libyan_division:**
-  - ❌ Failed to parse JSON: Bad control character in string literal in JSON at position 736 (line 19 column 36)
-
 ## Chapter Status
 
-- **JSON Files:** 248
-- **MDBook Chapters:** 242 ⚠️
-- **Missing Chapters:** 6
+- **JSON Files:** 251
+- **MDBook Chapters:** 249 ⚠️
+- **Missing Chapters:** 2
   - ❌ german_1943q1_15_panzer_division
-  - ❌ italian_1940q3_1st_libyan_division
   - ❌ italian_1940q3_25_divisione_di_fanteria_bologna
-  - ❌ italian_1940q3_2nd_libyan_division
-  - ❌ italian_1940q3_4th_ccnn_division_3_gennaio
-  - ... and 1 more
 
 ## Recent Completions
 
@@ -64,8 +57,8 @@ If this session crashes or needs to resume:
 ## Session Info
 
 - **Session ID:** complete_seed_generated
-- **Checkpoint Time:** 2025-10-22T14:44:26.292Z
-- **Git Commit:** 2bea6e6
+- **Checkpoint Time:** 2025-10-22T15:36:10.289Z
+- **Git Commit:** 67b84a2
 
 ---
 
