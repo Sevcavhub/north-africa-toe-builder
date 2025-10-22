@@ -470,9 +470,35 @@
           }
         }
       }
+    },
+
+    "discovered_units": {
+      "type": "array",
+      "required": false,
+      "description": "OPTIONAL: Units discovered during research that were NOT in the seed file. Agents report these for manual review and potential addition to work queue.",
+      "structure": {
+        "designation": "string (unit name/designation)",
+        "nation": "string (nation identifier)",
+        "quarter": "string (quarter identifier, format: yyyyqn) OR quarters: array of strings",
+        "type": "string (unit type: division, corps, brigade, etc.)",
+        "source": "string (where unit was discovered)",
+        "confidence": "integer (0-100, confidence that unit exists)",
+        "reason": "string (why this unit was discovered - parent/sibling/additional quarter/etc.)"
+      },
+      "example": [
+        {
+          "designation": "XXI Corpo d'Armata",
+          "nation": "italian",
+          "quarters": ["1940q3", "1940q4", "1941q1"],
+          "type": "corps",
+          "source": "Tessin Vol 12, page 245",
+          "confidence": 90,
+          "reason": "Parent corps mentioned in Brescia Division document but not in seed file for these quarters"
+        }
+      ]
     }
   },
-  
+
   "validation_rules": [
     "tanks.total = sum(heavy_tanks.total + medium_tanks.total + light_tanks.total)",
     "total_personnel ≈ officers + ncos + enlisted (allow ±5% variance for rounding)",

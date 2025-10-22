@@ -14,6 +14,7 @@ const fs = require('fs').promises;
 const path = require('path');
 const naming = require('./lib/naming_standard');
 const paths = require('./lib/canonical_paths');
+const matching = require('./lib/matching');
 
 // Echelon priority (smallest to largest for bottom-up aggregation)
 const ECHELON_PRIORITY = {
@@ -127,6 +128,7 @@ function expandSeedToUnitQuarters(seedData) {
                     nation,
                     quarter,
                     designation: unit.designation,
+                    aliases: unit.aliases || [],  // Include aliases for fuzzy matching
                     type: unit.type,
                     echelon: echelon.name,
                     echelonPriority: echelon.priority,
@@ -165,8 +167,13 @@ function sortUnitQuarters(unitQuarters) {
 
 // Generate markdown work queue
 async function generateMarkdown(unitQuarters, completedUnits) {
-    const pending = unitQuarters.filter(uq => !completedUnits.has(uq.unitId));
-    const completed = unitQuarters.filter(uq => completedUnits.has(uq.unitId));
+    // Use fuzzy matching instead of exact ID match
+    const pending = unitQuarters.filter(uq =>
+        !matching.isUnitCompleted(uq.nation, uq.quarter, uq.designation, uq.aliases, completedUnits)
+    );
+    const completed = unitQuarters.filter(uq =>
+        matching.isUnitCompleted(uq.nation, uq.quarter, uq.designation, uq.aliases, completedUnits)
+    );
 
     const totalUnits = unitQuarters.length;
     const completedCount = completed.length;
@@ -308,8 +315,10 @@ async function main() {
 
     console.log(`✅ Work queue generated: WORK_QUEUE.md\n`);
 
-    // Show summary
-    const pending = sorted.filter(uq => !completedUnits.has(uq.unitId));
+    // Show summary (use fuzzy matching like generateMarkdown)
+    const pending = sorted.filter(uq =>
+        !matching.isUnitCompleted(uq.nation, uq.quarter, uq.designation, uq.aliases, completedUnits)
+    );
     const next3 = pending.slice(0, 3);
 
     console.log('🎯 Next 3 units to process:\n');

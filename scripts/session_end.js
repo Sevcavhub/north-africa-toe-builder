@@ -319,6 +319,14 @@ async function main() {
     console.log('📍 Creating final checkpoint (syncs state)...\n');
     await createFinalCheckpoint();
 
+    // Reset session counter for next session
+    console.log('🔄 Resetting session counter...');
+    if (state) {
+        state.current_session_count = 0;
+        await fs.writeFile(WORKFLOW_STATE_PATH, JSON.stringify(state, null, 2));
+        console.log('   ✅ Session counter reset to 0 for next session\n');
+    }
+
     // Check for uncommitted changes after checkpoint
     const uncommitted = checkUncommittedChanges();
 
