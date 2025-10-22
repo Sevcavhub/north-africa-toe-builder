@@ -202,26 +202,6 @@ function isCompleted(nation, designation, quarter, completedSet) {
         return true;
     }
 
-    const prefix = `${nation}_${normalizedQuarter}`;
-    const prefixAlt = `${nation}_${quarter}`;
-    // Keep ALL words including short ones like "XX", "XXI", "15", "5th"
-    const designationWords = designation.toLowerCase().split(/\s+/).filter(w => w.length > 0);
-
-    for (const completedId of completedSet) {
-        if (completedId.startsWith(prefix) || completedId.startsWith(prefixAlt)) {
-            // Match key identifiers (numbers, roman numerals, division names)
-            const match = designationWords.some(word => {
-                // Keep full word for short identifiers (XX, XXI, 15, etc.)
-                const searchTerm = word.length <= 3 ? word : word.substring(0, 4);
-                return completedId.includes(searchTerm);
-            });
-            if (match && designationWords.length > 0) {
-                return true;
-            }
-        }
-    }
-
-    return false;
 }
 
 function calculateAllQuartersProgress(seedUnits, completedSet) {
@@ -360,20 +340,23 @@ function getNextBatchForQuarter(quarter, seedUnits, completedSet, batchSize = 3)
     }
 
     // Priority: division → brigade → regiment → corps → army → theater
-    const orgLevelPriority = {
-        'division': 1,
-        'brigade': 2,
-        'regiment': 3,
-        'corps': 4,
-        'army': 5,
-        'theater': 6,
-        'unknown': 99
+    // Helper function to get priority (handles division subtypes like armoured_division, panzer_division, etc.)
+    const getPriority = (type) => {
+        if (!type) return 99;
+        const t = type.toLowerCase();
+        if (t.includes('division')) return 1;
+        if (t.includes('brigade') || t.includes('column')) return 2;
+        if (t.includes('regiment')) return 3;
+        if (t.includes('corps')) return 4;
+        if (t.includes('army')) return 5;
+        if (t.includes('theater')) return 6;
+        return 99;
     };
 
     // Sort by organization level priority (divisions first)
     needed.sort((a, b) => {
-        const aPriority = orgLevelPriority[a.type] || 99;
-        const bPriority = orgLevelPriority[b.type] || 99;
+        const aPriority = getPriority(a.type);
+        const bPriority = getPriority(b.type);
         return aPriority - bPriority;
     });
 
