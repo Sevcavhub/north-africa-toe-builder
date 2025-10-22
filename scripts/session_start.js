@@ -24,6 +24,7 @@ const { execSync } = require('child_process');
 const { queryProjectKnowledge } = require('./memory_mcp_helpers');
 const naming = require('./lib/naming_standard');
 const paths = require('./lib/canonical_paths');
+const matching = require('./lib/matching');
 
 const PROJECT_ROOT = path.join(__dirname, '..');
 const WORKFLOW_STATE_PATH = path.join(PROJECT_ROOT, 'WORKFLOW_STATE.json');
@@ -185,23 +186,9 @@ async function getSeedUnits() {
     }
 }
 
-function isCompleted(nation, designation, quarter, completedSet) {
-    const normalizedQuarter = quarter.toLowerCase().replace(/-/g, '');
-    const normalizedDesignation = designation.toLowerCase()
-        .replace(/[^a-z0-9]+/g, '_')
-        .replace(/^_+|_+$/g, '');
-
-    const canonicalId = `${nation}_${normalizedQuarter}_${normalizedDesignation}`;
-
-    if (completedSet.has(canonicalId)) {
-        return true;
-    }
-
-    const altCanonicalId = `${nation}_${quarter}_${normalizedDesignation}`;
-    if (completedSet.has(altCanonicalId)) {
-        return true;
-    }
-
+function isCompleted(nation, designation, quarter, aliases, completedSet) {
+    // Use new matching library with alias support
+    return matching.isUnitCompleted(nation, quarter, designation, aliases || [], completedSet);
 }
 
 function calculateAllQuartersProgress(seedUnits, completedSet) {
@@ -227,7 +214,7 @@ function calculateAllQuartersProgress(seedUnits, completedSet) {
 
             quarterUnits.forEach(u => {
                 totalUnits++;
-                if (isCompleted(nation, u.designation, quarter, completedSet)) {
+                if (isCompleted(nation, u.designation, quarter, u.aliases || [], completedSet)) {
                     completedUnits++;
                 } else {
                     missingUnits.push({
@@ -328,7 +315,7 @@ function getNextBatchForQuarter(quarter, seedUnits, completedSet, batchSize = 3)
         const quarterUnits = units.filter(u => u.quarters && u.quarters.includes(quarter));
 
         quarterUnits.forEach(u => {
-            if (!isCompleted(nation, u.designation, quarter, completedSet)) {
+            if (!isCompleted(nation, u.designation, quarter, u.aliases || [], completedSet)) {
                 needed.push({
                     nation: nation.charAt(0).toUpperCase() + nation.slice(1),
                     designation: u.designation,
