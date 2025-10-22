@@ -494,19 +494,46 @@ ${batchResult.batch.length > 0 ? batchResult.batch.map((u, i) => `${i + 1}. ${u.
 - Template violations detected in generated chapters
 - Source documents unavailable for nation/quarter
 
-**AUTONOMOUS WORKFLOW:**
-Process these 3 units now using:
-1. 📋 **TodoWrite**: Create task list for all 3 units (extraction → validation → chapter generation)
-2. 🔍 **Extraction**: For each unit, extract data from source documents (Tessin, Army Lists, Field Manuals)
-   - Use Glob to find relevant source PDFs in Resource Documents/
-   - Use Read to examine source content
-   - Use extended thinking for complex analysis when sources conflict
-3. ✅ **Validation**: Schema compliance (unified_toe_schema.json) + template compliance (MDBOOK_CHAPTER_TEMPLATE.md)
-4. 📖 **Chapter Generation**: Create MDBook chapter for each unit (16 sections, v2.0 standard)
-5. 💾 **Checkpoint**: After all 3 units complete, run: Bash('npm run checkpoint')
-6. 🏁 **Session End**: When batch done, run: Bash('npm run session:end')
+**🤖 MULTI-AGENT ORCHESTRATION PROTOCOL**
 
-Begin autonomous orchestration now.`);
+⚠️ **CRITICAL**: You are the ORCHESTRATOR, not the extractor.
+
+**Project Architecture** (agents/agent_catalog.json):
+- **16 specialized agents** in 6 categories (document_parser, historical_research, org_hierarchy, toe_template, unit_instantiation, theater_allocator, division_cascader, equipment_reconciliation, bottom_up_aggregator, top3_calculator, schema_validator, historical_accuracy, seed_reconciliation_validator, book_chapter_generator, scenario_exporter, sql_populator)
+
+**YOUR ROLE AS ORCHESTRATOR:**
+1. 🚀 Launch 3 extraction agents IN PARALLEL using Task tool (one per unit)
+2. 📦 Provide each agent with: unit name, quarter, nation, canonical output path
+3. 🔧 Instruct agents to use MCP tools (mcp__filesystem__read_text_file, mcp__memory__create_entities, mcp__filesystem__write_file)
+4. 📊 Use TodoWrite to track progress through all phases
+5. 📝 Report results with PROOF of Task tool execution
+
+**⚡ MANDATORY PARALLEL EXECUTION** (3x speed improvement):
+
+YOU MUST launch all 3 agents in ONE message with 3 separate Task tool invocations.
+
+**Each agent should:**
+- Read sources using mcp__filesystem__read_text_file (Tessin, Army Lists from Resource Documents/)
+- Follow 6-phase workflow: Source Extraction → Org Building → Equipment Distribution → Aggregation → Validation → Output
+- Write to canonical location: data/output/units/[nation]_[quarter]_[unit]_toe.json
+- Store findings in Memory MCP using mcp__memory__create_entities
+- Generate MDBook chapter: data/output/chapters/chapter_[nation]_[quarter]_[unit].md
+- Report: confidence score, sources used, MCP tool usage log
+
+**After all 3 agents complete:**
+- Run checkpoint: Bash('npm run checkpoint')
+- Session end when done: Bash('npm run session:end')
+
+**PROOF OF ORCHESTRATION REQUIRED:**
+Report back with evidence of:
+✅ 3 Task tool calls made (show agent launches)
+✅ Execution mode: PARALLEL (all 3 launched simultaneously)
+✅ MCP tool usage by sub-agents (filesystem reads, memory writes)
+✅ Final outputs written to canonical locations
+
+If you cannot launch sub-agents using Task tool, STOP and explain why.
+
+Begin orchestration now - launch 3 Task agents in parallel.`);
 
     console.log('');
     console.log('─'.repeat(80));
