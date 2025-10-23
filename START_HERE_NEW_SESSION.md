@@ -249,6 +249,29 @@ npm run checkpoint
 
 **Maximum data loss in crash: 1-2 units** (<5 min recovery time)
 
+**Important**: Checkpoint does NOT update MCP memory - use `session:end` for that.
+
+---
+
+### Session End (When Finished for the Day)
+
+**Run when completely done working**: `npm run session:end`
+
+**What session:end does:**
+1. Runs final checkpoint (validates all units, updates state, commits)
+2. **Updates MCP Memory** with session statistics, patterns, and unit observations
+3. Creates SESSION_SUMMARY.md with comprehensive session report
+4. Removes SESSION_ACTIVE.txt marker
+5. Prepares environment for next session
+
+**Critical**: session:end stores knowledge in MCP memory so future sessions can learn from your work!
+
+**When to use:**
+- ✅ **session:end**: At the END of your work session (stores MCP memory)
+- ✅ **checkpoint**: After EACH batch of 3 units (validates + commits)
+
+---
+
 ### Crash Recovery Procedure
 
 If session crashes (VS Code restart, network disconnect, etc.):

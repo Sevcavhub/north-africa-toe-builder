@@ -522,13 +522,30 @@ YOU MUST launch all 3 agents in ONE message with 3 separate Task tool invocation
 - Read sources using mcp__filesystem__read_text_file (Tessin, Army Lists from Resource Documents/)
 - Follow 6-phase workflow: Source Extraction → Org Building → Equipment Distribution → Aggregation → Validation → Output
 - Write to canonical location: data/output/units/[nation]_[quarter]_[unit]_toe.json
-- Store findings in Memory MCP using mcp__memory__create_entities
+- **Store findings in MCP Memory** using mcp__memory__create_entities:
+  - Create entity for the unit with observations about: organization structure, equipment patterns, command chain, tactical doctrine, supply challenges, unique characteristics
+  - Store 5-10 observations per unit (not just 1!)
+  - Link related units using mcp__memory__create_relations (e.g., brigade → division parent)
+  - Example: {name: "1re_BFL_1942q1", entityType: "unit", observations: ["Multi-national force...", "Mixed French/British equipment...", "Defended Bir Hakeim..."]}
 - Generate MDBook chapter: data/output/chapters/chapter_[nation]_[quarter]_[unit].md
-- Report: confidence score, sources used, MCP tool usage log
+- Report: confidence score, sources used, MCP tool usage log (should show 5-10 memory calls, not 1!)
 
-**After all 3 agents complete:**
+**After EACH batch of 3 units completes:**
 - Run checkpoint: Bash('npm run checkpoint')
-- Session end when done: Bash('npm run session:end')
+  - Validates units (JSON + chapter + schema compliance)
+  - Updates WORKFLOW_STATE.json with new count
+  - Commits to git with auto-generated message
+  - Regenerates WORK_QUEUE.md
+
+**After ALL batches complete (end of session):**
+- Run session end: Bash('npm run session:end')
+  - Runs final checkpoint
+  - **Updates MCP Memory** with session patterns, statistics, and unit observations
+  - Creates SESSION_SUMMARY.md with session report
+  - Removes SESSION_ACTIVE.txt marker
+  - Prepares for next session
+
+⚠️ **CRITICAL**: You MUST run session:end when finished for the day - it stores knowledge in MCP memory for future sessions!
 
 **PROOF OF ORCHESTRATION REQUIRED:**
 Report back with evidence of:
