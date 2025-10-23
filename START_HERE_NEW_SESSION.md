@@ -142,8 +142,7 @@ npm run orchestrate         # API-based orchestration (uses tokens)
 
 ### Session Management:
 ```bash
-npm run session:start       # Start new work session3
-
+npm run session:start       # Start new work session
 npm run session:end         # End session with checkpoint
 npm run checkpoint          # Mid-session checkpoint
 ```
@@ -153,6 +152,107 @@ npm run checkpoint          # Mid-session checkpoint
 npm run git:commit          # Auto-commit with standardized message
 npm run git:push           # Commit and push
 ```
+
+---
+
+## 🔄 Session Management Protocol
+
+### Starting a Session
+
+**Always start with:**
+```bash
+npm run session:start
+```
+
+**This automatically:**
+- Loads WORKFLOW_STATE.json with current progress (252/419 units)
+- Queries Memory MCP for project knowledge
+- Displays next 3 suggested units from WORK_QUEUE.md
+- Shows recent completions and patterns
+- Creates SESSION_ACTIVE.txt marker
+
+### Checkpoint System (Automatic)
+
+**Checkpoints run automatically after every 3-unit batch completion.**
+
+```bash
+npm run checkpoint
+```
+
+**What checkpoint does:**
+1. Scans canonical directories for completed units (JSON + chapter files)
+2. Validates each unit (schema v3.1.0 compliance)
+3. Only counts units meeting ALL 3 requirements:
+   - ✅ JSON file exists
+   - ✅ Chapter file exists
+   - ✅ Passes validation (no critical errors)
+4. Updates WORKFLOW_STATE.json with validated count only
+5. Regenerates WORK_QUEUE.md with latest progress
+6. Creates SESSION_CHECKPOINT.md with recovery info
+7. Commits to git with descriptive message
+
+**Maximum data loss in crash: 1-2 units** (<5 min recovery time)
+
+### Crash Recovery Procedure
+
+If session crashes (VS Code restart, network disconnect, etc.):
+
+**Step 1: Check last checkpoint**
+```bash
+cat SESSION_CHECKPOINT.md
+cat WORKFLOW_STATE.json
+```
+
+**Step 2: Review what was completed**
+- SESSION_CHECKPOINT.md shows last successful commit
+- Maximum 1-2 units lost (current batch only)
+- RESTORATION_PLAN.md exists for mid-restoration crashes
+
+**Step 3: Resume work**
+```bash
+npm run session:start
+# Continue with next batch - all context loaded automatically
+```
+
+**Step 4: Manual checkpoint if needed**
+```bash
+npm run checkpoint "crash_recovery"
+```
+
+### Ending a Session
+
+**Always end sessions cleanly:**
+```bash
+npm run session:end
+```
+
+**Session end automatically:**
+1. Creates final checkpoint (if uncommitted work exists)
+2. Stores session statistics to Memory MCP
+3. Stores patterns/decisions/issues discovered
+4. Generates SESSION_SUMMARY.md with progress report
+5. Validates no uncommitted changes remain
+6. Cleans up SESSION_ACTIVE.txt marker
+7. Resets session counter for next session
+
+**Session summary includes:**
+- Duration and units completed this session
+- Progress percentage (current: 60.1% = 252/419)
+- Uncommitted files warning (if any)
+- Instructions for resuming next session
+
+### Work Pattern (Proven Stable)
+
+**3-Unit Batches:**
+- Process units in groups of 3
+- Automatic checkpoint after each batch
+- Parallel Task tool execution (3 agents simultaneously)
+- ~20-30 minutes per batch (with orchestration)
+
+**NO Session Limits:**
+- Continue as long as needed (no 12-unit artificial limit)
+- Take breaks between batches to avoid fatigue
+- Use session:end when done for the day
 
 ---
 

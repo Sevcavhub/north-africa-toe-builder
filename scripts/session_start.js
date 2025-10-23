@@ -546,7 +546,7 @@ Begin orchestration now - launch 3 Task agents in parallel.`);
     console.log('   - Session:end syncs final state and creates summary');
     console.log('   - Work queue processes units in chronological + echelon order');
     console.log('');
-    console.log('📚 **FULL GUIDELINES:** See "STRICT AUTONOMOUS MODE - Ken Prompt.md"');
+    console.log('📚 **FULL GUIDELINES:** See "START_HERE_NEW_SESSION.md" → Session Management Protocol section');
     console.log('');
     console.log('═'.repeat(80));
     console.log('');
