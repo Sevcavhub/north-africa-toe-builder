@@ -546,6 +546,10 @@ YOU MUST launch all 3 agents in ONE message with 3 separate Task tool invocation
 ⚠️ **CRASH-RESISTANT**: session:end after EACH batch means MCP memory updated every 3 units
 ⚠️ **BENEFIT**: VS Code crashes lose max 1-2 units of knowledge (not entire session)
 ⚠️ **AUTOMATED MODE**: Use `npm run auto:standard` for continuous processing (9 units, 3 batches)
+⚠️ **COMPACTION SAFETY**: After each batch, check token usage (system warnings)
+   - If > 160,000 tokens (80%): STOP and tell user context approaching limit
+   - session:end has saved all work, safe to continue in new thread
+   - User can resume: Just run same command in new thread
 
 **PROOF OF ORCHESTRATION REQUIRED:**
 Report back with evidence of:

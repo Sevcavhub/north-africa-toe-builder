@@ -194,17 +194,23 @@ async function main() {
 
     console.log('\nAfter each batch completes:');
     console.log('1. Run session:end (this script shows it)');
-    console.log('2. Move to next batch IMMEDIATELY');
-    console.log('3. DO NOT ask "would you like me to continue"');
-    console.log('4. DO NOT wait for user input between batches');
+    console.log('2. **CHECK TOKEN USAGE** (see system warnings)');
+    console.log('   - If > 160,000 tokens (80%): STOP and warn user about compaction');
+    console.log('   - session:end has saved work, safe to continue in new thread');
+    console.log('   - Tell user: "Context approaching limit, resume with same command"');
+    console.log('3. If tokens OK: Move to next batch IMMEDIATELY');
+    console.log('4. DO NOT ask "would you like me to continue"');
+    console.log('5. DO NOT wait for user input between batches');
 
     if (batchesToRun === Infinity) {
-        console.log('5. Continue until WORK_QUEUE.md is empty (no units left)\n');
+        console.log('6. Continue until WORK_QUEUE.md is empty (no units left)\n');
         console.log('⚠️  CONTINUOUS MODE: This may take many hours if queue is large!');
         console.log('⚠️  Current remaining: Check WORK_QUEUE.md for count');
+        console.log('⚠️  COMPACTION SAFETY: Will pause at 80% token usage automatically');
     } else {
-        console.log(`5. Continue until all ${batchesToRun} batches are complete\n`);
+        console.log(`6. Continue until all ${batchesToRun} batches are complete\n`);
         console.log(`📊 Estimated time: ~${batchesToRun * 20}-${batchesToRun * 30} minutes`);
+        console.log(`⚠️  COMPACTION SAFETY: Will pause at 80% token usage if needed`);
     }
 
     console.log('\nUser has already approved this automation by running the command.');
