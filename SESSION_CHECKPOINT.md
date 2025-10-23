@@ -1,25 +1,28 @@
-# Session Checkpoint - 2025-10-23T21:51:35.453Z
+# Session Checkpoint - 2025-10-23T22:16:08.318Z
 
 ## Progress Summary
 
 - **Total Unit-Quarters:** 419
-- **Completed:** 254 (60.6%)
-- **Remaining:** 165
-- **Last Commit:** ddc925c
+- **Completed:** 257 (61.3%)
+- **Remaining:** 162
+- **Last Commit:** 6885d25
 
 ## Validation Status
 
-- **Total Validated:** 257
+- **Total Validated:** 259
 - **✅ Passed:** 0 (0.0%)
-- **❌ Failed:** 0 ✅
-- **⚠️ Warnings:** 257
+- **❌ Failed:** 1 ⚠️
+- **⚠️ Warnings:** 258
 
-**All units passed validation** ✅
+### Critical Validation Failures
+
+**italian_1940q3_10th_army:**
+  - ❌ Failed to parse JSON: du.combat_evidence.trim is not a function
 
 ## Chapter Status
 
-- **JSON Files:** 257
-- **MDBook Chapters:** 255 ⚠️
+- **JSON Files:** 259
+- **MDBook Chapters:** 257 ⚠️
 - **Missing Chapters:** 2
   - ❌ german_1943q1_15_panzer_division
   - ❌ italian_1940q3_25_divisione_di_fanteria_bologna
@@ -48,13 +51,13 @@ If this session crashes or needs to resume:
 
 3. **View full progress:**
    - See WORKFLOW_STATE.json for complete list
-   - 254 units saved successfully
+   - 257 units saved successfully
 
 ## Session Info
 
 - **Session ID:** complete_seed_generated
-- **Checkpoint Time:** 2025-10-23T21:51:35.349Z
-- **Git Commit:** ddc925c
+- **Checkpoint Time:** 2025-10-23T22:16:08.216Z
+- **Git Commit:** 6885d25
 
 ---
 

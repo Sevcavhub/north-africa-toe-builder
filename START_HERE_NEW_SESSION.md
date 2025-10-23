@@ -2,7 +2,7 @@
 
 <!-- AUTO-UPDATED: START - Session Metadata -->
 **Project**: North Africa TO&E Builder - **v3.0.0 (Ground Forces)**
-**Last Updated**: 2025-10-23
+**Last Updated**: 2025-10-23 14:51
 **Status**: Schema v3.0 Complete, 254/419 units (60.6%)
 <!-- AUTO-UPDATED: END - Session Metadata -->
 
@@ -43,7 +43,7 @@
 ### ✅ RECENTLY COMPLETED (Last Session):
 - **Session Date**: 2025-10-23
 - **Units Completed**: 254 unit-quarters (0 → 254)
-- **Session Duration**: Full restoration complete
+- **Session Duration**: 41 minutes
 - **Completion Rate**: 60.6% of total project
 - **Recent Work**:
   - italian_1942q4_101_divisione_motorizzata_trieste

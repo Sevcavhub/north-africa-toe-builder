@@ -1,9 +1,9 @@
 # North Africa Work Queue
 
-**Generated**: 2025-10-23T21:51:35.439Z
+**Generated**: 2025-10-23T22:16:08.304Z
 
-**Progress**: 219/419 units complete (52.3%)
-**Remaining**: 200 units
+**Progress**: 220/419 units complete (52.5%)
+**Remaining**: 199 units
 
 ---
 
@@ -27,13 +27,10 @@
 
 ## 📋 Full Queue (Chronological + Echelon Order)
 
-### 1940-Q3 (14/17 complete)
+### 1940-Q3 (15/17 complete)
 
 **DIVISION** (1 remaining):
 - [ ] ITALIAN - 4th CC.NN. Division '3 Gennaio'
-
-**CORPS** (1 remaining):
-- [ ] ITALIAN - XXII Corpo d'Armata (XXII Corps)
 
 **ARMY** (1 remaining):
 - [ ] ITALIAN - 10ª Armata (Italian 10th Army)
@@ -363,7 +360,7 @@
 
 ---
 
-## ✅ Completed (219 units)
+## ✅ Completed (220 units)
 
 <details>
 <summary>Show completed units</summary>
@@ -379,7 +376,7 @@
 - [x] ITALIAN - 10ª Armata (Italian 10th Army) _(army)_
 - [x] BRITISH - Western Desert Force _(unknown)_
 
-### 1940-Q3 (14 complete)
+### 1940-Q3 (15 complete)
 
 - [x] BRITISH - 4th Indian Division _(infantry_division)_
 - [x] BRITISH - 7th Armoured Division _(division)_
@@ -394,6 +391,7 @@
 - [x] ITALIAN - Sabratha Division _(infantry_division)_
 - [x] ITALIAN - Savona Division _(infantry_division)_
 - [x] ITALIAN - Sirte Division _(infantry_division)_
+- [x] ITALIAN - XXII Corpo d'Armata (XXII Corps) _(corps)_
 - [x] BRITISH - Western Desert Force _(unknown)_
 
 ### 1940-Q4 (7 complete)
