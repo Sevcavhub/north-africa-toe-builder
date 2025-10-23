@@ -1,12 +1,55 @@
 # North Africa TO&E Builder - Complete Project Scope
 
-**Version**: 1.0.8
-**Last Updated**: 2025-10-23
+**Version**: 1.0.9
+**Last Updated**: 2025-10-23 (Post-Restoration - System Stabilized)
 **Status**: 🟢 LIVING DOCUMENT - Subject to updates
 **Current Phase**: Phase 5 (Equipment Matching) - 4.3% COMPLETE | Phase 6 (Ground Forces Extraction) - 60.6% COMPLETE
 **Overall Progress**: ~60.6% complete (254 of 419 unit-quarters | Phase 5: 20/469 equipment matched, 4.3%)
 **Architecture**: v4.0 (Canonical Output Locations)
 **Scope**: COMPLETE - ALL 117 units that fought in North Africa battles (1940-1943)
+
+---
+
+## 🔧 System Restoration (October 23, 2025)
+
+**Status**: ✅ COMPLETE - All 12 tasks (100%)
+**Duration**: 1 day (multiple sessions due to VS Code crashes)
+**Root Cause**: Workflow drift from Oct 18-23 baseline due to MCP memory gap
+
+### What Was Fixed:
+
+**Phase 1: Critical Fixes** (4 tasks)
+- ✅ **MCP Memory Integration**: Created 6 retroactive entities for Oct 18-23 knowledge gap
+- ✅ **Work Queue Ordering**: Fixed to echelon-first globally (divisions before corps)
+- ✅ **Combat Criteria**: Added `combat_evidence` validation to `discovered_units` schema
+- ✅ **Validator Compliance**: Added 92 lines for v3.0.0/v3.1.0 validation (supply/weather/tier/combat)
+- ✅ **Count Sync**: Automatic validation-based counting (JSON + chapter + validation pass)
+
+**Phase 2: Documentation** (2 tasks)
+- ✅ **Consolidated Docs**: Merged START_HERE + Ken Prompt (629 lines removed)
+- ✅ **CLAUDE.md Rewrite**: 872 → 243 lines (72% reduction), clear hierarchy
+
+**Phase 3: Workflow Enforcement** (2 tasks)
+- ✅ **Session Start**: Added CRITICAL RULES section to `session_start.js`
+- ✅ **Pre-Flight Validation**: Created `validate_session_readiness.js` (environment checks)
+
+**Phase 4: Version History** (2 tasks)
+- ✅ **VERSION_HISTORY.md**: Documented schema v3.1.0 features (140 lines)
+- ✅ **PROJECT_SCOPE.md**: Updated progress 28.1% → 60.6% (254/419)
+
+**Phase 5: Testing** (2 tasks)
+- ✅ **End-to-End Test**: Verified complete workflow functional
+- ✅ **Validation Errors**: Fixed 2 critical errors → **0 failures (254 files, 173 passed)**
+
+**Impact**: All workflow drift issues resolved, system ready for Phase 6 continuation
+
+**Git Commits**:
+- `65c835e` - Phase 1 restoration (MCP memory, work queue, combat criteria, validator, count sync)
+- `5598f65` - Phase 2.1 (documentation consolidation)
+- `e06b37a` - Phase 2.2 (CLAUDE.md rewrite)
+- `ff5b333` - Phase 2 complete
+- `bc465c0` - Phases 3-5 complete (workflow enforcement, version history, testing)
+- `fb31013` - Documentation synchronization (unit counts)
 
 ---
 

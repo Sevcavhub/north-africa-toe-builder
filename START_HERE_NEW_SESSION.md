@@ -57,6 +57,62 @@
   - italian_1943q1_131_divisione_corazzata_centauro
 <!-- AUTO-UPDATED: END - Recently Completed -->
 
+---
+
+## 🔧 System Restoration Complete (October 23, 2025)
+
+**Status**: ✅ ALL 12 TASKS COMPLETE (100%)
+**Timestamp**: 2025-10-23 (completed in 1 day despite multiple VS Code crashes)
+
+### What Was Restored:
+
+**Problem Identified**: Workflow drift from Oct 18-23 baseline caused by MCP memory gap (no knowledge stored since Oct 19)
+
+**Solutions Implemented**:
+
+1. **MCP Memory Integration** ✅
+   - Created 6 retroactive entities documenting Oct 18-23 baseline knowledge
+   - Fixed session knowledge persistence
+   - All sessions now have consistent context
+
+2. **Work Queue Ordering** ✅
+   - Changed from chronological-first to **echelon-first globally**
+   - Enforces bottom-up aggregation (all divisions before ANY corps)
+   - Prevents premature corps/army extraction
+
+3. **Combat Validation** ✅
+   - Added `combat_evidence` field to `discovered_units` schema
+   - Prevents garrison/reserve scope creep (420 seed units only)
+   - Keyword detection for automatic rejection
+
+4. **Schema Validation** ✅
+   - Added 92 lines of v3.0.0/v3.1.0 validation logic
+   - Fixed 2 critical errors → **0 failures (254 files, 173 passed)**
+   - Automatic count sync (JSON + chapter + validation = complete)
+
+5. **Documentation Consolidation** ✅
+   - Merged START_HERE + Ken Prompt (629 lines removed)
+   - Rewrote CLAUDE.md: 872 → 243 lines (72% reduction)
+   - Single source of truth for workflows
+
+6. **Workflow Enforcement** ✅
+   - Added CRITICAL RULES to `session_start.js` (seed authority, combat criteria, canonical paths, validation)
+   - Created `scripts/validate_session_readiness.js` for pre-flight checks
+   - Added `npm run session:ready` command
+
+7. **Version History Updates** ✅
+   - Documented schema v3.1.0 features (140 lines)
+   - Updated PROJECT_SCOPE.md progress (28.1% → 60.6%)
+   - All unit counts synchronized
+
+**Files Modified**: 16 files (8 modified, 8 created)
+**Git Commits**: 6 commits (65c835e, 5598f65, e06b37a, ff5b333, bc465c0, fb31013)
+**Validation**: 254 files, 0 critical errors, 173 passed (68.1%), 81 warnings (31.9%)
+
+**See**: `RESTORATION_PLAN.md` for complete details
+
+---
+
 <!-- AUTO-UPDATED: START - Progress Stats -->
 ### 🔨 IN PROGRESS:
 - **Ground Forces Extraction**: 254/419 unit-quarters (60.6%)
