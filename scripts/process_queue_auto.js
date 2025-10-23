@@ -183,14 +183,31 @@ async function main() {
     console.log('⚠️  AUTOMATED MODE - NO USER CONFIRMATIONS REQUIRED');
     console.log(`${'='.repeat(60)}`);
     console.log('\n🤖 INSTRUCTIONS FOR CLAUDE:\n');
-    console.log(`You are in AUTOMATED MODE. You MUST process ALL ${batchesToRun} batches without asking`);
-    console.log('for user confirmation between batches. After each batch completes:');
+
+    if (batchesToRun === Infinity) {
+        console.log('You are in CONTINUOUS MODE. You MUST process batches until the queue is empty,');
+        console.log('without asking for user confirmation between batches.');
+    } else {
+        console.log(`You are in AUTOMATED MODE. You MUST process ALL ${batchesToRun} batches without asking`);
+        console.log('for user confirmation between batches.');
+    }
+
+    console.log('\nAfter each batch completes:');
     console.log('1. Run session:end (this script shows it)');
     console.log('2. Move to next batch IMMEDIATELY');
     console.log('3. DO NOT ask "would you like me to continue"');
     console.log('4. DO NOT wait for user input between batches');
-    console.log(`5. Continue until all ${batchesToRun} batches are complete\n`);
-    console.log('User has already approved this automation by running the command.');
+
+    if (batchesToRun === Infinity) {
+        console.log('5. Continue until WORK_QUEUE.md is empty (no units left)\n');
+        console.log('⚠️  CONTINUOUS MODE: This may take many hours if queue is large!');
+        console.log('⚠️  Current remaining: Check WORK_QUEUE.md for count');
+    } else {
+        console.log(`5. Continue until all ${batchesToRun} batches are complete\n`);
+        console.log(`📊 Estimated time: ~${batchesToRun * 20}-${batchesToRun * 30} minutes`);
+    }
+
+    console.log('\nUser has already approved this automation by running the command.');
     console.log('Your job is to execute all batches to completion.\n');
 
     // Read initial state
