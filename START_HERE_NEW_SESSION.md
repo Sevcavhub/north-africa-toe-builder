@@ -200,7 +200,7 @@ npm run orchestrate         # API-based orchestration (uses tokens)
 ```bash
   Pre-configured automated modes:
   npm run auto:quick      # 1 batch  (3 units,  ~20-30 min)
-  
+  npm run auto:Standard
      # 3 batches (9 units,  ~60-90 min)  ←  RECOMMENDED
   npm run auto:extended   # 5 batches (15 units, ~100-150 min)
   npm run auto:marathon   # 10 batches (30 units, ~200-300 min)

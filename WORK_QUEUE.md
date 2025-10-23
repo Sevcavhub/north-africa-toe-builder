@@ -1,9 +1,9 @@
 # North Africa Work Queue
 
-**Generated**: 2025-10-23T23:18:53.870Z
+**Generated**: 2025-10-23T23:53:30.393Z
 
-**Progress**: 225/419 units complete (53.7%)
-**Remaining**: 194 units
+**Progress**: 220/419 units complete (52.5%)
+**Remaining**: 199 units
 
 ---
 
@@ -20,14 +20,20 @@
 ## 🎯 Next Up (Next Session)
 
 1. **FRENCH** - 1943-Q2 - Force L _(brigade)_
-2. **ITALIAN** - 1940-Q3 - 4th CC.NN. Division '3 Gennaio' _(division)_
-3. **ITALIAN** - 1940-Q4 - 1st CC.NN. Division '23 Marzo' _(division)_
+2. **BRITISH** - 1940-Q3 - 4th Indian Division _(infantry_division)_
+3. **ITALIAN** - 1940-Q3 - 4th CC.NN. Division '3 Gennaio' _(division)_
 
 ---
 
 ## 📋 Full Queue (Chronological + Echelon Order)
 
-### 1940-Q3 (16/17 complete)
+### 1940-Q3 (12/17 complete)
+
+**INFANTRY_DIVISION** (4 remaining):
+- [ ] BRITISH - 4th Indian Division
+- [ ] ITALIAN - Bologna Division
+- [ ] ITALIAN - Brescia Division
+- [ ] ITALIAN - Pavia Division
 
 **DIVISION** (1 remaining):
 - [ ] ITALIAN - 4th CC.NN. Division '3 Gennaio'
@@ -216,7 +222,7 @@
 - [ ] GERMAN - 5th Panzer Army
 - [ ] GERMAN - Panzerarmee Afrika
 
-### 1943-Q1 (11/56 complete)
+### 1943-Q1 (10/56 complete)
 
 **ARMORED_DIVISION** (4 remaining):
 - [ ] AMERICAN - 1st Armored Division
@@ -250,12 +256,13 @@
 - [ ] FRENCH - Algerian March Division
 - [ ] FRENCH - Constantine March Division
 
+**PANZER_DIVISION** (2 remaining):
+- [ ] GERMAN - 15. Panzer-Division
+- [ ] GERMAN - Hermann Göring Division
+
 **LIGHT_DIVISION** (2 remaining):
 - [ ] GERMAN - 164. leichte Division
 - [ ] GERMAN - 90. leichte Division
-
-**PANZER_DIVISION** (1 remaining):
-- [ ] GERMAN - Hermann Göring Division
 
 **MOTORIZED_DIVISION** (2 remaining):
 - [ ] ITALIAN - 101st TRIESTE Division
@@ -353,7 +360,7 @@
 
 ---
 
-## ✅ Completed (225 units)
+## ✅ Completed (220 units)
 
 <details>
 <summary>Show completed units</summary>
@@ -369,18 +376,14 @@
 - [x] ITALIAN - 10ª Armata (Italian 10th Army) _(army)_
 - [x] BRITISH - Western Desert Force _(unknown)_
 
-### 1940-Q3 (16 complete)
+### 1940-Q3 (12 complete)
 
-- [x] BRITISH - 4th Indian Division _(infantry_division)_
 - [x] BRITISH - 7th Armoured Division _(division)_
 - [x] ITALIAN - 1st Libyan Division _(division)_
 - [x] ITALIAN - 2nd Libyan Division _(division)_
-- [x] ITALIAN - Bologna Division _(infantry_division)_
-- [x] ITALIAN - Brescia Division _(infantry_division)_
 - [x] ITALIAN - Catanzaro Division _(infantry_division)_
 - [x] ITALIAN - Cirene Division _(infantry_division)_
 - [x] ITALIAN - Marmarica Division _(infantry_division)_
-- [x] ITALIAN - Pavia Division _(infantry_division)_
 - [x] ITALIAN - Sabratha Division _(infantry_division)_
 - [x] ITALIAN - Savona Division _(infantry_division)_
 - [x] ITALIAN - Sirte Division _(infantry_division)_
@@ -604,7 +607,7 @@
 - [x] ITALIAN - XXI Corpo d'Armata (XXI Corps) _(corps)_
 - [x] BRITISH - Eighth Army (8th Army) _(army)_
 
-### 1943-Q1 (11 complete)
+### 1943-Q1 (10 complete)
 
 - [x] BRITISH - 1st Greek Brigade _(brigade)_
 - [x] FRENCH - Force L _(brigade)_
@@ -613,7 +616,6 @@
 - [x] BRITISH - 50th Infantry Division _(infantry_division)_
 - [x] FRENCH - 1re Division Française Libre _(infantry_division)_
 - [x] GERMAN - 10. Panzer-Division _(panzer_division)_
-- [x] GERMAN - 15. Panzer-Division _(panzer_division)_
 - [x] GERMAN - 21. Panzer-Division _(panzer_division)_
 - [x] ITALIAN - Centauro Division _(armored_division)_
 - [x] AMERICAN - II Corps _(corps)_

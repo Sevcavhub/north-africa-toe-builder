@@ -280,13 +280,113 @@ async function displayRecoveryReport(categories, oldState, newState) {
     console.log('4. 🤖 Or use automated mode:');
     console.log('   Run: npm run auto:standard  (9 units, 3 batches)\n');
 
+    console.log('='.repeat(70) + '\n');
+
+    // Offer automatic cleanup if partial/invalid units found
     if (categories.partialJSON.length > 0 || categories.invalid.length > 0) {
-        console.log('5. 🧹 Optional cleanup:');
-        console.log('   Run: npm run cleanup:partial');
-        console.log('   (Removes partial/invalid units for clean re-extraction)\n');
+        const autoCleanup = process.argv.includes('--auto-cleanup');
+        const totalToCleanup = categories.partialJSON.length + categories.invalid.length;
+
+        if (autoCleanup) {
+            console.log(`\n🧹 AUTO-CLEANUP MODE: Removing ${totalToCleanup} partial/invalid units...\n`);
+            await performCleanup(categories, totalToCleanup);
+        } else {
+            console.log('⚠️  PARTIAL/INVALID UNITS DETECTED\n');
+            console.log(`   Found ${totalToCleanup} units that need cleanup (JSON without chapter, or validation errors)`);
+            console.log('   These should be removed and re-extracted from scratch.\n');
+            console.log('   To automatically clean these up, run:');
+            console.log('   npm run recover -- --auto-cleanup\n');
+            console.log('   (Creates backup before deletion)\n');
+        }
+    }
+}
+
+async function createBackup(units) {
+    const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
+    const backupDir = path.join(PROJECT_ROOT, '.partial_backups');
+    const backupPath = path.join(backupDir, `backup_${timestamp}`);
+
+    await fs.mkdir(backupPath, { recursive: true });
+
+    for (const unit of units) {
+        // Backup JSON
+        const jsonPath = path.join(paths.UNITS_DIR, unit.jsonFile);
+        const jsonBackupPath = path.join(backupPath, unit.jsonFile);
+        await fs.copyFile(jsonPath, jsonBackupPath);
+
+        // Backup chapter if exists
+        if (unit.hasChapter) {
+            const chapterFilename = `chapter_${unit.nation}_${unit.quarter}_${unit.designation}.md`;
+            const chapterPath = path.join(paths.CHAPTERS_DIR, chapterFilename);
+            if (require('fs').existsSync(chapterPath)) {
+                const chapterBackupPath = path.join(backupPath, chapterFilename);
+                await fs.copyFile(chapterPath, chapterBackupPath);
+            }
+        }
     }
 
-    console.log('='.repeat(70) + '\n');
+    return backupPath;
+}
+
+async function deleteUnits(units) {
+    const results = { deleted: [], failed: [] };
+
+    for (const unit of units) {
+        try {
+            // Delete JSON
+            const jsonPath = path.join(paths.UNITS_DIR, unit.jsonFile);
+            await fs.unlink(jsonPath);
+            results.deleted.push(unit.jsonFile);
+
+            // Delete chapter if exists
+            if (unit.hasChapter) {
+                const chapterFilename = `chapter_${unit.nation}_${unit.quarter}_${unit.designation}.md`;
+                const chapterPath = path.join(paths.CHAPTERS_DIR, chapterFilename);
+                if (require('fs').existsSync(chapterPath)) {
+                    await fs.unlink(chapterPath);
+                    results.deleted.push(chapterFilename);
+                }
+            }
+        } catch (error) {
+            results.failed.push({ file: unit.jsonFile, error: error.message });
+        }
+    }
+
+    return results;
+}
+
+async function performCleanup(categories, totalToCleanup) {
+    const unitsToCleanup = [...categories.partialJSON, ...categories.invalid];
+
+    console.log('💾 Creating backup before deletion...');
+    const backupPath = await createBackup(unitsToCleanup);
+    console.log(`   ✅ Backup created: ${backupPath}\n`);
+
+    console.log('🗑️  Deleting partial/invalid units...');
+    const results = await deleteUnits(unitsToCleanup);
+
+    if (results.deleted.length > 0) {
+        console.log(`   ✅ Deleted ${results.deleted.length} files\n`);
+    }
+
+    if (results.failed.length > 0) {
+        console.log(`   ❌ Failed to delete ${results.failed.length} files:\n`);
+        results.failed.forEach(f => {
+            console.log(`      - ${f.file}: ${f.error}`);
+        });
+        console.log('');
+    }
+
+    // Regenerate queue after cleanup
+    console.log('📋 Regenerating work queue after cleanup...');
+    const queueSuccess = await regenerateWorkQueue();
+    if (queueSuccess) {
+        console.log('   ✅ Queue regenerated\n');
+    }
+
+    console.log('✅ Cleanup complete!\n');
+    console.log('   All partial/invalid units have been removed.');
+    console.log('   They are ready to be re-extracted from WORK_QUEUE.md\n');
 }
 
 async function main() {
