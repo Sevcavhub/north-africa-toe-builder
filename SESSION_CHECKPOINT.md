@@ -1,32 +1,25 @@
-# Session Checkpoint - 2025-10-23T13:45:25.475Z
+# Session Checkpoint - 2025-10-23T21:36:11.568Z
 
 ## Progress Summary
 
 - **Total Unit-Quarters:** 419
-- **Completed:** 252 (60.1%)
-- **Remaining:** 167
-- **Last Commit:** fda223b
+- **Completed:** 254 (60.6%)
+- **Remaining:** 165
+- **Last Commit:** d070ec9
 
 ## Validation Status
 
-- **Total Validated:** 254
-- **✅ Passed:** 173 (68.1%)
-- **❌ Failed:** 2 ⚠️
-- **⚠️ Warnings:** 79
+- **Total Validated:** 257
+- **✅ Passed:** 0 (0.0%)
+- **❌ Failed:** 0 ✅
+- **⚠️ Warnings:** 257
 
-### Critical Validation Failures
-
-**british_1940q3_4th_indian_division:**
-  - ❌ Uses nested structure (unit_identification.*) instead of unified schema top-level fields
-  - ❌ Commander name is NULL but confidence is 87% (should have commander name when confidence ≥ 50%)
-
-**british_1940q4_1_south_african_division:**
-  - ❌ Missing required field: schema_type
+**All units passed validation** ✅
 
 ## Chapter Status
 
-- **JSON Files:** 254
-- **MDBook Chapters:** 252 ⚠️
+- **JSON Files:** 257
+- **MDBook Chapters:** 255 ⚠️
 - **Missing Chapters:** 2
   - ❌ german_1943q1_15_panzer_division
   - ❌ italian_1940q3_25_divisione_di_fanteria_bologna
@@ -55,13 +48,13 @@ If this session crashes or needs to resume:
 
 3. **View full progress:**
    - See WORKFLOW_STATE.json for complete list
-   - 252 units saved successfully
+   - 254 units saved successfully
 
 ## Session Info
 
 - **Session ID:** complete_seed_generated
-- **Checkpoint Time:** 2025-10-23T13:45:25.363Z
-- **Git Commit:** fda223b
+- **Checkpoint Time:** 2025-10-23T21:36:11.467Z
+- **Git Commit:** d070ec9
 
 ---
 

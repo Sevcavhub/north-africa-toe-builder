@@ -1,9 +1,9 @@
 # North Africa Work Queue
 
-**Generated**: 2025-10-23T15:46:56.355Z
+**Generated**: 2025-10-23T21:36:11.554Z
 
-**Progress**: 216/419 units complete (51.6%)
-**Remaining**: 203 units
+**Progress**: 219/419 units complete (52.3%)
+**Remaining**: 200 units
 
 ---
 
@@ -19,9 +19,9 @@
 
 ## 🎯 Next Up (Next Session)
 
-1. **FRENCH** - 1942-Q1 - 1re Brigade Française Libre _(brigade)_
-2. **FRENCH** - 1942-Q4 - Force L _(brigade)_
-3. **FRENCH** - 1943-Q1 - Force L _(brigade)_
+1. **BRITISH** - 1943-Q2 - 1st Greek Brigade _(brigade)_
+2. **FRENCH** - 1943-Q2 - Force L _(brigade)_
+3. **ITALIAN** - 1940-Q3 - 4th CC.NN. Division '3 Gennaio' _(division)_
 
 ---
 
@@ -106,10 +106,7 @@
 **CORPS** (1 remaining):
 - [ ] ITALIAN - XX Mobile Corps
 
-### 1942-Q1 (14/29 complete)
-
-**BRIGADE** (1 remaining):
-- [ ] FRENCH - 1re Brigade Française Libre
+### 1942-Q1 (15/29 complete)
 
 **INFANTRY_DIVISION** (8 remaining):
 - [ ] BRITISH - 1st South African Division
@@ -201,10 +198,7 @@
 - [ ] ITALIAN - 101st TRIESTE Division
 - [ ] ITALIAN - Trento Division
 
-### 1942-Q4 (39/55 complete)
-
-**BRIGADE** (1 remaining):
-- [ ] FRENCH - Force L
+### 1942-Q4 (40/55 complete)
 
 **ARMORED_DIVISION** (2 remaining):
 - [ ] AMERICAN - 2nd Armored Division
@@ -231,10 +225,7 @@
 - [ ] GERMAN - 5th Panzer Army
 - [ ] GERMAN - Panzerarmee Afrika
 
-### 1943-Q1 (10/56 complete)
-
-**BRIGADE** (1 remaining):
-- [ ] FRENCH - Force L
+### 1943-Q1 (11/56 complete)
 
 **ARMORED_DIVISION** (4 remaining):
 - [ ] AMERICAN - 1st Armored Division
@@ -372,7 +363,7 @@
 
 ---
 
-## ✅ Completed (216 units)
+## ✅ Completed (219 units)
 
 <details>
 <summary>Show completed units</summary>
@@ -522,8 +513,9 @@
 - [x] BRITISH - Eighth Army (8th Army) _(army)_
 - [x] GERMAN - Panzergruppe Afrika _(army_group)_
 
-### 1942-Q1 (14 complete)
+### 1942-Q1 (15 complete)
 
+- [x] FRENCH - 1re Brigade Française Libre _(brigade)_
 - [x] BRITISH - 1st Armoured Division _(division)_
 - [x] GERMAN - 15. Panzer-Division _(panzer_division)_
 - [x] GERMAN - 21. Panzer-Division _(panzer_division)_
@@ -574,9 +566,10 @@
 - [x] BRITISH - Eighth Army (8th Army) _(army)_
 - [x] GERMAN - Panzerarmee Afrika _(army)_
 
-### 1942-Q4 (39 complete)
+### 1942-Q4 (40 complete)
 
 - [x] BRITISH - 1st Greek Brigade _(brigade)_
+- [x] FRENCH - Force L _(brigade)_
 - [x] GERMAN - Ramcke Parachute Brigade _(brigade)_
 - [x] AMERICAN - 1st Armored Division _(armored_division)_
 - [x] AMERICAN - 1st Infantry Division _(infantry_division)_
@@ -616,9 +609,10 @@
 - [x] ITALIAN - XXI Corpo d'Armata (XXI Corps) _(corps)_
 - [x] BRITISH - Eighth Army (8th Army) _(army)_
 
-### 1943-Q1 (10 complete)
+### 1943-Q1 (11 complete)
 
 - [x] BRITISH - 1st Greek Brigade _(brigade)_
+- [x] FRENCH - Force L _(brigade)_
 - [x] AMERICAN - 1st Infantry Division _(infantry_division)_
 - [x] BRITISH - 2nd New Zealand Division _(infantry_division)_
 - [x] BRITISH - 50th Infantry Division _(infantry_division)_
