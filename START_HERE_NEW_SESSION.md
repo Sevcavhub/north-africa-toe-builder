@@ -2,8 +2,8 @@
 
 <!-- AUTO-UPDATED: START - Session Metadata -->
 **Project**: North Africa TO&E Builder - **v3.0.0 (Ground Forces)**
-**Last Updated**: 2025-10-23 06:45
-**Status**: Schema v3.0 Complete, 252/419 units (60.1%)
+**Last Updated**: 2025-10-23
+**Status**: Schema v3.0 Complete, 254/419 units (60.6%)
 <!-- AUTO-UPDATED: END - Session Metadata -->
 
 ---
@@ -42,9 +42,9 @@
 <!-- AUTO-UPDATED: START - Recently Completed -->
 ### ✅ RECENTLY COMPLETED (Last Session):
 - **Session Date**: 2025-10-23
-- **Units Completed**: 252 unit-quarters (0 → 252)
-- **Session Duration**: 37 minutes
-- **Completion Rate**: 60.1% of total project
+- **Units Completed**: 254 unit-quarters (0 → 254)
+- **Session Duration**: Full restoration complete
+- **Completion Rate**: 60.6% of total project
 - **Recent Work**:
   - italian_1942q4_101_divisione_motorizzata_trieste
   - italian_1942q4_102_divisione_motorizzata_trento
@@ -59,8 +59,8 @@
 
 <!-- AUTO-UPDATED: START - Progress Stats -->
 ### 🔨 IN PROGRESS:
-- **Ground Forces Extraction**: 252/419 unit-quarters (60.1%)
-  - 167 unit-quarters remaining to complete Phase 1-6
+- **Ground Forces Extraction**: 254/419 unit-quarters (60.6%)
+  - 165 unit-quarters remaining to complete Phase 1-6
   - 117 unique units total
   - Target: All 117 combat units across all quarters (1940-1943)
 <!-- AUTO-UPDATED: END - Progress Stats -->
@@ -165,7 +165,7 @@ npm run session:start
 ```
 
 **This automatically:**
-- Loads WORKFLOW_STATE.json with current progress (252/419 units)
+- Loads WORKFLOW_STATE.json with current progress (254/419 units)
 - Queries Memory MCP for project knowledge
 - Displays next 3 suggested units from WORK_QUEUE.md
 - Shows recent completions and patterns
@@ -237,7 +237,7 @@ npm run session:end
 
 **Session summary includes:**
 - Duration and units completed this session
-- Progress percentage (current: 60.1% = 252/419)
+- Progress percentage (current: 60.6% = 254/419)
 - Uncommitted files warning (if any)
 - Instructions for resuming next session
 
@@ -356,7 +356,7 @@ If you need context from previous sessions:
 **Primary Purpose**: Generate wargaming scenarios with realistic supply/logistics constraints
 
 **Scope**: 313-348 units total
-- **420 unit-quarters** (117 unique units) - Ground Forces (Phase 1-6) ← **Current Focus**
+- **419 unit-quarters** (117 unique units) - Ground Forces (Phase 1-6) ← **Current Focus**
 - ~100-135 Air Forces (Phase 7)
 - Campaign system (Phase 8-10)
 
