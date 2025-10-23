@@ -136,6 +136,98 @@ function validateUnit(unit) {
         }
     }
 
+    // Check 11: v3.0.0+ supply_logistics validation
+    const supplyLogistics = unit.supply_logistics;
+    if (!supplyLogistics) {
+        result.warnings.push('Missing supply_logistics object (required in schema v3.0.0+)');
+    } else {
+        const requiredSupplyFields = ['fuel_reserves_days', 'ammunition_days', 'water_reserves_days', 'operational_radius_km', 'supply_status'];
+        for (const field of requiredSupplyFields) {
+            if (supplyLogistics[field] === undefined || supplyLogistics[field] === null) {
+                result.warnings.push(`Missing supply_logistics.${field} (required in schema v3.0.0+)`);
+            }
+        }
+
+        // Validate ranges
+        if (supplyLogistics.operational_radius_km !== undefined && (supplyLogistics.operational_radius_km <= 0 || supplyLogistics.operational_radius_km > 2000)) {
+            result.warnings.push(`operational_radius_km (${supplyLogistics.operational_radius_km}) should be 1-2000 km`);
+        }
+        if (supplyLogistics.fuel_reserves_days !== undefined && (supplyLogistics.fuel_reserves_days < 0 || supplyLogistics.fuel_reserves_days > 60)) {
+            result.warnings.push(`fuel_reserves_days (${supplyLogistics.fuel_reserves_days}) should be 0-60 days`);
+        }
+    }
+
+    // Check 12: v3.0.0+ weather_environment validation
+    const weatherEnv = unit.weather_environment;
+    if (!weatherEnv) {
+        result.warnings.push('Missing weather_environment object (required in schema v3.0.0+)');
+    } else {
+        const requiredWeatherFields = ['primary_terrain', 'temperature_range_c', 'seasonal_impacts', 'environmental_challenges'];
+        for (const field of requiredWeatherFields) {
+            if (!weatherEnv[field]) {
+                result.warnings.push(`Missing weather_environment.${field} (required in schema v3.0.0+)`);
+            }
+        }
+
+        // Validate temperature range
+        if (weatherEnv.temperature_range_c) {
+            const tempMin = weatherEnv.temperature_range_c.min;
+            const tempMax = weatherEnv.temperature_range_c.max;
+            if (tempMin !== undefined && tempMax !== undefined && tempMin >= tempMax) {
+                result.warnings.push(`temperature_range_c.min (${tempMin}) must be < max (${tempMax})`);
+            }
+        }
+    }
+
+    // Check 13: v3.1.0+ tiered extraction validation
+    const validation = unit.validation;
+    if (validation) {
+        // Tier field (1-4)
+        if (validation.tier !== undefined) {
+            if (![1, 2, 3, 4].includes(validation.tier)) {
+                result.warnings.push(`validation.tier must be 1-4, got: ${validation.tier}`);
+            }
+        }
+
+        // Status field
+        const allowedStatuses = ['production_ready', 'review_recommended', 'partial_needs_research', 'research_brief_created'];
+        if (validation.status && !allowedStatuses.includes(validation.status)) {
+            result.warnings.push(`validation.status must be one of: ${allowedStatuses.join(', ')}, got: ${validation.status}`);
+        }
+
+        // required_field_gaps should be array if present
+        if (validation.required_field_gaps && !Array.isArray(validation.required_field_gaps)) {
+            result.warnings.push('validation.required_field_gaps must be an array');
+        }
+
+        // gap_documentation should be object if present
+        if (validation.gap_documentation && typeof validation.gap_documentation !== 'object') {
+            result.warnings.push('validation.gap_documentation must be an object');
+        }
+    }
+
+    // Check 14: discovered_units combat_evidence validation
+    const discoveredUnits = unit.discovered_units;
+    if (discoveredUnits && Array.isArray(discoveredUnits)) {
+        for (let i = 0; i < discoveredUnits.length; i++) {
+            const du = discoveredUnits[i];
+
+            // combat_evidence is REQUIRED
+            if (!du.combat_evidence || du.combat_evidence.trim() === '') {
+                result.critical.push(`discovered_units[${i}] (${du.designation || 'unknown'}) missing required combat_evidence field`);
+            }
+
+            // Check for garrison/reserve keywords (should be excluded)
+            const combatEvidence = (du.combat_evidence || '').toLowerCase();
+            const excludedKeywords = ['garrison', 'reserve formation', 'rear-area', 'administrative', 'never engaged', 'in transit'];
+            for (const keyword of excludedKeywords) {
+                if (combatEvidence.includes(keyword)) {
+                    result.critical.push(`discovered_units[${i}] (${du.designation || 'unknown'}) combat_evidence suggests non-combat unit (contains "${keyword}") - should be excluded`);
+                }
+            }
+        }
+    }
+
     return result;
 }
 

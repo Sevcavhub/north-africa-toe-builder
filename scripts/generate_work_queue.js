@@ -143,19 +143,21 @@ function expandSeedToUnitQuarters(seedData) {
     return unitQuarters;
 }
 
-// Sort unit-quarters by chronological order, then echelon
+// Sort unit-quarters by ECHELON first (bottom-up), then chronological
+// CRITICAL: Divisions before corps before armies GLOBALLY (not per-quarter)
+// This enforces bottom-up aggregation: all divisions complete before ANY corps
 function sortUnitQuarters(unitQuarters) {
     return unitQuarters.sort((a, b) => {
-        // First by quarter (chronological)
-        const quarterCompare = compareQuarters(a.quarter, b.quarter);
-        if (quarterCompare !== 0) return quarterCompare;
-
-        // Then by echelon (smallest to largest)
+        // First by echelon (smallest to largest) - GLOBAL bottom-up
         if (a.echelonPriority !== b.echelonPriority) {
             return a.echelonPriority - b.echelonPriority;
         }
 
-        // Finally by nation alphabetically
+        // Then by quarter (chronological) within each echelon
+        const quarterCompare = compareQuarters(a.quarter, b.quarter);
+        if (quarterCompare !== 0) return quarterCompare;
+
+        // Then by nation alphabetically
         if (a.nation !== b.nation) {
             return a.nation.localeCompare(b.nation);
         }
@@ -186,10 +188,10 @@ async function generateMarkdown(unitQuarters, completedUnits) {
     md += `**Remaining**: ${pendingCount} units\n\n`;
     md += `---\n\n`;
     md += `## ⚙️ How This Queue Works\n\n`;
-    md += `1. **Chronological Order**: Units processed from 1940-Q2 → 1943-Q2\n`;
-    md += `2. **Echelon Order**: Within each quarter, smallest → largest (divisions before corps before armies)\n`;
-    md += `3. **Bottom-Up Aggregation**: Ensures child units complete before parent units\n`;
-    md += `4. **Session Limit**: /kstart processes next 3 units, stops after 12 units (4 batches)\n`;
+    md += `1. **Bottom-Up Echelon Order**: Divisions before corps before armies (GLOBAL enforcement)\n`;
+    md += `2. **Chronological Within Echelon**: Within each echelon, 1940-Q2 → 1943-Q2\n`;
+    md += `3. **Bottom-Up Aggregation**: ALL divisions complete before ANY corps (strict enforcement)\n`;
+    md += `4. **Session Workflow**: /kstart processes next 3 units, no artificial session limit\n`;
     md += `5. **Auto-Update**: Checkpoints mark units complete, queue regenerates as needed\n\n`;
     md += `---\n\n`;
 

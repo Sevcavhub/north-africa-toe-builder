@@ -115,12 +115,39 @@ async function checkChapterStatus(completedUnits) {
     return chapterStatus;
 }
 
-async function updateWorkflowState(completedUnits, previousState) {
+async function updateWorkflowState(completedUnits, validationStatus, chapterStatus) {
     const state = await readWorkflowState();
 
-    // Update completed list
+    // CRITICAL: Only count units that meet ALL 3 requirements:
+    // 1. JSON file exists (completedUnits from scan)
+    // 2. Validation passes (no critical errors)
+    // 3. Chapter file exists
+
+    const validatedUnits = new Set();
+    for (const violation of validationStatus.violations || []) {
+        if (violation.critical && violation.critical.length > 0) {
+            validatedUnits.add(violation.unit);
+        }
+    }
+
+    const unitsWithChapters = new Set();
+    for (const unit of completedUnits) {
+        const unitId = `${unit.nation}_${unit.quarter}_${unit.unit}`;
+        const chapterFilename = `chapter_${unit.nation}_${unit.quarter}_${unit.unit}.md`;
+        if (!chapterStatus.missing.some(m => m.includes(chapterFilename))) {
+            unitsWithChapters.add(unitId);
+        }
+    }
+
+    // Filter to only units that pass validation AND have chapters
+    const fullyCompletedUnits = completedUnits.filter(u => {
+        const unitId = `${u.nation}_${u.quarter}_${u.unit}`;
+        return !validatedUnits.has(unitId) && unitsWithChapters.has(unitId);
+    });
+
+    // Update completed list with VALIDATED units only
     const oldCompleted = new Set(state.completed || []);
-    state.completed = completedUnits.map(u => `${u.nation}_${u.quarter}_${u.unit}`);
+    state.completed = fullyCompletedUnits.map(u => `${u.nation}_${u.quarter}_${u.unit}`);
     state.last_updated = new Date().toISOString();
 
     // Calculate units completed in this batch
@@ -326,11 +353,15 @@ async function main() {
     const chapterStatus = await checkChapterStatus(completedUnits);
     console.log(`   ${chapterStatus.found}/${chapterStatus.total} chapters found${chapterStatus.missing.length > 0 ? ` (${chapterStatus.missing.length} missing)` : ' ✅'}\n`);
 
-    // Update workflow state
-    console.log('💾 Updating WORKFLOW_STATE.json...');
-    const { state, batchSize } = await updateWorkflowState(completedUnits);
+    // Update workflow state (only count units that pass ALL requirements)
+    console.log('💾 Updating WORKFLOW_STATE.json (validated units only)...');
+    const { state, batchSize } = await updateWorkflowState(completedUnits, validationStatus, chapterStatus);
+    const skippedCount = completedUnits.length - state.completed.length;
     console.log(`   ${state.completed_count || state.completed.length} / ${state.total_unit_quarters || 420} units complete (${((state.completed_count || state.completed.length) / (state.total_unit_quarters || 420) * 100).toFixed(1)}%)`);
-    console.log(`   Session counter: ${state.current_session_count || 0}/12 units this session${batchSize > 0 ? ` (+${batchSize} from this batch)` : ''}\n`);
+    if (skippedCount > 0) {
+        console.log(`   ⚠️  ${skippedCount} units skipped (failed validation or missing chapter)`);
+    }
+    console.log(`   Session counter: ${state.current_session_count || 0} units this session${batchSize > 0 ? ` (+${batchSize} validated)` : ''}\n`);
 
     // Regenerate work queue
     console.log('📋 Regenerating work queue...');
@@ -356,13 +387,7 @@ async function main() {
         console.log(`📍 Commit: ${state.last_commit}`);
         console.log(`🔢 Session: ${state.current_session_count || 0}/12 units this session`);
 
-        // Warn if approaching session limit
-        if ((state.current_session_count || 0) >= 12) {
-            console.log('\n⚠️  SESSION LIMIT REACHED (12 units)');
-            console.log('   Run `npm run session:end` to reset counter for next session');
-        } else if ((state.current_session_count || 0) >= 9) {
-            console.log(`\n⚠️  Approaching session limit (${12 - (state.current_session_count || 0)} units remaining)`);
-        }
+        // NO automatic session limit enforcement per user directive Oct 23, 2025
 
         console.log(`\n💾 Safe to continue or start new session\n`);
     } else {

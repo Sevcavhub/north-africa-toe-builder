@@ -1,6 +1,6 @@
 # North Africa Work Queue
 
-**Generated**: 2025-10-23T13:45:25.461Z
+**Generated**: 2025-10-23T15:08:27.416Z
 
 **Progress**: 216/419 units complete (51.6%)
 **Remaining**: 203 units
@@ -9,19 +9,19 @@
 
 ## ⚙️ How This Queue Works
 
-1. **Chronological Order**: Units processed from 1940-Q2 → 1943-Q2
-2. **Echelon Order**: Within each quarter, smallest → largest (divisions before corps before armies)
-3. **Bottom-Up Aggregation**: Ensures child units complete before parent units
-4. **Session Limit**: /kstart processes next 3 units, stops after 12 units (4 batches)
+1. **Bottom-Up Echelon Order**: Divisions before corps before armies (GLOBAL enforcement)
+2. **Chronological Within Echelon**: Within each echelon, 1940-Q2 → 1943-Q2
+3. **Bottom-Up Aggregation**: ALL divisions complete before ANY corps (strict enforcement)
+4. **Session Workflow**: /kstart processes next 3 units, no artificial session limit
 5. **Auto-Update**: Checkpoints mark units complete, queue regenerates as needed
 
 ---
 
 ## 🎯 Next Up (Next Session)
 
-1. **ITALIAN** - 1940-Q3 - 4th CC.NN. Division '3 Gennaio' _(division)_
-2. **ITALIAN** - 1940-Q3 - XXII Corpo d'Armata (XXII Corps) _(corps)_
-3. **ITALIAN** - 1940-Q3 - 10ª Armata (Italian 10th Army) _(army)_
+1. **FRENCH** - 1942-Q1 - 1re Brigade Française Libre _(brigade)_
+2. **FRENCH** - 1942-Q4 - Force L _(brigade)_
+3. **FRENCH** - 1943-Q1 - Force L _(brigade)_
 
 ---
 

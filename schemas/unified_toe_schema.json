@@ -475,7 +475,7 @@
     "discovered_units": {
       "type": "array",
       "required": false,
-      "description": "OPTIONAL: Units discovered during research that were NOT in the seed file. Agents report these for manual review and potential addition to work queue.",
+      "description": "OPTIONAL: Units discovered during research that were NOT in the seed file. CRITICAL: Only include units with documented combat participation in North Africa battles. NO garrison/reserve/rear-area/administrative units. Agents report these for manual review and potential addition to work queue.",
       "structure": {
         "designation": "string (unit name/designation)",
         "nation": "string (nation identifier)",
@@ -483,7 +483,22 @@
         "type": "string (unit type: division, corps, brigade, etc.)",
         "source": "string (where unit was discovered)",
         "confidence": "integer (0-100, confidence that unit exists)",
-        "reason": "string (why this unit was discovered - parent/sibling/additional quarter/etc.)"
+        "reason": "string (why this unit was discovered - parent/sibling/additional quarter/etc.)",
+        "combat_evidence": "string (REQUIRED: Specific evidence of combat participation in North Africa battles - battle names, dates, operational roles)"
+      },
+      "combat_validation_rules": {
+        "must_include": [
+          "Documented participation in North Africa battles (Operation Compass, Crusader, Gazala, First/Second Alamein, Torch, Tunisia Campaign)",
+          "Specific battle/operation names with dates",
+          "Operational role in combat (assault, defense, reserve commitment to front line)"
+        ],
+        "must_exclude": [
+          "Garrison units (static defense, no mobile operations)",
+          "Reserve formations never committed to battle",
+          "Rear-area units (supply depots, training units, administrative HQs)",
+          "Units stationed outside North Africa theater (Italy, Greece, France, etc.)",
+          "Units in transit but never engaged"
+        ]
       },
       "example": [
         {
@@ -493,7 +508,8 @@
           "type": "corps",
           "source": "Tessin Vol 12, page 245",
           "confidence": 90,
-          "reason": "Parent corps mentioned in Brescia Division document but not in seed file for these quarters"
+          "reason": "Parent corps mentioned in Brescia Division document but not in seed file for these quarters",
+          "combat_evidence": "XXI Corps commanded Brescia and Pavia Divisions during Operation Compass defensive battles at Sidi Barrani (Dec 1940) and Bardia (Jan 1941)"
         }
       ]
     }
@@ -515,7 +531,8 @@
     "operational_radius_km must be > 0 and realistic (50-1000km typical)",
     "fuel_reserves_days and ammunition_days typically 1-30 days",
     "temperature_range_c.min < temperature_range_c.max",
-    "NO Wikipedia sources allowed in validation.source array"
+    "NO Wikipedia sources allowed in validation.source array",
+    "discovered_units (if present) MUST have combat_evidence field with specific North Africa battle participation - NO garrison/reserve/rear-area units"
   ],
   
   "data_quality": {
