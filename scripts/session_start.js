@@ -455,9 +455,10 @@ ${batchResult.batch.length > 0 ? batchResult.batch.map((u, i) => `${i + 1}. ${u.
 **SESSION PROTOCOL (Ken's 3-3-3 Rule):**
 ✅ Session started (progress loaded above)
 🔄 Process these 3 units in parallel (batch of 3)
-💾 After batch complete: Bash('npm run checkpoint')
-📊 Check validation: Review SESSION_CHECKPOINT.md for chapter status
-🏁 When done: Bash('npm run session:end')
+💾 After batch complete: Bash('npm run session:end')
+   ⚠️ session:end updates MCP memory + docs after EACH batch (crash-resistant)
+📊 Check validation: Review SESSION_SUMMARY.md for progress
+🏁 Continue with next batches or use auto mode: npm run auto:standard
 
 **UNIFIED SCHEMA COMPLIANCE (schemas/UNIFIED_SCHEMA_EXAMPLES.md):**
 - **CRITICAL**: Use top-level fields (nation, quarter, organization_level)
@@ -531,21 +532,20 @@ YOU MUST launch all 3 agents in ONE message with 3 separate Task tool invocation
 - Report: confidence score, sources used, MCP tool usage log (should show 5-10 memory calls, not 1!)
 
 **After EACH batch of 3 units completes:**
-- Run checkpoint: Bash('npm run checkpoint')
+- Run session:end: Bash('npm run session:end')
   - Validates units (JSON + chapter + schema compliance)
   - Updates WORKFLOW_STATE.json with new count
   - Commits to git with auto-generated message
   - Regenerates WORK_QUEUE.md
-
-**After ALL batches complete (end of session):**
-- Run session end: Bash('npm run session:end')
-  - Runs final checkpoint
-  - **Updates MCP Memory** with session patterns, statistics, and unit observations
+  - **Updates MCP Memory** with unit observations (5-10 per unit)
+  - **Updates START_HERE_NEW_SESSION.md** with latest counts
+  - **Updates PROJECT_SCOPE.md** with latest progress
   - Creates SESSION_SUMMARY.md with session report
-  - Removes SESSION_ACTIVE.txt marker
-  - Prepares for next session
+  - Resets session counter to 0
 
-⚠️ **CRITICAL**: You MUST run session:end when finished for the day - it stores knowledge in MCP memory for future sessions!
+⚠️ **CRASH-RESISTANT**: session:end after EACH batch means MCP memory updated every 3 units
+⚠️ **BENEFIT**: VS Code crashes lose max 1-2 units of knowledge (not entire session)
+⚠️ **AUTOMATED MODE**: Use `npm run auto:standard` for continuous processing (9 units, 3 batches)
 
 **PROOF OF ORCHESTRATION REQUIRED:**
 Report back with evidence of:
