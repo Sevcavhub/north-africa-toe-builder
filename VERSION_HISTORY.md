@@ -363,6 +363,146 @@ node scripts/qa_audit.js  # All 270 units parse correctly
 
 ---
 
+### **Schema v3.1.0: Tiered Extraction + Discovered Units Combat Validation (October 18-23, 2025)**
+
+**Git Commits**: Multiple sessions (Oct 18-23, 2025)
+
+**Strategic Rationale**:
+Phase 6 (Ground Forces Extraction) revealed two critical workflow needs: (1) differentiation between complete vs partial extractions for skip-completed logic, and (2) prevention of scope creep via discovered_units feature adding non-combat garrison/reserve units. Implemented tiered extraction system and combat participation validation to maintain project focus on 420 seed unit-quarters.
+
+**Problem 1: Skip-Completed Ambiguity**
+- Orchestrator needs to know if unit fully extracted (100% complete) or partially extracted (needs revisit)
+- Without tier system, would re-extract 60-74% complete units unnecessarily
+- Validation needed structured classification system
+
+**Problem 2: Discovered Units Scope Creep**
+- discovered_units feature (v2.0) allowed ANY unit discovered during research
+- Risk: Agents adding garrison units, reserve formations, rear-area units never engaged in combat
+- North Africa scope is 420 unit-quarters of combat units only
+- Need explicit combat participation validation to exclude non-combat units
+
+**Schema Updates** (`unified_toe_schema.json`):
+- **Version**: 3.0.0 → **3.1.0**
+- **Field count**: 37-45+ (unchanged, structure additions only)
+
+**NEW: Tiered Extraction System** (validation.tier field):
+```json
+{
+  "validation": {
+    "tier": 1,
+    "status": "complete",
+    "gaps": [],
+    "description": "Tier 1: Complete extraction (75-100% confidence)"
+  }
+}
+```
+
+**Tier Definitions**:
+- **Tier 1**: Complete (75-100% confidence, <3 gaps) - skip on future sessions
+- **Tier 2**: Mostly Complete (60-74% confidence, 3-5 gaps) - consider revisit
+- **Tier 3**: Partial (50-59% confidence, 6-10 gaps) - prioritize for re-extraction
+- **Tier 4**: Minimal (<50% confidence, 10+ gaps) - requires full re-extraction
+
+**NEW: Discovered Units Combat Validation** (combat_evidence required field):
+```json
+{
+  "discovered_units": [
+    {
+      "designation": "Raggruppamento Maletti",
+      "nation": "italian",
+      "quarter": "1940q3",
+      "type": "brigade",
+      "source": "Tessin Vol 12, p. 47",
+      "confidence": 90,
+      "reason": "Parent unit Libyan Division subordinate",
+      "combat_evidence": "Participated Operation Compass (Dec 9-11, 1940), destroyed at Nibeiwa"
+    }
+  ]
+}
+```
+
+**Combat Validation Rules** (schema enforcement):
+- **MUST include**: Documented North Africa battle participation (Compass, Crusader, Gazala, Alamein, Torch, Tunisia)
+- **MUST include**: Specific battle/operation names with dates
+- **MUST include**: Operational role in combat (assault, defense, reserve commitment)
+- **MUST EXCLUDE**: Garrison units (static defense, no mobile operations)
+- **MUST EXCLUDE**: Reserve formations never committed to battle
+- **MUST EXCLUDE**: Rear-area units (supply depots, training, administrative HQs)
+- **MUST EXCLUDE**: Units stationed outside North Africa (Italy, Greece, France)
+- **MUST EXCLUDE**: Units in transit but never engaged
+
+**Validator Updates** (`scripts/lib/validator.js`):
+- **Check 13**: Tier field validation (must be 1-4)
+- **Check 14**: discovered_units combat_evidence validation (required field)
+- **Check 14a**: Keyword detection for garrison/reserve units (automatic rejection)
+- Added 92 lines of validation logic for v3.0.0 + v3.1.0 compliance
+
+**Validation Logic** (lines 139-231):
+```javascript
+// Tier validation
+if (validation.tier !== undefined) {
+    if (![1, 2, 3, 4].includes(validation.tier)) {
+        result.warnings.push(`validation.tier must be 1-4, got: ${validation.tier}`);
+    }
+}
+
+// Combat evidence validation
+const discoveredUnits = unit.discovered_units;
+if (discoveredUnits && Array.isArray(discoveredUnits)) {
+    for (let i = 0; i < discoveredUnits.length; i++) {
+        const du = discoveredUnits[i];
+
+        // combat_evidence is REQUIRED
+        if (!du.combat_evidence || du.combat_evidence.trim() === '') {
+            result.critical.push(`discovered_units[${i}] missing required combat_evidence field`);
+        }
+
+        // Check for garrison/reserve keywords (should be excluded)
+        const combatEvidence = (du.combat_evidence || '').toLowerCase();
+        const excludedKeywords = ['garrison', 'reserve formation', 'rear-area',
+                                  'administrative', 'never engaged', 'in transit'];
+        for (const keyword of excludedKeywords) {
+            if (combatEvidence.includes(keyword)) {
+                result.critical.push(`discovered_units[${i}] combat_evidence suggests non-combat unit
+                                     (contains "${keyword}") - should be excluded`);
+            }
+        }
+    }
+}
+```
+
+**Documentation Updates**:
+- `CLAUDE.md`: Added Critical Rule #2 (Combat Participation Validation)
+- `schemas/unified_toe_schema.json`: Added combat_validation_rules structure (lines 475-536)
+- `schemas/unified_toe_schema.json`: Added validation rule for combat_evidence (line 535)
+
+**Migration Required**:
+- **Existing discovered_units**: Must add combat_evidence field
+- **Tier classification**: Recommend running validation to assign tier to existing 254 units
+
+**Validation**:
+```bash
+npm run validate:v3  # Check v3.1.0 compliance
+```
+
+**Impact**:
+- ✅ Skip-completed logic can now distinguish complete vs partial units
+- ✅ discovered_units feature cannot add garrison/reserve units (scope protection)
+- ✅ All future extractions require combat participation evidence
+- ✅ Maintains North Africa focus on 420 combat unit-quarters
+- ✅ Validator enforces combat evidence automatically (Check 14)
+
+**Related**:
+- Restoration Plan Phase 1.2: Combat criteria implementation
+- Restoration Plan Phase 1.3: Validator v3.0.0/v3.1.0 compliance checks
+- Work Queue Ordering: Echelon-first sorting enforces bottom-up aggregation
+
+**Version Control**:
+- Schema v3.1.0 documented in VERSION_HISTORY.md (this entry)
+- PROJECT_SCOPE.md progress updated to 254/419 units (60.5%)
+
+---
+
 ### **Schema v3.0.0: Ground Forces + Supply/Environment (October 13, 2025)**
 
 **Git Commit**: 846de80 (CURRENT VERSION)

@@ -508,6 +508,12 @@ ${batchResult.batch.length > 0 ? batchResult.batch.map((u, i) => `${i + 1}. ${u.
 4. 📊 Use TodoWrite to track progress through all phases
 5. 📝 Report results with PROOF of Task tool execution
 
+**CRITICAL RULES** (enforced by Phase 1 restoration Oct 23, 2025):
+- ✅ Seed authority: Only extract units from north_africa_seed_units_COMPLETE.json
+- ✅ Combat criteria: discovered_units require combat_evidence field (NO garrison/reserve units)
+- ✅ Canonical paths: Always use data/output/units/ and data/output/chapters/ (NOT session folders)
+- ✅ Validation: Unit complete = JSON + chapter + passes validation (all 3 required)
+
 **⚡ MANDATORY PARALLEL EXECUTION** (3x speed improvement):
 
 YOU MUST launch all 3 agents in ONE message with 3 separate Task tool invocations.

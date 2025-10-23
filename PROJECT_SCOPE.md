@@ -1,10 +1,10 @@
 # North Africa TO&E Builder - Complete Project Scope
 
-**Version**: 1.0.7
-**Last Updated**: 2025-10-18
+**Version**: 1.0.8
+**Last Updated**: 2025-10-23
 **Status**: 🟢 LIVING DOCUMENT - Subject to updates
-**Current Phase**: Phase 5 (Equipment Matching) - 4.3% COMPLETE | Phase 6 (Ground Forces Extraction) - 28.1% COMPLETE
-**Overall Progress**: ~28% complete (118 of 420 unit-quarters | Phase 5: 20/469 equipment matched, 4.3%)
+**Current Phase**: Phase 5 (Equipment Matching) - 4.3% COMPLETE | Phase 6 (Ground Forces Extraction) - 60.6% COMPLETE
+**Overall Progress**: ~60.6% complete (254 of 419 unit-quarters | Phase 5: 20/469 equipment matched, 4.3%)
 **Architecture**: v4.0 (Canonical Output Locations)
 **Scope**: COMPLETE - ALL 117 units that fought in North Africa battles (1940-1943)
 
@@ -29,11 +29,11 @@ This is NOT just a static historical database - it's a **game-ready scenario gen
 
 | Component | Unit Count | Status |
 |-----------|-----------|--------|
-| **Ground Forces** | 117 units (420 unit-quarters) | 118 complete (28.1%) - Phase 1-6 IN PROGRESS |
+| **Ground Forces** | 117 units (419 unit-quarters) | 254 complete (60.6%) - Phase 1-6 IN PROGRESS |
 | **Air Force Units** | ~100-135 | Not started - Phase 7 |
 | **Battle Scenarios** | 12+ | Planned - Phase 9 |
 | **Campaign System** | 1 complete | Planned - Phase 10 |
-| **TOTAL** | **~217-252 units** | **~28% complete** |
+| **TOTAL** | **~217-252 units** | **~60.6% complete** |
 | **COMPLETE SEED** | ✅ Generated Oct 15, 2025 | ALL combat units from 8 major battles |
 
 ### Scope Definition (Complete Battle-Participating Units):
@@ -43,7 +43,7 @@ This is NOT just a static historical database - it's a **game-ready scenario gen
 **Complete Seed Generated**: October 15, 2025
 - File: `projects/north_africa_seed_units_COMPLETE.json`
 - **117 unique units** across 5 nations
-- **420 unit-quarters** (quarter-by-quarter expansion)
+- **419 unit-quarters** (quarter-by-quarter expansion) - *Updated Oct 23: XXX Corps 1941-Q2 and XXII Corps 1940-Q3 removed via data quality corrections*
 - **Verified against 8 major battles**: Operation Compass, Tobruk, Crusader, Gazala, El Alamein (1st & 2nd), Torch, Tunisia Campaign
 
 **Applied Criteria**:
@@ -61,14 +61,14 @@ This is NOT just a static historical database - it's a **game-ready scenario gen
 - **American**: 8 units (23 unit-quarters)
 - **French**: 7 units (19 unit-quarters)
 
-**Current Completion**: 118/420 (28.1%)
-- Exact matches: 66 unit-quarters
-- Alias matches: 52 unit-quarters
-- Incomplete: 302 unit-quarters
+**Current Completion**: 254/419 (60.6%) - *Updated Oct 23, 2025*
+- Completed: 254 unit-quarters (validation-based count)
+- Remaining: 165 unit-quarters
+- Data quality corrections: 2 invalid unit-quarters removed (XXX Corps 1941-Q2, XXII Corps 1940-Q3)
 
 ### Scope Clarifications:
 
-**Ground Forces (117 units, 420 unit-quarters)**:
+**Ground Forces (117 units, 419 unit-quarters)**:
 - Theater → Corps → Division → Regiment → Battalion → Company → Platoon → Squad
 - All organizational levels with complete SCM detail
 - Equipment: Ground vehicles, artillery, support weapons
@@ -237,19 +237,19 @@ Historical sources (Tessin, Army Lists, Field Manuals) provide equipment **QUANT
 
 ---
 
-### **Phase 6: Ground Forces Unit Extraction** (IN PROGRESS - 28.1%)
+### **Phase 6: Ground Forces Unit Extraction** (IN PROGRESS - 60.6%)
 
-**Goal**: Complete all 420 unit-quarters (117 unique units across all quarters)
+**Goal**: Complete all 419 unit-quarters (117 unique units across all quarters)
 
-**Status**: 118/420 complete (28.1%) - **302 unit-quarters remaining**
+**Status**: 254/419 complete (60.6%) - **165 unit-quarters remaining** - *Updated Oct 23, 2025*
 
 **Dependencies**: Phase 5 equipment matching provides specifications for MDBook chapters
 
-**COMPLETE SEED GENERATED** (October 15, 2025):
+**COMPLETE SEED GENERATED** (October 15, 2025, updated Oct 23):
 - Comprehensive battle research across 8 major operations (1940-1943)
 - Identified ALL 117 units that fought in North Africa
 - Expanded from incomplete 36-unit seed (215 quarters)
-- New seed: 117 units, 420 quarters (+225% units, +95% quarters)
+- New seed: 117 units, 419 quarters (+225% units, +95% quarters) - *2 invalid quarters removed Oct 23*
 - Verified against authoritative sources (85-95% confidence)
 
 **Completion by Nation**:
@@ -260,20 +260,20 @@ Historical sources (Tessin, Army Lists, Field Manuals) provide equipment **QUANT
 - **Italian**: 18/156 (11.5%) - CRITICAL GAP (largest nation, lowest coverage)
 
 **Deliverables**:
-- ✅ 118/420 unit JSON files (complete SCM detail) → CANONICAL: `data/output/units/`
-- ✅ 118/420 MDBook chapters (professional narrative) → CANONICAL: `data/output/chapters/`
+- ✅ 254/419 unit JSON files (complete SCM detail) → CANONICAL: `data/output/units/`
+- ✅ 254/419 MDBook chapters (professional narrative) → CANONICAL: `data/output/chapters/`
 - ⏸️ WITW-format exports (CSV for wargaming) → CANONICAL: `data/output/scenarios/` (pending)
 - ⏸️ SQL database schema (ground forces tables) → pending
 
 **Architecture v4.0 + Complete Seed**:
 - ✅ Canonical output locations implemented (`data/output/units/`, `data/output/chapters/`)
 - ✅ Complete seed generated with all combat units
-- ✅ Master Unit Directory rebuilt (420 unit-quarters)
-- ✅ Canonical matching report updated (66 exact + 52 alias)
+- ✅ Master Unit Directory rebuilt (419 unit-quarters)
+- ✅ Validation-based count sync implemented (JSON + chapter + validation = complete)
 - ✅ Skip-completed logic working with new seed
 
-**Remaining Work**: 302 unit-quarters to reach Phase 1-6 COMPLETE
-**Estimated Time**: ~120-150 hours autonomous processing (prioritize Italian & French gaps)
+**Remaining Work**: 165 unit-quarters to reach Phase 1-6 COMPLETE
+**Estimated Time**: ~66-82 hours autonomous processing (165 units × 0.4-0.5 hrs/unit)
 
 ---
 
@@ -848,21 +848,21 @@ WHERE quarter = '1941-Q2' AND operational = TRUE;
 
 ## 🚀 Current Status & Immediate Priorities
 
-### Overall Progress (Updated 2025-10-15):
-- **Ground Units**: 118/420 complete (28.1%) ✅
-- **Complete Seed**: ✅ Generated with ALL 117 combat units
+### Overall Progress (Updated 2025-10-23):
+- **Ground Units**: 254/419 complete (60.6%) ✅ - **+136 units since Oct 15**
+- **Complete Seed**: ✅ Generated with ALL 117 combat units (419 quarters after data quality corrections)
 - **Air Force Units**: 0/~100-135 (Phase 7 pending)
-- **Overall**: ~28% complete (118 of ~420 unit-quarters)
+- **Overall**: ~60.6% complete (254 of 419 unit-quarters)
 
 ### Current Phase: 1-6 (Ground Forces) - COMPLETE SEED ESTABLISHED
 
-**Complete Seed Generated** (October 15, 2025) ✅:
+**Complete Seed Generated** (October 15, 2025, updated Oct 23) ✅:
 - ✅ Comprehensive battle research across 8 major operations
 - ✅ Identified ALL 117 units that fought in North Africa (not just 36)
-- ✅ 420 unit-quarters expanded from period ranges
+- ✅ 419 unit-quarters expanded from period ranges (2 invalid quarters removed Oct 23)
 - ✅ Verified against authoritative sources (85-95% confidence)
 - ✅ Master Unit Directory rebuilt with complete scope
-- ✅ Canonical matching report updated (118/420 complete)
+- ✅ Validation-based count sync implemented (254/419 complete)
 
 **Critical Discovery** (October 15, 2025):
 - Original seed had only 36/117 units (31% of actual combat units) ❌
@@ -1164,6 +1164,35 @@ This scope is achievable, professionally valuable, and commercially marketable.
   - `FRENCH_RESEARCH_SUMMARY.md` - Research findings
 - **Next Actions**: Update CLAUDE.md and VERSION_HISTORY.md with Phase 5 architecture
 - **Impact**: First formal documentation of equipment matching phase - scope drift resolved
+
+### v1.0.8 (2025-10-23) - Restoration & Progress Update
+- **RESTORATION COMPLETE**: Implemented full restoration plan (RESTORATION_PLAN.md) - 12 tasks across 5 phases
+- **Progress Acceleration**: +136 unit-quarters completed since Oct 15 (118 → 254, +115% increase)
+- **Data Quality Corrections**: 2 invalid unit-quarters removed (419 total, down from 420)
+  - XXX Corps 1941-Q2 (corps formed Sept 9, 1941 in Q3)
+  - XXII Corps 1940-Q3 (corps did not exist until November 1940, Q4)
+- **Schema v3.1.0 Documented**: Tiered extraction + discovered_units combat validation (VERSION_HISTORY.md)
+- **Workflow Enforcement**:
+  - Pre-flight validation script (`scripts/validate_session_readiness.js`) - checks environment before session start
+  - Session start orchestration requirements (Task tool, MCP tools, canonical paths)
+  - Work queue echelon-first sorting (enforces bottom-up aggregation globally)
+  - Count sync validation (unit complete = JSON + chapter + validation)
+- **Documentation Consolidated**:
+  - CLAUDE.md rewritten (872 → 243 lines, 72% reduction)
+  - START_HERE_NEW_SESSION.md updated with Session Management Protocol
+  - Ken Prompt content merged into START_HERE
+- **MCP Memory Integration**: 8 retroactive memory entities created (restored Oct 18-23 baseline knowledge)
+- **Validator Enhanced**: Added 92 lines of v3.0.0/v3.1.0 validation logic (supply, weather, tier, combat_evidence)
+- **Current Completion**: 254/419 (60.6%) - UP from 118/420 (28.1%) on Oct 18
+  - American: improved coverage (priority: German, British, French, Italian remaining)
+  - 165 unit-quarters remaining (~66-82 hours autonomous processing)
+- **Root Cause Fixed**: MCP memory stub functions replaced with working retroactive entities
+- **Session Stability**: 3-unit batches with automatic checkpoints, NO session limits
+- **Documentation Updates**:
+  - PROJECT_SCOPE.md: Updated progress (v1.0.8), data quality corrections noted
+  - VERSION_HISTORY.md: Schema v3.1.0 entry added (tiered extraction + combat validation)
+  - CLAUDE.md: Critical Rules section rewritten with 7 enumerated rules
+- **Impact**: Workflow drift eliminated, baseline restored, count sync validated, 60.6% completion milestone
 
 ### Future Updates:
 - **v1.1.0** (TBD): [Complete Phase 5 equipment matching | Update CLAUDE.md and VERSION_HISTORY.md]

@@ -1,6 +1,6 @@
 # North Africa Work Queue
 
-**Generated**: 2025-10-23T15:08:27.416Z
+**Generated**: 2025-10-23T15:46:56.355Z
 
 **Progress**: 216/419 units complete (51.6%)
 **Remaining**: 203 units
