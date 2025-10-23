@@ -1,25 +1,28 @@
-# Session Checkpoint - 2025-10-23T22:43:14.461Z
+# Session Checkpoint - 2025-10-23T22:54:47.375Z
 
 ## Progress Summary
 
 - **Total Unit-Quarters:** 419
 - **Completed:** 259 (61.8%)
 - **Remaining:** 160
-- **Last Commit:** b369564
+- **Last Commit:** f5e4730
 
 ## Validation Status
 
-- **Total Validated:** 259
+- **Total Validated:** 260
 - **✅ Passed:** 0 (0.0%)
-- **❌ Failed:** 0 ✅
+- **❌ Failed:** 1 ⚠️
 - **⚠️ Warnings:** 259
 
-**All units passed validation** ✅
+### Critical Validation Failures
+
+**french_1943q2_force_l:**
+  - ❌ Failed to parse JSON: du.combat_evidence.trim is not a function
 
 ## Chapter Status
 
-- **JSON Files:** 259
-- **MDBook Chapters:** 257 ⚠️
+- **JSON Files:** 260
+- **MDBook Chapters:** 258 ⚠️
 - **Missing Chapters:** 2
   - ❌ german_1943q1_15_panzer_division
   - ❌ italian_1940q3_25_divisione_di_fanteria_bologna
@@ -53,8 +56,8 @@ If this session crashes or needs to resume:
 ## Session Info
 
 - **Session ID:** complete_seed_generated
-- **Checkpoint Time:** 2025-10-23T22:43:14.358Z
-- **Git Commit:** b369564
+- **Checkpoint Time:** 2025-10-23T22:54:47.272Z
+- **Git Commit:** f5e4730
 
 ---
 

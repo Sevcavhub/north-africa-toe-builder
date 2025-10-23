@@ -1,9 +1,9 @@
 # North Africa Work Queue
 
-**Generated**: 2025-10-23T22:43:14.446Z
+**Generated**: 2025-10-23T22:54:47.361Z
 
-**Progress**: 221/419 units complete (52.7%)
-**Remaining**: 198 units
+**Progress**: 222/419 units complete (53.0%)
+**Remaining**: 197 units
 
 ---
 
@@ -19,9 +19,9 @@
 
 ## 🎯 Next Up (Next Session)
 
-1. **BRITISH** - 1943-Q2 - 1st Greek Brigade _(brigade)_
-2. **FRENCH** - 1943-Q2 - Force L _(brigade)_
-3. **ITALIAN** - 1940-Q3 - 4th CC.NN. Division '3 Gennaio' _(division)_
+1. **FRENCH** - 1943-Q2 - Force L _(brigade)_
+2. **ITALIAN** - 1940-Q3 - 4th CC.NN. Division '3 Gennaio' _(division)_
+3. **BRITISH** - 1940-Q4 - 1st South African Division _(infantry_division)_
 
 ---
 
@@ -282,10 +282,9 @@
 - [ ] GERMAN - Panzerarmee Afrika
 - [ ] ITALIAN - First Italian Army
 
-### 1943-Q2 (0/53 complete)
+### 1943-Q2 (1/53 complete)
 
-**BRIGADE** (2 remaining):
-- [ ] BRITISH - 1st Greek Brigade
+**BRIGADE** (1 remaining):
 - [ ] FRENCH - Force L
 
 **ARMORED_DIVISION** (4 remaining):
@@ -357,7 +356,7 @@
 
 ---
 
-## ✅ Completed (221 units)
+## ✅ Completed (222 units)
 
 <details>
 <summary>Show completed units</summary>
@@ -618,6 +617,10 @@
 - [x] GERMAN - 21. Panzer-Division _(panzer_division)_
 - [x] ITALIAN - Centauro Division _(armored_division)_
 - [x] AMERICAN - II Corps _(corps)_
+
+### 1943-Q2 (1 complete)
+
+- [x] BRITISH - 1st Greek Brigade _(brigade)_
 
 </details>
 
