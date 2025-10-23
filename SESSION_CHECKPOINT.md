@@ -1,11 +1,11 @@
-# Session Checkpoint - 2025-10-23T22:16:08.318Z
+# Session Checkpoint - 2025-10-23T22:17:04.236Z
 
 ## Progress Summary
 
 - **Total Unit-Quarters:** 419
 - **Completed:** 257 (61.3%)
 - **Remaining:** 162
-- **Last Commit:** 6885d25
+- **Last Commit:** 8dbcf33
 
 ## Validation Status
 
@@ -17,7 +17,8 @@
 ### Critical Validation Failures
 
 **italian_1940q3_10th_army:**
-  - ❌ Failed to parse JSON: du.combat_evidence.trim is not a function
+  - ❌ Missing required fields: nation and quarter
+  - ❌ Invalid nation: "unknown" (allowed: german, italian, british, american, french)
 
 ## Chapter Status
 
@@ -56,8 +57,8 @@ If this session crashes or needs to resume:
 ## Session Info
 
 - **Session ID:** complete_seed_generated
-- **Checkpoint Time:** 2025-10-23T22:16:08.216Z
-- **Git Commit:** 6885d25
+- **Checkpoint Time:** 2025-10-23T22:17:04.133Z
+- **Git Commit:** 8dbcf33
 
 ---
 
