@@ -1,9 +1,9 @@
 # North Africa Work Queue
 
-**Generated**: 2025-10-23T22:54:47.361Z
+**Generated**: 2025-10-23T23:18:53.870Z
 
-**Progress**: 222/419 units complete (53.0%)
-**Remaining**: 197 units
+**Progress**: 225/419 units complete (53.7%)
+**Remaining**: 194 units
 
 ---
 
@@ -21,7 +21,7 @@
 
 1. **FRENCH** - 1943-Q2 - Force L _(brigade)_
 2. **ITALIAN** - 1940-Q3 - 4th CC.NN. Division '3 Gennaio' _(division)_
-3. **BRITISH** - 1940-Q4 - 1st South African Division _(infantry_division)_
+3. **ITALIAN** - 1940-Q4 - 1st CC.NN. Division '23 Marzo' _(division)_
 
 ---
 
@@ -32,12 +32,16 @@
 **DIVISION** (1 remaining):
 - [ ] ITALIAN - 4th CC.NN. Division '3 Gennaio'
 
-### 1940-Q4 (7/24 complete)
+### 1940-Q4 (10/24 complete)
 
-**INFANTRY_DIVISION** (11 remaining):
-- [ ] BRITISH - 1st South African Division
-- [ ] BRITISH - 4th Indian Division
-- [ ] BRITISH - 6th Australian Division (2nd AIF)
+**DIVISION** (5 remaining):
+- [ ] ITALIAN - 1st CC.NN. Division '23 Marzo'
+- [ ] ITALIAN - 1st Libyan Division
+- [ ] ITALIAN - 2nd CC.NN. Division '28 Ottobre'
+- [ ] ITALIAN - 2nd Libyan Division
+- [ ] ITALIAN - 4th CC.NN. Division '3 Gennaio'
+
+**INFANTRY_DIVISION** (8 remaining):
 - [ ] ITALIAN - Brescia Division
 - [ ] ITALIAN - Catanzaro Division
 - [ ] ITALIAN - Cirene Division
@@ -46,13 +50,6 @@
 - [ ] ITALIAN - Sabratha Division
 - [ ] ITALIAN - Savona Division
 - [ ] ITALIAN - Sirte Division
-
-**DIVISION** (5 remaining):
-- [ ] ITALIAN - 1st CC.NN. Division '23 Marzo'
-- [ ] ITALIAN - 1st Libyan Division
-- [ ] ITALIAN - 2nd CC.NN. Division '28 Ottobre'
-- [ ] ITALIAN - 2nd Libyan Division
-- [ ] ITALIAN - 4th CC.NN. Division '3 Gennaio'
 
 **MOTORIZED_DIVISION** (1 remaining):
 - [ ] ITALIAN - Trento Division
@@ -356,7 +353,7 @@
 
 ---
 
-## ✅ Completed (222 units)
+## ✅ Completed (225 units)
 
 <details>
 <summary>Show completed units</summary>
@@ -391,8 +388,11 @@
 - [x] ITALIAN - 10ª Armata (Italian 10th Army) _(army)_
 - [x] BRITISH - Western Desert Force _(unknown)_
 
-### 1940-Q4 (7 complete)
+### 1940-Q4 (10 complete)
 
+- [x] BRITISH - 1st South African Division _(infantry_division)_
+- [x] BRITISH - 4th Indian Division _(infantry_division)_
+- [x] BRITISH - 6th Australian Division (2nd AIF) _(infantry_division)_
 - [x] BRITISH - 7th Armoured Division _(division)_
 - [x] ITALIAN - Ariete Division _(armored_division)_
 - [x] ITALIAN - Bologna Division _(infantry_division)_
