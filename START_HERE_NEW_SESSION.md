@@ -2,8 +2,8 @@
 
 <!-- AUTO-UPDATED: START - Session Metadata -->
 **Project**: North Africa TO&E Builder - **v3.0.0 (Ground Forces)**
-**Last Updated**: 2025-10-23 14:51
-**Status**: Schema v3.0 Complete, 254/419 units (60.6%)
+**Last Updated**: 2025-10-23 15:27
+**Status**: Schema v3.0 Complete, 259/419 units (61.8%)
 <!-- AUTO-UPDATED: END - Session Metadata -->
 
 ---
@@ -42,9 +42,9 @@
 <!-- AUTO-UPDATED: START - Recently Completed -->
 ### ✅ RECENTLY COMPLETED (Last Session):
 - **Session Date**: 2025-10-23
-- **Units Completed**: 254 unit-quarters (0 → 254)
-- **Session Duration**: 41 minutes
-- **Completion Rate**: 60.6% of total project
+- **Units Completed**: 259 unit-quarters (0 → 259)
+- **Session Duration**: 6 minutes
+- **Completion Rate**: 61.8% of total project
 - **Recent Work**:
   - italian_1942q4_101_divisione_motorizzata_trieste
   - italian_1942q4_102_divisione_motorizzata_trento
@@ -115,8 +115,8 @@
 
 <!-- AUTO-UPDATED: START - Progress Stats -->
 ### 🔨 IN PROGRESS:
-- **Ground Forces Extraction**: 254/419 unit-quarters (60.6%)
-  - 165 unit-quarters remaining to complete Phase 1-6
+- **Ground Forces Extraction**: 259/419 unit-quarters (61.8%)
+  - 160 unit-quarters remaining to complete Phase 1-6
   - 117 unique units total
   - Target: All 117 combat units across all quarters (1940-1943)
 <!-- AUTO-UPDATED: END - Progress Stats -->
@@ -198,7 +198,13 @@ npm run orchestrate         # API-based orchestration (uses tokens)
 
 ### Session Management:
 ```bash
-npm run session:start       # Start new work session
+  Pre-configured automated modes:
+  npm run auto:quick      # 1 batch  (3 units,  ~20-30 min)
+  npm run auto:standard   # 3 batches (9 units,  ~60-90 min)  ←  RECOMMENDED
+  npm run auto:extended   # 5 batches (15 units, ~100-150 min)
+  npm run auto:marathon   # 10 batches (30 units, ~200-300 min)
+  npm run auto:continuous # Until queue empty
+
 npm run session:end         # End session with checkpoint
 npm run checkpoint          # Mid-session checkpoint
 ```
