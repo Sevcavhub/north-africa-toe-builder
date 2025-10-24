@@ -23,8 +23,11 @@
  */
 
 const fs = require('fs').promises;
+const fssync = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
+const paths = require('./lib/canonical_paths');
+const naming = require('./lib/naming_standard');
 
 const PROJECT_ROOT = path.join(__dirname, '..');
 const WORK_QUEUE_PATH = path.join(PROJECT_ROOT, 'WORK_QUEUE.md');
@@ -123,6 +126,54 @@ async function readWorkflowState() {
     }
 }
 
+async function verifyBatchCompletion(units) {
+    /**
+     * Verify that all units in the batch were actually completed.
+     * Returns an object with completion status and details.
+     */
+    const results = {
+        allComplete: true,
+        completed: [],
+        incomplete: [],
+        details: []
+    };
+
+    for (const unit of units) {
+        const nation = unit.nation.toLowerCase();
+        const quarter = unit.quarter.toLowerCase();
+        const designation = unit.designation;
+
+        // Generate expected filenames
+        const jsonFilename = `${nation}_${quarter}_${designation}_toe.json`;
+        const chapterFilename = `chapter_${nation}_${quarter}_${designation}.md`;
+
+        const jsonPath = path.join(paths.UNITS_DIR, jsonFilename);
+        const chapterPath = path.join(paths.CHAPTERS_DIR, chapterFilename);
+
+        const hasJson = fssync.existsSync(jsonPath);
+        const hasChapter = fssync.existsSync(chapterPath);
+        const isComplete = hasJson && hasChapter;
+
+        const unitStatus = {
+            unit: `${nation.toUpperCase()} - ${quarter} - ${designation}`,
+            hasJson,
+            hasChapter,
+            isComplete
+        };
+
+        if (isComplete) {
+            results.completed.push(unitStatus);
+        } else {
+            results.incomplete.push(unitStatus);
+            results.allComplete = false;
+        }
+
+        results.details.push(unitStatus);
+    }
+
+    return results;
+}
+
 async function runBatch(batchNumber, units) {
     console.log(`\n${'='.repeat(60)}`);
     console.log(`📦 BATCH ${batchNumber} - Processing 3 units`);
@@ -138,13 +189,41 @@ async function runBatch(batchNumber, units) {
     console.log('1. Launch 3 parallel Task tool agents (one per unit above)');
     console.log('2. Each agent extracts unit using autonomous orchestration');
     console.log('3. Wait for all 3 agents to complete');
-    console.log('4. Script will run session:end automatically');
-    console.log('5. Script will continue to next batch WITHOUT asking user\n');
+    console.log('4. This script will verify completion and run session:end');
+    console.log('5. Script will continue to next batch automatically\n');
 
-    // This is a marker for Claude to proceed
-    // Claude reads this output and orchestrates the batch
-    // The script itself doesn't launch agents - Claude does
-    return 'WAITING_FOR_CLAUDE_ORCHESTRATION';
+    // Wait a moment for Claude to see the instructions
+    // In practice, Claude should have already started processing when this is called
+    console.log('⏳ Checking if batch work is complete...\n');
+
+    // Verify that the work was actually done
+    const verification = await verifyBatchCompletion(units);
+
+    if (verification.allComplete) {
+        console.log(`✅ All ${units.length} units completed and verified!\n`);
+        verification.completed.forEach(u => {
+            console.log(`   ✅ ${u.unit}`);
+        });
+        return true;
+    } else {
+        console.log(`\n❌ BATCH INCOMPLETE - Work has not been done yet!\n`);
+        console.log('Completed units:');
+        verification.completed.forEach(u => {
+            console.log(`   ✅ ${u.unit}`);
+        });
+        console.log('\nIncomplete units:');
+        verification.incomplete.forEach(u => {
+            console.log(`   ❌ ${u.unit} (JSON: ${u.hasJson}, Chapter: ${u.hasChapter})`);
+        });
+        console.log('\n⚠️  STOPPING: Claude must extract these units before continuing.');
+        console.log('⚠️  This script cannot auto-loop without actual extraction work.');
+        console.log('\n📋 WHAT TO DO:');
+        console.log('   1. Claude: Read the batch units listed above');
+        console.log('   2. Claude: Launch 3 parallel Task tool agents to extract them');
+        console.log('   3. Claude: Wait for all agents to complete');
+        console.log('   4. Claude: Run this script again to verify and continue\n');
+        return false;
+    }
 }
 
 async function runSessionEnd() {

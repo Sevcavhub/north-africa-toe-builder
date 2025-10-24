@@ -195,7 +195,8 @@ npm run qa:v3              # Full QA pipeline (validation + audit)
 npm run start:claude        # Generate prompts for manual processing
 npm run orchestrate         # API-based orchestration (uses tokens)
 ```
-
+### Yolo Mode
+    claude --dangerously-skip-permissions
 ### Session Management:
 ```bash
   Pre-configured automated modes:

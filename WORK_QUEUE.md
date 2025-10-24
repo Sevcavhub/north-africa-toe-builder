@@ -1,9 +1,9 @@
 # North Africa Work Queue
 
-**Generated**: 2025-10-24T13:15:04.220Z
+**Generated**: 2025-10-24T13:31:10.144Z
 
-**Progress**: 245/416 units complete (58.9%)
-**Remaining**: 171 units
+**Progress**: 247/416 units complete (59.4%)
+**Remaining**: 169 units
 
 ---
 
@@ -19,9 +19,9 @@
 
 ## 🎯 Next Up (Next Session)
 
-1. **GERMAN** - 1941-Q3 - 90. leichte Division _(light_division)_
-2. **ITALIAN** - 1941-Q3 - 101st TRIESTE Division _(motorized_division)_
-3. **ITALIAN** - 1941-Q3 - Trento Division _(motorized_division)_
+1. **ITALIAN** - 1941-Q3 - 101st TRIESTE Division _(motorized_division)_
+2. **GERMAN** - 1941-Q4 - 90. leichte Division _(light_division)_
+3. **ITALIAN** - 1941-Q4 - 101st TRIESTE Division _(motorized_division)_
 
 ---
 
@@ -32,14 +32,10 @@
 **CORPS** (1 remaining):
 - [ ] ITALIAN - XXI Corpo d'Armata (XXI Corps)
 
-### 1941-Q3 (24/29 complete)
+### 1941-Q3 (26/29 complete)
 
-**LIGHT_DIVISION** (1 remaining):
-- [ ] GERMAN - 90. leichte Division
-
-**MOTORIZED_DIVISION** (2 remaining):
+**MOTORIZED_DIVISION** (1 remaining):
 - [ ] ITALIAN - 101st TRIESTE Division
-- [ ] ITALIAN - Trento Division
 
 **CORPS** (1 remaining):
 - [ ] ITALIAN - XX Mobile Corps
@@ -312,7 +308,7 @@
 
 ---
 
-## ✅ Completed (245 units)
+## ✅ Completed (247 units)
 
 <details>
 <summary>Show completed units</summary>
@@ -429,7 +425,7 @@
 - [x] ITALIAN - XX Mobile Corps _(corps)_
 - [x] ITALIAN - XXI Corpo d'Armata (XXI Corps) _(corps)_
 
-### 1941-Q3 (24 complete)
+### 1941-Q3 (26 complete)
 
 - [x] BRITISH - Czechoslovakian 11th Infantry Battalion _(battalion)_
 - [x] BRITISH - Polish Carpathian Brigade (Karpacka Brygada Strzelców) _(brigade)_
@@ -445,11 +441,13 @@
 - [x] BRITISH - 9th Australian Division _(infantry_division)_
 - [x] GERMAN - 15. Panzer-Division _(panzer_division)_
 - [x] GERMAN - 21. Panzer-Division _(panzer_division)_
+- [x] GERMAN - 90. leichte Division _(light_division)_
 - [x] ITALIAN - Ariete Division _(armored_division)_
 - [x] ITALIAN - Bologna Division _(infantry_division)_
 - [x] ITALIAN - Brescia Division _(infantry_division)_
 - [x] ITALIAN - Pavia Division _(infantry_division)_
 - [x] ITALIAN - Savona Division _(infantry_division)_
+- [x] ITALIAN - Trento Division _(motorized_division)_
 - [x] BRITISH - XIII Corps _(corps)_
 - [x] BRITISH - XXX Corps _(corps)_
 - [x] GERMAN - Deutsches Afrikakorps _(corps)_
