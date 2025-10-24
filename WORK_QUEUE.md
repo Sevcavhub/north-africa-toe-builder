@@ -1,9 +1,9 @@
 # North Africa Work Queue
 
-**Generated**: 2025-10-24T20:06:28.218Z
+**Generated**: 2025-10-24T20:17:49.321Z
 
-**Progress**: 273/413 units complete (66.1%)
-**Remaining**: 140 units
+**Progress**: 276/413 units complete (66.8%)
+**Remaining**: 137 units
 
 ---
 
@@ -19,9 +19,9 @@
 
 ## 🎯 Next Up (Next Session)
 
-1. **BRITISH** - 1942-Q2 - 7th Armoured Division _(division)_
-2. **GERMAN** - 1942-Q2 - 15. Panzer-Division _(panzer_division)_
-3. **GERMAN** - 1942-Q2 - 90. leichte Division _(light_division)_
+1. **ITALIAN** - 1942-Q2 - 101st TRIESTE Division _(motorized_division)_
+2. **ITALIAN** - 1942-Q2 - Ariete Division _(armored_division)_
+3. **ITALIAN** - 1942-Q2 - Trento Division _(motorized_division)_
 
 ---
 
@@ -53,16 +53,7 @@
 **ARMY_GROUP** (1 remaining):
 - [ ] GERMAN - Panzergruppe Afrika
 
-### 1942-Q2 (22/29 complete)
-
-**DIVISION** (1 remaining):
-- [ ] BRITISH - 7th Armoured Division
-
-**PANZER_DIVISION** (1 remaining):
-- [ ] GERMAN - 15. Panzer-Division
-
-**LIGHT_DIVISION** (1 remaining):
-- [ ] GERMAN - 90. leichte Division
+### 1942-Q2 (25/29 complete)
 
 **MOTORIZED_DIVISION** (2 remaining):
 - [ ] ITALIAN - 101st TRIESTE Division
@@ -261,7 +252,7 @@
 
 ---
 
-## ✅ Completed (273 units)
+## ✅ Completed (276 units)
 
 <details>
 <summary>Show completed units</summary>
@@ -470,7 +461,7 @@
 - [x] ITALIAN - XXI Corpo d'Armata (XXI Corps) _(corps)_
 - [x] BRITISH - Eighth Army (8th Army) _(army)_
 
-### 1942-Q2 (22 complete)
+### 1942-Q2 (25 complete)
 
 - [x] FRENCH - 1re Brigade Française Libre _(brigade)_
 - [x] BRITISH - 1st Armoured Division _(division)_
@@ -480,9 +471,12 @@
 - [x] BRITISH - 4th Indian Division _(infantry_division)_
 - [x] BRITISH - 50th Infantry Division _(infantry_division)_
 - [x] BRITISH - 5th Indian Division _(infantry_division)_
+- [x] BRITISH - 7th Armoured Division _(division)_
 - [x] BRITISH - 9th Australian Division _(infantry_division)_
 - [x] FRENCH - 1re Division Française Libre _(infantry_division)_
+- [x] GERMAN - 15. Panzer-Division _(panzer_division)_
 - [x] GERMAN - 21. Panzer-Division _(panzer_division)_
+- [x] GERMAN - 90. leichte Division _(light_division)_
 - [x] ITALIAN - Bologna Division _(infantry_division)_
 - [x] ITALIAN - Brescia Division _(infantry_division)_
 - [x] ITALIAN - Littorio Division _(armored_division)_
