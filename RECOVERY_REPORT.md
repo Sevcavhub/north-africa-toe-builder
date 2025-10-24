@@ -1,16 +1,16 @@
-# Crash Recovery Report - 2025-10-24T13:15:04.295Z
+# Crash Recovery Report - 2025-10-24T14:43:21.386Z
 
 ## Summary
 
-- Before: 286/416 units (68.8%)
-- After: 289/416 units (69.5%)
-- Change: 3 units
+- Before: 295/416 units (70.9%)
+- After: 299/416 units (71.9%)
+- Change: 4 units
 
 ## Newly Completed (3)
 
-- ✅ BRITISH - 1941q3 - 1st_south_african_division
-- ✅ BRITISH - 1941q3 - 4th_indian_division
-- ✅ BRITISH - 1941q3 - 7th_australian_division
+- ✅ BRITISH - 1942q1 - 2nd South African Division
+- ✅ ITALIAN - 1941q3 - 101st TRIESTE Division
+- ✅ ITALIAN - 1941q4 - 101st TRIESTE Division
 
 ## Partial Units (0)
 
