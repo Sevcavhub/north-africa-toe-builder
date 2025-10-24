@@ -1,9 +1,9 @@
 # North Africa Work Queue
 
-**Generated**: 2025-10-24T13:46:26.390Z
+**Generated**: 2025-10-24T13:56:52.366Z
 
-**Progress**: 248/416 units complete (59.6%)
-**Remaining**: 168 units
+**Progress**: 249/416 units complete (59.9%)
+**Remaining**: 167 units
 
 ---
 
@@ -21,7 +21,7 @@
 
 1. **ITALIAN** - 1941-Q3 - 101st TRIESTE Division _(motorized_division)_
 2. **ITALIAN** - 1941-Q4 - 101st TRIESTE Division _(motorized_division)_
-3. **BRITISH** - 1942-Q1 - 1st South African Division _(infantry_division)_
+3. **BRITISH** - 1942-Q1 - 2nd New Zealand Division _(infantry_division)_
 
 ---
 
@@ -51,10 +51,9 @@
 **CORPS** (1 remaining):
 - [ ] ITALIAN - XX Mobile Corps
 
-### 1942-Q1 (15/29 complete)
+### 1942-Q1 (16/29 complete)
 
-**INFANTRY_DIVISION** (8 remaining):
-- [ ] BRITISH - 1st South African Division
+**INFANTRY_DIVISION** (7 remaining):
 - [ ] BRITISH - 2nd New Zealand Division
 - [ ] BRITISH - 2nd South African Division
 - [ ] BRITISH - 4th Indian Division
@@ -305,7 +304,7 @@
 
 ---
 
-## ✅ Completed (248 units)
+## ✅ Completed (249 units)
 
 <details>
 <summary>Show completed units</summary>
@@ -483,10 +482,11 @@
 - [x] BRITISH - Eighth Army (8th Army) _(army)_
 - [x] GERMAN - Panzergruppe Afrika _(army_group)_
 
-### 1942-Q1 (15 complete)
+### 1942-Q1 (16 complete)
 
 - [x] FRENCH - 1re Brigade Française Libre _(brigade)_
 - [x] BRITISH - 1st Armoured Division _(division)_
+- [x] BRITISH - 1st South African Division _(infantry_division)_
 - [x] GERMAN - 15. Panzer-Division _(panzer_division)_
 - [x] GERMAN - 21. Panzer-Division _(panzer_division)_
 - [x] ITALIAN - 101st TRIESTE Division _(motorized_division)_
