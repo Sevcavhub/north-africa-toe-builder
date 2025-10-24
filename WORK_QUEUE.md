@@ -1,9 +1,9 @@
 # North Africa Work Queue
 
-**Generated**: 2025-10-24T02:23:34.986Z
+**Generated**: 2025-10-24T02:34:50.823Z
 
-**Progress**: 231/419 units complete (55.1%)
-**Remaining**: 188 units
+**Progress**: 234/419 units complete (55.8%)
+**Remaining**: 185 units
 
 ---
 
@@ -32,21 +32,16 @@
 **DIVISION** (1 remaining):
 - [ ] ITALIAN - 4th CC.NN. Division '3 Gennaio'
 
-### 1940-Q4 (16/24 complete)
+### 1940-Q4 (19/24 complete)
 
 **DIVISION** (3 remaining):
 - [ ] ITALIAN - 1st CC.NN. Division '23 Marzo'
 - [ ] ITALIAN - 2nd CC.NN. Division '28 Ottobre'
 - [ ] ITALIAN - 4th CC.NN. Division '3 Gennaio'
 
-**INFANTRY_DIVISION** (4 remaining):
+**INFANTRY_DIVISION** (2 remaining):
 - [ ] ITALIAN - Brescia Division
 - [ ] ITALIAN - Pavia Division
-- [ ] ITALIAN - Savona Division
-- [ ] ITALIAN - Sirte Division
-
-**MOTORIZED_DIVISION** (1 remaining):
-- [ ] ITALIAN - Trento Division
 
 ### 1941-Q1 (24/30 complete)
 
@@ -345,7 +340,7 @@
 
 ---
 
-## ✅ Completed (231 units)
+## ✅ Completed (234 units)
 
 <details>
 <summary>Show completed units</summary>
@@ -380,7 +375,7 @@
 - [x] ITALIAN - 10ª Armata (Italian 10th Army) _(army)_
 - [x] BRITISH - Western Desert Force _(unknown)_
 
-### 1940-Q4 (16 complete)
+### 1940-Q4 (19 complete)
 
 - [x] BRITISH - 1st South African Division _(infantry_division)_
 - [x] BRITISH - 4th Indian Division _(infantry_division)_
@@ -394,6 +389,9 @@
 - [x] ITALIAN - Cirene Division _(infantry_division)_
 - [x] ITALIAN - Marmarica Division _(infantry_division)_
 - [x] ITALIAN - Sabratha Division _(infantry_division)_
+- [x] ITALIAN - Savona Division _(infantry_division)_
+- [x] ITALIAN - Sirte Division _(infantry_division)_
+- [x] ITALIAN - Trento Division _(motorized_division)_
 - [x] ITALIAN - XXI Corpo d'Armata (XXI Corps) _(corps)_
 - [x] ITALIAN - XXII Corpo d'Armata (XXII Corps) _(corps)_
 - [x] ITALIAN - 10ª Armata (Italian 10th Army) _(army)_
