@@ -140,7 +140,8 @@ async function verifyBatchCompletion(units) {
 
     for (const unit of units) {
         const nation = unit.nation.toLowerCase();
-        const quarter = unit.quarter.toLowerCase();
+        // Remove hyphens and convert to lowercase: "1941-Q3" -> "1941q3"
+        const quarter = unit.quarter.toLowerCase().replace(/-/g, '');
         const designation = unit.designation;
 
         // Generate expected filenames
@@ -158,7 +159,9 @@ async function verifyBatchCompletion(units) {
             unit: `${nation.toUpperCase()} - ${quarter} - ${designation}`,
             hasJson,
             hasChapter,
-            isComplete
+            isComplete,
+            jsonPath,
+            chapterPath
         };
 
         if (isComplete) {
