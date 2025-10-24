@@ -1,18 +1,19 @@
-# Crash Recovery Report - 2025-10-24T03:58:50.249Z
+# Crash Recovery Report - 2025-10-24T12:58:48.494Z
 
 ## Summary
 
-- Before: 256/419 units (61.1%)
-- After: 274/419 units (65.4%)
-- Change: 18 units
+- Before: 277/416 units (66.6%)
+- After: 286/416 units (68.8%)
+- Change: 9 units
 
-## Newly Completed (0)
+## Newly Completed (2)
+
+- ✅ ITALIAN - 1940q3 - marmarica_division
+- ✅ ITALIAN - 1940q3 - sabratha_division
+
+## Partial Units (0)
 
 
-
-## Partial Units (1)
-
-- ⚠️  FRENCH - 1943q2 - force_l
 
 ## Invalid Units (0)
 
