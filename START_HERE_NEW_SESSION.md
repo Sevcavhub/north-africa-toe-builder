@@ -2,7 +2,7 @@
 
 <!-- AUTO-UPDATED: START - Session Metadata -->
 **Project**: North Africa TO&E Builder - **v3.0.0 (Ground Forces)**
-**Last Updated**: 2025-10-24 18:29
+**Last Updated**: 2025-10-24 19:35
 **Status**: Schema v3.0 Complete, 256/419 units (61.1%)
 <!-- AUTO-UPDATED: END - Session Metadata -->
 
@@ -43,17 +43,17 @@
 ### ✅ RECENTLY COMPLETED (Last Session):
 - **Session Date**: 2025-10-24
 - **Units Completed**: 256 unit-quarters (0 → 256)
-- **Session Duration**: 75 minutes
+- **Session Duration**: 63 minutes
 - **Completion Rate**: 61.1% of total project
 - **Recent Work**:
   - italian_1942q4_101_divisione_motorizzata_trieste
   - italian_1942q4_102_divisione_motorizzata_trento
   - italian_1942q4_132_ariete_division
   - italian_1942q4_133a_divisione_corazzata_littorio
-  - italian_1942q4_185_divisione_paracadutisti_folgore
   - italian_1942q4_185a_divisione_paracadutisti_folgore
-  - italian_1942q4_xx_mobile_corps
+  - italian_1942q4_185_divisione_paracadutisti_folgore
   - italian_1942q4_xxi_corps
+  - italian_1942q4_xx_mobile_corps
   - italian_1943q1_131_divisione_corazzata_centauro
 <!-- AUTO-UPDATED: END - Recently Completed -->
 
