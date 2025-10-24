@@ -1,9 +1,9 @@
-# Crash Recovery Report - 2025-10-24T14:52:14.201Z
+# Crash Recovery Report - 2025-10-24T19:08:35.170Z
 
 ## Summary
 
-- Before: 299/416 units (71.9%)
-- After: 299/416 units (71.9%)
+- Before: 309/416 units (74.3%)
+- After: 309/416 units (74.3%)
 - Change: 0 units
 
 ## Newly Completed (0)

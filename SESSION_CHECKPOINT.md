@@ -1,33 +1,25 @@
-# Session Checkpoint - 2025-10-24T17:45:33.403Z
+# Session Checkpoint - 2025-10-24T19:09:04.766Z
 
 ## Progress Summary
 
 - **Total Unit-Quarters:** 416
-- **Completed:** 308 (74.0%)
-- **Remaining:** 108
-- **Last Commit:** ec654bb
+- **Completed:** 309 (74.3%)
+- **Remaining:** 107
+- **Last Commit:** 23fa470
 
 ## Validation Status
 
-- **Total Validated:** 311
+- **Total Validated:** 309
 - **✅ Passed:** 0 (0.0%)
-- **❌ Failed:** 2 ⚠️
+- **❌ Failed:** 0 ✅
 - **⚠️ Warnings:** 309
 
-### Critical Validation Failures
-
-**british_1942q2_1st_armoured_division:**
-  - ❌ Failed to parse JSON: du.combat_evidence.trim is not a function
-
-**italian_1942q1_savona_division:**
-  - ❌ Missing required field: schema_type
-  - ❌ Missing required field: unit_designation
-  - ❌ Missing required field: organization_level
+**All units passed validation** ✅
 
 ## Chapter Status
 
-- **JSON Files:** 311
-- **MDBook Chapters:** 311 ✅
+- **JSON Files:** 309
+- **MDBook Chapters:** 309 ✅
 - **All chapters present** ✅
 
 ## Recent Completions
@@ -54,13 +46,13 @@ If this session crashes or needs to resume:
 
 3. **View full progress:**
    - See WORKFLOW_STATE.json for complete list
-   - 308 units saved successfully
+   - 309 units saved successfully
 
 ## Session Info
 
 - **Session ID:** complete_seed_generated
-- **Checkpoint Time:** 2025-10-24T17:45:33.302Z
-- **Git Commit:** ec654bb
+- **Checkpoint Time:** 2025-10-24T19:09:04.664Z
+- **Git Commit:** 23fa470
 
 ---
 
