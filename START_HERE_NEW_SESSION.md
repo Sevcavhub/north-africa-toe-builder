@@ -43,7 +43,7 @@
 ### ✅ RECENTLY COMPLETED (Last Session):
 - **Session Date**: 2025-10-24
 - **Units Completed**: 347 unit-quarters (0 → 347)
-- **Session Duration**: 13 minutes
+- **Session Duration**: unknown minutes
 - **Completion Rate**: 83.4% of total project
 - **Recent Work**:
   - italian_1942q4_101_divisione_motorizzata_trieste

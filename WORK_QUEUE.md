@@ -1,9 +1,9 @@
 # North Africa Work Queue
 
-**Generated**: 2025-10-24T22:28:08.502Z
+**Generated**: 2025-10-24T22:34:22.498Z
 
-**Progress**: 300/413 units complete (72.6%)
-**Remaining**: 113 units
+**Progress**: 302/413 units complete (73.1%)
+**Remaining**: 111 units
 
 ---
 
@@ -61,7 +61,7 @@
 - [ ] GERMAN - 5th Panzer Army
 - [ ] GERMAN - Panzerarmee Afrika
 
-### 1943-Q1 (10/56 complete)
+### 1943-Q1 (12/56 complete)
 
 **ARMORED_DIVISION** (4 remaining):
 - [ ] AMERICAN - 1st Armored Division
@@ -95,13 +95,11 @@
 - [ ] FRENCH - Algerian March Division
 - [ ] FRENCH - Constantine March Division
 
-**PANZER_DIVISION** (2 remaining):
-- [ ] GERMAN - 15. Panzer-Division
-- [ ] GERMAN - Hermann Göring Division
-
-**LIGHT_DIVISION** (2 remaining):
-- [ ] GERMAN - 164. leichte Division
+**LIGHT_DIVISION** (1 remaining):
 - [ ] GERMAN - 90. leichte Division
+
+**PANZER_DIVISION** (1 remaining):
+- [ ] GERMAN - Hermann Göring Division
 
 **MOTORIZED_DIVISION** (2 remaining):
 - [ ] ITALIAN - 101st TRIESTE Division
@@ -196,7 +194,7 @@
 
 ---
 
-## ✅ Completed (300 units)
+## ✅ Completed (302 units)
 
 <details>
 <summary>Show completed units</summary>
@@ -522,7 +520,7 @@
 - [x] ITALIAN - XXI Corpo d'Armata (XXI Corps) _(corps)_
 - [x] BRITISH - Eighth Army (8th Army) _(army)_
 
-### 1943-Q1 (10 complete)
+### 1943-Q1 (12 complete)
 
 - [x] BRITISH - 1st Greek Brigade _(brigade)_
 - [x] FRENCH - Force L _(brigade)_
@@ -531,6 +529,8 @@
 - [x] BRITISH - 50th Infantry Division _(infantry_division)_
 - [x] FRENCH - 1re Division Française Libre _(infantry_division)_
 - [x] GERMAN - 10. Panzer-Division _(panzer_division)_
+- [x] GERMAN - 15. Panzer-Division _(panzer_division)_
+- [x] GERMAN - 164. leichte Division _(light_division)_
 - [x] GERMAN - 21. Panzer-Division _(panzer_division)_
 - [x] ITALIAN - Centauro Division _(armored_division)_
 - [x] AMERICAN - II Corps _(corps)_
