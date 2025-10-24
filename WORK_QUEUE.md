@@ -1,9 +1,9 @@
 # North Africa Work Queue
 
-**Generated**: 2025-10-24T16:36:59.003Z
+**Generated**: 2025-10-24T16:45:07.587Z
 
-**Progress**: 261/416 units complete (62.7%)
-**Remaining**: 155 units
+**Progress**: 262/416 units complete (63.0%)
+**Remaining**: 154 units
 
 ---
 
@@ -21,7 +21,7 @@
 
 1. **ITALIAN** - 1942-Q1 - Savona Division _(infantry_division)_
 2. **BRITISH** - 1942-Q2 - 1st Armoured Division _(division)_
-3. **BRITISH** - 1942-Q2 - 1st South African Division _(infantry_division)_
+3. **BRITISH** - 1942-Q2 - 2nd New Zealand Division _(infantry_division)_
 
 ---
 
@@ -56,14 +56,13 @@
 **ARMY_GROUP** (1 remaining):
 - [ ] GERMAN - Panzergruppe Afrika
 
-### 1942-Q2 (10/30 complete)
+### 1942-Q2 (11/30 complete)
 
 **DIVISION** (2 remaining):
 - [ ] BRITISH - 1st Armoured Division
 - [ ] BRITISH - 7th Armoured Division
 
-**INFANTRY_DIVISION** (12 remaining):
-- [ ] BRITISH - 1st South African Division
+**INFANTRY_DIVISION** (11 remaining):
 - [ ] BRITISH - 2nd New Zealand Division
 - [ ] BRITISH - 2nd South African Division
 - [ ] BRITISH - 4th Indian Division
@@ -280,7 +279,7 @@
 
 ---
 
-## ✅ Completed (261 units)
+## ✅ Completed (262 units)
 
 <details>
 <summary>Show completed units</summary>
@@ -489,9 +488,10 @@
 - [x] ITALIAN - XXI Corpo d'Armata (XXI Corps) _(corps)_
 - [x] BRITISH - Eighth Army (8th Army) _(army)_
 
-### 1942-Q2 (10 complete)
+### 1942-Q2 (11 complete)
 
 - [x] FRENCH - 1re Brigade Française Libre _(brigade)_
+- [x] BRITISH - 1st South African Division _(infantry_division)_
 - [x] BRITISH - 9th Australian Division _(infantry_division)_
 - [x] GERMAN - 21. Panzer-Division _(panzer_division)_
 - [x] ITALIAN - Littorio Division _(armored_division)_

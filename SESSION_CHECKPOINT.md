@@ -1,26 +1,30 @@
-# Session Checkpoint - 2025-10-24T16:36:59.017Z
+# Session Checkpoint - 2025-10-24T16:45:07.600Z
 
 ## Progress Summary
 
 - **Total Unit-Quarters:** 416
-- **Completed:** 305 (73.3%)
-- **Remaining:** 111
-- **Last Commit:** 44c15a9
+- **Completed:** 307 (73.8%)
+- **Remaining:** 109
+- **Last Commit:** e95cf9a
 
 ## Validation Status
 
-- **Total Validated:** 307
+- **Total Validated:** 309
 - **✅ Passed:** 0 (0.0%)
-- **❌ Failed:** 0 ✅
-- **⚠️ Warnings:** 307
+- **❌ Failed:** 1 ⚠️
+- **⚠️ Warnings:** 308
 
-**All units passed validation** ✅
+### Critical Validation Failures
+
+**british_1942q2_1st_armoured_division:**
+  - ❌ Failed to parse JSON: du.combat_evidence.trim is not a function
 
 ## Chapter Status
 
-- **JSON Files:** 307
-- **MDBook Chapters:** 307 ✅
-- **All chapters present** ✅
+- **JSON Files:** 309
+- **MDBook Chapters:** 308 ⚠️
+- **Missing Chapters:** 1
+  - ❌ british_1942q2_1st_armoured_division
 
 ## Recent Completions
 
@@ -46,13 +50,13 @@ If this session crashes or needs to resume:
 
 3. **View full progress:**
    - See WORKFLOW_STATE.json for complete list
-   - 305 units saved successfully
+   - 307 units saved successfully
 
 ## Session Info
 
 - **Session ID:** complete_seed_generated
-- **Checkpoint Time:** 2025-10-24T16:36:58.916Z
-- **Git Commit:** 44c15a9
+- **Checkpoint Time:** 2025-10-24T16:45:07.499Z
+- **Git Commit:** e95cf9a
 
 ---
 
