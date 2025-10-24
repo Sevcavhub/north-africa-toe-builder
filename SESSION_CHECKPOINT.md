@@ -1,11 +1,11 @@
-# Session Checkpoint - 2025-10-24T23:46:05.487Z
+# Session Checkpoint - 2025-10-24T23:49:38.673Z
 
 ## Progress Summary
 
 - **Total Unit-Quarters:** 416
 - **Completed:** 350 (84.1%)
 - **Remaining:** 66
-- **Last Commit:** 15e92ed
+- **Last Commit:** c3841be
 
 ## Validation Status
 
@@ -17,14 +17,16 @@
 ### Critical Validation Failures
 
 **american_1942q4_34_infantry_division:**
-  - ❌ Uses nested structure (unit_identification.*) instead of unified schema top-level fields
+  - ❌ Missing required field: schema_type
+  - ❌ Missing required field: schema_version
+  - ❌ Missing required field: unit_designation
+  - ❌ Missing required field: organization_level
 
 ## Chapter Status
 
 - **JSON Files:** 351
-- **MDBook Chapters:** 350 ⚠️
-- **Missing Chapters:** 1
-  - ❌ italian_1942q3_101_trieste_division
+- **MDBook Chapters:** 351 ✅
+- **All chapters present** ✅
 
 ## Recent Completions
 
@@ -55,8 +57,8 @@ If this session crashes or needs to resume:
 ## Session Info
 
 - **Session ID:** complete_seed_generated
-- **Checkpoint Time:** 2025-10-24T23:46:05.386Z
-- **Git Commit:** 15e92ed
+- **Checkpoint Time:** 2025-10-24T23:49:38.572Z
+- **Git Commit:** c3841be
 
 ---
 
