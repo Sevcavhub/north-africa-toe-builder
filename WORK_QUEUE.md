@@ -1,9 +1,9 @@
 # North Africa Work Queue
 
-**Generated**: 2025-10-24T01:29:46.934Z
+**Generated**: 2025-10-24T01:39:24.187Z
 
-**Progress**: 221/419 units complete (52.7%)
-**Remaining**: 198 units
+**Progress**: 223/419 units complete (53.2%)
+**Remaining**: 196 units
 
 ---
 
@@ -19,24 +19,22 @@
 
 ## 🎯 Next Up (Next Session)
 
-1. **BRITISH** - 1940-Q3 - 4th Indian Division _(infantry_division)_
-2. **ITALIAN** - 1940-Q3 - 4th CC.NN. Division '3 Gennaio' _(division)_
-3. **ITALIAN** - 1940-Q3 - Bologna Division _(infantry_division)_
+1. **ITALIAN** - 1940-Q3 - 4th CC.NN. Division '3 Gennaio' _(division)_
+2. **ITALIAN** - 1940-Q3 - Brescia Division _(infantry_division)_
+3. **ITALIAN** - 1940-Q3 - Pavia Division _(infantry_division)_
 
 ---
 
 ## 📋 Full Queue (Chronological + Echelon Order)
 
-### 1940-Q3 (12/17 complete)
-
-**INFANTRY_DIVISION** (4 remaining):
-- [ ] BRITISH - 4th Indian Division
-- [ ] ITALIAN - Bologna Division
-- [ ] ITALIAN - Brescia Division
-- [ ] ITALIAN - Pavia Division
+### 1940-Q3 (14/17 complete)
 
 **DIVISION** (1 remaining):
 - [ ] ITALIAN - 4th CC.NN. Division '3 Gennaio'
+
+**INFANTRY_DIVISION** (2 remaining):
+- [ ] ITALIAN - Brescia Division
+- [ ] ITALIAN - Pavia Division
 
 ### 1940-Q4 (10/24 complete)
 
@@ -357,7 +355,7 @@
 
 ---
 
-## ✅ Completed (221 units)
+## ✅ Completed (223 units)
 
 <details>
 <summary>Show completed units</summary>
@@ -373,11 +371,13 @@
 - [x] ITALIAN - 10ª Armata (Italian 10th Army) _(army)_
 - [x] BRITISH - Western Desert Force _(unknown)_
 
-### 1940-Q3 (12 complete)
+### 1940-Q3 (14 complete)
 
+- [x] BRITISH - 4th Indian Division _(infantry_division)_
 - [x] BRITISH - 7th Armoured Division _(division)_
 - [x] ITALIAN - 1st Libyan Division _(division)_
 - [x] ITALIAN - 2nd Libyan Division _(division)_
+- [x] ITALIAN - Bologna Division _(infantry_division)_
 - [x] ITALIAN - Catanzaro Division _(infantry_division)_
 - [x] ITALIAN - Cirene Division _(infantry_division)_
 - [x] ITALIAN - Marmarica Division _(infantry_division)_
