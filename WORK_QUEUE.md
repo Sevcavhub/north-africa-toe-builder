@@ -1,9 +1,9 @@
 # North Africa Work Queue
 
-**Generated**: 2025-10-24T14:43:47.673Z
+**Generated**: 2025-10-24T15:46:54.552Z
 
-**Progress**: 250/416 units complete (60.1%)
-**Remaining**: 166 units
+**Progress**: 255/416 units complete (61.3%)
+**Remaining**: 161 units
 
 ---
 
@@ -19,9 +19,9 @@
 
 ## 🎯 Next Up (Next Session)
 
-1. **ITALIAN** - 1941-Q3 - 101st TRIESTE Division _(motorized_division)_
-2. **ITALIAN** - 1941-Q4 - 101st TRIESTE Division _(motorized_division)_
-3. **BRITISH** - 1942-Q1 - 2nd South African Division _(infantry_division)_
+1. **BRITISH** - 1942-Q1 - 4th Indian Division _(infantry_division)_
+2. **BRITISH** - 1942-Q1 - 7th Armoured Division _(division)_
+3. **BRITISH** - 1942-Q1 - 9th Australian Division _(infantry_division)_
 
 ---
 
@@ -32,10 +32,7 @@
 **CORPS** (1 remaining):
 - [ ] ITALIAN - XXI Corpo d'Armata (XXI Corps)
 
-### 1941-Q3 (26/29 complete)
-
-**MOTORIZED_DIVISION** (1 remaining):
-- [ ] ITALIAN - 101st TRIESTE Division
+### 1941-Q3 (27/29 complete)
 
 **CORPS** (1 remaining):
 - [ ] ITALIAN - XX Mobile Corps
@@ -43,21 +40,15 @@
 **ARMY_GROUP** (1 remaining):
 - [ ] GERMAN - Panzergruppe Afrika
 
-### 1941-Q4 (29/31 complete)
-
-**MOTORIZED_DIVISION** (1 remaining):
-- [ ] ITALIAN - 101st TRIESTE Division
+### 1941-Q4 (30/31 complete)
 
 **CORPS** (1 remaining):
 - [ ] ITALIAN - XX Mobile Corps
 
-### 1942-Q1 (17/29 complete)
+### 1942-Q1 (20/29 complete)
 
-**INFANTRY_DIVISION** (6 remaining):
-- [ ] BRITISH - 2nd South African Division
+**INFANTRY_DIVISION** (3 remaining):
 - [ ] BRITISH - 4th Indian Division
-- [ ] BRITISH - 50th Infantry Division
-- [ ] BRITISH - 5th Indian Division
 - [ ] BRITISH - 9th Australian Division
 - [ ] ITALIAN - Savona Division
 
@@ -303,7 +294,7 @@
 
 ---
 
-## ✅ Completed (250 units)
+## ✅ Completed (255 units)
 
 <details>
 <summary>Show completed units</summary>
@@ -420,7 +411,7 @@
 - [x] ITALIAN - XX Mobile Corps _(corps)_
 - [x] ITALIAN - XXI Corpo d'Armata (XXI Corps) _(corps)_
 
-### 1941-Q3 (26 complete)
+### 1941-Q3 (27 complete)
 
 - [x] BRITISH - Czechoslovakian 11th Infantry Battalion _(battalion)_
 - [x] BRITISH - Polish Carpathian Brigade (Karpacka Brygada Strzelców) _(brigade)_
@@ -437,6 +428,7 @@
 - [x] GERMAN - 15. Panzer-Division _(panzer_division)_
 - [x] GERMAN - 21. Panzer-Division _(panzer_division)_
 - [x] GERMAN - 90. leichte Division _(light_division)_
+- [x] ITALIAN - 101st TRIESTE Division _(motorized_division)_
 - [x] ITALIAN - Ariete Division _(armored_division)_
 - [x] ITALIAN - Bologna Division _(infantry_division)_
 - [x] ITALIAN - Brescia Division _(infantry_division)_
@@ -449,7 +441,7 @@
 - [x] ITALIAN - XXI Corpo d'Armata (XXI Corps) _(corps)_
 - [x] BRITISH - Eighth Army (8th Army) _(army)_
 
-### 1941-Q4 (29 complete)
+### 1941-Q4 (30 complete)
 
 - [x] BRITISH - Czechoslovakian 11th Infantry Battalion _(battalion)_
 - [x] BRITISH - Polish Carpathian Brigade (Karpacka Brygada Strzelców) _(brigade)_
@@ -467,6 +459,7 @@
 - [x] GERMAN - 15. Panzer-Division _(panzer_division)_
 - [x] GERMAN - 21. Panzer-Division _(panzer_division)_
 - [x] GERMAN - 90. leichte Division _(light_division)_
+- [x] ITALIAN - 101st TRIESTE Division _(motorized_division)_
 - [x] ITALIAN - Ariete Division _(armored_division)_
 - [x] ITALIAN - Bologna Division _(infantry_division)_
 - [x] ITALIAN - Brescia Division _(infantry_division)_
@@ -481,12 +474,15 @@
 - [x] BRITISH - Eighth Army (8th Army) _(army)_
 - [x] GERMAN - Panzergruppe Afrika _(army_group)_
 
-### 1942-Q1 (17 complete)
+### 1942-Q1 (20 complete)
 
 - [x] FRENCH - 1re Brigade Française Libre _(brigade)_
 - [x] BRITISH - 1st Armoured Division _(division)_
 - [x] BRITISH - 1st South African Division _(infantry_division)_
 - [x] BRITISH - 2nd New Zealand Division _(infantry_division)_
+- [x] BRITISH - 2nd South African Division _(infantry_division)_
+- [x] BRITISH - 50th Infantry Division _(infantry_division)_
+- [x] BRITISH - 5th Indian Division _(infantry_division)_
 - [x] GERMAN - 15. Panzer-Division _(panzer_division)_
 - [x] GERMAN - 21. Panzer-Division _(panzer_division)_
 - [x] ITALIAN - 101st TRIESTE Division _(motorized_division)_

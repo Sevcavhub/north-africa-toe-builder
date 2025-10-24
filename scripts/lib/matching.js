@@ -41,9 +41,16 @@ function isUnitCompleted(nation, quarter, designation, aliases = [], completedSe
     const normalizedQuarter = quarter.toLowerCase().replace(/-/g, '');
     const normalizedDesignation = normalizeDesignation(designation);
 
-    // 1. Try exact canonical match first
+    // 1. Try exact canonical match first (normalized designation)
     const canonicalId = `${nation}_${normalizedQuarter}_${normalizedDesignation}`;
     if (completedSet.has(canonicalId)) {
+        return true;
+    }
+
+    // 1.5. Try non-normalized designation (for backwards compatibility)
+    // Handles workflow state entries like "italian_1941q3_101st TRIESTE Division"
+    const nonNormalizedId = `${nation}_${normalizedQuarter}_${designation}`;
+    if (completedSet.has(nonNormalizedId)) {
         return true;
     }
 
@@ -53,6 +60,11 @@ function isUnitCompleted(nation, quarter, designation, aliases = [], completedSe
             const aliasNormalized = normalizeDesignation(alias);
             const aliasId = `${nation}_${normalizedQuarter}_${aliasNormalized}`;
             if (completedSet.has(aliasId)) {
+                return true;
+            }
+            // Also try non-normalized alias
+            const aliasNonNormId = `${nation}_${normalizedQuarter}_${alias}`;
+            if (completedSet.has(aliasNonNormId)) {
                 return true;
             }
         }
