@@ -217,19 +217,30 @@ async function main() {
 
     console.log('\nAfter each batch completes:');
     console.log('1. Run session:end (this script shows it)');
-    console.log('2. **CHECK TOKEN USAGE** (see system warnings)');
-    console.log('   - If > 160,000 tokens (80%): STOP and warn user about compaction');
-    console.log('   - session:end has saved work, safe to continue in new thread');
-    console.log('   - Tell user: "Context approaching limit, resume with same command"');
-    console.log('3. If tokens OK: Move to next batch IMMEDIATELY');
+
+    if (batchesToRun === Infinity) {
+        console.log('2. **NO TOKEN MONITORING** - Continuous mode runs until queue empty');
+        console.log('   - Compaction/crashes expected on long runs (overnight)');
+        console.log('   - session:end saves work after each batch (crash-resistant)');
+        console.log('   - User will run "npm run recover" in morning to check status');
+    } else {
+        console.log('2. **CHECK TOKEN USAGE** (see system warnings)');
+        console.log('   - If > 160,000 tokens (80%): STOP and warn user about compaction');
+        console.log('   - session:end has saved work, safe to continue in new thread');
+        console.log('   - Tell user: "Context approaching limit, resume with same command"');
+    }
+
+    console.log('3. Move to next batch IMMEDIATELY');
     console.log('4. DO NOT ask "would you like me to continue"');
     console.log('5. DO NOT wait for user input between batches');
 
     if (batchesToRun === Infinity) {
         console.log('6. Continue until WORK_QUEUE.md is empty (no units left)\n');
-        console.log('⚠️  CONTINUOUS MODE: This may take many hours if queue is large!');
+        console.log('⚠️  CONTINUOUS MODE: Designed for overnight unattended runs');
         console.log('⚠️  Current remaining: Check WORK_QUEUE.md for count');
-        console.log('⚠️  COMPACTION SAFETY: Will pause at 80% token usage automatically');
+        console.log('⚠️  NO COMPACTION SAFETY: Will run until queue empty or crash');
+        console.log('⚠️  If crash/compaction occurs: Use "npm run recover" to assess damage');
+        console.log('⚠️  session:end after each batch = max 1-2 units lost per crash');
     } else {
         console.log(`6. Continue until all ${batchesToRun} batches are complete\n`);
         console.log(`📊 Estimated time: ~${batchesToRun * 20}-${batchesToRun * 30} minutes`);
