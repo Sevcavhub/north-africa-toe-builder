@@ -1,23 +1,23 @@
-# Session Summary - 2025-10-24T04:46:50.103Z
+# Session Summary - 2025-10-24T13:00:51.339Z
 
 ## Session Statistics
 
-- **Duration:** unknown minutes
-- **Units Completed:** 271 / 416
-- **Progress:** 65.1%
-- **Units Remaining:** 145
+- **Duration:** 491 minutes
+- **Units Completed:** 286 / 416
+- **Progress:** 68.8%
+- **Units Remaining:** 130
 
 ## Work Completed
 
-- ✅ italian_1942q3_xx_mobile_corps
+- ✅ italian_1942q3_xxi_corps
 - ✅ italian_1942q4_101_divisione_motorizzata_trieste
 - ✅ italian_1942q4_102_divisione_motorizzata_trento
 - ✅ italian_1942q4_132_ariete_division
 - ✅ italian_1942q4_133a_divisione_corazzata_littorio
-- ✅ italian_1942q4_185a_divisione_paracadutisti_folgore
 - ✅ italian_1942q4_185_divisione_paracadutisti_folgore
-- ✅ italian_1942q4_xxi_corps
+- ✅ italian_1942q4_185a_divisione_paracadutisti_folgore
 - ✅ italian_1942q4_xx_mobile_corps
+- ✅ italian_1942q4_xxi_corps
 - ✅ italian_1943q1_131_divisione_corazzata_centauro
 
 ## Session End Checklist
@@ -47,8 +47,8 @@ This will:
 
 ## Notes
 
-- Session ended: 10/23/2025, 9:46:50 PM
-- Last commit: 03cb1d4
+- Session ended: 10/24/2025, 6:00:51 AM
+- Last commit: 12307ab
 - Safe to close this session
 
 ---

@@ -2,8 +2,8 @@
 
 <!-- AUTO-UPDATED: START - Session Metadata -->
 **Project**: North Africa TO&E Builder - **v3.0.0 (Ground Forces)**
-**Last Updated**: 2025-10-24 21:46
-**Status**: Schema v3.0 Complete, 271/416 units (65.1%)
+**Last Updated**: 2025-10-24 06:00
+**Status**: Schema v3.0 Complete, 286/416 units (68.8%)
 <!-- AUTO-UPDATED: END - Session Metadata -->
 
 ---
@@ -42,18 +42,18 @@
 <!-- AUTO-UPDATED: START - Recently Completed -->
 ### ✅ RECENTLY COMPLETED (Last Session):
 - **Session Date**: 2025-10-24
-- **Units Completed**: 271 unit-quarters (0 → 271)
-- **Session Duration**: unknown minutes
-- **Completion Rate**: 65.1% of total project
+- **Units Completed**: 286 unit-quarters (0 → 286)
+- **Session Duration**: 491 minutes
+- **Completion Rate**: 68.8% of total project
 - **Recent Work**:
   - italian_1942q4_101_divisione_motorizzata_trieste
   - italian_1942q4_102_divisione_motorizzata_trento
   - italian_1942q4_132_ariete_division
   - italian_1942q4_133a_divisione_corazzata_littorio
-  - italian_1942q4_185a_divisione_paracadutisti_folgore
   - italian_1942q4_185_divisione_paracadutisti_folgore
-  - italian_1942q4_xxi_corps
+  - italian_1942q4_185a_divisione_paracadutisti_folgore
   - italian_1942q4_xx_mobile_corps
+  - italian_1942q4_xxi_corps
   - italian_1943q1_131_divisione_corazzata_centauro
 <!-- AUTO-UPDATED: END - Recently Completed -->
 
@@ -115,8 +115,8 @@
 
 <!-- AUTO-UPDATED: START - Progress Stats -->
 ### 🔨 IN PROGRESS:
-- **Ground Forces Extraction**: 271/416 unit-quarters (65.1%)
-  - 145 unit-quarters remaining to complete Phase 1-6
+- **Ground Forces Extraction**: 286/416 unit-quarters (68.8%)
+  - 130 unit-quarters remaining to complete Phase 1-6
   - 117 unique units total
   - Target: All 117 combat units across all quarters (1940-1943)
 <!-- AUTO-UPDATED: END - Progress Stats -->
