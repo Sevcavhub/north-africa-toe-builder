@@ -6,7 +6,7 @@
 
 ## Commander
 
-Generalmajor Generalmajor Ulrich Kleemann
+Generalmajor Ulrich Kleemann
 
 ## Personnel
 

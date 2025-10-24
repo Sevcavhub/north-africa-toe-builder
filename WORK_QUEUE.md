@@ -1,9 +1,9 @@
 # North Africa Work Queue
 
-**Generated**: 2025-10-24T21:08:20.312Z
+**Generated**: 2025-10-24T21:37:23.673Z
 
-**Progress**: 287/413 units complete (69.5%)
-**Remaining**: 126 units
+**Progress**: 288/413 units complete (69.7%)
+**Remaining**: 125 units
 
 ---
 
@@ -19,9 +19,9 @@
 
 ## 🎯 Next Up (Next Session)
 
-1. **GERMAN** - 1942-Q3 - 164. leichte Division _(light_division)_
-2. **GERMAN** - 1942-Q3 - 90. leichte Division _(light_division)_
-3. **ITALIAN** - 1942-Q3 - 101st TRIESTE Division _(motorized_division)_
+1. **GERMAN** - 1942-Q3 - 90. leichte Division _(light_division)_
+2. **ITALIAN** - 1942-Q3 - 101st TRIESTE Division _(motorized_division)_
+3. **ITALIAN** - 1942-Q3 - Bologna Division _(infantry_division)_
 
 ---
 
@@ -53,10 +53,9 @@
 **ARMY_GROUP** (1 remaining):
 - [ ] GERMAN - Panzergruppe Afrika
 
-### 1942-Q3 (26/34 complete)
+### 1942-Q3 (27/34 complete)
 
-**LIGHT_DIVISION** (2 remaining):
-- [ ] GERMAN - 164. leichte Division
+**LIGHT_DIVISION** (1 remaining):
 - [ ] GERMAN - 90. leichte Division
 
 **MOTORIZED_DIVISION** (2 remaining):
@@ -231,7 +230,7 @@
 
 ---
 
-## ✅ Completed (287 units)
+## ✅ Completed (288 units)
 
 <details>
 <summary>Show completed units</summary>
@@ -472,7 +471,7 @@
 - [x] BRITISH - Eighth Army (8th Army) _(army)_
 - [x] GERMAN - Panzerarmee Afrika _(army)_
 
-### 1942-Q3 (26 complete)
+### 1942-Q3 (27 complete)
 
 - [x] BRITISH - 1st Greek Brigade _(brigade)_
 - [x] GERMAN - Ramcke Parachute Brigade _(brigade)_
@@ -487,6 +486,7 @@
 - [x] BRITISH - 9th Australian Division _(infantry_division)_
 - [x] FRENCH - 1re Division Française Libre _(infantry_division)_
 - [x] GERMAN - 15. Panzer-Division _(panzer_division)_
+- [x] GERMAN - 164. leichte Division _(light_division)_
 - [x] GERMAN - 21. Panzer-Division _(panzer_division)_
 - [x] ITALIAN - Ariete Division _(armored_division)_
 - [x] ITALIAN - Folgore Division _(airborne_division)_

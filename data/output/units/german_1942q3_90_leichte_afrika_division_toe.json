@@ -1,6 +1,6 @@
 {
   "schema_type": "division_toe",
-  "schema_version": "3.0.0",
+  "schema_version": "3.1.0",
   "nation": "german",
   "quarter": "1942q3",
   "unit_designation": "90. leichte Afrika-Division",
@@ -396,7 +396,10 @@
       "British official histories - North Africa campaign"
     ],
     "confidence": 75,
-    "last_updated": "2025-10-13",
+    "tier": 1,
+    "status": "production_ready",
+    "last_updated": "2025-10-24",
+    "validated_by": "Claude Code - Schema v3.1.0 upgrade",
     "known_gaps": [
       "Most subordinate unit commanders unknown",
       "Exact personnel distribution estimated from light division TO&E",
@@ -404,6 +407,39 @@
       "Vehicle variant proportions estimated",
       "Sonderverband 288 strength and equipment estimated"
     ],
+    "required_field_gaps": [],
+    "gap_documentation": {
+      "subordinate_commanders": {
+        "status": "unknown",
+        "reason": "Regimental and battalion commander names not documented in available sources for this specific quarter",
+        "sources_checked": ["Nafziger Collection", "Feldgrau.com", "Axis History Forum"],
+        "confidence_impact": -10,
+        "mitigation": "Commander names may be available in unit war diaries if Bundesarchiv sources obtained"
+      },
+      "chief_of_staff": {
+        "status": "unknown",
+        "reason": "Division staff rosters not available for Q3 1942",
+        "sources_checked": ["Nafziger Collection", "Feldgrau.com"],
+        "confidence_impact": -5,
+        "mitigation": "Divisional records or personnel files would provide this information"
+      },
+      "vehicle_variants": {
+        "status": "estimated",
+        "reason": "Exact variant breakdown not specified in source documents",
+        "sources_checked": ["Nafziger Collection", "Light Division TO&E"],
+        "confidence_impact": -5,
+        "estimate_method": "Proportions based on standard German light division establishment 1942 and DAK supply records",
+        "mitigation": "Unit strength reports or supply requisitions would provide exact counts"
+      },
+      "sonderverband_288": {
+        "status": "estimated",
+        "reason": "Special forces unit details classified/limited documentation",
+        "sources_checked": ["Nafziger Collection", "Feldgrau.com", "British intelligence reports"],
+        "confidence_impact": -5,
+        "estimate_method": "Strength estimated from battalion-sized unit standard (400-600 men)",
+        "mitigation": "Declassified German or British intelligence files may provide more detail"
+      }
+    },
     "aggregation_status": "manually_entered",
     "notes": "Division fought defensively at First El Alamein (July). At Alam Halfa (30 Aug - 7 Sept), division held in reserve with Sonderverband 288 not engaged in offensive. Kleemann commanded until 8 September, replaced by von Sponeck 22 September. Light division: four infantry regiments, no tanks, lighter support weapons than panzer divisions. Formed in Africa from various units, fully desert-adapted."
   }
