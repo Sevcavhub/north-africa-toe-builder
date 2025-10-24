@@ -199,12 +199,12 @@ npm run orchestrate         # API-based orchestration (uses tokens)
 ### Session Management:
 ```bash
   Pre-configured automated modes:
-  npm run auto:quick      # 1 batch  (3 units,  ~20-30 min)
-  npm run auto:Standard
+  run auto:quick      # 1 batch  (3 units,  ~20-30 min)
+  run auto:Standard
      # 3 batches (9 units,  ~60-90 min)  ←  RECOMMENDED
-  npm run auto:extended   # 5 batches (15 units, ~100-150 min)
-  npm run auto:marathon   # 10 batches (30 units, ~200-300 min)
-  npm run auto:continuous # Until queue empty
+  run auto:extended   # 5 batches (15 units, ~100-150 min)
+  run auto:marathon   # 10 batches (30 units, ~200-300 min)
+  run auto:continuous # Until queue empty
 npm run recover -- --auto-cleanup 
 npm run session:end         # End session with checkpoint
 npm run checkpoint          # Mid-session checkpoint
