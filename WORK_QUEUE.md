@@ -1,9 +1,9 @@
 # North Africa Work Queue
 
-**Generated**: 2025-10-24T21:56:20.062Z
+**Generated**: 2025-10-24T22:13:33.948Z
 
-**Progress**: 294/413 units complete (71.2%)
-**Remaining**: 119 units
+**Progress**: 297/413 units complete (71.9%)
+**Remaining**: 116 units
 
 ---
 
@@ -26,19 +26,6 @@
 ---
 
 ## 📋 Full Queue (Chronological + Echelon Order)
-
-### 1941-Q1 (26/27 complete)
-
-**CORPS** (1 remaining):
-- [ ] ITALIAN - XXI Corpo d'Armata (XXI Corps)
-
-### 1941-Q3 (27/29 complete)
-
-**CORPS** (1 remaining):
-- [ ] ITALIAN - XX Mobile Corps
-
-**ARMY_GROUP** (1 remaining):
-- [ ] GERMAN - Panzergruppe Afrika
 
 ### 1942-Q1 (26/28 complete)
 
@@ -218,7 +205,7 @@
 
 ---
 
-## ✅ Completed (294 units)
+## ✅ Completed (297 units)
 
 <details>
 <summary>Show completed units</summary>
@@ -281,7 +268,7 @@
 - [x] ITALIAN - 10ª Armata (Italian 10th Army) _(army)_
 - [x] BRITISH - Western Desert Force _(unknown)_
 
-### 1941-Q1 (26 complete)
+### 1941-Q1 (27 complete)
 
 - [x] BRITISH - 1st South African Division _(infantry_division)_
 - [x] BRITISH - 2nd New Zealand Division _(infantry_division)_
@@ -307,6 +294,7 @@
 - [x] ITALIAN - Trento Division _(motorized_division)_
 - [x] BRITISH - XIII Corps _(corps)_
 - [x] GERMAN - Deutsches Afrikakorps _(corps)_
+- [x] ITALIAN - XXI Corpo d'Armata (XXI Corps) _(corps)_
 - [x] ITALIAN - XXII Corpo d'Armata (XXII Corps) _(corps)_
 - [x] ITALIAN - 10ª Armata (Italian 10th Army) _(army)_
 
@@ -335,7 +323,7 @@
 - [x] ITALIAN - XX Mobile Corps _(corps)_
 - [x] ITALIAN - XXI Corpo d'Armata (XXI Corps) _(corps)_
 
-### 1941-Q3 (27 complete)
+### 1941-Q3 (29 complete)
 
 - [x] BRITISH - Czechoslovakian 11th Infantry Battalion _(battalion)_
 - [x] BRITISH - Polish Carpathian Brigade (Karpacka Brygada Strzelców) _(brigade)_
@@ -362,8 +350,10 @@
 - [x] BRITISH - XIII Corps _(corps)_
 - [x] BRITISH - XXX Corps _(corps)_
 - [x] GERMAN - Deutsches Afrikakorps _(corps)_
+- [x] ITALIAN - XX Mobile Corps _(corps)_
 - [x] ITALIAN - XXI Corpo d'Armata (XXI Corps) _(corps)_
 - [x] BRITISH - Eighth Army (8th Army) _(army)_
+- [x] GERMAN - Panzergruppe Afrika _(army_group)_
 
 ### 1941-Q4 (31 complete)
 
