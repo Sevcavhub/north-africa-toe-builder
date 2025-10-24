@@ -1,11 +1,11 @@
-# Session Checkpoint - 2025-10-24T22:18:23.028Z
+# Session Checkpoint - 2025-10-24T22:19:33.250Z
 
 ## Progress Summary
 
 - **Total Unit-Quarters:** 416
 - **Completed:** 344 (82.7%)
 - **Remaining:** 72
-- **Last Commit:** b80636d
+- **Last Commit:** bc3709b
 
 ## Validation Status
 
@@ -19,9 +19,8 @@
 ## Chapter Status
 
 - **JSON Files:** 346
-- **MDBook Chapters:** 344 ⚠️
-- **Missing Chapters:** 2
-  - ❌ american_1942q4_2nd_armored_division
+- **MDBook Chapters:** 345 ⚠️
+- **Missing Chapters:** 1
   - ❌ italian_1942q3_101_trieste_division
 
 ## Recent Completions
@@ -53,8 +52,8 @@ If this session crashes or needs to resume:
 ## Session Info
 
 - **Session ID:** complete_seed_generated
-- **Checkpoint Time:** 2025-10-24T22:18:22.929Z
-- **Git Commit:** b80636d
+- **Checkpoint Time:** 2025-10-24T22:19:33.148Z
+- **Git Commit:** bc3709b
 
 ---
 
