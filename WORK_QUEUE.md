@@ -1,9 +1,9 @@
 # North Africa Work Queue
 
-**Generated**: 2025-10-24T15:46:54.552Z
+**Generated**: 2025-10-24T15:59:21.325Z
 
-**Progress**: 255/416 units complete (61.3%)
-**Remaining**: 161 units
+**Progress**: 256/416 units complete (61.5%)
+**Remaining**: 160 units
 
 ---
 
@@ -19,9 +19,9 @@
 
 ## 🎯 Next Up (Next Session)
 
-1. **BRITISH** - 1942-Q1 - 4th Indian Division _(infantry_division)_
-2. **BRITISH** - 1942-Q1 - 7th Armoured Division _(division)_
-3. **BRITISH** - 1942-Q1 - 9th Australian Division _(infantry_division)_
+1. **BRITISH** - 1942-Q1 - 7th Armoured Division _(division)_
+2. **BRITISH** - 1942-Q1 - 9th Australian Division _(infantry_division)_
+3. **GERMAN** - 1942-Q1 - 90. leichte Division _(light_division)_
 
 ---
 
@@ -45,15 +45,14 @@
 **CORPS** (1 remaining):
 - [ ] ITALIAN - XX Mobile Corps
 
-### 1942-Q1 (20/29 complete)
-
-**INFANTRY_DIVISION** (3 remaining):
-- [ ] BRITISH - 4th Indian Division
-- [ ] BRITISH - 9th Australian Division
-- [ ] ITALIAN - Savona Division
+### 1942-Q1 (21/29 complete)
 
 **DIVISION** (1 remaining):
 - [ ] BRITISH - 7th Armoured Division
+
+**INFANTRY_DIVISION** (2 remaining):
+- [ ] BRITISH - 9th Australian Division
+- [ ] ITALIAN - Savona Division
 
 **LIGHT_DIVISION** (1 remaining):
 - [ ] GERMAN - 90. leichte Division
@@ -294,7 +293,7 @@
 
 ---
 
-## ✅ Completed (255 units)
+## ✅ Completed (256 units)
 
 <details>
 <summary>Show completed units</summary>
@@ -474,13 +473,14 @@
 - [x] BRITISH - Eighth Army (8th Army) _(army)_
 - [x] GERMAN - Panzergruppe Afrika _(army_group)_
 
-### 1942-Q1 (20 complete)
+### 1942-Q1 (21 complete)
 
 - [x] FRENCH - 1re Brigade Française Libre _(brigade)_
 - [x] BRITISH - 1st Armoured Division _(division)_
 - [x] BRITISH - 1st South African Division _(infantry_division)_
 - [x] BRITISH - 2nd New Zealand Division _(infantry_division)_
 - [x] BRITISH - 2nd South African Division _(infantry_division)_
+- [x] BRITISH - 4th Indian Division _(infantry_division)_
 - [x] BRITISH - 50th Infantry Division _(infantry_division)_
 - [x] BRITISH - 5th Indian Division _(infantry_division)_
 - [x] GERMAN - 15. Panzer-Division _(panzer_division)_
