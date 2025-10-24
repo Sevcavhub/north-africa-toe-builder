@@ -1,9 +1,9 @@
 # North Africa Work Queue
 
-**Generated**: 2025-10-24T21:47:58.406Z
+**Generated**: 2025-10-24T21:56:20.062Z
 
-**Progress**: 291/413 units complete (70.5%)
-**Remaining**: 122 units
+**Progress**: 294/413 units complete (71.2%)
+**Remaining**: 119 units
 
 ---
 
@@ -21,7 +21,7 @@
 
 1. **GERMAN** - 1942-Q3 - 90. leichte Division _(light_division)_
 2. **ITALIAN** - 1942-Q3 - 101st TRIESTE Division _(motorized_division)_
-3. **ITALIAN** - 1942-Q3 - Superga Division _(infantry_division)_
+3. **AMERICAN** - 1942-Q4 - 2nd Armored Division _(armored_division)_
 
 ---
 
@@ -40,11 +40,6 @@
 **ARMY_GROUP** (1 remaining):
 - [ ] GERMAN - Panzergruppe Afrika
 
-### 1941-Q4 (30/31 complete)
-
-**CORPS** (1 remaining):
-- [ ] ITALIAN - XX Mobile Corps
-
 ### 1942-Q1 (26/28 complete)
 
 **ARMY** (1 remaining):
@@ -53,17 +48,13 @@
 **ARMY_GROUP** (1 remaining):
 - [ ] GERMAN - Panzergruppe Afrika
 
-### 1942-Q3 (30/34 complete)
+### 1942-Q3 (32/34 complete)
 
 **LIGHT_DIVISION** (1 remaining):
 - [ ] GERMAN - 90. leichte Division
 
-**MOTORIZED_DIVISION** (2 remaining):
+**MOTORIZED_DIVISION** (1 remaining):
 - [ ] ITALIAN - 101st TRIESTE Division
-- [ ] ITALIAN - Trento Division
-
-**INFANTRY_DIVISION** (1 remaining):
-- [ ] ITALIAN - Superga Division
 
 ### 1942-Q4 (40/55 complete)
 
@@ -227,7 +218,7 @@
 
 ---
 
-## ✅ Completed (291 units)
+## ✅ Completed (294 units)
 
 <details>
 <summary>Show completed units</summary>
@@ -374,7 +365,7 @@
 - [x] ITALIAN - XXI Corpo d'Armata (XXI Corps) _(corps)_
 - [x] BRITISH - Eighth Army (8th Army) _(army)_
 
-### 1941-Q4 (30 complete)
+### 1941-Q4 (31 complete)
 
 - [x] BRITISH - Czechoslovakian 11th Infantry Battalion _(battalion)_
 - [x] BRITISH - Polish Carpathian Brigade (Karpacka Brygada Strzelców) _(brigade)_
@@ -403,6 +394,7 @@
 - [x] BRITISH - XIII Corps _(corps)_
 - [x] BRITISH - XXX Corps _(corps)_
 - [x] GERMAN - Deutsches Afrikakorps _(corps)_
+- [x] ITALIAN - XX Mobile Corps _(corps)_
 - [x] ITALIAN - XXI Corpo d'Armata (XXI Corps) _(corps)_
 - [x] BRITISH - Eighth Army (8th Army) _(army)_
 - [x] GERMAN - Panzergruppe Afrika _(army_group)_
@@ -468,7 +460,7 @@
 - [x] BRITISH - Eighth Army (8th Army) _(army)_
 - [x] GERMAN - Panzerarmee Afrika _(army)_
 
-### 1942-Q3 (30 complete)
+### 1942-Q3 (32 complete)
 
 - [x] BRITISH - 1st Greek Brigade _(brigade)_
 - [x] GERMAN - Ramcke Parachute Brigade _(brigade)_
@@ -491,6 +483,8 @@
 - [x] ITALIAN - Folgore Division _(airborne_division)_
 - [x] ITALIAN - Littorio Division _(armored_division)_
 - [x] ITALIAN - Pavia Division _(infantry_division)_
+- [x] ITALIAN - Superga Division _(infantry_division)_
+- [x] ITALIAN - Trento Division _(motorized_division)_
 - [x] BRITISH - XIII Corps _(corps)_
 - [x] BRITISH - XXX Corps _(corps)_
 - [x] BRITISH - XXX Corps _(corps)_
