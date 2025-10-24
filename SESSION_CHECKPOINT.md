@@ -1,26 +1,27 @@
-# Session Checkpoint - 2025-10-24T22:14:34.176Z
+# Session Checkpoint - 2025-10-24T22:18:23.028Z
 
 ## Progress Summary
 
 - **Total Unit-Quarters:** 416
-- **Completed:** 343 (82.5%)
-- **Remaining:** 73
-- **Last Commit:** 10f75c1
+- **Completed:** 344 (82.7%)
+- **Remaining:** 72
+- **Last Commit:** b80636d
 
 ## Validation Status
 
-- **Total Validated:** 344
+- **Total Validated:** 346
 - **✅ Passed:** 0 (0.0%)
 - **❌ Failed:** 0 ✅
-- **⚠️ Warnings:** 344
+- **⚠️ Warnings:** 346
 
 **All units passed validation** ✅
 
 ## Chapter Status
 
-- **JSON Files:** 344
-- **MDBook Chapters:** 343 ⚠️
-- **Missing Chapters:** 1
+- **JSON Files:** 346
+- **MDBook Chapters:** 344 ⚠️
+- **Missing Chapters:** 2
+  - ❌ american_1942q4_2nd_armored_division
   - ❌ italian_1942q3_101_trieste_division
 
 ## Recent Completions
@@ -47,13 +48,13 @@ If this session crashes or needs to resume:
 
 3. **View full progress:**
    - See WORKFLOW_STATE.json for complete list
-   - 343 units saved successfully
+   - 344 units saved successfully
 
 ## Session Info
 
 - **Session ID:** complete_seed_generated
-- **Checkpoint Time:** 2025-10-24T22:14:34.075Z
-- **Git Commit:** 10f75c1
+- **Checkpoint Time:** 2025-10-24T22:18:22.929Z
+- **Git Commit:** b80636d
 
 ---
 
