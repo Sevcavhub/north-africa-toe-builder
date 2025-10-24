@@ -1,8 +1,8 @@
 # North Africa Work Queue
 
-**Generated**: 2025-10-24T04:31:12.971Z
+**Generated**: 2025-10-24T04:44:04.655Z
 
-**Progress**: 245/419 units complete (58.5%)
+**Progress**: 242/416 units complete (58.2%)
 **Remaining**: 174 units
 
 ---
@@ -27,7 +27,7 @@
 
 ## 📋 Full Queue (Chronological + Echelon Order)
 
-### 1941-Q1 (29/30 complete)
+### 1941-Q1 (26/27 complete)
 
 **CORPS** (1 remaining):
 - [ ] ITALIAN - XXI Corpo d'Armata (XXI Corps)
@@ -317,7 +317,7 @@
 
 ---
 
-## ✅ Completed (245 units)
+## ✅ Completed (242 units)
 
 <details>
 <summary>Show completed units</summary>
@@ -380,7 +380,7 @@
 - [x] ITALIAN - 10ª Armata (Italian 10th Army) _(army)_
 - [x] BRITISH - Western Desert Force _(unknown)_
 
-### 1941-Q1 (29 complete)
+### 1941-Q1 (26 complete)
 
 - [x] BRITISH - 1st South African Division _(infantry_division)_
 - [x] BRITISH - 2nd New Zealand Division _(infantry_division)_
@@ -392,10 +392,7 @@
 - [x] GERMAN - 5. leichte Division _(light_division)_
 - [x] ITALIAN - 101st TRIESTE Division _(motorized_division)_
 - [x] ITALIAN - 1st CCNN Division '23 Marzo' _(division)_
-- [x] ITALIAN - 1st Libyan Division _(division)_
 - [x] ITALIAN - 2nd CCNN Division '28 Ottobre' _(division)_
-- [x] ITALIAN - 2nd Libyan Division _(division)_
-- [x] ITALIAN - 4th CCNN Division '3 Gennaio' _(division)_
 - [x] ITALIAN - Ariete Division _(armored_division)_
 - [x] ITALIAN - Bologna Division _(infantry_division)_
 - [x] ITALIAN - Brescia Division _(infantry_division)_
