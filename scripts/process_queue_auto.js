@@ -163,7 +163,30 @@ async function runSessionEnd() {
 }
 
 async function main() {
-    console.log('🎯 Automated Queue Processing - Starting...\n');
+    console.log('🎯 Automated Queue Processing\n');
+
+    // Check if being run directly or through Claude
+    const runningDirectly = process.stdout.isTTY && !process.env.CLAUDE_ORCHESTRATED;
+
+    if (runningDirectly) {
+        console.log('⚠️  WARNING: This command should be invoked through Claude Code, not run directly.\n');
+        console.log('This script provides instructions for Claude to follow. It cannot launch');
+        console.log('extraction agents by itself - only Claude can use the Task tool.\n');
+        console.log('CORRECT USAGE:\n');
+        console.log('  1. In a Claude Code session, say: "Run auto:standard"');
+        console.log('  2. Claude will read this script and orchestrate the extraction');
+        console.log('  3. Claude will launch 3 parallel Task tool agents per batch');
+        console.log('  4. Claude will run session:end after each batch\n');
+        console.log('INCORRECT USAGE:\n');
+        console.log('  ❌ Running: npm run auto:standard (this is what you just did)');
+        console.log('  ❌ Result: Script loops but no extraction happens\n');
+        console.log('TO PROCEED:\n');
+        console.log('  Tell Claude in your session: "Process the next 3 units from queue"');
+        console.log('  Or say: "Run automated mode with 3 batches"\n');
+        process.exit(0);
+    }
+
+    console.log('Starting...\n');
 
     // Parse command-line arguments
     const { mode, batches: requestedBatches } = await parseArgs();
