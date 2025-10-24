@@ -1,15 +1,16 @@
-# Crash Recovery Report - 2025-10-24T12:58:48.494Z
+# Crash Recovery Report - 2025-10-24T13:15:04.295Z
 
 ## Summary
 
-- Before: 277/416 units (66.6%)
-- After: 286/416 units (68.8%)
-- Change: 9 units
+- Before: 286/416 units (68.8%)
+- After: 289/416 units (69.5%)
+- Change: 3 units
 
-## Newly Completed (2)
+## Newly Completed (3)
 
-- ✅ ITALIAN - 1940q3 - marmarica_division
-- ✅ ITALIAN - 1940q3 - sabratha_division
+- ✅ BRITISH - 1941q3 - 1st_south_african_division
+- ✅ BRITISH - 1941q3 - 4th_indian_division
+- ✅ BRITISH - 1941q3 - 7th_australian_division
 
 ## Partial Units (0)
 
