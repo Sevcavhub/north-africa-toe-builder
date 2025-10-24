@@ -1,25 +1,25 @@
-# Session Checkpoint - 2025-10-24T21:37:23.687Z
+# Session Checkpoint - 2025-10-24T21:47:04.625Z
 
 ## Progress Summary
 
 - **Total Unit-Quarters:** 416
-- **Completed:** 333 (80.0%)
-- **Remaining:** 83
-- **Last Commit:** b85c450
+- **Completed:** 335 (80.5%)
+- **Remaining:** 81
+- **Last Commit:** 45ef925
 
 ## Validation Status
 
-- **Total Validated:** 335
+- **Total Validated:** 338
 - **✅ Passed:** 0 (0.0%)
 - **❌ Failed:** 0 ✅
-- **⚠️ Warnings:** 335
+- **⚠️ Warnings:** 338
 
 **All units passed validation** ✅
 
 ## Chapter Status
 
-- **JSON Files:** 335
-- **MDBook Chapters:** 334 ⚠️
+- **JSON Files:** 338
+- **MDBook Chapters:** 337 ⚠️
 - **Missing Chapters:** 1
   - ❌ italian_1942q3_101_trieste_division
 
@@ -47,13 +47,13 @@ If this session crashes or needs to resume:
 
 3. **View full progress:**
    - See WORKFLOW_STATE.json for complete list
-   - 333 units saved successfully
+   - 335 units saved successfully
 
 ## Session Info
 
 - **Session ID:** complete_seed_generated
-- **Checkpoint Time:** 2025-10-24T21:37:23.586Z
-- **Git Commit:** b85c450
+- **Checkpoint Time:** 2025-10-24T21:47:04.522Z
+- **Git Commit:** 45ef925
 
 ---
 

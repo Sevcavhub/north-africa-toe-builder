@@ -1,9 +1,9 @@
 # North Africa Work Queue
 
-**Generated**: 2025-10-24T21:37:23.673Z
+**Generated**: 2025-10-24T21:47:04.611Z
 
-**Progress**: 288/413 units complete (69.7%)
-**Remaining**: 125 units
+**Progress**: 291/413 units complete (70.5%)
+**Remaining**: 122 units
 
 ---
 
@@ -21,7 +21,7 @@
 
 1. **GERMAN** - 1942-Q3 - 90. leichte Division _(light_division)_
 2. **ITALIAN** - 1942-Q3 - 101st TRIESTE Division _(motorized_division)_
-3. **ITALIAN** - 1942-Q3 - Bologna Division _(infantry_division)_
+3. **ITALIAN** - 1942-Q3 - Superga Division _(infantry_division)_
 
 ---
 
@@ -53,7 +53,7 @@
 **ARMY_GROUP** (1 remaining):
 - [ ] GERMAN - Panzergruppe Afrika
 
-### 1942-Q3 (27/34 complete)
+### 1942-Q3 (30/34 complete)
 
 **LIGHT_DIVISION** (1 remaining):
 - [ ] GERMAN - 90. leichte Division
@@ -62,10 +62,7 @@
 - [ ] ITALIAN - 101st TRIESTE Division
 - [ ] ITALIAN - Trento Division
 
-**INFANTRY_DIVISION** (4 remaining):
-- [ ] ITALIAN - Bologna Division
-- [ ] ITALIAN - Brescia Division
-- [ ] ITALIAN - Pavia Division
+**INFANTRY_DIVISION** (1 remaining):
 - [ ] ITALIAN - Superga Division
 
 ### 1942-Q4 (40/55 complete)
@@ -230,7 +227,7 @@
 
 ---
 
-## ✅ Completed (288 units)
+## ✅ Completed (291 units)
 
 <details>
 <summary>Show completed units</summary>
@@ -471,7 +468,7 @@
 - [x] BRITISH - Eighth Army (8th Army) _(army)_
 - [x] GERMAN - Panzerarmee Afrika _(army)_
 
-### 1942-Q3 (27 complete)
+### 1942-Q3 (30 complete)
 
 - [x] BRITISH - 1st Greek Brigade _(brigade)_
 - [x] GERMAN - Ramcke Parachute Brigade _(brigade)_
@@ -489,8 +486,11 @@
 - [x] GERMAN - 164. leichte Division _(light_division)_
 - [x] GERMAN - 21. Panzer-Division _(panzer_division)_
 - [x] ITALIAN - Ariete Division _(armored_division)_
+- [x] ITALIAN - Bologna Division _(infantry_division)_
+- [x] ITALIAN - Brescia Division _(infantry_division)_
 - [x] ITALIAN - Folgore Division _(airborne_division)_
 - [x] ITALIAN - Littorio Division _(armored_division)_
+- [x] ITALIAN - Pavia Division _(infantry_division)_
 - [x] BRITISH - XIII Corps _(corps)_
 - [x] BRITISH - XXX Corps _(corps)_
 - [x] BRITISH - XXX Corps _(corps)_
