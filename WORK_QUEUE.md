@@ -1,9 +1,9 @@
 # North Africa Work Queue
 
-**Generated**: 2025-10-24T20:31:23.325Z
+**Generated**: 2025-10-24T20:40:38.619Z
 
-**Progress**: 279/413 units complete (67.6%)
-**Remaining**: 134 units
+**Progress**: 281/413 units complete (68.0%)
+**Remaining**: 132 units
 
 ---
 
@@ -19,9 +19,9 @@
 
 ## 🎯 Next Up (Next Session)
 
-1. **BRITISH** - 1942-Q3 - 1st Armoured Division _(division)_
-2. **BRITISH** - 1942-Q3 - 44th Infantry Division _(infantry_division)_
-3. **BRITISH** - 1942-Q3 - 4th Indian Division _(infantry_division)_
+1. **BRITISH** - 1942-Q3 - 4th Indian Division _(infantry_division)_
+2. **BRITISH** - 1942-Q3 - 50th Infantry Division _(infantry_division)_
+3. **BRITISH** - 1942-Q3 - 51st Highland Division _(infantry_division)_
 
 ---
 
@@ -58,13 +58,9 @@
 **ARMY** (1 remaining):
 - [ ] GERMAN - Panzerarmee Afrika
 
-### 1942-Q3 (19/34 complete)
+### 1942-Q3 (21/34 complete)
 
-**DIVISION** (1 remaining):
-- [ ] BRITISH - 1st Armoured Division
-
-**INFANTRY_DIVISION** (10 remaining):
-- [ ] BRITISH - 44th Infantry Division
+**INFANTRY_DIVISION** (9 remaining):
 - [ ] BRITISH - 4th Indian Division
 - [ ] BRITISH - 50th Infantry Division
 - [ ] BRITISH - 51st Highland Division
@@ -245,7 +241,7 @@
 
 ---
 
-## ✅ Completed (279 units)
+## ✅ Completed (281 units)
 
 <details>
 <summary>Show completed units</summary>
@@ -485,12 +481,14 @@
 - [x] ITALIAN - XXI Corpo d'Armata (XXI Corps) _(corps)_
 - [x] BRITISH - Eighth Army (8th Army) _(army)_
 
-### 1942-Q3 (19 complete)
+### 1942-Q3 (21 complete)
 
 - [x] BRITISH - 1st Greek Brigade _(brigade)_
 - [x] GERMAN - Ramcke Parachute Brigade _(brigade)_
 - [x] BRITISH - 10th Armoured Division _(division)_
+- [x] BRITISH - 1st Armoured Division _(division)_
 - [x] BRITISH - 2nd New Zealand Division _(infantry_division)_
+- [x] BRITISH - 44th Infantry Division _(infantry_division)_
 - [x] BRITISH - 7th Armoured Division _(division)_
 - [x] GERMAN - 15. Panzer-Division _(panzer_division)_
 - [x] GERMAN - 21. Panzer-Division _(panzer_division)_
