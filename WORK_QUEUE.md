@@ -1,9 +1,9 @@
 # North Africa Work Queue
 
-**Generated**: 2025-10-24T22:34:22.498Z
+**Generated**: 2025-10-24T22:45:29.469Z
 
-**Progress**: 302/413 units complete (73.1%)
-**Remaining**: 111 units
+**Progress**: 303/413 units complete (73.4%)
+**Remaining**: 110 units
 
 ---
 
@@ -61,7 +61,7 @@
 - [ ] GERMAN - 5th Panzer Army
 - [ ] GERMAN - Panzerarmee Afrika
 
-### 1943-Q1 (12/56 complete)
+### 1943-Q1 (13/56 complete)
 
 **ARMORED_DIVISION** (4 remaining):
 - [ ] AMERICAN - 1st Armored Division
@@ -116,11 +116,10 @@
 - [ ] ITALIAN - XIX Corps
 - [ ] ITALIAN - XXI Corpo d'Armata (XXI Corps)
 
-**ARMY** (5 remaining):
+**ARMY** (4 remaining):
 - [ ] BRITISH - Eighth Army (8th Army)
 - [ ] BRITISH - First Army
 - [ ] GERMAN - 5th Panzer Army
-- [ ] GERMAN - Panzerarmee Afrika
 - [ ] ITALIAN - First Italian Army
 
 ### 1943-Q2 (2/53 complete)
@@ -194,7 +193,7 @@
 
 ---
 
-## ✅ Completed (302 units)
+## ✅ Completed (303 units)
 
 <details>
 <summary>Show completed units</summary>
@@ -520,7 +519,7 @@
 - [x] ITALIAN - XXI Corpo d'Armata (XXI Corps) _(corps)_
 - [x] BRITISH - Eighth Army (8th Army) _(army)_
 
-### 1943-Q1 (12 complete)
+### 1943-Q1 (13 complete)
 
 - [x] BRITISH - 1st Greek Brigade _(brigade)_
 - [x] FRENCH - Force L _(brigade)_
@@ -534,6 +533,7 @@
 - [x] GERMAN - 21. Panzer-Division _(panzer_division)_
 - [x] ITALIAN - Centauro Division _(armored_division)_
 - [x] AMERICAN - II Corps _(corps)_
+- [x] GERMAN - Panzerarmee Afrika _(army)_
 
 ### 1943-Q2 (2 complete)
 
