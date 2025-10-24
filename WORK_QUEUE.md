@@ -1,9 +1,9 @@
 # North Africa Work Queue
 
-**Generated**: 2025-10-24T01:50:29.670Z
+**Generated**: 2025-10-24T02:00:11.087Z
 
-**Progress**: 224/419 units complete (53.5%)
-**Remaining**: 195 units
+**Progress**: 226/419 units complete (53.9%)
+**Remaining**: 193 units
 
 ---
 
@@ -20,26 +20,22 @@
 ## 🎯 Next Up (Next Session)
 
 1. **ITALIAN** - 1940-Q3 - 4th CC.NN. Division '3 Gennaio' _(division)_
-2. **ITALIAN** - 1940-Q3 - Brescia Division _(infantry_division)_
-3. **ITALIAN** - 1940-Q4 - 1st CC.NN. Division '23 Marzo' _(division)_
+2. **ITALIAN** - 1940-Q4 - 1st CC.NN. Division '23 Marzo' _(division)_
+3. **ITALIAN** - 1940-Q4 - 2nd CC.NN. Division '28 Ottobre' _(division)_
 
 ---
 
 ## 📋 Full Queue (Chronological + Echelon Order)
 
-### 1940-Q3 (15/17 complete)
+### 1940-Q3 (16/17 complete)
 
 **DIVISION** (1 remaining):
 - [ ] ITALIAN - 4th CC.NN. Division '3 Gennaio'
 
-**INFANTRY_DIVISION** (1 remaining):
-- [ ] ITALIAN - Brescia Division
+### 1940-Q4 (11/24 complete)
 
-### 1940-Q4 (10/24 complete)
-
-**DIVISION** (5 remaining):
+**DIVISION** (4 remaining):
 - [ ] ITALIAN - 1st CC.NN. Division '23 Marzo'
-- [ ] ITALIAN - 1st Libyan Division
 - [ ] ITALIAN - 2nd CC.NN. Division '28 Ottobre'
 - [ ] ITALIAN - 2nd Libyan Division
 - [ ] ITALIAN - 4th CC.NN. Division '3 Gennaio'
@@ -354,7 +350,7 @@
 
 ---
 
-## ✅ Completed (224 units)
+## ✅ Completed (226 units)
 
 <details>
 <summary>Show completed units</summary>
@@ -370,13 +366,14 @@
 - [x] ITALIAN - 10ª Armata (Italian 10th Army) _(army)_
 - [x] BRITISH - Western Desert Force _(unknown)_
 
-### 1940-Q3 (15 complete)
+### 1940-Q3 (16 complete)
 
 - [x] BRITISH - 4th Indian Division _(infantry_division)_
 - [x] BRITISH - 7th Armoured Division _(division)_
 - [x] ITALIAN - 1st Libyan Division _(division)_
 - [x] ITALIAN - 2nd Libyan Division _(division)_
 - [x] ITALIAN - Bologna Division _(infantry_division)_
+- [x] ITALIAN - Brescia Division _(infantry_division)_
 - [x] ITALIAN - Catanzaro Division _(infantry_division)_
 - [x] ITALIAN - Cirene Division _(infantry_division)_
 - [x] ITALIAN - Marmarica Division _(infantry_division)_
@@ -388,12 +385,13 @@
 - [x] ITALIAN - 10ª Armata (Italian 10th Army) _(army)_
 - [x] BRITISH - Western Desert Force _(unknown)_
 
-### 1940-Q4 (10 complete)
+### 1940-Q4 (11 complete)
 
 - [x] BRITISH - 1st South African Division _(infantry_division)_
 - [x] BRITISH - 4th Indian Division _(infantry_division)_
 - [x] BRITISH - 6th Australian Division (2nd AIF) _(infantry_division)_
 - [x] BRITISH - 7th Armoured Division _(division)_
+- [x] ITALIAN - 1st Libyan Division _(division)_
 - [x] ITALIAN - Ariete Division _(armored_division)_
 - [x] ITALIAN - Bologna Division _(infantry_division)_
 - [x] ITALIAN - XXI Corpo d'Armata (XXI Corps) _(corps)_
