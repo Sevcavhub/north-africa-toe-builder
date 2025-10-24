@@ -1,9 +1,9 @@
 # North Africa Work Queue
 
-**Generated**: 2025-10-24T19:09:04.753Z
+**Generated**: 2025-10-24T19:26:59.573Z
 
-**Progress**: 263/416 units complete (63.2%)
-**Remaining**: 153 units
+**Progress**: 264/413 units complete (63.9%)
+**Remaining**: 149 units
 
 ---
 
@@ -19,9 +19,9 @@
 
 ## 🎯 Next Up (Next Session)
 
-1. **ITALIAN** - 1942-Q1 - Savona Division _(infantry_division)_
-2. **BRITISH** - 1942-Q2 - 1st Armoured Division _(division)_
-3. **BRITISH** - 1942-Q2 - 2nd South African Division _(infantry_division)_
+1. **BRITISH** - 1942-Q2 - 2nd South African Division _(infantry_division)_
+2. **BRITISH** - 1942-Q2 - 4th Indian Division _(infantry_division)_
+3. **BRITISH** - 1942-Q2 - 50th Infantry Division _(infantry_division)_
 
 ---
 
@@ -45,10 +45,7 @@
 **CORPS** (1 remaining):
 - [ ] ITALIAN - XX Mobile Corps
 
-### 1942-Q1 (26/29 complete)
-
-**INFANTRY_DIVISION** (1 remaining):
-- [ ] ITALIAN - Savona Division
+### 1942-Q1 (26/28 complete)
 
 **ARMY** (1 remaining):
 - [ ] GERMAN - Panzerarmee Afrika
@@ -56,13 +53,9 @@
 **ARMY_GROUP** (1 remaining):
 - [ ] GERMAN - Panzergruppe Afrika
 
-### 1942-Q2 (12/30 complete)
+### 1942-Q2 (13/29 complete)
 
-**DIVISION** (2 remaining):
-- [ ] BRITISH - 1st Armoured Division
-- [ ] BRITISH - 7th Armoured Division
-
-**INFANTRY_DIVISION** (10 remaining):
+**INFANTRY_DIVISION** (9 remaining):
 - [ ] BRITISH - 2nd South African Division
 - [ ] BRITISH - 4th Indian Division
 - [ ] BRITISH - 50th Infantry Division
@@ -71,8 +64,10 @@
 - [ ] ITALIAN - Bologna Division
 - [ ] ITALIAN - Brescia Division
 - [ ] ITALIAN - Pavia Division
-- [ ] ITALIAN - Savona Division
 - [ ] ITALIAN - Superga Division
+
+**DIVISION** (1 remaining):
+- [ ] BRITISH - 7th Armoured Division
 
 **PANZER_DIVISION** (1 remaining):
 - [ ] GERMAN - 15. Panzer-Division
@@ -90,12 +85,12 @@
 **ARMY** (1 remaining):
 - [ ] GERMAN - Panzerarmee Afrika
 
-### 1942-Q3 (19/35 complete)
+### 1942-Q3 (19/34 complete)
 
 **DIVISION** (1 remaining):
 - [ ] BRITISH - 1st Armoured Division
 
-**INFANTRY_DIVISION** (11 remaining):
+**INFANTRY_DIVISION** (10 remaining):
 - [ ] BRITISH - 44th Infantry Division
 - [ ] BRITISH - 4th Indian Division
 - [ ] BRITISH - 50th Infantry Division
@@ -105,7 +100,6 @@
 - [ ] ITALIAN - Bologna Division
 - [ ] ITALIAN - Brescia Division
 - [ ] ITALIAN - Pavia Division
-- [ ] ITALIAN - Savona Division
 - [ ] ITALIAN - Superga Division
 
 **LIGHT_DIVISION** (2 remaining):
@@ -278,7 +272,7 @@
 
 ---
 
-## ✅ Completed (263 units)
+## ✅ Completed (264 units)
 
 <details>
 <summary>Show completed units</summary>
@@ -487,9 +481,10 @@
 - [x] ITALIAN - XXI Corpo d'Armata (XXI Corps) _(corps)_
 - [x] BRITISH - Eighth Army (8th Army) _(army)_
 
-### 1942-Q2 (12 complete)
+### 1942-Q2 (13 complete)
 
 - [x] FRENCH - 1re Brigade Française Libre _(brigade)_
+- [x] BRITISH - 1st Armoured Division _(division)_
 - [x] BRITISH - 1st South African Division _(infantry_division)_
 - [x] BRITISH - 2nd New Zealand Division _(infantry_division)_
 - [x] BRITISH - 9th Australian Division _(infantry_division)_
