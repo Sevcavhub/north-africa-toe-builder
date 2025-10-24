@@ -1,4 +1,4 @@
-# Session Summary - 2025-10-24T13:08:50.127Z
+# Session Summary - 2025-10-24T13:08:52.349Z
 
 ## Session Statistics
 
@@ -22,7 +22,7 @@
 
 ## Session End Checklist
 
-- ⚠️  1 uncommitted files found
+- ⚠️  2 uncommitted files found
 - ✅ Final checkpoint created
 - ✅ WORKFLOW_STATE.json updated
 - ✅ SESSION_CHECKPOINT.md written
@@ -31,6 +31,7 @@
 ## Uncommitted Files
 
 - M WORKFLOW_STATE.json
+- ?? data/output/units/british_1941q3_7th_australian_division_toe.json
 
 ## Next Session
 
@@ -47,7 +48,7 @@ This will:
 
 ## Notes
 
-- Session ended: 10/24/2025, 6:08:50 AM
+- Session ended: 10/24/2025, 6:08:52 AM
 - Last commit: 12307ab
 - Safe to close this session
 

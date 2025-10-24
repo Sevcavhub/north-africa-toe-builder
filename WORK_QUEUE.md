@@ -1,9 +1,9 @@
 # North Africa Work Queue
 
-**Generated**: 2025-10-24T13:08:50.630Z
+**Generated**: 2025-10-24T13:08:52.855Z
 
-**Progress**: 242/416 units complete (58.2%)
-**Remaining**: 174 units
+**Progress**: 243/416 units complete (58.4%)
+**Remaining**: 173 units
 
 ---
 
@@ -21,7 +21,7 @@
 
 1. **BRITISH** - 1941-Q3 - 1st South African Division _(infantry_division)_
 2. **BRITISH** - 1941-Q3 - 4th Indian Division _(infantry_division)_
-3. **BRITISH** - 1941-Q3 - 7th Australian Division _(infantry_division)_
+3. **GERMAN** - 1941-Q3 - 90. leichte Division _(light_division)_
 
 ---
 
@@ -32,12 +32,11 @@
 **CORPS** (1 remaining):
 - [ ] ITALIAN - XXI Corpo d'Armata (XXI Corps)
 
-### 1941-Q3 (21/29 complete)
+### 1941-Q3 (22/29 complete)
 
-**INFANTRY_DIVISION** (3 remaining):
+**INFANTRY_DIVISION** (2 remaining):
 - [ ] BRITISH - 1st South African Division
 - [ ] BRITISH - 4th Indian Division
-- [ ] BRITISH - 7th Australian Division
 
 **LIGHT_DIVISION** (1 remaining):
 - [ ] GERMAN - 90. leichte Division
@@ -317,7 +316,7 @@
 
 ---
 
-## ✅ Completed (242 units)
+## ✅ Completed (243 units)
 
 <details>
 <summary>Show completed units</summary>
@@ -434,7 +433,7 @@
 - [x] ITALIAN - XX Mobile Corps _(corps)_
 - [x] ITALIAN - XXI Corpo d'Armata (XXI Corps) _(corps)_
 
-### 1941-Q3 (21 complete)
+### 1941-Q3 (22 complete)
 
 - [x] BRITISH - Czechoslovakian 11th Infantry Battalion _(battalion)_
 - [x] BRITISH - Polish Carpathian Brigade (Karpacka Brygada Strzelców) _(brigade)_
@@ -444,6 +443,7 @@
 - [x] BRITISH - 5th Indian Division _(infantry_division)_
 - [x] BRITISH - 70th Infantry Division _(infantry_division)_
 - [x] BRITISH - 7th Armoured Division _(division)_
+- [x] BRITISH - 7th Australian Division _(infantry_division)_
 - [x] BRITISH - 9th Australian Division _(infantry_division)_
 - [x] GERMAN - 15. Panzer-Division _(panzer_division)_
 - [x] GERMAN - 21. Panzer-Division _(panzer_division)_
