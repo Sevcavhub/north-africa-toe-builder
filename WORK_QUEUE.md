@@ -1,9 +1,9 @@
 # North Africa Work Queue
 
-**Generated**: 2025-10-24T02:59:01.487Z
+**Generated**: 2025-10-24T03:15:17.211Z
 
-**Progress**: 234/419 units complete (55.8%)
-**Remaining**: 185 units
+**Progress**: 240/419 units complete (57.3%)
+**Remaining**: 179 units
 
 ---
 
@@ -19,38 +19,22 @@
 
 ## 🎯 Next Up (Next Session)
 
-1. **ITALIAN** - 1940-Q3 - 4th CC.NN. Division '3 Gennaio' _(division)_
-2. **ITALIAN** - 1940-Q4 - 1st CC.NN. Division '23 Marzo' _(division)_
-3. **ITALIAN** - 1940-Q4 - 2nd CC.NN. Division '28 Ottobre' _(division)_
+1. **ITALIAN** - 1941-Q1 - 1st CCNN Division '23 Marzo' _(division)_
+2. **ITALIAN** - 1941-Q1 - 1st Libyan Division _(division)_
+3. **ITALIAN** - 1941-Q1 - 2nd CCNN Division '28 Ottobre' _(division)_
 
 ---
 
 ## 📋 Full Queue (Chronological + Echelon Order)
 
-### 1940-Q3 (16/17 complete)
-
-**DIVISION** (1 remaining):
-- [ ] ITALIAN - 4th CC.NN. Division '3 Gennaio'
-
-### 1940-Q4 (19/24 complete)
-
-**DIVISION** (3 remaining):
-- [ ] ITALIAN - 1st CC.NN. Division '23 Marzo'
-- [ ] ITALIAN - 2nd CC.NN. Division '28 Ottobre'
-- [ ] ITALIAN - 4th CC.NN. Division '3 Gennaio'
-
-**INFANTRY_DIVISION** (2 remaining):
-- [ ] ITALIAN - Brescia Division
-- [ ] ITALIAN - Pavia Division
-
 ### 1941-Q1 (24/30 complete)
 
 **DIVISION** (5 remaining):
-- [ ] ITALIAN - 1st CC.NN. Division '23 Marzo'
+- [ ] ITALIAN - 1st CCNN Division '23 Marzo'
 - [ ] ITALIAN - 1st Libyan Division
-- [ ] ITALIAN - 2nd CC.NN. Division '28 Ottobre'
+- [ ] ITALIAN - 2nd CCNN Division '28 Ottobre'
 - [ ] ITALIAN - 2nd Libyan Division
-- [ ] ITALIAN - 4th CC.NN. Division '3 Gennaio'
+- [ ] ITALIAN - 4th CCNN Division '3 Gennaio'
 
 **CORPS** (1 remaining):
 - [ ] ITALIAN - XXI Corpo d'Armata (XXI Corps)
@@ -340,7 +324,7 @@
 
 ---
 
-## ✅ Completed (234 units)
+## ✅ Completed (240 units)
 
 <details>
 <summary>Show completed units</summary>
@@ -356,12 +340,13 @@
 - [x] ITALIAN - 10ª Armata (Italian 10th Army) _(army)_
 - [x] BRITISH - Western Desert Force _(unknown)_
 
-### 1940-Q3 (16 complete)
+### 1940-Q3 (17 complete)
 
 - [x] BRITISH - 4th Indian Division _(infantry_division)_
 - [x] BRITISH - 7th Armoured Division _(division)_
 - [x] ITALIAN - 1st Libyan Division _(division)_
 - [x] ITALIAN - 2nd Libyan Division _(division)_
+- [x] ITALIAN - 4th CCNN Division '3 Gennaio' _(division)_
 - [x] ITALIAN - Bologna Division _(infantry_division)_
 - [x] ITALIAN - Brescia Division _(infantry_division)_
 - [x] ITALIAN - Catanzaro Division _(infantry_division)_
@@ -375,19 +360,24 @@
 - [x] ITALIAN - 10ª Armata (Italian 10th Army) _(army)_
 - [x] BRITISH - Western Desert Force _(unknown)_
 
-### 1940-Q4 (19 complete)
+### 1940-Q4 (24 complete)
 
 - [x] BRITISH - 1st South African Division _(infantry_division)_
 - [x] BRITISH - 4th Indian Division _(infantry_division)_
 - [x] BRITISH - 6th Australian Division (2nd AIF) _(infantry_division)_
 - [x] BRITISH - 7th Armoured Division _(division)_
+- [x] ITALIAN - 1st CCNN Division '23 Marzo' _(division)_
 - [x] ITALIAN - 1st Libyan Division _(division)_
+- [x] ITALIAN - 2nd CCNN Division '28 Ottobre' _(division)_
 - [x] ITALIAN - 2nd Libyan Division _(division)_
+- [x] ITALIAN - 4th CCNN Division '3 Gennaio' _(division)_
 - [x] ITALIAN - Ariete Division _(armored_division)_
 - [x] ITALIAN - Bologna Division _(infantry_division)_
+- [x] ITALIAN - Brescia Division _(infantry_division)_
 - [x] ITALIAN - Catanzaro Division _(infantry_division)_
 - [x] ITALIAN - Cirene Division _(infantry_division)_
 - [x] ITALIAN - Marmarica Division _(infantry_division)_
+- [x] ITALIAN - Pavia Division _(infantry_division)_
 - [x] ITALIAN - Sabratha Division _(infantry_division)_
 - [x] ITALIAN - Savona Division _(infantry_division)_
 - [x] ITALIAN - Sirte Division _(infantry_division)_
