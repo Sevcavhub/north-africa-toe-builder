@@ -205,7 +205,7 @@ npm run orchestrate         # API-based orchestration (uses tokens)
   npm run auto:extended   # 5 batches (15 units, ~100-150 min)
   npm run auto:marathon   # 10 batches (30 units, ~200-300 min)
   npm run auto:continuous # Until queue empty
-
+npm run recover -- --auto-cleanup 
 npm run session:end         # End session with checkpoint
 npm run checkpoint          # Mid-session checkpoint
 ```
