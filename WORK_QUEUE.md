@@ -1,9 +1,9 @@
 # North Africa Work Queue
 
-**Generated**: 2025-10-24T02:00:11.087Z
+**Generated**: 2025-10-24T02:11:17.719Z
 
-**Progress**: 226/419 units complete (53.9%)
-**Remaining**: 193 units
+**Progress**: 228/419 units complete (54.4%)
+**Remaining**: 191 units
 
 ---
 
@@ -32,17 +32,15 @@
 **DIVISION** (1 remaining):
 - [ ] ITALIAN - 4th CC.NN. Division '3 Gennaio'
 
-### 1940-Q4 (11/24 complete)
+### 1940-Q4 (13/24 complete)
 
-**DIVISION** (4 remaining):
+**DIVISION** (3 remaining):
 - [ ] ITALIAN - 1st CC.NN. Division '23 Marzo'
 - [ ] ITALIAN - 2nd CC.NN. Division '28 Ottobre'
-- [ ] ITALIAN - 2nd Libyan Division
 - [ ] ITALIAN - 4th CC.NN. Division '3 Gennaio'
 
-**INFANTRY_DIVISION** (8 remaining):
+**INFANTRY_DIVISION** (7 remaining):
 - [ ] ITALIAN - Brescia Division
-- [ ] ITALIAN - Catanzaro Division
 - [ ] ITALIAN - Cirene Division
 - [ ] ITALIAN - Marmarica Division
 - [ ] ITALIAN - Pavia Division
@@ -350,7 +348,7 @@
 
 ---
 
-## ✅ Completed (226 units)
+## ✅ Completed (228 units)
 
 <details>
 <summary>Show completed units</summary>
@@ -385,15 +383,17 @@
 - [x] ITALIAN - 10ª Armata (Italian 10th Army) _(army)_
 - [x] BRITISH - Western Desert Force _(unknown)_
 
-### 1940-Q4 (11 complete)
+### 1940-Q4 (13 complete)
 
 - [x] BRITISH - 1st South African Division _(infantry_division)_
 - [x] BRITISH - 4th Indian Division _(infantry_division)_
 - [x] BRITISH - 6th Australian Division (2nd AIF) _(infantry_division)_
 - [x] BRITISH - 7th Armoured Division _(division)_
 - [x] ITALIAN - 1st Libyan Division _(division)_
+- [x] ITALIAN - 2nd Libyan Division _(division)_
 - [x] ITALIAN - Ariete Division _(armored_division)_
 - [x] ITALIAN - Bologna Division _(infantry_division)_
+- [x] ITALIAN - Catanzaro Division _(infantry_division)_
 - [x] ITALIAN - XXI Corpo d'Armata (XXI Corps) _(corps)_
 - [x] ITALIAN - XXII Corpo d'Armata (XXII Corps) _(corps)_
 - [x] ITALIAN - 10ª Armata (Italian 10th Army) _(army)_
