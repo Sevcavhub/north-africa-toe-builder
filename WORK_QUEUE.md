@@ -1,9 +1,9 @@
 # North Africa Work Queue
 
-**Generated**: 2025-10-24T20:50:59.998Z
+**Generated**: 2025-10-24T20:56:22.565Z
 
-**Progress**: 284/413 units complete (68.8%)
-**Remaining**: 129 units
+**Progress**: 287/413 units complete (69.5%)
+**Remaining**: 126 units
 
 ---
 
@@ -19,9 +19,9 @@
 
 ## 🎯 Next Up (Next Session)
 
-1. **BRITISH** - 1942-Q3 - 51st Highland Division _(infantry_division)_
-2. **BRITISH** - 1942-Q3 - 9th Australian Division _(infantry_division)_
-3. **FRENCH** - 1942-Q3 - 1re Division Française Libre _(infantry_division)_
+1. **GERMAN** - 1942-Q3 - 164. leichte Division _(light_division)_
+2. **GERMAN** - 1942-Q3 - 90. leichte Division _(light_division)_
+3. **ITALIAN** - 1942-Q3 - 101st TRIESTE Division _(motorized_division)_
 
 ---
 
@@ -53,16 +53,7 @@
 **ARMY_GROUP** (1 remaining):
 - [ ] GERMAN - Panzergruppe Afrika
 
-### 1942-Q3 (23/34 complete)
-
-**INFANTRY_DIVISION** (7 remaining):
-- [ ] BRITISH - 51st Highland Division
-- [ ] BRITISH - 9th Australian Division
-- [ ] FRENCH - 1re Division Française Libre
-- [ ] ITALIAN - Bologna Division
-- [ ] ITALIAN - Brescia Division
-- [ ] ITALIAN - Pavia Division
-- [ ] ITALIAN - Superga Division
+### 1942-Q3 (26/34 complete)
 
 **LIGHT_DIVISION** (2 remaining):
 - [ ] GERMAN - 164. leichte Division
@@ -71,6 +62,12 @@
 **MOTORIZED_DIVISION** (2 remaining):
 - [ ] ITALIAN - 101st TRIESTE Division
 - [ ] ITALIAN - Trento Division
+
+**INFANTRY_DIVISION** (4 remaining):
+- [ ] ITALIAN - Bologna Division
+- [ ] ITALIAN - Brescia Division
+- [ ] ITALIAN - Pavia Division
+- [ ] ITALIAN - Superga Division
 
 ### 1942-Q4 (40/55 complete)
 
@@ -234,7 +231,7 @@
 
 ---
 
-## ✅ Completed (284 units)
+## ✅ Completed (287 units)
 
 <details>
 <summary>Show completed units</summary>
@@ -475,7 +472,7 @@
 - [x] BRITISH - Eighth Army (8th Army) _(army)_
 - [x] GERMAN - Panzerarmee Afrika _(army)_
 
-### 1942-Q3 (23 complete)
+### 1942-Q3 (26 complete)
 
 - [x] BRITISH - 1st Greek Brigade _(brigade)_
 - [x] GERMAN - Ramcke Parachute Brigade _(brigade)_
@@ -485,7 +482,10 @@
 - [x] BRITISH - 44th Infantry Division _(infantry_division)_
 - [x] BRITISH - 4th Indian Division _(infantry_division)_
 - [x] BRITISH - 50th Infantry Division _(infantry_division)_
+- [x] BRITISH - 51st Highland Division _(infantry_division)_
 - [x] BRITISH - 7th Armoured Division _(division)_
+- [x] BRITISH - 9th Australian Division _(infantry_division)_
+- [x] FRENCH - 1re Division Française Libre _(infantry_division)_
 - [x] GERMAN - 15. Panzer-Division _(panzer_division)_
 - [x] GERMAN - 21. Panzer-Division _(panzer_division)_
 - [x] ITALIAN - Ariete Division _(armored_division)_
