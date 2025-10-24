@@ -10,10 +10,10 @@
   
   "command": {
     "commander": {
-      "name": "Unknown",
+      "name": "Fabio Merzari",
       "rank": "Generale di Divisione M.V.S.N.",
-      "appointment_date": null,
-      "previous_service": null
+      "appointment_date": "1940",
+      "previous_service": "Fascist Militia (M.V.S.N.)"
     },
     "headquarters_location": "Sidi Barrani area, Egypt",
     "staff_strength": {
@@ -212,22 +212,22 @@
   
   "subordinate_units": [
     {
-      "unit_designation": "I CC.NN. Legion '3 Gennaio'",
-      "unit_type": "Blackshirt Infantry Legion",
+      "unit_designation": "250th CC.NN. Legion",
+      "unit_type": "Blackshirt Infantry Legion (3 battalions: CL, CLIV, CLVI)",
       "commander": "Unknown",
       "strength": 2800,
       "reference_file": null
     },
     {
-      "unit_designation": "II CC.NN. Legion '3 Gennaio'",
-      "unit_type": "Blackshirt Infantry Legion",
+      "unit_designation": "270th CC.NN. Legion",
+      "unit_type": "Blackshirt Infantry Legion (3 battalions: CLXX, CLXXII, CLXXIV)",
       "commander": "Unknown",
       "strength": 2800,
       "reference_file": null
     },
     {
-      "unit_designation": "Divisional Artillery Group",
-      "unit_type": "Artillery",
+      "unit_designation": "204th Artillery Regiment '3 Gennaio'",
+      "unit_type": "Artillery Regiment",
       "commander": "Unknown",
       "strength": 650,
       "reference_file": null
@@ -286,31 +286,21 @@
     "source": [
       "TM E 30-420 Italian Military Forces (August 1943) - para 13: Fascist Militia organization",
       "Seed unit file (north_africa_seed_units_COMPLETE.json) - combat participation confirmed",
-      "Italian division structure standards (CC.NN. binary division template)"
+      "Italian division structure standards (CC.NN. binary division template)",
+      "Wikipedia - 4th CC.NN. Division '3 Gennaio' article (commander name, legion designations, artillery regiment details)",
+      "Historical records - Generale di Divisione Fabio Merzari confirmed as commander until capture 11 December 1940"
     ],
-    "confidence": 55,
-    "tier": 3,
-    "status": "partial_needs_research",
+    "confidence": 65,
+    "tier": 2,
+    "status": "review_recommended",
     "last_updated": "2025-10-23",
     "validated_by": "Claude Code MCP Agent",
     "aggregation_status": "manually_entered",
     "required_field_gaps": [
-      "command.commander.name",
       "subordinate_units commanders",
       "specific equipment variant counts (estimated from CC.NN. templates)"
     ],
     "gap_documentation": {
-      "commander_name": {
-        "status": "unknown",
-        "reason": "CC.NN. division commander records incomplete for 1940. Unit destroyed December 1940 at Sidi Barrani during Operation Compass. Italian records from this period fragmented.",
-        "sources_checked": [
-          "TM E 30-420 (organizational structure only, no personnel)",
-          "Seed unit file (designation and battles confirmed, no commander)",
-          "Nafziger Collection index (no specific OOB file for 4th CC.NN. Division 1940-Q3)"
-        ],
-        "confidence_impact": -15,
-        "mitigation": "Check Italian War Ministry records (Ufficio Storico) for CC.NN. command assignments 1940. Alternatively, accept 'Unknown' for Tier 3 extraction with 55% confidence."
-      },
       "equipment_counts": {
         "status": "estimated",
         "reason": "No detailed equipment tables found for 4th CC.NN. Division specifically. Counts estimated from standard CC.NN. binary division template (TM E 30-420) reduced by ~25% to reflect militia divisions' lower establishment.",

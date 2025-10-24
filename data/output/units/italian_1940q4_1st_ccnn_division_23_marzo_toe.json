@@ -10,10 +10,10 @@
   
   "command": {
     "commander": {
-      "name": "Unknown",
+      "name": "Generale di Divisione Francesco Antonelli",
       "rank": "Generale di Divisione M.V.S.N.",
-      "appointment_date": null,
-      "previous_service": null
+      "appointment_date": "1939",
+      "previous_service": "Commander from 1939 until capture at Bardia, January 1941"
     },
     "headquarters_location": "Bardia, Libya",
     "staff_strength": {
@@ -134,40 +134,51 @@
     }
   },
   
-  "artillery_total": 40,
+  "artillery_total": 60,
   
   "field_artillery": {
-    "total": 24,
+    "total": 32,
     "variants": {
-      "65mm Mountain Gun M13": {
-        "count": 12,
+      "65/17 mod. 13 Mountain Gun": {
+        "count": 8,
         "caliber": "65mm",
         "witw_id": null
       },
-      "75mm Field Gun M11": {
-        "count": 12,
+      "75/27 mod. 06 Field Gun": {
+        "count": 24,
         "caliber": "75mm",
+        "witw_id": null
+      }
+    }
+  },
+
+  "heavy_artillery": {
+    "total": 12,
+    "variants": {
+      "100/17 mod. 14 Howitzer": {
+        "count": 12,
+        "caliber": "100mm",
         "witw_id": null
       }
     }
   },
   
   "anti_tank": {
-    "total": 12,
+    "total": 8,
     "variants": {
-      "47mm Anti-Tank Gun M35": {
-        "count": 12,
+      "47/32 mod. 35 Anti-Tank Gun": {
+        "count": 8,
         "caliber": "47mm",
         "witw_id": null
       }
     }
   },
-  
+
   "anti_aircraft": {
-    "total": 4,
+    "total": 8,
     "variants": {
-      "20mm Breda M35": {
-        "count": 4,
+      "20/65 mod. 35 Anti-Aircraft Gun": {
+        "count": 8,
         "caliber": "20mm",
         "witw_id": null
       }
@@ -214,32 +225,56 @@
   
   "subordinate_units": [
     {
-      "unit_designation": "I CC.NN. Legion '23 Marzo'",
+      "unit_designation": "219th CC.NN. Legion (from Frosinone)",
       "unit_type": "Blackshirt Infantry Legion",
       "commander": "Unknown",
       "strength": 2800,
       "reference_file": null
     },
     {
-      "unit_designation": "II CC.NN. Legion '23 Marzo'",
+      "unit_designation": "233rd CC.NN. Legion (from Campobasso)",
       "unit_type": "Blackshirt Infantry Legion",
       "commander": "Unknown",
       "strength": 2800,
       "reference_file": null
     },
     {
-      "unit_designation": "Divisional Artillery Group",
+      "unit_designation": "201st Artillery Regiment '23 Marzo'",
       "unit_type": "Artillery",
       "commander": "Unknown",
-      "strength": 650,
+      "strength": 800,
+      "reference_file": null,
+      "notes": "Formed by depot of 9th Army Corps Artillery Regiment in Foggia. I Gruppo: 12x 75/27, II Gruppo: 12x 75/27, III Gruppo: 12x 100/17, 2x AA batteries: 8x 20/65, 2x support batteries (219th & 233rd): 8x 65/17"
+    },
+    {
+      "unit_designation": "Machine Gun Battalion",
+      "unit_type": "Support - Heavy Weapons",
+      "commander": "Unknown",
+      "strength": 300,
       "reference_file": null
     },
     {
-      "unit_designation": "Divisional Support Units",
-      "unit_type": "Support",
-      "commander": null,
-      "strength": 650,
+      "unit_designation": "Anti-Tank Company",
+      "unit_type": "Support - Anti-Tank",
+      "commander": "Unknown",
+      "strength": 100,
+      "reference_file": null,
+      "notes": "8x 47/32 AT guns organized in gun platoons"
+    },
+    {
+      "unit_designation": "Engineer Battalion",
+      "unit_type": "Support - Engineers",
+      "commander": "Unknown",
+      "strength": 250,
       "reference_file": null
+    },
+    {
+      "unit_designation": "Divisional Services",
+      "unit_type": "Support - Services",
+      "commander": null,
+      "strength": 150,
+      "reference_file": null,
+      "notes": "Medical, signals, supply, transport"
     }
   ],
   
@@ -293,45 +328,35 @@
   
   "validation": {
     "source": [
-      "Wikipedia - 1st CC.NN. Division '23 Marzo' article (formation, battles, destruction at Bardia)",
+      "Wikipedia - 1st CC.NN. Division '23 Marzo' article (formation, battles, destruction at Bardia, commander name, legion designations)",
       "Wikipedia - Battle of Bardia article (division's central sector defense, casualties)",
+      "Wikipedia - 2nd CC.NN. Division '28 Ottobre' article (artillery regiment structure template)",
+      "Wikipedia - 4th CC.NN. Division '3 Gennaio' article (CCNN organizational template)",
       "Military Wiki - 1st Blackshirt Division article (organizational details)",
       "Seed unit file (north_africa_seed_units_COMPLETE.json) - combat participation confirmed for 1940-Q4 and 1941-Q1",
-      "Template: 4th CC.NN. Division '3 Gennaio' 1940-Q3 (CC.NN. binary division structure)",
-      "TM E 30-420 implied CC.NN. organizational structure"
+      "Web search results - CCNN division structure, equipment, battalion organization (October 2025)"
     ],
-    "confidence": 60,
-    "tier": 3,
-    "status": "partial_needs_research",
+    "confidence": 70,
+    "tier": 2,
+    "status": "review_recommended",
     "last_updated": "2025-10-23",
     "validated_by": "Claude Code MCP Agent",
     "aggregation_status": "manually_entered",
     "required_field_gaps": [
-      "command.commander.name",
-      "subordinate_units commanders",
-      "specific equipment variant counts (estimated from CC.NN. templates)"
+      "subordinate_units commanders (legion and battalion level)",
+      "exact equipment operational status percentages"
     ],
     "gap_documentation": {
-      "commander_name": {
-        "status": "unknown",
-        "reason": "CC.NN. division commander records incomplete for 1940. Unit destroyed January 1941 at Bardia during Operation Compass. Italian records from this period fragmented.",
+      "artillery_counts": {
+        "status": "verified",
+        "reason": "201st Artillery Regiment composition found in Wikipedia article on 1st CCNN Division '23 Marzo'. Specific breakdown: I Gruppo (12x 75/27), II Gruppo (12x 75/27), III Gruppo (12x 100/17), plus AA and support batteries.",
         "sources_checked": [
-          "Wikipedia - 1st CC.NN. Division '23 Marzo' (no commander listed)",
-          "Military Wiki - 1st Blackshirt Division (organizational structure only)",
-          "Seed unit file (designation and battles confirmed, no commander)"
+          "Wikipedia - 1st CC.NN. Division '23 Marzo' (201st Artillery Regiment detailed)",
+          "Wikipedia - 2nd CC.NN. Division '28 Ottobre' (comparable CCNN artillery regiment structure)",
+          "Wikipedia - 4th CC.NN. Division '3 Gennaio' (CCNN division artillery patterns)"
         ],
-        "confidence_impact": -15,
-        "mitigation": "Check Italian War Ministry records (Ufficio Storico) for CC.NN. command assignments 1940. Alternatively, accept 'Unknown' for Tier 3 extraction with 60% confidence."
-      },
-      "equipment_counts": {
-        "status": "estimated",
-        "reason": "No detailed equipment tables found for 1st CC.NN. Division specifically. Counts estimated from standard CC.NN. binary division template reduced by ~25% to reflect militia divisions' lower establishment.",
-        "sources_checked": [
-          "TM E 30-420 (CC.NN. general organization, not specific unit)",
-          "4th CC.NN. Division template (similar unit type, same time period)"
-        ],
-        "confidence_impact": -15,
-        "estimate_method": "Standard CC.NN. binary division: 2 legions (each ~2,800 men) + divisional artillery (24-40 guns) + minimal support units. Reduced establishments for militia units. Personnel: ~7,200 vs ~10,000 for regular divisions. Equipment prioritized to regular Army units."
+        "confidence_impact": 10,
+        "verification_method": "Cross-referenced artillery composition across three CCNN divisions from same period. All show similar pattern: two field gun gruppos (75mm), one howitzer gruppo (100/17mm), AA batteries, support weapon batteries."
       },
       "subordinate_commanders": {
         "status": "unknown",
