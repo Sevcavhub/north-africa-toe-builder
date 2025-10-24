@@ -1,9 +1,9 @@
 # North Africa Work Queue
 
-**Generated**: 2025-10-24T19:55:35.414Z
+**Generated**: 2025-10-24T20:06:28.218Z
 
-**Progress**: 270/413 units complete (65.4%)
-**Remaining**: 143 units
+**Progress**: 273/413 units complete (66.1%)
+**Remaining**: 140 units
 
 ---
 
@@ -53,7 +53,7 @@
 **ARMY_GROUP** (1 remaining):
 - [ ] GERMAN - Panzergruppe Afrika
 
-### 1942-Q2 (19/29 complete)
+### 1942-Q2 (22/29 complete)
 
 **DIVISION** (1 remaining):
 - [ ] BRITISH - 7th Armoured Division
@@ -70,11 +70,6 @@
 
 **ARMORED_DIVISION** (1 remaining):
 - [ ] ITALIAN - Ariete Division
-
-**INFANTRY_DIVISION** (3 remaining):
-- [ ] ITALIAN - Brescia Division
-- [ ] ITALIAN - Pavia Division
-- [ ] ITALIAN - Superga Division
 
 **ARMY** (1 remaining):
 - [ ] GERMAN - Panzerarmee Afrika
@@ -266,7 +261,7 @@
 
 ---
 
-## ✅ Completed (270 units)
+## ✅ Completed (273 units)
 
 <details>
 <summary>Show completed units</summary>
@@ -475,7 +470,7 @@
 - [x] ITALIAN - XXI Corpo d'Armata (XXI Corps) _(corps)_
 - [x] BRITISH - Eighth Army (8th Army) _(army)_
 
-### 1942-Q2 (19 complete)
+### 1942-Q2 (22 complete)
 
 - [x] FRENCH - 1re Brigade Française Libre _(brigade)_
 - [x] BRITISH - 1st Armoured Division _(division)_
@@ -489,7 +484,10 @@
 - [x] FRENCH - 1re Division Française Libre _(infantry_division)_
 - [x] GERMAN - 21. Panzer-Division _(panzer_division)_
 - [x] ITALIAN - Bologna Division _(infantry_division)_
+- [x] ITALIAN - Brescia Division _(infantry_division)_
 - [x] ITALIAN - Littorio Division _(armored_division)_
+- [x] ITALIAN - Pavia Division _(infantry_division)_
+- [x] ITALIAN - Superga Division _(infantry_division)_
 - [x] BRITISH - XIII Corps _(corps)_
 - [x] BRITISH - XXX Corps _(corps)_
 - [x] GERMAN - Deutsches Afrikakorps _(corps)_
