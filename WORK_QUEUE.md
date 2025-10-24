@@ -1,9 +1,9 @@
 # North Africa Work Queue
 
-**Generated**: 2025-10-24T20:40:38.619Z
+**Generated**: 2025-10-24T20:49:56.098Z
 
-**Progress**: 281/413 units complete (68.0%)
-**Remaining**: 132 units
+**Progress**: 284/413 units complete (68.8%)
+**Remaining**: 129 units
 
 ---
 
@@ -19,9 +19,9 @@
 
 ## 🎯 Next Up (Next Session)
 
-1. **BRITISH** - 1942-Q3 - 4th Indian Division _(infantry_division)_
-2. **BRITISH** - 1942-Q3 - 50th Infantry Division _(infantry_division)_
-3. **BRITISH** - 1942-Q3 - 51st Highland Division _(infantry_division)_
+1. **BRITISH** - 1942-Q3 - 51st Highland Division _(infantry_division)_
+2. **BRITISH** - 1942-Q3 - 9th Australian Division _(infantry_division)_
+3. **FRENCH** - 1942-Q3 - 1re Division Française Libre _(infantry_division)_
 
 ---
 
@@ -53,16 +53,9 @@
 **ARMY_GROUP** (1 remaining):
 - [ ] GERMAN - Panzergruppe Afrika
 
-### 1942-Q2 (28/29 complete)
+### 1942-Q3 (23/34 complete)
 
-**ARMY** (1 remaining):
-- [ ] GERMAN - Panzerarmee Afrika
-
-### 1942-Q3 (21/34 complete)
-
-**INFANTRY_DIVISION** (9 remaining):
-- [ ] BRITISH - 4th Indian Division
-- [ ] BRITISH - 50th Infantry Division
+**INFANTRY_DIVISION** (7 remaining):
 - [ ] BRITISH - 51st Highland Division
 - [ ] BRITISH - 9th Australian Division
 - [ ] FRENCH - 1re Division Française Libre
@@ -241,7 +234,7 @@
 
 ---
 
-## ✅ Completed (281 units)
+## ✅ Completed (284 units)
 
 <details>
 <summary>Show completed units</summary>
@@ -450,7 +443,7 @@
 - [x] ITALIAN - XXI Corpo d'Armata (XXI Corps) _(corps)_
 - [x] BRITISH - Eighth Army (8th Army) _(army)_
 
-### 1942-Q2 (28 complete)
+### 1942-Q2 (29 complete)
 
 - [x] FRENCH - 1re Brigade Française Libre _(brigade)_
 - [x] BRITISH - 1st Armoured Division _(division)_
@@ -480,8 +473,9 @@
 - [x] ITALIAN - XX Mobile Corps _(corps)_
 - [x] ITALIAN - XXI Corpo d'Armata (XXI Corps) _(corps)_
 - [x] BRITISH - Eighth Army (8th Army) _(army)_
+- [x] GERMAN - Panzerarmee Afrika _(army)_
 
-### 1942-Q3 (21 complete)
+### 1942-Q3 (23 complete)
 
 - [x] BRITISH - 1st Greek Brigade _(brigade)_
 - [x] GERMAN - Ramcke Parachute Brigade _(brigade)_
@@ -489,6 +483,8 @@
 - [x] BRITISH - 1st Armoured Division _(division)_
 - [x] BRITISH - 2nd New Zealand Division _(infantry_division)_
 - [x] BRITISH - 44th Infantry Division _(infantry_division)_
+- [x] BRITISH - 4th Indian Division _(infantry_division)_
+- [x] BRITISH - 50th Infantry Division _(infantry_division)_
 - [x] BRITISH - 7th Armoured Division _(division)_
 - [x] GERMAN - 15. Panzer-Division _(panzer_division)_
 - [x] GERMAN - 21. Panzer-Division _(panzer_division)_
