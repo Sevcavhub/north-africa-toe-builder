@@ -1,9 +1,9 @@
 # North Africa Work Queue
 
-**Generated**: 2025-10-24T03:15:17.211Z
+**Generated**: 2025-10-24T04:15:36.328Z
 
-**Progress**: 240/419 units complete (57.3%)
-**Remaining**: 179 units
+**Progress**: 242/419 units complete (57.8%)
+**Remaining**: 177 units
 
 ---
 
@@ -19,19 +19,17 @@
 
 ## 🎯 Next Up (Next Session)
 
-1. **ITALIAN** - 1941-Q1 - 1st CCNN Division '23 Marzo' _(division)_
-2. **ITALIAN** - 1941-Q1 - 1st Libyan Division _(division)_
-3. **ITALIAN** - 1941-Q1 - 2nd CCNN Division '28 Ottobre' _(division)_
+1. **ITALIAN** - 1941-Q1 - 2nd CCNN Division '28 Ottobre' _(division)_
+2. **ITALIAN** - 1941-Q1 - 2nd Libyan Division _(division)_
+3. **ITALIAN** - 1941-Q1 - 4th CCNN Division '3 Gennaio' _(division)_
 
 ---
 
 ## 📋 Full Queue (Chronological + Echelon Order)
 
-### 1941-Q1 (24/30 complete)
+### 1941-Q1 (26/30 complete)
 
-**DIVISION** (5 remaining):
-- [ ] ITALIAN - 1st CCNN Division '23 Marzo'
-- [ ] ITALIAN - 1st Libyan Division
+**DIVISION** (3 remaining):
 - [ ] ITALIAN - 2nd CCNN Division '28 Ottobre'
 - [ ] ITALIAN - 2nd Libyan Division
 - [ ] ITALIAN - 4th CCNN Division '3 Gennaio'
@@ -324,7 +322,7 @@
 
 ---
 
-## ✅ Completed (240 units)
+## ✅ Completed (242 units)
 
 <details>
 <summary>Show completed units</summary>
@@ -387,7 +385,7 @@
 - [x] ITALIAN - 10ª Armata (Italian 10th Army) _(army)_
 - [x] BRITISH - Western Desert Force _(unknown)_
 
-### 1941-Q1 (24 complete)
+### 1941-Q1 (26 complete)
 
 - [x] BRITISH - 1st South African Division _(infantry_division)_
 - [x] BRITISH - 2nd New Zealand Division _(infantry_division)_
@@ -398,6 +396,8 @@
 - [x] BRITISH - 9th Australian Division _(infantry_division)_
 - [x] GERMAN - 5. leichte Division _(light_division)_
 - [x] ITALIAN - 101st TRIESTE Division _(motorized_division)_
+- [x] ITALIAN - 1st CCNN Division '23 Marzo' _(division)_
+- [x] ITALIAN - 1st Libyan Division _(division)_
 - [x] ITALIAN - Ariete Division _(armored_division)_
 - [x] ITALIAN - Bologna Division _(infantry_division)_
 - [x] ITALIAN - Brescia Division _(infantry_division)_
