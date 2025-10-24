@@ -1,26 +1,27 @@
-# Session Checkpoint - 2025-10-24T13:09:10.652Z
+# Session Checkpoint - 2025-10-24T13:09:12.880Z
 
 ## Progress Summary
 
 - **Total Unit-Quarters:** 416
 - **Completed:** 286 (68.8%)
 - **Remaining:** 130
-- **Last Commit:** 85aa40f
+- **Last Commit:** ea887ec
 
 ## Validation Status
 
-- **Total Validated:** 287
+- **Total Validated:** 288
 - **✅ Passed:** 0 (0.0%)
 - **❌ Failed:** 0 ✅
-- **⚠️ Warnings:** 287
+- **⚠️ Warnings:** 288
 
 **All units passed validation** ✅
 
 ## Chapter Status
 
-- **JSON Files:** 287
+- **JSON Files:** 288
 - **MDBook Chapters:** 286 ⚠️
-- **Missing Chapters:** 1
+- **Missing Chapters:** 2
+  - ❌ british_1941q3_1st_south_african_division
   - ❌ british_1941q3_7th_australian_division
 
 ## Recent Completions
@@ -52,8 +53,8 @@ If this session crashes or needs to resume:
 ## Session Info
 
 - **Session ID:** complete_seed_generated
-- **Checkpoint Time:** 2025-10-24T13:09:10.544Z
-- **Git Commit:** 85aa40f
+- **Checkpoint Time:** 2025-10-24T13:09:12.775Z
+- **Git Commit:** ea887ec
 
 ---
 
