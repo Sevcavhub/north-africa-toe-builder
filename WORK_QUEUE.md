@@ -1,9 +1,9 @@
 # North Africa Work Queue
 
-**Generated**: 2025-10-24T15:59:21.325Z
+**Generated**: 2025-10-24T16:08:45.353Z
 
-**Progress**: 256/416 units complete (61.5%)
-**Remaining**: 160 units
+**Progress**: 259/416 units complete (62.3%)
+**Remaining**: 157 units
 
 ---
 
@@ -19,9 +19,9 @@
 
 ## 🎯 Next Up (Next Session)
 
-1. **BRITISH** - 1942-Q1 - 7th Armoured Division _(division)_
-2. **BRITISH** - 1942-Q1 - 9th Australian Division _(infantry_division)_
-3. **GERMAN** - 1942-Q1 - 90. leichte Division _(light_division)_
+1. **ITALIAN** - 1942-Q1 - Ariete Division _(armored_division)_
+2. **ITALIAN** - 1942-Q1 - Savona Division _(infantry_division)_
+3. **ITALIAN** - 1942-Q1 - Trento Division _(motorized_division)_
 
 ---
 
@@ -45,20 +45,13 @@
 **CORPS** (1 remaining):
 - [ ] ITALIAN - XX Mobile Corps
 
-### 1942-Q1 (21/29 complete)
-
-**DIVISION** (1 remaining):
-- [ ] BRITISH - 7th Armoured Division
-
-**INFANTRY_DIVISION** (2 remaining):
-- [ ] BRITISH - 9th Australian Division
-- [ ] ITALIAN - Savona Division
-
-**LIGHT_DIVISION** (1 remaining):
-- [ ] GERMAN - 90. leichte Division
+### 1942-Q1 (24/29 complete)
 
 **ARMORED_DIVISION** (1 remaining):
 - [ ] ITALIAN - Ariete Division
+
+**INFANTRY_DIVISION** (1 remaining):
+- [ ] ITALIAN - Savona Division
 
 **MOTORIZED_DIVISION** (1 remaining):
 - [ ] ITALIAN - Trento Division
@@ -293,7 +286,7 @@
 
 ---
 
-## ✅ Completed (256 units)
+## ✅ Completed (259 units)
 
 <details>
 <summary>Show completed units</summary>
@@ -473,7 +466,7 @@
 - [x] BRITISH - Eighth Army (8th Army) _(army)_
 - [x] GERMAN - Panzergruppe Afrika _(army_group)_
 
-### 1942-Q1 (21 complete)
+### 1942-Q1 (24 complete)
 
 - [x] FRENCH - 1re Brigade Française Libre _(brigade)_
 - [x] BRITISH - 1st Armoured Division _(division)_
@@ -483,8 +476,11 @@
 - [x] BRITISH - 4th Indian Division _(infantry_division)_
 - [x] BRITISH - 50th Infantry Division _(infantry_division)_
 - [x] BRITISH - 5th Indian Division _(infantry_division)_
+- [x] BRITISH - 7th Armoured Division _(division)_
+- [x] BRITISH - 9th Australian Division _(infantry_division)_
 - [x] GERMAN - 15. Panzer-Division _(panzer_division)_
 - [x] GERMAN - 21. Panzer-Division _(panzer_division)_
+- [x] GERMAN - 90. leichte Division _(light_division)_
 - [x] ITALIAN - 101st TRIESTE Division _(motorized_division)_
 - [x] ITALIAN - Bologna Division _(infantry_division)_
 - [x] ITALIAN - Brescia Division _(infantry_division)_
