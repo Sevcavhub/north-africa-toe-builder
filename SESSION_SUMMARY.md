@@ -1,4 +1,4 @@
-# Session Summary - 2025-10-24T13:12:57.382Z
+# Session Summary - 2025-10-24T13:12:59.690Z
 
 ## Session Statistics
 
@@ -22,7 +22,7 @@
 
 ## Session End Checklist
 
-- ⚠️  1 uncommitted files found
+- ⚠️  2 uncommitted files found
 - ✅ Final checkpoint created
 - ✅ WORKFLOW_STATE.json updated
 - ✅ SESSION_CHECKPOINT.md written
@@ -31,6 +31,7 @@
 ## Uncommitted Files
 
 - M WORKFLOW_STATE.json
+- ?? data/output/chapters/chapter_british_1941q3_4th_indian_division.md
 
 ## Next Session
 
@@ -47,7 +48,7 @@ This will:
 
 ## Notes
 
-- Session ended: 10/24/2025, 6:12:57 AM
+- Session ended: 10/24/2025, 6:12:59 AM
 - Last commit: 12307ab
 - Safe to close this session
 
