@@ -1,9 +1,9 @@
 # North Africa Work Queue
 
-**Generated**: 2025-10-24T16:10:24.728Z
+**Generated**: 2025-10-24T16:36:59.003Z
 
-**Progress**: 259/416 units complete (62.3%)
-**Remaining**: 157 units
+**Progress**: 261/416 units complete (62.7%)
+**Remaining**: 155 units
 
 ---
 
@@ -19,9 +19,9 @@
 
 ## 🎯 Next Up (Next Session)
 
-1. **ITALIAN** - 1942-Q1 - Ariete Division _(armored_division)_
-2. **ITALIAN** - 1942-Q1 - Savona Division _(infantry_division)_
-3. **ITALIAN** - 1942-Q1 - Trento Division _(motorized_division)_
+1. **ITALIAN** - 1942-Q1 - Savona Division _(infantry_division)_
+2. **BRITISH** - 1942-Q2 - 1st Armoured Division _(division)_
+3. **BRITISH** - 1942-Q2 - 1st South African Division _(infantry_division)_
 
 ---
 
@@ -45,16 +45,10 @@
 **CORPS** (1 remaining):
 - [ ] ITALIAN - XX Mobile Corps
 
-### 1942-Q1 (24/29 complete)
-
-**ARMORED_DIVISION** (1 remaining):
-- [ ] ITALIAN - Ariete Division
+### 1942-Q1 (26/29 complete)
 
 **INFANTRY_DIVISION** (1 remaining):
 - [ ] ITALIAN - Savona Division
-
-**MOTORIZED_DIVISION** (1 remaining):
-- [ ] ITALIAN - Trento Division
 
 **ARMY** (1 remaining):
 - [ ] GERMAN - Panzerarmee Afrika
@@ -286,7 +280,7 @@
 
 ---
 
-## ✅ Completed (259 units)
+## ✅ Completed (261 units)
 
 <details>
 <summary>Show completed units</summary>
@@ -466,7 +460,7 @@
 - [x] BRITISH - Eighth Army (8th Army) _(army)_
 - [x] GERMAN - Panzergruppe Afrika _(army_group)_
 
-### 1942-Q1 (24 complete)
+### 1942-Q1 (26 complete)
 
 - [x] FRENCH - 1re Brigade Française Libre _(brigade)_
 - [x] BRITISH - 1st Armoured Division _(division)_
@@ -482,10 +476,12 @@
 - [x] GERMAN - 21. Panzer-Division _(panzer_division)_
 - [x] GERMAN - 90. leichte Division _(light_division)_
 - [x] ITALIAN - 101st TRIESTE Division _(motorized_division)_
+- [x] ITALIAN - Ariete Division _(armored_division)_
 - [x] ITALIAN - Bologna Division _(infantry_division)_
 - [x] ITALIAN - Brescia Division _(infantry_division)_
 - [x] ITALIAN - Littorio Division _(armored_division)_
 - [x] ITALIAN - Pavia Division _(infantry_division)_
+- [x] ITALIAN - Trento Division _(motorized_division)_
 - [x] BRITISH - XIII Corps _(corps)_
 - [x] BRITISH - XXX Corps _(corps)_
 - [x] GERMAN - Deutsches Afrikakorps _(corps)_

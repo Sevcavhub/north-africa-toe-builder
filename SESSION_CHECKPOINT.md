@@ -1,27 +1,26 @@
-# Session Checkpoint - 2025-10-24T16:10:24.741Z
+# Session Checkpoint - 2025-10-24T16:36:59.017Z
 
 ## Progress Summary
 
 - **Total Unit-Quarters:** 416
-- **Completed:** 302 (72.6%)
-- **Remaining:** 114
-- **Last Commit:** 0c64939
+- **Completed:** 305 (73.3%)
+- **Remaining:** 111
+- **Last Commit:** 44c15a9
 
 ## Validation Status
 
-- **Total Validated:** 305
+- **Total Validated:** 307
 - **✅ Passed:** 0 (0.0%)
 - **❌ Failed:** 0 ✅
-- **⚠️ Warnings:** 305
+- **⚠️ Warnings:** 307
 
 **All units passed validation** ✅
 
 ## Chapter Status
 
-- **JSON Files:** 305
-- **MDBook Chapters:** 304 ⚠️
-- **Missing Chapters:** 1
-  - ❌ british_1942q1_7th_armoured_division
+- **JSON Files:** 307
+- **MDBook Chapters:** 307 ✅
+- **All chapters present** ✅
 
 ## Recent Completions
 
@@ -47,13 +46,13 @@ If this session crashes or needs to resume:
 
 3. **View full progress:**
    - See WORKFLOW_STATE.json for complete list
-   - 302 units saved successfully
+   - 305 units saved successfully
 
 ## Session Info
 
 - **Session ID:** complete_seed_generated
-- **Checkpoint Time:** 2025-10-24T16:10:24.640Z
-- **Git Commit:** 0c64939
+- **Checkpoint Time:** 2025-10-24T16:36:58.916Z
+- **Git Commit:** 44c15a9
 
 ---
 
