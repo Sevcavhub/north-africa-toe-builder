@@ -1,9 +1,9 @@
 # North Africa Work Queue
 
-**Generated**: 2025-10-24T04:15:36.328Z
+**Generated**: 2025-10-24T04:31:12.971Z
 
-**Progress**: 242/419 units complete (57.8%)
-**Remaining**: 177 units
+**Progress**: 245/419 units complete (58.5%)
+**Remaining**: 174 units
 
 ---
 
@@ -19,20 +19,15 @@
 
 ## 🎯 Next Up (Next Session)
 
-1. **ITALIAN** - 1941-Q1 - 2nd CCNN Division '28 Ottobre' _(division)_
-2. **ITALIAN** - 1941-Q1 - 2nd Libyan Division _(division)_
-3. **ITALIAN** - 1941-Q1 - 4th CCNN Division '3 Gennaio' _(division)_
+1. **BRITISH** - 1941-Q3 - 1st South African Division _(infantry_division)_
+2. **BRITISH** - 1941-Q3 - 4th Indian Division _(infantry_division)_
+3. **BRITISH** - 1941-Q3 - 7th Australian Division _(infantry_division)_
 
 ---
 
 ## 📋 Full Queue (Chronological + Echelon Order)
 
-### 1941-Q1 (26/30 complete)
-
-**DIVISION** (3 remaining):
-- [ ] ITALIAN - 2nd CCNN Division '28 Ottobre'
-- [ ] ITALIAN - 2nd Libyan Division
-- [ ] ITALIAN - 4th CCNN Division '3 Gennaio'
+### 1941-Q1 (29/30 complete)
 
 **CORPS** (1 remaining):
 - [ ] ITALIAN - XXI Corpo d'Armata (XXI Corps)
@@ -322,7 +317,7 @@
 
 ---
 
-## ✅ Completed (242 units)
+## ✅ Completed (245 units)
 
 <details>
 <summary>Show completed units</summary>
@@ -385,7 +380,7 @@
 - [x] ITALIAN - 10ª Armata (Italian 10th Army) _(army)_
 - [x] BRITISH - Western Desert Force _(unknown)_
 
-### 1941-Q1 (26 complete)
+### 1941-Q1 (29 complete)
 
 - [x] BRITISH - 1st South African Division _(infantry_division)_
 - [x] BRITISH - 2nd New Zealand Division _(infantry_division)_
@@ -398,6 +393,9 @@
 - [x] ITALIAN - 101st TRIESTE Division _(motorized_division)_
 - [x] ITALIAN - 1st CCNN Division '23 Marzo' _(division)_
 - [x] ITALIAN - 1st Libyan Division _(division)_
+- [x] ITALIAN - 2nd CCNN Division '28 Ottobre' _(division)_
+- [x] ITALIAN - 2nd Libyan Division _(division)_
+- [x] ITALIAN - 4th CCNN Division '3 Gennaio' _(division)_
 - [x] ITALIAN - Ariete Division _(armored_division)_
 - [x] ITALIAN - Bologna Division _(infantry_division)_
 - [x] ITALIAN - Brescia Division _(infantry_division)_
