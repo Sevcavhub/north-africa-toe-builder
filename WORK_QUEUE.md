@@ -1,9 +1,9 @@
 # North Africa Work Queue
 
-**Generated**: 2025-10-24T19:29:38.423Z
+**Generated**: 2025-10-24T19:44:46.540Z
 
-**Progress**: 264/413 units complete (63.9%)
-**Remaining**: 149 units
+**Progress**: 267/413 units complete (64.6%)
+**Remaining**: 146 units
 
 ---
 
@@ -19,9 +19,9 @@
 
 ## 🎯 Next Up (Next Session)
 
-1. **BRITISH** - 1942-Q2 - 2nd South African Division _(infantry_division)_
-2. **BRITISH** - 1942-Q2 - 4th Indian Division _(infantry_division)_
-3. **BRITISH** - 1942-Q2 - 50th Infantry Division _(infantry_division)_
+1. **BRITISH** - 1942-Q2 - 5th Indian Division _(infantry_division)_
+2. **BRITISH** - 1942-Q2 - 7th Armoured Division _(division)_
+3. **FRENCH** - 1942-Q2 - 1re Division Française Libre _(infantry_division)_
 
 ---
 
@@ -53,12 +53,9 @@
 **ARMY_GROUP** (1 remaining):
 - [ ] GERMAN - Panzergruppe Afrika
 
-### 1942-Q2 (13/29 complete)
+### 1942-Q2 (16/29 complete)
 
-**INFANTRY_DIVISION** (9 remaining):
-- [ ] BRITISH - 2nd South African Division
-- [ ] BRITISH - 4th Indian Division
-- [ ] BRITISH - 50th Infantry Division
+**INFANTRY_DIVISION** (6 remaining):
 - [ ] BRITISH - 5th Indian Division
 - [ ] FRENCH - 1re Division Française Libre
 - [ ] ITALIAN - Bologna Division
@@ -272,7 +269,7 @@
 
 ---
 
-## ✅ Completed (264 units)
+## ✅ Completed (267 units)
 
 <details>
 <summary>Show completed units</summary>
@@ -481,12 +478,15 @@
 - [x] ITALIAN - XXI Corpo d'Armata (XXI Corps) _(corps)_
 - [x] BRITISH - Eighth Army (8th Army) _(army)_
 
-### 1942-Q2 (13 complete)
+### 1942-Q2 (16 complete)
 
 - [x] FRENCH - 1re Brigade Française Libre _(brigade)_
 - [x] BRITISH - 1st Armoured Division _(division)_
 - [x] BRITISH - 1st South African Division _(infantry_division)_
 - [x] BRITISH - 2nd New Zealand Division _(infantry_division)_
+- [x] BRITISH - 2nd South African Division _(infantry_division)_
+- [x] BRITISH - 4th Indian Division _(infantry_division)_
+- [x] BRITISH - 50th Infantry Division _(infantry_division)_
 - [x] BRITISH - 9th Australian Division _(infantry_division)_
 - [x] GERMAN - 21. Panzer-Division _(panzer_division)_
 - [x] ITALIAN - Littorio Division _(armored_division)_
