@@ -1,18 +1,27 @@
 {
+  "schema_type": "division_toe",
+  "schema_version": "3.1.0",
   "unit_id": "german_1941q4_90_leichte_division",
   "nation": "german",
   "quarter": "1941q4",
-  "name": "90. leichte Afrika-Division",
+  "unit_designation": "90. leichte Afrika-Division",
   "organization_level": "division",
+  "unit_type": "light_division",
   "formation_date": "1941-11-26",
   "dissolution_date": null,
-  "commander": {
-    "name": "Generalmajor Max Sümmermann",
-    "rank": "Generalmajor",
-    "start_date": "1941-11-26",
-    "end_date": "1941-12-10",
-    "notes": "Killed in action 10 December 1941 during Operation Crusader"
+  "command": {
+    "commander": {
+      "name": "Generalmajor Max Sümmermann",
+      "rank": "Generalmajor",
+      "start_date": "1941-11-26",
+      "end_date": "1941-12-10",
+      "notes": "Killed in action 10 December 1941 during Operation Crusader"
+    }
   },
+  "total_personnel": 9800,
+  "officers": 420,
+  "ncos": 1850,
+  "enlisted": 7530,
   "strength": {
     "authorized": 12500,
     "actual": 9800,
@@ -21,61 +30,78 @@
     "enlisted": 7530,
     "notes": "Division newly formed from Div.Kdo. z. b. V. Afrika, not yet at full strength. Actual strength estimated based on typical light division establishment minus expected shortfalls for new formation"
   },
-  "organization": {
-    "type": "light_division",
-    "parent_unit": "Panzerarmee Afrika",
-    "subordinate_units": [
-      {
-        "type": "infantry_regiment",
-        "name": "Schützen-Regiment 155",
-        "strength": 2400,
-        "battalions": ["I./155", "II./155"],
-        "notes": "Motorized rifle regiment, formed 7 June 1941"
-      },
-      {
-        "type": "infantry_regiment",
-        "name": "Infanterie-Regiment 361 (Afrika-Regiment)",
-        "strength": 2200,
-        "battalions": ["I./361", "II./361"],
-        "notes": "Composed largely of former French Foreign Legion volunteers"
-      },
-      {
-        "type": "reconnaissance",
-        "name": "gem. Aufklärungs-Kompanie 580",
-        "strength": 180,
-        "battalions": [],
-        "notes": "Mixed reconnaissance company, later expanded to battalion"
-      },
-      {
-        "type": "artillery",
-        "name": "Artillerie-Abteilung 361",
-        "strength": 450,
-        "battalions": ["Art.Abt. 361"],
-        "notes": "Single artillery battalion, later expanded to full regiment"
-      },
-      {
-        "type": "engineer",
-        "name": "Pionier-Bataillon 900",
-        "strength": 420,
-        "battalions": ["Pi.Btl. 900"],
-        "notes": "Pioneer battalion"
-      },
-      {
-        "type": "signals",
-        "name": "Nachrichten-Kompanie 190",
-        "strength": 120,
-        "battalions": [],
-        "notes": "Signals company, later expanded to battalion"
-      },
-      {
-        "type": "support",
-        "name": "Division Support Units",
-        "strength": 1200,
-        "battalions": [],
-        "notes": "Supply, medical, administration, and other support elements"
-      }
-    ]
-  },
+  "top_3_infantry_weapons": [
+    {
+      "type": "Karabiner 98k",
+      "count": 6800,
+      "notes": "Standard German rifle"
+    },
+    {
+      "type": "MG 34",
+      "count": 280,
+      "notes": "Standard German machine gun (196 light, 84 heavy)"
+    },
+    {
+      "type": "MP 40",
+      "count": 420,
+      "notes": "Submachine gun for NCOs and specialists"
+    }
+  ],
+  "ground_vehicles_total": 1090,
+  "tanks": 0,
+  "artillery_total": 54,
+  "aircraft_total": 0,
+  "subordinate_units": [
+    {
+      "type": "infantry_regiment",
+      "name": "Schützen-Regiment 155",
+      "strength": 2400,
+      "battalions": ["I./155", "II./155"],
+      "notes": "Motorized rifle regiment, formed 7 June 1941"
+    },
+    {
+      "type": "infantry_regiment",
+      "name": "Infanterie-Regiment 361 (Afrika-Regiment)",
+      "strength": 2200,
+      "battalions": ["I./361", "II./361"],
+      "notes": "Composed largely of former French Foreign Legion volunteers"
+    },
+    {
+      "type": "reconnaissance",
+      "name": "gem. Aufklärungs-Kompanie 580",
+      "strength": 180,
+      "battalions": [],
+      "notes": "Mixed reconnaissance company, later expanded to battalion"
+    },
+    {
+      "type": "artillery",
+      "name": "Artillerie-Abteilung 361",
+      "strength": 450,
+      "battalions": ["Art.Abt. 361"],
+      "notes": "Single artillery battalion, later expanded to full regiment"
+    },
+    {
+      "type": "engineer",
+      "name": "Pionier-Bataillon 900",
+      "strength": 420,
+      "battalions": ["Pi.Btl. 900"],
+      "notes": "Pioneer battalion"
+    },
+    {
+      "type": "signals",
+      "name": "Nachrichten-Kompanie 190",
+      "strength": 120,
+      "battalions": [],
+      "notes": "Signals company, later expanded to battalion"
+    },
+    {
+      "type": "support",
+      "name": "Division Support Units",
+      "strength": 1200,
+      "battalions": [],
+      "notes": "Supply, medical, administration, and other support elements"
+    }
+  ],
   "equipment": {
     "tanks": {
       "total": 0,
@@ -158,19 +184,17 @@
     }
   },
   "supply_logistics": {
-    "fuel_consumption_daily": "45 cubic meters",
-    "ammunition_basic_loads": 1.8,
-    "water_daily_requirement": "80 cubic meters",
+    "fuel": "45 cubic meters daily consumption",
+    "ammo": "1.8 basic loads",
+    "water": "80 cubic meters daily requirement",
     "operational_radius": "180 kilometers",
-    "supply_status": "Adequate but stretched - long supply lines from Tripoli, ~1,400km. Water critical concern. Fuel shortages beginning to impact operations",
-    "notes": "New division still establishing logistics tail. Supply situation deteriorating during Operation Crusader"
+    "supply_status": "Adequate but stretched - long supply lines from Tripoli, ~1,400km. Water critical concern. Fuel shortages beginning to impact operations. New division still establishing logistics tail. Supply situation deteriorating during Operation Crusader"
   },
   "weather_environment": {
-    "terrain": "Coastal desert - flat to rolling terrain with escarpments. Bardia-Sollum-Sidi Omar defensive positions. Limited vegetation, rocky ground",
     "temperature_range": "8-22°C (October-December). Cool nights, mild days",
-    "seasonal_impact": "Winter rainy season beginning. Occasional rain creating mud, limiting mobility. Reduced dust but worsening tracks",
-    "environmental_challenges": "Water scarcity critical. Sandstorms less frequent in winter but still occur. Vehicle wear from desert conditions. Limited cover and concealment",
-    "notes": "Operation Crusader fought in relatively favorable winter conditions compared to summer heat"
+    "terrain": "Coastal desert - flat to rolling terrain with escarpments. Bardia-Sollum-Sidi Omar defensive positions. Limited vegetation, rocky ground",
+    "seasonal_impacts": "Winter rainy season beginning. Occasional rain creating mud, limiting mobility. Reduced dust but worsening tracks. Operation Crusader fought in relatively favorable winter conditions compared to summer heat",
+    "environmental_challenges": "Water scarcity critical. Sandstorms less frequent in winter but still occur. Vehicle wear from desert conditions. Limited cover and concealment"
   },
   "combat_status": {
     "readiness": "partially_ready",
@@ -224,13 +248,11 @@
     }
   ],
   "validation": {
-    "schema_version": "3.1.0",
-    "completion_tier": "partial_needs_research",
+    "completeness_tier": "partial_needs_research",
     "completeness_percentage": 58,
-    "confidence_score": 72,
+    "confidence": 72,
     "last_updated": "2025-10-24",
-    "validator_notes": "Tier 3 extraction - partial data from formation period. Limited specific equipment counts for Q4 1941. Many details estimated based on light division KStN and known composition. Commander details confirmed. Need additional sources for precise equipment allocations",
-    "required_field_gaps": [
+    "known_gaps": [
       "Precise equipment counts by type for Q4 1941",
       "Detailed battalion-level organization",
       "Specific vehicle allocations by unit",
@@ -244,7 +266,8 @@
       "battalion_organization": "Company-level composition not documented in available sources for formation period",
       "supply_data": "Supply consumption rates estimated from known light division standards and desert conditions",
       "casualties": "Specific Q4 1941 casualty figures not found. Estimated based on Operation Crusader engagement intensity"
-    }
+    },
+    "validator_notes": "Tier 3 extraction - partial data from formation period. Limited specific equipment counts for Q4 1941. Many details estimated based on light division KStN and known composition. Commander details confirmed. Need additional sources for precise equipment allocations"
   },
   "metadata": {
     "extracted_by": "Claude Code (Sonnet 4.5)",

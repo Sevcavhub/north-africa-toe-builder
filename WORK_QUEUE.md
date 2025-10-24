@@ -1,9 +1,9 @@
 # North Africa Work Queue
 
-**Generated**: 2025-10-24T13:43:18.814Z
+**Generated**: 2025-10-24T13:46:26.390Z
 
-**Progress**: 247/416 units complete (59.4%)
-**Remaining**: 169 units
+**Progress**: 248/416 units complete (59.6%)
+**Remaining**: 168 units
 
 ---
 
@@ -20,8 +20,8 @@
 ## 🎯 Next Up (Next Session)
 
 1. **ITALIAN** - 1941-Q3 - 101st TRIESTE Division _(motorized_division)_
-2. **GERMAN** - 1941-Q4 - 90. leichte Division _(light_division)_
-3. **ITALIAN** - 1941-Q4 - 101st TRIESTE Division _(motorized_division)_
+2. **ITALIAN** - 1941-Q4 - 101st TRIESTE Division _(motorized_division)_
+3. **BRITISH** - 1942-Q1 - 1st South African Division _(infantry_division)_
 
 ---
 
@@ -43,10 +43,7 @@
 **ARMY_GROUP** (1 remaining):
 - [ ] GERMAN - Panzergruppe Afrika
 
-### 1941-Q4 (28/31 complete)
-
-**LIGHT_DIVISION** (1 remaining):
-- [ ] GERMAN - 90. leichte Division
+### 1941-Q4 (29/31 complete)
 
 **MOTORIZED_DIVISION** (1 remaining):
 - [ ] ITALIAN - 101st TRIESTE Division
@@ -308,7 +305,7 @@
 
 ---
 
-## ✅ Completed (247 units)
+## ✅ Completed (248 units)
 
 <details>
 <summary>Show completed units</summary>
@@ -454,7 +451,7 @@
 - [x] ITALIAN - XXI Corpo d'Armata (XXI Corps) _(corps)_
 - [x] BRITISH - Eighth Army (8th Army) _(army)_
 
-### 1941-Q4 (28 complete)
+### 1941-Q4 (29 complete)
 
 - [x] BRITISH - Czechoslovakian 11th Infantry Battalion _(battalion)_
 - [x] BRITISH - Polish Carpathian Brigade (Karpacka Brygada Strzelców) _(brigade)_
@@ -471,6 +468,7 @@
 - [x] BRITISH - 9th Australian Division _(infantry_division)_
 - [x] GERMAN - 15. Panzer-Division _(panzer_division)_
 - [x] GERMAN - 21. Panzer-Division _(panzer_division)_
+- [x] GERMAN - 90. leichte Division _(light_division)_
 - [x] ITALIAN - Ariete Division _(armored_division)_
 - [x] ITALIAN - Bologna Division _(infantry_division)_
 - [x] ITALIAN - Brescia Division _(infantry_division)_
