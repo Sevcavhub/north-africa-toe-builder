@@ -1,9 +1,9 @@
 # North Africa Work Queue
 
-**Generated**: 2025-10-24T19:44:46.540Z
+**Generated**: 2025-10-24T19:55:35.414Z
 
-**Progress**: 267/413 units complete (64.6%)
-**Remaining**: 146 units
+**Progress**: 270/413 units complete (65.4%)
+**Remaining**: 143 units
 
 ---
 
@@ -19,9 +19,9 @@
 
 ## 🎯 Next Up (Next Session)
 
-1. **BRITISH** - 1942-Q2 - 5th Indian Division _(infantry_division)_
-2. **BRITISH** - 1942-Q2 - 7th Armoured Division _(division)_
-3. **FRENCH** - 1942-Q2 - 1re Division Française Libre _(infantry_division)_
+1. **BRITISH** - 1942-Q2 - 7th Armoured Division _(division)_
+2. **GERMAN** - 1942-Q2 - 15. Panzer-Division _(panzer_division)_
+3. **GERMAN** - 1942-Q2 - 90. leichte Division _(light_division)_
 
 ---
 
@@ -53,15 +53,7 @@
 **ARMY_GROUP** (1 remaining):
 - [ ] GERMAN - Panzergruppe Afrika
 
-### 1942-Q2 (16/29 complete)
-
-**INFANTRY_DIVISION** (6 remaining):
-- [ ] BRITISH - 5th Indian Division
-- [ ] FRENCH - 1re Division Française Libre
-- [ ] ITALIAN - Bologna Division
-- [ ] ITALIAN - Brescia Division
-- [ ] ITALIAN - Pavia Division
-- [ ] ITALIAN - Superga Division
+### 1942-Q2 (19/29 complete)
 
 **DIVISION** (1 remaining):
 - [ ] BRITISH - 7th Armoured Division
@@ -78,6 +70,11 @@
 
 **ARMORED_DIVISION** (1 remaining):
 - [ ] ITALIAN - Ariete Division
+
+**INFANTRY_DIVISION** (3 remaining):
+- [ ] ITALIAN - Brescia Division
+- [ ] ITALIAN - Pavia Division
+- [ ] ITALIAN - Superga Division
 
 **ARMY** (1 remaining):
 - [ ] GERMAN - Panzerarmee Afrika
@@ -269,7 +266,7 @@
 
 ---
 
-## ✅ Completed (267 units)
+## ✅ Completed (270 units)
 
 <details>
 <summary>Show completed units</summary>
@@ -478,7 +475,7 @@
 - [x] ITALIAN - XXI Corpo d'Armata (XXI Corps) _(corps)_
 - [x] BRITISH - Eighth Army (8th Army) _(army)_
 
-### 1942-Q2 (16 complete)
+### 1942-Q2 (19 complete)
 
 - [x] FRENCH - 1re Brigade Française Libre _(brigade)_
 - [x] BRITISH - 1st Armoured Division _(division)_
@@ -487,8 +484,11 @@
 - [x] BRITISH - 2nd South African Division _(infantry_division)_
 - [x] BRITISH - 4th Indian Division _(infantry_division)_
 - [x] BRITISH - 50th Infantry Division _(infantry_division)_
+- [x] BRITISH - 5th Indian Division _(infantry_division)_
 - [x] BRITISH - 9th Australian Division _(infantry_division)_
+- [x] FRENCH - 1re Division Française Libre _(infantry_division)_
 - [x] GERMAN - 21. Panzer-Division _(panzer_division)_
+- [x] ITALIAN - Bologna Division _(infantry_division)_
 - [x] ITALIAN - Littorio Division _(armored_division)_
 - [x] BRITISH - XIII Corps _(corps)_
 - [x] BRITISH - XXX Corps _(corps)_
