@@ -1,25 +1,30 @@
-# Session Checkpoint - 2025-10-24T13:31:10.158Z
+# Session Checkpoint - 2025-10-24T13:38:50.693Z
 
 ## Progress Summary
 
 - **Total Unit-Quarters:** 416
-- **Completed:** 289 (69.5%)
-- **Remaining:** 127
-- **Last Commit:** 364ebed
+- **Completed:** 292 (70.2%)
+- **Remaining:** 124
+- **Last Commit:** 47efd4b
 
 ## Validation Status
 
-- **Total Validated:** 292
+- **Total Validated:** 294
 - **✅ Passed:** 0 (0.0%)
-- **❌ Failed:** 0 ✅
-- **⚠️ Warnings:** 292
+- **❌ Failed:** 1 ⚠️
+- **⚠️ Warnings:** 293
 
-**All units passed validation** ✅
+### Critical Validation Failures
+
+**german_1941q4_90_leichte_division:**
+  - ❌ Missing required field: schema_type
+  - ❌ Missing required field: schema_version
+  - ❌ Missing required field: unit_designation
 
 ## Chapter Status
 
-- **JSON Files:** 292
-- **MDBook Chapters:** 292 ✅
+- **JSON Files:** 294
+- **MDBook Chapters:** 294 ✅
 - **All chapters present** ✅
 
 ## Recent Completions
@@ -46,13 +51,13 @@ If this session crashes or needs to resume:
 
 3. **View full progress:**
    - See WORKFLOW_STATE.json for complete list
-   - 289 units saved successfully
+   - 292 units saved successfully
 
 ## Session Info
 
 - **Session ID:** complete_seed_generated
-- **Checkpoint Time:** 2025-10-24T13:31:10.054Z
-- **Git Commit:** 364ebed
+- **Checkpoint Time:** 2025-10-24T13:38:50.577Z
+- **Git Commit:** 47efd4b
 
 ---
 
