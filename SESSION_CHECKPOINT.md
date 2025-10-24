@@ -1,25 +1,28 @@
-# Session Checkpoint - 2025-10-24T22:46:33.156Z
+# Session Checkpoint - 2025-10-24T23:46:05.487Z
 
 ## Progress Summary
 
 - **Total Unit-Quarters:** 416
-- **Completed:** 349 (83.9%)
-- **Remaining:** 67
-- **Last Commit:** 5cf19ec
+- **Completed:** 350 (84.1%)
+- **Remaining:** 66
+- **Last Commit:** 15e92ed
 
 ## Validation Status
 
-- **Total Validated:** 350
+- **Total Validated:** 351
 - **✅ Passed:** 0 (0.0%)
-- **❌ Failed:** 0 ✅
+- **❌ Failed:** 1 ⚠️
 - **⚠️ Warnings:** 350
 
-**All units passed validation** ✅
+### Critical Validation Failures
+
+**american_1942q4_34_infantry_division:**
+  - ❌ Uses nested structure (unit_identification.*) instead of unified schema top-level fields
 
 ## Chapter Status
 
-- **JSON Files:** 350
-- **MDBook Chapters:** 349 ⚠️
+- **JSON Files:** 351
+- **MDBook Chapters:** 350 ⚠️
 - **Missing Chapters:** 1
   - ❌ italian_1942q3_101_trieste_division
 
@@ -47,13 +50,13 @@ If this session crashes or needs to resume:
 
 3. **View full progress:**
    - See WORKFLOW_STATE.json for complete list
-   - 349 units saved successfully
+   - 350 units saved successfully
 
 ## Session Info
 
 - **Session ID:** complete_seed_generated
-- **Checkpoint Time:** 2025-10-24T22:46:33.055Z
-- **Git Commit:** 5cf19ec
+- **Checkpoint Time:** 2025-10-24T23:46:05.386Z
+- **Git Commit:** 15e92ed
 
 ---
 
