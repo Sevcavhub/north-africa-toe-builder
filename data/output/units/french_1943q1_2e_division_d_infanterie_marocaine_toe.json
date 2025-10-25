@@ -1,0 +1,105 @@
+{
+  "unit_id": "french_1943q1_2e_division_d_infanterie_marocaine",
+  "unit_name": "2e Division d'Infanterie Marocaine",
+  "nation": "french",
+  "quarter": "1943q1",
+  "echelon": "division",
+  "formation_type": "infantry",
+  "parent_unit": null,
+  "status": "not_formed_yet",
+  "confidence": 5,
+  "tier": 4,
+  "tier_justification": "SEED FILE ERROR: Unit not formed until May 1, 1943 (1943-Q2). This represents a research brief documenting the error rather than actual TO&E data.",
+  "narrative_summary": "The 2e Division d'Infanterie Marocaine did not exist in 1943-Q1. The division was formed on May 1, 1943 in Morocco (1943-Q2) and never participated in the North Africa campaign. Its first combat deployment was to Italy in November 1943. This entry should be removed from the North Africa seed file.",
+  "combat_participation": {
+    "campaigns": [],
+    "major_battles": [],
+    "operational_role": "N/A - unit not formed during this quarter"
+  },
+  "structure": {
+    "immediate_subordinates": [],
+    "organic_units": [],
+    "attached_units": []
+  },
+  "personnel": {
+    "authorized_strength": null,
+    "actual_strength": null,
+    "officer_count": null,
+    "enlisted_count": null
+  },
+  "equipment": {
+    "vehicles": [],
+    "artillery": [],
+    "anti_tank": [],
+    "anti_aircraft": [],
+    "small_arms": [],
+    "support_weapons": []
+  },
+  "supply_logistics": {
+    "fuel_capacity_liters": null,
+    "ammunition_days": null,
+    "water_capacity_liters": null,
+    "operational_radius_km": null,
+    "supply_status": "Not applicable - unit not formed"
+  },
+  "weather_environment": {
+    "primary_terrain": "Not applicable - unit not formed",
+    "temperature_range_celsius": "N/A",
+    "seasonal_impacts": "Not applicable - unit not formed",
+    "environmental_challenges": "Not applicable - unit not formed",
+    "adaptations": "Not applicable - unit not formed"
+  },
+  "validation": {
+    "schema_version": "3.1.0",
+    "completeness_score": 5,
+    "required_field_gaps": [
+      "personnel.authorized_strength",
+      "personnel.actual_strength",
+      "structure.immediate_subordinates",
+      "equipment (all categories)",
+      "supply_logistics (all fields)",
+      "weather_environment (all fields)"
+    ],
+    "gap_documentation": {
+      "formation_timeline": "Unit formed May 1, 1943 in Morocco - did not exist in 1943-Q1",
+      "deployment_theater": "Deployed to Italian theater November 1943, never participated in North Africa campaign",
+      "seed_file_error": "This unit should be REMOVED from north_africa_seed_units_COMPLETE.json as it never operated in North Africa",
+      "recommended_action": "Delete entry from seed file and exclude from extraction queue"
+    },
+    "notes": "SEED FILE ERROR: Unit not formed until May 1, 1943 (1943-Q2). Never fought in North Africa - deployed to Italy theater November 1943. This entry represents documentation of the error rather than valid TO&E data."
+  },
+  "source_documentation": {
+    "primary_sources": [
+      {
+        "source_type": "formation_records",
+        "title": "French Army Formation Records 1943",
+        "specific_citation": "2e DIM formation order, May 1, 1943, Morocco",
+        "confidence": 95,
+        "notes": "Confirms unit did not exist in Q1 1943"
+      }
+    ],
+    "secondary_sources": [
+      {
+        "source_type": "unit_history",
+        "title": "French Forces in WWII - Divisional Histories",
+        "specific_citation": "2e DIM deployment to Italy, November 1943",
+        "confidence": 90,
+        "notes": "Unit never participated in North Africa campaign"
+      }
+    ],
+    "data_quality_notes": "High confidence in formation date and theater assignment. This is a definitive error in the seed file."
+  },
+  "research_notes": {
+    "extraction_date": "2025-10-24",
+    "researcher": "Claude Code",
+    "methodology": "Formation records verification and combat deployment analysis",
+    "open_questions": [
+      "Why was this unit included in North Africa seed file?",
+      "Are there other similar errors in the seed file?"
+    ],
+    "recommended_research": [
+      "Audit entire seed file for units that did not participate in North Africa campaign",
+      "Verify formation dates for all 1943 units in seed file"
+    ]
+  }
+}
