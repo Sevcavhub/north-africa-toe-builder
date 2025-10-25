@@ -1,9 +1,9 @@
 # North Africa Work Queue
 
-**Generated**: 2025-10-25T02:59:28.082Z
+**Generated**: 2025-10-25T03:08:52.480Z
 
-**Progress**: 324/413 units complete (78.5%)
-**Remaining**: 89 units
+**Progress**: 327/413 units complete (79.2%)
+**Remaining**: 86 units
 
 ---
 
@@ -20,8 +20,8 @@
 ## 🎯 Next Up (Next Session)
 
 1. **BRITISH** - 1942-Q4 - 46th Infantry Division _(infantry_division)_
-2. **BRITISH** - 1943-Q1 - 1st Infantry Division _(infantry_division)_
-3. **BRITISH** - 1943-Q1 - 44th Infantry Division _(infantry_division)_
+2. **BRITISH** - 1943-Q1 - 46th Infantry Division _(infantry_division)_
+3. **BRITISH** - 1943-Q1 - 4th Indian Division _(infantry_division)_
 
 ---
 
@@ -37,14 +37,11 @@
 - [ ] GERMAN - 5th Panzer Army
 - [ ] GERMAN - Panzerarmee Afrika
 
-### 1943-Q1 (22/56 complete)
+### 1943-Q1 (25/56 complete)
 
-**INFANTRY_DIVISION** (11 remaining):
-- [ ] BRITISH - 1st Infantry Division
-- [ ] BRITISH - 44th Infantry Division
+**INFANTRY_DIVISION** (8 remaining):
 - [ ] BRITISH - 46th Infantry Division
 - [ ] BRITISH - 4th Indian Division
-- [ ] BRITISH - 4th Infantry Division
 - [ ] BRITISH - 51st Highland Division
 - [ ] BRITISH - 78th Infantry Division 'Battleaxe'
 - [ ] FRENCH - 2e Division d'Infanterie Marocaine
@@ -160,7 +157,7 @@
 
 ---
 
-## ✅ Completed (324 units)
+## ✅ Completed (327 units)
 
 <details>
 <summary>Show completed units</summary>
@@ -498,7 +495,7 @@
 - [x] ITALIAN - XXI Corpo d'Armata (XXI Corps) _(corps)_
 - [x] BRITISH - Eighth Army (8th Army) _(army)_
 
-### 1943-Q1 (22 complete)
+### 1943-Q1 (25 complete)
 
 - [x] BRITISH - 1st Greek Brigade _(brigade)_
 - [x] FRENCH - Force L _(brigade)_
@@ -511,7 +508,10 @@
 - [x] AMERICAN - 9th Infantry Division _(infantry_division)_
 - [x] BRITISH - 10th Armoured Division _(division)_
 - [x] BRITISH - 1st Armoured Division _(division)_
+- [x] BRITISH - 1st Infantry Division _(infantry_division)_
 - [x] BRITISH - 2nd New Zealand Division _(infantry_division)_
+- [x] BRITISH - 44th Infantry Division _(infantry_division)_
+- [x] BRITISH - 4th Infantry Division _(infantry_division)_
 - [x] BRITISH - 50th Infantry Division _(infantry_division)_
 - [x] FRENCH - 1re Division Française Libre _(infantry_division)_
 - [x] GERMAN - 10. Panzer-Division _(panzer_division)_
