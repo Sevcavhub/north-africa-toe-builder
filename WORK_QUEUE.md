@@ -1,9 +1,9 @@
 # North Africa Work Queue
 
-**Generated**: 2025-10-25T03:31:09.539Z
+**Generated**: 2025-10-25T03:51:17.597Z
 
-**Progress**: 331/413 units complete (80.1%)
-**Remaining**: 82 units
+**Progress**: 333/413 units complete (80.6%)
+**Remaining**: 80 units
 
 ---
 
@@ -20,8 +20,8 @@
 ## 🎯 Next Up (Next Session)
 
 1. **BRITISH** - 1942-Q4 - 46th Infantry Division _(infantry_division)_
-2. **BRITISH** - 1943-Q1 - 78th Infantry Division 'Battleaxe' _(infantry_division)_
-3. **BRITISH** - 1943-Q1 - 7th Armoured Division _(division)_
+2. **FRENCH** - 1943-Q1 - 1st Moroccan March Division _(division)_
+3. **FRENCH** - 1943-Q1 - 2e Division d'Infanterie Marocaine _(infantry_division)_
 
 ---
 
@@ -37,20 +37,18 @@
 - [ ] GERMAN - 5th Panzer Army
 - [ ] GERMAN - Panzerarmee Afrika
 
-### 1943-Q1 (29/56 complete)
+### 1943-Q1 (31/56 complete)
 
-**INFANTRY_DIVISION** (5 remaining):
-- [ ] BRITISH - 78th Infantry Division 'Battleaxe'
+**DIVISION** (3 remaining):
+- [ ] FRENCH - 1st Moroccan March Division
+- [ ] FRENCH - Algerian March Division
+- [ ] FRENCH - Constantine March Division
+
+**INFANTRY_DIVISION** (4 remaining):
 - [ ] FRENCH - 2e Division d'Infanterie Marocaine
 - [ ] ITALIAN - La Spezia Division
 - [ ] ITALIAN - Pistoia Division
 - [ ] ITALIAN - Superga Division
-
-**DIVISION** (4 remaining):
-- [ ] BRITISH - 7th Armoured Division
-- [ ] FRENCH - 1st Moroccan March Division
-- [ ] FRENCH - Algerian March Division
-- [ ] FRENCH - Constantine March Division
 
 **LIGHT_DIVISION** (1 remaining):
 - [ ] GERMAN - 90. leichte Division
@@ -153,7 +151,7 @@
 
 ---
 
-## ✅ Completed (331 units)
+## ✅ Completed (333 units)
 
 <details>
 <summary>Show completed units</summary>
@@ -491,7 +489,7 @@
 - [x] ITALIAN - XXI Corpo d'Armata (XXI Corps) _(corps)_
 - [x] BRITISH - Eighth Army (8th Army) _(army)_
 
-### 1943-Q1 (29 complete)
+### 1943-Q1 (31 complete)
 
 - [x] BRITISH - 1st Greek Brigade _(brigade)_
 - [x] FRENCH - Force L _(brigade)_
@@ -513,6 +511,8 @@
 - [x] BRITISH - 50th Infantry Division _(infantry_division)_
 - [x] BRITISH - 51st Highland Division _(infantry_division)_
 - [x] BRITISH - 6th Armoured Division _(division)_
+- [x] BRITISH - 78th Infantry Division 'Battleaxe' _(infantry_division)_
+- [x] BRITISH - 7th Armoured Division _(division)_
 - [x] FRENCH - 1re Division Française Libre _(infantry_division)_
 - [x] GERMAN - 10. Panzer-Division _(panzer_division)_
 - [x] GERMAN - 15. Panzer-Division _(panzer_division)_
