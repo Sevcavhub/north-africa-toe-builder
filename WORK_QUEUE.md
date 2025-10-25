@@ -1,9 +1,9 @@
 # North Africa Work Queue
 
-**Generated**: 2025-10-25T00:30:38.489Z
+**Generated**: 2025-10-25T02:11:44.985Z
 
-**Progress**: 311/413 units complete (75.3%)
-**Remaining**: 102 units
+**Progress**: 314/413 units complete (76.0%)
+**Remaining**: 99 units
 
 ---
 
@@ -19,26 +19,17 @@
 
 ## 🎯 Next Up (Next Session)
 
-1. **GERMAN** - 1942-Q3 - 90. leichte Division _(light_division)_
-2. **ITALIAN** - 1942-Q3 - 101st TRIESTE Division _(motorized_division)_
-3. **AMERICAN** - 1942-Q4 - 34th Infantry Division _(infantry_division)_
+1. **BRITISH** - 1942-Q4 - 46th Infantry Division _(infantry_division)_
+2. **GERMAN** - 1942-Q4 - Hermann Göring Division _(panzer_division)_
+3. **ITALIAN** - 1942-Q4 - 101st TRIESTE Division _(motorized_division)_
 
 ---
 
 ## 📋 Full Queue (Chronological + Echelon Order)
 
-### 1942-Q3 (32/34 complete)
+### 1942-Q4 (49/55 complete)
 
-**LIGHT_DIVISION** (1 remaining):
-- [ ] GERMAN - 90. leichte Division
-
-**MOTORIZED_DIVISION** (1 remaining):
-- [ ] ITALIAN - 101st TRIESTE Division
-
-### 1942-Q4 (48/55 complete)
-
-**INFANTRY_DIVISION** (2 remaining):
-- [ ] AMERICAN - 34th Infantry Division
+**INFANTRY_DIVISION** (1 remaining):
 - [ ] BRITISH - 46th Infantry Division
 
 **PANZER_DIVISION** (1 remaining):
@@ -183,7 +174,7 @@
 
 ---
 
-## ✅ Completed (311 units)
+## ✅ Completed (314 units)
 
 <details>
 <summary>Show completed units</summary>
@@ -430,7 +421,7 @@
 - [x] BRITISH - Eighth Army (8th Army) _(army)_
 - [x] GERMAN - Panzerarmee Afrika _(army)_
 
-### 1942-Q3 (32 complete)
+### 1942-Q3 (34 complete)
 
 - [x] BRITISH - 1st Greek Brigade _(brigade)_
 - [x] GERMAN - Ramcke Parachute Brigade _(brigade)_
@@ -447,6 +438,8 @@
 - [x] GERMAN - 15. Panzer-Division _(panzer_division)_
 - [x] GERMAN - 164. leichte Division _(light_division)_
 - [x] GERMAN - 21. Panzer-Division _(panzer_division)_
+- [x] GERMAN - 90. leichte Division _(light_division)_
+- [x] ITALIAN - 101st TRIESTE Division _(motorized_division)_
 - [x] ITALIAN - Ariete Division _(armored_division)_
 - [x] ITALIAN - Bologna Division _(infantry_division)_
 - [x] ITALIAN - Brescia Division _(infantry_division)_
@@ -465,7 +458,7 @@
 - [x] BRITISH - Eighth Army (8th Army) _(army)_
 - [x] GERMAN - Panzerarmee Afrika _(army)_
 
-### 1942-Q4 (48 complete)
+### 1942-Q4 (49 complete)
 
 - [x] BRITISH - 1st Greek Brigade _(brigade)_
 - [x] FRENCH - Force L _(brigade)_
@@ -473,6 +466,7 @@
 - [x] AMERICAN - 1st Armored Division _(armored_division)_
 - [x] AMERICAN - 1st Infantry Division _(infantry_division)_
 - [x] AMERICAN - 2nd Armored Division _(armored_division)_
+- [x] AMERICAN - 34th Infantry Division _(infantry_division)_
 - [x] AMERICAN - 3rd Infantry Division _(infantry_division)_
 - [x] AMERICAN - 9th Infantry Division _(infantry_division)_
 - [x] BRITISH - 10th Armoured Division _(division)_

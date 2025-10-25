@@ -139,12 +139,12 @@ async function verifyBatchCompletion(units) {
     };
 
     for (const unit of units) {
-        // Use naming standard module to normalize all components
-        const nation = naming.normalizeNation(unit.nation);
-        const quarter = naming.normalizeQuarter(unit.quarter);
-        const designation = naming.normalizeDesignation(unit.designation);
+        const nation = unit.nation.toLowerCase();
+        // Remove hyphens and convert to lowercase: "1941-Q3" -> "1941q3"
+        const quarter = unit.quarter.toLowerCase().replace(/-/g, '');
+        const designation = unit.designation;
 
-        // Generate expected filenames using naming standard
+        // Generate expected filenames
         const jsonFilename = `${nation}_${quarter}_${designation}_toe.json`;
         const chapterFilename = `chapter_${nation}_${quarter}_${designation}.md`;
 
