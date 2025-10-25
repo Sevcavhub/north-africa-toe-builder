@@ -1,9 +1,9 @@
 # North Africa Work Queue
 
-**Generated**: 2025-10-24T23:51:10.286Z
+**Generated**: 2025-10-25T00:00:50.465Z
 
-**Progress**: 303/413 units complete (73.4%)
-**Remaining**: 110 units
+**Progress**: 305/413 units complete (73.8%)
+**Remaining**: 108 units
 
 ---
 
@@ -35,13 +35,11 @@
 **MOTORIZED_DIVISION** (1 remaining):
 - [ ] ITALIAN - 101st TRIESTE Division
 
-### 1942-Q4 (41/55 complete)
+### 1942-Q4 (43/55 complete)
 
-**INFANTRY_DIVISION** (7 remaining):
+**INFANTRY_DIVISION** (5 remaining):
 - [ ] AMERICAN - 34th Infantry Division
 - [ ] BRITISH - 46th Infantry Division
-- [ ] ITALIAN - Bologna Division
-- [ ] ITALIAN - Brescia Division
 - [ ] ITALIAN - La Spezia Division
 - [ ] ITALIAN - Pistoia Division
 - [ ] ITALIAN - Superga Division
@@ -193,7 +191,7 @@
 
 ---
 
-## ✅ Completed (303 units)
+## ✅ Completed (305 units)
 
 <details>
 <summary>Show completed units</summary>
@@ -475,7 +473,7 @@
 - [x] BRITISH - Eighth Army (8th Army) _(army)_
 - [x] GERMAN - Panzerarmee Afrika _(army)_
 
-### 1942-Q4 (41 complete)
+### 1942-Q4 (43 complete)
 
 - [x] BRITISH - 1st Greek Brigade _(brigade)_
 - [x] FRENCH - Force L _(brigade)_
@@ -504,6 +502,8 @@
 - [x] GERMAN - 21. Panzer-Division _(panzer_division)_
 - [x] GERMAN - 90. leichte Division _(light_division)_
 - [x] ITALIAN - Ariete Division _(armored_division)_
+- [x] ITALIAN - Bologna Division _(infantry_division)_
+- [x] ITALIAN - Brescia Division _(infantry_division)_
 - [x] ITALIAN - Folgore Division _(airborne_division)_
 - [x] ITALIAN - Littorio Division _(armored_division)_
 - [x] ITALIAN - Trento Division _(motorized_division)_

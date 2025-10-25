@@ -1,31 +1,31 @@
-# Session Checkpoint - 2025-10-24T23:51:10.299Z
+# Session Checkpoint - 2025-10-25T00:00:50.478Z
 
 ## Progress Summary
 
 - **Total Unit-Quarters:** 416
-- **Completed:** 350 (84.1%)
-- **Remaining:** 66
-- **Last Commit:** efe4165
+- **Completed:** 351 (84.4%)
+- **Remaining:** 65
+- **Last Commit:** 2a82a2c
 
 ## Validation Status
 
-- **Total Validated:** 351
+- **Total Validated:** 354
 - **✅ Passed:** 0 (0.0%)
 - **❌ Failed:** 0 ✅
-- **⚠️ Warnings:** 351
+- **⚠️ Warnings:** 354
 
 **All units passed validation** ✅
 
 ## Chapter Status
 
-- **JSON Files:** 351
-- **MDBook Chapters:** 351 ✅
+- **JSON Files:** 354
+- **MDBook Chapters:** 354 ✅
 - **All chapters present** ✅
 
 ## Recent Completions
 
-- ✅ italian_1942q4_185a_divisione_paracadutisti_folgore
-- ✅ italian_1942q4_185_divisione_paracadutisti_folgore
+- ✅ italian_1942q4_bologna_division
+- ✅ italian_1942q4_brescia_division
 - ✅ italian_1942q4_xxi_corps
 - ✅ italian_1942q4_xx_mobile_corps
 - ✅ italian_1943q1_131_divisione_corazzata_centauro
@@ -46,13 +46,13 @@ If this session crashes or needs to resume:
 
 3. **View full progress:**
    - See WORKFLOW_STATE.json for complete list
-   - 350 units saved successfully
+   - 351 units saved successfully
 
 ## Session Info
 
 - **Session ID:** complete_seed_generated
-- **Checkpoint Time:** 2025-10-24T23:51:10.199Z
-- **Git Commit:** efe4165
+- **Checkpoint Time:** 2025-10-25T00:00:50.377Z
+- **Git Commit:** 2a82a2c
 
 ---
 
