@@ -1,9 +1,9 @@
 # North Africa Work Queue
 
-**Generated**: 2025-10-25T00:09:54.267Z
+**Generated**: 2025-10-25T00:18:27.946Z
 
-**Progress**: 308/413 units complete (74.6%)
-**Remaining**: 105 units
+**Progress**: 309/413 units complete (74.8%)
+**Remaining**: 104 units
 
 ---
 
@@ -35,14 +35,13 @@
 **MOTORIZED_DIVISION** (1 remaining):
 - [ ] ITALIAN - 101st TRIESTE Division
 
-### 1942-Q4 (46/55 complete)
+### 1942-Q4 (47/55 complete)
 
 **INFANTRY_DIVISION** (2 remaining):
 - [ ] AMERICAN - 34th Infantry Division
 - [ ] BRITISH - 46th Infantry Division
 
-**PANZER_DIVISION** (2 remaining):
-- [ ] GERMAN - 10. Panzer-Division
+**PANZER_DIVISION** (1 remaining):
 - [ ] GERMAN - Hermann Göring Division
 
 **MOTORIZED_DIVISION** (1 remaining):
@@ -188,7 +187,7 @@
 
 ---
 
-## ✅ Completed (308 units)
+## ✅ Completed (309 units)
 
 <details>
 <summary>Show completed units</summary>
@@ -470,7 +469,7 @@
 - [x] BRITISH - Eighth Army (8th Army) _(army)_
 - [x] GERMAN - Panzerarmee Afrika _(army)_
 
-### 1942-Q4 (46 complete)
+### 1942-Q4 (47 complete)
 
 - [x] BRITISH - 1st Greek Brigade _(brigade)_
 - [x] FRENCH - Force L _(brigade)_
@@ -494,6 +493,7 @@
 - [x] BRITISH - 7th Armoured Division _(division)_
 - [x] BRITISH - 9th Australian Division _(infantry_division)_
 - [x] FRENCH - 1re Division Française Libre _(infantry_division)_
+- [x] GERMAN - 10. Panzer-Division _(panzer_division)_
 - [x] GERMAN - 15. Panzer-Division _(panzer_division)_
 - [x] GERMAN - 164. leichte Division _(light_division)_
 - [x] GERMAN - 21. Panzer-Division _(panzer_division)_

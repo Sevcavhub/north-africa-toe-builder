@@ -1,25 +1,28 @@
-# Session Checkpoint - 2025-10-25T00:09:54.281Z
+# Session Checkpoint - 2025-10-25T00:18:27.960Z
 
 ## Progress Summary
 
 - **Total Unit-Quarters:** 416
 - **Completed:** 351 (84.4%)
 - **Remaining:** 65
-- **Last Commit:** 72c9661
+- **Last Commit:** 99fd322
 
 ## Validation Status
 
-- **Total Validated:** 357
+- **Total Validated:** 360
 - **✅ Passed:** 0 (0.0%)
-- **❌ Failed:** 0 ✅
-- **⚠️ Warnings:** 357
+- **❌ Failed:** 1 ⚠️
+- **⚠️ Warnings:** 359
 
-**All units passed validation** ✅
+### Critical Validation Failures
+
+**italian_1942q4_centauro_division:**
+  - ❌ Failed to parse JSON: du.combat_evidence.trim is not a function
 
 ## Chapter Status
 
-- **JSON Files:** 357
-- **MDBook Chapters:** 357 ✅
+- **JSON Files:** 360
+- **MDBook Chapters:** 360 ✅
 - **All chapters present** ✅
 
 ## Recent Completions
@@ -51,8 +54,8 @@ If this session crashes or needs to resume:
 ## Session Info
 
 - **Session ID:** complete_seed_generated
-- **Checkpoint Time:** 2025-10-25T00:09:54.180Z
-- **Git Commit:** 72c9661
+- **Checkpoint Time:** 2025-10-25T00:18:27.859Z
+- **Git Commit:** 99fd322
 
 ---
 
