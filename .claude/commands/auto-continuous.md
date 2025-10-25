@@ -2,6 +2,8 @@
 description: Run continuous extraction until queue is empty (NO STOPPING)
 ---
 
+npm run auto:continuous
+
 # CONTINUOUS MODE - DO NOT STOP UNTIL COMPLETE
 
 **CRITICAL**: This command runs autonomous extraction in continuous mode. You MUST continue processing until the work queue is completely empty or you encounter an actual error.
