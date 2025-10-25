@@ -1,9 +1,9 @@
 # North Africa Work Queue
 
-**Generated**: 2025-10-25T03:08:52.480Z
+**Generated**: 2025-10-25T03:20:47.460Z
 
-**Progress**: 327/413 units complete (79.2%)
-**Remaining**: 86 units
+**Progress**: 329/413 units complete (79.7%)
+**Remaining**: 84 units
 
 ---
 
@@ -20,8 +20,8 @@
 ## 🎯 Next Up (Next Session)
 
 1. **BRITISH** - 1942-Q4 - 46th Infantry Division _(infantry_division)_
-2. **BRITISH** - 1943-Q1 - 46th Infantry Division _(infantry_division)_
-3. **BRITISH** - 1943-Q1 - 4th Indian Division _(infantry_division)_
+2. **BRITISH** - 1943-Q1 - 51st Highland Division _(infantry_division)_
+3. **BRITISH** - 1943-Q1 - 6th Armoured Division _(division)_
 
 ---
 
@@ -37,11 +37,9 @@
 - [ ] GERMAN - 5th Panzer Army
 - [ ] GERMAN - Panzerarmee Afrika
 
-### 1943-Q1 (25/56 complete)
+### 1943-Q1 (27/56 complete)
 
-**INFANTRY_DIVISION** (8 remaining):
-- [ ] BRITISH - 46th Infantry Division
-- [ ] BRITISH - 4th Indian Division
+**INFANTRY_DIVISION** (6 remaining):
 - [ ] BRITISH - 51st Highland Division
 - [ ] BRITISH - 78th Infantry Division 'Battleaxe'
 - [ ] FRENCH - 2e Division d'Infanterie Marocaine
@@ -157,7 +155,7 @@
 
 ---
 
-## ✅ Completed (327 units)
+## ✅ Completed (329 units)
 
 <details>
 <summary>Show completed units</summary>
@@ -495,7 +493,7 @@
 - [x] ITALIAN - XXI Corpo d'Armata (XXI Corps) _(corps)_
 - [x] BRITISH - Eighth Army (8th Army) _(army)_
 
-### 1943-Q1 (25 complete)
+### 1943-Q1 (27 complete)
 
 - [x] BRITISH - 1st Greek Brigade _(brigade)_
 - [x] FRENCH - Force L _(brigade)_
@@ -511,6 +509,8 @@
 - [x] BRITISH - 1st Infantry Division _(infantry_division)_
 - [x] BRITISH - 2nd New Zealand Division _(infantry_division)_
 - [x] BRITISH - 44th Infantry Division _(infantry_division)_
+- [x] BRITISH - 46th Infantry Division _(infantry_division)_
+- [x] BRITISH - 4th Indian Division _(infantry_division)_
 - [x] BRITISH - 4th Infantry Division _(infantry_division)_
 - [x] BRITISH - 50th Infantry Division _(infantry_division)_
 - [x] FRENCH - 1re Division Française Libre _(infantry_division)_
