@@ -1,24 +1,20 @@
-# Session Checkpoint - 2025-10-25T02:24:00.107Z
+# Session Checkpoint - 2025-10-25T02:34:25.445Z
 
 ## Progress Summary
 
 - **Total Unit-Quarters:** 416
 - **Completed:** 351 (84.4%)
 - **Remaining:** 65
-- **Last Commit:** 84c6167
+- **Last Commit:** 2600cca
 
 ## Validation Status
 
 - **Total Validated:** 366
 - **✅ Passed:** 0 (0.0%)
-- **❌ Failed:** 2 ⚠️
-- **⚠️ Warnings:** 364
+- **❌ Failed:** 1 ⚠️
+- **⚠️ Warnings:** 365
 
 ### Critical Validation Failures
-
-**american_1943q1_1_armored_division:**
-  - ❌ Missing required field: unit_designation
-  - ❌ Missing required field: organization_level
 
 **british_1942q4_46th_infantry_division:**
   - ❌ Missing required fields: nation and quarter
@@ -59,8 +55,8 @@ If this session crashes or needs to resume:
 ## Session Info
 
 - **Session ID:** complete_seed_generated
-- **Checkpoint Time:** 2025-10-25T02:24:00.003Z
-- **Git Commit:** 84c6167
+- **Checkpoint Time:** 2025-10-25T02:34:25.345Z
+- **Git Commit:** 2600cca
 
 ---
 

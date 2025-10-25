@@ -1,9 +1,9 @@
 # North Africa Work Queue
 
-**Generated**: 2025-10-25T02:24:00.093Z
+**Generated**: 2025-10-25T02:34:25.431Z
 
-**Progress**: 316/413 units complete (76.5%)
-**Remaining**: 97 units
+**Progress**: 318/413 units complete (77.0%)
+**Remaining**: 95 units
 
 ---
 
@@ -20,8 +20,8 @@
 ## 🎯 Next Up (Next Session)
 
 1. **BRITISH** - 1942-Q4 - 46th Infantry Division _(infantry_division)_
-2. **AMERICAN** - 1943-Q1 - 1st Armored Division _(armored_division)_
-3. **AMERICAN** - 1943-Q1 - 2nd Armored Division _(armored_division)_
+2. **AMERICAN** - 1943-Q1 - 34th Infantry Division _(infantry_division)_
+3. **AMERICAN** - 1943-Q1 - 3rd Infantry Division _(infantry_division)_
 
 ---
 
@@ -37,12 +37,7 @@
 - [ ] GERMAN - 5th Panzer Army
 - [ ] GERMAN - Panzerarmee Afrika
 
-### 1943-Q1 (14/56 complete)
-
-**ARMORED_DIVISION** (3 remaining):
-- [ ] AMERICAN - 1st Armored Division
-- [ ] AMERICAN - 2nd Armored Division
-- [ ] ITALIAN - Littorio Division
+### 1943-Q1 (16/56 complete)
 
 **INFANTRY_DIVISION** (15 remaining):
 - [ ] AMERICAN - 34th Infantry Division
@@ -79,6 +74,9 @@
 **MOTORIZED_DIVISION** (2 remaining):
 - [ ] ITALIAN - 101st TRIESTE Division
 - [ ] ITALIAN - Trento Division
+
+**ARMORED_DIVISION** (1 remaining):
+- [ ] ITALIAN - Littorio Division
 
 **CORPS** (9 remaining):
 - [ ] BRITISH - V Corps
@@ -168,7 +166,7 @@
 
 ---
 
-## ✅ Completed (316 units)
+## ✅ Completed (318 units)
 
 <details>
 <summary>Show completed units</summary>
@@ -506,11 +504,13 @@
 - [x] ITALIAN - XXI Corpo d'Armata (XXI Corps) _(corps)_
 - [x] BRITISH - Eighth Army (8th Army) _(army)_
 
-### 1943-Q1 (14 complete)
+### 1943-Q1 (16 complete)
 
 - [x] BRITISH - 1st Greek Brigade _(brigade)_
 - [x] FRENCH - Force L _(brigade)_
+- [x] AMERICAN - 1st Armored Division _(armored_division)_
 - [x] AMERICAN - 1st Infantry Division _(infantry_division)_
+- [x] AMERICAN - 2nd Armored Division _(armored_division)_
 - [x] BRITISH - 2nd New Zealand Division _(infantry_division)_
 - [x] BRITISH - 50th Infantry Division _(infantry_division)_
 - [x] FRENCH - 1re Division Française Libre _(infantry_division)_
