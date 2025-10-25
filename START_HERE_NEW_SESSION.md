@@ -2,7 +2,7 @@
 
 <!-- AUTO-UPDATED: START - Session Metadata -->
 **Project**: North Africa TO&E Builder - **v3.0.0 (Ground Forces)**
-**Last Updated**: 2025-10-25 17:30
+**Last Updated**: 2025-10-25 19:11
 **Status**: Schema v3.0 Complete, 351/416 units (84.4%)
 <!-- AUTO-UPDATED: END - Session Metadata -->
 
@@ -43,7 +43,7 @@
 ### ✅ RECENTLY COMPLETED (Last Session):
 - **Session Date**: 2025-10-25
 - **Units Completed**: 351 unit-quarters (0 → 351)
-- **Session Duration**: 39 minutes
+- **Session Duration**: unknown minutes
 - **Completion Rate**: 84.4% of total project
 - **Recent Work**:
   - italian_1942q4_brescia_division

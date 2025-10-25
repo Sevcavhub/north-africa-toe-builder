@@ -1,9 +1,9 @@
 # North Africa Work Queue
 
-**Generated**: 2025-10-25T02:11:44.985Z
+**Generated**: 2025-10-25T02:24:00.093Z
 
-**Progress**: 314/413 units complete (76.0%)
-**Remaining**: 99 units
+**Progress**: 316/413 units complete (76.5%)
+**Remaining**: 97 units
 
 ---
 
@@ -20,23 +20,17 @@
 ## 🎯 Next Up (Next Session)
 
 1. **BRITISH** - 1942-Q4 - 46th Infantry Division _(infantry_division)_
-2. **GERMAN** - 1942-Q4 - Hermann Göring Division _(panzer_division)_
-3. **ITALIAN** - 1942-Q4 - 101st TRIESTE Division _(motorized_division)_
+2. **AMERICAN** - 1943-Q1 - 1st Armored Division _(armored_division)_
+3. **AMERICAN** - 1943-Q1 - 2nd Armored Division _(armored_division)_
 
 ---
 
 ## 📋 Full Queue (Chronological + Echelon Order)
 
-### 1942-Q4 (49/55 complete)
+### 1942-Q4 (51/55 complete)
 
 **INFANTRY_DIVISION** (1 remaining):
 - [ ] BRITISH - 46th Infantry Division
-
-**PANZER_DIVISION** (1 remaining):
-- [ ] GERMAN - Hermann Göring Division
-
-**MOTORIZED_DIVISION** (1 remaining):
-- [ ] ITALIAN - 101st TRIESTE Division
 
 **ARMY** (3 remaining):
 - [ ] BRITISH - First Army
@@ -174,7 +168,7 @@
 
 ---
 
-## ✅ Completed (314 units)
+## ✅ Completed (316 units)
 
 <details>
 <summary>Show completed units</summary>
@@ -458,7 +452,7 @@
 - [x] BRITISH - Eighth Army (8th Army) _(army)_
 - [x] GERMAN - Panzerarmee Afrika _(army)_
 
-### 1942-Q4 (49 complete)
+### 1942-Q4 (51 complete)
 
 - [x] BRITISH - 1st Greek Brigade _(brigade)_
 - [x] FRENCH - Force L _(brigade)_
@@ -488,6 +482,8 @@
 - [x] GERMAN - 164. leichte Division _(light_division)_
 - [x] GERMAN - 21. Panzer-Division _(panzer_division)_
 - [x] GERMAN - 90. leichte Division _(light_division)_
+- [x] GERMAN - Hermann Göring Division _(panzer_division)_
+- [x] ITALIAN - 101st TRIESTE Division _(motorized_division)_
 - [x] ITALIAN - Ariete Division _(armored_division)_
 - [x] ITALIAN - Bologna Division _(infantry_division)_
 - [x] ITALIAN - Brescia Division _(infantry_division)_

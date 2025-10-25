@@ -1,18 +1,18 @@
-# Session Checkpoint - 2025-10-25T02:11:45.000Z
+# Session Checkpoint - 2025-10-25T02:24:00.107Z
 
 ## Progress Summary
 
 - **Total Unit-Quarters:** 416
 - **Completed:** 351 (84.4%)
 - **Remaining:** 65
-- **Last Commit:** 99e7f60
+- **Last Commit:** 84c6167
 
 ## Validation Status
 
-- **Total Validated:** 364
+- **Total Validated:** 366
 - **✅ Passed:** 0 (0.0%)
-- **❌ Failed:** 1 ⚠️
-- **⚠️ Warnings:** 363
+- **❌ Failed:** 2 ⚠️
+- **⚠️ Warnings:** 364
 
 ### Critical Validation Failures
 
@@ -20,10 +20,14 @@
   - ❌ Missing required field: unit_designation
   - ❌ Missing required field: organization_level
 
+**british_1942q4_46th_infantry_division:**
+  - ❌ Missing required fields: nation and quarter
+  - ❌ Invalid nation: "unknown" (allowed: german, italian, british, american, french)
+
 ## Chapter Status
 
-- **JSON Files:** 364
-- **MDBook Chapters:** 364 ✅
+- **JSON Files:** 366
+- **MDBook Chapters:** 366 ✅
 - **All chapters present** ✅
 
 ## Recent Completions
@@ -55,8 +59,8 @@ If this session crashes or needs to resume:
 ## Session Info
 
 - **Session ID:** complete_seed_generated
-- **Checkpoint Time:** 2025-10-25T02:11:44.898Z
-- **Git Commit:** 99e7f60
+- **Checkpoint Time:** 2025-10-25T02:24:00.003Z
+- **Git Commit:** 84c6167
 
 ---
 
