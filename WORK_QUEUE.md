@@ -1,9 +1,9 @@
 # North Africa Work Queue
 
-**Generated**: 2025-10-25T03:20:47.460Z
+**Generated**: 2025-10-25T03:31:09.539Z
 
-**Progress**: 329/413 units complete (79.7%)
-**Remaining**: 84 units
+**Progress**: 331/413 units complete (80.1%)
+**Remaining**: 82 units
 
 ---
 
@@ -20,8 +20,8 @@
 ## 🎯 Next Up (Next Session)
 
 1. **BRITISH** - 1942-Q4 - 46th Infantry Division _(infantry_division)_
-2. **BRITISH** - 1943-Q1 - 51st Highland Division _(infantry_division)_
-3. **BRITISH** - 1943-Q1 - 6th Armoured Division _(division)_
+2. **BRITISH** - 1943-Q1 - 78th Infantry Division 'Battleaxe' _(infantry_division)_
+3. **BRITISH** - 1943-Q1 - 7th Armoured Division _(division)_
 
 ---
 
@@ -37,18 +37,16 @@
 - [ ] GERMAN - 5th Panzer Army
 - [ ] GERMAN - Panzerarmee Afrika
 
-### 1943-Q1 (27/56 complete)
+### 1943-Q1 (29/56 complete)
 
-**INFANTRY_DIVISION** (6 remaining):
-- [ ] BRITISH - 51st Highland Division
+**INFANTRY_DIVISION** (5 remaining):
 - [ ] BRITISH - 78th Infantry Division 'Battleaxe'
 - [ ] FRENCH - 2e Division d'Infanterie Marocaine
 - [ ] ITALIAN - La Spezia Division
 - [ ] ITALIAN - Pistoia Division
 - [ ] ITALIAN - Superga Division
 
-**DIVISION** (5 remaining):
-- [ ] BRITISH - 6th Armoured Division
+**DIVISION** (4 remaining):
 - [ ] BRITISH - 7th Armoured Division
 - [ ] FRENCH - 1st Moroccan March Division
 - [ ] FRENCH - Algerian March Division
@@ -155,7 +153,7 @@
 
 ---
 
-## ✅ Completed (329 units)
+## ✅ Completed (331 units)
 
 <details>
 <summary>Show completed units</summary>
@@ -493,7 +491,7 @@
 - [x] ITALIAN - XXI Corpo d'Armata (XXI Corps) _(corps)_
 - [x] BRITISH - Eighth Army (8th Army) _(army)_
 
-### 1943-Q1 (27 complete)
+### 1943-Q1 (29 complete)
 
 - [x] BRITISH - 1st Greek Brigade _(brigade)_
 - [x] FRENCH - Force L _(brigade)_
@@ -513,6 +511,8 @@
 - [x] BRITISH - 4th Indian Division _(infantry_division)_
 - [x] BRITISH - 4th Infantry Division _(infantry_division)_
 - [x] BRITISH - 50th Infantry Division _(infantry_division)_
+- [x] BRITISH - 51st Highland Division _(infantry_division)_
+- [x] BRITISH - 6th Armoured Division _(division)_
 - [x] FRENCH - 1re Division Française Libre _(infantry_division)_
 - [x] GERMAN - 10. Panzer-Division _(panzer_division)_
 - [x] GERMAN - 15. Panzer-Division _(panzer_division)_
