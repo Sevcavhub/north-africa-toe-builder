@@ -1,9 +1,9 @@
 # North Africa Work Queue
 
-**Generated**: 2025-10-25T04:16:28.624Z
+**Generated**: 2025-10-25T12:27:37.414Z
 
-**Progress**: 338/413 units complete (81.8%)
-**Remaining**: 75 units
+**Progress**: 340/413 units complete (82.3%)
+**Remaining**: 73 units
 
 ---
 
@@ -19,13 +19,18 @@
 
 ## 🎯 Next Up (Next Session)
 
-1. **GERMAN** - 1943-Q1 - 90. leichte Division _(light_division)_
-2. **GERMAN** - 1943-Q1 - Hermann Göring Division _(panzer_division)_
-3. **ITALIAN** - 1943-Q1 - 101st TRIESTE Division _(motorized_division)_
+1. **ITALIAN** - 1943-Q1 - La Spezia Division _(infantry_division)_
+2. **ITALIAN** - 1943-Q1 - Littorio Division _(armored_division)_
+3. **ITALIAN** - 1943-Q1 - Pistoia Division _(infantry_division)_
 
 ---
 
 ## 📋 Full Queue (Chronological + Echelon Order)
+
+### 1941-Q1 (26/27 complete)
+
+**CORPS** (1 remaining):
+- [ ] ITALIAN - XXI Corpo d'Armata (XXI Corps)
 
 ### 1942-Q4 (52/55 complete)
 
@@ -34,17 +39,7 @@
 - [ ] GERMAN - 5th Panzer Army
 - [ ] GERMAN - Panzerarmee Afrika
 
-### 1943-Q1 (35/56 complete)
-
-**LIGHT_DIVISION** (1 remaining):
-- [ ] GERMAN - 90. leichte Division
-
-**PANZER_DIVISION** (1 remaining):
-- [ ] GERMAN - Hermann Göring Division
-
-**MOTORIZED_DIVISION** (2 remaining):
-- [ ] ITALIAN - 101st TRIESTE Division
-- [ ] ITALIAN - Trento Division
+### 1943-Q1 (38/56 complete)
 
 **INFANTRY_DIVISION** (3 remaining):
 - [ ] ITALIAN - La Spezia Division
@@ -53,6 +48,9 @@
 
 **ARMORED_DIVISION** (1 remaining):
 - [ ] ITALIAN - Littorio Division
+
+**MOTORIZED_DIVISION** (1 remaining):
+- [ ] ITALIAN - Trento Division
 
 **CORPS** (9 remaining):
 - [ ] BRITISH - V Corps
@@ -142,7 +140,7 @@
 
 ---
 
-## ✅ Completed (338 units)
+## ✅ Completed (340 units)
 
 <details>
 <summary>Show completed units</summary>
@@ -205,7 +203,7 @@
 - [x] ITALIAN - 10ª Armata (Italian 10th Army) _(army)_
 - [x] BRITISH - Western Desert Force _(unknown)_
 
-### 1941-Q1 (27 complete)
+### 1941-Q1 (26 complete)
 
 - [x] BRITISH - 1st South African Division _(infantry_division)_
 - [x] BRITISH - 2nd New Zealand Division _(infantry_division)_
@@ -231,7 +229,6 @@
 - [x] ITALIAN - Trento Division _(motorized_division)_
 - [x] BRITISH - XIII Corps _(corps)_
 - [x] GERMAN - Deutsches Afrikakorps _(corps)_
-- [x] ITALIAN - XXI Corpo d'Armata (XXI Corps) _(corps)_
 - [x] ITALIAN - XXII Corpo d'Armata (XXII Corps) _(corps)_
 - [x] ITALIAN - 10ª Armata (Italian 10th Army) _(army)_
 
@@ -481,7 +478,7 @@
 - [x] ITALIAN - XXI Corpo d'Armata (XXI Corps) _(corps)_
 - [x] BRITISH - Eighth Army (8th Army) _(army)_
 
-### 1943-Q1 (35 complete)
+### 1943-Q1 (38 complete)
 
 - [x] BRITISH - 1st Greek Brigade _(brigade)_
 - [x] FRENCH - Force L _(brigade)_
@@ -514,6 +511,9 @@
 - [x] GERMAN - 15. Panzer-Division _(panzer_division)_
 - [x] GERMAN - 164. leichte Division _(light_division)_
 - [x] GERMAN - 21. Panzer-Division _(panzer_division)_
+- [x] GERMAN - 90. leichte Division _(light_division)_
+- [x] GERMAN - Hermann Göring Division _(panzer_division)_
+- [x] ITALIAN - 101st TRIESTE Division _(motorized_division)_
 - [x] ITALIAN - Centauro Division _(armored_division)_
 - [x] ITALIAN - Giovani Fascisti Division _(armored_division)_
 - [x] AMERICAN - II Corps _(corps)_
