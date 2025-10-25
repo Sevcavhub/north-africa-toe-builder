@@ -1,11 +1,11 @@
-# Session Checkpoint - 2025-10-25T00:29:06.231Z
+# Session Checkpoint - 2025-10-25T00:29:44.936Z
 
 ## Progress Summary
 
 - **Total Unit-Quarters:** 416
 - **Completed:** 351 (84.4%)
 - **Remaining:** 65
-- **Last Commit:** 5498005
+- **Last Commit:** 9b63658
 
 ## Validation Status
 
@@ -17,8 +17,8 @@
 ### Critical Validation Failures
 
 **american_1943q1_1_armored_division:**
-  - ❌ Missing required fields: nation and quarter
-  - ❌ Invalid nation: "unknown" (allowed: german, italian, british, american, french)
+  - ❌ Missing required field: unit_designation
+  - ❌ Missing required field: organization_level
 
 ## Chapter Status
 
@@ -55,8 +55,8 @@ If this session crashes or needs to resume:
 ## Session Info
 
 - **Session ID:** complete_seed_generated
-- **Checkpoint Time:** 2025-10-25T00:29:06.129Z
-- **Git Commit:** 5498005
+- **Checkpoint Time:** 2025-10-25T00:29:44.834Z
+- **Git Commit:** 9b63658
 
 ---
 
