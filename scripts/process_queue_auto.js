@@ -273,6 +273,14 @@ async function main() {
     // Parse command-line arguments
     const { mode, batches: requestedBatches } = await parseArgs();
 
+    // Create CONTINUOUS_MODE_ACTIVE flag file for continuous mode
+    if (mode === 'continuous') {
+        const flagPath = path.join(PROJECT_ROOT, 'CONTINUOUS_MODE_ACTIVE.txt');
+        const flagContent = `# CONTINUOUS MODE ACTIVE\n\nStarted: ${new Date().toISOString()}\n\n⚠️ CLAUDE: Continue processing until queue is empty. DO NOT STOP EARLY.\n`;
+        await fs.writeFile(flagPath, flagContent, 'utf-8');
+        console.log('📝 CONTINUOUS_MODE_ACTIVE.txt created - Claude MUST continue until queue empty\n');
+    }
+
     let batchesToRun = requestedBatches;
 
     if (mode === 'interactive') {
@@ -400,6 +408,17 @@ async function main() {
     if (completedBatches > 0) {
         console.log('🧠 MCP Memory: Updated after each batch');
         console.log('📄 Documentation: START_HERE and PROJECT_SCOPE synced\n');
+    }
+
+    // Remove continuous mode flag if queue is empty or processing complete
+    if (mode === 'continuous') {
+        const flagPath = path.join(PROJECT_ROOT, 'CONTINUOUS_MODE_ACTIVE.txt');
+        try {
+            await fs.unlink(flagPath);
+            console.log('✅ CONTINUOUS_MODE_ACTIVE.txt removed - continuous mode complete\n');
+        } catch (error) {
+            // Ignore if file doesn't exist
+        }
     }
 }
 

@@ -1,0 +1,31 @@
+# CONTINUOUS MODE ACTIVE
+
+**Status**: ACTIVE
+**Started**: 2025-10-24
+**Mode**: auto:continuous
+**Target**: Process all remaining units until queue is empty
+
+## Instructions for Claude
+
+YOU ARE IN CONTINUOUS MODE. This means:
+
+✅ Continue processing batches until the queue is EMPTY
+❌ DO NOT stop after "a good number" of units
+❌ DO NOT ask user for permission to continue
+❌ DO NOT run session:end yourself (script handles it)
+
+## Only Stop If:
+
+1. WORK_QUEUE.md shows 0 units remaining
+2. Critical error prevents extraction (file system, etc.)
+3. User explicitly says "STOP"
+
+## Current Status
+
+Check WORK_QUEUE.md for remaining units.
+
+If you see this file, you MUST continue processing until the queue is empty.
+
+Delete this file when:
+- Queue is empty (416/416 units complete)
+- User cancels continuous mode

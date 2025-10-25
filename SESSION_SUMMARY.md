@@ -1,24 +1,24 @@
-# Session Summary - 2025-10-24T22:46:34.916Z
+# Session Summary - 2025-10-25T00:30:40.149Z
 
 ## Session Statistics
 
-- **Duration:** 8 minutes
-- **Units Completed:** 349 / 416
-- **Progress:** 83.9%
-- **Units Remaining:** 67
+- **Duration:** 39 minutes
+- **Units Completed:** 351 / 416
+- **Progress:** 84.4%
+- **Units Remaining:** 65
 
 ## Work Completed
 
-- ✅ italian_1942q3_xx_mobile_corps
-- ✅ italian_1942q4_101_divisione_motorizzata_trieste
-- ✅ italian_1942q4_102_divisione_motorizzata_trento
-- ✅ italian_1942q4_132_ariete_division
-- ✅ italian_1942q4_133a_divisione_corazzata_littorio
-- ✅ italian_1942q4_185a_divisione_paracadutisti_folgore
-- ✅ italian_1942q4_185_divisione_paracadutisti_folgore
+- ✅ italian_1942q4_bologna_division
+- ✅ italian_1942q4_brescia_division
+- ✅ italian_1942q4_centauro_division
+- ✅ italian_1942q4_la_spezia_division
+- ✅ italian_1942q4_pistoia_division
+- ✅ italian_1942q4_superga_division
 - ✅ italian_1942q4_xxi_corps
 - ✅ italian_1942q4_xx_mobile_corps
 - ✅ italian_1943q1_131_divisione_corazzata_centauro
+- ✅ italian_1943q1_giovani_fascisti_division
 
 ## Session End Checklist
 
@@ -47,8 +47,8 @@ This will:
 
 ## Notes
 
-- Session ended: 10/24/2025, 3:46:34 PM
-- Last commit: 9c84317
+- Session ended: 10/24/2025, 5:30:40 PM
+- Last commit: 6ff5677
 - Safe to close this session
 
 ---
