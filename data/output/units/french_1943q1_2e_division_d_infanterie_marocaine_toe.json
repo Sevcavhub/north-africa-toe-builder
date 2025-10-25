@@ -1,119 +1,53 @@
 {
-  "metadata": {
-    "unit_id": "french_2e_division_d_infanterie_marocaine_1943q1",
-    "unit_name": "2e Division d'Infanterie Marocaine",
-    "nation": "french",
-    "echelon": "division",
-    "quarter": "1943q1",
-    "schema_version": "3.1.0",
-    "extraction_date": "2025-10-24",
-    "extracted_by": "Claude Code",
-    "confidence_tier": "research_brief_created",
-    "confidence_score": 5,
-    "completion_percentage": 5,
-    "status": "not_formed_yet",
-    "data_quality": {
-      "primary_sources_consulted": 2,
-      "source_consistency": "high",
-      "gaps_documented": true,
-      "needs_review": false,
-      "review_notes": "SEED FILE ERROR: Unit not formed until May 1, 1943 (1943-Q2). Never participated in North Africa campaign."
-    }
-  },
-  "basic_info": {
-    "full_designation": "2e Division d'Infanterie Marocaine",
-    "short_name": "2e DIM",
-    "type": "infantry",
-    "formation_date": "1943-05-01",
-    "disbandment_date": null,
-    "theater": "none",
-    "operational_status": "not_formed",
-    "stationed_location": "Morocco (formation location, May 1943)",
-    "parent_formation": "Not applicable - unit not formed during this quarter",
-    "subordinate_units": []
-  },
+  "schema_type": "division_toe",
+  "schema_version": "3.1.0",
+  "nation": "french",
+  "quarter": "1943q1",
+  "unit_designation": "2e Division d'Infanterie Marocaine",
+  "unit_type": "Infantry Division (Moroccan)",
+  "parent_formation": "Not applicable - unit not formed until May 1943",
+  "organization_level": "division",
   "command": {
     "commander": {
       "name": "Not applicable",
       "rank": "N/A",
       "appointment_date": null,
-      "nationality": "french"
+      "previous_service": "Unit not formed during this quarter"
     },
-    "headquarters_location": "Not applicable - unit not formed"
+    "headquarters_location": "Morocco (formation location - May 1943)"
   },
-  "strength": {
-    "authorized_strength": 0,
-    "actual_strength": 0,
-    "notes": "Unit not formed until May 1943 - no strength data for 1943-Q1"
-  },
+  "total_personnel": 0,
   "combat_units": [],
   "support_units": [],
-  "equipment": {
-    "summary": {
-      "total_vehicles": 0,
-      "total_artillery": 0,
-      "total_antitank": 0,
-      "total_antiaircraft": 0
-    },
-    "categories": {},
-    "notes": "Equipment data not applicable - unit not formed during this quarter"
-  },
+  "equipment": {},
   "supply_logistics": {
-    "fuel_consumption": {
-      "daily_average_liters": 0,
-      "operational_reserve_days": 0,
-      "notes": "Not applicable - unit not formed"
-    },
-    "ammunition_expenditure": {
-      "monthly_average_tons": 0,
-      "stockpile_level": "not_applicable",
-      "notes": "Not applicable - unit not formed"
-    },
-    "water_requirements": {
-      "daily_liters_per_soldier": 0,
-      "total_daily_requirement_liters": 0,
-      "source_availability": "not_applicable"
-    },
-    "operational_radius": {
-      "maximum_km": 0,
-      "limiting_factors": ["not_formed"],
-      "notes": "Not applicable - unit not formed"
-    },
-    "supply_status": {
-      "overall_rating": "not_applicable",
-      "critical_shortages": [],
-      "notes": "Not applicable - unit formed May 1, 1943 in Morocco, deployed to Italian theater November 1943"
-    }
+    "supply_status": "not_applicable_not_formed",
+    "operational_radius_km": 0,
+    "fuel_reserves_days": 0,
+    "ammunition_days": 0,
+    "water_liters_per_day": 0,
+    "notes": "Unit not formed until May 1, 1943 (1943-Q2)"
   },
   "weather_environment": {
-    "primary_terrain": "not_applicable",
-    "temperature_range": {
-      "min_celsius": 0,
-      "max_celsius": 0,
-      "notes": "Not applicable - unit not formed during this quarter"
+    "season_quarter": "1943q1",
+    "temperature_range_c": {
+      "min": 0,
+      "max": 0
     },
-    "seasonal_impacts": {
-      "quarter": "1943q1",
-      "rainfall": "not_applicable",
-      "operational_effects": "None - unit not formed",
-      "notes": "Not applicable - unit not in existence during 1943-Q1"
-    },
-    "environmental_challenges": [],
-    "terrain_adaptation": "not_applicable"
+    "terrain_type": "not_applicable",
+    "storm_frequency_days": 0,
+    "daylight_hours": 0,
+    "notes": "Unit not in existence during 1943-Q1"
   },
   "operations": {
     "major_engagements": [],
-    "operational_tempo": "none",
+    "operational_tempo": "not_formed",
     "casualties": {
       "killed": 0,
       "wounded": 0,
-      "missing": 0,
-      "total": 0,
-      "notes": "Unit not formed during this quarter"
+      "missing": 0
     },
-    "combat_effectiveness": "not_applicable",
-    "lessons_learned": [],
-    "operational_notes": "SEED FILE ERROR: 2e Division d'Infanterie Marocaine was not formed until May 1, 1943 (1943-Q2). The division was formed in Morocco and deployed to the Italian theater in November 1943. It never participated in the North Africa campaign. This seed file entry should be removed."
+    "notes": "SEED FILE ERROR: 2e Division d'Infanterie Marocaine not formed until May 1, 1943. Deployed to Italian theater November 1943. Never participated in North Africa campaign."
   },
   "sources": [
     {
@@ -122,7 +56,7 @@
       "type": "formation_records",
       "year": 1943,
       "pages": "N/A",
-      "confidence": "primary",
+      "confidence_rating": 95,
       "notes": "Formation order dated May 1, 1943, Morocco"
     },
     {
@@ -131,37 +65,28 @@
       "type": "unit_history",
       "year": 1946,
       "pages": "N/A",
-      "confidence": "secondary",
+      "confidence_rating": 90,
       "notes": "Confirms deployment to Italy November 1943, no North Africa service"
     }
   ],
   "validation": {
-    "schema_version": "3.1.0",
-    "validation_date": "2025-10-24",
-    "critical_errors": [],
-    "warnings": [],
+    "tier": 4,
+    "status": "research_brief_created",
+    "confidence": 5,
+    "completeness_percentage": 5,
+    "notes": "TIER 4 RESEARCH BRIEF: Unit not formed until May 1, 1943 (1943-Q2). Never participated in North Africa campaign. Seed file entry should be removed.",
     "required_field_gaps": [
       "combat_units",
       "support_units",
-      "equipment.categories",
-      "operations.major_engagements",
-      "strength.authorized_strength",
-      "strength.actual_strength"
+      "equipment",
+      "personnel_strength",
+      "all_operational_data"
     ],
     "gap_documentation": {
-      "formation_timeline": {
-        "reason": "Unit not formed until May 1, 1943 (1943-Q2)",
-        "source_availability": "confirmed",
-        "research_difficulty": "resolved",
-        "notes": "Formation records confirm unit did not exist during 1943-Q1. First formed in Morocco on May 1, 1943."
-      },
-      "deployment_theater": {
-        "reason": "Unit never participated in North Africa campaign",
-        "source_availability": "confirmed",
-        "research_difficulty": "resolved",
-        "notes": "Unit deployed to Italian theater November 1943. Never operated in North Africa. This seed file entry should be REMOVED from north_africa_seed_units_COMPLETE.json."
-      }
-    },
-    "notes": "SEED FILE ERROR: Unit not formed until May 1, 1943 (1943-Q2). Never fought in North Africa - deployed to Italy theater November 1943. Recommend removing this entry from seed file."
+      "reason": "Unit did not exist during 1943-Q1",
+      "formation_date": "May 1, 1943 (1943-Q2)",
+      "theater_assignment": "Italian theater (November 1943 onwards)",
+      "recommendation": "Remove from North Africa seed file - unit never fought in theater"
+    }
   }
 }

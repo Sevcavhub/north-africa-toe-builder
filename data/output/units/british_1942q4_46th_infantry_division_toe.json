@@ -1,119 +1,53 @@
 {
-  "metadata": {
-    "unit_id": "british_46th_infantry_division_1942q4",
-    "unit_name": "46th Infantry Division",
-    "nation": "british",
-    "echelon": "division",
-    "quarter": "1942q4",
-    "schema_version": "3.1.0",
-    "extraction_date": "2025-10-24",
-    "extracted_by": "Claude Code",
-    "confidence_tier": "research_brief_created",
-    "confidence_score": 10,
-    "completion_percentage": 5,
-    "status": "not_in_theater",
-    "data_quality": {
-      "primary_sources_consulted": 3,
-      "source_consistency": "high",
-      "gaps_documented": true,
-      "needs_review": false,
-      "review_notes": "SEED FILE ERROR: Unit was not deployed to North Africa theater during this quarter. Documentation confirms UK location."
-    }
-  },
-  "basic_info": {
-    "full_designation": "46th Infantry Division",
-    "short_name": "46th Division",
-    "type": "infantry",
-    "formation_date": "1939-09-01",
-    "disbandment_date": null,
-    "theater": "none",
-    "operational_status": "training",
-    "stationed_location": "United Kingdom",
-    "parent_formation": "First Army (planned deployment)",
-    "subordinate_units": []
-  },
+  "schema_type": "division_toe",
+  "schema_version": "3.1.0",
+  "nation": "british",
+  "quarter": "1942q4",
+  "unit_designation": "46th Infantry Division",
+  "unit_type": "Infantry Division",
+  "parent_formation": "First Army (planned deployment - not in theater)",
+  "organization_level": "division",
   "command": {
     "commander": {
       "name": "Major-General John Hawkesworth",
       "rank": "Major-General",
       "appointment_date": "1942-08-01",
-      "nationality": "british"
+      "previous_service": "Staff duties, Home Forces"
     },
-    "headquarters_location": "United Kingdom"
+    "headquarters_location": "United Kingdom (not deployed to North Africa in 1942-Q4)"
   },
-  "strength": {
-    "authorized_strength": 0,
-    "actual_strength": 0,
-    "notes": "Unit in UK during this quarter - no North Africa deployment"
-  },
+  "total_personnel": 0,
   "combat_units": [],
   "support_units": [],
-  "equipment": {
-    "summary": {
-      "total_vehicles": 0,
-      "total_artillery": 0,
-      "total_antitank": 0,
-      "total_antiaircraft": 0
-    },
-    "categories": {},
-    "notes": "Equipment data not applicable - unit not deployed to theater"
-  },
+  "equipment": {},
   "supply_logistics": {
-    "fuel_consumption": {
-      "daily_average_liters": 0,
-      "operational_reserve_days": 0,
-      "notes": "Not applicable - unit in UK"
-    },
-    "ammunition_expenditure": {
-      "monthly_average_tons": 0,
-      "stockpile_level": "not_applicable",
-      "notes": "Not applicable - unit in UK"
-    },
-    "water_requirements": {
-      "daily_liters_per_soldier": 0,
-      "total_daily_requirement_liters": 0,
-      "source_availability": "not_applicable"
-    },
-    "operational_radius": {
-      "maximum_km": 0,
-      "limiting_factors": ["not_deployed"],
-      "notes": "Not applicable - unit in UK"
-    },
-    "supply_status": {
-      "overall_rating": "not_applicable",
-      "critical_shortages": [],
-      "notes": "Not applicable - unit in UK undergoing final training and preparation for deployment"
-    }
+    "supply_status": "not_applicable_not_in_theater",
+    "operational_radius_km": 0,
+    "fuel_reserves_days": 0,
+    "ammunition_days": 0,
+    "water_liters_per_day": 0,
+    "notes": "Unit not deployed to North Africa during 1942-Q4"
   },
   "weather_environment": {
-    "primary_terrain": "not_applicable",
-    "temperature_range": {
-      "min_celsius": 0,
-      "max_celsius": 0,
-      "notes": "Not applicable - unit not in theater"
+    "season_quarter": "1942q4",
+    "temperature_range_c": {
+      "min": 0,
+      "max": 0
     },
-    "seasonal_impacts": {
-      "quarter": "1942q4",
-      "rainfall": "not_applicable",
-      "operational_effects": "None - unit in UK",
-      "notes": "Not applicable - unit not in North Africa theater"
-    },
-    "environmental_challenges": [],
-    "terrain_adaptation": "not_applicable"
+    "terrain_type": "not_applicable",
+    "storm_frequency_days": 0,
+    "daylight_hours": 0,
+    "notes": "Unit stationed in United Kingdom, not North Africa"
   },
   "operations": {
     "major_engagements": [],
-    "operational_tempo": "none",
+    "operational_tempo": "training",
     "casualties": {
       "killed": 0,
       "wounded": 0,
-      "missing": 0,
-      "total": 0,
-      "notes": "Unit not in combat during this quarter"
+      "missing": 0
     },
-    "combat_effectiveness": "not_applicable",
-    "lessons_learned": [],
-    "operational_notes": "Unit remained in United Kingdom during entire quarter undergoing final training. First elements departed UK on December 24, 1942, and arrived in Algiers on January 3, 1943 (1943-Q1)."
+    "notes": "SEED FILE ERROR: Unit did not arrive in North Africa until January 3, 1943 (1943-Q1). Departed UK December 24, 1942."
   },
   "sources": [
     {
@@ -122,17 +56,8 @@
       "type": "unit_history",
       "year": 1944,
       "pages": "46-52",
-      "confidence": "primary",
-      "notes": "Confirms unit departure date of December 24, 1942 from UK"
-    },
-    {
-      "title": "British Infantry Divisions 1939-1945",
-      "author": "Forty, George",
-      "type": "reference",
-      "year": 1996,
-      "pages": "87-89",
-      "confidence": "secondary",
-      "notes": "Timeline shows 46th Division arrived Algeria January 1943"
+      "confidence_rating": 95,
+      "notes": "Confirms departure December 24, 1942, arrival Algeria January 3, 1943"
     },
     {
       "title": "The Mediterranean and Middle East Vol IV",
@@ -140,37 +65,26 @@
       "type": "official_history",
       "year": 1966,
       "pages": "223",
-      "confidence": "primary",
-      "notes": "Official history confirms arrival date of January 3, 1943 in Algiers"
+      "confidence_rating": 100,
+      "notes": "Official history confirms 1943-Q1 arrival"
     }
   ],
   "validation": {
-    "schema_version": "3.1.0",
-    "validation_date": "2025-10-24",
-    "critical_errors": [],
-    "warnings": [],
+    "tier": 4,
+    "status": "research_brief_created",
+    "confidence": 10,
+    "completeness_percentage": 5,
+    "notes": "TIER 4 RESEARCH BRIEF: Unit not in theater during 1942-Q4. Seed file entry should be removed. Unit properly extracted for 1943-Q1 period.",
     "required_field_gaps": [
       "combat_units",
       "support_units",
-      "equipment.categories",
-      "operations.major_engagements",
-      "strength.authorized_strength",
-      "strength.actual_strength"
+      "equipment",
+      "personnel_strength"
     ],
     "gap_documentation": {
-      "combat_units": {
-        "reason": "Unit not deployed to North Africa theater during this quarter",
-        "source_availability": "not_applicable",
-        "research_difficulty": "not_applicable",
-        "notes": "SEED FILE ERROR: 46th Infantry Division did not arrive in North Africa until 1943-Q1. First elements departed UK December 24, 1942 and arrived Algiers January 3, 1943."
-      },
-      "deployment_timeline": {
-        "reason": "Chronological discrepancy in seed file",
-        "source_availability": "confirmed",
-        "research_difficulty": "resolved",
-        "notes": "Multiple primary sources confirm unit was stationed in UK throughout October-December 1942. Deployment to North Africa began December 24, 1942 with arrival in Algeria on January 3, 1943. The 1942-Q4 entry in north_africa_seed_units_COMPLETE.json should be removed. Actual North Africa service begins 1943-Q1 (already in seed file)."
-      }
-    },
-    "notes": "SEED FILE ERROR: Unit was not deployed to North Africa during 1942-Q4. Timeline documentation confirms UK location throughout this quarter with deployment beginning December 24, 1942 (arrival January 3, 1943 in 1943-Q1). This seed file entry should be removed as erroneous."
+      "reason": "Unit not deployed to North Africa theater during 1942-Q4",
+      "deployment_date": "January 3, 1943 (1943-Q1)",
+      "recommendation": "Remove 1942-Q4 entry from seed file"
+    }
   }
 }

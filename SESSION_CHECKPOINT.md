@@ -1,28 +1,20 @@
-# Session Checkpoint - 2025-10-25T04:12:57.023Z
+# Session Checkpoint - 2025-10-25T04:15:25.251Z
 
 ## Progress Summary
 
 - **Total Unit-Quarters:** 416
 - **Completed:** 381 (91.6%)
 - **Remaining:** 35
-- **Last Commit:** 7bd587b
+- **Last Commit:** 66d3e0d
 
 ## Validation Status
 
 - **Total Validated:** 384
 - **✅ Passed:** 0 (0.0%)
-- **❌ Failed:** 2 ⚠️
-- **⚠️ Warnings:** 382
+- **❌ Failed:** 0 ✅
+- **⚠️ Warnings:** 384
 
-### Critical Validation Failures
-
-**british_1942q4_46th_infantry_division:**
-  - ❌ Missing required fields: nation and quarter
-  - ❌ Invalid nation: "unknown" (allowed: german, italian, british, american, french)
-
-**french_1943q1_2e_division_d_infanterie_marocaine:**
-  - ❌ Missing required fields: nation and quarter
-  - ❌ Invalid nation: "unknown" (allowed: german, italian, british, american, french)
+**All units passed validation** ✅
 
 ## Chapter Status
 
@@ -59,8 +51,8 @@ If this session crashes or needs to resume:
 ## Session Info
 
 - **Session ID:** complete_seed_generated
-- **Checkpoint Time:** 2025-10-25T04:12:56.920Z
-- **Git Commit:** 7bd587b
+- **Checkpoint Time:** 2025-10-25T04:15:25.152Z
+- **Git Commit:** 66d3e0d
 
 ---
 
