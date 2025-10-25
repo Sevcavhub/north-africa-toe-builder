@@ -1,9 +1,9 @@
 # North Africa Work Queue
 
-**Generated**: 2025-10-25T02:34:25.431Z
+**Generated**: 2025-10-25T02:41:20.769Z
 
-**Progress**: 318/413 units complete (77.0%)
-**Remaining**: 95 units
+**Progress**: 320/413 units complete (77.5%)
+**Remaining**: 93 units
 
 ---
 
@@ -20,8 +20,8 @@
 ## 🎯 Next Up (Next Session)
 
 1. **BRITISH** - 1942-Q4 - 46th Infantry Division _(infantry_division)_
-2. **AMERICAN** - 1943-Q1 - 34th Infantry Division _(infantry_division)_
-3. **AMERICAN** - 1943-Q1 - 3rd Infantry Division _(infantry_division)_
+2. **AMERICAN** - 1943-Q1 - 45th Infantry Division _(infantry_division)_
+3. **AMERICAN** - 1943-Q1 - 9th Infantry Division _(infantry_division)_
 
 ---
 
@@ -37,11 +37,9 @@
 - [ ] GERMAN - 5th Panzer Army
 - [ ] GERMAN - Panzerarmee Afrika
 
-### 1943-Q1 (16/56 complete)
+### 1943-Q1 (18/56 complete)
 
-**INFANTRY_DIVISION** (15 remaining):
-- [ ] AMERICAN - 34th Infantry Division
-- [ ] AMERICAN - 3rd Infantry Division
+**INFANTRY_DIVISION** (13 remaining):
 - [ ] AMERICAN - 45th Infantry Division
 - [ ] AMERICAN - 9th Infantry Division
 - [ ] BRITISH - 1st Infantry Division
@@ -166,7 +164,7 @@
 
 ---
 
-## ✅ Completed (318 units)
+## ✅ Completed (320 units)
 
 <details>
 <summary>Show completed units</summary>
@@ -504,13 +502,15 @@
 - [x] ITALIAN - XXI Corpo d'Armata (XXI Corps) _(corps)_
 - [x] BRITISH - Eighth Army (8th Army) _(army)_
 
-### 1943-Q1 (16 complete)
+### 1943-Q1 (18 complete)
 
 - [x] BRITISH - 1st Greek Brigade _(brigade)_
 - [x] FRENCH - Force L _(brigade)_
 - [x] AMERICAN - 1st Armored Division _(armored_division)_
 - [x] AMERICAN - 1st Infantry Division _(infantry_division)_
 - [x] AMERICAN - 2nd Armored Division _(armored_division)_
+- [x] AMERICAN - 34th Infantry Division _(infantry_division)_
+- [x] AMERICAN - 3rd Infantry Division _(infantry_division)_
 - [x] BRITISH - 2nd New Zealand Division _(infantry_division)_
 - [x] BRITISH - 50th Infantry Division _(infantry_division)_
 - [x] FRENCH - 1re Division Française Libre _(infantry_division)_
