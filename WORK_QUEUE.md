@@ -1,9 +1,9 @@
 # North Africa Work Queue
 
-**Generated**: 2025-10-25T02:41:20.769Z
+**Generated**: 2025-10-25T02:51:22.648Z
 
-**Progress**: 320/413 units complete (77.5%)
-**Remaining**: 93 units
+**Progress**: 322/413 units complete (78.0%)
+**Remaining**: 91 units
 
 ---
 
@@ -20,8 +20,8 @@
 ## 🎯 Next Up (Next Session)
 
 1. **BRITISH** - 1942-Q4 - 46th Infantry Division _(infantry_division)_
-2. **AMERICAN** - 1943-Q1 - 45th Infantry Division _(infantry_division)_
-3. **AMERICAN** - 1943-Q1 - 9th Infantry Division _(infantry_division)_
+2. **BRITISH** - 1943-Q1 - 10th Armoured Division _(division)_
+3. **BRITISH** - 1943-Q1 - 1st Armoured Division _(division)_
 
 ---
 
@@ -37,11 +37,18 @@
 - [ ] GERMAN - 5th Panzer Army
 - [ ] GERMAN - Panzerarmee Afrika
 
-### 1943-Q1 (18/56 complete)
+### 1943-Q1 (20/56 complete)
 
-**INFANTRY_DIVISION** (13 remaining):
-- [ ] AMERICAN - 45th Infantry Division
-- [ ] AMERICAN - 9th Infantry Division
+**DIVISION** (7 remaining):
+- [ ] BRITISH - 10th Armoured Division
+- [ ] BRITISH - 1st Armoured Division
+- [ ] BRITISH - 6th Armoured Division
+- [ ] BRITISH - 7th Armoured Division
+- [ ] FRENCH - 1st Moroccan March Division
+- [ ] FRENCH - Algerian March Division
+- [ ] FRENCH - Constantine March Division
+
+**INFANTRY_DIVISION** (11 remaining):
 - [ ] BRITISH - 1st Infantry Division
 - [ ] BRITISH - 44th Infantry Division
 - [ ] BRITISH - 46th Infantry Division
@@ -53,15 +60,6 @@
 - [ ] ITALIAN - La Spezia Division
 - [ ] ITALIAN - Pistoia Division
 - [ ] ITALIAN - Superga Division
-
-**DIVISION** (7 remaining):
-- [ ] BRITISH - 10th Armoured Division
-- [ ] BRITISH - 1st Armoured Division
-- [ ] BRITISH - 6th Armoured Division
-- [ ] BRITISH - 7th Armoured Division
-- [ ] FRENCH - 1st Moroccan March Division
-- [ ] FRENCH - Algerian March Division
-- [ ] FRENCH - Constantine March Division
 
 **LIGHT_DIVISION** (1 remaining):
 - [ ] GERMAN - 90. leichte Division
@@ -164,7 +162,7 @@
 
 ---
 
-## ✅ Completed (320 units)
+## ✅ Completed (322 units)
 
 <details>
 <summary>Show completed units</summary>
@@ -502,7 +500,7 @@
 - [x] ITALIAN - XXI Corpo d'Armata (XXI Corps) _(corps)_
 - [x] BRITISH - Eighth Army (8th Army) _(army)_
 
-### 1943-Q1 (18 complete)
+### 1943-Q1 (20 complete)
 
 - [x] BRITISH - 1st Greek Brigade _(brigade)_
 - [x] FRENCH - Force L _(brigade)_
@@ -511,6 +509,8 @@
 - [x] AMERICAN - 2nd Armored Division _(armored_division)_
 - [x] AMERICAN - 34th Infantry Division _(infantry_division)_
 - [x] AMERICAN - 3rd Infantry Division _(infantry_division)_
+- [x] AMERICAN - 45th Infantry Division _(infantry_division)_
+- [x] AMERICAN - 9th Infantry Division _(infantry_division)_
 - [x] BRITISH - 2nd New Zealand Division _(infantry_division)_
 - [x] BRITISH - 50th Infantry Division _(infantry_division)_
 - [x] FRENCH - 1re Division Française Libre _(infantry_division)_
