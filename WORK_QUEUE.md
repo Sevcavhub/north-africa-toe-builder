@@ -1,9 +1,9 @@
 # North Africa Work Queue
 
-**Generated**: 2025-10-25T04:04:50.237Z
+**Generated**: 2025-10-25T04:12:57.010Z
 
-**Progress**: 335/413 units complete (81.1%)
-**Remaining**: 78 units
+**Progress**: 336/413 units complete (81.4%)
+**Remaining**: 77 units
 
 ---
 
@@ -21,7 +21,7 @@
 
 1. **BRITISH** - 1942-Q4 - 46th Infantry Division _(infantry_division)_
 2. **FRENCH** - 1943-Q1 - 2e Division d'Infanterie Marocaine _(infantry_division)_
-3. **FRENCH** - 1943-Q1 - Constantine March Division _(division)_
+3. **GERMAN** - 1943-Q1 - 90. leichte Division _(light_division)_
 
 ---
 
@@ -37,16 +37,13 @@
 - [ ] GERMAN - 5th Panzer Army
 - [ ] GERMAN - Panzerarmee Afrika
 
-### 1943-Q1 (33/56 complete)
+### 1943-Q1 (34/56 complete)
 
 **INFANTRY_DIVISION** (4 remaining):
 - [ ] FRENCH - 2e Division d'Infanterie Marocaine
 - [ ] ITALIAN - La Spezia Division
 - [ ] ITALIAN - Pistoia Division
 - [ ] ITALIAN - Superga Division
-
-**DIVISION** (1 remaining):
-- [ ] FRENCH - Constantine March Division
 
 **LIGHT_DIVISION** (1 remaining):
 - [ ] GERMAN - 90. leichte Division
@@ -149,7 +146,7 @@
 
 ---
 
-## ✅ Completed (335 units)
+## ✅ Completed (336 units)
 
 <details>
 <summary>Show completed units</summary>
@@ -487,7 +484,7 @@
 - [x] ITALIAN - XXI Corpo d'Armata (XXI Corps) _(corps)_
 - [x] BRITISH - Eighth Army (8th Army) _(army)_
 
-### 1943-Q1 (33 complete)
+### 1943-Q1 (34 complete)
 
 - [x] BRITISH - 1st Greek Brigade _(brigade)_
 - [x] FRENCH - Force L _(brigade)_
@@ -514,6 +511,7 @@
 - [x] FRENCH - 1re Division Française Libre _(infantry_division)_
 - [x] FRENCH - 1st Moroccan March Division _(division)_
 - [x] FRENCH - Algerian March Division _(division)_
+- [x] FRENCH - Constantine March Division _(division)_
 - [x] GERMAN - 10. Panzer-Division _(panzer_division)_
 - [x] GERMAN - 15. Panzer-Division _(panzer_division)_
 - [x] GERMAN - 164. leichte Division _(light_division)_

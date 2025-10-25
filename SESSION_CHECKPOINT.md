@@ -1,18 +1,18 @@
-# Session Checkpoint - 2025-10-25T04:04:50.251Z
+# Session Checkpoint - 2025-10-25T04:12:57.023Z
 
 ## Progress Summary
 
 - **Total Unit-Quarters:** 416
-- **Completed:** 351 (84.4%)
-- **Remaining:** 65
-- **Last Commit:** aed9c0a
+- **Completed:** 381 (91.6%)
+- **Remaining:** 35
+- **Last Commit:** 7bd587b
 
 ## Validation Status
 
-- **Total Validated:** 383
+- **Total Validated:** 384
 - **✅ Passed:** 0 (0.0%)
 - **❌ Failed:** 2 ⚠️
-- **⚠️ Warnings:** 381
+- **⚠️ Warnings:** 382
 
 ### Critical Validation Failures
 
@@ -21,15 +21,13 @@
   - ❌ Invalid nation: "unknown" (allowed: german, italian, british, american, french)
 
 **french_1943q1_2e_division_d_infanterie_marocaine:**
-  - ❌ Missing required field: schema_type
-  - ❌ Missing required field: schema_version
-  - ❌ Missing required field: unit_designation
-  - ❌ Missing required field: organization_level
+  - ❌ Missing required fields: nation and quarter
+  - ❌ Invalid nation: "unknown" (allowed: german, italian, british, american, french)
 
 ## Chapter Status
 
-- **JSON Files:** 383
-- **MDBook Chapters:** 383 ✅
+- **JSON Files:** 384
+- **MDBook Chapters:** 384 ✅
 - **All chapters present** ✅
 
 ## Recent Completions
@@ -56,13 +54,13 @@ If this session crashes or needs to resume:
 
 3. **View full progress:**
    - See WORKFLOW_STATE.json for complete list
-   - 351 units saved successfully
+   - 381 units saved successfully
 
 ## Session Info
 
 - **Session ID:** complete_seed_generated
-- **Checkpoint Time:** 2025-10-25T04:04:50.149Z
-- **Git Commit:** aed9c0a
+- **Checkpoint Time:** 2025-10-25T04:12:56.920Z
+- **Git Commit:** 7bd587b
 
 ---
 
