@@ -1,34 +1,40 @@
-# Session Checkpoint - 2025-10-25T12:27:37.428Z
+# Session Checkpoint - 2025-10-25T12:35:32.564Z
 
 ## Progress Summary
 
 - **Total Unit-Quarters:** 416
 - **Completed:** 383 (92.1%)
 - **Remaining:** 33
-- **Last Commit:** 7df37f9
+- **Last Commit:** 2b3c8fe
 
 ## Validation Status
 
-- **Total Validated:** 386
+- **Total Validated:** 389
 - **✅ Passed:** 0 (0.0%)
-- **❌ Failed:** 0 ✅
-- **⚠️ Warnings:** 386
+- **❌ Failed:** 1 ⚠️
+- **⚠️ Warnings:** 388
 
-**All units passed validation** ✅
+### Critical Validation Failures
+
+**italian_1943q1_littorio_division:**
+  - ❌ Missing required field: schema_type
+  - ❌ Missing required field: schema_version
+  - ❌ Missing required field: unit_designation
+  - ❌ Missing required field: organization_level
 
 ## Chapter Status
 
-- **JSON Files:** 386
-- **MDBook Chapters:** 386 ✅
+- **JSON Files:** 389
+- **MDBook Chapters:** 389 ✅
 - **All chapters present** ✅
 
 ## Recent Completions
 
-- ✅ italian_1942q4_xxi_corps
-- ✅ italian_1942q4_xx_mobile_corps
 - ✅ italian_1943q1_101st_trieste_division
 - ✅ italian_1943q1_131_divisione_corazzata_centauro
 - ✅ italian_1943q1_giovani_fascisti_division
+- ✅ italian_1943q1_la_spezia_division
+- ✅ italian_1943q1_pistoia_division
 
 ## Recovery Instructions
 
@@ -51,8 +57,8 @@ If this session crashes or needs to resume:
 ## Session Info
 
 - **Session ID:** complete_seed_generated
-- **Checkpoint Time:** 2025-10-25T12:27:37.324Z
-- **Git Commit:** 7df37f9
+- **Checkpoint Time:** 2025-10-25T12:35:32.464Z
+- **Git Commit:** 2b3c8fe
 
 ---
 

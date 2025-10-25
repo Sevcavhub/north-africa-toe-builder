@@ -1,11 +1,11 @@
-# Session Summary - 2025-10-25T04:16:30.320Z
+# Session Summary - 2025-10-25T12:27:39.278Z
 
 ## Session Statistics
 
 - **Duration:** unknown minutes
-- **Units Completed:** 381 / 416
-- **Progress:** 91.6%
-- **Units Remaining:** 35
+- **Units Completed:** 383 / 416
+- **Progress:** 92.1%
+- **Units Remaining:** 33
 
 ## Work Completed
 
@@ -15,8 +15,8 @@
 - ✅ italian_1942q4_la_spezia_division
 - ✅ italian_1942q4_pistoia_division
 - ✅ italian_1942q4_superga_division
-- ✅ italian_1942q4_xxi_corps
 - ✅ italian_1942q4_xx_mobile_corps
+- ✅ italian_1942q4_xxi_corps
 - ✅ italian_1943q1_131_divisione_corazzata_centauro
 - ✅ italian_1943q1_giovani_fascisti_division
 
@@ -47,7 +47,7 @@ This will:
 
 ## Notes
 
-- Session ended: 10/24/2025, 9:16:30 PM
+- Session ended: 10/25/2025, 5:27:39 AM
 - Last commit: 66d3e0d
 - Safe to close this session
 

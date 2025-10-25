@@ -1,9 +1,9 @@
 # North Africa Work Queue
 
-**Generated**: 2025-10-25T12:27:37.414Z
+**Generated**: 2025-10-25T12:35:32.551Z
 
-**Progress**: 340/413 units complete (82.3%)
-**Remaining**: 73 units
+**Progress**: 342/413 units complete (82.8%)
+**Remaining**: 71 units
 
 ---
 
@@ -19,9 +19,9 @@
 
 ## 🎯 Next Up (Next Session)
 
-1. **ITALIAN** - 1943-Q1 - La Spezia Division _(infantry_division)_
-2. **ITALIAN** - 1943-Q1 - Littorio Division _(armored_division)_
-3. **ITALIAN** - 1943-Q1 - Pistoia Division _(infantry_division)_
+1. **ITALIAN** - 1943-Q1 - Littorio Division _(armored_division)_
+2. **ITALIAN** - 1943-Q1 - Superga Division _(infantry_division)_
+3. **ITALIAN** - 1943-Q1 - Trento Division _(motorized_division)_
 
 ---
 
@@ -39,15 +39,13 @@
 - [ ] GERMAN - 5th Panzer Army
 - [ ] GERMAN - Panzerarmee Afrika
 
-### 1943-Q1 (38/56 complete)
-
-**INFANTRY_DIVISION** (3 remaining):
-- [ ] ITALIAN - La Spezia Division
-- [ ] ITALIAN - Pistoia Division
-- [ ] ITALIAN - Superga Division
+### 1943-Q1 (40/56 complete)
 
 **ARMORED_DIVISION** (1 remaining):
 - [ ] ITALIAN - Littorio Division
+
+**INFANTRY_DIVISION** (1 remaining):
+- [ ] ITALIAN - Superga Division
 
 **MOTORIZED_DIVISION** (1 remaining):
 - [ ] ITALIAN - Trento Division
@@ -140,7 +138,7 @@
 
 ---
 
-## ✅ Completed (340 units)
+## ✅ Completed (342 units)
 
 <details>
 <summary>Show completed units</summary>
@@ -478,7 +476,7 @@
 - [x] ITALIAN - XXI Corpo d'Armata (XXI Corps) _(corps)_
 - [x] BRITISH - Eighth Army (8th Army) _(army)_
 
-### 1943-Q1 (38 complete)
+### 1943-Q1 (40 complete)
 
 - [x] BRITISH - 1st Greek Brigade _(brigade)_
 - [x] FRENCH - Force L _(brigade)_
@@ -516,6 +514,8 @@
 - [x] ITALIAN - 101st TRIESTE Division _(motorized_division)_
 - [x] ITALIAN - Centauro Division _(armored_division)_
 - [x] ITALIAN - Giovani Fascisti Division _(armored_division)_
+- [x] ITALIAN - La Spezia Division _(infantry_division)_
+- [x] ITALIAN - Pistoia Division _(infantry_division)_
 - [x] AMERICAN - II Corps _(corps)_
 - [x] GERMAN - Panzerarmee Afrika _(army)_
 
