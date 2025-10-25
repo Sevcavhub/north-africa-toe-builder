@@ -1,34 +1,38 @@
-# Session Checkpoint - 2025-10-25T00:20:15.473Z
+# Session Checkpoint - 2025-10-25T00:29:06.231Z
 
 ## Progress Summary
 
 - **Total Unit-Quarters:** 416
 - **Completed:** 351 (84.4%)
 - **Remaining:** 65
-- **Last Commit:** c9e58b8
+- **Last Commit:** 5498005
 
 ## Validation Status
 
-- **Total Validated:** 360
+- **Total Validated:** 363
 - **✅ Passed:** 0 (0.0%)
-- **❌ Failed:** 0 ✅
-- **⚠️ Warnings:** 360
+- **❌ Failed:** 1 ⚠️
+- **⚠️ Warnings:** 362
 
-**All units passed validation** ✅
+### Critical Validation Failures
+
+**american_1943q1_1_armored_division:**
+  - ❌ Missing required fields: nation and quarter
+  - ❌ Invalid nation: "unknown" (allowed: german, italian, british, american, french)
 
 ## Chapter Status
 
-- **JSON Files:** 360
-- **MDBook Chapters:** 360 ✅
+- **JSON Files:** 363
+- **MDBook Chapters:** 363 ✅
 - **All chapters present** ✅
 
 ## Recent Completions
 
-- ✅ italian_1942q4_pistoia_division
 - ✅ italian_1942q4_superga_division
 - ✅ italian_1942q4_xxi_corps
 - ✅ italian_1942q4_xx_mobile_corps
 - ✅ italian_1943q1_131_divisione_corazzata_centauro
+- ✅ italian_1943q1_giovani_fascisti_division
 
 ## Recovery Instructions
 
@@ -51,8 +55,8 @@ If this session crashes or needs to resume:
 ## Session Info
 
 - **Session ID:** complete_seed_generated
-- **Checkpoint Time:** 2025-10-25T00:20:15.373Z
-- **Git Commit:** c9e58b8
+- **Checkpoint Time:** 2025-10-25T00:29:06.129Z
+- **Git Commit:** 5498005
 
 ---
 
