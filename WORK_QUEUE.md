@@ -1,9 +1,9 @@
 # North Africa Work Queue
 
-**Generated**: 2025-10-26T12:19:09.226Z
+**Generated**: 2025-10-26T12:34:07.175Z
 
-**Progress**: 357/413 units complete (86.4%)
-**Remaining**: 56 units
+**Progress**: 362/412 units complete (87.9%)
+**Remaining**: 50 units
 
 ---
 
@@ -19,9 +19,9 @@
 
 ## 🎯 Next Up (Next Session)
 
-1. **ITALIAN** - 1943-Q1 - Littorio Division _(armored_division)_
-2. **ITALIAN** - 1943-Q1 - Trento Division _(motorized_division)_
-3. **AMERICAN** - 1943-Q2 - 2nd Armored Division _(armored_division)_
+1. **BRITISH** - 1943-Q2 - 1st Armoured Division _(division)_
+2. **BRITISH** - 1943-Q2 - 44th Infantry Division _(infantry_division)_
+3. **BRITISH** - 1943-Q2 - 6th Armoured Division _(division)_
 
 ---
 
@@ -39,13 +39,7 @@
 - [ ] GERMAN - 5th Panzer Army
 - [ ] GERMAN - Panzerarmee Afrika
 
-### 1943-Q1 (41/56 complete)
-
-**ARMORED_DIVISION** (1 remaining):
-- [ ] ITALIAN - Littorio Division
-
-**MOTORIZED_DIVISION** (1 remaining):
-- [ ] ITALIAN - Trento Division
+### 1943-Q1 (42/55 complete)
 
 **CORPS** (9 remaining):
 - [ ] BRITISH - V Corps
@@ -64,29 +58,21 @@
 - [ ] GERMAN - 5th Panzer Army
 - [ ] ITALIAN - First Italian Army
 
-### 1943-Q2 (16/53 complete)
+### 1943-Q2 (20/53 complete)
 
-**ARMORED_DIVISION** (3 remaining):
-- [ ] AMERICAN - 2nd Armored Division
-- [ ] ITALIAN - Centauro Division
-- [ ] ITALIAN - Giovani Fascisti Division
-
-**INFANTRY_DIVISION** (6 remaining):
-- [ ] AMERICAN - 3rd Infantry Division
-- [ ] BRITISH - 2nd New Zealand Division
-- [ ] BRITISH - 44th Infantry Division
-- [ ] FRENCH - 2e Division d'Infanterie Marocaine
-- [ ] ITALIAN - Pistoia Division
-- [ ] ITALIAN - Superga Division
-
-**DIVISION** (7 remaining):
-- [ ] BRITISH - 10th Armoured Division
+**DIVISION** (6 remaining):
 - [ ] BRITISH - 1st Armoured Division
 - [ ] BRITISH - 6th Armoured Division
 - [ ] BRITISH - 7th Armoured Division
 - [ ] FRENCH - 1st Moroccan March Division
 - [ ] FRENCH - Algerian March Division
 - [ ] FRENCH - Constantine March Division
+
+**INFANTRY_DIVISION** (4 remaining):
+- [ ] BRITISH - 44th Infantry Division
+- [ ] FRENCH - 2e Division d'Infanterie Marocaine
+- [ ] ITALIAN - Pistoia Division
+- [ ] ITALIAN - Superga Division
 
 **PANZER_DIVISION** (4 remaining):
 - [ ] GERMAN - 10. Panzer-Division
@@ -100,6 +86,10 @@
 
 **MOTORIZED_DIVISION** (1 remaining):
 - [ ] ITALIAN - 101st TRIESTE Division
+
+**ARMORED_DIVISION** (2 remaining):
+- [ ] ITALIAN - Centauro Division
+- [ ] ITALIAN - Giovani Fascisti Division
 
 **CORPS** (10 remaining):
 - [ ] AMERICAN - II Corps
@@ -121,7 +111,7 @@
 
 ---
 
-## ✅ Completed (357 units)
+## ✅ Completed (362 units)
 
 <details>
 <summary>Show completed units</summary>
@@ -459,7 +449,7 @@
 - [x] ITALIAN - XXI Corpo d'Armata (XXI Corps) _(corps)_
 - [x] BRITISH - Eighth Army (8th Army) _(army)_
 
-### 1943-Q1 (41 complete)
+### 1943-Q1 (42 complete)
 
 - [x] BRITISH - 1st Greek Brigade _(brigade)_
 - [x] FRENCH - Force L _(brigade)_
@@ -500,19 +490,24 @@
 - [x] ITALIAN - La Spezia Division _(infantry_division)_
 - [x] ITALIAN - Pistoia Division _(infantry_division)_
 - [x] ITALIAN - Superga Division _(infantry_division)_
+- [x] ITALIAN - Trento Division _(motorized_division)_
 - [x] AMERICAN - II Corps _(corps)_
 - [x] GERMAN - Panzerarmee Afrika _(army)_
 
-### 1943-Q2 (16 complete)
+### 1943-Q2 (20 complete)
 
 - [x] BRITISH - 1st Greek Brigade _(brigade)_
 - [x] FRENCH - Force L _(brigade)_
 - [x] AMERICAN - 1st Armored Division _(armored_division)_
 - [x] AMERICAN - 1st Infantry Division _(infantry_division)_
+- [x] AMERICAN - 2nd Armored Division _(armored_division)_
 - [x] AMERICAN - 34th Infantry Division _(infantry_division)_
+- [x] AMERICAN - 3rd Infantry Division _(infantry_division)_
 - [x] AMERICAN - 45th Infantry Division _(infantry_division)_
 - [x] AMERICAN - 9th Infantry Division _(infantry_division)_
+- [x] BRITISH - 10th Armoured Division _(division)_
 - [x] BRITISH - 1st Infantry Division _(infantry_division)_
+- [x] BRITISH - 2nd New Zealand Division _(infantry_division)_
 - [x] BRITISH - 46th Infantry Division _(infantry_division)_
 - [x] BRITISH - 4th Indian Division _(infantry_division)_
 - [x] BRITISH - 4th Infantry Division _(infantry_division)_
