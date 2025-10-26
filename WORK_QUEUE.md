@@ -1,9 +1,9 @@
 # North Africa Work Queue
 
-**Generated**: 2025-10-26T04:46:52.973Z
+**Generated**: 2025-10-26T05:01:03.605Z
 
-**Progress**: 350/413 units complete (84.7%)
-**Remaining**: 63 units
+**Progress**: 353/413 units complete (85.5%)
+**Remaining**: 60 units
 
 ---
 
@@ -64,20 +64,17 @@
 - [ ] GERMAN - 5th Panzer Army
 - [ ] ITALIAN - First Italian Army
 
-### 1943-Q2 (9/53 complete)
+### 1943-Q2 (12/53 complete)
 
 **ARMORED_DIVISION** (3 remaining):
 - [ ] AMERICAN - 2nd Armored Division
 - [ ] ITALIAN - Centauro Division
 - [ ] ITALIAN - Giovani Fascisti Division
 
-**INFANTRY_DIVISION** (13 remaining):
+**INFANTRY_DIVISION** (10 remaining):
 - [ ] AMERICAN - 3rd Infantry Division
 - [ ] BRITISH - 2nd New Zealand Division
 - [ ] BRITISH - 44th Infantry Division
-- [ ] BRITISH - 4th Indian Division
-- [ ] BRITISH - 4th Infantry Division
-- [ ] BRITISH - 50th Infantry Division
 - [ ] BRITISH - 51st Highland Division
 - [ ] BRITISH - 78th Infantry Division 'Battleaxe'
 - [ ] FRENCH - 1re Division Française Libre
@@ -128,7 +125,7 @@
 
 ---
 
-## ✅ Completed (350 units)
+## ✅ Completed (353 units)
 
 <details>
 <summary>Show completed units</summary>
@@ -510,7 +507,7 @@
 - [x] AMERICAN - II Corps _(corps)_
 - [x] GERMAN - Panzerarmee Afrika _(army)_
 
-### 1943-Q2 (9 complete)
+### 1943-Q2 (12 complete)
 
 - [x] BRITISH - 1st Greek Brigade _(brigade)_
 - [x] FRENCH - Force L _(brigade)_
@@ -521,6 +518,9 @@
 - [x] AMERICAN - 9th Infantry Division _(infantry_division)_
 - [x] BRITISH - 1st Infantry Division _(infantry_division)_
 - [x] BRITISH - 46th Infantry Division _(infantry_division)_
+- [x] BRITISH - 4th Indian Division _(infantry_division)_
+- [x] BRITISH - 4th Infantry Division _(infantry_division)_
+- [x] BRITISH - 50th Infantry Division _(infantry_division)_
 
 </details>
 
