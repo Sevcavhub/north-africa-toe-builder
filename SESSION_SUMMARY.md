@@ -1,17 +1,17 @@
-# Session Summary - 2025-10-26T18:17:12.174Z
+# Session Summary - 2025-10-26T18:33:53.679Z
 
 ## Session Statistics
 
-- **Duration:** unknown minutes
-- **Units Completed:** 380 / 411
-- **Progress:** 92.5%
-- **Units Remaining:** 31
+- **Duration:** 16 minutes
+- **Units Completed:** 381 / 411
+- **Progress:** 92.7%
+- **Units Remaining:** 30
 
 ## Work Completed
 
-- ✅ italian_1943q1_pistoia_division
-- ✅ italian_1943q1_superga_division
 - ✅ italian_1943q1_trento_division
+- ✅ italian_1943q1_xix_corps
+- ✅ italian_1943q1_xxi_corpo_d_armata_xxi_corps
 - ✅ italian_1943q1_x_corps
 - ✅ italian_1943q2_101st_trieste_division
 - ✅ italian_1943q2_centauro_division
@@ -47,7 +47,7 @@ This will:
 
 ## Notes
 
-- Session ended: 10/26/2025, 11:17:12 AM
+- Session ended: 10/26/2025, 11:33:53 AM
 - Last commit: 3878e9e
 - Safe to close this session
 
