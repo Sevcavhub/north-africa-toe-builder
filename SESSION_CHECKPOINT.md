@@ -1,18 +1,18 @@
-# Session Checkpoint - 2025-10-26T04:34:54.789Z
+# Session Checkpoint - 2025-10-26T04:46:52.986Z
 
 ## Progress Summary
 
 - **Total Unit-Quarters:** 416
 - **Completed:** 389 (93.5%)
 - **Remaining:** 27
-- **Last Commit:** 8e4e268
+- **Last Commit:** 048aab6
 
 ## Validation Status
 
-- **Total Validated:** 396
+- **Total Validated:** 398
 - **✅ Passed:** 0 (0.0%)
-- **❌ Failed:** 1 ⚠️
-- **⚠️ Warnings:** 395
+- **❌ Failed:** 2 ⚠️
+- **⚠️ Warnings:** 396
 
 ### Critical Validation Failures
 
@@ -20,10 +20,13 @@
   - ❌ Missing required fields: nation and quarter
   - ❌ Invalid nation: "unknown" (allowed: german, italian, british, american, french)
 
+**british_1943q2_2nd_new_zealand_division:**
+  - ❌ Failed to parse JSON: Expected ',' or ']' after array element in JSON at position 5490 (line 161 column 3)
+
 ## Chapter Status
 
-- **JSON Files:** 396
-- **MDBook Chapters:** 396 ✅
+- **JSON Files:** 398
+- **MDBook Chapters:** 398 ✅
 - **All chapters present** ✅
 
 ## Recent Completions
@@ -55,8 +58,8 @@ If this session crashes or needs to resume:
 ## Session Info
 
 - **Session ID:** complete_seed_generated
-- **Checkpoint Time:** 2025-10-26T04:34:54.689Z
-- **Git Commit:** 8e4e268
+- **Checkpoint Time:** 2025-10-26T04:46:52.884Z
+- **Git Commit:** 048aab6
 
 ---
 
