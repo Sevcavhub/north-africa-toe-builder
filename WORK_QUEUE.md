@@ -1,9 +1,9 @@
 # North Africa Work Queue
 
-**Generated**: 2025-10-26T12:34:07.175Z
+**Generated**: 2025-10-26T12:44:37.132Z
 
-**Progress**: 362/412 units complete (87.9%)
-**Remaining**: 50 units
+**Progress**: 364/411 units complete (88.6%)
+**Remaining**: 47 units
 
 ---
 
@@ -19,9 +19,9 @@
 
 ## 🎯 Next Up (Next Session)
 
-1. **BRITISH** - 1943-Q2 - 1st Armoured Division _(division)_
-2. **BRITISH** - 1943-Q2 - 44th Infantry Division _(infantry_division)_
-3. **BRITISH** - 1943-Q2 - 6th Armoured Division _(division)_
+1. **BRITISH** - 1943-Q2 - 7th Armoured Division _(division)_
+2. **FRENCH** - 1943-Q2 - 1st Moroccan March Division _(division)_
+3. **FRENCH** - 1943-Q2 - 2e Division d'Infanterie Marocaine _(infantry_division)_
 
 ---
 
@@ -58,18 +58,15 @@
 - [ ] GERMAN - 5th Panzer Army
 - [ ] ITALIAN - First Italian Army
 
-### 1943-Q2 (20/53 complete)
+### 1943-Q2 (22/52 complete)
 
-**DIVISION** (6 remaining):
-- [ ] BRITISH - 1st Armoured Division
-- [ ] BRITISH - 6th Armoured Division
+**DIVISION** (4 remaining):
 - [ ] BRITISH - 7th Armoured Division
 - [ ] FRENCH - 1st Moroccan March Division
 - [ ] FRENCH - Algerian March Division
 - [ ] FRENCH - Constantine March Division
 
-**INFANTRY_DIVISION** (4 remaining):
-- [ ] BRITISH - 44th Infantry Division
+**INFANTRY_DIVISION** (3 remaining):
 - [ ] FRENCH - 2e Division d'Infanterie Marocaine
 - [ ] ITALIAN - Pistoia Division
 - [ ] ITALIAN - Superga Division
@@ -111,7 +108,7 @@
 
 ---
 
-## ✅ Completed (362 units)
+## ✅ Completed (364 units)
 
 <details>
 <summary>Show completed units</summary>
@@ -494,7 +491,7 @@
 - [x] AMERICAN - II Corps _(corps)_
 - [x] GERMAN - Panzerarmee Afrika _(army)_
 
-### 1943-Q2 (20 complete)
+### 1943-Q2 (22 complete)
 
 - [x] BRITISH - 1st Greek Brigade _(brigade)_
 - [x] FRENCH - Force L _(brigade)_
@@ -506,6 +503,7 @@
 - [x] AMERICAN - 45th Infantry Division _(infantry_division)_
 - [x] AMERICAN - 9th Infantry Division _(infantry_division)_
 - [x] BRITISH - 10th Armoured Division _(division)_
+- [x] BRITISH - 1st Armoured Division _(division)_
 - [x] BRITISH - 1st Infantry Division _(infantry_division)_
 - [x] BRITISH - 2nd New Zealand Division _(infantry_division)_
 - [x] BRITISH - 46th Infantry Division _(infantry_division)_
@@ -513,6 +511,7 @@
 - [x] BRITISH - 4th Infantry Division _(infantry_division)_
 - [x] BRITISH - 50th Infantry Division _(infantry_division)_
 - [x] BRITISH - 51st Highland Division _(infantry_division)_
+- [x] BRITISH - 6th Armoured Division _(division)_
 - [x] BRITISH - 78th Infantry Division 'Battleaxe' _(infantry_division)_
 - [x] FRENCH - 1re Division Française Libre _(infantry_division)_
 - [x] ITALIAN - La Spezia Division _(infantry_division)_

@@ -2,8 +2,8 @@
 
 <!-- AUTO-UPDATED: START - Session Metadata -->
 **Project**: North Africa TO&E Builder - **v3.0.0 (Ground Forces)**
-**Last Updated**: 2025-10-26 05:19
-**Status**: Schema v3.0 Complete, 402/416 units (96.6%)
+**Last Updated**: 2025-10-26 05:34
+**Status**: Schema v3.0 Complete, 404/416 units (97.1%)
 <!-- AUTO-UPDATED: END - Session Metadata -->
 
 ---
@@ -42,11 +42,10 @@
 <!-- AUTO-UPDATED: START - Recently Completed -->
 ### ✅ RECENTLY COMPLETED (Last Session):
 - **Session Date**: 2025-10-26
-- **Units Completed**: 402 unit-quarters (0 → 402)
-- **Session Duration**: unknown minutes
-- **Completion Rate**: 96.6% of total project
+- **Units Completed**: 404 unit-quarters (0 → 404)
+- **Session Duration**: 15 minutes
+- **Completion Rate**: 97.1% of total project
 - **Recent Work**:
-  - italian_1942q4_superga_division
   - italian_1942q4_xxi_corps
   - italian_1942q4_xx_mobile_corps
   - italian_1943q1_101st_trieste_division
@@ -55,6 +54,7 @@
   - italian_1943q1_la_spezia_division
   - italian_1943q1_pistoia_division
   - italian_1943q1_superga_division
+  - italian_1943q2_la_spezia_division
 <!-- AUTO-UPDATED: END - Recently Completed -->
 
 ---
@@ -115,8 +115,8 @@
 
 <!-- AUTO-UPDATED: START - Progress Stats -->
 ### 🔨 IN PROGRESS:
-- **Ground Forces Extraction**: 402/416 unit-quarters (96.6%)
-  - 14 unit-quarters remaining to complete Phase 1-6
+- **Ground Forces Extraction**: 404/416 unit-quarters (97.1%)
+  - 12 unit-quarters remaining to complete Phase 1-6
   - 117 unique units total
   - Target: All 117 combat units across all quarters (1940-1943)
 <!-- AUTO-UPDATED: END - Progress Stats -->
