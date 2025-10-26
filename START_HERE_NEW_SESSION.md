@@ -2,7 +2,7 @@
 
 <!-- AUTO-UPDATED: START - Session Metadata -->
 **Project**: North Africa TO&E Builder - **v3.0.0 (Ground Forces)**
-**Last Updated**: 2025-10-26 16:03
+**Last Updated**: 2025-10-26 16:21
 **Status**: Schema v3.0 Complete, 387/411 units (94.2%)
 <!-- AUTO-UPDATED: END - Session Metadata -->
 
@@ -46,8 +46,8 @@
 - **Session Duration**: unknown minutes
 - **Completion Rate**: 94.2% of total project
 - **Recent Work**:
-  - italian_1943q2_101st_trieste_division
   - italian_1943q2_centauro_division
+  - italian_1943q2_first_italian_army
   - italian_1943q2_giovani_fascisti_division
   - italian_1943q2_la_spezia_division
   - italian_1943q2_pistoia_division
