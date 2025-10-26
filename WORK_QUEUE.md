@@ -1,9 +1,9 @@
 # North Africa Work Queue
 
-**Generated**: 2025-10-26T13:58:16.515Z
+**Generated**: 2025-10-26T14:06:34.910Z
 
-**Progress**: 377/411 units complete (91.7%)
-**Remaining**: 34 units
+**Progress**: 379/411 units complete (92.2%)
+**Remaining**: 32 units
 
 ---
 
@@ -20,8 +20,8 @@
 ## 🎯 Next Up (Next Session)
 
 1. **GERMAN** - 1943-Q2 - 10. Panzer-Division _(panzer_division)_
-2. **ITALIAN** - 1943-Q2 - Pistoia Division _(infantry_division)_
-3. **ITALIAN** - 1943-Q2 - Superga Division _(infantry_division)_
+2. **ITALIAN** - 1941-Q1 - XXI Corpo d'Armata (XXI Corps) _(corps)_
+3. **BRITISH** - 1943-Q1 - V Corps _(corps)_
 
 ---
 
@@ -58,14 +58,10 @@
 - [ ] GERMAN - 5th Panzer Army
 - [ ] ITALIAN - First Italian Army
 
-### 1943-Q2 (35/52 complete)
+### 1943-Q2 (37/52 complete)
 
 **PANZER_DIVISION** (1 remaining):
 - [ ] GERMAN - 10. Panzer-Division
-
-**INFANTRY_DIVISION** (2 remaining):
-- [ ] ITALIAN - Pistoia Division
-- [ ] ITALIAN - Superga Division
 
 **CORPS** (10 remaining):
 - [ ] AMERICAN - II Corps
@@ -87,7 +83,7 @@
 
 ---
 
-## ✅ Completed (377 units)
+## ✅ Completed (379 units)
 
 <details>
 <summary>Show completed units</summary>
@@ -470,7 +466,7 @@
 - [x] AMERICAN - II Corps _(corps)_
 - [x] GERMAN - Panzerarmee Afrika _(army)_
 
-### 1943-Q2 (35 complete)
+### 1943-Q2 (37 complete)
 
 - [x] BRITISH - 1st Greek Brigade _(brigade)_
 - [x] FRENCH - Force L _(brigade)_
@@ -507,6 +503,8 @@
 - [x] ITALIAN - Centauro Division _(armored_division)_
 - [x] ITALIAN - Giovani Fascisti Division _(armored_division)_
 - [x] ITALIAN - La Spezia Division _(infantry_division)_
+- [x] ITALIAN - Pistoia Division _(infantry_division)_
+- [x] ITALIAN - Superga Division _(infantry_division)_
 
 </details>
 
