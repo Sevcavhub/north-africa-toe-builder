@@ -1,29 +1,20 @@
-# Session Checkpoint - 2025-10-26T23:03:13.644Z
+# Session Checkpoint - 2025-10-26T23:20:47.981Z
 
 ## Progress Summary
 
 - **Total Unit-Quarters:** 411
 - **Completed:** 387 (94.2%)
 - **Remaining:** 24
-- **Last Commit:** 40b5994
+- **Last Commit:** edfc367
 
 ## Validation Status
 
 - **Total Validated:** 402
 - **✅ Passed:** 0 (0.0%)
-- **❌ Failed:** 3 ⚠️
-- **⚠️ Warnings:** 399
+- **❌ Failed:** 0 ✅
+- **⚠️ Warnings:** 402
 
-### Critical Validation Failures
-
-**british_1943q1_v_corps:**
-  - ❌ Failed to parse JSON: du.combat_evidence.trim is not a function
-
-**british_1943q1_xiii_corps:**
-  - ❌ Failed to parse JSON: Expected ',' or ']' after array element in JSON at position 13216 (line 348 column 3)
-
-**german_1943q2_10_panzer_division:**
-  - ❌ Tank total mismatch: total=85 but heavy+medium+light=0
+**All units passed validation** ✅
 
 ## Chapter Status
 
@@ -60,8 +51,8 @@ If this session crashes or needs to resume:
 ## Session Info
 
 - **Session ID:** undefined
-- **Checkpoint Time:** 2025-10-26T23:03:13.548Z
-- **Git Commit:** 40b5994
+- **Checkpoint Time:** 2025-10-26T23:20:47.888Z
+- **Git Commit:** edfc367
 
 ---
 

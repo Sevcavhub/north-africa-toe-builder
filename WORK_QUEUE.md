@@ -1,9 +1,9 @@
 # North Africa Work Queue
 
-**Generated**: 2025-10-26T23:03:13.632Z
+**Generated**: 2025-10-26T23:20:47.969Z
 
-**Progress**: 409/411 units complete (99.5%)
-**Remaining**: 2 units
+**Progress**: 411/411 units complete (100.0%)
+**Remaining**: 0 units
 
 ---
 
@@ -19,26 +19,15 @@
 
 ## 🎯 Next Up (Next Session)
 
-1. **GERMAN** - 1943-Q2 - 10. Panzer-Division _(panzer_division)_
-2. **BRITISH** - 1943-Q1 - XIII Corps _(corps)_
+🎉 **ALL UNITS COMPLETE!**
 
 ---
 
 ## 📋 Full Queue (Chronological + Echelon Order)
 
-### 1943-Q1 (54/55 complete)
-
-**CORPS** (1 remaining):
-- [ ] BRITISH - XIII Corps
-
-### 1943-Q2 (51/52 complete)
-
-**PANZER_DIVISION** (1 remaining):
-- [ ] GERMAN - 10. Panzer-Division
-
 ---
 
-## ✅ Completed (409 units)
+## ✅ Completed (411 units)
 
 <details>
 <summary>Show completed units</summary>
@@ -380,7 +369,7 @@
 - [x] GERMAN - 5th Panzer Army _(army)_
 - [x] GERMAN - Panzerarmee Afrika _(army)_
 
-### 1943-Q1 (54 complete)
+### 1943-Q1 (55 complete)
 
 - [x] BRITISH - 1st Greek Brigade _(brigade)_
 - [x] FRENCH - Force L _(brigade)_
@@ -425,6 +414,7 @@
 - [x] AMERICAN - II Corps _(corps)_
 - [x] BRITISH - V Corps _(corps)_
 - [x] BRITISH - X Corps _(corps)_
+- [x] BRITISH - XIII Corps _(corps)_
 - [x] BRITISH - XXX Corps _(corps)_
 - [x] BRITISH - XXX Corps _(corps)_
 - [x] GERMAN - Deutsches Afrikakorps _(corps)_
@@ -437,7 +427,7 @@
 - [x] GERMAN - Panzerarmee Afrika _(army)_
 - [x] ITALIAN - First Italian Army _(army)_
 
-### 1943-Q2 (51 complete)
+### 1943-Q2 (52 complete)
 
 - [x] BRITISH - 1st Greek Brigade _(brigade)_
 - [x] FRENCH - Force L _(brigade)_
@@ -465,6 +455,7 @@
 - [x] FRENCH - 2e Division d'Infanterie Marocaine _(infantry_division)_
 - [x] FRENCH - Algerian March Division _(division)_
 - [x] FRENCH - Constantine March Division _(division)_
+- [x] GERMAN - 10. Panzer-Division _(panzer_division)_
 - [x] GERMAN - 15. Panzer-Division _(panzer_division)_
 - [x] GERMAN - 164. leichte Division _(light_division)_
 - [x] GERMAN - 21. Panzer-Division _(panzer_division)_
