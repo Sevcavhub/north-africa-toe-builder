@@ -2,7 +2,7 @@
 
 <!-- AUTO-UPDATED: START - Session Metadata -->
 **Project**: North Africa TO&E Builder - **v3.0.0 (Ground Forces)**
-**Last Updated**: 2025-10-26 10:08
+**Last Updated**: 2025-10-26 10:17
 **Status**: Schema v3.0 Complete, 373/411 units (90.8%)
 <!-- AUTO-UPDATED: END - Session Metadata -->
 
@@ -43,7 +43,7 @@
 ### ✅ RECENTLY COMPLETED (Last Session):
 - **Session Date**: 2025-10-26
 - **Units Completed**: 373 unit-quarters (0 → 373)
-- **Session Duration**: 15 minutes
+- **Session Duration**: unknown minutes
 - **Completion Rate**: 90.8% of total project
 - **Recent Work**:
   - italian_1943q1_pistoia_division

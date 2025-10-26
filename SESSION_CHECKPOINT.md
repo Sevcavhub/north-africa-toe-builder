@@ -1,31 +1,34 @@
-# Session Checkpoint - 2025-10-26T17:17:32.992Z
+# Session Checkpoint - 2025-10-26T17:31:31.699Z
 
 ## Progress Summary
 
 - **Total Unit-Quarters:** 411
-- **Completed:** 373 (90.8%)
-- **Remaining:** 38
-- **Last Commit:** ad2f84b
+- **Completed:** 377 (91.7%)
+- **Remaining:** 34
+- **Last Commit:** 6bc8364
 
 ## Validation Status
 
-- **Total Validated:** 377
+- **Total Validated:** 379
 - **✅ Passed:** 0 (0.0%)
-- **❌ Failed:** 2 ⚠️
-- **⚠️ Warnings:** 375
+- **❌ Failed:** 3 ⚠️
+- **⚠️ Warnings:** 376
 
 ### Critical Validation Failures
 
 **british_1943q1_v_corps:**
   - ❌ Failed to parse JSON: du.combat_evidence.trim is not a function
 
+**british_1943q1_xiii_corps:**
+  - ❌ Failed to parse JSON: Expected ',' or ']' after array element in JSON at position 13216 (line 348 column 3)
+
 **german_1943q2_10_panzer_division:**
   - ❌ Tank total mismatch: total=85 but heavy+medium+light=0
 
 ## Chapter Status
 
-- **JSON Files:** 377
-- **MDBook Chapters:** 377 ✅
+- **JSON Files:** 379
+- **MDBook Chapters:** 379 ✅
 - **All chapters present** ✅
 
 ## Recent Completions
@@ -52,13 +55,13 @@ If this session crashes or needs to resume:
 
 3. **View full progress:**
    - See WORKFLOW_STATE.json for complete list
-   - 373 units saved successfully
+   - 377 units saved successfully
 
 ## Session Info
 
 - **Session ID:** undefined
-- **Checkpoint Time:** 2025-10-26T17:17:32.895Z
-- **Git Commit:** ad2f84b
+- **Checkpoint Time:** 2025-10-26T17:31:31.605Z
+- **Git Commit:** 6bc8364
 
 ---
 
