@@ -1,9 +1,9 @@
 # North Africa Work Queue
 
-**Generated**: 2025-10-26T14:06:34.910Z
+**Generated**: 2025-10-26T14:20:09.127Z
 
-**Progress**: 379/411 units complete (92.2%)
-**Remaining**: 32 units
+**Progress**: 380/411 units complete (92.5%)
+**Remaining**: 31 units
 
 ---
 
@@ -20,17 +20,12 @@
 ## 🎯 Next Up (Next Session)
 
 1. **GERMAN** - 1943-Q2 - 10. Panzer-Division _(panzer_division)_
-2. **ITALIAN** - 1941-Q1 - XXI Corpo d'Armata (XXI Corps) _(corps)_
-3. **BRITISH** - 1943-Q1 - V Corps _(corps)_
+2. **BRITISH** - 1943-Q1 - V Corps _(corps)_
+3. **BRITISH** - 1943-Q1 - X Corps _(corps)_
 
 ---
 
 ## 📋 Full Queue (Chronological + Echelon Order)
-
-### 1941-Q1 (26/27 complete)
-
-**CORPS** (1 remaining):
-- [ ] ITALIAN - XXI Corpo d'Armata (XXI Corps)
 
 ### 1942-Q4 (52/55 complete)
 
@@ -83,7 +78,7 @@
 
 ---
 
-## ✅ Completed (379 units)
+## ✅ Completed (380 units)
 
 <details>
 <summary>Show completed units</summary>
@@ -146,7 +141,7 @@
 - [x] ITALIAN - 10ª Armata (Italian 10th Army) _(army)_
 - [x] BRITISH - Western Desert Force _(unknown)_
 
-### 1941-Q1 (26 complete)
+### 1941-Q1 (27 complete)
 
 - [x] BRITISH - 1st South African Division _(infantry_division)_
 - [x] BRITISH - 2nd New Zealand Division _(infantry_division)_
@@ -172,6 +167,7 @@
 - [x] ITALIAN - Trento Division _(motorized_division)_
 - [x] BRITISH - XIII Corps _(corps)_
 - [x] GERMAN - Deutsches Afrikakorps _(corps)_
+- [x] ITALIAN - XXI Corpo d'Armata (XXI Corps) _(corps)_
 - [x] ITALIAN - XXII Corpo d'Armata (XXII Corps) _(corps)_
 - [x] ITALIAN - 10ª Armata (Italian 10th Army) _(army)_
 
