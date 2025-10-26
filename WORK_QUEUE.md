@@ -1,9 +1,9 @@
 # North Africa Work Queue
 
-**Generated**: 2025-10-26T14:39:37.157Z
+**Generated**: 2025-10-26T14:47:18.321Z
 
-**Progress**: 49/411 units complete (11.9%)
-**Remaining**: 362 units
+**Progress**: 380/411 units complete (92.5%)
+**Remaining**: 31 units
 
 ---
 
@@ -19,519 +19,26 @@
 
 ## 🎯 Next Up (Next Session)
 
-1. **BRITISH** - 1941-Q3 - Czechoslovakian 11th Infantry Battalion _(battalion)_
-2. **BRITISH** - 1941-Q4 - Czechoslovakian 11th Infantry Battalion _(battalion)_
-3. **BRITISH** - 1941-Q3 - Polish Carpathian Brigade (Karpacka Brygada Strzelców) _(brigade)_
+1. **GERMAN** - 1943-Q2 - 10. Panzer-Division _(panzer_division)_
+2. **BRITISH** - 1943-Q1 - V Corps _(corps)_
+3. **BRITISH** - 1943-Q1 - X Corps _(corps)_
 
 ---
 
 ## 📋 Full Queue (Chronological + Echelon Order)
 
-### 1940-Q2 (2/8 complete)
-
-**INFANTRY_DIVISION** (5 remaining):
-- [ ] BRITISH - 4th Indian Division
-- [ ] ITALIAN - Cirene Division
-- [ ] ITALIAN - Marmarica Division
-- [ ] ITALIAN - Sabratha Division
-- [ ] ITALIAN - Sirte Division
-
-**DIVISION** (1 remaining):
-- [ ] BRITISH - 7th Armoured Division
-
-### 1940-Q3 (2/17 complete)
-
-**INFANTRY_DIVISION** (10 remaining):
-- [ ] BRITISH - 4th Indian Division
-- [ ] ITALIAN - Bologna Division
-- [ ] ITALIAN - Brescia Division
-- [ ] ITALIAN - Catanzaro Division
-- [ ] ITALIAN - Cirene Division
-- [ ] ITALIAN - Marmarica Division
-- [ ] ITALIAN - Pavia Division
-- [ ] ITALIAN - Sabratha Division
-- [ ] ITALIAN - Savona Division
-- [ ] ITALIAN - Sirte Division
-
-**DIVISION** (4 remaining):
-- [ ] BRITISH - 7th Armoured Division
-- [ ] ITALIAN - 1st Libyan Division
-- [ ] ITALIAN - 2nd Libyan Division
-- [ ] ITALIAN - 4th CCNN Division '3 Gennaio'
-
-**CORPS** (1 remaining):
-- [ ] ITALIAN - XXII Corpo d'Armata (XXII Corps)
-
-### 1940-Q4 (2/24 complete)
-
-**INFANTRY_DIVISION** (12 remaining):
-- [ ] BRITISH - 1st South African Division
-- [ ] BRITISH - 4th Indian Division
-- [ ] BRITISH - 6th Australian Division (2nd AIF)
-- [ ] ITALIAN - Bologna Division
-- [ ] ITALIAN - Brescia Division
-- [ ] ITALIAN - Catanzaro Division
-- [ ] ITALIAN - Cirene Division
-- [ ] ITALIAN - Marmarica Division
-- [ ] ITALIAN - Pavia Division
-- [ ] ITALIAN - Sabratha Division
-- [ ] ITALIAN - Savona Division
-- [ ] ITALIAN - Sirte Division
-
-**DIVISION** (6 remaining):
-- [ ] BRITISH - 7th Armoured Division
-- [ ] ITALIAN - 1st CCNN Division '23 Marzo'
-- [ ] ITALIAN - 1st Libyan Division
-- [ ] ITALIAN - 2nd CCNN Division '28 Ottobre'
-- [ ] ITALIAN - 2nd Libyan Division
-- [ ] ITALIAN - 4th CCNN Division '3 Gennaio'
-
-**ARMORED_DIVISION** (1 remaining):
-- [ ] ITALIAN - Ariete Division
-
-**MOTORIZED_DIVISION** (1 remaining):
-- [ ] ITALIAN - Trento Division
-
-**CORPS** (2 remaining):
-- [ ] ITALIAN - XXI Corpo d'Armata (XXI Corps)
-- [ ] ITALIAN - XXII Corpo d'Armata (XXII Corps)
-
-### 1941-Q1 (3/27 complete)
-
-**INFANTRY_DIVISION** (15 remaining):
-- [ ] BRITISH - 1st South African Division
-- [ ] BRITISH - 2nd New Zealand Division
-- [ ] BRITISH - 4th Indian Division
-- [ ] BRITISH - 5th Indian Division
-- [ ] BRITISH - 6th Australian Division (2nd AIF)
-- [ ] BRITISH - 9th Australian Division
-- [ ] ITALIAN - Bologna Division
-- [ ] ITALIAN - Brescia Division
-- [ ] ITALIAN - Catanzaro Division
-- [ ] ITALIAN - Cirene Division
-- [ ] ITALIAN - Marmarica Division
-- [ ] ITALIAN - Pavia Division
-- [ ] ITALIAN - Sabratha Division
-- [ ] ITALIAN - Savona Division
-- [ ] ITALIAN - Sirte Division
-
-**DIVISION** (3 remaining):
-- [ ] BRITISH - 7th Armoured Division
-- [ ] ITALIAN - 1st CCNN Division '23 Marzo'
-- [ ] ITALIAN - 2nd CCNN Division '28 Ottobre'
-
-**LIGHT_DIVISION** (1 remaining):
-- [ ] GERMAN - 5. leichte Division
-
-**MOTORIZED_DIVISION** (2 remaining):
-- [ ] ITALIAN - 101st TRIESTE Division
-- [ ] ITALIAN - Trento Division
-
-**ARMORED_DIVISION** (1 remaining):
-- [ ] ITALIAN - Ariete Division
-
-**CORPS** (2 remaining):
-- [ ] ITALIAN - XXI Corpo d'Armata (XXI Corps)
-- [ ] ITALIAN - XXII Corpo d'Armata (XXII Corps)
-
-### 1941-Q2 (3/22 complete)
-
-**INFANTRY_DIVISION** (12 remaining):
-- [ ] BRITISH - 1st South African Division
-- [ ] BRITISH - 2nd New Zealand Division
-- [ ] BRITISH - 2nd South African Division
-- [ ] BRITISH - 4th Indian Division
-- [ ] BRITISH - 50th Infantry Division
-- [ ] BRITISH - 5th Indian Division
-- [ ] BRITISH - 7th Australian Division
-- [ ] BRITISH - 9th Australian Division
-- [ ] ITALIAN - Bologna Division
-- [ ] ITALIAN - Brescia Division
-- [ ] ITALIAN - Pavia Division
-- [ ] ITALIAN - Savona Division
-
-**DIVISION** (1 remaining):
-- [ ] BRITISH - 7th Armoured Division
-
-**PANZER_DIVISION** (1 remaining):
-- [ ] GERMAN - 15. Panzer-Division
-
-**LIGHT_DIVISION** (1 remaining):
-- [ ] GERMAN - 5. leichte Division
-
-**MOTORIZED_DIVISION** (2 remaining):
-- [ ] ITALIAN - 101st TRIESTE Division
-- [ ] ITALIAN - Trento Division
-
-**ARMORED_DIVISION** (1 remaining):
-- [ ] ITALIAN - Ariete Division
-
-**CORPS** (1 remaining):
-- [ ] ITALIAN - XXI Corpo d'Armata (XXI Corps)
-
-### 1941-Q3 (3/29 complete)
-
-**BATTALION** (1 remaining):
-- [ ] BRITISH - Czechoslovakian 11th Infantry Battalion
-
-**BRIGADE** (1 remaining):
-- [ ] BRITISH - Polish Carpathian Brigade (Karpacka Brygada Strzelców)
-
-**INFANTRY_DIVISION** (13 remaining):
-- [ ] BRITISH - 1st South African Division
-- [ ] BRITISH - 2nd New Zealand Division
-- [ ] BRITISH - 2nd South African Division
-- [ ] BRITISH - 4th Indian Division
-- [ ] BRITISH - 50th Infantry Division
-- [ ] BRITISH - 5th Indian Division
-- [ ] BRITISH - 70th Infantry Division
-- [ ] BRITISH - 7th Australian Division
-- [ ] BRITISH - 9th Australian Division
-- [ ] ITALIAN - Bologna Division
-- [ ] ITALIAN - Brescia Division
-- [ ] ITALIAN - Pavia Division
-- [ ] ITALIAN - Savona Division
-
-**DIVISION** (1 remaining):
-- [ ] BRITISH - 7th Armoured Division
-
-**PANZER_DIVISION** (2 remaining):
-- [ ] GERMAN - 15. Panzer-Division
-- [ ] GERMAN - 21. Panzer-Division
-
-**LIGHT_DIVISION** (1 remaining):
-- [ ] GERMAN - 90. leichte Division
-
-**MOTORIZED_DIVISION** (2 remaining):
-- [ ] ITALIAN - 101st TRIESTE Division
-- [ ] ITALIAN - Trento Division
-
-**ARMORED_DIVISION** (1 remaining):
-- [ ] ITALIAN - Ariete Division
-
-**CORPS** (3 remaining):
-- [ ] BRITISH - XIII Corps
-- [ ] BRITISH - XXX Corps
-- [ ] ITALIAN - XXI Corpo d'Armata (XXI Corps)
-
-**ARMY_GROUP** (1 remaining):
-- [ ] GERMAN - Panzergruppe Afrika
-
-### 1941-Q4 (4/31 complete)
-
-**BATTALION** (1 remaining):
-- [ ] BRITISH - Czechoslovakian 11th Infantry Battalion
-
-**BRIGADE** (1 remaining):
-- [ ] BRITISH - Polish Carpathian Brigade (Karpacka Brygada Strzelców)
-
-**DIVISION** (2 remaining):
-- [ ] BRITISH - 1st Armoured Division
-- [ ] BRITISH - 7th Armoured Division
-
-**INFANTRY_DIVISION** (12 remaining):
-- [ ] BRITISH - 1st South African Division
-- [ ] BRITISH - 2nd New Zealand Division
-- [ ] BRITISH - 2nd South African Division
-- [ ] BRITISH - 4th Indian Division
-- [ ] BRITISH - 50th Infantry Division
-- [ ] BRITISH - 5th Indian Division
-- [ ] BRITISH - 70th Infantry Division
-- [ ] BRITISH - 9th Australian Division
-- [ ] ITALIAN - Bologna Division
-- [ ] ITALIAN - Brescia Division
-- [ ] ITALIAN - Pavia Division
-- [ ] ITALIAN - Savona Division
-
-**PANZER_DIVISION** (2 remaining):
-- [ ] GERMAN - 15. Panzer-Division
-- [ ] GERMAN - 21. Panzer-Division
-
-**LIGHT_DIVISION** (1 remaining):
-- [ ] GERMAN - 90. leichte Division
-
-**MOTORIZED_DIVISION** (2 remaining):
-- [ ] ITALIAN - 101st TRIESTE Division
-- [ ] ITALIAN - Trento Division
-
-**ARMORED_DIVISION** (2 remaining):
-- [ ] ITALIAN - Ariete Division
-- [ ] ITALIAN - Littorio Division
-
-**CORPS** (3 remaining):
-- [ ] BRITISH - XIII Corps
-- [ ] BRITISH - XXX Corps
-- [ ] ITALIAN - XXI Corpo d'Armata (XXI Corps)
-
-**ARMY_GROUP** (1 remaining):
-- [ ] GERMAN - Panzergruppe Afrika
-
-### 1942-Q1 (4/28 complete)
-
-**DIVISION** (2 remaining):
-- [ ] BRITISH - 1st Armoured Division
-- [ ] BRITISH - 7th Armoured Division
-
-**INFANTRY_DIVISION** (10 remaining):
-- [ ] BRITISH - 1st South African Division
-- [ ] BRITISH - 2nd New Zealand Division
-- [ ] BRITISH - 2nd South African Division
-- [ ] BRITISH - 4th Indian Division
-- [ ] BRITISH - 50th Infantry Division
-- [ ] BRITISH - 5th Indian Division
-- [ ] BRITISH - 9th Australian Division
-- [ ] ITALIAN - Bologna Division
-- [ ] ITALIAN - Brescia Division
-- [ ] ITALIAN - Pavia Division
-
-**PANZER_DIVISION** (2 remaining):
-- [ ] GERMAN - 15. Panzer-Division
-- [ ] GERMAN - 21. Panzer-Division
-
-**LIGHT_DIVISION** (1 remaining):
-- [ ] GERMAN - 90. leichte Division
-
-**MOTORIZED_DIVISION** (2 remaining):
-- [ ] ITALIAN - 101st TRIESTE Division
-- [ ] ITALIAN - Trento Division
-
-**ARMORED_DIVISION** (2 remaining):
-- [ ] ITALIAN - Ariete Division
-- [ ] ITALIAN - Littorio Division
-
-**CORPS** (3 remaining):
-- [ ] BRITISH - XIII Corps
-- [ ] BRITISH - XXX Corps
-- [ ] ITALIAN - XXI Corpo d'Armata (XXI Corps)
-
-**ARMY** (1 remaining):
-- [ ] GERMAN - Panzerarmee Afrika
-
-**ARMY_GROUP** (1 remaining):
-- [ ] GERMAN - Panzergruppe Afrika
-
-### 1942-Q2 (4/29 complete)
-
-**BRIGADE** (1 remaining):
-- [ ] FRENCH - 1re Brigade Française Libre
-
-**DIVISION** (2 remaining):
-- [ ] BRITISH - 1st Armoured Division
-- [ ] BRITISH - 7th Armoured Division
-
-**INFANTRY_DIVISION** (11 remaining):
-- [ ] BRITISH - 1st South African Division
-- [ ] BRITISH - 2nd New Zealand Division
-- [ ] BRITISH - 2nd South African Division
-- [ ] BRITISH - 4th Indian Division
-- [ ] BRITISH - 50th Infantry Division
-- [ ] BRITISH - 5th Indian Division
-- [ ] BRITISH - 9th Australian Division
-- [ ] ITALIAN - Bologna Division
-- [ ] ITALIAN - Brescia Division
-- [ ] ITALIAN - Pavia Division
-- [ ] ITALIAN - Superga Division
-
-**PANZER_DIVISION** (2 remaining):
-- [ ] GERMAN - 15. Panzer-Division
-- [ ] GERMAN - 21. Panzer-Division
-
-**LIGHT_DIVISION** (1 remaining):
-- [ ] GERMAN - 90. leichte Division
-
-**MOTORIZED_DIVISION** (2 remaining):
-- [ ] ITALIAN - 101st TRIESTE Division
-- [ ] ITALIAN - Trento Division
-
-**ARMORED_DIVISION** (2 remaining):
-- [ ] ITALIAN - Ariete Division
-- [ ] ITALIAN - Littorio Division
-
-**CORPS** (3 remaining):
-- [ ] BRITISH - XIII Corps
-- [ ] BRITISH - XXX Corps
-- [ ] ITALIAN - XXI Corpo d'Armata (XXI Corps)
-
-**ARMY** (1 remaining):
-- [ ] GERMAN - Panzerarmee Afrika
-
-### 1942-Q3 (5/34 complete)
-
-**BRIGADE** (2 remaining):
-- [ ] BRITISH - 1st Greek Brigade
-- [ ] GERMAN - Ramcke Parachute Brigade
-
-**DIVISION** (3 remaining):
-- [ ] BRITISH - 10th Armoured Division
-- [ ] BRITISH - 1st Armoured Division
-- [ ] BRITISH - 7th Armoured Division
-
-**INFANTRY_DIVISION** (10 remaining):
-- [ ] BRITISH - 2nd New Zealand Division
-- [ ] BRITISH - 44th Infantry Division
-- [ ] BRITISH - 4th Indian Division
-- [ ] BRITISH - 50th Infantry Division
-- [ ] BRITISH - 51st Highland Division
-- [ ] BRITISH - 9th Australian Division
-- [ ] ITALIAN - Bologna Division
-- [ ] ITALIAN - Brescia Division
-- [ ] ITALIAN - Pavia Division
-- [ ] ITALIAN - Superga Division
-
-**PANZER_DIVISION** (2 remaining):
-- [ ] GERMAN - 15. Panzer-Division
-- [ ] GERMAN - 21. Panzer-Division
-
-**LIGHT_DIVISION** (2 remaining):
-- [ ] GERMAN - 164. leichte Division
-- [ ] GERMAN - 90. leichte Division
-
-**MOTORIZED_DIVISION** (2 remaining):
-- [ ] ITALIAN - 101st TRIESTE Division
-- [ ] ITALIAN - Trento Division
-
-**ARMORED_DIVISION** (2 remaining):
-- [ ] ITALIAN - Ariete Division
-- [ ] ITALIAN - Littorio Division
-
-**AIRBORNE_DIVISION** (1 remaining):
-- [ ] ITALIAN - Folgore Division
-
-**CORPS** (4 remaining):
-- [ ] BRITISH - XIII Corps
-- [ ] BRITISH - XXX Corps
-- [ ] BRITISH - XXX Corps
-- [ ] ITALIAN - XXI Corpo d'Armata (XXI Corps)
-
-**ARMY** (1 remaining):
-- [ ] GERMAN - Panzerarmee Afrika
-
-### 1942-Q4 (6/55 complete)
-
-**BRIGADE** (3 remaining):
-- [ ] BRITISH - 1st Greek Brigade
-- [ ] FRENCH - Force L
-- [ ] GERMAN - Ramcke Parachute Brigade
-
-**ARMORED_DIVISION** (5 remaining):
-- [ ] AMERICAN - 1st Armored Division
-- [ ] AMERICAN - 2nd Armored Division
-- [ ] ITALIAN - Ariete Division
-- [ ] ITALIAN - Centauro Division
-- [ ] ITALIAN - Littorio Division
-
-**INFANTRY_DIVISION** (19 remaining):
-- [ ] AMERICAN - 1st Infantry Division
-- [ ] AMERICAN - 34th Infantry Division
-- [ ] AMERICAN - 3rd Infantry Division
-- [ ] AMERICAN - 9th Infantry Division
-- [ ] BRITISH - 1st Infantry Division
-- [ ] BRITISH - 2nd New Zealand Division
-- [ ] BRITISH - 44th Infantry Division
-- [ ] BRITISH - 46th Infantry Division
-- [ ] BRITISH - 4th Indian Division
-- [ ] BRITISH - 4th Infantry Division
-- [ ] BRITISH - 50th Infantry Division
-- [ ] BRITISH - 51st Highland Division
-- [ ] BRITISH - 78th Infantry Division 'Battleaxe'
-- [ ] BRITISH - 9th Australian Division
-- [ ] ITALIAN - Bologna Division
-- [ ] ITALIAN - Brescia Division
-- [ ] ITALIAN - La Spezia Division
-- [ ] ITALIAN - Pistoia Division
-- [ ] ITALIAN - Superga Division
-
-**DIVISION** (4 remaining):
-- [ ] BRITISH - 10th Armoured Division
-- [ ] BRITISH - 1st Armoured Division
-- [ ] BRITISH - 6th Armoured Division
-- [ ] BRITISH - 7th Armoured Division
-
-**PANZER_DIVISION** (4 remaining):
-- [ ] GERMAN - 10. Panzer-Division
-- [ ] GERMAN - 15. Panzer-Division
-- [ ] GERMAN - 21. Panzer-Division
-- [ ] GERMAN - Hermann Göring Division
-
-**LIGHT_DIVISION** (2 remaining):
-- [ ] GERMAN - 164. leichte Division
-- [ ] GERMAN - 90. leichte Division
-
-**MOTORIZED_DIVISION** (2 remaining):
-- [ ] ITALIAN - 101st TRIESTE Division
-- [ ] ITALIAN - Trento Division
-
-**AIRBORNE_DIVISION** (1 remaining):
-- [ ] ITALIAN - Folgore Division
-
-**CORPS** (6 remaining):
-- [ ] BRITISH - V Corps
-- [ ] BRITISH - X Corps
-- [ ] BRITISH - XIII Corps
-- [ ] BRITISH - XXX Corps
-- [ ] BRITISH - XXX Corps
-- [ ] ITALIAN - XXI Corpo d'Armata (XXI Corps)
+### 1942-Q4 (52/55 complete)
 
 **ARMY** (3 remaining):
 - [ ] BRITISH - First Army
 - [ ] GERMAN - 5th Panzer Army
 - [ ] GERMAN - Panzerarmee Afrika
 
-### 1943-Q1 (6/55 complete)
+### 1943-Q1 (42/55 complete)
 
-**BRIGADE** (2 remaining):
-- [ ] BRITISH - 1st Greek Brigade
-- [ ] FRENCH - Force L
-
-**ARMORED_DIVISION** (4 remaining):
-- [ ] AMERICAN - 1st Armored Division
-- [ ] AMERICAN - 2nd Armored Division
-- [ ] ITALIAN - Centauro Division
-- [ ] ITALIAN - Giovani Fascisti Division
-
-**INFANTRY_DIVISION** (18 remaining):
-- [ ] AMERICAN - 1st Infantry Division
-- [ ] AMERICAN - 34th Infantry Division
-- [ ] AMERICAN - 3rd Infantry Division
-- [ ] AMERICAN - 45th Infantry Division
-- [ ] AMERICAN - 9th Infantry Division
-- [ ] BRITISH - 1st Infantry Division
-- [ ] BRITISH - 2nd New Zealand Division
-- [ ] BRITISH - 44th Infantry Division
-- [ ] BRITISH - 46th Infantry Division
-- [ ] BRITISH - 4th Indian Division
-- [ ] BRITISH - 4th Infantry Division
-- [ ] BRITISH - 50th Infantry Division
-- [ ] BRITISH - 51st Highland Division
-- [ ] BRITISH - 78th Infantry Division 'Battleaxe'
-- [ ] FRENCH - 2e Division d'Infanterie Marocaine
-- [ ] ITALIAN - La Spezia Division
-- [ ] ITALIAN - Pistoia Division
-- [ ] ITALIAN - Superga Division
-
-**DIVISION** (7 remaining):
-- [ ] BRITISH - 10th Armoured Division
-- [ ] BRITISH - 1st Armoured Division
-- [ ] BRITISH - 6th Armoured Division
-- [ ] BRITISH - 7th Armoured Division
-- [ ] FRENCH - 1st Moroccan March Division
-- [ ] FRENCH - Algerian March Division
-- [ ] FRENCH - Constantine March Division
-
-**PANZER_DIVISION** (4 remaining):
-- [ ] GERMAN - 10. Panzer-Division
-- [ ] GERMAN - 15. Panzer-Division
-- [ ] GERMAN - 21. Panzer-Division
-- [ ] GERMAN - Hermann Göring Division
-
-**LIGHT_DIVISION** (2 remaining):
-- [ ] GERMAN - 164. leichte Division
-- [ ] GERMAN - 90. leichte Division
-
-**MOTORIZED_DIVISION** (1 remaining):
-- [ ] ITALIAN - Trento Division
-
-**CORPS** (7 remaining):
+**CORPS** (9 remaining):
+- [ ] BRITISH - V Corps
+- [ ] BRITISH - X Corps
 - [ ] BRITISH - XIII Corps
 - [ ] BRITISH - XXX Corps
 - [ ] BRITISH - XXX Corps
@@ -546,52 +53,10 @@
 - [ ] GERMAN - 5th Panzer Army
 - [ ] ITALIAN - First Italian Army
 
-### 1943-Q2 (5/52 complete)
+### 1943-Q2 (37/52 complete)
 
-**BRIGADE** (2 remaining):
-- [ ] BRITISH - 1st Greek Brigade
-- [ ] FRENCH - Force L
-
-**INFANTRY_DIVISION** (17 remaining):
-- [ ] AMERICAN - 1st Infantry Division
-- [ ] AMERICAN - 34th Infantry Division
-- [ ] AMERICAN - 3rd Infantry Division
-- [ ] AMERICAN - 45th Infantry Division
-- [ ] AMERICAN - 9th Infantry Division
-- [ ] BRITISH - 1st Infantry Division
-- [ ] BRITISH - 2nd New Zealand Division
-- [ ] BRITISH - 46th Infantry Division
-- [ ] BRITISH - 4th Indian Division
-- [ ] BRITISH - 4th Infantry Division
-- [ ] BRITISH - 50th Infantry Division
-- [ ] BRITISH - 51st Highland Division
-- [ ] BRITISH - 78th Infantry Division 'Battleaxe'
-- [ ] FRENCH - 2e Division d'Infanterie Marocaine
-- [ ] ITALIAN - La Spezia Division
-- [ ] ITALIAN - Pistoia Division
-- [ ] ITALIAN - Superga Division
-
-**ARMORED_DIVISION** (3 remaining):
-- [ ] AMERICAN - 2nd Armored Division
-- [ ] ITALIAN - Centauro Division
-- [ ] ITALIAN - Giovani Fascisti Division
-
-**DIVISION** (6 remaining):
-- [ ] BRITISH - 10th Armoured Division
-- [ ] BRITISH - 1st Armoured Division
-- [ ] BRITISH - 6th Armoured Division
-- [ ] FRENCH - 1st Moroccan March Division
-- [ ] FRENCH - Algerian March Division
-- [ ] FRENCH - Constantine March Division
-
-**PANZER_DIVISION** (3 remaining):
-- [ ] GERMAN - 15. Panzer-Division
-- [ ] GERMAN - 21. Panzer-Division
-- [ ] GERMAN - Hermann Göring Division
-
-**LIGHT_DIVISION** (2 remaining):
-- [ ] GERMAN - 164. leichte Division
-- [ ] GERMAN - 90. leichte Division
+**PANZER_DIVISION** (1 remaining):
+- [ ] GERMAN - 10. Panzer-Division
 
 **CORPS** (10 remaining):
 - [ ] AMERICAN - II Corps
@@ -613,98 +78,429 @@
 
 ---
 
-## ✅ Completed (49 units)
+## ✅ Completed (380 units)
 
 <details>
 <summary>Show completed units</summary>
 
-### 1940-Q2 (2 complete)
+### 1940-Q2 (8 complete)
 
+- [x] BRITISH - 4th Indian Division _(infantry_division)_
+- [x] BRITISH - 7th Armoured Division _(division)_
+- [x] ITALIAN - Cirene Division _(infantry_division)_
+- [x] ITALIAN - Marmarica Division _(infantry_division)_
+- [x] ITALIAN - Sabratha Division _(infantry_division)_
+- [x] ITALIAN - Sirte Division _(infantry_division)_
 - [x] ITALIAN - 10ª Armata (Italian 10th Army) _(army)_
 - [x] BRITISH - Western Desert Force _(unknown)_
 
-### 1940-Q3 (2 complete)
+### 1940-Q3 (17 complete)
 
+- [x] BRITISH - 4th Indian Division _(infantry_division)_
+- [x] BRITISH - 7th Armoured Division _(division)_
+- [x] ITALIAN - 1st Libyan Division _(division)_
+- [x] ITALIAN - 2nd Libyan Division _(division)_
+- [x] ITALIAN - 4th CCNN Division '3 Gennaio' _(division)_
+- [x] ITALIAN - Bologna Division _(infantry_division)_
+- [x] ITALIAN - Brescia Division _(infantry_division)_
+- [x] ITALIAN - Catanzaro Division _(infantry_division)_
+- [x] ITALIAN - Cirene Division _(infantry_division)_
+- [x] ITALIAN - Marmarica Division _(infantry_division)_
+- [x] ITALIAN - Pavia Division _(infantry_division)_
+- [x] ITALIAN - Sabratha Division _(infantry_division)_
+- [x] ITALIAN - Savona Division _(infantry_division)_
+- [x] ITALIAN - Sirte Division _(infantry_division)_
+- [x] ITALIAN - XXII Corpo d'Armata (XXII Corps) _(corps)_
 - [x] ITALIAN - 10ª Armata (Italian 10th Army) _(army)_
 - [x] BRITISH - Western Desert Force _(unknown)_
 
-### 1940-Q4 (2 complete)
+### 1940-Q4 (24 complete)
 
+- [x] BRITISH - 1st South African Division _(infantry_division)_
+- [x] BRITISH - 4th Indian Division _(infantry_division)_
+- [x] BRITISH - 6th Australian Division (2nd AIF) _(infantry_division)_
+- [x] BRITISH - 7th Armoured Division _(division)_
+- [x] ITALIAN - 1st CCNN Division '23 Marzo' _(division)_
+- [x] ITALIAN - 1st Libyan Division _(division)_
+- [x] ITALIAN - 2nd CCNN Division '28 Ottobre' _(division)_
+- [x] ITALIAN - 2nd Libyan Division _(division)_
+- [x] ITALIAN - 4th CCNN Division '3 Gennaio' _(division)_
+- [x] ITALIAN - Ariete Division _(armored_division)_
+- [x] ITALIAN - Bologna Division _(infantry_division)_
+- [x] ITALIAN - Brescia Division _(infantry_division)_
+- [x] ITALIAN - Catanzaro Division _(infantry_division)_
+- [x] ITALIAN - Cirene Division _(infantry_division)_
+- [x] ITALIAN - Marmarica Division _(infantry_division)_
+- [x] ITALIAN - Pavia Division _(infantry_division)_
+- [x] ITALIAN - Sabratha Division _(infantry_division)_
+- [x] ITALIAN - Savona Division _(infantry_division)_
+- [x] ITALIAN - Sirte Division _(infantry_division)_
+- [x] ITALIAN - Trento Division _(motorized_division)_
+- [x] ITALIAN - XXI Corpo d'Armata (XXI Corps) _(corps)_
+- [x] ITALIAN - XXII Corpo d'Armata (XXII Corps) _(corps)_
 - [x] ITALIAN - 10ª Armata (Italian 10th Army) _(army)_
 - [x] BRITISH - Western Desert Force _(unknown)_
 
-### 1941-Q1 (3 complete)
+### 1941-Q1 (27 complete)
 
-- [x] BRITISH - XIII Corps _(corps)_
-- [x] GERMAN - Deutsches Afrikakorps _(corps)_
-- [x] ITALIAN - 10ª Armata (Italian 10th Army) _(army)_
-
-### 1941-Q2 (3 complete)
-
-- [x] BRITISH - XIII Corps _(corps)_
-- [x] GERMAN - Deutsches Afrikakorps _(corps)_
-- [x] ITALIAN - XX Mobile Corps _(corps)_
-
-### 1941-Q3 (3 complete)
-
-- [x] GERMAN - Deutsches Afrikakorps _(corps)_
-- [x] ITALIAN - XX Mobile Corps _(corps)_
-- [x] BRITISH - Eighth Army (8th Army) _(army)_
-
-### 1941-Q4 (4 complete)
-
-- [x] FRENCH - 1re Brigade Française Libre _(brigade)_
-- [x] GERMAN - Deutsches Afrikakorps _(corps)_
-- [x] ITALIAN - XX Mobile Corps _(corps)_
-- [x] BRITISH - Eighth Army (8th Army) _(army)_
-
-### 1942-Q1 (4 complete)
-
-- [x] FRENCH - 1re Brigade Française Libre _(brigade)_
-- [x] GERMAN - Deutsches Afrikakorps _(corps)_
-- [x] ITALIAN - XX Mobile Corps _(corps)_
-- [x] BRITISH - Eighth Army (8th Army) _(army)_
-
-### 1942-Q2 (4 complete)
-
-- [x] FRENCH - 1re Division Française Libre _(infantry_division)_
-- [x] GERMAN - Deutsches Afrikakorps _(corps)_
-- [x] ITALIAN - XX Mobile Corps _(corps)_
-- [x] BRITISH - Eighth Army (8th Army) _(army)_
-
-### 1942-Q3 (5 complete)
-
-- [x] FRENCH - 1re Division Française Libre _(infantry_division)_
-- [x] GERMAN - Deutsches Afrikakorps _(corps)_
-- [x] ITALIAN - X Corps _(corps)_
-- [x] ITALIAN - XX Mobile Corps _(corps)_
-- [x] BRITISH - Eighth Army (8th Army) _(army)_
-
-### 1942-Q4 (6 complete)
-
-- [x] FRENCH - 1re Division Française Libre _(infantry_division)_
-- [x] AMERICAN - II Corps _(corps)_
-- [x] GERMAN - Deutsches Afrikakorps _(corps)_
-- [x] ITALIAN - X Corps _(corps)_
-- [x] ITALIAN - XX Mobile Corps _(corps)_
-- [x] BRITISH - Eighth Army (8th Army) _(army)_
-
-### 1943-Q1 (6 complete)
-
-- [x] FRENCH - 1re Division Française Libre _(infantry_division)_
+- [x] BRITISH - 1st South African Division _(infantry_division)_
+- [x] BRITISH - 2nd New Zealand Division _(infantry_division)_
+- [x] BRITISH - 4th Indian Division _(infantry_division)_
+- [x] BRITISH - 5th Indian Division _(infantry_division)_
+- [x] BRITISH - 6th Australian Division (2nd AIF) _(infantry_division)_
+- [x] BRITISH - 7th Armoured Division _(division)_
+- [x] BRITISH - 9th Australian Division _(infantry_division)_
+- [x] GERMAN - 5. leichte Division _(light_division)_
 - [x] ITALIAN - 101st TRIESTE Division _(motorized_division)_
+- [x] ITALIAN - 1st CCNN Division '23 Marzo' _(division)_
+- [x] ITALIAN - 2nd CCNN Division '28 Ottobre' _(division)_
+- [x] ITALIAN - Ariete Division _(armored_division)_
+- [x] ITALIAN - Bologna Division _(infantry_division)_
+- [x] ITALIAN - Brescia Division _(infantry_division)_
+- [x] ITALIAN - Catanzaro Division _(infantry_division)_
+- [x] ITALIAN - Cirene Division _(infantry_division)_
+- [x] ITALIAN - Marmarica Division _(infantry_division)_
+- [x] ITALIAN - Pavia Division _(infantry_division)_
+- [x] ITALIAN - Sabratha Division _(infantry_division)_
+- [x] ITALIAN - Savona Division _(infantry_division)_
+- [x] ITALIAN - Sirte Division _(infantry_division)_
+- [x] ITALIAN - Trento Division _(motorized_division)_
+- [x] BRITISH - XIII Corps _(corps)_
+- [x] GERMAN - Deutsches Afrikakorps _(corps)_
+- [x] ITALIAN - XXI Corpo d'Armata (XXI Corps) _(corps)_
+- [x] ITALIAN - XXII Corpo d'Armata (XXII Corps) _(corps)_
+- [x] ITALIAN - 10ª Armata (Italian 10th Army) _(army)_
+
+### 1941-Q2 (22 complete)
+
+- [x] BRITISH - 1st South African Division _(infantry_division)_
+- [x] BRITISH - 2nd New Zealand Division _(infantry_division)_
+- [x] BRITISH - 2nd South African Division _(infantry_division)_
+- [x] BRITISH - 4th Indian Division _(infantry_division)_
+- [x] BRITISH - 50th Infantry Division _(infantry_division)_
+- [x] BRITISH - 5th Indian Division _(infantry_division)_
+- [x] BRITISH - 7th Armoured Division _(division)_
+- [x] BRITISH - 7th Australian Division _(infantry_division)_
+- [x] BRITISH - 9th Australian Division _(infantry_division)_
+- [x] GERMAN - 15. Panzer-Division _(panzer_division)_
+- [x] GERMAN - 5. leichte Division _(light_division)_
+- [x] ITALIAN - 101st TRIESTE Division _(motorized_division)_
+- [x] ITALIAN - Ariete Division _(armored_division)_
+- [x] ITALIAN - Bologna Division _(infantry_division)_
+- [x] ITALIAN - Brescia Division _(infantry_division)_
+- [x] ITALIAN - Pavia Division _(infantry_division)_
+- [x] ITALIAN - Savona Division _(infantry_division)_
+- [x] ITALIAN - Trento Division _(motorized_division)_
+- [x] BRITISH - XIII Corps _(corps)_
+- [x] GERMAN - Deutsches Afrikakorps _(corps)_
+- [x] ITALIAN - XX Mobile Corps _(corps)_
+- [x] ITALIAN - XXI Corpo d'Armata (XXI Corps) _(corps)_
+
+### 1941-Q3 (29 complete)
+
+- [x] BRITISH - Czechoslovakian 11th Infantry Battalion _(battalion)_
+- [x] BRITISH - Polish Carpathian Brigade (Karpacka Brygada Strzelców) _(brigade)_
+- [x] BRITISH - 1st South African Division _(infantry_division)_
+- [x] BRITISH - 2nd New Zealand Division _(infantry_division)_
+- [x] BRITISH - 2nd South African Division _(infantry_division)_
+- [x] BRITISH - 4th Indian Division _(infantry_division)_
+- [x] BRITISH - 50th Infantry Division _(infantry_division)_
+- [x] BRITISH - 5th Indian Division _(infantry_division)_
+- [x] BRITISH - 70th Infantry Division _(infantry_division)_
+- [x] BRITISH - 7th Armoured Division _(division)_
+- [x] BRITISH - 7th Australian Division _(infantry_division)_
+- [x] BRITISH - 9th Australian Division _(infantry_division)_
+- [x] GERMAN - 15. Panzer-Division _(panzer_division)_
+- [x] GERMAN - 21. Panzer-Division _(panzer_division)_
+- [x] GERMAN - 90. leichte Division _(light_division)_
+- [x] ITALIAN - 101st TRIESTE Division _(motorized_division)_
+- [x] ITALIAN - Ariete Division _(armored_division)_
+- [x] ITALIAN - Bologna Division _(infantry_division)_
+- [x] ITALIAN - Brescia Division _(infantry_division)_
+- [x] ITALIAN - Pavia Division _(infantry_division)_
+- [x] ITALIAN - Savona Division _(infantry_division)_
+- [x] ITALIAN - Trento Division _(motorized_division)_
+- [x] BRITISH - XIII Corps _(corps)_
+- [x] BRITISH - XXX Corps _(corps)_
+- [x] GERMAN - Deutsches Afrikakorps _(corps)_
+- [x] ITALIAN - XX Mobile Corps _(corps)_
+- [x] ITALIAN - XXI Corpo d'Armata (XXI Corps) _(corps)_
+- [x] BRITISH - Eighth Army (8th Army) _(army)_
+- [x] GERMAN - Panzergruppe Afrika _(army_group)_
+
+### 1941-Q4 (31 complete)
+
+- [x] BRITISH - Czechoslovakian 11th Infantry Battalion _(battalion)_
+- [x] BRITISH - Polish Carpathian Brigade (Karpacka Brygada Strzelców) _(brigade)_
+- [x] FRENCH - 1re Brigade Française Libre _(brigade)_
+- [x] BRITISH - 1st Armoured Division _(division)_
+- [x] BRITISH - 1st South African Division _(infantry_division)_
+- [x] BRITISH - 2nd New Zealand Division _(infantry_division)_
+- [x] BRITISH - 2nd South African Division _(infantry_division)_
+- [x] BRITISH - 4th Indian Division _(infantry_division)_
+- [x] BRITISH - 50th Infantry Division _(infantry_division)_
+- [x] BRITISH - 5th Indian Division _(infantry_division)_
+- [x] BRITISH - 70th Infantry Division _(infantry_division)_
+- [x] BRITISH - 7th Armoured Division _(division)_
+- [x] BRITISH - 9th Australian Division _(infantry_division)_
+- [x] GERMAN - 15. Panzer-Division _(panzer_division)_
+- [x] GERMAN - 21. Panzer-Division _(panzer_division)_
+- [x] GERMAN - 90. leichte Division _(light_division)_
+- [x] ITALIAN - 101st TRIESTE Division _(motorized_division)_
+- [x] ITALIAN - Ariete Division _(armored_division)_
+- [x] ITALIAN - Bologna Division _(infantry_division)_
+- [x] ITALIAN - Brescia Division _(infantry_division)_
+- [x] ITALIAN - Littorio Division _(armored_division)_
+- [x] ITALIAN - Pavia Division _(infantry_division)_
+- [x] ITALIAN - Savona Division _(infantry_division)_
+- [x] ITALIAN - Trento Division _(motorized_division)_
+- [x] BRITISH - XIII Corps _(corps)_
+- [x] BRITISH - XXX Corps _(corps)_
+- [x] GERMAN - Deutsches Afrikakorps _(corps)_
+- [x] ITALIAN - XX Mobile Corps _(corps)_
+- [x] ITALIAN - XXI Corpo d'Armata (XXI Corps) _(corps)_
+- [x] BRITISH - Eighth Army (8th Army) _(army)_
+- [x] GERMAN - Panzergruppe Afrika _(army_group)_
+
+### 1942-Q1 (28 complete)
+
+- [x] FRENCH - 1re Brigade Française Libre _(brigade)_
+- [x] BRITISH - 1st Armoured Division _(division)_
+- [x] BRITISH - 1st South African Division _(infantry_division)_
+- [x] BRITISH - 2nd New Zealand Division _(infantry_division)_
+- [x] BRITISH - 2nd South African Division _(infantry_division)_
+- [x] BRITISH - 4th Indian Division _(infantry_division)_
+- [x] BRITISH - 50th Infantry Division _(infantry_division)_
+- [x] BRITISH - 5th Indian Division _(infantry_division)_
+- [x] BRITISH - 7th Armoured Division _(division)_
+- [x] BRITISH - 9th Australian Division _(infantry_division)_
+- [x] GERMAN - 15. Panzer-Division _(panzer_division)_
+- [x] GERMAN - 21. Panzer-Division _(panzer_division)_
+- [x] GERMAN - 90. leichte Division _(light_division)_
+- [x] ITALIAN - 101st TRIESTE Division _(motorized_division)_
+- [x] ITALIAN - Ariete Division _(armored_division)_
+- [x] ITALIAN - Bologna Division _(infantry_division)_
+- [x] ITALIAN - Brescia Division _(infantry_division)_
+- [x] ITALIAN - Littorio Division _(armored_division)_
+- [x] ITALIAN - Pavia Division _(infantry_division)_
+- [x] ITALIAN - Trento Division _(motorized_division)_
+- [x] BRITISH - XIII Corps _(corps)_
+- [x] BRITISH - XXX Corps _(corps)_
+- [x] GERMAN - Deutsches Afrikakorps _(corps)_
+- [x] ITALIAN - XX Mobile Corps _(corps)_
+- [x] ITALIAN - XXI Corpo d'Armata (XXI Corps) _(corps)_
+- [x] BRITISH - Eighth Army (8th Army) _(army)_
+- [x] GERMAN - Panzerarmee Afrika _(army)_
+- [x] GERMAN - Panzergruppe Afrika _(army_group)_
+
+### 1942-Q2 (29 complete)
+
+- [x] FRENCH - 1re Brigade Française Libre _(brigade)_
+- [x] BRITISH - 1st Armoured Division _(division)_
+- [x] BRITISH - 1st South African Division _(infantry_division)_
+- [x] BRITISH - 2nd New Zealand Division _(infantry_division)_
+- [x] BRITISH - 2nd South African Division _(infantry_division)_
+- [x] BRITISH - 4th Indian Division _(infantry_division)_
+- [x] BRITISH - 50th Infantry Division _(infantry_division)_
+- [x] BRITISH - 5th Indian Division _(infantry_division)_
+- [x] BRITISH - 7th Armoured Division _(division)_
+- [x] BRITISH - 9th Australian Division _(infantry_division)_
+- [x] FRENCH - 1re Division Française Libre _(infantry_division)_
+- [x] GERMAN - 15. Panzer-Division _(panzer_division)_
+- [x] GERMAN - 21. Panzer-Division _(panzer_division)_
+- [x] GERMAN - 90. leichte Division _(light_division)_
+- [x] ITALIAN - 101st TRIESTE Division _(motorized_division)_
+- [x] ITALIAN - Ariete Division _(armored_division)_
+- [x] ITALIAN - Bologna Division _(infantry_division)_
+- [x] ITALIAN - Brescia Division _(infantry_division)_
+- [x] ITALIAN - Littorio Division _(armored_division)_
+- [x] ITALIAN - Pavia Division _(infantry_division)_
+- [x] ITALIAN - Superga Division _(infantry_division)_
+- [x] ITALIAN - Trento Division _(motorized_division)_
+- [x] BRITISH - XIII Corps _(corps)_
+- [x] BRITISH - XXX Corps _(corps)_
+- [x] GERMAN - Deutsches Afrikakorps _(corps)_
+- [x] ITALIAN - XX Mobile Corps _(corps)_
+- [x] ITALIAN - XXI Corpo d'Armata (XXI Corps) _(corps)_
+- [x] BRITISH - Eighth Army (8th Army) _(army)_
+- [x] GERMAN - Panzerarmee Afrika _(army)_
+
+### 1942-Q3 (34 complete)
+
+- [x] BRITISH - 1st Greek Brigade _(brigade)_
+- [x] GERMAN - Ramcke Parachute Brigade _(brigade)_
+- [x] BRITISH - 10th Armoured Division _(division)_
+- [x] BRITISH - 1st Armoured Division _(division)_
+- [x] BRITISH - 2nd New Zealand Division _(infantry_division)_
+- [x] BRITISH - 44th Infantry Division _(infantry_division)_
+- [x] BRITISH - 4th Indian Division _(infantry_division)_
+- [x] BRITISH - 50th Infantry Division _(infantry_division)_
+- [x] BRITISH - 51st Highland Division _(infantry_division)_
+- [x] BRITISH - 7th Armoured Division _(division)_
+- [x] BRITISH - 9th Australian Division _(infantry_division)_
+- [x] FRENCH - 1re Division Française Libre _(infantry_division)_
+- [x] GERMAN - 15. Panzer-Division _(panzer_division)_
+- [x] GERMAN - 164. leichte Division _(light_division)_
+- [x] GERMAN - 21. Panzer-Division _(panzer_division)_
+- [x] GERMAN - 90. leichte Division _(light_division)_
+- [x] ITALIAN - 101st TRIESTE Division _(motorized_division)_
+- [x] ITALIAN - Ariete Division _(armored_division)_
+- [x] ITALIAN - Bologna Division _(infantry_division)_
+- [x] ITALIAN - Brescia Division _(infantry_division)_
+- [x] ITALIAN - Folgore Division _(airborne_division)_
+- [x] ITALIAN - Littorio Division _(armored_division)_
+- [x] ITALIAN - Pavia Division _(infantry_division)_
+- [x] ITALIAN - Superga Division _(infantry_division)_
+- [x] ITALIAN - Trento Division _(motorized_division)_
+- [x] BRITISH - XIII Corps _(corps)_
+- [x] BRITISH - XXX Corps _(corps)_
+- [x] BRITISH - XXX Corps _(corps)_
+- [x] GERMAN - Deutsches Afrikakorps _(corps)_
+- [x] ITALIAN - X Corps _(corps)_
+- [x] ITALIAN - XX Mobile Corps _(corps)_
+- [x] ITALIAN - XXI Corpo d'Armata (XXI Corps) _(corps)_
+- [x] BRITISH - Eighth Army (8th Army) _(army)_
+- [x] GERMAN - Panzerarmee Afrika _(army)_
+
+### 1942-Q4 (52 complete)
+
+- [x] BRITISH - 1st Greek Brigade _(brigade)_
+- [x] FRENCH - Force L _(brigade)_
+- [x] GERMAN - Ramcke Parachute Brigade _(brigade)_
+- [x] AMERICAN - 1st Armored Division _(armored_division)_
+- [x] AMERICAN - 1st Infantry Division _(infantry_division)_
+- [x] AMERICAN - 2nd Armored Division _(armored_division)_
+- [x] AMERICAN - 34th Infantry Division _(infantry_division)_
+- [x] AMERICAN - 3rd Infantry Division _(infantry_division)_
+- [x] AMERICAN - 9th Infantry Division _(infantry_division)_
+- [x] BRITISH - 10th Armoured Division _(division)_
+- [x] BRITISH - 1st Armoured Division _(division)_
+- [x] BRITISH - 1st Infantry Division _(infantry_division)_
+- [x] BRITISH - 2nd New Zealand Division _(infantry_division)_
+- [x] BRITISH - 44th Infantry Division _(infantry_division)_
+- [x] BRITISH - 46th Infantry Division _(infantry_division)_
+- [x] BRITISH - 4th Indian Division _(infantry_division)_
+- [x] BRITISH - 4th Infantry Division _(infantry_division)_
+- [x] BRITISH - 50th Infantry Division _(infantry_division)_
+- [x] BRITISH - 51st Highland Division _(infantry_division)_
+- [x] BRITISH - 6th Armoured Division _(division)_
+- [x] BRITISH - 78th Infantry Division 'Battleaxe' _(infantry_division)_
+- [x] BRITISH - 7th Armoured Division _(division)_
+- [x] BRITISH - 9th Australian Division _(infantry_division)_
+- [x] FRENCH - 1re Division Française Libre _(infantry_division)_
+- [x] GERMAN - 10. Panzer-Division _(panzer_division)_
+- [x] GERMAN - 15. Panzer-Division _(panzer_division)_
+- [x] GERMAN - 164. leichte Division _(light_division)_
+- [x] GERMAN - 21. Panzer-Division _(panzer_division)_
+- [x] GERMAN - 90. leichte Division _(light_division)_
+- [x] GERMAN - Hermann Göring Division _(panzer_division)_
+- [x] ITALIAN - 101st TRIESTE Division _(motorized_division)_
+- [x] ITALIAN - Ariete Division _(armored_division)_
+- [x] ITALIAN - Bologna Division _(infantry_division)_
+- [x] ITALIAN - Brescia Division _(infantry_division)_
+- [x] ITALIAN - Centauro Division _(armored_division)_
+- [x] ITALIAN - Folgore Division _(airborne_division)_
+- [x] ITALIAN - La Spezia Division _(infantry_division)_
+- [x] ITALIAN - Littorio Division _(armored_division)_
+- [x] ITALIAN - Pistoia Division _(infantry_division)_
+- [x] ITALIAN - Superga Division _(infantry_division)_
+- [x] ITALIAN - Trento Division _(motorized_division)_
 - [x] AMERICAN - II Corps _(corps)_
 - [x] BRITISH - V Corps _(corps)_
 - [x] BRITISH - X Corps _(corps)_
-- [x] GERMAN - Panzerarmee Afrika _(army)_
+- [x] BRITISH - XIII Corps _(corps)_
+- [x] BRITISH - XXX Corps _(corps)_
+- [x] BRITISH - XXX Corps _(corps)_
+- [x] GERMAN - Deutsches Afrikakorps _(corps)_
+- [x] ITALIAN - X Corps _(corps)_
+- [x] ITALIAN - XX Mobile Corps _(corps)_
+- [x] ITALIAN - XXI Corpo d'Armata (XXI Corps) _(corps)_
+- [x] BRITISH - Eighth Army (8th Army) _(army)_
 
-### 1943-Q2 (5 complete)
+### 1943-Q1 (42 complete)
 
+- [x] BRITISH - 1st Greek Brigade _(brigade)_
+- [x] FRENCH - Force L _(brigade)_
 - [x] AMERICAN - 1st Armored Division _(armored_division)_
+- [x] AMERICAN - 1st Infantry Division _(infantry_division)_
+- [x] AMERICAN - 2nd Armored Division _(armored_division)_
+- [x] AMERICAN - 34th Infantry Division _(infantry_division)_
+- [x] AMERICAN - 3rd Infantry Division _(infantry_division)_
+- [x] AMERICAN - 45th Infantry Division _(infantry_division)_
+- [x] AMERICAN - 9th Infantry Division _(infantry_division)_
+- [x] BRITISH - 10th Armoured Division _(division)_
+- [x] BRITISH - 1st Armoured Division _(division)_
+- [x] BRITISH - 1st Infantry Division _(infantry_division)_
+- [x] BRITISH - 2nd New Zealand Division _(infantry_division)_
+- [x] BRITISH - 44th Infantry Division _(infantry_division)_
+- [x] BRITISH - 46th Infantry Division _(infantry_division)_
+- [x] BRITISH - 4th Indian Division _(infantry_division)_
+- [x] BRITISH - 4th Infantry Division _(infantry_division)_
+- [x] BRITISH - 50th Infantry Division _(infantry_division)_
+- [x] BRITISH - 51st Highland Division _(infantry_division)_
+- [x] BRITISH - 6th Armoured Division _(division)_
+- [x] BRITISH - 78th Infantry Division 'Battleaxe' _(infantry_division)_
 - [x] BRITISH - 7th Armoured Division _(division)_
 - [x] FRENCH - 1re Division Française Libre _(infantry_division)_
+- [x] FRENCH - 1st Moroccan March Division _(division)_
+- [x] FRENCH - 2e Division d'Infanterie Marocaine _(infantry_division)_
+- [x] FRENCH - Algerian March Division _(division)_
+- [x] FRENCH - Constantine March Division _(division)_
 - [x] GERMAN - 10. Panzer-Division _(panzer_division)_
+- [x] GERMAN - 15. Panzer-Division _(panzer_division)_
+- [x] GERMAN - 164. leichte Division _(light_division)_
+- [x] GERMAN - 21. Panzer-Division _(panzer_division)_
+- [x] GERMAN - 90. leichte Division _(light_division)_
+- [x] GERMAN - Hermann Göring Division _(panzer_division)_
 - [x] ITALIAN - 101st TRIESTE Division _(motorized_division)_
+- [x] ITALIAN - Centauro Division _(armored_division)_
+- [x] ITALIAN - Giovani Fascisti Division _(armored_division)_
+- [x] ITALIAN - La Spezia Division _(infantry_division)_
+- [x] ITALIAN - Pistoia Division _(infantry_division)_
+- [x] ITALIAN - Superga Division _(infantry_division)_
+- [x] ITALIAN - Trento Division _(motorized_division)_
+- [x] AMERICAN - II Corps _(corps)_
+- [x] GERMAN - Panzerarmee Afrika _(army)_
+
+### 1943-Q2 (37 complete)
+
+- [x] BRITISH - 1st Greek Brigade _(brigade)_
+- [x] FRENCH - Force L _(brigade)_
+- [x] AMERICAN - 1st Armored Division _(armored_division)_
+- [x] AMERICAN - 1st Infantry Division _(infantry_division)_
+- [x] AMERICAN - 2nd Armored Division _(armored_division)_
+- [x] AMERICAN - 34th Infantry Division _(infantry_division)_
+- [x] AMERICAN - 3rd Infantry Division _(infantry_division)_
+- [x] AMERICAN - 45th Infantry Division _(infantry_division)_
+- [x] AMERICAN - 9th Infantry Division _(infantry_division)_
+- [x] BRITISH - 10th Armoured Division _(division)_
+- [x] BRITISH - 1st Armoured Division _(division)_
+- [x] BRITISH - 1st Infantry Division _(infantry_division)_
+- [x] BRITISH - 2nd New Zealand Division _(infantry_division)_
+- [x] BRITISH - 46th Infantry Division _(infantry_division)_
+- [x] BRITISH - 4th Indian Division _(infantry_division)_
+- [x] BRITISH - 4th Infantry Division _(infantry_division)_
+- [x] BRITISH - 50th Infantry Division _(infantry_division)_
+- [x] BRITISH - 51st Highland Division _(infantry_division)_
+- [x] BRITISH - 6th Armoured Division _(division)_
+- [x] BRITISH - 78th Infantry Division 'Battleaxe' _(infantry_division)_
+- [x] BRITISH - 7th Armoured Division _(division)_
+- [x] FRENCH - 1re Division Française Libre _(infantry_division)_
+- [x] FRENCH - 1st Moroccan March Division _(division)_
+- [x] FRENCH - 2e Division d'Infanterie Marocaine _(infantry_division)_
+- [x] FRENCH - Algerian March Division _(division)_
+- [x] FRENCH - Constantine March Division _(division)_
+- [x] GERMAN - 15. Panzer-Division _(panzer_division)_
+- [x] GERMAN - 164. leichte Division _(light_division)_
+- [x] GERMAN - 21. Panzer-Division _(panzer_division)_
+- [x] GERMAN - 90. leichte Division _(light_division)_
+- [x] GERMAN - Hermann Göring Division _(panzer_division)_
+- [x] ITALIAN - 101st TRIESTE Division _(motorized_division)_
+- [x] ITALIAN - Centauro Division _(armored_division)_
+- [x] ITALIAN - Giovani Fascisti Division _(armored_division)_
+- [x] ITALIAN - La Spezia Division _(infantry_division)_
+- [x] ITALIAN - Pistoia Division _(infantry_division)_
+- [x] ITALIAN - Superga Division _(infantry_division)_
 
 </details>
 

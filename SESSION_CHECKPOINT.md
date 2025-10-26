@@ -1,11 +1,11 @@
-# Session Checkpoint - 2025-10-26T14:39:37.170Z
+# Session Checkpoint - 2025-10-26T14:47:18.334Z
 
 ## Progress Summary
 
 - **Total Unit-Quarters:** 414
 - **Completed:** 372 (89.9%)
 - **Remaining:** 42
-- **Last Commit:** 46028b9
+- **Last Commit:** 8d9de50
 
 ## Validation Status
 
@@ -30,11 +30,11 @@
 
 ## Recent Completions
 
-- ✅ italian_1942q2_xx_mobile_corps
-- ✅ italian_1942q3_xx_mobile_corps
-- ✅ italian_1942q4_xx_mobile_corps
-- ✅ italian_1943q1_101st_trieste_division
-- ✅ italian_1943q2_101st_trieste_division
+- ✅ italian_1943q2_centauro_division
+- ✅ italian_1943q2_giovani_fascisti_division
+- ✅ italian_1943q2_la_spezia_division
+- ✅ italian_1943q2_pistoia_division
+- ✅ italian_1943q2_superga_division
 
 ## Recovery Instructions
 
@@ -57,8 +57,8 @@ If this session crashes or needs to resume:
 ## Session Info
 
 - **Session ID:** undefined
-- **Checkpoint Time:** 2025-10-26T14:39:37.069Z
-- **Git Commit:** 46028b9
+- **Checkpoint Time:** 2025-10-26T14:47:18.235Z
+- **Git Commit:** 8d9de50
 
 ---
 
