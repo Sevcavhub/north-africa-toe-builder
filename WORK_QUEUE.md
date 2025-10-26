@@ -1,9 +1,9 @@
 # North Africa Work Queue
 
-**Generated**: 2025-10-26T21:48:21.455Z
+**Generated**: 2025-10-26T22:01:31.907Z
 
-**Progress**: 403/411 units complete (98.1%)
-**Remaining**: 8 units
+**Progress**: 404/411 units complete (98.3%)
+**Remaining**: 7 units
 
 ---
 
@@ -21,19 +21,18 @@
 
 1. **GERMAN** - 1943-Q2 - 10. Panzer-Division _(panzer_division)_
 2. **BRITISH** - 1943-Q1 - XIII Corps _(corps)_
-3. **GERMAN** - 1943-Q1 - 5th Panzer Army _(army)_
+3. **ITALIAN** - 1943-Q1 - First Italian Army _(army)_
 
 ---
 
 ## 📋 Full Queue (Chronological + Echelon Order)
 
-### 1943-Q1 (52/55 complete)
+### 1943-Q1 (53/55 complete)
 
 **CORPS** (1 remaining):
 - [ ] BRITISH - XIII Corps
 
-**ARMY** (2 remaining):
-- [ ] GERMAN - 5th Panzer Army
+**ARMY** (1 remaining):
 - [ ] ITALIAN - First Italian Army
 
 ### 1943-Q2 (47/52 complete)
@@ -49,7 +48,7 @@
 
 ---
 
-## ✅ Completed (403 units)
+## ✅ Completed (404 units)
 
 <details>
 <summary>Show completed units</summary>
@@ -391,7 +390,7 @@
 - [x] GERMAN - 5th Panzer Army _(army)_
 - [x] GERMAN - Panzerarmee Afrika _(army)_
 
-### 1943-Q1 (52 complete)
+### 1943-Q1 (53 complete)
 
 - [x] BRITISH - 1st Greek Brigade _(brigade)_
 - [x] FRENCH - Force L _(brigade)_
@@ -444,6 +443,7 @@
 - [x] ITALIAN - XXI Corpo d'Armata (XXI Corps) _(corps)_
 - [x] BRITISH - Eighth Army (8th Army) _(army)_
 - [x] BRITISH - First Army _(army)_
+- [x] GERMAN - 5th Panzer Army _(army)_
 - [x] GERMAN - Panzerarmee Afrika _(army)_
 
 ### 1943-Q2 (47 complete)
