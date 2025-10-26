@@ -43,7 +43,7 @@
 ### ✅ RECENTLY COMPLETED (Last Session):
 - **Session Date**: 2025-10-26
 - **Units Completed**: 424 unit-quarters (0 → 424)
-- **Session Duration**: 13 minutes
+- **Session Duration**: unknown minutes
 - **Completion Rate**: 101.9% of total project
 - **Recent Work**:
   - italian_1943q1_pistoia_division

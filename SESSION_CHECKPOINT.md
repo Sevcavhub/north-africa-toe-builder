@@ -1,18 +1,18 @@
-# Session Checkpoint - 2025-10-26T14:20:42.949Z
+# Session Checkpoint - 2025-10-26T14:39:37.170Z
 
 ## Progress Summary
 
-- **Total Unit-Quarters:** 416
-- **Completed:** 424 (101.9%)
-- **Remaining:** -8
-- **Last Commit:** 9966fcd
+- **Total Unit-Quarters:** 414
+- **Completed:** 372 (89.9%)
+- **Remaining:** 42
+- **Last Commit:** 46028b9
 
 ## Validation Status
 
-- **Total Validated:** 428
+- **Total Validated:** 373
 - **✅ Passed:** 0 (0.0%)
 - **❌ Failed:** 2 ⚠️
-- **⚠️ Warnings:** 426
+- **⚠️ Warnings:** 371
 
 ### Critical Validation Failures
 
@@ -24,17 +24,17 @@
 
 ## Chapter Status
 
-- **JSON Files:** 428
-- **MDBook Chapters:** 428 ✅
+- **JSON Files:** 373
+- **MDBook Chapters:** 373 ✅
 - **All chapters present** ✅
 
 ## Recent Completions
 
-- ✅ italian_1943q2_centauro_division
-- ✅ italian_1943q2_giovani_fascisti_division
-- ✅ italian_1943q2_la_spezia_division
-- ✅ italian_1943q2_pistoia_division
-- ✅ italian_1943q2_superga_division
+- ✅ italian_1942q2_xx_mobile_corps
+- ✅ italian_1942q3_xx_mobile_corps
+- ✅ italian_1942q4_xx_mobile_corps
+- ✅ italian_1943q1_101st_trieste_division
+- ✅ italian_1943q2_101st_trieste_division
 
 ## Recovery Instructions
 
@@ -52,13 +52,13 @@ If this session crashes or needs to resume:
 
 3. **View full progress:**
    - See WORKFLOW_STATE.json for complete list
-   - 424 units saved successfully
+   - 372 units saved successfully
 
 ## Session Info
 
-- **Session ID:** complete_seed_generated
-- **Checkpoint Time:** 2025-10-26T14:20:42.849Z
-- **Git Commit:** 9966fcd
+- **Session ID:** undefined
+- **Checkpoint Time:** 2025-10-26T14:39:37.069Z
+- **Git Commit:** 46028b9
 
 ---
 

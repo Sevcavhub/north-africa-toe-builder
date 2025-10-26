@@ -16,6 +16,7 @@ const path = require('path');
 const { execSync } = require('child_process');
 const { validateUnitFile } = require('./lib/validator');
 const naming = require('./lib/naming_standard');
+const matching = require('./lib/matching');
 const paths = require('./lib/canonical_paths');
 
 const PROJECT_ROOT = path.join(__dirname, '..');
@@ -115,8 +116,87 @@ async function checkChapterStatus(completedUnits) {
     return chapterStatus;
 }
 
+async function mapFilesToCanonicalIds(completedUnits) {
+    // Load seed file to get canonical designations
+    const seedPath = path.join(PROJECT_ROOT, 'projects', 'north_africa_seed_units_COMPLETE.json');
+    let seedData;
+    try {
+        seedData = JSON.parse(await fs.readFile(seedPath, 'utf-8'));
+    } catch (error) {
+        console.warn('⚠️  Could not load seed file, using filename-based IDs');
+        return completedUnits.map(u => ({
+            ...u,
+            canonicalId: `${u.nation}_${u.quarter}_${u.unit}`
+        }));
+    }
+
+    // Build expected units from seed
+    const expectedUnits = [];
+    for (const [nationKey, units] of Object.entries(seedData)) {
+        if (!nationKey.endsWith('_units') || !Array.isArray(units)) continue;
+
+        const nation = naming.NATION_MAP[nationKey];
+        if (!nation) continue;
+
+        for (const unit of units) {
+            for (const quarter of unit.quarters) {
+                const canonicalId = `${nation}_${naming.normalizeQuarter(quarter)}_${naming.normalizeDesignation(unit.designation)}`;
+                expectedUnits.push({
+                    nation,
+                    quarter,
+                    designation: unit.designation,
+                    aliases: unit.aliases || [],
+                    canonicalId
+                });
+            }
+        }
+    }
+
+    // Map each completed file to canonical seed ID using fuzzy matching
+    const mappedUnits = [];
+    const fileBasedIds = completedUnits.map(u => `${u.nation}_${u.quarter}_${u.unit}`);
+    const fileSet = new Set(fileBasedIds);
+
+    for (const unit of completedUnits) {
+        // Try to find matching seed unit
+        let canonicalId = null;
+
+        for (const expected of expectedUnits) {
+            if (expected.nation === unit.nation &&
+                naming.normalizeQuarter(expected.quarter) === unit.quarter) {
+                // Use fuzzy matching to check if this file matches this seed unit
+                if (matching.isUnitCompleted(
+                    expected.nation,
+                    expected.quarter,
+                    expected.designation,
+                    expected.aliases,
+                    fileSet
+                )) {
+                    canonicalId = expected.canonicalId;
+                    break;
+                }
+            }
+        }
+
+        // Fallback to filename-based ID if no match found
+        if (!canonicalId) {
+            canonicalId = `${unit.nation}_${unit.quarter}_${unit.unit}`;
+        }
+
+        mappedUnits.push({
+            ...unit,
+            canonicalId
+        });
+    }
+
+    return mappedUnits;
+}
+
 async function updateWorkflowState(completedUnits, validationStatus, chapterStatus) {
     const state = await readWorkflowState();
+
+    // CRITICAL FIX: Map files to canonical seed IDs using fuzzy matching
+    const mappedUnits = await mapFilesToCanonicalIds(completedUnits);
 
     // CRITICAL: Only count units that meet ALL 3 requirements:
     // 1. JSON file exists (completedUnits from scan)
@@ -131,7 +211,7 @@ async function updateWorkflowState(completedUnits, validationStatus, chapterStat
     }
 
     const unitsWithChapters = new Set();
-    for (const unit of completedUnits) {
+    for (const unit of mappedUnits) {
         const unitId = `${unit.nation}_${unit.quarter}_${unit.unit}`;
         const chapterFilename = `chapter_${unit.nation}_${unit.quarter}_${unit.unit}.md`;
         if (!chapterStatus.missing.some(m => m.includes(chapterFilename))) {
@@ -140,14 +220,17 @@ async function updateWorkflowState(completedUnits, validationStatus, chapterStat
     }
 
     // Filter to only units that pass validation AND have chapters
-    const fullyCompletedUnits = completedUnits.filter(u => {
+    const fullyCompletedUnits = mappedUnits.filter(u => {
         const unitId = `${u.nation}_${u.quarter}_${u.unit}`;
         return !validatedUnits.has(unitId) && unitsWithChapters.has(unitId);
     });
 
-    // Update completed list with VALIDATED units only
+    // Update completed list with CANONICAL IDs only (CRITICAL FIX)
     const oldCompleted = new Set(state.completed || []);
-    state.completed = fullyCompletedUnits.map(u => `${u.nation}_${u.quarter}_${u.unit}`);
+    const newCompletedIds = fullyCompletedUnits.map(u => u.canonicalId);
+
+    // CRITICAL: Deduplicate to prevent duplicate IDs (Architecture v4.0 safety)
+    state.completed = Array.from(new Set(newCompletedIds)).sort();
     state.last_updated = new Date().toISOString();
 
     // Calculate units completed in this batch
