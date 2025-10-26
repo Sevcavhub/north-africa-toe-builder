@@ -1,25 +1,28 @@
-# Session Checkpoint - 2025-10-26T12:54:53.142Z
+# Session Checkpoint - 2025-10-26T13:20:11.084Z
 
 ## Progress Summary
 
 - **Total Unit-Quarters:** 416
 - **Completed:** 406 (97.6%)
 - **Remaining:** 10
-- **Last Commit:** dc13614
+- **Last Commit:** d62a66a
 
 ## Validation Status
 
-- **Total Validated:** 413
+- **Total Validated:** 416
 - **✅ Passed:** 0 (0.0%)
-- **❌ Failed:** 0 ✅
-- **⚠️ Warnings:** 413
+- **❌ Failed:** 1 ⚠️
+- **⚠️ Warnings:** 415
 
-**All units passed validation** ✅
+### Critical Validation Failures
+
+**german_1943q2_10_panzer_division:**
+  - ❌ Tank total mismatch: total=85 but heavy+medium+light=0
 
 ## Chapter Status
 
-- **JSON Files:** 413
-- **MDBook Chapters:** 413 ✅
+- **JSON Files:** 416
+- **MDBook Chapters:** 416 ✅
 - **All chapters present** ✅
 
 ## Recent Completions
@@ -51,8 +54,8 @@ If this session crashes or needs to resume:
 ## Session Info
 
 - **Session ID:** complete_seed_generated
-- **Checkpoint Time:** 2025-10-26T12:54:53.041Z
-- **Git Commit:** dc13614
+- **Checkpoint Time:** 2025-10-26T13:20:10.985Z
+- **Git Commit:** d62a66a
 
 ---
 
