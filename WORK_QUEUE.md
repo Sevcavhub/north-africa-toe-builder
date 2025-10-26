@@ -1,9 +1,9 @@
 # North Africa Work Queue
 
-**Generated**: 2025-10-26T16:59:40.756Z
+**Generated**: 2025-10-26T17:08:18.719Z
 
-**Progress**: 379/411 units complete (92.2%)
-**Remaining**: 32 units
+**Progress**: 380/411 units complete (92.5%)
+**Remaining**: 31 units
 
 ---
 
@@ -19,18 +19,15 @@
 
 ## 🎯 Next Up (Next Session)
 
-1. **BRITISH** - 1942-Q4 - 44th Infantry Division _(infantry_division)_
-2. **GERMAN** - 1943-Q2 - 10. Panzer-Division _(panzer_division)_
-3. **BRITISH** - 1943-Q1 - V Corps _(corps)_
+1. **GERMAN** - 1943-Q2 - 10. Panzer-Division _(panzer_division)_
+2. **BRITISH** - 1943-Q1 - V Corps _(corps)_
+3. **BRITISH** - 1943-Q1 - X Corps _(corps)_
 
 ---
 
 ## 📋 Full Queue (Chronological + Echelon Order)
 
-### 1942-Q4 (51/55 complete)
-
-**INFANTRY_DIVISION** (1 remaining):
-- [ ] BRITISH - 44th Infantry Division
+### 1942-Q4 (52/55 complete)
 
 **ARMY** (3 remaining):
 - [ ] BRITISH - First Army
@@ -81,7 +78,7 @@
 
 ---
 
-## ✅ Completed (379 units)
+## ✅ Completed (380 units)
 
 <details>
 <summary>Show completed units</summary>
@@ -365,7 +362,7 @@
 - [x] BRITISH - Eighth Army (8th Army) _(army)_
 - [x] GERMAN - Panzerarmee Afrika _(army)_
 
-### 1942-Q4 (51 complete)
+### 1942-Q4 (52 complete)
 
 - [x] BRITISH - 1st Greek Brigade _(brigade)_
 - [x] FRENCH - Force L _(brigade)_
@@ -380,6 +377,7 @@
 - [x] BRITISH - 1st Armoured Division _(division)_
 - [x] BRITISH - 1st Infantry Division _(infantry_division)_
 - [x] BRITISH - 2nd New Zealand Division _(infantry_division)_
+- [x] BRITISH - 44th Infantry Division _(infantry_division)_
 - [x] BRITISH - 46th Infantry Division _(infantry_division)_
 - [x] BRITISH - 4th Indian Division _(infantry_division)_
 - [x] BRITISH - 4th Infantry Division _(infantry_division)_
