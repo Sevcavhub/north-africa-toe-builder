@@ -177,6 +177,114 @@ async function verifyBatchCompletion(units) {
     return results;
 }
 
+async function verifyNoWikipediaSources(completedUnits) {
+    /**
+     * Verify that completed units do NOT contain Wikipedia sources.
+     * Returns object with validation status and violations.
+     */
+    const WIKIPEDIA_PATTERNS = [
+        /wikipedia\.org/i,
+        /wikipedia\.com/i,
+        /de\.wikipedia/i,
+        /en\.wikipedia/i,
+        /it\.wikipedia/i,
+        /fr\.wikipedia/i,
+        /wikia\.com/i,
+        /fandom\.com/i,
+        /\bwiki\b.*source/i,
+        /Wikipedia:/i,
+        /Wikipedia -/i,
+        /Wikipedia\s+\(/i
+    ];
+
+    const results = {
+        allClean: true,
+        violations: [],
+        clean: []
+    };
+
+    for (const unitStatus of completedUnits) {
+        try {
+            const content = await fs.readFile(unitStatus.jsonPath, 'utf-8');
+            const data = JSON.parse(content);
+
+            const violations = [];
+
+            // Check sources array
+            if (data.sources && Array.isArray(data.sources)) {
+                for (let i = 0; i < data.sources.length; i++) {
+                    const source = data.sources[i];
+                    const sourceStr = typeof source === 'string' ? source : JSON.stringify(source);
+
+                    for (const pattern of WIKIPEDIA_PATTERNS) {
+                        if (pattern.test(sourceStr)) {
+                            violations.push({
+                                location: `sources[${i}]`,
+                                source: sourceStr.substring(0, 100)
+                            });
+                            break;
+                        }
+                    }
+                }
+            }
+
+            // Recursively check all string fields
+            function checkObject(obj, pathParts = []) {
+                if (!obj || typeof obj !== 'object') return;
+
+                for (const [key, value] of Object.entries(obj)) {
+                    const currentPath = [...pathParts, key];
+
+                    if (typeof value === 'string') {
+                        // Skip if saying "no Wikipedia" or "non-Wikipedia"
+                        const lowerValue = value.toLowerCase();
+                        if (lowerValue.includes('no wikipedia') ||
+                            lowerValue.includes('non-wikipedia') ||
+                            lowerValue.includes('without wikipedia')) {
+                            continue;
+                        }
+
+                        for (const pattern of WIKIPEDIA_PATTERNS) {
+                            if (pattern.test(value)) {
+                                violations.push({
+                                    location: currentPath.join('.'),
+                                    source: value.substring(0, 100)
+                                });
+                                break;
+                            }
+                        }
+                    } else if (Array.isArray(value)) {
+                        value.forEach((item, idx) => {
+                            checkObject(item, [...currentPath, idx]);
+                        });
+                    } else if (typeof value === 'object') {
+                        checkObject(value, currentPath);
+                    }
+                }
+            }
+
+            const remainingData = {...data};
+            delete remainingData.sources;
+            checkObject(remainingData);
+
+            if (violations.length > 0) {
+                results.violations.push({
+                    unit: unitStatus.unit,
+                    file: unitStatus.jsonPath,
+                    violations: violations
+                });
+                results.allClean = false;
+            } else {
+                results.clean.push(unitStatus.unit);
+            }
+        } catch (error) {
+            console.warn(`   ⚠️  Could not validate ${unitStatus.unit}:`, error.message);
+        }
+    }
+
+    return results;
+}
+
 async function runBatch(batchNumber, units) {
     console.log(`\n${'='.repeat(60)}`);
     console.log(`📦 BATCH ${batchNumber} - Processing 3 units`);
@@ -207,6 +315,31 @@ async function runBatch(batchNumber, units) {
         verification.completed.forEach(u => {
             console.log(`   ✅ ${u.unit}`);
         });
+
+        // CRITICAL: Verify no Wikipedia sources (FORBIDDEN per project requirements)
+        console.log('\n🔍 Validating sources (Wikipedia check)...\n');
+        const wikiCheck = await verifyNoWikipediaSources(verification.completed);
+
+        if (!wikiCheck.allClean) {
+            console.log('❌ WIKIPEDIA VIOLATION DETECTED - BATCH REJECTED\n');
+            console.log('⚠️  Wikipedia sources are FORBIDDEN per project requirements.\n');
+            console.log('Violations found in:');
+            wikiCheck.violations.forEach(v => {
+                console.log(`\n   ❌ ${v.unit}`);
+                v.violations.forEach(viol => {
+                    console.log(`      Location: ${viol.location}`);
+                    console.log(`      Source: ${viol.source}...`);
+                });
+            });
+            console.log('\n📋 REQUIRED ACTION:');
+            console.log('   1. DELETE the units with Wikipedia sources');
+            console.log('   2. RE-EXTRACT using Tier 1/2 sources ONLY');
+            console.log('   3. Run this batch again\n');
+            console.log('⚠️  STOPPING: Cannot proceed with Wikipedia violations.\n');
+            return false;
+        }
+
+        console.log(`✅ All ${units.length} units are Wikipedia-free!\n`);
         return true;
     } else {
         console.log(`\n❌ BATCH INCOMPLETE - Work has not been done yet!\n`);

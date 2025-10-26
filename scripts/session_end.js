@@ -117,6 +117,40 @@ async function updateMemoryMCP(sessionStats) {
     }
 }
 
+async function updateProjectScope(state) {
+    console.log('📋 Updating PROJECT_SCOPE.md...');
+
+    try {
+        const projectScopePath = path.join(PROJECT_ROOT, 'PROJECT_SCOPE.md');
+        let content = await fs.readFile(projectScopePath, 'utf-8');
+
+        const completedCount = state ? state.completed_count : 0;
+        const totalUnits = state ? state.total_unit_quarters : 411;
+        const percentComplete = ((completedCount / totalUnits) * 100).toFixed(1);
+
+        // Equipment matching is separate - hardcoded at 4.3% (20/469)
+        const equipmentMatched = 20;
+        const equipmentTotal = 469;
+        const equipmentPercent = ((equipmentMatched / equipmentTotal) * 100).toFixed(1);
+
+        // Update Progress Stats section
+        content = content.replace(
+            /<!-- AUTO-UPDATED: START - Progress Stats -->[\s\S]*?<!-- AUTO-UPDATED: END - Progress Stats -->/,
+            `<!-- AUTO-UPDATED: START - Progress Stats -->
+**Current Phase**: Phase 5 (Equipment Matching) - ${equipmentPercent}% COMPLETE | Phase 6 (Ground Forces Extraction) - ${percentComplete}% COMPLETE
+**Overall Progress**: ~${percentComplete}% complete (${completedCount} of ${totalUnits} unit-quarters | Phase 5: ${equipmentMatched}/${equipmentTotal} equipment matched, ${equipmentPercent}%)
+<!-- AUTO-UPDATED: END - Progress Stats -->`
+        );
+
+        await fs.writeFile(projectScopePath, content);
+        console.log('   ✅ PROJECT_SCOPE.md updated\n');
+        return true;
+    } catch (error) {
+        console.warn('   ⚠️  Failed to update PROJECT_SCOPE.md:', error.message, '\n');
+        return false;
+    }
+}
+
 async function updateStartHereNewSession(state, sessionStats, lastCompleted = []) {
     console.log('📋 Updating START_HERE_NEW_SESSION.md...');
 
@@ -351,6 +385,9 @@ async function main() {
 
     // Generate session summary
     await generateSessionSummary(state, startTime, uncommitted);
+
+    // Update PROJECT_SCOPE.md with current progress
+    await updateProjectScope(state);
 
     // Update START_HERE_NEW_SESSION.md with current progress
     const lastCompleted = state && state.completed ? state.completed.slice(-9) : [];

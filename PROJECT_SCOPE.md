@@ -3,8 +3,12 @@
 **Version**: 1.0.9
 **Last Updated**: 2025-10-23 (Post-Restoration - System Stabilized)
 **Status**: 🟢 LIVING DOCUMENT - Subject to updates
+
+<!-- AUTO-UPDATED: START - Progress Stats -->
 **Current Phase**: Phase 5 (Equipment Matching) - 4.3% COMPLETE | Phase 6 (Ground Forces Extraction) - 60.6% COMPLETE
 **Overall Progress**: ~60.6% complete (254 of 419 unit-quarters | Phase 5: 20/469 equipment matched, 4.3%)
+<!-- AUTO-UPDATED: END - Progress Stats -->
+
 **Architecture**: v4.0 (Canonical Output Locations)
 **Scope**: COMPLETE - ALL 117 units that fought in North Africa battles (1940-1943)
 

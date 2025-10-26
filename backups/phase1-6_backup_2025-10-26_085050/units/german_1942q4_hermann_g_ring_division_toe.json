@@ -1,0 +1,221 @@
+{
+  "schema_type": "division_toe",
+  "schema_version": "3.1.0",
+  "nation": "german",
+  "quarter": "1942q4",
+  "unit_designation": "Hermann Göring Division",
+  "unit_type": "Panzer Division (Luftwaffe)",
+  "parent_formation": "5th Panzer Army",
+  "organization_level": "division",
+  
+  "command": {
+    "commander": {
+      "name": "Unknown",
+      "rank": "Unknown",
+      "appointment_date": null,
+      "previous_service": null
+    },
+    "headquarters_location": "Tunisia",
+    "staff_strength": {
+      "officers": 0,
+      "enlisted": 0
+    }
+  },
+  
+  "total_personnel": 0,
+  "officers": 0,
+  "ncos": 0,
+  "enlisted": 0,
+  
+  "top_3_infantry_weapons": {
+    "1": {"weapon": "Unknown", "count": 0, "type": "rifle"},
+    "2": {"weapon": "Unknown", "count": 0, "type": "machine_gun"},
+    "3": {"weapon": "Unknown", "count": 0, "type": "submachine_gun"}
+  },
+  
+  "ground_vehicles_total": 0,
+  
+  "tanks": {
+    "total": 0,
+    "operational": 0,
+    "heavy_tanks": {
+      "total": 0,
+      "variants": {}
+    },
+    "medium_tanks": {
+      "total": 0,
+      "variants": {}
+    },
+    "light_tanks": {
+      "total": 0,
+      "variants": {}
+    }
+  },
+  
+  "artillery_total": 0,
+  
+  "field_artillery": {
+    "total": 0,
+    "variants": {}
+  },
+  
+  "anti_tank": {
+    "total": 0,
+    "variants": {}
+  },
+  
+  "anti_aircraft": {
+    "total": 0,
+    "variants": {}
+  },
+  
+  "aircraft_total": 0,
+  
+  "supply_logistics": {
+    "supply_status": "Unknown - Division arrived in Tunisia during Operation Torch (November 1942) but specific supply state for Q4 1942 not documented in available sources.",
+    "operational_radius_km": 0,
+    "fuel_reserves_days": 0,
+    "ammunition_days": 0,
+    "water_liters_per_day": 0
+  },
+  
+  "weather_environment": {
+    "season_quarter": "1942-Q4 (October-December)",
+    "temperature_range_c": {
+      "min": 10,
+      "max": 20
+    },
+    "terrain_type": "Tunisian coastal plain and hills",
+    "storm_frequency_days": 5,
+    "daylight_hours": 10.5
+  },
+  
+  "subordinate_units": [],
+  
+  "tactical_doctrine": {
+    "role": "Luftwaffe panzer division deployed to Tunisia following Operation Torch",
+    "known_issues": [
+      "Insufficient source data for 1942-Q4 - division arrived late November/early December 1942",
+      "Only organizational data available is from March-April 1943 (Q2 1943)",
+      "Formation history and initial TO&E require additional research"
+    ]
+  },
+  
+  "wargaming_data": {
+    "scenario_suitability": ["Tunisia Campaign 1942-1943"],
+    "morale_rating": 0,
+    "experience_level": "Unknown",
+    "special_rules": []
+  },
+  
+  "validation": {
+    "source": [
+      "Nafziger Collection - 943gcmc.pdf (March-April 1943 only)",
+      "Seed file - north_africa_seed_units_COMPLETE.json"
+    ],
+    "confidence": 20,
+    "tier": 4,
+    "status": "research_brief_created",
+    "last_updated": "2025-10-24",
+    "validated_by": "Claude Code Agent",
+    "aggregation_status": "research_required",
+    "required_field_gaps": [
+      "command.commander.name",
+      "command.commander.rank",
+      "total_personnel",
+      "officers",
+      "ncos",
+      "enlisted",
+      "top_3_infantry_weapons",
+      "ground_vehicles_total",
+      "tanks",
+      "artillery_total",
+      "field_artillery",
+      "anti_tank",
+      "anti_aircraft",
+      "supply_logistics (all numeric fields)",
+      "subordinate_units"
+    ],
+    "gap_documentation": {
+      "formation_date": {
+        "status": "partial",
+        "reason": "Division arrived in Tunisia November-December 1942, but exact organizational structure for 1942-Q4 not documented in Nafziger collection",
+        "sources_checked": [
+          "Nafziger Collection 943gcmc.pdf (covers March-April 1943 only)",
+          "Nafziger 1943-1945 index (no 1942-Q4 documents)",
+          "The Rommel Papers (no Hermann Göring Division references found)",
+          "CARL German Luftwaffe Fallschirmjager PDF (no results)"
+        ],
+        "confidence_impact": -80,
+        "mitigation": "Requires: (1) German Luftwaffe divisional records, (2) 5th Panzer Army OOBs for Nov-Dec 1942, (3) Tessin Wehrmacht Encyclopedia Luftwaffe volumes, (4) Unit war diaries from Bundesarchiv",
+        "estimate_method": null
+      },
+      "initial_strength": {
+        "status": "unknown",
+        "reason": "No personnel or equipment data available for 1942-Q4 arrival period",
+        "sources_checked": [
+          "Nafziger Collection (only Q2 1943 data)",
+          "Resource Documents collection"
+        ],
+        "confidence_impact": -80,
+        "mitigation": "March 1943 data from 943gcmc.pdf shows: 1/Hermann Göring Panzer Regiment, 2/,3/Hermann Göring Grenadier Regiment, 1/,3/Hermann Göring Jäger Regiment, Hermann Göring Flak Regiment. Initial deployment likely smaller kampfgruppe.",
+        "estimate_method": null
+      },
+      "commander": {
+        "status": "unknown",
+        "reason": "Division commander for 1942-Q4 not identified in available sources",
+        "sources_checked": [
+          "Nafziger Collection",
+          "The Rommel Papers",
+          "Seed file metadata"
+        ],
+        "confidence_impact": -20,
+        "mitigation": "Research needed: German Luftwaffe command records, 5th Panzer Army staff documents",
+        "estimate_method": null
+      }
+    }
+  },
+  
+  "research_brief": {
+    "extraction_date": "2025-10-24",
+    "extraction_quarter": "1942q4",
+    "data_availability": "INSUFFICIENT",
+    "tier_assigned": 4,
+    "confidence_score": 20,
+    "reason_for_tier_4": "Less than 50% of required data available. Only Nafziger document covers March-April 1943, not 1942-Q4 arrival period.",
+    "sources_consulted": [
+      "Nafziger Collection 943gcmc.pdf - Hermann Göring Division March-April 1943",
+      "Nafziger 1943-1945 index - no 1942-Q4 documents",
+      "The Rommel Papers text - no Hermann Göring Division references",
+      "CARL German Luftwaffe Fallschirmjager PDF - no results",
+      "Seed file north_africa_seed_units_COMPLETE.json - confirms presence in 1942-Q4"
+    ],
+    "available_data_summary": {
+      "q2_1943_organization": "Available from Nafziger 943gcmc.pdf",
+      "q1_1943_organization": "Available from Nafziger 943gcmc.pdf",
+      "q4_1942_organization": "NOT AVAILABLE in current sources"
+    },
+    "recommended_research_actions": [
+      "Obtain Tessin Wehrmacht Encyclopedia volumes covering Luftwaffe divisions",
+      "Search Bundesarchiv for Hermann Göring Division war diaries November-December 1942",
+      "Locate 5th Panzer Army organizational documents for Operation Torch period",
+      "Research German Luftwaffe Field Division formation records 1942",
+      "Cross-reference with Axis Forces Sicily documents (division later deployed to Sicily)",
+      "Check Bender & Law 'Uniforms, Organization and History of the Afrikakorps' full text (cited in Nafziger PDF)"
+    ],
+    "partial_data_preserved": {
+      "march_1943_kampfgruppe_schmidt": "1/,3/Hermann Göring Grenadier Regiment; 1/,3/Hermann Göring Jäger Regiment; 9th Co., 59th Panzer Grenadier Regiment; 14th Co., 104th Panzer Grenadier Regiment; 2nd & 4th Cos., 90th Panzerjäger Battalion; T4 Afrika Battalion; 2/190th Artillery Regiment; Hermann Göring Flak Regiment; von Bülow Nebelwerfer Battalion",
+      "april_1943_full_division": "1/Hermann Göring Panzer Regiment; 2/,3/Hermann Göring Grenadier Regiment; 1/,3/Hermann Göring Jäger Regiment; Hermann Göring Reconnaissance Battalion; 1/,2/Hermann Göring Flak Regiment; Hermann Göring Armored Signal Battalion; Hermann Göring Supply Battalion"
+    },
+    "known_facts": {
+      "arrival_theater": "Tunisia",
+      "arrival_quarter": "1942-Q4 (November-December 1942)",
+      "parent_formation": "5th Panzer Army",
+      "division_type": "Luftwaffe Panzer Division",
+      "battles": ["Tunisia Campaign"],
+      "official_name": "Fallschirm-Panzer Division 1 Hermann Göring (later redesignation)",
+      "unique_characteristics": "Elite Luftwaffe ground division, originally formed from Regiment General Göring"
+    },
+    "next_steps_for_completion": "This unit requires Tier 1-2 source acquisition before full extraction can proceed. Recommend either: (1) Skip 1942-Q4 and extract 1943-Q1/Q2 quarters using available Nafziger data, OR (2) Pause until Tessin/Bundesarchiv sources obtained."
+  }
+}
