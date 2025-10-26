@@ -1,9 +1,9 @@
 # North Africa Work Queue
 
-**Generated**: 2025-10-26T04:24:00.023Z
+**Generated**: 2025-10-26T04:34:54.776Z
 
-**Progress**: 346/413 units complete (83.8%)
-**Remaining**: 67 units
+**Progress**: 349/413 units complete (84.5%)
+**Remaining**: 64 units
 
 ---
 
@@ -64,18 +64,15 @@
 - [ ] GERMAN - 5th Panzer Army
 - [ ] ITALIAN - First Italian Army
 
-### 1943-Q2 (5/53 complete)
+### 1943-Q2 (8/53 complete)
 
 **ARMORED_DIVISION** (3 remaining):
 - [ ] AMERICAN - 2nd Armored Division
 - [ ] ITALIAN - Centauro Division
 - [ ] ITALIAN - Giovani Fascisti Division
 
-**INFANTRY_DIVISION** (17 remaining):
+**INFANTRY_DIVISION** (14 remaining):
 - [ ] AMERICAN - 3rd Infantry Division
-- [ ] AMERICAN - 45th Infantry Division
-- [ ] AMERICAN - 9th Infantry Division
-- [ ] BRITISH - 1st Infantry Division
 - [ ] BRITISH - 2nd New Zealand Division
 - [ ] BRITISH - 44th Infantry Division
 - [ ] BRITISH - 46th Infantry Division
@@ -132,7 +129,7 @@
 
 ---
 
-## ✅ Completed (346 units)
+## ✅ Completed (349 units)
 
 <details>
 <summary>Show completed units</summary>
@@ -514,13 +511,16 @@
 - [x] AMERICAN - II Corps _(corps)_
 - [x] GERMAN - Panzerarmee Afrika _(army)_
 
-### 1943-Q2 (5 complete)
+### 1943-Q2 (8 complete)
 
 - [x] BRITISH - 1st Greek Brigade _(brigade)_
 - [x] FRENCH - Force L _(brigade)_
 - [x] AMERICAN - 1st Armored Division _(armored_division)_
 - [x] AMERICAN - 1st Infantry Division _(infantry_division)_
 - [x] AMERICAN - 34th Infantry Division _(infantry_division)_
+- [x] AMERICAN - 45th Infantry Division _(infantry_division)_
+- [x] AMERICAN - 9th Infantry Division _(infantry_division)_
+- [x] BRITISH - 1st Infantry Division _(infantry_division)_
 
 </details>
 
