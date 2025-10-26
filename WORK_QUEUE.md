@@ -1,9 +1,9 @@
 # North Africa Work Queue
 
-**Generated**: 2025-10-26T05:11:17.350Z
+**Generated**: 2025-10-26T05:20:50.293Z
 
-**Progress**: 356/413 units complete (86.2%)
-**Remaining**: 57 units
+**Progress**: 357/413 units complete (86.4%)
+**Remaining**: 56 units
 
 ---
 
@@ -64,19 +64,18 @@
 - [ ] GERMAN - 5th Panzer Army
 - [ ] ITALIAN - First Italian Army
 
-### 1943-Q2 (15/53 complete)
+### 1943-Q2 (16/53 complete)
 
 **ARMORED_DIVISION** (3 remaining):
 - [ ] AMERICAN - 2nd Armored Division
 - [ ] ITALIAN - Centauro Division
 - [ ] ITALIAN - Giovani Fascisti Division
 
-**INFANTRY_DIVISION** (7 remaining):
+**INFANTRY_DIVISION** (6 remaining):
 - [ ] AMERICAN - 3rd Infantry Division
 - [ ] BRITISH - 2nd New Zealand Division
 - [ ] BRITISH - 44th Infantry Division
 - [ ] FRENCH - 2e Division d'Infanterie Marocaine
-- [ ] ITALIAN - La Spezia Division
 - [ ] ITALIAN - Pistoia Division
 - [ ] ITALIAN - Superga Division
 
@@ -122,7 +121,7 @@
 
 ---
 
-## ✅ Completed (356 units)
+## ✅ Completed (357 units)
 
 <details>
 <summary>Show completed units</summary>
@@ -504,7 +503,7 @@
 - [x] AMERICAN - II Corps _(corps)_
 - [x] GERMAN - Panzerarmee Afrika _(army)_
 
-### 1943-Q2 (15 complete)
+### 1943-Q2 (16 complete)
 
 - [x] BRITISH - 1st Greek Brigade _(brigade)_
 - [x] FRENCH - Force L _(brigade)_
@@ -521,6 +520,7 @@
 - [x] BRITISH - 51st Highland Division _(infantry_division)_
 - [x] BRITISH - 78th Infantry Division 'Battleaxe' _(infantry_division)_
 - [x] FRENCH - 1re Division Française Libre _(infantry_division)_
+- [x] ITALIAN - La Spezia Division _(infantry_division)_
 
 </details>
 
