@@ -1,9 +1,9 @@
 # North Africa Work Queue
 
-**Generated**: 2025-10-26T19:54:06.317Z
+**Generated**: 2025-10-26T20:05:17.576Z
 
-**Progress**: 392/411 units complete (95.4%)
-**Remaining**: 19 units
+**Progress**: 394/411 units complete (95.9%)
+**Remaining**: 17 units
 
 ---
 
@@ -21,7 +21,7 @@
 
 1. **GERMAN** - 1943-Q2 - 10. Panzer-Division _(panzer_division)_
 2. **BRITISH** - 1943-Q1 - XIII Corps _(corps)_
-3. **BRITISH** - 1943-Q2 - XXX Corps _(corps)_
+3. **GERMAN** - 1943-Q2 - Deutsches Afrikakorps _(corps)_
 
 ---
 
@@ -45,14 +45,12 @@
 - [ ] GERMAN - 5th Panzer Army
 - [ ] ITALIAN - First Italian Army
 
-### 1943-Q2 (41/52 complete)
+### 1943-Q2 (43/52 complete)
 
 **PANZER_DIVISION** (1 remaining):
 - [ ] GERMAN - 10. Panzer-Division
 
-**CORPS** (6 remaining):
-- [ ] BRITISH - XXX Corps
-- [ ] BRITISH - XXX Corps
+**CORPS** (4 remaining):
 - [ ] GERMAN - Deutsches Afrikakorps
 - [ ] ITALIAN - X Corps
 - [ ] ITALIAN - XIX Corps
@@ -66,7 +64,7 @@
 
 ---
 
-## ✅ Completed (392 units)
+## ✅ Completed (394 units)
 
 <details>
 <summary>Show completed units</summary>
@@ -458,7 +456,7 @@
 - [x] ITALIAN - XXI Corpo d'Armata (XXI Corps) _(corps)_
 - [x] GERMAN - Panzerarmee Afrika _(army)_
 
-### 1943-Q2 (41 complete)
+### 1943-Q2 (43 complete)
 
 - [x] BRITISH - 1st Greek Brigade _(brigade)_
 - [x] FRENCH - Force L _(brigade)_
@@ -501,6 +499,8 @@
 - [x] BRITISH - V Corps _(corps)_
 - [x] BRITISH - X Corps _(corps)_
 - [x] BRITISH - XIII Corps _(corps)_
+- [x] BRITISH - XXX Corps _(corps)_
+- [x] BRITISH - XXX Corps _(corps)_
 
 </details>
 
