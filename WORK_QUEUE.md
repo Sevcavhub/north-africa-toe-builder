@@ -1,9 +1,9 @@
 # North Africa Work Queue
 
-**Generated**: 2025-10-26T18:17:10.468Z
+**Generated**: 2025-10-26T18:33:51.826Z
 
-**Progress**: 388/411 units complete (94.4%)
-**Remaining**: 23 units
+**Progress**: 389/411 units complete (94.6%)
+**Remaining**: 22 units
 
 ---
 
@@ -21,7 +21,7 @@
 
 1. **GERMAN** - 1943-Q2 - 10. Panzer-Division _(panzer_division)_
 2. **BRITISH** - 1943-Q1 - XIII Corps _(corps)_
-3. **AMERICAN** - 1943-Q2 - II Corps _(corps)_
+3. **BRITISH** - 1943-Q2 - V Corps _(corps)_
 
 ---
 
@@ -45,13 +45,12 @@
 - [ ] GERMAN - 5th Panzer Army
 - [ ] ITALIAN - First Italian Army
 
-### 1943-Q2 (37/52 complete)
+### 1943-Q2 (38/52 complete)
 
 **PANZER_DIVISION** (1 remaining):
 - [ ] GERMAN - 10. Panzer-Division
 
-**CORPS** (10 remaining):
-- [ ] AMERICAN - II Corps
+**CORPS** (9 remaining):
 - [ ] BRITISH - V Corps
 - [ ] BRITISH - X Corps
 - [ ] BRITISH - XIII Corps
@@ -70,7 +69,7 @@
 
 ---
 
-## ✅ Completed (388 units)
+## ✅ Completed (389 units)
 
 <details>
 <summary>Show completed units</summary>
@@ -462,7 +461,7 @@
 - [x] ITALIAN - XXI Corpo d'Armata (XXI Corps) _(corps)_
 - [x] GERMAN - Panzerarmee Afrika _(army)_
 
-### 1943-Q2 (37 complete)
+### 1943-Q2 (38 complete)
 
 - [x] BRITISH - 1st Greek Brigade _(brigade)_
 - [x] FRENCH - Force L _(brigade)_
@@ -501,6 +500,7 @@
 - [x] ITALIAN - La Spezia Division _(infantry_division)_
 - [x] ITALIAN - Pistoia Division _(infantry_division)_
 - [x] ITALIAN - Superga Division _(infantry_division)_
+- [x] AMERICAN - II Corps _(corps)_
 
 </details>
 
