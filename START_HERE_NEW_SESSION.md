@@ -2,7 +2,7 @@
 
 <!-- AUTO-UPDATED: START - Session Metadata -->
 **Project**: North Africa TO&E Builder - **v3.0.0 (Ground Forces)**
-**Last Updated**: 2025-10-26 05:34
+**Last Updated**: 2025-10-26 05:44
 **Status**: Schema v3.0 Complete, 404/416 units (97.1%)
 <!-- AUTO-UPDATED: END - Session Metadata -->
 
@@ -43,7 +43,7 @@
 ### ✅ RECENTLY COMPLETED (Last Session):
 - **Session Date**: 2025-10-26
 - **Units Completed**: 404 unit-quarters (0 → 404)
-- **Session Duration**: 15 minutes
+- **Session Duration**: unknown minutes
 - **Completion Rate**: 97.1% of total project
 - **Recent Work**:
   - italian_1942q4_xxi_corps

@@ -1,9 +1,9 @@
 # North Africa Work Queue
 
-**Generated**: 2025-10-26T12:44:37.132Z
+**Generated**: 2025-10-26T12:54:53.129Z
 
-**Progress**: 364/411 units complete (88.6%)
-**Remaining**: 47 units
+**Progress**: 367/411 units complete (89.3%)
+**Remaining**: 44 units
 
 ---
 
@@ -19,9 +19,9 @@
 
 ## 🎯 Next Up (Next Session)
 
-1. **BRITISH** - 1943-Q2 - 7th Armoured Division _(division)_
-2. **FRENCH** - 1943-Q2 - 1st Moroccan March Division _(division)_
-3. **FRENCH** - 1943-Q2 - 2e Division d'Infanterie Marocaine _(infantry_division)_
+1. **FRENCH** - 1943-Q2 - Algerian March Division _(division)_
+2. **FRENCH** - 1943-Q2 - Constantine March Division _(division)_
+3. **GERMAN** - 1943-Q2 - 10. Panzer-Division _(panzer_division)_
 
 ---
 
@@ -58,18 +58,11 @@
 - [ ] GERMAN - 5th Panzer Army
 - [ ] ITALIAN - First Italian Army
 
-### 1943-Q2 (22/52 complete)
+### 1943-Q2 (25/52 complete)
 
-**DIVISION** (4 remaining):
-- [ ] BRITISH - 7th Armoured Division
-- [ ] FRENCH - 1st Moroccan March Division
+**DIVISION** (2 remaining):
 - [ ] FRENCH - Algerian March Division
 - [ ] FRENCH - Constantine March Division
-
-**INFANTRY_DIVISION** (3 remaining):
-- [ ] FRENCH - 2e Division d'Infanterie Marocaine
-- [ ] ITALIAN - Pistoia Division
-- [ ] ITALIAN - Superga Division
 
 **PANZER_DIVISION** (4 remaining):
 - [ ] GERMAN - 10. Panzer-Division
@@ -87,6 +80,10 @@
 **ARMORED_DIVISION** (2 remaining):
 - [ ] ITALIAN - Centauro Division
 - [ ] ITALIAN - Giovani Fascisti Division
+
+**INFANTRY_DIVISION** (2 remaining):
+- [ ] ITALIAN - Pistoia Division
+- [ ] ITALIAN - Superga Division
 
 **CORPS** (10 remaining):
 - [ ] AMERICAN - II Corps
@@ -108,7 +105,7 @@
 
 ---
 
-## ✅ Completed (364 units)
+## ✅ Completed (367 units)
 
 <details>
 <summary>Show completed units</summary>
@@ -491,7 +488,7 @@
 - [x] AMERICAN - II Corps _(corps)_
 - [x] GERMAN - Panzerarmee Afrika _(army)_
 
-### 1943-Q2 (22 complete)
+### 1943-Q2 (25 complete)
 
 - [x] BRITISH - 1st Greek Brigade _(brigade)_
 - [x] FRENCH - Force L _(brigade)_
@@ -513,7 +510,10 @@
 - [x] BRITISH - 51st Highland Division _(infantry_division)_
 - [x] BRITISH - 6th Armoured Division _(division)_
 - [x] BRITISH - 78th Infantry Division 'Battleaxe' _(infantry_division)_
+- [x] BRITISH - 7th Armoured Division _(division)_
 - [x] FRENCH - 1re Division Française Libre _(infantry_division)_
+- [x] FRENCH - 1st Moroccan March Division _(division)_
+- [x] FRENCH - 2e Division d'Infanterie Marocaine _(infantry_division)_
 - [x] ITALIAN - La Spezia Division _(infantry_division)_
 
 </details>
