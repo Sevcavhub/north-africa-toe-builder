@@ -2,7 +2,7 @@
 
 <!-- AUTO-UPDATED: START - Session Metadata -->
 **Project**: North Africa TO&E Builder - **v3.0.0 (Ground Forces)**
-**Last Updated**: 2025-10-26 15:56
+**Last Updated**: 2025-10-26 15:57
 **Status**: Schema v3.0 Complete, 387/411 units (94.2%)
 <!-- AUTO-UPDATED: END - Session Metadata -->
 
