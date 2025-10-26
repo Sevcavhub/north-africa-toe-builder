@@ -1,9 +1,9 @@
 # North Africa Work Queue
 
-**Generated**: 2025-10-25T12:35:32.551Z
+**Generated**: 2025-10-26T04:14:32.997Z
 
-**Progress**: 342/413 units complete (82.8%)
-**Remaining**: 71 units
+**Progress**: 344/413 units complete (83.3%)
+**Remaining**: 69 units
 
 ---
 
@@ -20,8 +20,8 @@
 ## 🎯 Next Up (Next Session)
 
 1. **ITALIAN** - 1943-Q1 - Littorio Division _(armored_division)_
-2. **ITALIAN** - 1943-Q1 - Superga Division _(infantry_division)_
-3. **ITALIAN** - 1943-Q1 - Trento Division _(motorized_division)_
+2. **ITALIAN** - 1943-Q1 - Trento Division _(motorized_division)_
+3. **AMERICAN** - 1943-Q2 - 1st Infantry Division _(infantry_division)_
 
 ---
 
@@ -39,13 +39,10 @@
 - [ ] GERMAN - 5th Panzer Army
 - [ ] GERMAN - Panzerarmee Afrika
 
-### 1943-Q1 (40/56 complete)
+### 1943-Q1 (41/56 complete)
 
 **ARMORED_DIVISION** (1 remaining):
 - [ ] ITALIAN - Littorio Division
-
-**INFANTRY_DIVISION** (1 remaining):
-- [ ] ITALIAN - Superga Division
 
 **MOTORIZED_DIVISION** (1 remaining):
 - [ ] ITALIAN - Trento Division
@@ -67,13 +64,7 @@
 - [ ] GERMAN - 5th Panzer Army
 - [ ] ITALIAN - First Italian Army
 
-### 1943-Q2 (2/53 complete)
-
-**ARMORED_DIVISION** (4 remaining):
-- [ ] AMERICAN - 1st Armored Division
-- [ ] AMERICAN - 2nd Armored Division
-- [ ] ITALIAN - Centauro Division
-- [ ] ITALIAN - Giovani Fascisti Division
+### 1943-Q2 (3/53 complete)
 
 **INFANTRY_DIVISION** (19 remaining):
 - [ ] AMERICAN - 1st Infantry Division
@@ -95,6 +86,11 @@
 - [ ] ITALIAN - La Spezia Division
 - [ ] ITALIAN - Pistoia Division
 - [ ] ITALIAN - Superga Division
+
+**ARMORED_DIVISION** (3 remaining):
+- [ ] AMERICAN - 2nd Armored Division
+- [ ] ITALIAN - Centauro Division
+- [ ] ITALIAN - Giovani Fascisti Division
 
 **DIVISION** (7 remaining):
 - [ ] BRITISH - 10th Armoured Division
@@ -138,7 +134,7 @@
 
 ---
 
-## ✅ Completed (342 units)
+## ✅ Completed (344 units)
 
 <details>
 <summary>Show completed units</summary>
@@ -476,7 +472,7 @@
 - [x] ITALIAN - XXI Corpo d'Armata (XXI Corps) _(corps)_
 - [x] BRITISH - Eighth Army (8th Army) _(army)_
 
-### 1943-Q1 (40 complete)
+### 1943-Q1 (41 complete)
 
 - [x] BRITISH - 1st Greek Brigade _(brigade)_
 - [x] FRENCH - Force L _(brigade)_
@@ -516,13 +512,15 @@
 - [x] ITALIAN - Giovani Fascisti Division _(armored_division)_
 - [x] ITALIAN - La Spezia Division _(infantry_division)_
 - [x] ITALIAN - Pistoia Division _(infantry_division)_
+- [x] ITALIAN - Superga Division _(infantry_division)_
 - [x] AMERICAN - II Corps _(corps)_
 - [x] GERMAN - Panzerarmee Afrika _(army)_
 
-### 1943-Q2 (2 complete)
+### 1943-Q2 (3 complete)
 
 - [x] BRITISH - 1st Greek Brigade _(brigade)_
 - [x] FRENCH - Force L _(brigade)_
+- [x] AMERICAN - 1st Armored Division _(armored_division)_
 
 </details>
 

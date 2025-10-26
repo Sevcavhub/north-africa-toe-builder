@@ -1,22 +1,26 @@
-# Crash Recovery Report - 2025-10-25T04:17:33.301Z
+# Crash Recovery Report - 2025-10-26T04:02:42.963Z
 
 ## Summary
 
-- Before: 381/416 units (91.6%)
-- After: 383/416 units (92.1%)
-- Change: 2 units
+- Before: 383/416 units (92.1%)
+- After: 389/416 units (93.5%)
+- Change: 6 units
 
 ## Newly Completed (0)
 
 
 
-## Partial Units (1)
-
-- ⚠️  ITALIAN - 1941q1 - xxi_corps
-
-## Invalid Units (0)
+## Partial Units (0)
 
 
+
+## Invalid Units (1)
+
+- ❌ ITALIAN - 1943q1 - littorio_division
+  Missing required field: schema_type
+  Missing required field: schema_version
+  Missing required field: unit_designation
+  Missing required field: organization_level
 
 ## Next Steps
 
