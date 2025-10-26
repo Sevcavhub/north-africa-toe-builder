@@ -2,8 +2,8 @@
 
 <!-- AUTO-UPDATED: START - Session Metadata -->
 **Project**: North Africa TO&E Builder - **v3.0.0 (Ground Forces)**
-**Last Updated**: 2025-10-26 23:45
-**Status**: ✅ **Phase 6 COMPLETE - 411/411 units (100%)**
+**Last Updated**: 2025-10-26 16:40
+**Status**: Schema v3.0 Complete, 387/411 units (94.2%)
 <!-- AUTO-UPDATED: END - Session Metadata -->
 
 ---
@@ -114,12 +114,11 @@
 ---
 
 <!-- AUTO-UPDATED: START - Progress Stats -->
-### ✅ PHASE 6 COMPLETE:
-- **Ground Forces Extraction**: ✅ **411/411 unit-quarters (100%)**
-  - **0 unit-quarters remaining** - Phase 1-6 **COMPLETE**
-  - 117 unique units total - **ALL EXTRACTED**
-  - Target: All 117 combat units across all quarters (1940-1943) - ✅ **ACHIEVED**
-  - **Final Validation**: 0 critical errors, 411 units passed
+### 🔨 IN PROGRESS:
+- **Ground Forces Extraction**: 387/411 unit-quarters (94.2%)
+  - 24 unit-quarters remaining to complete Phase 1-6
+  - 117 unique units total
+  - Target: All 117 combat units across all quarters (1940-1943)
 <!-- AUTO-UPDATED: END - Progress Stats -->
 
 ### 📋 NEXT PRIORITIES:
