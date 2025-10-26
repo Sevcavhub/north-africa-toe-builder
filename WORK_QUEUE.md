@@ -1,9 +1,9 @@
 # North Africa Work Queue
 
-**Generated**: 2025-10-26T04:14:32.997Z
+**Generated**: 2025-10-26T04:24:00.023Z
 
-**Progress**: 344/413 units complete (83.3%)
-**Remaining**: 69 units
+**Progress**: 346/413 units complete (83.8%)
+**Remaining**: 67 units
 
 ---
 
@@ -21,7 +21,7 @@
 
 1. **ITALIAN** - 1943-Q1 - Littorio Division _(armored_division)_
 2. **ITALIAN** - 1943-Q1 - Trento Division _(motorized_division)_
-3. **AMERICAN** - 1943-Q2 - 1st Infantry Division _(infantry_division)_
+3. **AMERICAN** - 1943-Q2 - 2nd Armored Division _(armored_division)_
 
 ---
 
@@ -64,11 +64,14 @@
 - [ ] GERMAN - 5th Panzer Army
 - [ ] ITALIAN - First Italian Army
 
-### 1943-Q2 (3/53 complete)
+### 1943-Q2 (5/53 complete)
 
-**INFANTRY_DIVISION** (19 remaining):
-- [ ] AMERICAN - 1st Infantry Division
-- [ ] AMERICAN - 34th Infantry Division
+**ARMORED_DIVISION** (3 remaining):
+- [ ] AMERICAN - 2nd Armored Division
+- [ ] ITALIAN - Centauro Division
+- [ ] ITALIAN - Giovani Fascisti Division
+
+**INFANTRY_DIVISION** (17 remaining):
 - [ ] AMERICAN - 3rd Infantry Division
 - [ ] AMERICAN - 45th Infantry Division
 - [ ] AMERICAN - 9th Infantry Division
@@ -86,11 +89,6 @@
 - [ ] ITALIAN - La Spezia Division
 - [ ] ITALIAN - Pistoia Division
 - [ ] ITALIAN - Superga Division
-
-**ARMORED_DIVISION** (3 remaining):
-- [ ] AMERICAN - 2nd Armored Division
-- [ ] ITALIAN - Centauro Division
-- [ ] ITALIAN - Giovani Fascisti Division
 
 **DIVISION** (7 remaining):
 - [ ] BRITISH - 10th Armoured Division
@@ -134,7 +132,7 @@
 
 ---
 
-## ✅ Completed (344 units)
+## ✅ Completed (346 units)
 
 <details>
 <summary>Show completed units</summary>
@@ -516,11 +514,13 @@
 - [x] AMERICAN - II Corps _(corps)_
 - [x] GERMAN - Panzerarmee Afrika _(army)_
 
-### 1943-Q2 (3 complete)
+### 1943-Q2 (5 complete)
 
 - [x] BRITISH - 1st Greek Brigade _(brigade)_
 - [x] FRENCH - Force L _(brigade)_
 - [x] AMERICAN - 1st Armored Division _(armored_division)_
+- [x] AMERICAN - 1st Infantry Division _(infantry_division)_
+- [x] AMERICAN - 34th Infantry Division _(infantry_division)_
 
 </details>
 

@@ -1,25 +1,29 @@
-# Session Checkpoint - 2025-10-26T04:14:33.010Z
+# Session Checkpoint - 2025-10-26T04:24:00.036Z
 
 ## Progress Summary
 
 - **Total Unit-Quarters:** 416
 - **Completed:** 389 (93.5%)
 - **Remaining:** 27
-- **Last Commit:** 65afccf
+- **Last Commit:** a73cd0c
 
 ## Validation Status
 
-- **Total Validated:** 390
+- **Total Validated:** 393
 - **✅ Passed:** 0 (0.0%)
-- **❌ Failed:** 0 ✅
-- **⚠️ Warnings:** 390
+- **❌ Failed:** 1 ⚠️
+- **⚠️ Warnings:** 392
 
-**All units passed validation** ✅
+### Critical Validation Failures
+
+**american_1943q2_3rd_infantry_division:**
+  - ❌ Missing required fields: nation and quarter
+  - ❌ Invalid nation: "unknown" (allowed: german, italian, british, american, french)
 
 ## Chapter Status
 
-- **JSON Files:** 390
-- **MDBook Chapters:** 390 ✅
+- **JSON Files:** 393
+- **MDBook Chapters:** 393 ✅
 - **All chapters present** ✅
 
 ## Recent Completions
@@ -51,8 +55,8 @@ If this session crashes or needs to resume:
 ## Session Info
 
 - **Session ID:** complete_seed_generated
-- **Checkpoint Time:** 2025-10-26T04:14:32.908Z
-- **Git Commit:** 65afccf
+- **Checkpoint Time:** 2025-10-26T04:23:59.933Z
+- **Git Commit:** a73cd0c
 
 ---
 
