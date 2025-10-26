@@ -1,9 +1,9 @@
 # North Africa Work Queue
 
-**Generated**: 2025-10-26T13:20:11.070Z
+**Generated**: 2025-10-26T13:31:21.805Z
 
-**Progress**: 369/411 units complete (89.8%)
-**Remaining**: 42 units
+**Progress**: 371/411 units complete (90.3%)
+**Remaining**: 40 units
 
 ---
 
@@ -20,8 +20,8 @@
 ## 🎯 Next Up (Next Session)
 
 1. **GERMAN** - 1943-Q2 - 10. Panzer-Division _(panzer_division)_
-2. **GERMAN** - 1943-Q2 - 15. Panzer-Division _(panzer_division)_
-3. **GERMAN** - 1943-Q2 - 164. leichte Division _(light_division)_
+2. **GERMAN** - 1943-Q2 - 21. Panzer-Division _(panzer_division)_
+3. **GERMAN** - 1943-Q2 - 90. leichte Division _(light_division)_
 
 ---
 
@@ -58,16 +58,14 @@
 - [ ] GERMAN - 5th Panzer Army
 - [ ] ITALIAN - First Italian Army
 
-### 1943-Q2 (27/52 complete)
+### 1943-Q2 (29/52 complete)
 
-**PANZER_DIVISION** (4 remaining):
+**PANZER_DIVISION** (3 remaining):
 - [ ] GERMAN - 10. Panzer-Division
-- [ ] GERMAN - 15. Panzer-Division
 - [ ] GERMAN - 21. Panzer-Division
 - [ ] GERMAN - Hermann Göring Division
 
-**LIGHT_DIVISION** (2 remaining):
-- [ ] GERMAN - 164. leichte Division
+**LIGHT_DIVISION** (1 remaining):
 - [ ] GERMAN - 90. leichte Division
 
 **MOTORIZED_DIVISION** (1 remaining):
@@ -101,7 +99,7 @@
 
 ---
 
-## ✅ Completed (369 units)
+## ✅ Completed (371 units)
 
 <details>
 <summary>Show completed units</summary>
@@ -484,7 +482,7 @@
 - [x] AMERICAN - II Corps _(corps)_
 - [x] GERMAN - Panzerarmee Afrika _(army)_
 
-### 1943-Q2 (27 complete)
+### 1943-Q2 (29 complete)
 
 - [x] BRITISH - 1st Greek Brigade _(brigade)_
 - [x] FRENCH - Force L _(brigade)_
@@ -512,6 +510,8 @@
 - [x] FRENCH - 2e Division d'Infanterie Marocaine _(infantry_division)_
 - [x] FRENCH - Algerian March Division _(division)_
 - [x] FRENCH - Constantine March Division _(division)_
+- [x] GERMAN - 15. Panzer-Division _(panzer_division)_
+- [x] GERMAN - 164. leichte Division _(light_division)_
 - [x] ITALIAN - La Spezia Division _(infantry_division)_
 
 </details>
