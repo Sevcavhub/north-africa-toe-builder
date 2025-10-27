@@ -1,0 +1,526 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://north-africa-toe-builder.com/schemas/air_force_schema.json",
+  "title": "North Africa Air Force Unit Schema",
+  "description": "JSON Schema for air force units (squadrons, gruppi, gruppen, groups) in the North Africa Campaign 1940-1943. Version 1.0.",
+  "type": "object",
+  "required": [
+    "unit_designation",
+    "unit_type",
+    "nation",
+    "quarter",
+    "base",
+    "personnel",
+    "aircraft",
+    "metadata"
+  ],
+  "properties": {
+    "unit_designation": {
+      "type": "string",
+      "description": "Full air unit name (e.g., 'I./Jagdgeschwader 27', 'No. 3 Squadron RAAF', '57th Fighter Group')",
+      "minLength": 3,
+      "examples": [
+        "I./Jagdgeschwader 27",
+        "No. 3 Squadron RAAF",
+        "57th Fighter Group",
+        "9° Gruppo Caccia"
+      ]
+    },
+    "unit_type": {
+      "type": "string",
+      "description": "Type of air unit",
+      "enum": [
+        "fighter_gruppe",
+        "fighter_staffel",
+        "fighter_geschwader_staff",
+        "fighter_squadron",
+        "fighter_group",
+        "fighter_gruppo",
+        "stuka_gruppe",
+        "stuka_staffel",
+        "bomber_gruppe",
+        "bomber_staffel",
+        "bomber_geschwader",
+        "bomber_squadron",
+        "bomber_group",
+        "zerstoerer_gruppe",
+        "zerstoerer_staffel",
+        "night_fighter_gruppe",
+        "night_fighter_staffel",
+        "long_range_recon_staffel",
+        "long_range_recon_gruppe",
+        "coastal_recon_staffel",
+        "tactical_reconnaissance",
+        "ground_attack_gruppe",
+        "ground_attack_staffel",
+        "fast_bomber_gruppe",
+        "desert_rescue_staffel",
+        "transport_gruppe",
+        "command_staff",
+        "command_korps",
+        "special_operations_gruppe"
+      ]
+    },
+    "parent_formation": {
+      "type": "string",
+      "description": "Parent wing/group/geschwader",
+      "examples": [
+        "Jagdgeschwader 27",
+        "Desert Air Force",
+        "12th Air Force",
+        "4° Stormo",
+        "Fliegerführer Afrika"
+      ]
+    },
+    "nation": {
+      "type": "string",
+      "description": "Nation operating the unit (lowercase canonical values)",
+      "enum": [
+        "german",
+        "italian",
+        "british",
+        "american",
+        "french",
+        "south_african",
+        "australian",
+        "canadian",
+        "new_zealand",
+        "indian"
+      ]
+    },
+    "quarter": {
+      "type": "string",
+      "description": "Quarter in format YYYY-QN (e.g., '1941-Q2')",
+      "pattern": "^(1940|1941|1942|1943)-Q[1-4]$",
+      "examples": ["1941-Q2", "1942-Q3", "1943-Q1"]
+    },
+    "assigned_to_ground": {
+      "type": ["string", "null"],
+      "description": "Ground formation this air unit supported (e.g., 'Deutsches Afrikakorps', '7th Armoured Division')",
+      "examples": [
+        "Deutsches Afrikakorps",
+        "7th Armoured Division",
+        "II Corps"
+      ]
+    },
+    "commander": {
+      "type": "object",
+      "description": "Unit commander information",
+      "required": ["rank", "name"],
+      "properties": {
+        "rank": {
+          "type": "string",
+          "description": "Commander's rank",
+          "examples": ["Major", "Squadron Leader", "Capitano", "Lieutenant Colonel"]
+        },
+        "name": {
+          "type": "string",
+          "description": "Commander's full name",
+          "examples": ["Hans-Joachim Marseille", "Clive Caldwell", "Franco Lucchini"]
+        },
+        "kills": {
+          "type": ["integer", "null"],
+          "description": "Aerial victories credited to commander",
+          "minimum": 0
+        }
+      }
+    },
+    "base": {
+      "type": "string",
+      "description": "Primary airfield/base location",
+      "examples": [
+        "Gazala",
+        "El Adem",
+        "LG 05 (Landing Ground 05), Egypt",
+        "Martuba",
+        "Port Lyautey"
+      ]
+    },
+    "personnel": {
+      "type": "object",
+      "description": "Personnel breakdown for the air unit",
+      "required": ["total"],
+      "properties": {
+        "pilots": {
+          "type": "integer",
+          "description": "Number of pilots/aircrew",
+          "minimum": 0
+        },
+        "ground_crew": {
+          "type": "integer",
+          "description": "Maintenance personnel count",
+          "minimum": 0
+        },
+        "mechanics": {
+          "type": "integer",
+          "description": "Specialized mechanics",
+          "minimum": 0
+        },
+        "armorers": {
+          "type": "integer",
+          "description": "Ordnance handlers",
+          "minimum": 0
+        },
+        "signals": {
+          "type": "integer",
+          "description": "Radio/communications personnel",
+          "minimum": 0
+        },
+        "total": {
+          "type": "integer",
+          "description": "Total personnel (officers + enlisted)",
+          "minimum": 1
+        }
+      }
+    },
+    "aircraft": {
+      "type": "object",
+      "description": "Aircraft inventory with variant-level detail",
+      "required": ["total", "operational", "variants"],
+      "properties": {
+        "total": {
+          "type": "integer",
+          "description": "Total aircraft on strength",
+          "minimum": 0
+        },
+        "operational": {
+          "type": "integer",
+          "description": "Combat-ready aircraft",
+          "minimum": 0
+        },
+        "damaged": {
+          "type": "integer",
+          "description": "Aircraft undergoing repair",
+          "minimum": 0
+        },
+        "reserve": {
+          "type": "integer",
+          "description": "Aircraft in reserve/storage",
+          "minimum": 0
+        },
+        "variants": {
+          "type": "array",
+          "description": "Specific aircraft variants with counts (NO generic entries)",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["designation", "count"],
+            "properties": {
+              "designation": {
+                "type": "string",
+                "description": "Specific aircraft variant (e.g., 'Bf 109E-7', 'Hurricane Mk IIB', 'MC.202 Serie III')",
+                "examples": [
+                  "Messerschmitt Bf 109E-7",
+                  "Hawker Hurricane Mk IIB",
+                  "Macchi MC.202 Folgore",
+                  "Curtiss P-40F Warhawk",
+                  "Supermarine Spitfire Mk VB"
+                ]
+              },
+              "count": {
+                "type": "integer",
+                "description": "Number of this variant",
+                "minimum": 1
+              },
+              "operational": {
+                "type": "integer",
+                "description": "Number operational (subset of count)",
+                "minimum": 0
+              },
+              "witw_id": {
+                "type": ["integer", "string", "null"],
+                "description": "War in the West game database ID (if applicable)"
+              }
+            }
+          }
+        }
+      }
+    },
+    "ordnance": {
+      "type": "object",
+      "description": "Ammunition and ordnance stocks",
+      "properties": {
+        "ammunition_rounds": {
+          "type": "integer",
+          "description": "Machine gun ammunition (rounds)",
+          "minimum": 0
+        },
+        "cannon_shells": {
+          "type": "integer",
+          "description": "Cannon ammunition (shells)",
+          "minimum": 0
+        },
+        "fuel_liters": {
+          "type": "integer",
+          "description": "Aviation fuel stocks (liters)",
+          "minimum": 0
+        },
+        "bombs": {
+          "type": "array",
+          "description": "Bomb stocks by type and weight",
+          "items": {
+            "type": "object",
+            "required": ["type", "weight_kg", "count"],
+            "properties": {
+              "type": {
+                "type": "string",
+                "description": "Bomb type",
+                "examples": ["GP", "SC", "HE", "Incendiary"]
+              },
+              "weight_kg": {
+                "type": "integer",
+                "description": "Bomb weight in kilograms",
+                "minimum": 1
+              },
+              "count": {
+                "type": "integer",
+                "description": "Number of bombs",
+                "minimum": 0
+              }
+            }
+          }
+        },
+        "drop_tanks": {
+          "type": "integer",
+          "description": "External fuel tanks available",
+          "minimum": 0
+        }
+      }
+    },
+    "ground_support_vehicles": {
+      "type": "object",
+      "description": "Ground support equipment for the air unit",
+      "properties": {
+        "fuel_bowsers": {
+          "type": "integer",
+          "description": "Fuel tanker vehicles",
+          "minimum": 0
+        },
+        "bomb_dollies": {
+          "type": "integer",
+          "description": "Ordnance transport carts",
+          "minimum": 0
+        },
+        "trucks": {
+          "type": "integer",
+          "description": "General transport vehicles",
+          "minimum": 0
+        },
+        "staff_cars": {
+          "type": "integer",
+          "description": "Command/staff vehicles",
+          "minimum": 0
+        },
+        "recovery_vehicles": {
+          "type": "integer",
+          "description": "Aircraft recovery/salvage vehicles",
+          "minimum": 0
+        }
+      }
+    },
+    "supply": {
+      "type": "object",
+      "description": "Supply status and operational parameters",
+      "properties": {
+        "fuel_reserves_days": {
+          "type": "number",
+          "description": "Days of aviation fuel in reserve",
+          "minimum": 0
+        },
+        "ammunition_reserves_days": {
+          "type": "number",
+          "description": "Days of ammunition in reserve",
+          "minimum": 0
+        },
+        "sortie_rate_per_day": {
+          "type": "number",
+          "description": "Average sorties per aircraft per day",
+          "minimum": 0,
+          "maximum": 5
+        },
+        "operational_radius_km": {
+          "type": "integer",
+          "description": "Maximum combat radius in kilometers",
+          "minimum": 0
+        },
+        "supply_status": {
+          "type": "string",
+          "description": "Overall supply situation",
+          "enum": ["excellent", "adequate", "strained", "critical", "exhausted"]
+        }
+      }
+    },
+    "operations_history": {
+      "type": "array",
+      "description": "Combat operations record",
+      "items": {
+        "type": "object",
+        "required": ["date", "operation"],
+        "properties": {
+          "date": {
+            "type": "string",
+            "description": "Operation date (YYYY-MM-DD)",
+            "pattern": "^(1940|1941|1942|1943)-[0-1][0-9]-[0-3][0-9]$"
+          },
+          "operation": {
+            "type": "string",
+            "description": "Operation/battle name",
+            "examples": ["Operation Crusader", "Battle of Gazala", "Siege of Tobruk"]
+          },
+          "sorties": {
+            "type": "integer",
+            "description": "Number of sorties flown",
+            "minimum": 0
+          },
+          "claims": {
+            "type": "integer",
+            "description": "Enemy aircraft claimed destroyed",
+            "minimum": 0
+          },
+          "losses": {
+            "type": "integer",
+            "description": "Own aircraft lost",
+            "minimum": 0
+          },
+          "mission_type": {
+            "type": "string",
+            "description": "Type of mission",
+            "examples": ["fighter sweep", "bomber escort", "ground attack", "reconnaissance", "intercept"]
+          }
+        }
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Data provenance and quality information",
+      "required": ["confidence", "sources", "extraction_date"],
+      "properties": {
+        "confidence": {
+          "type": "integer",
+          "description": "Confidence level (0-100)",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "sources": {
+          "type": "array",
+          "description": "Source documents used",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        },
+        "extraction_date": {
+          "type": "string",
+          "description": "Date data was extracted (YYYY-MM-DD)",
+          "pattern": "^202[0-9]-[0-1][0-9]-[0-3][0-9]$"
+        },
+        "tier": {
+          "type": "string",
+          "description": "Data completeness tier",
+          "enum": ["production_ready", "review_recommended", "partial_needs_research", "research_brief_created"]
+        },
+        "notes": {
+          "type": "string",
+          "description": "Additional notes or caveats about this unit's data"
+        },
+        "witw_validation": {
+          "type": ["string", "null"],
+          "description": "Cross-reference with WITW game database"
+        }
+      }
+    }
+  },
+  "additionalProperties": false,
+  "examples": [
+    {
+      "unit_designation": "I./Jagdgeschwader 27",
+      "unit_type": "fighter_gruppe",
+      "parent_formation": "Jagdgeschwader 27",
+      "nation": "german",
+      "quarter": "1941-Q2",
+      "assigned_to_ground": "Deutsches Afrikakorps",
+      "commander": {
+        "rank": "Hauptmann",
+        "name": "Eduard Neumann",
+        "kills": 13
+      },
+      "base": "Gazala airfield, Libya",
+      "personnel": {
+        "pilots": 40,
+        "ground_crew": 120,
+        "mechanics": 30,
+        "armorers": 20,
+        "signals": 10,
+        "total": 220
+      },
+      "aircraft": {
+        "total": 40,
+        "operational": 32,
+        "damaged": 6,
+        "reserve": 2,
+        "variants": [
+          {
+            "designation": "Messerschmitt Bf 109E-7/Trop",
+            "count": 30,
+            "operational": 24,
+            "witw_id": 200
+          },
+          {
+            "designation": "Messerschmitt Bf 109F-2/Trop",
+            "count": 10,
+            "operational": 8,
+            "witw_id": 201
+          }
+        ]
+      },
+      "ordnance": {
+        "ammunition_rounds": 120000,
+        "cannon_shells": 15000,
+        "fuel_liters": 50000,
+        "bombs": [
+          {
+            "type": "SC 50",
+            "weight_kg": 50,
+            "count": 200
+          }
+        ],
+        "drop_tanks": 40
+      },
+      "ground_support_vehicles": {
+        "fuel_bowsers": 8,
+        "bomb_dollies": 20,
+        "trucks": 35,
+        "staff_cars": 4,
+        "recovery_vehicles": 2
+      },
+      "supply": {
+        "fuel_reserves_days": 12,
+        "ammunition_reserves_days": 8,
+        "sortie_rate_per_day": 2.5,
+        "operational_radius_km": 600,
+        "supply_status": "adequate"
+      },
+      "operations_history": [
+        {
+          "date": "1941-06-15",
+          "operation": "Operation Battleaxe",
+          "sorties": 85,
+          "claims": 12,
+          "losses": 3,
+          "mission_type": "fighter sweep"
+        }
+      ],
+      "metadata": {
+        "confidence": 95,
+        "sources": [
+          "Tessin Band 14 - Luftstreitkräfte",
+          "Asisbiz.com JG 27 history"
+        ],
+        "extraction_date": "2025-10-26",
+        "tier": "production_ready",
+        "notes": "Primary German fighter unit in North Africa Q2 1941. First Gruppe to arrive (April 1941).",
+        "witw_validation": "Confirmed in WITW _airgroup.csv line 101"
+      }
+    }
+  ]
+}

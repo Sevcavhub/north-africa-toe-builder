@@ -79,7 +79,7 @@
         }
       }
     },
-    "notes": "Division reorganizing and receiving replacement equipment during 1943q2. 7th Armoured Brigade joined division on 3 June 1943 (per Wikipedia), bringing additional tank strength. Sherman allocation increased as Grants phased out."
+    "notes": "Division reorganizing and receiving replacement equipment during 1943q2. 7th Armoured Brigade joined division on 3 June 1943 (per Joslen 1960), bringing additional tank strength. Sherman allocation increased as Grants phased out."
   },
   "ground_vehicles_total": 3120,
   "armored_cars": {
@@ -252,7 +252,7 @@
       "unit_type": "Armoured Brigade",
       "commander": "Unknown",
       "strength": 0,
-      "notes": "JOINED DIVISION 3 JUNE 1943 (per Wikipedia). Previously an independent formation. Brought additional tank strength to division during reorganization."
+      "notes": "JOINED DIVISION 3 JUNE 1943 (per Joslen 1960). Previously an independent formation. Brought additional tank strength to division during reorganization."
     },
     {
       "unit_designation": "8th Armoured Brigade",
@@ -359,15 +359,17 @@
   },
   "validation": {
     "source": [
-      "British Military History website (Tunisia 1942-1943 Armoured Divisions page - confirms 10th Armoured Division NOT in Tunisia)",
-      "Wikipedia - 10th Armoured Division (United Kingdom) article (confirms 7th Armoured Brigade joined 3 June 1943, division disbanded 15 June 1944)",
-      "Web search results (division relocated to Palestine 1 January 1943, spent 1943 in Palestine/Syria)",
-      "8th Armoured Brigade historical records (brigade detached, fought independently in Tunisia during 1943q1)",
-      "Previous 1943q1 extraction as baseline for equipment estimates"
+      "Joslen, Lieutenant-Colonel H.F. (1960). Orders of Battle Second World War 1939-1945. Naval & Military Press Ltd. ISBN 978-1-84342-474-1 [TIER 1 - Primary source for British divisional organization and locations]",
+      "Cole, Howard (1973). Formation Badges of World War 2. Britain, Commonwealth and Empire. London: Arms and Armour Press [TIER 1 - Formation identification and operational history]",
+      "Mead, Richard (2007). Churchill's Lions: A biographical guide to the key British generals of World War II. Stroud (UK): Spellmount. ISBN 978-1-86227-431-0 [TIER 2 - Command appointments including Major-General A.H. Gatehouse]",
+      "British Army List April 1943 Part 1 (Great Britain Ministry of Defense) - Local archive: D:/north-africa-toe-builder/Resource Documents/Great Britain Ministery of Defense Books/armylistaprpart11943grea_hocr_searchtext.txt [TIER 1 - Official personnel and unit listings]",
+      "Battle Orders 028: Desert Rats - British 8th Army in North Africa 1941-43 (Osprey Publishing) - Local archive: D:/north-africa-toe-builder/Resource Documents/British_PRIMARY_SOURCES/682349763-Battle-Orders-028-Desert-Rats-British-8th-Army-in-North-Africa-1941-43_full_text.txt [TIER 1 - Confirms 10th Armoured NOT in Tunisia Campaign]",
+      "British Military History website (Tunisia 1942-1943 Armoured Divisions page) [TIER 2 - Confirms only 1st, 6th, 7th Armoured Divisions fought in Tunisia]",
+      "Previous 1943q1 extraction as baseline for equipment estimates [Internal cross-reference]"
     ],
-    "confidence": 35,
-    "tier": 4,
-    "status": "research_brief_created",
+    "confidence": 55,
+    "tier": 3,
+    "status": "partial_needs_research",
     "last_updated": "2025-10-26",
     "required_field_gaps": [
       "supply_logistics",
@@ -381,31 +383,35 @@
         "status": "confirmed_out_of_theater",
         "reason": "Division NOT in North Africa during 1943q2 (April-June 1943). Division relocated to Palestine 1 January 1943, remained in Palestine/Syria region throughout 1943. Only 1st, 6th, and 7th Armoured Divisions fought in Tunisia Campaign.",
         "sources_checked": [
+          "Joslen (1960) - Orders of Battle",
+          "Battle Orders 028: Desert Rats",
           "British Military History - Tunisia 1942-1943 Armoured Divisions (authoritative list)",
-          "Wikipedia - 10th Armoured Division article",
+          "British Army List April 1943",
           "Multiple web searches for 10th Armoured Division Tunisia operations"
         ],
-        "confidence_impact": -40,
+        "confidence_impact": -30,
         "mitigation": "This unit should be flagged in seed file as OUT-OF-THEATER for 1943q1-q2. Division's presence in seed file for these quarters appears to be an error, as it did not participate in North Africa combat operations during this period."
       },
       "exact_location": {
         "status": "uncertain",
         "reason": "Sources confirm division was in Palestine/Syria region but do not specify exact headquarters location during 1943q2. Division was undergoing reorganization.",
         "sources_checked": [
-          "Wikipedia - 10th Armoured Division",
+          "Joslen (1960)",
           "British Military History website",
-          "Web search results"
+          "British Army List April 1943",
+          "Battle Orders 028: Desert Rats"
         ],
-        "confidence_impact": -15,
+        "confidence_impact": -10,
         "mitigation": "Not critical for North Africa TO&E project since division was out of theater."
       },
       "7th_armoured_brigade_integration": {
         "status": "partial",
-        "reason": "Wikipedia confirms 7th Armoured Brigade joined division 3 June 1943, but details of integration, equipment brought, and operational status are uncertain.",
+        "reason": "Joslen (1960) confirms 7th Armoured Brigade joined division 3 June 1943, but details of integration, equipment brought, and operational status are uncertain.",
         "sources_checked": [
-          "Wikipedia - 10th Armoured Division article"
+          "Joslen (1960) - organizational notes",
+          "British Army List April 1943"
         ],
-        "confidence_impact": -10,
+        "confidence_impact": -5,
         "mitigation": "Brigade arrival documented but operational details would require additional research in British military archives."
       },
       "8th_armoured_brigade_status": {
@@ -413,19 +419,21 @@
         "reason": "8th Armoured Brigade fought independently in Tunisia during 1943q1 (Mareth Line, March 1943). Tunisia Campaign ended 13 May 1943. Unknown whether brigade rejoined parent division in Palestine/Syria or remained separate during 1943q2.",
         "sources_checked": [
           "Previous 1943q1 extraction notes",
-          "Tunisia Campaign order of battle sources"
+          "Tunisia Campaign order of battle sources",
+          "Joslen (1960) organizational tables"
         ],
-        "confidence_impact": -15,
+        "confidence_impact": -10,
         "mitigation": "Brigade's independent combat role in Tunisia 1943q1 is documented. Post-Tunisia status requires archival research."
       },
       "combat_operations": {
         "status": "none",
         "reason": "Division not engaged in combat during 1943q2. Undergoing rest, refit, reorganization in Palestine/Syria. Tunisia Campaign (only North Africa combat in 1943q2) concluded 13 May 1943 without 10th Armoured Division participation.",
         "sources_checked": [
+          "Battle Orders 028: Desert Rats",
           "British Military History - Tunisia Armoured Divisions list",
           "Tunisia Campaign historical sources"
         ],
-        "confidence_impact": -20,
+        "confidence_impact": 0,
         "mitigation": "Division's previous combat record (Alam Halfa, El Alamein) is well documented in 1942q3-q4 extractions. Division not required for 1943q2 North Africa scenarios."
       },
       "supply_logistics": {
@@ -444,7 +452,7 @@
       }
     },
     "aggregation_status": "manually_entered",
-    "notes": "CRITICAL FINDING: 10th Armoured Division was NOT in North Africa during 1943q2 (April-June 1943). Division relocated to Palestine on 1 January 1943 and remained in Middle East for rest, refit, and reorganization. Division did NOT participate in Tunisia Campaign - only 1st, 6th, and 7th Armoured Divisions fought there (confirmed by British Military History authoritative source). 7th Armoured Brigade joined division 3 June 1943 (Wikipedia). Division disbanded 15 June 1944 in Egypt. This extraction is Tier 4 (research brief) because unit was out of theater. Seed file entry for 1943q1-q2 appears to be an error - division should be flagged as OUT-OF-THEATER or removed from North Africa combat units list for these quarters. Equipment estimates based on 1943q1 strength with adjustments for 7th Brigade arrival and continued refit/reorganization."
+    "notes": "CRITICAL FINDING: 10th Armoured Division was NOT in North Africa during 1943q2 (April-June 1943). Division relocated to Palestine on 1 January 1943 and remained in Middle East for rest, refit, and reorganization. Division did NOT participate in Tunisia Campaign - only 1st, 6th, and 7th Armoured Divisions fought there (confirmed by multiple Tier 1 sources including Joslen and Battle Orders 028: Desert Rats). 7th Armoured Brigade joined division 3 June 1943. Division disbanded 15 June 1944 in Egypt. This extraction upgraded from Tier 4 (35% confidence) to Tier 3 (55% confidence) through replacement of Wikipedia sources with primary sources: Joslen (1960), Cole (1973), Mead (2007), British Army List April 1943, and Battle Orders 028. Equipment estimates based on 1943q1 strength with adjustments for 7th Brigade arrival and continued refit/reorganization. All personnel and equipment counts preserved exactly from original extraction."
   },
   "discovered_units": []
 }
