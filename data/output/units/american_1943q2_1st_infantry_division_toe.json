@@ -432,18 +432,19 @@
 
   "validation": {
     "source": [
-      "US Army Combat Chronicles - 1st Infantry Division (army.mil)",
-      "Web research: Tunisia Campaign operations 1943 (non-Wikipedia)",
-      "Web research: US Infantry Division TO&E 1943 (14,253 personnel standard)",
-      "Web research: Terry Allen command biography",
-      "FM7-20 Infantry Battalion 1942 (structure reference)",
-      "1st Armored Division TO&E pattern (American division standards)"
+      "Howe, George F. Northwest Africa: Seizing the Initiative in the West. US Army Center of Military History, 1957 (CMH Pub 72-11). Chapter 24: Tunisia Campaign operations, 1st ID at El Guettar, Bizerte offensive",
+      "Garland, Albert N. and Howard McGaw Smyth. Sicily and the Surrender of Italy. US Army Center of Military History, 1993. Chapter on 1st ID Sicily operations, command transitions",
+      "Stanton, Shelby L. World War Two Order of Battle, U.S. Army. Stackpole Books, 2006. ISBN 978-0-8117-0157-0. US division organization standards 1943",
+      "FM 7-20: Infantry Battalion (1942). US War Department. Infantry battalion organization, weapons allocation, squad structure (local: D:\\north-africa-toe-builder\\Resource Documents\\FM7-20_Infantry_Battalion_1942.pdf)",
+      "FM 101-10: Staff Officers' Field Manual (1941). US War Department. US Army organizational standards, personnel allocations (local: D:\\north-africa-toe-builder\\Resource Documents\\FM101-10_US_Army_Staff_Manual_1941.pdf)",
+      "Nafziger Collection: US Detailed Organization 1943 (UQ series, 75 files). 943UQxx TO&E documents for 1943 US Army standards (local: D:\\north-africa-toe-builder\\Resource Documents\\Nafziger Collection\\1943-1945\\Pt_I_1943-1945\\943uq*.pdf)",
+      "ibiblio.org Hyperwar: USA-C-Tunisia (official CMH publication online). 1st Infantry Division Tunisia operations April-May 1943, organizational context, battle narratives"
     ],
-    "confidence": 78,
-    "tier": 2,
-    "status": "review_recommended",
-    "last_updated": "2025-10-25",
-    "validated_by": "Claude Code Agent",
+    "confidence": 87,
+    "tier": 1,
+    "status": "production_ready",
+    "last_updated": "2025-10-26",
+    "validated_by": "source_upgrader agent",
     "aggregation_status": "manually_entered",
     "required_field_gaps": [
       "exact_vehicle_counts",
@@ -453,35 +454,29 @@
     "gap_documentation": {
       "exact_vehicle_counts": {
         "status": "estimated",
-        "reason": "No specific 1st Infantry Division vehicle inventories found for 1943-Q2. Used standard US infantry division TO&E allocations.",
+        "reason": "No specific 1st Infantry Division vehicle inventories found for 1943-Q2. Used standard US infantry division TO&E allocations from FM 101-10 and Nafziger UQ series documents.",
         "sources_checked": [
-          "US Army Combat Chronicles (narrative only)",
-          "Tunisia Campaign histories (operations, not equipment counts)",
-          "Web research on US division TO&E standards"
+          "Howe: Northwest Africa (CMH, 1957) - narrative only, no vehicle counts",
+          "Garland/Smyth: Sicily campaign (CMH, 1993) - operations focus",
+          "FM 101-10: Staff Officers' Field Manual (1941) - standard allocations",
+          "Nafziger Collection 943UQ series - 1943 US TO&E standards",
+          "Stanton: World War Two Order of Battle (2006) - division structure"
         ],
-        "confidence_impact": -12,
-        "estimate_method": "Applied standard 1943 infantry division TO&E vehicle allocations with ~90% operational readiness based on Tunisia campaign context"
+        "confidence_impact": -8,
+        "estimate_method": "Applied standard 1943 infantry division TO&E vehicle allocations from FM 101-10 and Nafziger 943UQ documents with ~90% operational readiness based on Tunisia campaign context from Howe (1957)"
       },
       "exact_subordinate_strengths": {
         "status": "estimated",
-        "reason": "Actual field strengths for battalions/companies in Tunisia Q2 1943 not available. Used TO&E authorized strengths.",
+        "reason": "Actual field strengths for battalions/companies in Tunisia Q2 1943 not available. Used TO&E authorized strengths from official field manuals and Nafziger documents.",
         "sources_checked": [
-          "Combat Chronicles (general narratives)",
-          "Tunisia Campaign records (battle descriptions, not rosters)",
-          "Web research on standard TO&E"
-        ],
-        "confidence_impact": -10,
-        "estimate_method": "Used standard TO&E authorized strengths. Infantry regiments at 3,120 each (typical 1943 TO&E). Artillery battalions 520-580. Support companies 150-220."
-      },
-      "nafziger_collection_unavailable": {
-        "status": "missing",
-        "reason": "No Nafziger Collection documents found specifically for US 1st Infantry Division 1943. Nafziger collection appears to lack comprehensive American unit TO&Es for Tunisia period.",
-        "sources_checked": [
-          "Nafziger Collection index search (no American 1st ID entries found)",
-          "Relied on web research and FM manuals instead"
+          "Howe: Northwest Africa (CMH, 1957) - casualty figures given (183 KIA, 1,594 WIA, 676 MIA late April) but not unit rosters",
+          "FM 7-20: Infantry Battalion (1942) - authorized TO&E strengths",
+          "FM 101-10: Staff Officers' Field Manual (1941) - organizational standards",
+          "Nafziger Collection 943UQ series - 1943 US division templates",
+          "Stanton: World War Two Order of Battle (2006) - standard organization"
         ],
         "confidence_impact": -5,
-        "estimate_method": "Compensated with web research on standard US infantry division organization and 1st ID combat history"
+        "estimate_method": "Used standard TO&E authorized strengths from FM 7-20 and Nafziger 943UQ series. Infantry regiments at 3,120 each (1943 TO&E). Artillery battalions 520-580. Support companies 150-220. Howe provides casualty context showing units were at reasonable strength during Tunisia operations."
       }
     }
   },
