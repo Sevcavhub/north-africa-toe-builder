@@ -2,7 +2,7 @@
 
 <!-- AUTO-UPDATED: START - Session Metadata -->
 **Project**: North Africa TO&E Builder - **v3.0.0 (Ground Forces)**
-**Last Updated**: 2025-10-27 18:22
+**Last Updated**: 2025-10-27 18:29
 **Status**: Schema v3.0 Complete, 402/411 units (97.8%)
 <!-- AUTO-UPDATED: END - Session Metadata -->
 
@@ -10,17 +10,47 @@
 
 ## Quick Start Commands
 
-### If You Want to Continue v3.0 Work:
+### **PHASE 7: Air Forces Extraction** (NEW - Ready to Start!)
+
+**Option 1: Manual Mode** (3 squadrons at a time, with approval):
+```
+/air-start
+```
+
+**Option 2: Continuous Mode** (run until queue empty):
+```
+/air-continuous
+```
+
+**End Air Forces Session**:
+```
+/air-end
+```
+
+**Alternative NPM Commands**:
+```bash
+npm run air:start     # Start air forces session
+npm run air:end       # End air forces session
+```
+
+**Read Full Documentation**:
+```
+"Read PHASE_7_INFRASTRUCTURE_COMPLETE.md for air forces setup details"
+```
+
+---
+
+### **PHASE 6: Ground Forces** (411/411 units - 100% Complete ✅)
+
+Ground forces extraction is complete! If you need to work on ground units:
 
 ```
-"Review PROJECT_SCOPE.md and continue with v3.0 schema implementation"
+/kstart              # Start ground forces session
+/auto-continuous     # Run continuous ground extraction
+/kend                # End ground forces session
 ```
 
-### If You're Starting New Unit Extraction:
-
-```
-"Run autonomous orchestrator for [nation] [quarter] units"
-```
+---
 
 ### If You're Reviewing Showcase Quality:
 
