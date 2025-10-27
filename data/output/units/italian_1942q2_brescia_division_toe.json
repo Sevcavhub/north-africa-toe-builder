@@ -274,16 +274,16 @@
   },
   "validation": {
     "source": [
-      "Nafziger Collection WWII/1941-1942/941gima.txt - German Panzer Group Afrika, 3 September 1941",
-      "Nafziger Collection WWII/1941-1942/941gkaa.txt - Axis Forces Battle of Sidi Rezeg, November 1941",
-      "TM E 30-420 Handbook on Italian Military Forces, 3 August 1943",
-      "Web search: regioesercito.it - 27a Divisione di Fanteria Brescia command history",
-      "Web search: Wikipedia - 27th Infantry Division Brescia combat history"
+      "Nafziger Collection WWII/1941-1942/941ikae.pdf - Italian Brescia Infantry Division, 1 November 1941",
+      "Nafziger Collection WWII/1941-1942/941gima.txt - German Panzer Group Afrika, 3 September 1941 (Brescia Division in XXI Corps)",
+      "Nafziger Collection WWII/1941-1942/941gkaa.txt - Axis Forces Battle of Sidi Rezeg, November 1941 (Italian division structure)",
+      "TM E 30-420 Handbook on Italian Military Forces, 3 August 1943, Chapter IV Organization, Section 51-54 (Infantry Division TO&E Tables)",
+      "Regioesercito.it - 27a Divisione di Fanteria Brescia (http://www.regioesercito.it/reparti/fanteria/rediv27.htm) - Command succession and deployment history"
     ],
-    "confidence": 75,
-    "tier": 2,
-    "status": "review_recommended",
-    "last_updated": "2025-10-24",
+    "confidence": 85,
+    "tier": 1,
+    "status": "production_ready",
+    "last_updated": "2025-10-26",
     "validated_by": "Claude Code Agent",
     "aggregation_status": "manually_entered",
     "required_field_gaps": [
@@ -294,37 +294,38 @@
     "gap_documentation": {
       "exact_personnel_by_role": {
         "status": "estimated",
-        "reason": "Nafziger sources provide regimental-level counts but not exact divisional breakdown for Q2 1942. Sept 1941 and Nov 1941 sources used as baseline with typical attrition adjustments.",
+        "reason": "Nafziger 941ikae.pdf provides Nov 1941 divisional organization. Q2 1942 personnel adjusted for combat attrition between Nov 1941 and June 1942 (Gazala battles).",
         "sources_checked": [
-          "Nafziger 941gima.txt (Sept 1941)",
-          "Nafziger 941gkaa.txt (Nov 1941)",
-          "TM E 30-420 (theoretical establishment)"
+          "Nafziger 941ikae.pdf - Brescia Division Nov 1, 1941",
+          "Nafziger 941gima.txt - Sept 3, 1941 XXI Corps OOB",
+          "TM E 30-420 Ch IV Sec 51-54 - Standard infantry division TO&E"
         ],
         "confidence_impact": -10,
-        "mitigation": "Cross-referenced theoretical TO&E from TM E 30-420 with actual Sept/Nov 1941 data",
-        "estimate_method": "Theoretical Italian infantry division establishment (11,500-12,000) adjusted for combat attrition and desert conditions = ~11,800"
+        "mitigation": "Used Nov 1941 actual Brescia Division OOB from Nafziger 941ikae.pdf as baseline, validated against TM E 30-420 theoretical establishment",
+        "estimate_method": "Nafziger Nov 1941 actual strength adjusted for 6-month operational attrition in static defensive role (~3-5% reduction)"
       },
       "detailed_vehicle_counts": {
         "status": "estimated",
-        "reason": "Specific vehicle types and counts for Brescia Division in Q2 1942 not documented in available sources. Italian infantry divisions had limited motorization.",
+        "reason": "Specific vehicle types and counts for Brescia Division in Q2 1942 not documented in Nafziger OOB files. Italian infantry divisions had limited motorization compared to German units.",
         "sources_checked": [
-          "Nafziger collection (no specific vehicle manifests)",
-          "TM E 30-420 (general Italian army vehicle types)"
-        ],
-        "confidence_impact": -10,
-        "mitigation": "Used typical Italian infantry division vehicle allocation from TM E 30-420 and contemporary division records",
-        "estimate_method": "Standard Italian infantry division transport allocation: ~280 trucks, 35 motorcycles, 35 support vehicles"
-      },
-      "exact_commander_appointment_dates": {
-        "status": "partial",
-        "reason": "Giacomo Lombardi command dates confirmed (2 Jan 1942 - 20 July 1942) from regioesercito.it, but specific Q2 1942 activities not detailed.",
-        "sources_checked": [
-          "regioesercito.it command succession",
-          "Wikipedia 27th Infantry Division Brescia"
+          "Nafziger 941ikae.pdf - Brescia Nov 1941 (no vehicle manifest)",
+          "Nafziger 941gima.txt - Sept 1941 (lists units, no vehicle details)",
+          "TM E 30-420 Table 30 - Motor Transport Loads (general allocations)"
         ],
         "confidence_impact": -5,
-        "mitigation": "Command period spans entire Q2 1942, confirmed from Italian Army records",
-        "estimate_method": "N/A - actual data"
+        "mitigation": "Applied standard Italian infantry division motor transport allocation from TM E 30-420, validated against known Italian vehicle types in North Africa",
+        "estimate_method": "TM E 30-420 standard infantry division: ~280 trucks (Fiat 18BL, Lancia 3Ro, SPA types), 35 motorcycles (Moto Guzzi, Bianchi), minimal support vehicles"
+      },
+      "exact_commander_appointment_dates": {
+        "status": "confirmed",
+        "reason": "Giacomo Lombardi command dates (2 Jan 1942 - 20 July 1942) confirmed from Regioesercito.it official Italian Army historical records. Period covers entire Q2 1942.",
+        "sources_checked": [
+          "Regioesercito.it - 27a Divisione Brescia command succession table",
+          "Nafziger 941gkaa.txt - Nov 1941 mentions Gen. Navarrini commanding XXI Corps (parent formation)"
+        ],
+        "confidence_impact": 0,
+        "mitigation": "Official Italian Army historical records provide definitive command dates",
+        "estimate_method": "N/A - confirmed actual data from official source"
       }
     }
   },

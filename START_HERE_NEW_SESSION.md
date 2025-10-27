@@ -243,7 +243,25 @@ npm run recover -- --auto-cleanup
 npm run session:end         # End session with checkpoint
 npm run checkpoint          # Mid-session checkpoint
 ```
+ 🚀 How to Launch Air Forces Extraction
 
+  Option 1: Manual Mode (recommended for first run):
+  /air-start
+  This will:
+  1. Show next 3 squadrons/gruppen from WORK_QUEUE_AIR.md
+  2. Wait for your approval
+  3. Launch 3 parallel extraction agents when you say "Proceed"
+
+  Option 2: Continuous Mode (automated):
+  /air-continuous
+  This will:
+  1. Process batches of 3 air units continuously
+  2. Auto-checkpoint after each batch
+  3. Continue until WORK_QUEUE_AIR.md is empty
+
+  End Session:
+  /air-end
+  
 ### Git Workflow:
 ```bash
 npm run git:commit          # Auto-commit with standardized message
