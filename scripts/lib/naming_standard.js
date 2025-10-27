@@ -18,11 +18,17 @@ const NATIONS = {
 
 // Map from seed file keys to canonical nation values
 const NATION_MAP = {
+    // Ground forces
     'german_units': 'german',
     'italian_units': 'italian',
     'british_units': 'british',
     'usa_units': 'american',
-    'french_units': 'french'
+    'french_units': 'french',
+    // Air forces
+    'luftwaffe_units': 'german',
+    'regia_aeronautica_units': 'italian',
+    'raf_commonwealth_units': 'british',
+    'usaaf_units': 'american'
 };
 
 // Reverse map for reading existing files

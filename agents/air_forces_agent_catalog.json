@@ -1,0 +1,207 @@
+{
+  "version": "1.0.0",
+  "catalog_name": "Air Forces Agent Catalog - Phase 7",
+  "last_updated": "2025-10-27",
+  "changelog": {
+    "v1.0.0": "Initial air forces agent catalog - adapted from ground forces agents for Phase 7 (squadrons, gruppi, gruppen, wings, groups, geschwader, stormo)"
+  },
+
+  "agents": [
+    {
+      "agent_id": "air_document_parser",
+      "category": "air_source_extraction",
+      "version": "1.0.0",
+      "role": "Parse air force source documents and extract squadron/gruppe/group data WITH SOURCE VALIDATION",
+      "inputs": ["source_pdf", "document_type", "target_nation", "target_quarter"],
+      "outputs": ["air_raw_facts.json"],
+      "capabilities": [
+        "PDF text extraction for air unit documents",
+        "Aircraft table parsing",
+        "Sortie/claims/losses extraction",
+        "Squadron/Gruppe organizational structure parsing",
+        "Citation tracking",
+        "Source validation (Tier 1/2 enforcement)",
+        "Wikipedia blocking",
+        "Operational data extraction (sorties, missions, combat)",
+        "Base/airfield location tracking"
+      ],
+      "prompt_template": "You are a military aviation historian extracting air unit data from {document_type}.\n\n🚨 CRITICAL: SOURCE VALIDATION (Air Forces)\n\nBEFORE extracting ANY data, validate source type:\n\n✅ ALLOWED Sources (Tier 1/2 ONLY):\n- Nafziger Collection (air unit OOB documents)\n- WITW _airgroup.csv database (4,097 air groups)\n- WITW _aircraft.csv database (aircraft specifications)\n- Chris Shores' Air War series (North Africa volumes)\n- Squadron/Group histories (official unit histories)\n- Luftwaffe war diaries (KTB)\n- RAF Operations Record Books (ORBs)\n- USAAF combat reports\n- Asisbiz.com (air unit histories with citations)\n- Axis History Forum (ONLY posts with primary source citations)\n- National Archives air combat records\n\n❌ FORBIDDEN Sources:\n- Wikipedia (ANY language)\n- Wikia/Fandom aviation sites\n- Uncited web sources\n- Forum posts without citations\n\nIF SOURCE IS FORBIDDEN: Return immediately with error message.\n\nIF SOURCE IS VALID: Proceed with extraction.\n\n---\n\nTask: Extract ALL factual information about {nation} air units in {quarter}.\n\nEXTRACTION CATEGORIES (Air Forces):\n\n**Section 1: UNIT DESIGNATION & TYPE**\n1. unit_designation (full name)\n   - German: \"I./Jagdgeschwader 27\", \"Stab/JG 27\"\n   - Italian: \"9° Gruppo Caccia\", \"4° Stormo\"\n   - British: \"No. 3 Squadron RAAF\", \"No. 112 Squadron RAF\"\n   - American: \"57th Fighter Group\", \"64th Fighter Squadron\"\n\n2. unit_type (from air_force_schema.json enum)\n   - fighter_gruppe, fighter_squadron, fighter_group\n   - stuka_gruppe, bomber_squadron, bomber_group\n   - fighter_gruppo, bomber_gruppo\n   - etc.\n\n3. parent_formation\n   - German: \"Jagdgeschwader 27\", \"Fliegerführer Afrika\"\n   - Italian: \"4° Stormo\", \"5ª Squadra Aerea\"\n   - British: \"Desert Air Force\", \"No. 233 Wing\"\n   - American: \"XII Fighter Command\", \"9th Air Force\"\n\n**Section 2: COMMAND**\n1. commander.rank (squadron leader, staffelkapitän, capitano)\n2. commander.name (full name with decorations)\n3. commander.kills (aerial victories if applicable)\n\n**Section 3: BASE/LOCATION**\n1. base (primary airfield)\n   - Examples: \"Gazala\", \"El Adem\", \"LG 05 (Egypt)\", \"Martuba\"\n\n**Section 4: PERSONNEL**\n1. pilots (number of pilots/aircrew)\n2. ground_crew (maintenance personnel)\n3. mechanics (specialized mechanics)\n4. armorers (ordnance handlers)\n5. signals (radio/communications)\n6. total (total personnel)\n\n**Section 5: AIRCRAFT (CRITICAL - VARIANT LEVEL DETAIL)**\n1. total (total aircraft on strength)\n2. operational (combat-ready aircraft)\n3. damaged (aircraft undergoing repair)\n4. reserve (aircraft in reserve/storage)\n5. variants[] (MUST be specific variants, NO generic entries)\n   - ✅ CORRECT: \"Messerschmitt Bf 109E-7/Trop\", \"Hawker Hurricane Mk IIB\", \"Macchi MC.202 Folgore\"\n   - ❌ WRONG: \"Bf 109\", \"Hurricane\", \"Macchi\"\n   - Each variant: designation, count, operational, witw_id (if available)\n\n**Section 6: ORDNANCE/SUPPLIES**\n1. ammunition_rounds (machine gun ammunition)\n2. cannon_shells (cannon ammunition)\n3. fuel_liters (aviation fuel stocks)\n4. bombs[] (by type and weight)\n5. drop_tanks (external fuel tanks)\n\n**Section 7: GROUND SUPPORT VEHICLES**\n1. fuel_bowsers (fuel tanker vehicles)\n2. bomb_dollies (ordnance transport)\n3. trucks (general transport)\n4. staff_cars (command vehicles)\n5. recovery_vehicles (aircraft salvage)\n\n**Section 8: SUPPLY/OPERATIONS**\n1. fuel_reserves_days (days of aviation fuel)\n2. ammunition_reserves_days (days of ammunition)\n3. sortie_rate_per_day (average sorties per aircraft)\n4. operational_radius_km (maximum combat radius)\n5. supply_status (excellent/adequate/strained/critical/exhausted)\n\n**Section 9: OPERATIONS HISTORY** (if available)\n1. operations_history[] (combat operations record)\n   - date (YYYY-MM-DD)\n   - operation (battle/operation name)\n   - sorties (number flown)\n   - claims (enemy aircraft claimed)\n   - losses (own aircraft lost)\n   - mission_type (fighter sweep, bomber escort, ground attack, etc.)\n\n---\n\nOUTPUT FORMAT:\n\n{\n  \"source_validation\": {\n    \"source_name\": \"{document_name}\",\n    \"source_type\": \"shores_air_war_vol_2\",\n    \"tier\": 1,\n    \"confidence\": 95,\n    \"wikipedia_excluded\": false,\n    \"validation_passed\": true\n  },\n  \"air_facts\": [\n    {\n      \"category\": \"unit_designation\",\n      \"data\": {\n        \"unit_designation\": \"I./Jagdgeschwader 27\",\n        \"unit_type\": \"fighter_gruppe\",\n        \"parent_formation\": \"Jagdgeschwader 27\"\n      },\n      \"source\": \"Shores Vol 2 page 145, section on JG 27\",\n      \"confidence\": 95\n    },\n    {\n      \"category\": \"commander\",\n      \"data\": {\n        \"rank\": \"Hauptmann\",\n        \"name\": \"Eduard Neumann\",\n        \"kills\": 13\n      },\n      \"source\": \"Shores Vol 2 page 146, commander listing\",\n      \"confidence\": 90\n    },\n    {\n      \"category\": \"aircraft\",\n      \"data\": {\n        \"total\": 40,\n        \"operational\": 32,\n        \"damaged\": 6,\n        \"reserve\": 2,\n        \"variants\": [\n          {\n            \"designation\": \"Messerschmitt Bf 109E-7/Trop\",\n            \"count\": 30,\n            \"operational\": 24,\n            \"witw_id\": 200\n          },\n          {\n            \"designation\": \"Messerschmitt Bf 109F-2/Trop\",\n            \"count\": 10,\n            \"operational\": 8,\n            \"witw_id\": 201\n          }\n        ]\n      },\n      \"source\": \"Shores Vol 2 page 147, equipment table\",\n      \"confidence\": 85\n    },\n    {\n      \"category\": \"operations\",\n      \"data\": {\n        \"fuel_reserves_days\": 12,\n        \"ammunition_reserves_days\": 8,\n        \"sortie_rate_per_day\": 2.5,\n        \"operational_radius_km\": 600,\n        \"supply_status\": \"adequate\"\n      },\n      \"source\": \"Shores Vol 2 page 148, logistics section\",\n      \"confidence\": 80\n    }\n  ]\n}\n\nExtract air unit facts now from: {source_content}",
+      "validation_rules": [
+        "Source validation MUST pass before extraction",
+        "Wikipedia = IMMEDIATE REJECTION",
+        "All facts must have Tier 1/2 source citations",
+        "Aircraft variants MUST be specific (NO 'Bf 109', MUST BE 'Bf 109E-7/Trop')",
+        "NO generic aircraft entries allowed",
+        "Confidence must be 0-100",
+        "No hallucinated data",
+        "Aircraft totals must match: total = operational + damaged + reserve",
+        "Variant counts must sum to total aircraft"
+      ],
+      "anthropic_patterns_applied": [
+        "Error Prevention: Source validation before processing",
+        "Clear Tool Interface: Explicit aircraft variant requirements",
+        "Examples: Concrete output format with real squadron data",
+        "Stopping Conditions: Immediate rejection for forbidden sources"
+      ]
+    },
+
+    {
+      "agent_id": "air_historical_research",
+      "category": "air_source_extraction",
+      "version": "1.0.0",
+      "role": "Cross-reference air unit facts across multiple sources WITH EXHAUSTIVE SEARCH",
+      "inputs": ["air_raw_facts.json", "additional_sources[]", "air_search_catalog.json"],
+      "outputs": ["air_verified_facts.json", "air_conflicts.json", "air_search_report.json"],
+      "capabilities": [
+        "Multi-source verification for air units",
+        "Aircraft variant cross-referencing",
+        "WITW database integration",
+        "Squadron/gruppe organizational validation",
+        "Operational records verification",
+        "Ace/pilot records verification",
+        "Wikipedia filtering",
+        "Anti-hallucination enforcement"
+      ],
+      "prompt_template": "🚨 EXHAUSTIVE SEARCH PROTOCOL - AIR FORCES v1.0 🚨\n\nYou are the air_historical_research agent researching: {air_unit}\n\n=== 🔍 AIR FORCES SEARCH MANDATE ===\n\n**SEED DATA IS AUTHORITATIVE**\n\nIf the project seed data says an air unit exists in a quarter, it EXISTS. Your job is to FIND the data.\n\n**Search Order (Air Forces)**:\n1. ✅ Check Shores' Air War series (primary North Africa air source)\n2. ✅ Check WITW _airgroup.csv (4,097 air groups)\n3. ✅ Check WITW _aircraft.csv (aircraft specifications)\n4. ✅ Check Asisbiz.com unit histories\n5. ✅ Check squadron/gruppe war diaries (if available)\n6. ✅ Check national archives (RAF ORBs, USAAF reports, Luftwaffe KTB)\n7. ⏸️ PAUSE and report findings\n8. ⏳ AWAIT user guidance\n\n**For {nation} air units:**\n- German Luftwaffe: Shores → WITW → Asisbiz → Luftwaffe war diaries\n- Italian Regia Aeronautica: Shores → WITW → Comando Supremo → Italian records\n- RAF/Commonwealth: Shores → WITW → RAF ORBs → squadron histories\n- USAAF: Shores → WITW → USAAF combat reports → group histories\n\n**Aircraft Variant Resolution Protocol**:\n1. Check WITW _aircraft.csv for canonical designation\n2. Cross-reference with Shores for operational variants\n3. Verify variant progression by quarter (E-7 → F-2 → F-4 → G-6)\n4. Document engine types, armament differences\n5. Include WITW IDs for scenario export compatibility\n\n=== CRITICAL RULES (Air Forces) ===\n\n1. AIRCRAFT VARIANTS MUST BE SPECIFIC\n   - ✅ \"Bf 109E-7/Trop\", \"Hurricane Mk IIB\", \"P-40F Warhawk\"\n   - ❌ \"Bf 109\", \"Hurricane\", \"P-40\"\n\n2. OPERATIONAL DATA VERIFICATION\n   - Sorties: Cross-reference war diaries with Shores\n   - Claims vs losses: Note discrepancies between sides\n   - Mission types: Ground attack, escort, fighter sweep, reconnaissance\n\n3. COMMANDER/ACE VALIDATION\n   - Verify ace scores from official sources\n   - Cross-reference kill claims (Luftwaffe vs RAF records differ)\n   - Document decorations (DFC, Ritterkreuz, etc.)\n\n4. BASE LOCATIONS\n   - Use exact airfield names (\"Gazala\", not \"near Tobruk\")\n   - Include LG numbers for Egypt (LG 05, LG 76, etc.)\n   - Track base moves quarter by quarter\n\n5. WITW DATABASE INTEGRATION\n   - Include WITW airgroup IDs for scenario export\n   - Include WITW aircraft IDs for equipment matching\n   - Note: WITW is supplementary, not authoritative\n\n=== REQUIRED OUTPUT STRUCTURE (Air Forces) ===\n\n```json\n{\n  \"air_research_results\": {\n    \"verified_from_sources\": {\n      \"unit_designation\": {\n        \"value\": \"I./Jagdgeschwader 27\",\n        \"source\": \"Shores Vol 2, page 145\",\n        \"source_quote\": \"I./JG 27 under Hptm. Eduard Neumann operated from Gazala with 30 Bf 109E-7/Trop and 10 Bf 109F-2/Trop aircraft\",\n        \"confidence\": 95\n      },\n      \"aircraft_variants\": {\n        \"value\": [\n          {\n            \"designation\": \"Messerschmitt Bf 109E-7/Trop\",\n            \"count\": 30,\n            \"operational\": 24,\n            \"witw_id\": 200\n          },\n          {\n            \"designation\": \"Messerschmitt Bf 109F-2/Trop\",\n            \"count\": 10,\n            \"operational\": 8,\n            \"witw_id\": 201\n          }\n        ],\n        \"source\": \"Shores Vol 2, page 147 equipment table + WITW _aircraft.csv\",\n        \"source_quote\": \"Equipment returns for 15 May 1941 show 30 E-7 and 10 F-2 variants, with 32 operational\",\n        \"confidence\": 90\n      }\n    },\n    \"estimates_when_no_data\": {\n      \"ground_crew_count\": {\n        \"estimated_value\": 120,\n        \"derivation_method\": \"Standard Luftwaffe fighter gruppe establishment: 3:1 ground crew to pilots ratio. 40 pilots × 3 = 120 ground crew\",\n        \"assumptions\": [\n          \"Using standard Luftwaffe personnel ratios\",\n          \"Gruppe at full establishment\"\n        ],\n        \"confidence\": 50,\n        \"caveats\": [\n          \"No primary source for ground crew count\",\n          \"Desert conditions may require higher maintenance ratios\"\n        ]\n      }\n    },\n    \"sources_checked\": [\n      {\n        \"source\": \"Shores Air War Vol 2 (1940-1942)\",\n        \"status\": \"CHECKED\",\n        \"contains\": \"Unit designation, commander, aircraft types, base location, combat operations\",\n        \"missing\": \"Detailed personnel breakdown, ground support vehicles\"\n      },\n      {\n        \"source\": \"WITW _airgroup.csv (ID 101)\",\n        \"status\": \"CHECKED\",\n        \"contains\": \"Unit ID, parent formation, aircraft counts, WITW database linkage\",\n        \"missing\": \"Historical narrative, commander details\"\n      },\n      {\n        \"source\": \"Asisbiz.com JG 27 history\",\n        \"status\": \"CHECKED\",\n        \"contains\": \"Staffel composition, ace listings, aircraft markings\",\n        \"missing\": \"Exact equipment counts for Q2 1941\"\n      }\n    ],\n    \"witw_integration\": {\n      \"airgroup_id\": 101,\n      \"aircraft_ids\": [200, 201],\n      \"cross_reference_status\": \"VERIFIED\",\n      \"notes\": \"WITW data matches Shores aircraft counts within 10%\"\n    },\n    \"validation_checklist\": {\n      \"all_facts_have_quotes\": true,\n      \"all_estimates_marked\": true,\n      \"aircraft_variants_specific\": true,\n      \"no_generic_aircraft_entries\": true,\n      \"witw_ids_included\": true\n    }\n  }\n}\n```\n\n=== AIR FORCES SPECIFIC VALIDATION ===\n\n1. ❌ REJECT if ANY aircraft variant is generic (\"Bf 109\", \"Spitfire\")\n2. ❌ REJECT if aircraft totals don't match (total ≠ operational + damaged + reserve)\n3. ❌ REJECT if variant counts don't sum to total\n4. ❌ REJECT if WITW IDs missing when WITW database was checked\n5. ✅ ACCEPT only if all validation rules pass\n\n=== YOUR TASK ===\n\nResearch: {air_unit} for quarter {quarter}\n\n**Step 1: EXHAUSTIVE SEARCH** (Air Forces)\n1. Check Shores' Air War volumes\n2. Check WITW _airgroup.csv for unit\n3. Check WITW _aircraft.csv for variants\n4. Check Asisbiz.com unit history\n5. Check war diaries if available\n6. Document EVERY source checked\n\n**Step 2: AIRCRAFT VARIANT RESOLUTION**\n1. Resolve all generic names to specific variants\n2. Include WITW IDs for equipment matching\n3. Verify variant progression makes sense (E → F → G for Bf 109)\n\n**Step 3: OPERATIONAL DATA VERIFICATION**\n1. Cross-reference sortie claims\n2. Verify aerial victory claims (note discrepancies)\n3. Validate mission types and dates\n\n**Step 4: PAUSE AND REPORT**\n- Output air_research_results with verified facts and estimates\n- Report all sources checked\n- WAIT for user instruction\n\nFollow anti-hallucination protocol STRICTLY.\nReturn JSON with air forces structure.",
+      "validation_rules": [
+        "CRITICAL: All aircraft variants MUST be specific (NO generic names)",
+        "CRITICAL: Aircraft totals MUST match (total = operational + damaged + reserve)",
+        "CRITICAL: Variant counts MUST sum to total",
+        "CRITICAL: WITW IDs MUST be included when WITW database checked",
+        "CRITICAL: All verified facts MUST have verbatim source_quote",
+        "CRITICAL: Estimates MUST be in separate section with derivation_method",
+        "CRITICAL: NO WIKIPEDIA sources allowed",
+        "CRITICAL: validation_checklist.aircraft_variants_specific must be true",
+        "CRITICAL: validation_checklist.no_generic_aircraft_entries must be true"
+      ],
+      "anthropic_patterns_applied": [
+        "Error Prevention: Aircraft variant specificity enforcement",
+        "Clear Interface: Explicit WITW integration requirements",
+        "Stopping Conditions: Pause for user guidance on gaps",
+        "Feedback Loop: Air forces-specific validation checklist"
+      ]
+    },
+
+    {
+      "agent_id": "air_org_hierarchy",
+      "category": "air_structure_organization",
+      "version": "1.0.0",
+      "role": "Build air force organizational tree (Wing/Group → Gruppe/Gruppo → Staffel/Squadron)",
+      "inputs": ["air_verified_facts.json", "nation", "quarter"],
+      "outputs": ["air_org_tree.json"],
+      "capabilities": [
+        "Air force hierarchy construction",
+        "Squadron/Staffel/Squadriglia level organization",
+        "Wing/Gruppe/Gruppo/Group structure",
+        "Geschwader/Stormo/Command level",
+        "Commander assignment",
+        "Base/airfield assignment",
+        "Parent formation linkage"
+      ],
+      "prompt_template": "You are building the air force organizational hierarchy for {nation} in {quarter}.\n\nFacts available: {air_verified_facts}\n\nTask: Construct air organizational tree.\n\n**AIR FORCE ORGANIZATIONAL LEVELS**:\n\n**Luftwaffe (German)**:\n1. Fliegerführer/Luftflotte (Theater command)\n2. Geschwader (Wing - 90+ aircraft)\n3. Gruppe (Group - ~30 aircraft)\n4. Staffel (Squadron - 9-12 aircraft)\n\n**Regia Aeronautica (Italian)**:\n1. Squadra Aerea (Air Fleet)\n2. Stormo (Wing - 60+ aircraft)\n3. Gruppo (Group - 20-30 aircraft)\n4. Squadriglia (Squadron - 9-12 aircraft)\n\n**RAF/Commonwealth (British)**:\n1. Air Force/Desert Air Force (Theater)\n2. Group (Administrative)\n3. Wing (2-4 squadrons)\n4. Squadron (12-18 aircraft)\n\n**USAAF (American)**:\n1. Air Force (9th/12th)\n2. Command (Fighter/Bomber)\n3. Group (48-75 aircraft)\n4. Squadron (12-25 aircraft)\n\n**For each air unit, identify**:\n1. Unit designation (full name)\n2. Unit type (from air echelon priority)\n3. Commander (name, rank, kills if applicable)\n4. Parent formation\n5. Base/airfield\n6. Subordinate units (if applicable)\n7. Aircraft strength (total, operational)\n8. Aircraft variants (specific types)\n\n**Output: Hierarchical JSON structure**\n\nExample (Luftwaffe):\n{\n  \"level\": \"fighter_gruppe\",\n  \"unit_designation\": \"I./Jagdgeschwader 27\",\n  \"commander\": {\n    \"name\": \"Eduard Neumann\",\n    \"rank\": \"Hauptmann\",\n    \"kills\": 13\n  },\n  \"parent\": \"Jagdgeschwader 27\",\n  \"base\": \"Gazala\",\n  \"aircraft\": {\n    \"total\": 40,\n    \"operational\": 32,\n    \"variants\": [\n      {\"designation\": \"Bf 109E-7/Trop\", \"count\": 30},\n      {\"designation\": \"Bf 109F-2/Trop\", \"count\": 10}\n    ]\n  },\n  \"subordinates\": [\n    {\"unit\": \"1./JG 27\", \"type\": \"fighter_staffel\", \"aircraft\": 12},\n    {\"unit\": \"2./JG 27\", \"type\": \"fighter_staffel\", \"aircraft\": 14},\n    {\"unit\": \"3./JG 27\", \"type\": \"fighter_staffel\", \"aircraft\": 14}\n  ]\n}\n\nBuild complete air hierarchy now.",
+      "validation_rules": [
+        "Every air unit must have a parent (except theater level)",
+        "Aircraft counts must match between parent and subordinates",
+        "Staffel/Squadron counts must be realistic (9-18 aircraft)",
+        "Gruppe/Gruppo counts must be realistic (20-40 aircraft)",
+        "Base locations must be specified",
+        "Aircraft variants must be specific (NO generic names)"
+      ]
+    },
+
+    {
+      "agent_id": "air_operations_analyzer",
+      "category": "air_operations",
+      "version": "1.0.0",
+      "role": "Extract and analyze combat operations data (sorties, claims, losses)",
+      "inputs": ["air_verified_facts.json", "combat_records", "quarter"],
+      "outputs": ["air_operations_summary.json"],
+      "capabilities": [
+        "Sortie counting and analysis",
+        "Aerial victory claims processing",
+        "Loss rate calculation",
+        "Mission type categorization",
+        "Operational radius calculation",
+        "Fuel/ammunition consumption analysis",
+        "Weather impact assessment"
+      ],
+      "prompt_template": "You are analyzing combat operations for {air_unit} in {quarter}.\n\nData available: {air_verified_facts}, {combat_records}\n\nTask: Extract and analyze operational data.\n\n**OPERATIONAL METRICS TO EXTRACT**:\n\n1. **Sortie Analysis**:\n   - Total sorties flown (fighter sweeps, escorts, ground attack, reconnaissance)\n   - Sortie rate per aircraft per day\n   - Operational availability percentage\n\n2. **Combat Results**:\n   - Aerial victories claimed (by pilot if available)\n   - Enemy aircraft probably destroyed\n   - Enemy aircraft damaged\n   - Ground targets destroyed\n\n3. **Losses**:\n   - Aircraft lost in combat\n   - Aircraft lost to accidents\n   - Aircraft damaged (repairable)\n   - Pilots killed/missing/captured/wounded\n\n4. **Mission Types** (categorize all sorties):\n   - Fighter sweeps (offensive patrols)\n   - Bomber escort\n   - Ground attack (Jabo missions)\n   - Reconnaissance\n   - Interception\n   - Transport escort\n\n5. **Supply Consumption**:\n   - Fuel consumption rate (liters per sortie)\n   - Ammunition expenditure (rounds/shells)\n   - Bomb tonnage dropped\n   - Days of reserves remaining\n\n6. **Operational Constraints**:\n   - Weather days lost to sandstorms/rain\n   - Serviceability rate (operational/total)\n   - Supply shortages impacting operations\n   - Base relocations affecting tempo\n\n**Output Format**:\n\n```json\n{\n  \"operations_summary\": {\n    \"quarter\": \"1941-Q2\",\n    \"unit\": \"I./JG 27\",\n    \"sorties\": {\n      \"total\": 850,\n      \"by_mission_type\": {\n        \"fighter_sweep\": 450,\n        \"bomber_escort\": 280,\n        \"ground_attack\": 90,\n        \"reconnaissance_escort\": 30\n      },\n      \"sortie_rate_per_day\": 2.8,\n      \"operational_days\": 85\n    },\n    \"combat_results\": {\n      \"claims\": {\n        \"destroyed\": 47,\n        \"probable\": 12,\n        \"damaged\": 23\n      },\n      \"top_aces\": [\n        {\"pilot\": \"Hptm. Eduard Neumann\", \"kills_this_quarter\": 8},\n        {\"pilot\": \"Oblt. Gerhard Homuth\", \"kills_this_quarter\": 6}\n      ]\n    },\n    \"losses\": {\n      \"aircraft_combat\": 8,\n      \"aircraft_accidents\": 3,\n      \"aircraft_damaged\": 15,\n      \"pilots\": {\n        \"killed\": 4,\n        \"missing\": 2,\n        \"wounded\": 6\n      }\n    },\n    \"supply_status\": {\n      \"fuel_reserves_days\": 12,\n      \"ammunition_reserves_days\": 8,\n      \"supply_constraints\": \"Adequate for operations, strained during offensive periods\"\n    },\n    \"operational_constraints\": {\n      \"weather_days_lost\": 8,\n      \"average_serviceability\": 0.78,\n      \"base_moves\": [\n        {\"date\": \"1941-04-15\", \"from\": \"Ain el Gazala\", \"to\": \"Gazala Main\"},\n        {\"date\": \"1941-06-20\", \"from\": \"Gazala Main\", \"to\": \"Tmimi\"}\n      ]\n    }\n  },\n  \"sources\": [\n    \"Shores Air War Vol 2, pages 145-180 (operational narrative)\",\n    \"Luftwaffe war diary entries April-June 1941\",\n    \"JG 27 unit history (losses and claims)\"\n  ],\n  \"confidence\": 85,\n  \"notes\": \"Claims cross-referenced with RAF loss records show 15-20% overclaiming, typical for air combat\"\n}\n```\n\nExtract and analyze operational data now.",
+      "validation_rules": [
+        "Sortie counts must be realistic (not exceeding aircraft × days × max sorties per day)",
+        "Loss rates must be reasonable (typically 1-5% per quarter)",
+        "Claims should be marked as 'claims' not 'confirmed kills' unless verified",
+        "Supply consumption must match operational tempo",
+        "All data must have source citations",
+        "Confidence must reflect uncertainty in combat claims"
+      ]
+    },
+
+    {
+      "agent_id": "air_json_generator",
+      "category": "air_output_generation",
+      "version": "1.0.0",
+      "role": "Generate final air force unit JSON conforming to air_force_schema.json",
+      "inputs": ["air_verified_facts.json", "air_org_tree.json", "air_operations_summary.json"],
+      "outputs": ["data/output/units/air/{nation}_{quarter}_{unit}_air.json"],
+      "capabilities": [
+        "Schema v1.0 compliance (air_force_schema.json)",
+        "Aircraft variant validation",
+        "WITW ID integration",
+        "Metadata generation",
+        "Confidence scoring",
+        "Tier assignment"
+      ],
+      "prompt_template": "You are generating the final JSON output for {air_unit}.\n\nInputs:\n- Verified facts: {air_verified_facts}\n- Organizational tree: {air_org_tree}\n- Operations summary: {air_operations_summary}\n\nTask: Generate JSON conforming to schemas/air_force_schema.json.\n\n**CRITICAL SCHEMA REQUIREMENTS**:\n\n1. **Required Fields** (will fail validation if missing):\n   - unit_designation\n   - unit_type (from schema enum: fighter_gruppe, bomber_squadron, etc.)\n   - nation (lowercase: german, italian, british, american)\n   - quarter (format: YYYY-QN, e.g., \"1941-Q2\")\n   - base\n   - personnel.total\n   - aircraft.total, aircraft.operational, aircraft.variants[]\n   - metadata.confidence, metadata.sources[], metadata.extraction_date\n\n2. **Aircraft Variants** (CRITICAL - NO GENERIC ENTRIES):\n   ```json\n   \"aircraft\": {\n     \"total\": 40,\n     \"operational\": 32,\n     \"damaged\": 6,\n     \"reserve\": 2,\n     \"variants\": [\n       {\n         \"designation\": \"Messerschmitt Bf 109E-7/Trop\",  // MUST be specific\n         \"count\": 30,\n         \"operational\": 24,\n         \"witw_id\": 200  // Include if available\n       },\n       {\n         \"designation\": \"Messerschmitt Bf 109F-2/Trop\",\n         \"count\": 10,\n         \"operational\": 8,\n         \"witw_id\": 201\n       }\n     ]\n   }\n   ```\n\n3. **Metadata Tier Assignment**:\n   - production_ready (75-100% complete): All critical fields verified\n   - review_recommended (60-74%): Most fields present, some estimates\n   - partial_needs_research (50-59%): Significant gaps, many estimates\n   - research_brief_created (<50%): Minimal data, mostly structure\n\n4. **Nation Values** (lowercase only):\n   - german (Luftwaffe)\n   - italian (Regia Aeronautica)\n   - british (RAF/Commonwealth)\n   - american (USAAF)\n\n5. **Quarter Format**: \"1941-Q2\" (uppercase Q)\n\n**VALIDATION BEFORE OUTPUT**:\n\n1. ✅ All required fields present\n2. ✅ Aircraft totals match: total = operational + damaged + reserve\n3. ✅ Variant counts sum to total\n4. ✅ NO generic aircraft entries (\"Bf 109\" ❌, \"Bf 109E-7/Trop\" ✅)\n5. ✅ Nation lowercase (\"german\" ✅, \"German\" ❌)\n6. ✅ Confidence 0-100\n7. ✅ Sources array non-empty\n8. ✅ Extraction date in ISO format (YYYY-MM-DD)\n\n**Output complete air force unit JSON now.**",
+      "validation_rules": [
+        "MUST conform to schemas/air_force_schema.json",
+        "All required fields MUST be present",
+        "Aircraft variants MUST be specific (NO generic names)",
+        "Aircraft totals MUST match (total = operational + damaged + reserve)",
+        "Variant counts MUST sum to total",
+        "Nation MUST be lowercase",
+        "Quarter MUST be format YYYY-QN",
+        "Confidence MUST be 0-100",
+        "Sources array MUST be non-empty",
+        "Tier MUST be one of 4 enum values"
+      ]
+    },
+
+    {
+      "agent_id": "air_chapter_generator",
+      "category": "air_output_generation",
+      "version": "1.0.0",
+      "role": "Generate MDBook chapter for air force unit",
+      "inputs": ["{nation}_{quarter}_{unit}_air.json"],
+      "outputs": ["data/output/chapters/air/chapter_{nation}_{quarter}_{unit}_air.md"],
+      "capabilities": [
+        "Markdown generation",
+        "Aircraft tables formatting",
+        "Operations narrative",
+        "Sortie/claims/losses tables",
+        "Commander biography sections",
+        "Source citations"
+      ],
+      "prompt_template": "You are generating an MDBook chapter for {air_unit}.\n\nInput JSON: {unit_json}\n\nTask: Generate markdown chapter following air forces template.\n\n**CHAPTER STRUCTURE** (Air Forces):\n\n```markdown\n# {Unit Designation} - {Quarter}\n\n## Overview\n\n{2-3 paragraph narrative overview}\n\n**Key Facts**:\n- **Type**: {unit_type}\n- **Parent Formation**: {parent_formation}\n- **Base**: {base_location}\n- **Commander**: {rank} {name} ({kills} victories)\n- **Aircraft**: {total} aircraft ({operational} operational)\n- **Personnel**: {total} personnel ({pilots} pilots)\n\n## Command\n\n### Commander: {Rank} {Name}\n\n{Commander biography paragraph with decorations, previous service, ace status}\n\n**Combat Record**:\n- Aerial Victories: {kills}\n- Decorations: {decorations}\n- Previous Units: {previous_commands}\n\n## Personnel\n\n**Total Strength**: {total} personnel\n\n| Category | Count |\n|----------|-------|\n| Pilots/Aircrew | {pilots} |\n| Ground Crew | {ground_crew} |\n| Mechanics | {mechanics} |\n| Armorers | {armorers} |\n| Signals | {signals} |\n\n## Aircraft\n\n**Total Aircraft**: {total} ({operational} operational, {damaged} damaged, {reserve} reserve)\n\n### Aircraft Inventory\n\n| Aircraft Type | Total | Operational | WITW ID |\n|---------------|-------|-------------|--------|\n| {variant_1} | {count} | {operational} | {witw_id} |\n| {variant_2} | {count} | {operational} | {witw_id} |\n\n**Specifications** (from WITW database):\n\n*{Primary aircraft type}*:\n- Engine: {engine}\n- Max Speed: {speed} km/h\n- Range: {range} km\n- Armament: {armament}\n\n## Operations\n\n### Operational Summary - {Quarter}\n\n**Sorties Flown**: {total_sorties}\n- Fighter Sweeps: {fighter_sweep_sorties}\n- Bomber Escort: {escort_sorties}\n- Ground Attack: {ground_attack_sorties}\n- Reconnaissance: {recon_sorties}\n\n**Combat Results**:\n- Claims: {claims_destroyed} destroyed, {claims_probable} probable, {claims_damaged} damaged\n- Losses: {losses_combat} in combat, {losses_accidents} accidents\n\n**Notable Operations**:\n\n{Narrative of major operations with dates, sortie counts, results}\n\n### Supply Status\n\n- **Fuel Reserves**: {fuel_reserves_days} days\n- **Ammunition**: {ammunition_reserves_days} days\n- **Operational Radius**: {operational_radius_km} km\n- **Sortie Rate**: {sortie_rate_per_day} per aircraft per day\n- **Supply Status**: {supply_status}\n\n## Data Quality\n\n**Confidence**: {confidence}%\n\n**Tier**: {tier}\n\n**Sources**:\n{sources_list}\n\n**Known Gaps**:\n{gaps_documentation}\n\n---\n\n*Generated with North Africa TO&E Builder - Air Forces Phase 7*\n```\n\n**FORMATTING REQUIREMENTS**:\n\n1. All aircraft names MUST be specific variants\n2. Tables MUST be properly formatted markdown\n3. WITW IDs MUST be included in aircraft table\n4. Operations narrative MUST be 2-4 paragraphs minimum\n5. Source citations MUST be at bottom\n6. Confidence and tier MUST be clearly stated\n\n**Generate complete MDBook chapter now.**",
+      "validation_rules": [
+        "Chapter MUST have all required sections",
+        "Aircraft table MUST show specific variants (NO generic names)",
+        "Tables MUST be valid markdown",
+        "Operations section MUST have narrative (not just tables)",
+        "Sources MUST be cited",
+        "Confidence and tier MUST be present"
+      ]
+    }
+  ],
+
+  "usage_notes": [
+    "Air forces agents adapted from ground forces agent_catalog.json v2.0.0",
+    "Use air_document_parser for initial source extraction",
+    "Use air_historical_research for cross-referencing with WITW database",
+    "Use air_org_hierarchy for squadron/gruppe/group structure",
+    "Use air_operations_analyzer for combat operations data",
+    "Use air_json_generator for final JSON output (air_force_schema.json compliance)",
+    "Use air_chapter_generator for MDBook chapter generation",
+    "All agents enforce NO generic aircraft entries rule",
+    "WITW database integration required for scenario export compatibility"
+  ]
+}

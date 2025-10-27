@@ -30,6 +30,41 @@ const { validateAndRepairState } = require('./lib/state_validator');
 const PROJECT_ROOT = path.join(__dirname, '..');
 const WORKFLOW_STATE_PATH = path.join(PROJECT_ROOT, 'WORKFLOW_STATE.json');
 
+// Parse command-line arguments for mode selection
+function parseArgs() {
+    const args = process.argv.slice(2);
+    const isAirMode = args.includes('--air-forces');
+    return {
+        mode: isAirMode ? 'air' : 'ground',
+        isAirMode
+    };
+}
+
+// Mode-specific configuration
+function getModeConfig(mode) {
+    if (mode === 'air') {
+        return {
+            workQueueFile: 'WORK_QUEUE_AIR.md',
+            seedFile: 'projects/north_africa_air_units_seed_COMPLETE.json',
+            totalUnits: 761,
+            totalUniqueUnits: 142,
+            schemaFile: 'schemas/air_force_schema.json',
+            modeLabel: 'AIR FORCES',
+            unitsLabel: 'squadrons/gruppi/gruppen'
+        };
+    } else {
+        return {
+            workQueueFile: 'WORK_QUEUE.md',
+            seedFile: 'projects/north_africa_seed_units_COMPLETE.json',
+            totalUnits: 420,
+            totalUniqueUnits: 117,
+            schemaFile: 'schemas/unified_toe_schema.json',
+            modeLabel: 'GROUND FORCES',
+            unitsLabel: 'divisions/corps/armies'
+        };
+    }
+}
+
 async function readWorkflowState() {
     try {
         const data = await fs.readFile(WORKFLOW_STATE_PATH, 'utf-8');
@@ -85,15 +120,15 @@ async function getCompletedUnits() {
     return Array.from(uniqueMap.values());
 }
 
-async function syncWorkflowState(scannedUnits, currentState) {
+async function syncWorkflowState(scannedUnits, currentState, config) {
     const scannedIds = scannedUnits.map(u => `${u.nation}_${u.quarter}_${u.unit}`);
     const stateIds = currentState ? currentState.completed : [];
 
     if (scannedIds.length !== stateIds.length) {
         const newState = currentState || {
             last_updated: new Date().toISOString(),
-            total_unit_quarters: 420,
-            total_unique_units: 117,
+            total_unit_quarters: config.totalUnits,
+            total_unique_units: config.totalUniqueUnits,
             completed_count: 0,
             completion_percentage: 0,
             completed: [],
@@ -101,7 +136,7 @@ async function syncWorkflowState(scannedUnits, currentState) {
             pending: [],
             session_id: `session_${Date.now()}`,
             last_commit: null,
-            seed_file: 'projects/north_africa_seed_units_COMPLETE.json'
+            seed_file: config.seedFile
         };
 
         newState.completed = scannedIds;
@@ -254,21 +289,24 @@ function calculateAllQuartersProgress(seedUnits, completedSet) {
 }
 
 /**
- * Read next batch from WORK_QUEUE.md
+ * Read next batch from work queue file
  *
  * Replaces dynamic strategy selection with simple queue reading.
  * Takes next 3 unchecked units from the queue.
+ *
+ * @param {string} queueFile - Work queue filename (WORK_QUEUE.md or WORK_QUEUE_AIR.md)
+ * @param {number} batchSize - Number of units to fetch (default: 3)
  */
-async function getNextBatchFromQueue(batchSize = 3) {
+async function getNextBatchFromQueue(queueFile = 'WORK_QUEUE.md', batchSize = 3) {
     try {
-        const queuePath = path.join(PROJECT_ROOT, 'WORK_QUEUE.md');
+        const queuePath = path.join(PROJECT_ROOT, queueFile);
         const queueContent = await fs.readFile(queuePath, 'utf-8');
 
         // Parse the "Next Up" section
         const nextUpMatch = queueContent.match(/## 🎯 Next Up \(Next Session\)\n\n([\s\S]*?)\n---/);
 
         if (!nextUpMatch) {
-            console.warn('⚠️  Could not find "Next Up" section in WORK_QUEUE.md');
+            console.warn(`⚠️  Could not find "Next Up" section in ${queueFile}`);
             return { batch: [], strategy: 'work_queue' };
         }
 
@@ -294,7 +332,7 @@ async function getNextBatchFromQueue(batchSize = 3) {
             strategy: 'work_queue'
         };
     } catch (error) {
-        console.warn('⚠️  Could not read WORK_QUEUE.md:', error.message);
+        console.warn(`⚠️  Could not read ${queueFile}:`, error.message);
         console.warn('   Falling back to empty batch');
         return { batch: [], strategy: 'work_queue' };
     }
@@ -363,9 +401,9 @@ function displayQuarterDashboard(quarterStats, totalCompleted) {
     console.log('');
 }
 
-function displaySessionPrompt(state, memory, batchResult) {
+function displaySessionPrompt(state, memory, batchResult, config) {
     console.log('═'.repeat(80));
-    console.log('  SESSION START - NORTH AFRICA TO&E BUILDER');
+    console.log(`  SESSION START - ${config.modeLabel}`);
     console.log('═'.repeat(80));
     console.log('');
 
@@ -434,41 +472,81 @@ function displaySessionPrompt(state, memory, batchResult) {
     console.log('');
 
     const completedCount = state ? (state.completed.length) : 0;
-    const totalUnits = 420;
+    const totalUnits = config.totalUnits;
     const percentComplete = ((completedCount / totalUnits) * 100).toFixed(1);
 
-    console.log(`Start autonomous orchestration session.
+    // Mode-specific instructions
+    const isAirMode = config.modeLabel === 'AIR FORCES';
+    const workQueueDesc = isAirMode
+        ? 'Staffel/Squadron before Gruppe/Gruppo before Groups/Geschwader (bottom-up)'
+        : 'Divisions before corps before armies (bottom-up aggregation)';
+
+    console.log(`Start autonomous orchestration session${isAirMode ? ' for AIR FORCES extraction' : ''}.
 
 **CURRENT PROGRESS:**
 - Overall: ${completedCount}/${totalUnits} units (${percentComplete}%)
+- Mode: ${config.modeLabel}
 - Session: ${sessionCount}/12 units this session${!canContinue ? ' ⚠️  LIMIT REACHED' : ''}
 - Last scan: ${new Date().toLocaleString()}
 
-**WORK QUEUE (Chronological + Echelon Order):**
-- Processing units from WORK_QUEUE.md in order
-- Divisions before corps before armies (bottom-up aggregation)
+**WORK QUEUE (Echelon-First Order):**
+- Processing ${config.unitsLabel} from ${config.workQueueFile} in order
+- ${workQueueDesc}
 - Auto-marks complete on checkpoint
 
 **NEXT BATCH (3 units):**
 ${batchResult.batch.length > 0 ? batchResult.batch.map((u, i) => `${i + 1}. ${u.nation} - ${u.designation} (${u.quarter})`).join('\n') : '✅ No units remaining!'}
 
-**SESSION PROTOCOL (Ken's 3-3-3 Rule):**
+**SESSION PROTOCOL:**
 ✅ Session started (progress loaded above)
 🔄 Process these 3 units in parallel (batch of 3)
 💾 After batch complete: Bash('npm run checkpoint')
-📊 Check validation: Review SESSION_CHECKPOINT.md for chapter status
+📊 Check validation: Review SESSION_CHECKPOINT.md for status
 🏁 When done: Bash('npm run session:end')
 
-**UNIFIED SCHEMA COMPLIANCE (schemas/UNIFIED_SCHEMA_EXAMPLES.md):**
+${isAirMode ? `**AIR FORCE SCHEMA COMPLIANCE (${config.schemaFile}):**
+- **CRITICAL**: Required fields: unit_designation, unit_type, nation, quarter, base, personnel, aircraft, metadata
+- **AIRCRAFT VARIANTS MUST BE SPECIFIC**: ✅ "Bf 109E-7/Trop", ❌ "Bf 109"
+- **NO GENERIC AIRCRAFT ENTRIES**: Every variant must have full designation
+- **WITW Integration**: Include WITW IDs from _airgroup.csv database (4,097 air groups)
+- Nation values lowercase: german, italian, british, american
+- Aircraft totals MUST match: total = operational + damaged + reserve
+- Variant counts MUST sum to total aircraft
+- **Validation**: Use ${config.schemaFile} before saving
+
+**AIR FORCE AGENT CATALOG (agents/air_forces_agent_catalog.json):**
+- **6 specialized air agents**: air_document_parser, air_historical_research, air_org_hierarchy, air_operations_analyzer, air_json_generator, air_chapter_generator
+- **Sources**: Shores' Air War series, WITW database (_airgroup.csv, _aircraft.csv), Asisbiz.com, squadron histories
+- **Data Focus**: Aircraft variants, sorties, aerial victories, losses, base locations, operational radius
+
+**OUTPUT PATH (Air Forces Canonical):**
+✅ Air Units: data/output/air_units/
+✅ Air Chapters: data/output/air_chapters/
+
+⚠️  **MANDATORY**: Save ALL air force files to AIR CANONICAL locations:
+   - Air Unit JSON: data/output/air_units/{nation}_{quarter}_{unit}_air_toe.json
+   - MDBook chapters: data/output/air_chapters/chapter_air_{nation}_{quarter}_{unit}.md
+
+**CRITICAL AIR FORCES RULES:**
+- ✅ Seed authority: Only extract from north_africa_air_units_seed_COMPLETE.json
+- ✅ Aircraft specificity: MUST use variant-level detail (Bf 109E-7/Trop, NOT Bf 109)
+- ✅ WITW integration: Cross-reference with _airgroup.csv (4,097 air groups)
+- ✅ Operational data: Extract sorties, claims, losses, mission types
+- ✅ Base locations: Exact airfield names (Gazala, El Adem, LG 05, etc.)
+
+**STOP CONDITIONS (Air Forces):**
+- Aircraft variants are generic (not specific)
+- WITW IDs missing when database available
+- Critical gaps: commander unknown, no aircraft data, base location missing
+` : `**UNIFIED SCHEMA COMPLIANCE (${config.schemaFile}):**
 - **CRITICAL**: Use top-level fields (nation, quarter, organization_level)
 - **NEVER** nest unit_identification, personnel_summary, equipment_summary
 - Commander MUST be nested object: commander.name, commander.rank
 - Nation values lowercase only: german, italian, british, american, french
 - Tank totals MUST match: total = heavy + medium + light
 - **Validation**: Run scripts/lib/validator.js before saving
-- **Examples**: See schemas/UNIFIED_SCHEMA_EXAMPLES.md for correct/incorrect structures
 
-**TEMPLATE COMPLIANCE (v2.0 - 16 Sections from MDBOOK_CHAPTER_TEMPLATE.md):**
+**TEMPLATE COMPLIANCE (v2.0 - 16 Sections):**
 - Section 3: Command (commander, HQ, staff) - REQUIRED
 - Section 5: Artillery (summary + detail for EVERY variant)
 - Section 6: Armored Cars (separate section with details, NOT in transport)
@@ -477,7 +555,7 @@ ${batchResult.batch.length > 0 ? batchResult.batch.map((u, i) => `${i + 1}. ${u.
 - Section 15: Data Quality & Known Gaps (honest assessment)
 - **Confidence threshold**: ≥ 75%
 
-**OUTPUT PATH (Architecture v4.0 - Canonical Locations):**
+**OUTPUT PATH (Architecture v4.0):**
 ✅ Units: data/output/units/
 ✅ Chapters: data/output/chapters/
 
@@ -486,56 +564,106 @@ ${batchResult.batch.length > 0 ? batchResult.batch.map((u, i) => `${i + 1}. ${u.
    - MDBook chapters: data/output/chapters/[chapter_file].md
 
    **NEVER** create session folders (data/output/autonomous_*/ or data/output/session_*/)
+`}
+${isAirMode ? `
+**STOP CONDITIONS (Air Forces):**
+- Aircraft variants are generic (not specific)
+- WITW IDs missing when database was checked
+- Confidence score < 75%
+- Critical gaps: commander unknown, no aircraft data, base location missing
+- Validation fails after 2 attempts
 
-**STOP CONDITIONS:**
+**🤖 AIR FORCES ORCHESTRATION PROTOCOL**
+
+⚠️ **CRITICAL**: You are the ORCHESTRATOR for AIR FORCES extraction.
+
+**Project Architecture** (agents/air_forces_agent_catalog.json):
+- **6 specialized air agents**: air_document_parser, air_historical_research, air_org_hierarchy, air_operations_analyzer, air_json_generator, air_chapter_generator
+
+**YOUR ROLE AS ORCHESTRATOR:**
+1. 🚀 Launch 3 air extraction agents IN PARALLEL using Task tool (one per squadron/gruppe)
+2. 📦 Provide each agent with: squadron/gruppe name, quarter, nation, air canonical path
+3. 🔧 Instruct agents to use MCP tools (read Shores Air War, WITW database, write outputs)
+4. 📊 Use TodoWrite to track progress
+5. 📝 Report results with PROOF of Task tool execution
+
+**CRITICAL AIR FORCES RULES:**
+- ✅ Seed authority: Only extract from north_africa_air_units_seed_COMPLETE.json
+- ✅ Aircraft specificity: MUST use variant-level detail (Bf 109E-7/Trop, NOT Bf 109)
+- ✅ WITW integration: Cross-reference _airgroup.csv (4,097 air groups) and _aircraft.csv
+- ✅ Operational data: Extract sorties, claims, losses, mission types
+- ✅ Air canonical paths: data/output/air_units/ and data/output/air_chapters/
+
+**⚡ MANDATORY PARALLEL EXECUTION** (3 air units simultaneously):
+
+YOU MUST launch all 3 agents in ONE message with 3 separate Task tool invocations.
+
+**Each air agent should:**
+- Read Shores Air War series using mcp__filesystem__read_text_file
+- Cross-reference WITW _airgroup.csv and _aircraft.csv databases
+- Extract: unit designation, aircraft variants (SPECIFIC), base, personnel, operations
+- **Aircraft Variant Resolution**: Convert generic names to specific variants
+  - ✅ "Messerschmitt Bf 109E-7/Trop", "Hawker Hurricane Mk IIB", "Macchi MC.202 Folgore"
+  - ❌ "Bf 109", "Hurricane", "MC.202"
+- **Store in MCP Memory**: Squadron operations, aircraft transitions, ace pilots, combat records
+- Write JSON: data/output/air_units/{nation}_{quarter}_{unit}_air_toe.json
+- Write chapter: data/output/air_chapters/chapter_air_{nation}_{quarter}_{unit}.md
+- Report: confidence, sources, WITW validation status, aircraft variant specificity
+
+**After EACH batch of 3 air units:**
+- Run checkpoint: Bash('npm run checkpoint')
+  - Validates air units (JSON + chapter + air_force_schema.json compliance)
+  - Checks aircraft variants are specific (NO generic entries)
+  - Updates WORKFLOW_STATE.json with new count
+  - Commits to git
+  - Regenerates WORK_QUEUE_AIR.md
+` : `
+**STOP CONDITIONS (Ground Forces):**
 - Validation fails after 2 regeneration attempts
 - Confidence score < 75% for any unit
-- Critical gaps cannot be resolved (missing commander, no equipment data)
-- Template violations detected in generated chapters
-- Source documents unavailable for nation/quarter
+- Critical gaps: missing commander, no equipment data
+- Template violations detected
+- Source documents unavailable
 
 **🤖 MULTI-AGENT ORCHESTRATION PROTOCOL**
 
 ⚠️ **CRITICAL**: You are the ORCHESTRATOR, not the extractor.
 
 **Project Architecture** (agents/agent_catalog.json):
-- **16 specialized agents** in 6 categories (document_parser, historical_research, org_hierarchy, toe_template, unit_instantiation, theater_allocator, division_cascader, equipment_reconciliation, bottom_up_aggregator, top3_calculator, schema_validator, historical_accuracy, seed_reconciliation_validator, book_chapter_generator, scenario_exporter, sql_populator)
+- **16 specialized agents** in 6 categories
 
 **YOUR ROLE AS ORCHESTRATOR:**
 1. 🚀 Launch 3 extraction agents IN PARALLEL using Task tool (one per unit)
 2. 📦 Provide each agent with: unit name, quarter, nation, canonical output path
-3. 🔧 Instruct agents to use MCP tools (mcp__filesystem__read_text_file, mcp__memory__create_entities, mcp__filesystem__write_file)
-4. 📊 Use TodoWrite to track progress through all phases
+3. 🔧 Instruct agents to use MCP tools (mcp__filesystem__read_text_file, mcp__memory__create_entities)
+4. 📊 Use TodoWrite to track progress
 5. 📝 Report results with PROOF of Task tool execution
 
-**CRITICAL RULES** (enforced by Phase 1 restoration Oct 23, 2025):
-- ✅ Seed authority: Only extract units from north_africa_seed_units_COMPLETE.json
-- ✅ Combat criteria: discovered_units require combat_evidence field (NO garrison/reserve units)
-- ✅ Canonical paths: Always use data/output/units/ and data/output/chapters/ (NOT session folders)
-- ✅ Validation: Unit complete = JSON + chapter + passes validation (all 3 required)
+**CRITICAL RULES:**
+- ✅ Seed authority: Only extract from north_africa_seed_units_COMPLETE.json
+- ✅ Combat criteria: discovered_units require combat_evidence field
+- ✅ Canonical paths: data/output/units/ and data/output/chapters/
+- ✅ Validation: Unit complete = JSON + chapter + passes validation
 
-**⚡ MANDATORY PARALLEL EXECUTION** (3x speed improvement):
+**⚡ MANDATORY PARALLEL EXECUTION:**
 
 YOU MUST launch all 3 agents in ONE message with 3 separate Task tool invocations.
 
 **Each agent should:**
-- Read sources using mcp__filesystem__read_text_file (Tessin, Army Lists from Resource Documents/)
+- Read sources using mcp__filesystem__read_text_file (Tessin, Army Lists)
 - Follow 6-phase workflow: Source Extraction → Org Building → Equipment Distribution → Aggregation → Validation → Output
-- Write to canonical location: data/output/units/[nation]_[quarter]_[unit]_toe.json
-- **Store findings in MCP Memory** using mcp__memory__create_entities:
-  - Create entity for the unit with observations about: organization structure, equipment patterns, command chain, tactical doctrine, supply challenges, unique characteristics
-  - Store 5-10 observations per unit (not just 1!)
-  - Link related units using mcp__memory__create_relations (e.g., brigade → division parent)
-  - Example: {name: "1re_BFL_1942q1", entityType: "unit", observations: ["Multi-national force...", "Mixed French/British equipment...", "Defended Bir Hakeim..."]}
-- Generate MDBook chapter: data/output/chapters/chapter_[nation]_[quarter]_[unit].md
-- Report: confidence score, sources used, MCP tool usage log (should show 5-10 memory calls, not 1!)
+- Write to: data/output/units/[nation]_[quarter]_[unit]_toe.json
+- **Store in MCP Memory**: organization structure, equipment patterns, command chain, tactical doctrine
+- Generate chapter: data/output/chapters/chapter_[nation]_[quarter]_[unit].md
+- Report: confidence score, sources used, MCP tool usage
 
-**After EACH batch of 3 units completes:**
+**After EACH batch of 3 units:**
 - Run checkpoint: Bash('npm run checkpoint')
   - Validates units (JSON + chapter + schema compliance)
-  - Updates WORKFLOW_STATE.json with new count
-  - Commits to git with auto-generated message
+  - Updates WORKFLOW_STATE.json
+  - Commits to git
   - Regenerates WORK_QUEUE.md
+`}
 
 **After ALL batches complete (end of session):**
 - Run session end: Bash('npm run session:end')
@@ -549,14 +677,14 @@ YOU MUST launch all 3 agents in ONE message with 3 separate Task tool invocation
 
 **PROOF OF ORCHESTRATION REQUIRED:**
 Report back with evidence of:
-✅ 3 Task tool calls made (show agent launches)
+✅ 3 Task tool calls made (show ${isAirMode ? 'squadron/gruppe' : 'unit'} extractions)
 ✅ Execution mode: PARALLEL (all 3 launched simultaneously)
-✅ MCP tool usage by sub-agents (filesystem reads, memory writes)
-✅ Final outputs written to canonical locations
+${isAirMode ? '✅ Aircraft variants SPECIFIC (no generic entries)\n✅ WITW database integration (show cross-reference)' : '✅ MCP tool usage by sub-agents (filesystem reads, memory writes)'}
+✅ Final outputs written to ${isAirMode ? 'air canonical' : 'canonical'} locations
 
 If you cannot launch sub-agents using Task tool, STOP and explain why.
 
-Begin orchestration now - launch 3 Task agents in parallel.`);
+Begin ${isAirMode ? 'AIR FORCES' : ''} orchestration now - launch 3 Task agents in parallel.`);
 
     console.log('');
     console.log('─'.repeat(80));
@@ -564,10 +692,10 @@ Begin orchestration now - launch 3 Task agents in parallel.`);
     console.log('═'.repeat(80));
     console.log('');
     console.log('💡 **TIPS:**');
-    console.log('   - Claude will process units autonomously using Task tool');
+    console.log(`   - Claude will process ${config.unitsLabel} autonomously using Task tool`);
     console.log('   - Checkpoint runs automatically after batch (updates state)');
     console.log('   - Session:end syncs final state and creates summary');
-    console.log('   - Work queue processes units in chronological + echelon order');
+    console.log(`   - Work queue processes ${config.unitsLabel} in echelon-first order`);
     console.log('');
     console.log('📚 **FULL GUIDELINES:** See "START_HERE_NEW_SESSION.md" → Session Management Protocol section');
     console.log('');
@@ -580,13 +708,23 @@ Begin orchestration now - launch 3 Task agents in parallel.`);
 async function main() {
     console.log('');
 
+    // Parse command-line arguments and get mode-specific configuration
+    const { mode } = parseArgs();
+    const config = getModeConfig(mode);
+
+    console.log(`🚀 **SESSION START - ${config.modeLabel}**\n`);
+    console.log(`   Mode: ${config.modeLabel}`);
+    console.log(`   Work Queue: ${config.workQueueFile}`);
+    console.log(`   Seed File: ${config.seedFile}`);
+    console.log(`   Total Units: ${config.totalUnits} unit-quarters\n`);
+
     // Read workflow state
     let state = await readWorkflowState();
 
     // Scan actual files and sync state if needed
     console.log('🔍 Scanning for completed units...');
     const scannedUnits = await getCompletedUnits();
-    const syncResult = await syncWorkflowState(scannedUnits, state);
+    const syncResult = await syncWorkflowState(scannedUnits, state, config);
 
     if (syncResult.synced) {
         console.log(`   ⚠️  State was out of sync: ${syncResult.oldCount} → ${syncResult.newCount} units`);
@@ -630,16 +768,16 @@ async function main() {
     const totalCompleted = state ? (completed.length) : 0;
     displayQuarterDashboard(quarterStats, totalCompleted);
 
-    // Read next batch from WORK_QUEUE.md
+    // Read next batch from work queue
     console.log('📋 Reading work queue...\n');
-    const batchResult = await getNextBatchFromQueue();
+    const batchResult = await getNextBatchFromQueue(config.workQueueFile);
 
     // Display session prompt
-    displaySessionPrompt(state, memory, batchResult);
+    displaySessionPrompt(state, memory, batchResult, config);
 
     // Write session start marker
     const sessionLog = path.join(PROJECT_ROOT, 'SESSION_ACTIVE.txt');
-    await fs.writeFile(sessionLog, `Session started: ${new Date().toISOString()}\nStrategy: work_queue\nSession count: ${sessionCount}/12\n`);
+    await fs.writeFile(sessionLog, `Session started: ${new Date().toISOString()}\nMode: ${config.modeLabel}\nStrategy: work_queue\nSession count: ${sessionCount}/12\n`);
 }
 
 // Run

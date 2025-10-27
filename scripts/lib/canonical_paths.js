@@ -165,11 +165,19 @@ async function ensureCanonicalDirectoriesExist() {
 function isCanonicalPath(filePath) {
     const normalized = path.normalize(filePath);
 
-    // Canonical paths
+    // Canonical paths (Ground Forces)
     if (normalized.includes(path.normalize(CANONICAL_PATHS.UNITS_DIR))) return true;
     if (normalized.includes(path.normalize(CANONICAL_PATHS.CHAPTERS_DIR))) return true;
+
+    // Canonical paths (Air Forces - Phase 7)
     if (normalized.includes(path.normalize(CANONICAL_PATHS.AIR_UNITS_DIR))) return true;
+    if (normalized.includes(path.normalize(CANONICAL_PATHS.AIR_CHAPTERS_DIR))) return true;
+
+    // Canonical paths (Scenarios - Phase 9)
     if (normalized.includes(path.normalize(CANONICAL_PATHS.SCENARIOS_DIR))) return true;
+
+    // Canonical paths (Campaign - Phase 10)
+    if (normalized.includes(path.normalize(CANONICAL_PATHS.CAMPAIGN_DIR))) return true;
 
     // Non-canonical (archived sessions)
     if (normalized.includes(path.normalize(CANONICAL_PATHS.SESSIONS_DIR))) return false;

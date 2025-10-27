@@ -17,7 +17,8 @@ const paths = require('./lib/canonical_paths');
 const matching = require('./lib/matching');
 
 // Echelon priority (smallest to largest for bottom-up aggregation)
-const ECHELON_PRIORITY = {
+// GROUND FORCES ECHELONS
+const GROUND_ECHELON_PRIORITY = {
     'squad': 0,
     'platoon': 1,
     'company': 2,
@@ -40,17 +41,80 @@ const ECHELON_PRIORITY = {
     'unknown': 99
 };
 
+// AIR FORCES ECHELONS
+const AIR_ECHELON_PRIORITY = {
+    // Smallest units (9-12 aircraft)
+    'desert_rescue_staffel': 0,
+    'long_range_recon_staffel': 0,
+    'zerstoerer_staffel': 0,
+    'bomber_squadriglia': 0,
+
+    // Squadron-level units (12-18 aircraft)
+    'fighter_squadron': 1,
+    'bomber_squadron': 1,
+    'bomber_fighter_squadron': 1,
+    'fighter_bomber_squadron': 1,
+    'bomber_transport_squadron': 1,
+    'army_cooperation': 1,
+    'photographic_reconnaissance': 1,
+    'tactical_reconnaissance_antitank': 1,
+    'tactical_reconnaissance_army_cooperation': 1,
+    'tactical_reconnaissance_fighter': 1,
+    'fighter_reconnaissance': 1,
+    'reconnaissance_bomber': 1,
+
+    // Gruppe-level units (~30 aircraft)
+    'fighter_gruppe': 2,
+    'stuka_gruppe': 2,
+    'bomber_gruppe': 2,
+    'zerstoerer_gruppe': 2,
+    'fighter_gruppo': 2,
+    'bomber_gruppo': 2,
+    'assault_gruppo': 2,
+    'long_range_fighter_ground_attack': 2,
+
+    // Wing/Group level (RAF/USAAF formations)
+    'fighter_group': 3,
+    'fighter_bomber_group': 3,
+    'bomber_group_light': 3,
+    'bomber_group_medium': 3,
+    'bomber_group_heavy': 3,
+
+    // Geschwader/Stormo level (German/Italian large formations)
+    'bomber_geschwader': 4,
+    'assault_stormo': 4,
+    'bomber_stormo': 4,
+
+    // Staff and command units
+    'fighter_geschwader_staff': 5,
+    'stuka_geschwader_staff': 5,
+    'command_staff': 5,
+
+    // Highest command level
+    'command_korps': 6,
+
+    'unknown': 99
+};
+
+// Parse command-line arguments
+function parseArgs() {
+    const args = process.argv.slice(2);
+    const mode = args.includes('--air-forces') ? 'air' : 'ground';
+    return { mode };
+}
+
 // Map seed file type to echelon
-function getEchelon(type) {
+function getEchelon(type, mode = 'ground') {
     const lower = type.toLowerCase().replace(/\s+/g, '_');
+    const priorityMap = mode === 'air' ? AIR_ECHELON_PRIORITY : GROUND_ECHELON_PRIORITY;
 
     // Check for exact match
-    if (ECHELON_PRIORITY[lower] !== undefined) {
-        return { name: lower, priority: ECHELON_PRIORITY[lower] };
+    if (priorityMap[lower] !== undefined) {
+        return { name: lower, priority: priorityMap[lower] };
     }
 
     // Check for partial match
-    for (const [echelon, priority] of Object.entries(ECHELON_PRIORITY)) {
+    for (const [echelon, priority] of Object.entries(priorityMap)) {
         if (lower.includes(echelon)) {
             return { name: echelon, priority };
         }
@@ -103,7 +167,7 @@ function generateUnitId(nation, quarter, designation) {
 }
 
 // Expand seed file into individual unit-quarters
-function expandSeedToUnitQuarters(seedData) {
+function expandSeedToUnitQuarters(seedData, mode = 'ground') {
     const unitQuarters = [];
 
     // Process each nation
@@ -120,7 +184,7 @@ function expandSeedToUnitQuarters(seedData) {
 
         // Process each unit
         for (const unit of units) {
-            const echelon = getEchelon(unit.type);
+            const echelon = getEchelon(unit.type, mode);
 
             // Expand quarters
             for (const quarter of unit.quarters) {
@@ -168,7 +232,7 @@ function sortUnitQuarters(unitQuarters) {
 }
 
 // Generate markdown work queue
-async function generateMarkdown(unitQuarters, completedUnits) {
+async function generateMarkdown(unitQuarters, completedUnits, mode = 'ground') {
     // Use fuzzy matching instead of exact ID match
     const pending = unitQuarters.filter(uq =>
         !matching.isUnitCompleted(uq.nation, uq.quarter, uq.designation, uq.aliases, completedUnits)
@@ -182,15 +246,23 @@ async function generateMarkdown(unitQuarters, completedUnits) {
     const pendingCount = pending.length;
     const progressPct = ((completedCount / totalUnits) * 100).toFixed(1);
 
-    let md = `# North Africa Work Queue\n\n`;
+    const title = mode === 'air' ? 'North Africa Air Forces Work Queue' : 'North Africa Work Queue';
+    const echelonDescription = mode === 'air'
+        ? 'Squadrons/Staffeln before Gruppi/Gruppen before Groups/Geschwader'
+        : 'Divisions before corps before armies';
+    const aggregationDescription = mode === 'air'
+        ? 'ALL squadrons/staffeln complete before ANY gruppi/gruppen'
+        : 'ALL divisions complete before ANY corps';
+
+    let md = `# ${title}\n\n`;
     md += `**Generated**: ${new Date().toISOString()}\n\n`;
     md += `**Progress**: ${completedCount}/${totalUnits} units complete (${progressPct}%)\n`;
     md += `**Remaining**: ${pendingCount} units\n\n`;
     md += `---\n\n`;
     md += `## ⚙️ How This Queue Works\n\n`;
-    md += `1. **Bottom-Up Echelon Order**: Divisions before corps before armies (GLOBAL enforcement)\n`;
+    md += `1. **Bottom-Up Echelon Order**: ${echelonDescription} (GLOBAL enforcement)\n`;
     md += `2. **Chronological Within Echelon**: Within each echelon, 1940-Q2 → 1943-Q2\n`;
-    md += `3. **Bottom-Up Aggregation**: ALL divisions complete before ANY corps (strict enforcement)\n`;
+    md += `3. **Bottom-Up Aggregation**: ${aggregationDescription} (strict enforcement)\n`;
     md += `4. **Session Workflow**: /kstart processes next 3 units, no artificial session limit\n`;
     md += `5. **Auto-Update**: Checkpoints mark units complete, queue regenerates as needed\n\n`;
     md += `---\n\n`;
@@ -240,9 +312,10 @@ async function generateMarkdown(unitQuarters, completedUnits) {
         }
 
         // Sort echelons by priority
+        const priorityMap = mode === 'air' ? AIR_ECHELON_PRIORITY : GROUND_ECHELON_PRIORITY;
         const echelons = Object.keys(byEchelon).sort((a, b) => {
-            const aPriority = ECHELON_PRIORITY[a] || 99;
-            const bPriority = ECHELON_PRIORITY[b] || 99;
+            const aPriority = priorityMap[a] || 99;
+            const bPriority = priorityMap[b] || 99;
             return aPriority - bPriority;
         });
 
@@ -288,10 +361,17 @@ async function generateMarkdown(unitQuarters, completedUnits) {
 }
 
 async function main() {
-    console.log('🔄 Generating work queue from seed file...\n');
+    // Parse command-line arguments
+    const { mode } = parseArgs();
+    const isAirMode = mode === 'air';
 
-    // Load seed file
-    const seedPath = path.join(process.cwd(), 'projects', 'north_africa_seed_units_COMPLETE.json');
+    console.log(`🔄 Generating ${isAirMode ? 'AIR FORCES' : 'GROUND FORCES'} work queue from seed file...\n`);
+
+    // Select appropriate seed file
+    const seedFileName = isAirMode
+        ? 'north_africa_air_units_seed_COMPLETE.json'
+        : 'north_africa_seed_units_COMPLETE.json';
+    const seedPath = path.join(process.cwd(), 'projects', seedFileName);
     const seedData = JSON.parse(await fs.readFile(seedPath, 'utf-8'));
 
     console.log(`✅ Loaded seed file: ${seedData.total_units} unique units, ${seedData.total_unit_quarters} unit-quarters\n`);
@@ -301,21 +381,22 @@ async function main() {
     console.log(`✅ Loaded ${completedUnits.size} completed units from WORKFLOW_STATE.json\n`);
 
     // Expand seed to unit-quarters
-    const unitQuarters = expandSeedToUnitQuarters(seedData);
+    const unitQuarters = expandSeedToUnitQuarters(seedData, mode);
     console.log(`✅ Expanded to ${unitQuarters.length} unit-quarters\n`);
 
     // Sort by chronological + echelon order
     const sorted = sortUnitQuarters(unitQuarters);
-    console.log(`✅ Sorted by chronological order + echelon (smallest → largest)\n`);
+    console.log(`✅ Sorted by ${isAirMode ? 'echelon-first' : 'chronological + echelon'} order (smallest → largest)\n`);
 
     // Generate markdown
-    const markdown = await generateMarkdown(sorted, completedUnits);
+    const markdown = await generateMarkdown(sorted, completedUnits, mode);
 
-    // Write to WORK_QUEUE.md
-    const queuePath = path.join(process.cwd(), 'WORK_QUEUE.md');
+    // Write to appropriate output file
+    const outputFileName = isAirMode ? 'WORK_QUEUE_AIR.md' : 'WORK_QUEUE.md';
+    const queuePath = path.join(process.cwd(), outputFileName);
     await fs.writeFile(queuePath, markdown);
 
-    console.log(`✅ Work queue generated: WORK_QUEUE.md\n`);
+    console.log(`✅ Work queue generated: ${outputFileName}\n`);
 
     // Show summary (use fuzzy matching like generateMarkdown)
     const pending = sorted.filter(uq =>
@@ -349,5 +430,9 @@ module.exports = {
     sortUnitQuarters,
     generateMarkdown,
     getEchelon,
-    ECHELON_PRIORITY
+    parseArgs,
+    GROUND_ECHELON_PRIORITY,
+    AIR_ECHELON_PRIORITY,
+    // Backward compatibility
+    ECHELON_PRIORITY: GROUND_ECHELON_PRIORITY
 };
