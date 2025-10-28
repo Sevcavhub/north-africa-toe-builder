@@ -1,0 +1,111 @@
+{
+  "unit_designation": "50° Stormo Assalto",
+  "unit_type": "ground_attack_gruppo",
+  "parent_formation": "5ª Squadra Aerea",
+  "nation": "italian",
+  "quarter": "1940-Q4",
+  "base": "Sorman, Libya (Tripolitania)",
+  "commander": {
+    "rank": "Unknown",
+    "name": "Unknown - research required"
+  },
+  "personnel": {
+    "total": 0,
+    "notes": "Personnel data not available from Tier 1/2 sources"
+  },
+  "aircraft": {
+    "total": 0,
+    "operational": 0,
+    "damaged": 0,
+    "reserve": 0,
+    "variants": [
+      {
+        "designation": "Breda Ba.65 (variant unspecified - requires Tier 1/2 source)",
+        "count": 0,
+        "operational": 0,
+        "witw_id": null,
+        "notes": "Seed data lists 'Breda Ba.65' but does not specify variant (Ba.65bis, Ba.65 A-80, etc.). Tier 1/2 sources required to determine exact variant in service with 50° Stormo Q4 1940."
+      },
+      {
+        "designation": "Caproni Ca.310 (variant unspecified - requires Tier 1/2 source)",
+        "count": 0,
+        "operational": 0,
+        "witw_id": null,
+        "notes": "Seed data lists 'Caproni Ca.310' but does not specify variant (Ca.310 Libeccio, Ca.310bis, etc.). Tier 1/2 sources required to determine exact variant."
+      }
+    ],
+    "notes": "Aircraft types known from seed data but specific variants, counts, and operational status require extraction from Christopher Shores' Air War series or Italian official records (Comando Supremo archives)."
+  },
+  "ordnance": {
+    "notes": "No data available from Tier 1/2 sources"
+  },
+  "ground_support_vehicles": {
+    "notes": "No data available from Tier 1/2 sources"
+  },
+  "supply": {
+    "supply_status": "unknown",
+    "notes": "Supply data requires Tier 1/2 sources. December 1940 operational context (Operation Compass) suggests adequate supply initially, but specific data needed."
+  },
+  "operations_history": [
+    {
+      "date": "1940-12-09",
+      "operation": "Operation Compass",
+      "sorties": null,
+      "claims": null,
+      "losses": null,
+      "mission_type": "ground attack",
+      "notes": "50° Stormo Assalto participated in Italian defensive operations during British Operation Compass (December 9, 1940 - February 9, 1941). Specific sortie counts, losses, and effectiveness require Shores' Air War Vol 1 or Italian operational records."
+    }
+  ],
+  "metadata": {
+    "confidence": 20,
+    "sources": [
+      "Seed data: north_africa_air_units_seed_COMPLETE.json (confidence 85%, but based on Wikipedia which is Tier 3 forbidden source)"
+    ],
+    "extraction_date": "2025-10-28",
+    "tier": "research_brief_created",
+    "notes": "TIER 4 EXTRACTION - Source validation failure. Seed data cites 'Wikipedia 5ª Squadra Aerea' which is FORBIDDEN for air forces extraction per agent catalog rules (agents/air_forces_agent_catalog.json). 'Comando Supremo' source not verified as Tier 1/2 compliant. Aircraft variants are generic ('Ba.65', 'Ca.310') and do not meet variant-specificity requirement. REQUIRES: (1) Christopher Shores' Air War series Vol 1 (1940-1942), OR (2) Italian official records (Comando Supremo archives), OR (3) WITW _airgroup.csv database verification. See RESEARCH_BRIEF_italian_1940q4_50_stormo_assalto.md for complete source analysis and extraction roadmap.",
+    "witw_validation": "Not checked - WITW database search required",
+    "validation_status": {
+      "source_tier_validation": "FAILED",
+      "forbidden_sources_used": [
+        "Wikipedia 5ª Squadra Aerea"
+      ],
+      "required_sources_missing": [
+        "Christopher Shores - Air War series Vol 1 (1940-1942)",
+        "Italian Comando Supremo official operational records",
+        "WITW _airgroup.csv database"
+      ],
+      "aircraft_variant_specificity": "FAILED",
+      "generic_aircraft_entries": [
+        "Breda Ba.65 (needs variant: Ba.65bis, Ba.65 A-80, etc.)",
+        "Caproni Ca.310 (needs variant: Ca.310 Libeccio, Ca.310bis, etc.)"
+      ]
+    },
+    "extraction_roadmap": {
+      "current_tier": "Tier 4 (research_brief_created)",
+      "target_tier": "Tier 1 (production_ready)",
+      "blocking_issues": [
+        "No Tier 1/2 sources accessed",
+        "Wikipedia (forbidden) is primary seed source",
+        "Aircraft variants not specific",
+        "Zero operational data extracted",
+        "Commander unknown",
+        "Personnel counts unknown",
+        "Organizational structure (gruppi/squadriglie) unknown"
+      ],
+      "next_steps": [
+        "Acquire Christopher Shores' Air War Vol 1 (primary source for Italian Regia Aeronautica in North Africa 1940-1942)",
+        "Search Shores for 50° Stormo Assalto during Operation Compass December 1940",
+        "Cross-reference with WITW _airgroup.csv for unit validation and aircraft IDs",
+        "Resolve Breda Ba.65 variant (likely Ba.65bis or Ba.65 A-80)",
+        "Resolve Caproni Ca.310 variant (likely Ca.310 Libeccio)",
+        "Extract operations data (sorties, losses, claims) for Q4 1940",
+        "Determine organizational structure (number of gruppi, squadriglie per gruppo)",
+        "Identify commander (name, rank)",
+        "Calculate/estimate personnel counts based on aircraft strength and Italian TO&E"
+      ],
+      "estimated_effort": "2-3 hours with Shores source available"
+    }
+  }
+}
