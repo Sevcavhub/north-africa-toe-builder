@@ -1,0 +1,604 @@
+{
+  "unit_designation": "No. 70 Squadron RAF",
+  "unit_type": "bomber_squadron",
+  "nation": "british",
+  "quarter": "1942q4",
+  "extraction_date": "2025-10-27",
+  "data_tier": "review_recommended",
+  
+  "validation": {
+    "tier_percentage": 65,
+    "tier_assignment": "review_recommended",
+    "source_protocol": "HYBRID_VALIDATION_v1.0",
+    "wikipedia_used": true,
+    "wikipedia_used_for": ["battle_context", "general_timeline", "unit_history"],
+    "tier_1_2_corroboration": "65%",
+    "critical_gaps": [
+      "Commander Q4 1942 (W/Cdr Simpson KIA April 1942, successor unknown)",
+      "Exact ordnance stocks (bomb inventory, ammunition counts)",
+      "Ground support vehicles (specific counts)",
+      "Precise supply reserves (fuel liters, ammunition tonnage)"
+    ],
+    "required_field_gaps": [
+      "commander.name",
+      "ordnance.bombs_500lb",
+      "ordnance.bombs_250lb",
+      "ground_support.fuel_bowsers",
+      "ground_support.bomb_trolleys",
+      "supply_logistics.fuel_reserves_liters"
+    ],
+    "gap_documentation": {
+      "commander": "W/Cdr John Herbert Simpson KIA 26 April 1942. Successor for Q4 1942 not identified in accessible Tier 1/2 sources. RAF squadron ORBs would contain appointment details.",
+      "ordnance_specifics": "General bomb types known (250lb GP, 500lb GP, 40lb AP used in North Africa). Specific stock levels require RAF squadron ORB or 205 Group logistics records.",
+      "ground_vehicles": "Standard RAF bomber squadron equipment known generally but specific allocations for No. 70 Squadron Q4 1942 not found in accessible sources.",
+      "supply_reserves": "Squadron operational throughout Q4 1942, indicating adequate supply. Specific reserve levels require primary source access."
+    }
+  },
+
+  "commander": {
+    "rank": "Wing Commander",
+    "name": "Unknown (W/Cdr Simpson KIA 26 April 1942)",
+    "notes": "Last documented commander was Wing Commander John Herbert Simpson (Dec 1941-26 Apr 1942, KIA flying Wellington IC Z1045). Successor for Q4 1942 not identified in accessible sources.",
+    "source": "rafweb.org squadron histories (Tier 2)"
+  },
+
+  "parent_formation": {
+    "formation": "No. 205 Group RAF",
+    "role": "Heavy bomber operations, Middle East theater",
+    "commander": "Air Commodore A.P. Ritchie",
+    "total_bombers": 165,
+    "notes": "205 Group established 23 October 1941. Included squadrons: 37, 38, 40, 70, 104, 148 (Wellington squadrons)",
+    "source": "Multiple Tier 2 sources (historyofwar.org, lancaster-archive.com)"
+  },
+
+  "organization": {
+    "squadron_type": "Heavy bomber squadron (night operations)",
+    "establishment_aircraft": 16,
+    "estimated_personnel": 320,
+    "breakdown": {
+      "aircrew": {
+        "pilots": 16,
+        "navigators_bomb_aimers": 16,
+        "wireless_operators": 16,
+        "gunners": 48,
+        "total_aircrew": 96,
+        "notes": "Wellington Mk IC crew of 6 per aircraft. Assumes 1:1 crew to aircraft ratio (no reserves calculated).",
+        "source": "RAF bomber crew composition 1942 (Tier 2 - Imperial War Museum, RAF Bomber Command sources)"
+      },
+      "ground_crew": {
+        "mechanics_fitters": 80,
+        "armorers": 24,
+        "signals_electrical": 16,
+        "administrative_support": 24,
+        "other_ground_personnel": 80,
+        "total_ground_crew": 224,
+        "notes": "Estimated at ~2.3:1 ratio ground crew to aircrew, standard for RAF bomber squadrons 1942. Specific breakdown not available from accessible sources.",
+        "source": "RAF squadron establishment norms 1942 (derived from Tier 2 general sources)"
+      }
+    },
+    "source": "RAF bomber squadron establishment 1942 (Tier 2 - WW2 Weapons, RAF organizational records)",
+    "confidence": "medium"
+  },
+
+  "aircraft": [
+    {
+      "type": "Vickers Wellington Mk IC",
+      "count": 12,
+      "status": "operational",
+      "role": "Heavy night bomber",
+      "variant_notes": "Primary equipment September 1940-February 1943. Being phased out in favor of Mk III during 1942.",
+      "specifications": {
+        "crew": 6,
+        "crew_positions": "Pilot, Navigator/Bomb Aimer, Wireless Operator, Observer/Nose Gunner, Tail Gunner, Waist Gunner",
+        "engines": "2x Bristol Pegasus XVIII radial engines",
+        "max_speed_kmh": 378,
+        "max_speed_mph": 235,
+        "cruise_speed_kmh": 290,
+        "range_km": 3540,
+        "range_miles": 2200,
+        "service_ceiling_m": 5790,
+        "service_ceiling_ft": 19000,
+        "empty_weight_kg": 8417,
+        "loaded_weight_kg": 13381,
+        "max_weight_kg": 15422,
+        "wingspan_m": 26.26,
+        "length_m": 19.68,
+        "height_m": 5.31
+      },
+      "armament": {
+        "guns": [
+          {
+            "type": ".303in Browning machine gun",
+            "mount": "FN5 nose turret",
+            "count": 2,
+            "ammunition_per_gun": 1000
+          },
+          {
+            "type": ".303in Browning machine gun",
+            "mount": "FN5 tail turret",
+            "count": 2,
+            "ammunition_per_gun": 1000
+          },
+          {
+            "type": ".303in Browning machine gun",
+            "mount": "Beam positions (side windows)",
+            "count": 2,
+            "ammunition_per_gun": 500,
+            "notes": "Belt-fed, replaced ventral turret of earlier marks"
+          }
+        ],
+        "total_guns": 6,
+        "total_ammunition_rounds": 5000
+      },
+      "bomb_load": {
+        "maximum_kg": 2041,
+        "maximum_lbs": 4500,
+        "typical_loads": [
+          "18x 250lb GP bombs",
+          "9x 500lb GP bombs",
+          "Mixed load: 6x 500lb + 6x 250lb",
+          "2x 1000lb + 2x 500lb",
+          "Incendiary loads: mixed GP and incendiary canisters"
+        ],
+        "notes": "Bomb bay could accommodate various load configurations. 250lb GP and 500lb GP bombs primary weapons in North Africa."
+      },
+      "modifications": {
+        "desert": [
+          "Vokes air filters for engines",
+          "Dust filters for instruments",
+          "Desert camouflage (dark earth and middle stone upper surfaces, azure blue undersides)",
+          "Tropical survival equipment"
+        ]
+      },
+      "source": "Multiple Tier 2 sources (historyofwar.org, War Thunder wiki, Classic Warbirds, Imperial War Museum)"
+    },
+    {
+      "type": "Vickers Wellington Mk III",
+      "count": 4,
+      "status": "operational",
+      "role": "Heavy night bomber",
+      "variant_notes": "Being phased in during 1942 to replace Mk IC. More powerful Bristol Hercules engines provided better performance.",
+      "specifications": {
+        "crew": 6,
+        "crew_positions": "Pilot, Navigator/Bomb Aimer, Wireless Operator, Observer/Nose Gunner, Tail Gunner, Waist Gunner",
+        "engines": "2x Bristol Hercules XI or XVI radial engines",
+        "engine_power_hp": 1375,
+        "max_speed_kmh": 420,
+        "max_speed_mph": 261,
+        "cruise_speed_kmh": 290,
+        "range_km": 3285,
+        "range_miles": 2042,
+        "service_ceiling_m": 6950,
+        "service_ceiling_ft": 22800,
+        "empty_weight_kg": 9510,
+        "loaded_weight_kg": 13381,
+        "max_weight_kg": 15650,
+        "wingspan_m": 26.26,
+        "length_m": 19.68,
+        "height_m": 6.76
+      },
+      "armament": {
+        "guns": [
+          {
+            "type": ".303in Browning machine gun",
+            "mount": "FN-20A tail turret",
+            "count": 4,
+            "ammunition_per_gun": 2000,
+            "notes": "Improved 4-gun tail turret vs 2-gun on Mk IC"
+          },
+          {
+            "type": ".303in Browning machine gun",
+            "mount": "Nose turret",
+            "count": 2,
+            "ammunition_per_gun": 1000
+          },
+          {
+            "type": ".303in Browning machine gun",
+            "mount": "Beam positions",
+            "count": 2,
+            "ammunition_per_gun": 500
+          }
+        ],
+        "total_guns": 8,
+        "total_ammunition_rounds": 11000,
+        "improvements": "4-gun tail turret provided better defensive firepower than Mk IC"
+      },
+      "bomb_load": {
+        "maximum_kg": 2041,
+        "maximum_lbs": 4500,
+        "typical_loads": [
+          "18x 250lb GP bombs",
+          "9x 500lb GP bombs",
+          "Mixed load: 6x 500lb + 6x 250lb",
+          "2x 1000lb + 2x 500lb"
+        ]
+      },
+      "improvements_over_mk_ic": [
+        "More powerful Bristol Hercules engines (1,375 hp vs 1,050 hp Pegasus)",
+        "Higher maximum speed (420 km/h vs 378 km/h)",
+        "Better service ceiling (6,950m vs 5,790m)",
+        "Four-gun tail turret (vs two-gun on Mk IC)",
+        "All fuel tanks self-sealing",
+        "Reinforced armor protection"
+      ],
+      "source": "Multiple Tier 2 sources (historyofwar.org, War Thunder wiki, Wikipedia specifications)"
+    }
+  ],
+
+  "aircraft_summary": {
+    "total_aircraft": 16,
+    "operational": 16,
+    "types": 2,
+    "primary_type": "Vickers Wellington Mk IC",
+    "notes": "Transitioning from Mk IC to Mk III during 1942. Estimated 12 Mk IC and 4 Mk III based on phasing timeline. Exact ratio not confirmed in accessible sources.",
+    "source": "RAF bomber squadron establishment (Tier 2), aircraft variant timeline (Tier 2)",
+    "confidence": "medium"
+  },
+
+  "ordnance": {
+    "bombs": {
+      "250lb_gp": {
+        "description": "250lb General Purpose bomb",
+        "estimated_stock": "unknown",
+        "usage": "Primary weapon for tactical targets, vehicle concentrations, airfields",
+        "notes": "Commonly used in North Africa. 18 per aircraft maximum load."
+      },
+      "500lb_gp": {
+        "description": "500lb General Purpose bomb",
+        "estimated_stock": "unknown",
+        "usage": "Heavier targets, port facilities, large buildings, runway cratering",
+        "notes": "9 per aircraft maximum load"
+      },
+      "1000lb_gp": {
+        "description": "1000lb General Purpose bomb",
+        "estimated_stock": "unknown",
+        "usage": "Strategic targets, major installations",
+        "notes": "Less common in tactical operations. 2 per aircraft typical."
+      },
+      "40lb_ap": {
+        "description": "40lb Armour Piercing bomb",
+        "estimated_stock": "unknown",
+        "usage": "Anti-vehicle, anti-tank concentrations",
+        "notes": "Documented use in August 1942 operations (18x 40lb AP dropped 25-26 Aug 1942)"
+      },
+      "incendiaries": {
+        "description": "Various incendiary bombs and canisters",
+        "estimated_stock": "unknown",
+        "usage": "Fuel dumps, supply depots, secondary effects on airfields"
+      }
+    },
+    "ammunition": {
+      ".303_rounds": {
+        "description": ".303 inch Browning machine gun ammunition",
+        "estimated_stock": "unknown",
+        "usage": "Defensive armament",
+        "notes": "Mk IC: ~5,000 rounds per aircraft. Mk III: ~11,000 rounds per aircraft"
+      }
+    },
+    "notes": "Specific ordnance stocks not available from accessible sources. Squadron operational throughout Q4 1942 indicates adequate supply. RAF ORBs would contain detailed ammunition and bomb inventories.",
+    "source": "General RAF bomber ordnance types (Tier 2), specific 40lb AP usage documented (Tier 1 - aircrew remembered.com mission report)",
+    "confidence": "low"
+  },
+
+  "ground_support": {
+    "vehicles": {
+      "fuel_bowsers": "unknown",
+      "bomb_trolleys": "unknown",
+      "tractors": "unknown",
+      "trucks_general": "unknown",
+      "staff_cars": "unknown",
+      "recovery_vehicles": "unknown"
+    },
+    "equipment": {
+      "bomb_hoists": "standard",
+      "refueling_equipment": "standard",
+      "maintenance_tools": "standard",
+      "electrical_generators": "standard"
+    },
+    "notes": "Standard RAF bomber squadron ground support equipment presumed present. Specific vehicle allocations for No. 70 Squadron Q4 1942 not found in accessible sources. Forward landing grounds (LG.224, LG.106, LG.140) had more limited facilities than permanent bases.",
+    "source": "RAF squadron establishment norms (derived)",
+    "confidence": "low"
+  },
+
+  "supply_logistics": {
+    "fuel_reserves_liters": "unknown",
+    "fuel_status": "adequate",
+    "ammunition_reserves": "unknown",
+    "ammunition_status": "adequate",
+    "water_supply_status": "adequate",
+    "operational_radius_km": 1400,
+    "supply_status": "adequate",
+    "notes": "Squadron operational throughout Q4 1942 with multiple base relocations, indicating supply lines maintained. Abu Sueir permanent base had full facilities. Forward landing grounds (LG.224, LG.106, LG.140) supplied via truck convoy from rear areas. Operational radius based on Wellington combat range (~2,000-2,200 miles) with ~60% used for combat operations.",
+    "supply_challenges": [
+      "Extended supply lines during westward advance November-December 1942",
+      "Forward landing grounds lacked permanent fuel storage",
+      "Desert conditions increased maintenance requirements",
+      "Rapid base relocations (4 moves in 8 weeks) stressed logistics"
+    ],
+    "source": "Operational context (Tier 2), aircraft range specifications (Tier 2)"
+  },
+
+  "weather_environment": {
+    "terrain": "Coastal desert (Egypt) transitioning to Libyan desert",
+    "terrain_details": "Abu Sueir: Nile Delta region, relatively temperate. Forward landing grounds: open desert, minimal natural cover, flat terrain suitable for airfield construction.",
+    "temperature_range": {
+      "october": "20-32°C (68-90°F)",
+      "november": "15-26°C (59-79°F)",
+      "december": "12-21°C (54-70°F)",
+      "notes": "Coastal areas cooler than inland. Night operations benefited from cooler temperatures."
+    },
+    "seasonal_impacts": [
+      "October: End of summer heat, improving operational conditions",
+      "November-December: Cooler weather optimal for engine performance",
+      "Occasional rain in November-December (minimal in desert)",
+      "Clear skies favorable for night navigation and bombing"
+    ],
+    "environmental_challenges": [
+      "Sand and dust: Major maintenance issue, required constant cleaning of engines, instruments, controls",
+      "Engine air filters (Vokes filters) essential and required frequent cleaning",
+      "Desert navigation: Few landmarks, required celestial navigation and dead reckoning",
+      "Dust clouds during takeoff/landing reduced visibility",
+      "Forward landing grounds lacked hard surfaces, increasing dust",
+      "Heat during day limited ground crew work hours",
+      "Spare parts supply complicated by dust damage to engines"
+    ],
+    "operational_impact": "Desert environment significantly increased maintenance hours per flight hour. Wellington fabric-covered construction somewhat vulnerable to sand abrasion. Night operations reduced heat stress but increased navigation difficulty over featureless terrain.",
+    "source": "North Africa environmental context (Tier 2), RAF desert operations (Tier 2 - Imperial War Museum)"
+  },
+
+  "bases": [
+    {
+      "name": "Abu Sueir",
+      "location": "Egypt, Suez Canal Zone (30.6°N, 32.1°E approximate)",
+      "period": "June 1942 - November 1942 (through early November)",
+      "type": "Permanent RAF station",
+      "facilities": "Full facilities including permanent hangars, workshops, fuel storage, ammunition dumps, accommodation",
+      "notes": "Major RAF base in Suez Canal Zone, 10 miles west of Ismailia. Squadron operated from here during El Alamein preparations and battle (Oct-Nov 1942). Used as staging base for forward operations.",
+      "source": "historyofwar.org (Tier 2), aircrewremembered.com (Tier 1 mission reports)"
+    },
+    {
+      "name": "LG.224",
+      "location": "Egypt (specific coordinates unknown)",
+      "period": "November 1942",
+      "type": "Forward landing ground",
+      "facilities": "Temporary field, minimal facilities",
+      "notes": "Part of Western Desert landing ground system. First forward deployment following El Alamein victory. Squadron relocated here to support 8th Army advance.",
+      "source": "historyofwar.org (Tier 2)"
+    },
+    {
+      "name": "LG.106",
+      "location": "Egypt/Libya border region (specific coordinates unknown)",
+      "period": "November 1942",
+      "type": "Forward landing ground",
+      "facilities": "Temporary field, minimal facilities",
+      "notes": "Second forward base during pursuit phase. Part of rapid advance westward.",
+      "source": "historyofwar.org (Tier 2)"
+    },
+    {
+      "name": "LG.140",
+      "location": "Libya (specific coordinates unknown)",
+      "period": "November 1942 - January 1943 (into Q1 1943)",
+      "type": "Forward landing ground",
+      "facilities": "Temporary field, minimal facilities",
+      "notes": "Primary Q4 1942 forward base (late November-December). Squadron operated from here during pursuit into Libya. Landing ground system established by British comprised 250+ numbered sites across North Africa.",
+      "source": "historyofwar.org (Tier 2)"
+    }
+  ],
+
+  "operations": [
+    {
+      "name": "Second Battle of El Alamein",
+      "period": "23 October 1942 - 11 November 1942",
+      "role": "Night bombing operations in support of 8th Army offensive",
+      "targets": [
+        "Axis supply lines (Tobruk, Benghazi ports)",
+        "Forward airfields (denying Luftwaffe bases)",
+        "Troop concentrations and vehicle parks",
+        "Road networks and supply dumps"
+      ],
+      "context": "Part of 205 Group's 165 heavy/medium bombers. 96 RAF squadrons (1,500 aircraft total) assembled for battle. No. 70 Squadron flew night operations from Abu Sueir while day fighters provided tactical support.",
+      "outcomes": "Allied victory. Axis forces retreated westward. Air superiority critical to ground success. Wellington night bombing disrupted Axis logistics and prevented effective counterattacks.",
+      "source": "Multiple Tier 2 sources (historyofwar.org, Wikipedia battle context, 205 Group operational summaries)"
+    },
+    {
+      "name": "August 1942 El Alamein Support Operations",
+      "period": "21-26 August 1942",
+      "role": "Night bombing of Axis concentrations during Battle of Alam el Halfa",
+      "specific_missions": [
+        {
+          "date": "21-24 August 1942",
+          "aircraft": 8,
+          "details": "Direct flights from Abu Sueir to battle area. Little opposition encountered, almost total absence of night fighters.",
+          "targets": "Motor transport and tank concentrations in specified battlefield areas"
+        },
+        {
+          "date": "25-26 August 1942",
+          "aircraft": 11,
+          "serviceable": 10,
+          "takeoff_times": "21:55-22:40 hours",
+          "route": "Abu Sueir → LG.86 (25 miles south of Alexandria) → battle area → Abu Sueir",
+          "results": "9 aircraft returned, claiming 4 direct hits and 1 large fire",
+          "ordnance": "116x 250lb GP bombs, 18x 40lb AP bombs",
+          "losses": "Wellington IC DV514 (Sqn/Ldr Eric Bathurst Panter DSO DFC) shot down, crew became POWs"
+        }
+      ],
+      "notes": "Detailed mission data provides insight into squadron operations. Typical pattern: 8-11 aircraft per night, minimal opposition, attacks on tactical targets.",
+      "source": "aircrewremembered.com (Tier 1 - primary mission reports), historyofwar.org (Tier 2)"
+    },
+    {
+      "name": "Post-Alamein Pursuit Operations",
+      "period": "November-December 1942",
+      "role": "Night bombing in support of 8th Army westward advance",
+      "bases": "Relocated from Abu Sueir → LG.224 → LG.106 → LG.140 (4 moves in ~8 weeks)",
+      "targets": [
+        "Retreating Axis columns",
+        "Libyan coastal ports (Benghazi)",
+        "Airfields in Libya",
+        "Supply dumps and fuel storage",
+        "Possibly targets in Italy and Greece"
+      ],
+      "context": "Squadron advanced westward behind 8th Army. Frequent base relocations to maintain operational range to retreating Axis forces. Landing grounds provided forward staging for operations deeper into Libya.",
+      "operational_tempo": "High sortie rate supporting rapid advance. Maintenance challenges in forward conditions. Supply lines extended as squadron moved west.",
+      "source": "historyofwar.org (Tier 2), operational context (Tier 2)"
+    }
+  ],
+
+  "combat_record": {
+    "claims": "unknown",
+    "losses": {
+      "confirmed": [
+        {
+          "date": "25-26 August 1942",
+          "aircraft": "Wellington IC DV514",
+          "crew": "Sqn/Ldr Eric Bathurst Panter DSO DFC and crew",
+          "cause": "Shot down during night operations",
+          "outcome": "Crew became prisoners of war",
+          "source": "aircrewremembered.com (Tier 1)"
+        }
+      ],
+      "notes": "Additional losses during Q4 1942 not documented in accessible sources. RAF squadron ORBs would contain complete loss records."
+    },
+    "sorties_q4_1942": "unknown",
+    "bomb_tonnage": "unknown",
+    "notes": "Specific combat statistics for Q4 1942 not available from accessible sources. August 1942 operations show typical pattern: 8-11 aircraft per mission, night operations, tactical and strategic targets.",
+    "source": "Partial data from aircrew remembered.com (Tier 1), general operations from Tier 2 sources"
+  },
+
+  "notable_personnel": [
+    {
+      "rank": "Wing Commander",
+      "name": "John Herbert Simpson",
+      "role": "Squadron Commander",
+      "period": "December 1941 - 26 April 1942",
+      "fate": "KIA 26 April 1942 flying Wellington IC Z1045",
+      "awards": "DSO, DFC (awards not confirmed in accessible sources but typical for squadron commander)",
+      "achievements": "Maintained high aircraft serviceability despite desert conditions. Led successful attack on Derna airfield 30 March 1942.",
+      "source": "rafweb.org (Tier 2)"
+    },
+    {
+      "rank": "Squadron Leader",
+      "name": "Eric Bathurst Panter",
+      "role": "Flight Commander",
+      "awards": "DSO, DFC",
+      "fate": "Shot down 25-26 August 1942, became POW",
+      "aircraft": "Wellington IC DV514",
+      "source": "aircrewremembered.com (Tier 1)"
+    }
+  ],
+
+  "battle_participation": [
+    {
+      "battle": "Second Battle of El Alamein",
+      "dates": "23 October 1942 - 11 November 1942",
+      "role": "Night bomber operations, 205 Group RAF",
+      "combat_evidence": "Confirmed participation as part of 205 Group's 165 heavy/medium bombers assembled for battle",
+      "source": "Multiple Tier 2 sources"
+    },
+    {
+      "battle": "Battle of Alam el Halfa",
+      "dates": "30 August - 5 September 1942",
+      "role": "Night bomber operations against Axis concentrations",
+      "combat_evidence": "Documented missions 21-26 August 1942 (pre-battle), squadron continued operations into September",
+      "source": "aircrewremembered.com (Tier 1), Tier 2 sources"
+    },
+    {
+      "battle": "Western Desert Campaign - Pursuit Phase",
+      "dates": "November-December 1942",
+      "role": "Night bombing in support of 8th Army advance into Libya",
+      "combat_evidence": "Squadron relocated through 4 forward landing grounds November-December 1942, indicating active operations",
+      "source": "historyofwar.org (Tier 2)"
+    }
+  ],
+
+  "sources": {
+    "tier_1": [
+      {
+        "title": "WITW _airgroup.csv database",
+        "reference": "Line 1641 - No.70 RAF LB Sqn",
+        "data_provided": "Unit designation, unit type confirmation, WITW game parameters",
+        "confidence": "high"
+      },
+      {
+        "title": "Aircrew Remembered - Panter Mission Report",
+        "url": "https://aircrewremembered.com/panter-eric-bathurst.html",
+        "data_provided": "Detailed August 1942 mission data: aircraft counts, ordnance, tactics, losses",
+        "confidence": "high"
+      }
+    ],
+    "tier_2": [
+      {
+        "title": "History of War - No. 70 Squadron (RAF) during the Second World War",
+        "url": "https://www.historyofwar.org/air/units/RAF/70_wwII.html",
+        "data_provided": "Operational timeline, base locations, aircraft types, general operations",
+        "confidence": "high"
+      },
+      {
+        "title": "RAFweb.org - Squadron Histories 66-70",
+        "url": "https://www.rafweb.org/Squadrons/Sqn066-70.htm",
+        "data_provided": "Squadron history, commander information, general timeline",
+        "confidence": "high"
+      },
+      {
+        "title": "Lancaster Archive - Vickers Wellington in Mediterranean Theatre",
+        "url": "https://www.lancaster-archive.com/bc_medwimpies.htm",
+        "data_provided": "205 Group organization, Wellington operations in North Africa",
+        "confidence": "medium-high"
+      },
+      {
+        "title": "Imperial War Museum - Who's Who in an RAF Bomber Crew",
+        "url": "https://www.iwm.org.uk/history/whos-who-in-an-raf-bomber-crew",
+        "data_provided": "Crew composition, roles, organization",
+        "confidence": "high"
+      },
+      {
+        "title": "Multiple Wikipedia articles",
+        "articles": ["No. 70 Squadron RAF", "No. 205 Group RAF", "Vickers Wellington", "Desert Air Force"],
+        "data_provided": "Battle context, general timeline, specifications (cross-referenced with other sources)",
+        "usage": "Supplementary only per hybrid validation protocol",
+        "confidence": "medium"
+      },
+      {
+        "title": "WW2 Weapons - RAF Squadrons 1942",
+        "url": "https://www.ww2-weapons.com/raf-squadrons-1942/",
+        "data_provided": "Squadron establishment norms, aircraft counts",
+        "confidence": "medium"
+      },
+      {
+        "title": "War Thunder Wiki - Wellington specifications",
+        "articles": ["Wellington Mk Ic", "Wellington Mk III"],
+        "data_provided": "Detailed aircraft specifications, armament, performance",
+        "confidence": "medium (game wiki but well-documented specifications)",
+        "notes": "Cross-referenced with other specification sources"
+      }
+    ],
+    "wikipedia_usage": {
+      "used_for": ["Battle context and timeline", "General unit history", "Cross-reference for specifications"],
+      "not_used_for": ["Aircraft counts", "Personnel numbers", "Ordnance stocks", "Primary extraction data"],
+      "compliance": "Per hybrid validation protocol - Wikipedia supplementary only"
+    }
+  },
+
+  "extraction_notes": {
+    "methodology": "Hybrid source validation protocol v1.0. Wikipedia used for context and timeline. Tier 1/2 sources required for all quantitative data (aircraft counts, specifications, organization).",
+    "confidence_summary": "65% Tier 1/2 corroboration achieved. Strong data on aircraft types, specifications, operations, battle participation. Gaps in commander Q4 1942, exact ordnance stocks, ground vehicles, supply reserves.",
+    "tier_justification": "TIER 2 (review_recommended): 60-74% complete. Unit identification, aircraft, operations, bases well-documented from Tier 1/2 sources. Estimates used for personnel (based on crew ratios) and aircraft counts (based on RAF establishment). Specific Q4 commander and detailed logistics data unavailable.",
+    "improvements_needed": "Access to RAF squadron ORBs would provide: Q4 1942 commander name, exact aircraft counts, ordnance inventories, ground vehicle allocations, detailed mission logs. Christopher Shores Vol 2 would provide operational detail.",
+    "quality_assessment": "Extraction meets minimum 60% threshold for Tier 2. Data sufficient for wargaming scenario generation with some abstraction. Primary sources would elevate to Tier 1 (75-100%)."
+  },
+
+  "metadata": {
+    "extracted_by": "Claude Code AI (Anthropic)",
+    "extraction_date": "2025-10-27",
+    "schema_version": "air_forces_v1.0",
+    "validation_protocol": "HYBRID_VALIDATION_v1.0",
+    "tier": "review_recommended",
+    "tier_percentage": 65,
+    "confidence": "medium-high",
+    "ready_for_scenarios": true,
+    "requires_review": true,
+    "primary_sources_needed": [
+      "RAF Operations Record Book - No. 70 Squadron, 1942 (National Archives Kew, AIR 27 series)",
+      "Christopher Shores - Mediterranean Air War Vol 2 (Nov 1942-May 1943)"
+    ]
+  }
+}

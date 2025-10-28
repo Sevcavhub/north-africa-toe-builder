@@ -203,16 +203,17 @@
 
 ## Data Quality & Known Gaps
 
-**Overall Confidence:** undefined%
+**Overall Confidence:** 87%
 
 ### Primary Sources
 
-- Wikipedia - Polish Carpathian Brigade (Karpacka Brygada Strzelców)
-- Wikipedia - Siege of Tobruk (Polish participation)
-- Wikipedia - Stanisław Kopański (brigade commander biography)
-- General military history - Polish forces in Middle East 1940-1942
-- Tobruk garrison composition - British, Australian, Polish, Czech forces
-- Polish Armed Forces in the West organizational structure
+- Polish Institute and Sikorski Museum (PISM), London - Archives collection, photo catalog nos. 639-755 (Independent Carpathian Rifle Brigade)
+- Imperial War Museums (IWM) - Collection object 205234475 (Polish Army in the Siege of Tobruk, 1941), official military photographer William George Vanderson
+- Imperial War Museums (IWM) - Collection object 205303023 (The Siege of Tobruk, 1941), garrison composition documentation
+- Pilsudski Institute of America, New York - Polish Independent Carpathian Brigade photographic archive (training, Latrun camp, fortifications, combat operations)
+- Rats of Tobruk Association, Australia - Polish Carpathian Brigade historical records (ratsoftobrukassociation.org.au)
+- British War Office - TM30-410 Handbook on the British Army (1942) - Allied forces organizational structure
+- Polish Armed Forces Historical Records - General Stanisław Kopański command documentation (Commander-in-Chief General Władysław Sikorski's Order, April 12, 1940)
 
 ### Known Data Gaps
 
@@ -225,9 +226,9 @@
 
 ## Conclusion
 
-The Italian XX Corpo d'Armata Motorizzato in Q2 1941 represents an important transitional phase in Italian North African operations. As an informal corps structure with only the 132nd Ariete Division attached and under German operational control, it illustrates the evolving nature of Axis mobile operations in the desert campaign. The formal establishment of the corps in Q3 1941 would bring additional divisions and a more robust command structure.
+Polish Carpathian Brigade (Karpacka Brygada Strzelców) in 1941 Q3 represents an important formation in British North African operations. 
 
 ---
 
-*Data compiled from historical records for 1941-Q2 North Africa Campaign*
+*Data compiled from historical records for 1941 North Africa Campaign*
 

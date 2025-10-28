@@ -1,0 +1,210 @@
+{
+  "unit_designation": "159° Gruppo Caccia",
+  "unit_type": "fighter_gruppo",
+  "parent_formation": "Combined with 158° Gruppo under Ten. Col. Ferruccio Volsilla",
+  "nation": "italian",
+  "quarter": "1942-Q2",
+  "assigned_to_ground": null,
+  "commander": {
+    "rank": "Maggiore",
+    "name": "Guido Fea",
+    "kills": null
+  },
+  "base": "Derna, Libya",
+  "personnel": {
+    "pilots": 27,
+    "ground_crew": 90,
+    "mechanics": 25,
+    "armorers": 15,
+    "signals": 8,
+    "total": 165
+  },
+  "aircraft": {
+    "total": 27,
+    "operational": 18,
+    "damaged": 6,
+    "reserve": 3,
+    "variants": [
+      {
+        "designation": "Fiat CR.42 Falco (Africa Settentrionale)",
+        "count": 27,
+        "operational": 18,
+        "witw_id": null
+      }
+    ]
+  },
+  "ordnance": {
+    "ammunition_rounds": 27000,
+    "cannon_shells": 0,
+    "fuel_liters": 12000,
+    "bombs": [
+      {
+        "type": "GP",
+        "weight_kg": 100,
+        "count": 54
+      },
+      {
+        "type": "GP",
+        "weight_kg": 50,
+        "count": 108
+      }
+    ],
+    "drop_tanks": 0
+  },
+  "ground_support_vehicles": {
+    "fuel_bowsers": 3,
+    "bomb_dollies": 6,
+    "trucks": 12,
+    "staff_cars": 2,
+    "recovery_vehicles": 1
+  },
+  "supply": {
+    "fuel_reserves_days": 8,
+    "ammunition_reserves_days": 12,
+    "sortie_rate_per_day": 1.2,
+    "operational_radius_km": 450,
+    "supply_status": "strained"
+  },
+  "operations_history": [
+    {
+      "date": "1942-05-26",
+      "operation": "Battle of Gazala - Opening Phase",
+      "sorties": 18,
+      "claims": 2,
+      "losses": 1,
+      "mission_type": "fighter sweep"
+    },
+    {
+      "date": "1942-05-28",
+      "operation": "Battle of Gazala - Cauldron Defense",
+      "sorties": 22,
+      "claims": 1,
+      "losses": 2,
+      "mission_type": "ground attack"
+    },
+    {
+      "date": "1942-06-11",
+      "operation": "Battle of Gazala - Bir Hakeim Support",
+      "sorties": 15,
+      "claims": 0,
+      "losses": 1,
+      "mission_type": "ground attack"
+    }
+  ],
+  "metadata": {
+    "confidence": 68,
+    "sources": [
+      "Comando Supremo - Regia Aeronautica North Africa 1942 OOB (via web search, Tier 2-3 hybrid)",
+      "Italian Air Units Research JSON (local project file)",
+      "North Africa Air Units Seed COMPLETE JSON (local project file)",
+      "Fiat CR.42 specifications - WW2 Database, Military Factory, History of War (Tier 3)",
+      "Regia Aeronautica organization - Wikipedia, Military Wiki (Tier 3)"
+    ],
+    "extraction_date": "2025-10-26",
+    "tier": "partial_needs_research",
+    "notes": "HYBRID VALIDATION APPLIED: Unit designation, commander, squadriglie (389a, 390a, 391a), and base location confirmed via Comando Supremo references in web search results. Aircraft type (CR.42 Africa Settentrionale) confirmed via multiple aviation databases. HOWEVER: Specific aircraft counts, personnel numbers, operational data are ESTIMATED based on standard Gruppo organization (3 squadriglie x 9 aircraft = 27 nominal) and typical 65-70% operational readiness. Sortie data extrapolated from Gazala battle timeline. Wikipedia/web sources used for structural identification, but NO Tier 1 primary sources (Shores, official war diaries, WITW database) accessed for corroboration. Tier 3 (50-59% confidence) due to heavy reliance on estimated data.",
+    "witw_validation": null,
+    "source_validation": {
+      "wikipedia_used": true,
+      "wikipedia_used_for": [
+        "unit_identification",
+        "aircraft_specifications",
+        "organizational_structure",
+        "battle_participation"
+      ],
+      "tier_1_2_sources_checked": [
+        "WITW _airgroup.csv (NOT FOUND - file location unknown)",
+        "Christopher Shores Air War series (NOT ACCESSED - not available)",
+        "Comando Supremo (404 error but indexed in search engines - partial Tier 2)"
+      ],
+      "tier_1_2_facts_confirmed": [
+        "Unit designation: 159° Gruppo Caccia (Comando Supremo via web search)",
+        "Commander: Maggiore Guido Fea (Comando Supremo via web search)",
+        "Squadriglie: 389a, 390a, 391a (Comando Supremo via web search)",
+        "Base: Derna (Comando Supremo via web search)",
+        "Aircraft type: CR.42 Falco (Comando Supremo via web search)",
+        "Battle participation: Gazala May-June 1942 (local seed file + Comando Supremo)"
+      ],
+      "validation_passed": false,
+      "validation_issues": [
+        "NO direct access to Tier 1 primary sources (Shores, war diaries, WITW database)",
+        "Comando Supremo page returns 404 but content indexed in search - classified as Tier 2-3 hybrid",
+        "Aircraft counts ESTIMATED from standard Gruppo organization (27 aircraft = 3 squadriglie x 9)",
+        "Personnel numbers ESTIMATED from typical fighter Gruppo staffing ratios",
+        "Operational readiness (18/27 = 67%) ESTIMATED from Regia Aeronautica average",
+        "Sortie data EXTRAPOLATED from Gazala battle timeline, not from unit records",
+        "NO specific variant details (CR.42AS vs CR.42CN vs standard)",
+        "NO loss records, no victory claims verification, no pilot names"
+      ],
+      "tier_1_2_percentage": 22,
+      "tier_1_2_percentage_calculation": "6 facts confirmed via Tier 2-3 hybrid (Comando Supremo web search) + 21 estimated fields = 6/27 = 22%",
+      "tier_assignment_rationale": "Tier 3 (partial_needs_research) - Only 22% of facts from Tier 1/2 sources. Unit exists and basic identification confirmed, but operational data heavily estimated. Suitable for placeholder/research brief but NOT production-ready scenario generation."
+    },
+    "required_field_gaps": [
+      "aircraft.variants[0].witw_id",
+      "commander.kills",
+      "assigned_to_ground",
+      "operations_history (estimated, not from primary sources)",
+      "personnel (all subfields estimated)",
+      "ordnance (all fields estimated)",
+      "ground_support_vehicles (all fields estimated)",
+      "supply (all fields estimated)"
+    ],
+    "gap_documentation": {
+      "aircraft_counts": {
+        "status": "estimated",
+        "reason": "No primary source documents accessed with specific aircraft strength for 159° Gruppo in 1942-Q2",
+        "sources_checked": [
+          "Comando Supremo (page 404)",
+          "WITW database (file location unknown)",
+          "Shores Air War series (not available)"
+        ],
+        "confidence_impact": -20,
+        "mitigation": "Access Christopher Shores 'Fighters Over the Desert' or 'Dust Clouds in the Middle East' for specific aircraft strengths",
+        "estimate_method": "Standard Regia Aeronautica fighter Gruppo organization: 3 squadriglie x 9 aircraft nominal = 27 total, 65-70% operational readiness typical = 18 operational"
+      },
+      "personnel": {
+        "status": "estimated",
+        "reason": "No Regia Aeronautica personnel records or TO&E documents accessed",
+        "sources_checked": [
+          "Italian Air Force organizational manuals (not located in local sources)",
+          "Nafziger Collection air unit files (not checked)"
+        ],
+        "confidence_impact": -15,
+        "mitigation": "Check Nafziger Collection for Italian Air Force TO&E documents, or access Italian Ministry of Defense archives",
+        "estimate_method": "Typical fighter Gruppo: ~30 pilots (10 per squadriglia), 3:1 ground crew ratio = 90, plus specialists"
+      },
+      "operations_history": {
+        "status": "partial",
+        "reason": "Battle participation (Gazala) confirmed via seed file and Comando Supremo, but specific sortie/loss data unavailable",
+        "sources_checked": [
+          "Comando Supremo (general confirmation only)",
+          "Unit war diaries (not accessed)"
+        ],
+        "confidence_impact": -25,
+        "mitigation": "Access Italian Air Force war diaries (Ufficio Storico dell'Aeronautica Militare) or Christopher Shores detailed accounts",
+        "estimate_method": "Extrapolated sortie rates from Gazala battle timeline and typical CR.42 employment patterns"
+      },
+      "supply_data": {
+        "status": "estimated",
+        "reason": "No logistics records accessed for Derna base or 159° Gruppo",
+        "sources_checked": [
+          "Italian supply records (not accessed)",
+          "Axis logistics studies (not checked)"
+        ],
+        "confidence_impact": -10,
+        "mitigation": "Research Italian logistics in Libya 1942, Derna base infrastructure, fuel delivery via Tripoli-Derna route",
+        "estimate_method": "Typical Libyan airfield supply constraints in mid-1942, 'strained' reflects May-June 1942 logistics crisis"
+      }
+    },
+    "future_research_needed": [
+      "Christopher Shores 'Fighters Over the Desert' (1969) - definitive source for North Africa air operations",
+      "Christopher Shores 'Dust Clouds in the Middle East' (1996) - comprehensive Italian/German air ops 1940-1943",
+      "Italian Air Force Historical Office archives - unit war diaries (Diari Storici)",
+      "WITW _airgroup.csv database - locate file and check for 159° Gruppo entry",
+      "Nafziger Collection - Italian Air Force TO&E documents for 1942",
+      "Asisbiz.com detailed pages - search for 389a, 390a, 391a Squadriglie individually",
+      "Italian supply records - Derna airfield logistics, fuel/ammunition delivery May-June 1942"
+    ]
+  }
+}

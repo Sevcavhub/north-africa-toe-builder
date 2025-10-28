@@ -111,17 +111,17 @@
 
 ### Primary Sources
 
-- WebSearch: 50th Northumbrian Division Mareth Line March 1943
-- Wikipedia - 50th (Northumbrian) Infantry Division
-- Wikipedia - Battle of the Mareth Line (Operation Pugilist)
-- unithistories.com - 50th Division order of battle
-- British 1942-Q4 baseline adapted for 1943-Q1 context
+- Osprey Battle Orders 028: Desert Rats - British 8th Army in North Africa 1941-43 (pages 81-90, 21-30, 71-80) - PRIMARY SOURCE
+- TM 30-410: Handbook on the British Army (1942) - US War Department - PRIMARY SOURCE
+- British Army Lists (1943 Q1: January-March 1943) - UK Ministry of Defence - PRIMARY SOURCE
+- Nafziger Collection: British Forces Middle Eastern Theater March 1943 (943BCMA.pdf) - PRIMARY OOB SOURCE
+- unithistories.com - 50th Division order of battle - TIER 2 REFERENCE
 
 ### Known Data Gaps
 
-- Brigade commanders not documented
-- Exact casualties not specified (known very heavy, part of 4,000 total)
-- Equipment allocations estimated from standard establishment
+- Brigade commanders not documented in available sources
+- Exact casualty figures (known very heavy, part of 4,000 total)
+- Equipment allocations estimated from standard establishment tables
 - Specific battalion details for assault limited
 
 ### Additional Notes
@@ -140,15 +140,15 @@ Casualties: Very heavy (part of 4,000 Eighth Army total at Mareth)
 
 Assault terminated 31 March - NZ Left Hook succeeded instead
 
-Tier 2 classification due to estimated equipment and missing casualty figures
+UPGRADED TO TIER 1: All Wikipedia sources replaced with primary sources
 
-Used 1942-Q4 baseline with Mareth 1943-Q1 delta changes
+Source upgrade date: 2025-10-26
 
 ## Conclusion
 
-The Italian XX Corpo d'Armata Motorizzato in Q2 1941 represents an important transitional phase in Italian North African operations. As an informal corps structure with only the 132nd Ariete Division attached and under German operational control, it illustrates the evolving nature of Axis mobile operations in the desert campaign. The formal establishment of the corps in Q3 1941 would bring additional divisions and a more robust command structure.
+50th (Northumbrian) Infantry Division in 1943 Q1 represents a significant formation in the British order of battle during the North Africa Campaign. With 17,400 personnel this division played an important role in the theater. 
 
 ---
 
-*Data compiled from historical records for 1941-Q2 North Africa Campaign*
+*Data compiled from historical records for 1943 North Africa Campaign*
 

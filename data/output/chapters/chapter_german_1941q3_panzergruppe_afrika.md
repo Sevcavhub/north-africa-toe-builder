@@ -1,371 +1,193 @@
-# Panzergruppe Afrika (1941-Q3)
+# Panzergruppe Afrika
 
-## 1. Formation Overview
-
-**Designation:** Panzergruppe Afrika
-**Nation:** German (with Italian subordinates)
+**Nation:** German
+**Quarter:** 1941q3
 **Type:** Army Group Headquarters
-**Quarter:** 1941-Q3 (July-September 1941)
-**Parent Formation:** None (Theater-level command)
-**Commander:** General der Panzertruppen Erwin Rommel
-
-### Historical Context
-
-Panzergruppe Afrika was formed in August 1941 to provide unified command over both German and Italian forces operating in North Africa. This represented a significant expansion of Rommel's authority beyond the Deutsches Afrikakorps (DAK) to include operational control over Italian mobile and infantry corps. The formation coincided with the buildup of Axis forces in anticipation of British offensive operations.
-
-The creation of Panzergruppe Afrika formalized Rommel's de facto control over combined Axis operations while maintaining the nominal Italian supreme command under Generale Ettore Bastico (Comando Supremo Africa Settentrionale). This dual command structure would create persistent tensions throughout the North African campaign.
-
-**Key Formation Date:** August 15, 1941
-**Upgraded To:** Panzerarmee Afrika (January 22, 1942)
-**Theater:** North Africa (Cyrenaica-Libya border region)
+**Parent Formation:** Unknown
 
 ---
 
-## 2. Timeline
-
-| Date | Event |
-|------|-------|
-| Aug 15, 1941 | Formation of Panzergruppe Afrika, Rommel assumes army group command |
-| Aug-Oct 1941 | Consolidation phase: defensive positions along Sollum-Halfaya-Bardia line |
-| Sep 9, 1941 | British XXX Corps formed, buildup for Operation Crusader begins |
-| Oct-Nov 1941 | Preparation for anticipated British offensive, reinforcement of forward positions |
-| Nov 18, 1941 | Operation Crusader begins: British Eighth Army attacks |
-| Nov 18-23, 1941 | Battle of Sidi Rezegh: intense armored combat, heavy tank losses both sides |
-| Nov 27, 1941 | Tobruk garrison breakout attempt coordinated with Eighth Army |
-| Dec 7, 1941 | Axis withdrawal from Tobruk siege begins |
-| Dec 1941 | Retreat to Gazala line, then further withdrawal to El Agheila |
-
----
-
-## 3. Command Structure
-
-### Supreme Commander
-- **Name:** Erwin Rommel
-- **Rank:** General der Panzertruppen (General of Panzer Troops)
-- **Appointment:** August 15, 1941
-- **Background:** Former DAK commander (Feb-Aug 1941), led successful Operation Sonnenblume and siege of Tobruk
-
-### Chief of Staff
-- **Name:** Alfred Gause
-- **Rank:** Oberst (Colonel)
-- **Note:** Experienced staff officer, critical for German-Italian coordination
-
-### Headquarters
-- **Location:** Mobile forward headquarters, Cyrenaica
-- **Staff Strength:** ~450 personnel (85 officers, 120 NCOs, 245 enlisted)
-- **Mobility:** Highly mobile HQ designed to follow frontline formations closely
-
-### Command Philosophy
-Rommel's command style emphasized:
-- Personal reconnaissance and forward presence at critical points
-- Rapid decision-making based on battlefield developments
-- Integration of German and Italian forces at operational level
-- Exploitation of enemy mistakes through aggressive maneuver
-
----
-
-## 4. Organization & Order of Battle
-
-### Subordinate Formations (November 1941)
-
-#### 1. Deutsches Afrikakorps (DAK)
-- **Commander:** Generalleutnant Ludwig Crüwell
-- **Strength:** ~45,000 personnel
-- **Composition:**
-  - 15. Panzer-Division (Generalmajor Neumann-Silkow): 135 tanks
-  - 21. Panzer-Division (Generalmajor von Ravenstein): 120 tanks
-  - 90. leichte Division (Generalmajor Sümmermann): infantry/recon
-- **Tank Strength:** 255 operational tanks (Nov 1941)
-
-#### 2. XX Corpo Motorizzato (Italian Mobile Corps)
-- **Commander:** Generale di Corpo Gastone Gambara
-- **Strength:** ~28,000 personnel
-- **Composition:**
-  - Divisione Corazzata Ariete: 89 M13/40 tanks
-  - Divisione Motorizzata Trieste: motorized infantry
-- **Tank Strength:** 89 operational tanks (Nov 1941)
-
-#### 3. XXI Corpo d'Armata (Italian Infantry Corps)
-- **Commander:** Generale di Corpo Enea Navarrini
-- **Strength:** ~42,000 personnel
-- **Composition:**
-  - Divisione Brescia: static infantry
-  - Divisione Pavia: static infantry
-  - Divisione Bologna: static infantry
-  - Detachment Sabratha Division: garrison duties
-
-#### 4. Artillery Command 104
-- **Commander:** Generalmajor Böttcher
-- **Strength:** ~3,500 personnel
-- **Heavy Artillery:**
-  - 9x 210mm howitzers
-  - 12x French 100mm guns (captured)
-  - 45x French 150mm guns (captured)
-- **Italian Corps Artillery (attached):**
-  - 36x 105mm guns (12 batteries)
-  - 84x French 149mm guns
-  - 12x 120mm naval guns
-
-### Total Panzergruppe Strength (November 1941)
-- **Personnel:** ~118,500 (German: 48,500 | Italian: 70,000)
-- **Tanks:** 344 operational (German: 255 | Italian: 89)
-- **Artillery:** 200+ guns (corps and divisional)
-
----
-
-## 5. Artillery
-
-### Army Group Artillery Assets
-
-Panzergruppe Afrika HQ had no organic artillery. Artillery support was provided by:
-
-1. **Artillery Command 104** (German heavy artillery)
-   - 9x 21cm Mrs 18 (210mm howitzers)
-   - 12x captured French 100mm guns
-   - 45x captured French 150mm guns
+## Corps Overview
+
+**Role:** Army Group headquarters controlling German DAK and Italian mobile and infantry corps during Operation Crusader
+
+## Command
+
+| Position | Name | Rank |
+|----------|------|------|
+| **Commanding Officer** | Erwin Rommel | General der Panzertruppen |
+| **Chief of Staff** | Alfred Gause | Oberst |
+
+**Headquarters:** Mobile HQ, Cyrenaica (forward deployed)
+
+**Headquarters Staff:**
+- Officers: 85
+- NCOs: 120
+- Enlisted: 245
+- Total: undefined
+
+## Personnel Strength
 
-2. **XXI Italian Corps Artillery**
-   - 36x Cannone da 105/28 (105mm guns)
-   - 84x captured French 149mm guns
-   - 12x 120mm naval guns
+| Category | Count | Percentage |
+|----------|-------|------------|
+| **Total Personnel** | 27,400 | 100% |
+| Officers | 85 | 0.3% |
+| NCOs | 120 | 0.4% |
+| Enlisted | 245 | 0.9% |
 
-3. **Divisional Artillery** (subordinate units)
-   - Each German Panzer division: ~36 guns (105mm, 150mm)
-   - Each Italian division: ~36-48 guns (75mm, 100mm)
+## Armoured Strength
 
-### Artillery Doctrine
-- German artillery focused on mobile support for armor
-- Italian artillery primarily defensive, supporting infantry positions
-- Heavy artillery (Artillery Command 104) used for siege operations and counter-battery fire
-- Ammunition supply constraints limited sustained barrages
+### Tank Summary
 
----
+| Category | Total | Operational | Readiness |
+|----------|-------|-------------|----------|
+| **Medium Tanks** | 218 | undefined | NaN% |
+| ↳ Panzer III Ausf. G | 63 | 54 | - |
+| ↳ Panzer III Ausf. H | 72 | 62 | - |
+| ↳ Panzer III Ausf. J | 15 | 14 | - |
+| ↳ Panzer IV Ausf. E | 26 | 22 | - |
+| ↳ Panzer IV Ausf. F | 20 | 17 | - |
+| ↳ Panzer IV Ausf. F1 | 6 | 5 | - |
+| **Light Tanks** | 60 | undefined | NaN% |
+| ↳ Panzer II Ausf. C | 28 | 24 | - |
+| ↳ Panzer II Ausf. F | 32 | 28 | - |
 
-## 6. Armored Cars
+## Infantry Weapons
 
-No organic armored cars at army group HQ level. Reconnaissance assets assigned to:
-- DAK reconnaissance battalions
-- Italian RECAM (Mobile Corps Reconnaissance Group)
+### Top 3 Weapons by Count
 
----
+| Rank | Weapon | Count | Type |
+|------|--------|-------|------|
+| #1 | Karabiner 98k | 350 | rifle |
+| #2 | MP 40 | 45 | submachine_gun |
+| #3 | MG 34 | 12 | machine_gun |
 
-## 7. Transport & Logistics
+## Transport & Vehicles
 
-### Army Group HQ Transport
-- **Total Vehicles:** 85
-  - 55x trucks (Opel Blitz, Mercedes-Benz L3000, command cars)
-  - 18x motorcycles (BMW R75, Zündapp KS750)
-  - 12x support vehicles (command, workshop)
+**Total Ground Vehicles:** 85
 
-### Theater Logistics Challenges
-- **Supply Line:** 1,800km from Tripoli to forward positions
-- **Port Capacity:** Limited by Allied naval/air interdiction
-- **Overland Transport:** Chronic shortage of trucks, reliance on captured British vehicles
-- **Fuel Consumption:** Mobile operations consumed 300+ tons/day
-- **Water Requirements:** 4.5 liters/person/day in desert conditions
+| Category | Quantity |
+|----------|----------|
+| **Trucks** | 55 |
+| ↳ Opel Blitz 3-ton (3_ton) | 30 |
+| ↳ Mercedes-Benz L3000 (3_ton) | 15 |
+| ↳ Horch Kfz.15 (command_car) | 10 |
+| **Motorcycles** | 18 |
+| ↳ BMW R75 with sidecar | 12 |
+| ↳ Zündapp KS750 | 6 |
+| **Support Vehicles** | 12 |
+| ↳ Command vehicles | 8 |
+| ↳ Workshop vehicles | 4 |
 
-### Supply Status (Q3 1941)
-- **Fuel Reserves:** 5 days operational stock
-- **Ammunition:** 8 days combat supply
-- **Operational Radius:** 450km from main depots
+## Organizational Structure
 
----
+### Subordinate Units
 
-## 8. Anti-Tank Weapons
+1. **Deutsches Afrikakorps**
+   - Type: Panzer Corps
+   - Commander: Generalleutnant Ludwig Crüwell
+   - Strength: 27,400 personnel
+   - Status: undefined
 
-No organic anti-tank assets at army group HQ. Anti-tank capability provided by:
-- Divisional Panzerjäger battalions (50mm, 88mm)
-- Italian divisional AT companies (47mm)
-- Flak units in AT role (88mm Flak 36)
+2. **XX Corpo Motorizzato (Mobile Corps)**
+   - Type: Italian Mobile Corps
+   - Commander: Generale di Corpo Gastone Gambara
+   - Strength: 28,000 personnel
+   - Status: undefined
 
----
+3. **XXI Corpo d'Armata**
+   - Type: Italian Infantry Corps
+   - Commander: Generale di Corpo Enea Navarrini
+   - Strength: 42,000 personnel
+   - Status: undefined
 
-## 9. Anti-Aircraft Weapons
+4. **Artillery Command 104**
+   - Type: German Artillery Command
+   - Commander: Generalmajor Boettcher
+   - Strength: 3,500 personnel
+   - Status: undefined
+   - Notes: Corps-level artillery support with 9x 210mm howitzers, 12x French 100mm guns, 45x French 150mm guns
 
-Minimal organic AA defense for HQ. Air defense provided by:
-- Luftwaffe Flak batteries (attached)
-- Italian AA batteries (20mm, 90mm)
-- Divisional AA companies
+## Supply Status
 
----
+## Tactical Doctrine & Capabilities
 
-## 10. Personnel
+**Primary Role:** Army Group headquarters controlling German DAK and Italian mobile and infantry corps during Operation Crusader
 
-### Headquarters Staff
-- **Total Personnel:** 450
-  - Officers: 85 (19%)
-  - NCOs: 120 (27%)
-  - Enlisted: 245 (54%)
+### Special Capabilities
 
-### Staff Sections
-- **Operations (Ia):** Planning and execution of operations
-- **Intelligence (Ic):** Enemy situation, terrain analysis
-- **Supply (Ib):** Logistics coordination with German and Italian systems
-- **Personnel (IIa):** German and Italian liaison
-- **Signals:** Communications with subordinate corps and OKW/Comando Supremo
+- Combined German-Italian command structure
+- Mobile warfare coordination
+- Long-range desert operations planning
+- Integrated Axis armor coordination
 
-### Key Staff Officers
-- **Chief of Staff:** Oberst Alfred Gause
-- **Operations Officer:** (Ia section)
-- **Intelligence Officer:** (Ic section)
-- **Italian Liaison:** Direct link to Comando Supremo
+### Tactical Innovations
 
----
+- First German-Italian combined arms army group in North Africa
+- Coordination of three separate corps (1 German, 2 Italian)
+- Mobile HQ following frontline combat formations
 
-## 11. Equipment Summary
+### Known Issues
 
-### Infantry Weapons (HQ Security)
-1. **Karabiner 98k:** 350 rifles
-2. **MP 40:** 45 submachine guns
-3. **MG 34:** 12 machine guns
+- Communication challenges between German and Italian commands
+- Limited authority over Italian strategic decisions
+- Tension with Comando Supremo (Italian High Command) over operational control
+- Supply coordination difficulties between German and Italian logistics systems
 
-### Vehicles
-- **Trucks:** 55 (3-ton capacity, command cars)
-- **Motorcycles:** 18 (dispatch riders)
-- **Support Vehicles:** 12 (command, maintenance)
+**Desert Adaptations:** Highly mobile forward headquarters with minimal footprint, emphasis on rapid decision-making and personal command presence at front
 
-### Communications Equipment
-- Standard German signals equipment (estimated)
-- Radio links to OKW, Comando Supremo, DAK, Italian corps
-- Mobile communications vehicles
+## Historical Context
 
----
+## Wargaming Data
 
-## 12. Critical Equipment Shortages
+| Attribute | Value |
+|-----------|-------|
+| **Morale** | 9/10 |
+| **Experience** | Elite |
 
-### Priority 1: Strategic Gaps
-- **Fuel Supply:** Chronic shortage, limited offensive operations
-- **Truck Transport:** Insufficient capacity for sustained logistics
-- **Port Capacity:** Tripoli/Benghazi unable to meet supply demands
+### Special Rules
 
-### Priority 2: Operational Constraints
-- **Tank Reinforcements:** Replacement tanks arrive slower than losses
-- **Spare Parts:** Limited stocks for German vehicles, critical for Italian equipment
-- **Medical Supplies:** Desert conditions increased consumption
+- Command bonus for coordinated German-Italian operations
+- Rommel personal leadership bonus
+- Extended supply line penalty (-1 to logistics)
+- Mobile headquarters (can relocate within 24 hours)
 
-### Priority 3: Tactical Shortfalls
-- **Communications:** Language barriers between German and Italian units
-- **Maps:** Inadequate detailed mapping of desert terrain
-- **Water Transport:** Insufficient tanker trucks for desert operations
+### Scenario Suitability
 
----
+- Operation Crusader (November-December 1941)
+- Battle of Sidi Rezegh (November 1941)
+- Tobruk siege operations (Q3-Q4 1941)
+- Combined Axis operations scenarios
 
-## 13. Combat History (1941-Q3)
+### Historical Engagements
 
-### Formation Phase (August-October 1941)
-Panzergruppe Afrika formed to consolidate Axis command structure. Rommel's authority expanded beyond DAK to include operational control of Italian corps. Period characterized by defensive consolidation along Sollum front and preparation for anticipated British offensive.
+- Formation of Panzergruppe Afrika (August 1941)
+- Operation Crusader (November-December 1941)
+- Battle of Sidi Rezegh (November 18-23, 1941)
+- Relief of Tobruk garrison by British forces (December 1941)
 
-### Operation Crusader (November-December 1941)
-**Objective:** British Eighth Army offensive to relieve Tobruk and destroy Axis armor
+## Data Quality & Known Gaps
 
-**Major Engagements:**
-- **Battle of Sidi Rezegh (Nov 18-23):** Intense armored combat. German forces inflicted heavy losses on British 7th Armoured Division but failed to prevent link-up with Tobruk garrison.
-- **Tank Losses:** Axis lost ~142 tanks, British lost ~300 tanks
-- **Outcome:** Tactical draws at battles, strategic British victory through attrition
+**Overall Confidence:** 85%
 
-**Withdrawal Phase (December 1941):**
-- Axis withdrawal from Tobruk siege (Dec 7)
-- Retreat to Gazala line, then El Agheila
-- Operation Crusader ended with Axis back to starting positions of April 1941
+### Primary Sources
 
-### Lessons Learned
-- Tank quality (German Panzer III/IV) superior but insufficient numbers
-- British numerical advantage in armor eventually decisive
-- Supply lines unsustainable for prolonged offensive operations
-- Combined German-Italian command structure workable but strained
-
----
-
-## 14. Tactical Doctrine & Employment
-
-### Command Doctrine
-- **Auftragstaktik:** Mission-type orders, decentralized execution
-- **Schwerpunkt:** Concentration of force at decisive point
-- **Bewegungskrieg:** Mobile warfare, avoid static positions
-
-### Combined Arms Integration
-- German armor as offensive spearhead
-- Italian infantry holding defensive sectors
-- Artillery supporting both German mobile and Italian static operations
-- Air support coordinated through Fliegerführer Afrika
-
-### Desert Adaptations
-- Mobile headquarters following frontline closely
-- Personal reconnaissance by Rommel at critical junctures
-- Rapid decision cycles to exploit fleeting opportunities
-- Aggressive counterattacks to regain initiative
-
-### Known Limitations
-- Coordination delays between German and Italian formations
-- Language barriers in tactical communications
-- Divergent operational priorities (German offensive, Italian defensive)
-- Supply constraints limiting operational tempo
-
----
-
-## 15. Data Quality & Known Gaps
-
-### Source Assessment
-**Primary Sources:**
-- Nafziger Collection: 941GKAA (Axis Forces Battle of Sidi Rezeg, November 1941)
+- Nafziger Collection: 941GKAA - Axis Forces Battle of Sidi Rezeg November 1941
 - The Rommel Papers (Liddell Hart edition)
-- Tessin Vol 12: German Wehrmacht units
-
-**Confidence:** 85% (Tier 2: Review Recommended)
+- Tessin Vol 12 (German Wehrmacht units)
+- Operation Crusader historical records
 
 ### Known Data Gaps
 
-#### Exact Staff Strength (Estimated)
-- **Status:** Estimated from standard German corps HQ establishments
-- **Impact:** -10% confidence
-- **Sources Checked:** Nafziger, Rommel Papers, Tessin
-- **Mitigation:** Scaled from KStN with adjustment for combined German-Italian structure
+- Exact communications equipment inventory
+- Detailed staff organization chart
+- Precise vehicle allocations by type
 
-#### Detailed Communications Equipment (Unknown)
-- **Status:** Unknown - specific equipment not detailed in operational documents
-- **Impact:** -5% confidence
-- **Sources Checked:** Nafziger collection, Rommel Papers
-- **Mitigation:** Standard German signals equipment assumed
+## Conclusion
 
-#### Precise Vehicle Allocations (Partial)
-- **Status:** Partial - vehicle types known, exact counts estimated
-- **Impact:** Minor confidence impact
-- **Mitigation:** Based on standard HQ transport scales
-
-### Aggregation Notes
-- **Method:** Manually entered from primary sources
-- **Subordinate Units:** Reference files for DAK and Italian corps
-- **Bottom-Up Validation:** Personnel/equipment totals aggregate from subordinate formations
+Panzergruppe Afrika in 1941 Q3 represents a critical corps-level formation coordinating multiple divisions. Commanding 4 subordinate units totaling 27,400 personnel, this corps formed a major component of German operations. 
 
 ---
 
-## 16. Sources & References
+*Data compiled from historical records for 1941 North Africa Campaign*
 
-### Primary Sources
-1. **Nafziger Collection:** 941GKAA - Axis Forces Battle of Sidi Rezeg, November 1941
-2. **The Rommel Papers** (ed. B.H. Liddell Hart), 1953
-3. **Tessin, Georg:** Verbände und Truppen der deutschen Wehrmacht und Waffen-SS, Band 12
-
-### Secondary Sources
-4. **Agar-Hamilton & Turner:** The Sidi Rezeg Battles 1941, Oxford University Press, 1957
-5. **Operation Crusader** historical records and operational maps
-
-### Recommended Reading
-- **Pitt, Barrie:** The Crucible of War: Western Desert 1941
-- **Playfair, I.S.O.:** The Mediterranean and Middle East, Vol III (Official History)
-- **Battistelli, Pier Paolo:** Italian Army in North Africa 1940-43
-
----
-
-## Metadata
-
-**Extraction Date:** 2025-10-24
-**Schema Version:** 3.1.0
-**Validation Status:** Review Recommended (Tier 2)
-**Confidence Score:** 85%
-**Last Updated:** 2025-10-24
-**Extracted By:** Claude Code Agent
-
----
-
-*This chapter is part of the North Africa TO&E Builder project, generating wargaming scenarios with historical accuracy.*

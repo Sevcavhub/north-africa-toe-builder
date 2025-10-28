@@ -1,0 +1,251 @@
+{
+  "unit_id": "italian_1942q2_46_gruppo_caccia",
+  "name": "46° Gruppo Caccia Terrestre (46th Ground Attack Group)",
+  "nation": "italian",
+  "quarter": "1942q2",
+  "echelon": "gruppo",
+  "unit_type": "ground_attack_gruppo",
+  "tier_classification": "research_brief_created",
+  "research_brief_status": "INSUFFICIENT TIER 1/2 SOURCES + UNIT TYPE MISMATCH",
+  "parent_formation": "5° Stormo Caccia Terrestre",
+  "confidence_score": 30,
+  
+  "research_brief": {
+    "extraction_attempted_date": "2025-10-27",
+    "critical_issues": [
+      {
+        "issue_type": "UNIT TYPE MISMATCH",
+        "severity": "CRITICAL",
+        "description": "Seed file designates unit as 'fighter_gruppo' but historical sources confirm this was a ground attack unit (Gruppo BT - Bombardamento Terrestre)",
+        "evidence": "Asisbiz and Comando Supremo sources clearly identify 46° Gruppo as operating ground attack variants (Breda Ba.65, Fiat CR.32, Fiat CR.42) in ground support role",
+        "recommended_action": "Update seed file unit_type from 'fighter_gruppo' to 'ground_attack_gruppo' to reflect actual operational role",
+        "schema_impact": "Affects equipment assignments, operational role classification, and tactical employment data"
+      },
+      {
+        "issue_type": "INSUFFICIENT TIER 1/2 SOURCES",
+        "severity": "CRITICAL",
+        "description": "Available sources provide only 30-35% Tier 1/2 coverage vs 60% minimum threshold for Tier 2 extraction",
+        "evidence": "Asisbiz and Comando Supremo provide deployment timeline and general aircraft types, but lack quarter-specific strength data, personnel counts, operational statistics",
+        "recommended_action": "Defer extraction until Italian Air Force primary sources (Ufficio Storico, formation diaries) can be accessed",
+        "data_gaps": [
+          "Quarter-specific aircraft strength (April-June 1942)",
+          "Personnel counts (officers, NCOs, enlisted)",
+          "Operational statistics (sorties, losses, victories)",
+          "Equipment serials and production variants",
+          "Supply and logistics status"
+        ]
+      }
+    ],
+    
+    "known_information": {
+      "deployment_timeline": {
+        "north_africa_entry": "May 1941",
+        "north_africa_departure": "January 1943",
+        "1942q2_status": "Active in North Africa theater during April-June 1942",
+        "source": "Asisbiz.com deployment records, Comando Supremo unit histories"
+      },
+      
+      "aircraft_types_general": {
+        "primary_equipment": [
+          "Breda Ba.65 (ground attack aircraft)",
+          "Fiat CR.32 (biplane fighter/ground attack)",
+          "Fiat CR.42 (biplane fighter/ground attack)"
+        ],
+        "role": "Ground attack and close air support (Caccia Terrestre/Bombardamento Terrestre)",
+        "note": "Specific variants, quantities, and 1942-Q2 equipment composition unknown from available sources"
+      },
+      
+      "organizational_context": {
+        "parent_formation": "5° Stormo Caccia Terrestre",
+        "stormo_composition": "Multiple gruppi organized for ground attack operations",
+        "theater": "North Africa (Regia Aeronautica)",
+        "operational_area": "Libya and Egypt, supporting ground forces"
+      }
+    },
+    
+    "source_assessment": {
+      "tier_1_sources": {
+        "available": [],
+        "coverage": "0%",
+        "notes": "No Italian Air Force official records, formation diaries, or strength returns accessed for 1942-Q2 period"
+      },
+      
+      "tier_2_sources": {
+        "available": [
+          "Asisbiz.com - 46° Gruppo deployment timeline",
+          "Comando Supremo - General unit history and organization"
+        ],
+        "coverage": "30-35%",
+        "notes": "Provide deployment dates and general aircraft types, but lack quarter-specific operational data"
+      },
+      
+      "tier_3_sources": {
+        "available": [
+          "General Italian Air Force references",
+          "Secondary histories of Regia Aeronautica operations"
+        ],
+        "coverage": "Limited",
+        "notes": "Background context only, no specific data for 46° Gruppo in 1942-Q2"
+      },
+      
+      "missing_critical_sources": [
+        "Ufficio Storico dell'Aeronautica Militare records",
+        "5° Stormo formation diaries and war diaries",
+        "Italian Air Force strength returns (April-June 1942)",
+        "Personnel rosters and assignment records",
+        "Operational logs with sortie data"
+      ]
+    },
+    
+    "recommended_next_steps": [
+      {
+        "step": 1,
+        "action": "Correct seed file unit_type designation",
+        "details": "Update north_africa_seed_units_COMPLETE.json to change 46° Gruppo Caccia from 'fighter_gruppo' to 'ground_attack_gruppo'",
+        "priority": "IMMEDIATE",
+        "rationale": "Unit type affects all downstream data requirements and equipment assignments"
+      },
+      {
+        "step": 2,
+        "action": "Access Italian Air Force primary sources",
+        "details": "Locate Ufficio Storico records, formation diaries, or strength returns for 5° Stormo/46° Gruppo covering 1942-Q2",
+        "priority": "HIGH",
+        "rationale": "Required to meet 60% Tier 1/2 threshold for viable extraction"
+      },
+      {
+        "step": 3,
+        "action": "Re-evaluate extraction viability after source acquisition",
+        "details": "Once primary sources available, reassess whether 1942-Q2 extraction meets Tier 2+ requirements",
+        "priority": "MEDIUM",
+        "rationale": "May enable Tier 2 or Tier 1 extraction with proper documentation"
+      },
+      {
+        "step": 4,
+        "action": "Consider alternative quarters",
+        "details": "If 1942-Q2 sources remain unavailable, evaluate other quarters within May 1941-Jan 1943 deployment window",
+        "priority": "LOW",
+        "rationale": "Different operational periods may have better source coverage"
+      }
+    ],
+    
+    "extraction_attempt_summary": {
+      "sources_consulted": [
+        "Asisbiz.com - 46° Gruppo Caccia deployment records",
+        "Comando Supremo - Italian Air Force unit histories",
+        "General Regia Aeronautica references"
+      ],
+      "data_fields_attempted": [
+        "aircraft_strength",
+        "personnel_count",
+        "equipment_details",
+        "operational_statistics",
+        "supply_logistics"
+      ],
+      "success_rate": "30-35% (deployment timeline and general aircraft types only)",
+      "blocking_issues": "Unit type mismatch + insufficient quarter-specific data from Tier 1/2 sources"
+    }
+  },
+  
+  "validation": {
+    "schema_version": "3.1.0",
+    "required_field_gaps": [
+      "aircraft_strength.authorized",
+      "aircraft_strength.operational",
+      "aircraft_strength.by_type",
+      "personnel.officers",
+      "personnel.ncos",
+      "personnel.enlisted",
+      "personnel.total",
+      "equipment_details (specific variants and serials)",
+      "operational_statistics.sorties",
+      "operational_statistics.losses",
+      "operational_statistics.victories",
+      "supply_logistics.fuel_status",
+      "supply_logistics.ammunition_status",
+      "supply_logistics.spare_parts_status",
+      "supply_logistics.operational_radius",
+      "supply_logistics.supply_chain_assessment",
+      "weather_environment (all fields)"
+    ],
+    
+    "gap_documentation": {
+      "aircraft_strength": {
+        "gap_reason": "No quarter-specific strength returns available from Tier 1/2 sources",
+        "available_data": "General aircraft types (Breda Ba.65, Fiat CR.32, Fiat CR.42) known from Tier 2 sources",
+        "research_needed": "Italian Air Force strength returns for April-June 1942"
+      },
+      
+      "personnel": {
+        "gap_reason": "No personnel rosters or assignment records accessed for 1942-Q2",
+        "available_data": "None",
+        "research_needed": "5° Stormo/46° Gruppo personnel records from Ufficio Storico"
+      },
+      
+      "equipment_details": {
+        "gap_reason": "No aircraft serial numbers, production variants, or specific equipment assignments documented",
+        "available_data": "General aircraft models known, but not specific variants or quantities",
+        "research_needed": "Formation diaries with aircraft assignments and maintenance logs"
+      },
+      
+      "operational_statistics": {
+        "gap_reason": "No operational logs or war diaries accessed for quarter-specific data",
+        "available_data": "General deployment timeline (May 1941-Jan 1943)",
+        "research_needed": "46° Gruppo war diaries and operational reports for April-June 1942"
+      },
+      
+      "supply_logistics": {
+        "gap_reason": "No supply status reports or logistics documentation available",
+        "available_data": "None",
+        "research_needed": "5° Stormo logistics reports and supply chain records"
+      },
+      
+      "weather_environment": {
+        "gap_reason": "No operational area or environmental conditions documented for specific quarter",
+        "available_data": "General theater (North Africa) known",
+        "research_needed": "Operational reports with airfield locations and mission profiles"
+      },
+      
+      "unit_type_classification": {
+        "gap_reason": "Seed file misclassification as 'fighter_gruppo' vs historical role as ground attack unit",
+        "available_data": "Tier 2 sources confirm ground attack role (Caccia Terrestre/Bombardamento Terrestre)",
+        "research_needed": "Seed file correction required before extraction can proceed"
+      }
+    },
+    
+    "validation_notes": [
+      "Research brief created due to dual blocking issues: unit type mismatch and insufficient sources",
+      "Unit type correction is prerequisite for any future extraction attempt",
+      "Even with corrected unit type, Tier 1/2 source coverage remains below 60% threshold",
+      "Deployment timeline (May 1941-Jan 1943) suggests unit was present in 1942-Q2, but quarter-specific data unavailable",
+      "Recommend deferring extraction until Italian Air Force primary sources accessible"
+    ]
+  },
+  
+  "metadata": {
+    "extraction_date": "2025-10-27",
+    "extractor": "Claude Code (Research Brief Creation)",
+    "sources_consulted": [
+      {
+        "name": "Asisbiz.com - 46° Gruppo Caccia",
+        "tier": 2,
+        "coverage": "Deployment timeline, general aircraft types",
+        "url": "http://www.asisbiz.com (Italian Air Force unit histories)"
+      },
+      {
+        "name": "Comando Supremo - Italian Air Force",
+        "tier": 2,
+        "coverage": "Organizational structure, general unit history",
+        "url": "http://www.comandosupremo.com"
+      }
+    ],
+    "notes": [
+      "Research brief documents two critical issues preventing extraction",
+      "Unit type mismatch (fighter_gruppo vs ground_attack_gruppo) must be corrected in seed file",
+      "Source coverage at 30-35% well below 60% minimum for Tier 2 extraction",
+      "Known deployment window (May 1941-Jan 1943) confirms unit presence in theater during 1942-Q2",
+      "Aircraft types identified (Ba.65, CR.32, CR.42) but specific variants and quantities unknown",
+      "Recommend accessing Ufficio Storico records before re-attempting extraction"
+    ],
+    "version": "1.0.0"
+  }
+}

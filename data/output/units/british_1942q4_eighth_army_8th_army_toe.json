@@ -21,7 +21,7 @@
       "enlisted": 820
     }
   },
-  "total_personnel": 1250,
+  "total_personnel": 98550,
   "officers": 185,
   "ncos": 245,
   "enlisted": 820,
@@ -47,20 +47,55 @@
   },
   "ground_vehicles_total": 485,
   "tanks": {
-    "total": 0,
-    "operational": 0,
+    "total": 172,
+    "operational": 148,
     "heavy_tanks": {
       "total": 0,
       "variants": {}
     },
     "medium_tanks": {
-      "total": 0,
-      "variants": {}
+      "total": 230,
+      "operational": 104,
+      "variants": {
+        "M4 Sherman": {
+          "count": 48,
+          "operational": 43,
+          "witw_id": "tank_sherman_m4",
+          "note": "7th Armoured Division, 22nd Armoured Brigade"
+        },
+        "M3 Grant": {
+          "count": 38,
+          "operational": 33,
+          "witw_id": "tank_grant_m3",
+          "note": "7th Armoured Division, 22nd Armoured Brigade"
+        },
+        "Crusader III": {
+          "count": 32,
+          "operational": 28,
+          "witw_id": "tank_crusader_iii",
+          "note": "7th Armoured Division cruiser tank squadrons"
+        }
+      }
     },
     "light_tanks": {
-      "total": 0,
-      "variants": {}
-    }
+      "total": 106,
+      "operational": 44,
+      "variants": {
+        "M3 Stuart (Honey)": {
+          "count": 40,
+          "operational": 34,
+          "witw_id": "tank_stuart_m3",
+          "note": "7th Armoured Division reconnaissance squadrons"
+        },
+        "Crusader II": {
+          "count": 14,
+          "operational": 10,
+          "witw_id": "tank_crusader_ii",
+          "note": "7th Armoured Division light squadrons"
+        }
+      }
+    },
+    "notes": "All tanks organic to 2nd New Zealand Division (4th Armoured Brigade). 51st Highland and 9th Australian are pure infantry divisions with NO organic tanks."
   },
   "halftracks": {
     "total": 0,
@@ -174,15 +209,17 @@
       "unit_designation": "XIII Corps",
       "unit_type": "Corps",
       "commander": "Brian Horrocks",
-      "strength": 0,
-      "reference_file": null
+      "strength": 48200,
+      "reference_file": "british_1942q4_xiii_corps_toe.json",
+      "tanks": 172
     },
     {
       "unit_designation": "XXX Corps",
       "unit_type": "Corps",
       "commander": "Oliver Leese",
-      "strength": 0,
-      "reference_file": null
+      "strength": 50350,
+      "reference_file": "british_1942q4_xxx_corps_toe.json",
+      "tanks": 164
     }
   ],
   "individual_positions": [],
@@ -225,5 +262,8 @@
       "Minimal HQ data"
     ],
     "aggregation_status": "manually_entered"
-  }
+  },
+  "aggregation_status": "calculated_from_subordinates",
+  "aggregation_date": "2025-10-28T02:55:51.054Z",
+  "aggregation_notes": "Aggregated from 2 subordinate units. Previous totals: 1250 personnel, 0 tanks."
 }

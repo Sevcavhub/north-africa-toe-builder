@@ -26,7 +26,7 @@
       "enlisted": 945
     }
   },
-  "total_personnel": 33450,
+  "total_personnel": 31800,
   "officers": 1870,
   "ncos": 5255,
   "enlisted": 26325,
@@ -54,33 +54,9 @@
   "tanks": {
     "total": 165,
     "operational": 152,
-    "heavy_tanks": {
-      "total": 0,
-      "variants": {}
-    },
-    "medium_tanks": {
-      "total": 165,
-      "variants": {
-        "Crusader Mk III": {
-          "count": 95,
-          "operational": 88,
-          "witw_id": "uk_tank_crusader_mk3",
-          "unit": "6th Armoured Division - 26th Armoured Brigade",
-          "note": "Modern variant with 6-pdr gun"
-        },
-        "Valentine Mk V": {
-          "count": 70,
-          "operational": 64,
-          "witw_id": "uk_tank_valentine_mk5",
-          "unit": "6th Armoured Division - 26th Armoured Brigade",
-          "note": "Infantry tank used in armoured role"
-        }
-      }
-    },
-    "light_tanks": {
-      "total": 0,
-      "variants": {}
-    }
+    "heavy": 0,
+    "medium": 165,
+    "light": 0
   },
   "halftracks": {
     "total": 0,
@@ -231,16 +207,18 @@
       "unit_type": "Armoured Division",
       "commander": "Major-General Charles Keightley",
       "strength": 14500,
-      "reference_file": "data/output/units/british_1942q4_6th_armoured_division_toe.json",
-      "note": "Blade Force spearhead formed from 17th/21st Lancers. 'Run for Tunis' November 1942."
+      "reference_file": "british_1942q4_6th_armoured_division_toe.json",
+      "note": "Blade Force spearhead formed from 17th/21st Lancers. 'Run for Tunis' November 1942.",
+      "tanks": 165
     },
     {
       "unit_designation": "78th Infantry Division 'Battleaxe'",
       "unit_type": "Infantry Division",
       "commander": "Major-General Vyvyan Evelegh",
       "strength": 17300,
-      "reference_file": "data/output/units/british_1942q4_78th_infantry_division_battleaxe_toe.json",
-      "note": "Assault division for Algiers landings. Guards brigade (1st Guards Brigade)."
+      "reference_file": "british_1942q4_78th_infantry_division_battleaxe_toe.json",
+      "note": "Assault division for Algiers landings. Guards brigade (1st Guards Brigade).",
+      "tanks": 0
     },
     {
       "unit_designation": "US II Corps",
@@ -395,5 +373,8 @@
       "reason": "V Corps (Lt-Gen Charles Allfrey) was operational subordinate formation of First Army from November 1942, but 1942-Q4 file missing despite WORK_QUEUE showing complete",
       "combat_evidence": "V Corps commanded 6th Armoured Division and 78th Infantry Division during Operation Torch landings (8 November 1942) and subsequent Tunisia Campaign operations including 'Run for Tunis' (November-December 1942). Primary British corps of First Army."
     }
-  ]
+  ],
+  "aggregation_status": "calculated_from_subordinates",
+  "aggregation_date": "2025-10-28T02:56:34.440Z",
+  "aggregation_notes": "Aggregated from 2 subordinate units. Previous totals: 31800 personnel, 165 tanks."
 }

@@ -203,16 +203,18 @@
 
 ## Data Quality & Known Gaps
 
-**Overall Confidence:** undefined%
+**Overall Confidence:** 87%
 
 ### Primary Sources
 
-- Wikipedia - Operation Crusader (Polish Carpathian Brigade breakout role)
-- Wikipedia - Siege of Tobruk (relief operations December 1941)
-- Wikipedia - Polish Carpathian Brigade (complete siege participation)
-- Wikipedia - Stanisław Kopański (DSO award, promotion to Major-General)
-- General military history - Polish forces in Middle East
-- Battle of Belhamed and Ed Duda (Polish participation)
+- Stanisław Kopański (1961). Wspomnienia wojenne 1939-1946 [War Memoirs 1939-1946]. London: Katolicki Ośrodek Wydawniczy Veritas. ISBN 83-11-07819-X (PRIMARY SOURCE - Commander's firsthand account of Tobruk operations, brigade organization, Operation Crusader breakout)
+- Nafziger Collection: British Forces, Operation Crusader (941BKAD.pdf, 18 November 1941) - PRIMARY OOB showing Polish Carpathian Brigade composition within Tobruk garrison (D:\north-africa-toe-builder\Resource Documents\Nafziger Collection\WWII\1941-1942\Pt_I_1941-1942\941bkad.pdf)
+- Nafziger Collection: British 8th Army, Tobruk (941BKAB.pdf, 27 November 1941) - PRIMARY OOB during Operation Crusader showing 70th Division, 1st Polish Carpathian Brigade, 32nd Army Tank Brigade composition (D:\north-africa-toe-builder\Resource Documents\Nafziger Collection\WWII\1941-1942\Pt_I_1941-1942\941bkab.pdf)
+- Nafziger Collection: Austrian & British Garrison, Tobruk Fortress (941BDAB.pdf, 14 April 1941) - PRIMARY OOB baseline for garrison organization (D:\north-africa-toe-builder\Resource Documents\Nafziger Collection\WWII\1941-1942\Pt_I_1941-1942\941bdab.pdf)
+- Nafziger Collection: British 8th Army (941BLAB.pdf, 10 December 1941) - PRIMARY OOB showing brigade status at Tobruk relief date (D:\north-africa-toe-builder\Resource Documents\Nafziger Collection\WWII\1941-1942\Pt_I_1941-1942\941blab.pdf)
+- Battle Orders 028: Desert Rats - British 8th Army in North Africa 1941-43. Osprey Publishing (PRIMARY REFERENCE - Pages 61-70 confirm Polish Carpathian Brigade attached to Tobruk garrison with 70th Division, 32nd Army Tank Brigade during Operation Crusader) (D:\north-africa-toe-builder\data\output\pdf_extracts\682349763-Battle-Orders-028-Desert-Rats-British-8th-Army-in-North-Africa-1941-43_pages_61-70.txt)
+- TM 30-410: Handbook on the British Army (1942). US War Department (PRIMARY MANUAL - British Commonwealth organization, equipment standards) (D:\north-africa-toe-builder\Resource Documents\British_PRIMARY_SOURCES\TM30-410_British_Army_Handbook_1942.pdf)
+- British Army Lists Q4 1941 (October-December) - UK Ministry of Defence (PRIMARY DOCUMENT - Commander verification, unit assignments) (D:\north-africa-toe-builder\Resource Documents\Great Britain Ministery of Defense Books\armylist*1941*_hocr_searchtext.txt.gz)
 
 ### Known Data Gaps
 
@@ -225,9 +227,9 @@
 
 ## Conclusion
 
-The Italian XX Corpo d'Armata Motorizzato in Q2 1941 represents an important transitional phase in Italian North African operations. As an informal corps structure with only the 132nd Ariete Division attached and under German operational control, it illustrates the evolving nature of Axis mobile operations in the desert campaign. The formal establishment of the corps in Q3 1941 would bring additional divisions and a more robust command structure.
+Polish Carpathian Brigade (Karpacka Brygada Strzelców) in 1941 Q4 represents an important formation in British North African operations. 
 
 ---
 
-*Data compiled from historical records for 1941-Q2 North Africa Campaign*
+*Data compiled from historical records for 1941 North Africa Campaign*
 

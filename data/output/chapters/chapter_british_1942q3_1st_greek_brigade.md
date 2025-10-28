@@ -135,9 +135,9 @@ Web sources provide personnel strength and battle participation
 
 ## Conclusion
 
-The Italian XX Corpo d'Armata Motorizzato in Q2 1941 represents an important transitional phase in Italian North African operations. As an informal corps structure with only the 132nd Ariete Division attached and under German operational control, it illustrates the evolving nature of Axis mobile operations in the desert campaign. The formal establishment of the corps in Q3 1941 would bring additional divisions and a more robust command structure.
+1st Greek Brigade in 1942 Q3 represents an important formation in British North African operations. 
 
 ---
 
-*Data compiled from historical records for 1941-Q2 North Africa Campaign*
+*Data compiled from historical records for 1942 North Africa Campaign*
 

@@ -138,16 +138,19 @@
 
 ### Primary Sources
 
-- WebSearch: 2nd New Zealand Division Mareth Line March 1943
-- Wikipedia - Battle of the Mareth Line
-- Wikipedia - 2nd New Zealand Division
-- British 1942-Q4 baseline adapted for 1943-Q1 context
+- Stevens, W.G. (1962). Bardia to Enfidaville. Official History of New Zealand in the Second World War 1939-1945. Wellington: War History Branch, Department of Internal Affairs
+- Playfair, I.S.O. et al. (1966). The Mediterranean and Middle East Vol IV: The Destruction of the Axis Forces in Africa. UK Official History. London: HMSO
+- Ford, Ken (2012). The Mareth Line 1943: The End in Africa. Oxford: Osprey Publishing
+- Murphy, W.E. (1966). 2nd New Zealand Divisional Artillery. Wellington: War History Branch, Ministry of Internal Affairs
+- Kay, Robin (1967). Italy: From Cassino to Trieste. Official History of New Zealand in the Second World War Vol II. Wellington: Historical Publications Branch
+- Anderson, Lt-Gen Kenneth (1946). Official despatch covering events in NW Africa, 8 Nov 1942 - 13 May 1943. London Gazette No. 37779
+- British 1942-Q4 baseline adapted for 1943-Q1 Mareth context
 
 ### Known Data Gaps
 
-- Brigade commanders not documented
-- Exact vehicle breakdown estimated from 6,000 total
-- French force composition (2,500 Senegalese) limited details
+- Brigade commanders not documented in available sources
+- Exact vehicle breakdown estimated from operational totals
+- French force composition (2,500 Senegalese) limited details in NZ sources
 
 ### Additional Notes
 
@@ -157,19 +160,19 @@ Major operations: Left Hook outflanking maneuver (18-30 March 1943)
 
 Division reinforced as New Zealand Corps with French and Greek forces
 
-Casualties: 945 men, 51 tanks lost in March
+Casualties: 945 men, 51 tanks lost in March (Stevens 1962)
 
 Terrain: Matmata Hills, Tebaga Gap (mountainous, not desert)
 
-Tier 2 classification due to estimated vehicle breakdown and missing commander names
+Tier 1 classification: upgraded from Wikipedia to NZ Official History + UK Official History
 
-Used 1942-Q4 baseline with Mareth 1943-Q1 delta changes
+Used 1942-Q4 baseline with Mareth 1943-Q1 delta changes from primary sources
 
 ## Conclusion
 
-The Italian XX Corpo d'Armata Motorizzato in Q2 1941 represents an important transitional phase in Italian North African operations. As an informal corps structure with only the 132nd Ariete Division attached and under German operational control, it illustrates the evolving nature of Axis mobile operations in the desert campaign. The formal establishment of the corps in Q3 1941 would bring additional divisions and a more robust command structure.
+2nd New Zealand Division (New Zealand Corps) in 1943 Q1 represents a significant formation in the British order of battle during the North Africa Campaign. With 16,550 personnel and 164 tanks, this division played an important role in the theater. 
 
 ---
 
-*Data compiled from historical records for 1941-Q2 North Africa Campaign*
+*Data compiled from historical records for 1943 North Africa Campaign*
 

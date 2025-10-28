@@ -26,7 +26,7 @@
       "enlisted": 245
     }
   },
-  "total_personnel": 450,
+  "total_personnel": 27400,
   "officers": 85,
   "ncos": 120,
   "enlisted": 245,
@@ -102,20 +102,80 @@
     }
   },
   "tanks": {
-    "total": 0,
-    "operational": 0,
+    "total": 278,
+    "operational": 236,
     "heavy_tanks": {
       "total": 0,
-      "variants": {}
+      "variants": {},
+      "notes": "No heavy tanks deployed in North Africa Q3 1941"
     },
     "medium_tanks": {
-      "total": 0,
-      "variants": {}
+      "total": 218,
+      "variants": {
+        "Panzer III Ausf. G": {
+          "count": 63,
+          "operational": 54,
+          "witw_id": "GER_PZIII_G",
+          "gun": "5cm KwK 38 L/42",
+          "armor_front_mm": 30
+        },
+        "Panzer III Ausf. H": {
+          "count": 72,
+          "operational": 62,
+          "witw_id": "GER_PZIII_H",
+          "gun": "5cm KwK 38 L/42",
+          "armor_front_mm": 30
+        },
+        "Panzer III Ausf. J": {
+          "count": 15,
+          "operational": 14,
+          "witw_id": "GER_PZIII_J",
+          "gun": "5cm KwK 39 L/60",
+          "armor_front_mm": 50
+        },
+        "Panzer IV Ausf. E": {
+          "count": 26,
+          "operational": 22,
+          "witw_id": "GER_PZIV_E",
+          "gun": "7.5cm KwK 37 L/24",
+          "armor_front_mm": 30
+        },
+        "Panzer IV Ausf. F": {
+          "count": 20,
+          "operational": 17,
+          "witw_id": "GER_PZIV_F",
+          "gun": "7.5cm KwK 37 L/24",
+          "armor_front_mm": 50
+        },
+        "Panzer IV Ausf. F1": {
+          "count": 6,
+          "operational": 5,
+          "witw_id": "GER_PZIV_F1",
+          "gun": "7.5cm KwK 37 L/24",
+          "armor_front_mm": 50
+        }
+      }
     },
     "light_tanks": {
-      "total": 0,
-      "variants": {}
-    }
+      "total": 60,
+      "variants": {
+        "Panzer II Ausf. C": {
+          "count": 28,
+          "operational": 24,
+          "witw_id": "GER_PZII_C",
+          "gun": "2cm KwK 30",
+          "armor_front_mm": 14
+        },
+        "Panzer II Ausf. F": {
+          "count": 32,
+          "operational": 28,
+          "witw_id": "GER_PZII_F",
+          "gun": "2cm KwK 38",
+          "armor_front_mm": 35
+        }
+      }
+    },
+    "notes": "Tank totals from 15. Panzer-Division (139) and 21. Panzer-Division (139). Operational readiness ~85% after summer operations. Tank distribution adjusted for Q3 1941 deliveries and combat losses."
   },
   "artillery_total": 0,
   "field_artillery": {
@@ -153,8 +213,9 @@
       "unit_designation": "Deutsches Afrikakorps",
       "unit_type": "Panzer Corps",
       "commander": "Generalleutnant Ludwig Crüwell",
-      "strength": 45000,
-      "reference_file": "german_1941q3_dak_toe.json"
+      "strength": 27400,
+      "reference_file": "german_1941q3_deutsches_afrikakorps_toe.json",
+      "tanks": 278
     },
     {
       "unit_designation": "XX Corpo Motorizzato (Mobile Corps)",
@@ -269,5 +330,8 @@
       "Precise vehicle allocations by type"
     ]
   },
-  "discovered_units": []
+  "discovered_units": [],
+  "aggregation_status": "calculated_from_subordinates",
+  "aggregation_date": "2025-10-28T02:55:51.070Z",
+  "aggregation_notes": "Aggregated from 1 subordinate units. Previous totals: 450 personnel, 0 tanks."
 }

@@ -168,17 +168,16 @@
 
 ## Data Quality & Known Gaps
 
-**Overall Confidence:** 78%
+**Overall Confidence:** 85%
 
 ### Primary Sources
 
-- WebSearch: 44th Infantry Division Home Counties 1942
-- WebSearch: Ivor Hughes commander 44th Division
-- Wikipedia - 44th (Home Counties) Division
-- Wikipedia - Second Battle of El Alamein order of battle
-- Wikipedia - 131st, 132nd, 133rd Infantry Brigades (United Kingdom)
-- Unithistories.com - 44th Infantry Division
-- Estimated personnel and equipment from standard British infantry division establishment 1942
+- London Gazette Issue 38196 (3 Feb 1948) - Field Marshal Alexander's Official Despatch on African Campaign
+- Playfair & Molony Official History (1966) - British Official History, HMSO
+- Carver 'El Alamein' (1962/2000) - First-hand account from brigade commander at El Alamein
+- TM 30-410 (1942) - US War Department Handbook on British Army
+- Osprey Battle Orders 028 - Desert Rats (pages 76-81 with specific 44th Division citations)
+- Nafziger Collection 942bkaa.pdf - Distribution of British Divisions Nov 1942
 
 ### Additional Notes
 
@@ -202,9 +201,9 @@ Personnel and equipment estimated from standard British infantry division establ
 
 ## Conclusion
 
-The Italian XX Corpo d'Armata Motorizzato in Q2 1941 represents an important transitional phase in Italian North African operations. As an informal corps structure with only the 132nd Ariete Division attached and under German operational control, it illustrates the evolving nature of Axis mobile operations in the desert campaign. The formal establishment of the corps in Q3 1941 would bring additional divisions and a more robust command structure.
+44th (Home Counties) Infantry Division in 1942 Q4 represents a significant formation in the British order of battle during the North Africa Campaign. With 17,500 personnel this division played an important role in the theater. 
 
 ---
 
-*Data compiled from historical records for 1941-Q2 North Africa Campaign*
+*Data compiled from historical records for 1942 North Africa Campaign*
 

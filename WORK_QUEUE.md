@@ -1,9 +1,9 @@
 # North Africa Work Queue
 
-**Generated**: 2025-10-27T04:35:34.433Z
+**Generated**: 2025-10-28T13:12:19.276Z
 
-**Progress**: 411/411 units complete (100.0%)
-**Remaining**: 0 units
+**Progress**: 408/411 units complete (99.3%)
+**Remaining**: 3 units
 
 ---
 
@@ -19,15 +19,32 @@
 
 ## 🎯 Next Up (Next Session)
 
-🎉 **ALL UNITS COMPLETE!**
+1. **BRITISH** - 1941-Q3 - Eighth Army (8th Army) _(army)_
+2. **BRITISH** - 1942-Q4 - Eighth Army (8th Army) _(army)_
+3. **BRITISH** - 1943-Q2 - First Army _(army)_
 
 ---
 
 ## 📋 Full Queue (Chronological + Echelon Order)
 
+### 1941-Q3 (28/29 complete)
+
+**ARMY** (1 remaining):
+- [ ] BRITISH - Eighth Army (8th Army)
+
+### 1942-Q4 (54/55 complete)
+
+**ARMY** (1 remaining):
+- [ ] BRITISH - Eighth Army (8th Army)
+
+### 1943-Q2 (51/52 complete)
+
+**ARMY** (1 remaining):
+- [ ] BRITISH - First Army
+
 ---
 
-## ✅ Completed (411 units)
+## ✅ Completed (408 units)
 
 <details>
 <summary>Show completed units</summary>
@@ -145,7 +162,7 @@
 - [x] ITALIAN - XX Mobile Corps _(corps)_
 - [x] ITALIAN - XXI Corpo d'Armata (XXI Corps) _(corps)_
 
-### 1941-Q3 (29 complete)
+### 1941-Q3 (28 complete)
 
 - [x] BRITISH - Czechoslovakian 11th Infantry Battalion _(battalion)_
 - [x] BRITISH - Polish Carpathian Brigade (Karpacka Brygada Strzelców) _(brigade)_
@@ -174,7 +191,6 @@
 - [x] GERMAN - Deutsches Afrikakorps _(corps)_
 - [x] ITALIAN - XX Mobile Corps _(corps)_
 - [x] ITALIAN - XXI Corpo d'Armata (XXI Corps) _(corps)_
-- [x] BRITISH - Eighth Army (8th Army) _(army)_
 - [x] GERMAN - Panzergruppe Afrika _(army_group)_
 
 ### 1941-Q4 (31 complete)
@@ -311,7 +327,7 @@
 - [x] BRITISH - Eighth Army (8th Army) _(army)_
 - [x] GERMAN - Panzerarmee Afrika _(army)_
 
-### 1942-Q4 (55 complete)
+### 1942-Q4 (54 complete)
 
 - [x] BRITISH - 1st Greek Brigade _(brigade)_
 - [x] FRENCH - Force L _(brigade)_
@@ -364,7 +380,6 @@
 - [x] ITALIAN - X Corps _(corps)_
 - [x] ITALIAN - XX Mobile Corps _(corps)_
 - [x] ITALIAN - XXI Corpo d'Armata (XXI Corps) _(corps)_
-- [x] BRITISH - Eighth Army (8th Army) _(army)_
 - [x] BRITISH - First Army _(army)_
 - [x] GERMAN - 5th Panzer Army _(army)_
 - [x] GERMAN - Panzerarmee Afrika _(army)_
@@ -427,7 +442,7 @@
 - [x] GERMAN - Panzerarmee Afrika _(army)_
 - [x] ITALIAN - First Italian Army _(army)_
 
-### 1943-Q2 (52 complete)
+### 1943-Q2 (51 complete)
 
 - [x] BRITISH - 1st Greek Brigade _(brigade)_
 - [x] FRENCH - Force L _(brigade)_
@@ -478,7 +493,6 @@
 - [x] ITALIAN - XIX Corps _(corps)_
 - [x] ITALIAN - XXI Corpo d'Armata (XXI Corps) _(corps)_
 - [x] BRITISH - Eighth Army (8th Army) _(army)_
-- [x] BRITISH - First Army _(army)_
 - [x] GERMAN - 5th Panzer Army _(army)_
 - [x] ITALIAN - First Italian Army _(army)_
 

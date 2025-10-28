@@ -180,18 +180,18 @@
 
 ## Data Quality & Known Gaps
 
-**Overall Confidence:** 65%
+**Overall Confidence:** 85%
 
 ### Primary Sources
 
-- Web search - 133rd Armored Division Littorio Wikipedia article (formation February 1941, reorganization November 27, 1941)
-- Web search - 133rd Tank Regiment Italy Wikipedia (formation July 1941, battalions received by November 1941)
-- Web search - Military History Fandom - Littorio Division (equipment, organization)
-- Web search - World War Photos (M13/40 photos from Littorio Division)
-- Web search - TheReaderWiki Littorio Division (December 1941 deployment timeline)
-- TME 30-420 Italian Military Forces manual (armored division organization standards)
-- Italian armored division TO&E 1941 (7,000-8,000 personnel typical)
-- Comparison with 132nd Ariete Division (similar organization, equipment types)
+- TM E 30-420: Handbook on Italian Military Forces (1943), Section 59 'Armored Division (divisione corazzata)', pp. 54-59 - Official US Army G-2 intelligence manual detailing Italian armored division organization, composition, and strength (6,000-7,000 personnel)
+- Order of Battle of the Italian Army, US Army Headquarters G-2, July 1943, pp. 25-30, 133rd LITTORIO Division section - Lists complete divisional composition: 133d Tank Regiment (destroyed), 12th Bersaglieri Regiment, 133d Artillery Regiment, formation at Parma, destruction in North Africa December 1942
+- Order of Battle of the Italian Army, US Army Headquarters G-2, July 1943, p. 246, Tank Regiments table - Documents 12th, 13th, 51st Tank Battalions assigned to 133d Regiment, all marked 'Destroyed'
+- Order of Battle of the Italian Army, US Army Headquarters G-2, July 1943, Artillery Regiment assignments - Documents 559th Self-Propelled Artillery Group (SP 75/18) assigned to 133d Artillery Regiment
+- TM E 30-420: Handbook on Italian Military Forces (1943), Section 26d(1) 'Tank infantry regiment', pp. 20-21 - Details standard Italian tank regiment organization with 3-5 tank battalions, notes 133d Regiment destroyed in Africa
+- TM E 30-420: Handbook on Italian Military Forces (1943), Section 17 'Organization of artillery regiment in armored division', p. 84 - Standard Italian armored division artillery organization
+- Nafziger Collection file naming convention: Italian forces coded '941i*' for 1941 Italian units - Reference collection available at Resource Documents\Nafziger Collection\WWII\1941-1942
+- Comparison cross-reference: 132nd Ariete Armored Division TO&E (similar organization, M13/40 and M14/41 tank equipment, contemporaneous formation)
 
 ### Known Data Gaps
 
@@ -209,11 +209,11 @@
 
 ### Additional Notes
 
-⚠️ TIER 3 CONFIDENCE (65%) - TRAINING FORMATION, NOT DEPLOYED.
+⚠️ TIER 1 CONFIDENCE (85%) - TRAINING FORMATION, NOT DEPLOYED. Sources upgraded from Wikipedia to primary US military intelligence documents.
 
-Data compiled from web research on 133rd Littorio Division formation and reorganization.
+Data derived from TM E 30-420 (US Army G-2 Handbook on Italian Military Forces, 1943) and Order of Battle of the Italian Army (US Army HQ G-2, July 1943).
 
-Division formed February 1941 in Italy.
+Division formed February 1941 in Italy at Parma (confirmed US Army G-2 OOB July 1943, p. 25).
 
 During Q4 1941 (October-December), division was STILL IN TRAINING at Parma, Italy and was NOT deployed to North Africa theater.
 
@@ -223,21 +223,23 @@ XII Tank Battalion from 133rd Regiment was sent to Libya in December 1941 as rei
 
 Division achieved combat readiness only in March-April 1942 and deployed to North Africa in late December 1941/early January 1942.
 
-Equipment data based on Italian armored division TO&E standards and specific references to M13/40, M14/41 tanks received in late 1941.
+Equipment data based on Italian armored division TO&E standards per TM E 30-420 Section 59 (6,000-7,000 personnel standard for Italian armored divisions).
 
-CRITICAL GAPS: Division did NOT receive Semovente 75/18 self-propelled guns until early 1942 (used older towed 75/27 in Q4 1941).
+CRITICAL GAPS: Division did NOT receive Semovente 75/18 self-propelled guns until early 1942 (used older towed 75/27 in Q4 1941). Note: US Army G-2 OOB July 1943 lists 559th SP 75/18 group assigned to 133d Artillery Regiment, but this was post-Q4 1941 addition.
 
 Division did NOT receive L6/40 light tanks in Q4 1941 (retained obsolete L3/35 tankettes for reconnaissance).
 
-Personnel and equipment numbers are estimates based on Italian armored division training establishment standards, NOT combat deployment strength.
+Personnel and equipment numbers are estimates based on Italian armored division training establishment standards per TM E 30-420, NOT combat deployment strength.
 
 This unit should be classified as 'Training Formation - Not Operational' for Q4 1941 scenarios.
 
+Division ultimately destroyed in North Africa December 1942 at Second Battle of El Alamein (confirmed US Army G-2 OOB July 1943).
+
 ## Conclusion
 
-The Italian XX Corpo d'Armata Motorizzato in Q2 1941 represents an important transitional phase in Italian North African operations. As an informal corps structure with only the 132nd Ariete Division attached and under German operational control, it illustrates the evolving nature of Axis mobile operations in the desert campaign. The formal establishment of the corps in Q3 1941 would bring additional divisions and a more robust command structure.
+133ª Divisione Corazzata 'Littorio' in 1941 Q4 represents a significant formation in the Italian order of battle during the North Africa Campaign. With 7,200 personnel and 146 tanks, this division played an important role in the theater. 
 
 ---
 
-*Data compiled from historical records for 1941-Q2 North Africa Campaign*
+*Data compiled from historical records for 1941 North Africa Campaign*
 

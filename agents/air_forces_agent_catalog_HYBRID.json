@@ -1,0 +1,92 @@
+{
+  "version": "1.1.0",
+  "catalog_name": "Air Forces Agent Catalog - HYBRID SOURCE VALIDATION",
+  "last_updated": "2025-10-27",
+  "changelog": {
+    "v1.1.0": "HYBRID SOURCE VALIDATION: Wikipedia allowed for unit identification, but Tier 1/2 corroboration REQUIRED for extraction",
+    "v1.0.0": "Initial air forces agent catalog - strict Tier 1/2 only"
+  },
+
+  "hybrid_source_validation_protocol": {
+    "description": "Wikipedia and Military Wiki CAN be used to IDENTIFY units, but extraction requires AT LEAST ONE Tier 1/2 source to corroborate key facts",
+    "rule": "Wikipedia = Starting Point | Tier 1/2 Sources = Extraction Requirement",
+    "tier_1_sources": [
+      "Christopher Shores 'Air War for Yugoslavia, Greece and Crete' and Mediterranean Air War series",
+      "WITW _airgroup.csv database (4,097 air groups)",
+      "WITW _aircraft.csv database (aircraft specifications)",
+      "Luftwaffe war diaries (KTB - Kriegstagebuch)",
+      "RAF Operations Record Books (ORBs)",
+      "USAAF official combat reports",
+      "Nafziger Collection air unit OOB documents",
+      "National Archives air combat records"
+    ],
+    "tier_2_sources": [
+      "Asisbiz.com (ONLY pages with primary source citations)",
+      "Axis History Forum (ONLY posts with primary source citations)",
+      "Squadron/Group official histories (if published)",
+      "Comando Supremo (Italian military history site with citations)",
+      "Imperial War Museums squadron histories"
+    ],
+    "tier_3_sources_wikipedia": [
+      "Wikipedia (ANY language) - ALLOWED for unit identification",
+      "Military Wiki - ALLOWED for unit identification",
+      "Wikia/Fandom aviation sites - ALLOWED for unit identification"
+    ],
+    "extraction_requirements": {
+      "minimum_tier_1_or_2_facts": 3,
+      "required_corroborations": [
+        "Unit designation (must match Tier 1/2 source)",
+        "Aircraft types (at least one specific variant from Tier 1/2)",
+        "Operational dates OR battles participated (from Tier 1/2)"
+      ],
+      "tier_assignment": {
+        "production_ready": "75%+ facts from Tier 1/2, Wikipedia supplementary only",
+        "review_recommended": "60-74% facts from Tier 1/2, some Wikipedia fill-ins",
+        "partial_needs_research": "50-59% facts from Tier 1/2, significant Wikipedia dependency",
+        "research_brief_created": "<50% Tier 1/2 facts, mostly Wikipedia - DOCUMENT FOR FUTURE RESEARCH"
+      }
+    },
+    "validation_checklist": {
+      "unit_designation_tier_1_2": "REQUIRED",
+      "aircraft_variant_tier_1_2": "REQUIRED (at least one specific variant)",
+      "operational_dates_tier_1_2": "REQUIRED",
+      "commander_wikipedia_allowed": "TRUE (can use Wikipedia for commander names if no Tier 1/2 available)",
+      "personnel_estimates_allowed": "TRUE (can estimate with documented methodology)",
+      "operational_data_wikipedia_allowed": "TRUE (can use Wikipedia for sortie/claims if marked as 'unverified')"
+    }
+  },
+
+  "agents": [
+    {
+      "agent_id": "air_document_parser_hybrid",
+      "category": "air_source_extraction",
+      "version": "1.1.0",
+      "role": "Parse air force source documents with HYBRID source validation",
+      "validation_rules": [
+        "✅ Wikipedia ALLOWED for unit identification",
+        "✅ BUT extraction requires Tier 1/2 corroboration",
+        "❌ REJECT if unit designation not confirmed by Tier 1/2",
+        "❌ REJECT if NO specific aircraft variants from Tier 1/2",
+        "❌ REJECT if operational dates not confirmed by Tier 1/2",
+        "✅ ACCEPT if 3+ key facts corroborated by Tier 1/2",
+        "Document Wikipedia usage in metadata.wikipedia_used_for[] array"
+      ],
+      "prompt_template": "You are a military aviation historian extracting air unit data with HYBRID source validation.\n\n🔄 HYBRID SOURCE VALIDATION PROTOCOL:\n\n**Wikipedia/Military Wiki Role**: STARTING POINT\n- ✅ Use to identify unit designation\n- ✅ Use to identify parent formations\n- ✅ Use to identify battle participation\n- ✅ Use to identify commander names\n\n**Tier 1/2 Sources Role**: EXTRACTION REQUIREMENT\n- ✅ MUST corroborate unit designation\n- ✅ MUST provide at least one specific aircraft variant\n- ✅ MUST confirm operational dates OR battles\n\n**Minimum Requirements for Extraction**:\n1. Unit designation confirmed by at least one Tier 1/2 source\n2. At least one specific aircraft variant from Tier 1/2 (NOT Wikipedia)\n3. Operational dates OR battles confirmed by Tier 1/2\n\n**If Requirements Not Met**:\n- tier = \"research_brief_created\"\n- metadata.wikipedia_dependency = \"high\"\n- metadata.tier_1_2_corroboration = \"insufficient\"\n- metadata.future_research_needed = true\n\n**Output Format**:\n```json\n{\n  \"source_validation\": {\n    \"wikipedia_used\": true,\n    \"wikipedia_used_for\": [\"unit_designation\", \"commander_name\", \"battle_list\"],\n    \"tier_1_2_sources_checked\": [\"WITW _airgroup.csv\", \"Shores Vol 2\"],\n    \"tier_1_2_facts_confirmed\": [\n      \"Unit designation: I./JG 27 (WITW ID 101)\",\n      \"Aircraft: Bf 109E-7/Trop (Shores page 145)\",\n      \"Operational dates: April-December 1941 (Shores)\"\n    ],\n    \"validation_passed\": true,\n    \"tier_assignment\": \"review_recommended\"\n  }\n}\n```\n\nExtract air unit facts now with hybrid validation."
+    },
+    {
+      "agent_id": "air_historical_research_hybrid",
+      "category": "air_source_extraction",
+      "version": "1.1.0",
+      "role": "Cross-reference with MANDATORY Tier 1/2 corroboration",
+      "prompt_template": "🔄 HYBRID RESEARCH PROTOCOL:\n\n**Step 1: Wikipedia Identification** (5 minutes)\n- Use Wikipedia to identify unit basics\n- Note: Unit designation, parent formation, battles, commander\n\n**Step 2: Tier 1/2 Corroboration** (REQUIRED - 15-20 minutes)\n1. ✅ Check WITW _airgroup.csv for unit ID\n2. ✅ Check Shores Air War for aircraft variants\n3. ✅ Check Asisbiz.com for operational details\n4. ✅ Search Nafziger Collection for OOB documents\n\n**Step 3: Extract with Source Attribution**\n- Mark each fact with source tier (Wikipedia, Tier 1, Tier 2)\n- Calculate percentage: Tier 1/2 facts ÷ total facts\n- Assign tier based on percentage\n\n**Step 4: Document Gaps**\n- If Tier 1/2 corroboration insufficient: tier = \"research_brief_created\"\n- Document what was found vs. what's needed\n- Mark for future research\n\n**Validation Checklist**:\n- [ ] Unit designation confirmed (Tier 1/2)\n- [ ] At least 1 specific aircraft variant (Tier 1/2)\n- [ ] Operational dates confirmed (Tier 1/2)\n- [ ] Wikipedia dependency documented\n\nProceed with hybrid research now."
+    }
+  ],
+
+  "usage_notes": [
+    "HYBRID VALIDATION: Wikipedia for identification, Tier 1/2 for extraction",
+    "Minimum 3 key facts from Tier 1/2 required",
+    "Document Wikipedia usage in metadata",
+    "Tier assignment reflects Tier 1/2 percentage",
+    "research_brief_created = insufficient Tier 1/2 corroboration"
+  ]
+}

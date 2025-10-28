@@ -23,7 +23,7 @@
       "enlisted": 1200
     }
   },
-  "total_personnel": 96000,
+  "total_personnel": 50500,
   "officers": 4200,
   "ncos": 18600,
   "enlisted": 73200,
@@ -50,57 +50,55 @@
   },
   "ground_vehicles_total": 12500,
   "tanks": {
-    "total": 320,
-    "operational": 220,
+    "total": 229,
+    "operational": 183,
     "heavy_tanks": {
       "total": 0,
       "variants": {}
     },
     "medium_tanks": {
-      "total": 285,
+      "total": 183,
       "variants": {
-        "Pz.Kpfw.III Ausf H/J (5cm L/42)": {
-          "count": 145,
-          "operational": 98,
-          "witw_id": "GER_PZ3J",
-          "armament": "5cm KwK 38 L/42",
-          "armor_mm": 50,
-          "notes": "Combination of Ausf H and J variants in both panzer divisions"
+        "Pz.Kpfw. III Ausf. J/L (5cm L/60)": {
+          "count": 100,
+          "operational": 82,
+          "witw_id": "#1028",
+          "notes": "Long-barrel 50mm gun, up-gunned 'Special' variant, effective anti-tank weapon"
         },
-        "Pz.Kpfw.III Ausf L (5cm L/60)": {
-          "count": 52,
-          "operational": 38,
-          "witw_id": "GER_PZ3L",
-          "armament": "5cm KwK 39 L/60",
-          "armor_mm": 50
+        "Pz.Kpfw. III Ausf. J (5cm L/42)": {
+          "count": 34,
+          "operational": 28,
+          "witw_id": "#1027",
+          "notes": "Short-barrel 50mm gun, standard variant"
         },
-        "Pz.Kpfw.IV Ausf F1 (7.5cm L/24)": {
-          "count": 38,
-          "operational": 25,
-          "witw_id": "GER_PZ4F1",
-          "armament": "7.5cm KwK 37 L/24",
-          "armor_mm": 50
+        "Pz.Kpfw. IV Ausf. F2/G (7.5cm L/43)": {
+          "count": 27,
+          "operational": 24,
+          "witw_id": "#1031",
+          "notes": "Long-barrel 75mm gun, critical for engaging British Grant and Sherman tanks at long range"
         },
-        "Pz.Kpfw.IV Ausf F2/G (7.5cm L/43)": {
-          "count": 50,
-          "operational": 42,
-          "witw_id": "GER_PZ4F2",
-          "armament": "7.5cm KwK 40 L/43",
-          "armor_mm": 50,
-          "notes": "New long-barreled variants increasingly replacing F1 models. Critical for engaging British Grant and Sherman tanks"
+        "Pz.Kpfw. IV Ausf. F1 (7.5cm L/24)": {
+          "count": 22,
+          "operational": 18,
+          "witw_id": "#1030",
+          "notes": "Short-barrel 75mm gun, infantry support role"
         }
       }
     },
     "light_tanks": {
-      "total": 35,
+      "total": 46,
       "variants": {
-        "Pz.Kpfw.II Ausf F": {
-          "count": 35,
-          "operational": 22,
-          "witw_id": "GER_PZ2F",
-          "armament": "2cm KwK 30",
-          "armor_mm": 35,
-          "notes": "Increasingly relegated to reconnaissance role"
+        "Pz.Kpfw. II Ausf. F": {
+          "count": 34,
+          "operational": 28,
+          "witw_id": "#1025",
+          "notes": "Reconnaissance and screening role"
+        },
+        "Pz.Kpfw. II (Flamm)": {
+          "count": 12,
+          "operational": 10,
+          "witw_id": "#1026",
+          "notes": "Flamethrower variant for bunker clearing"
         }
       }
     }
@@ -281,10 +279,11 @@
       "unit_designation": "Deutsches Afrikakorps (DAK)",
       "unit_type": "Panzer Corps",
       "commander": "Generalleutnant Walther Nehring (until Sept 1942, wounded in air raid)",
-      "strength": 22500,
+      "strength": 50500,
       "equipment_summary": "15. Panzer-Division, 21. Panzer-Division. Approximately 220 tanks operational (from 320 total). 95 armored cars, 480 halftracks",
-      "reference_file": "germany_1942q3_deutsches_afrikakorps_toe.json",
-      "notes": "Core German armored striking force. Severely weakened by July battles at First El Alamein. Nehring wounded in air raid Sept 1942, replaced by von Thoma"
+      "reference_file": "german_1942q3_deutsches_afrikakorps_toe.json",
+      "notes": "Core German armored striking force. Severely weakened by July battles at First El Alamein. Nehring wounded in air raid Sept 1942, replaced by von Thoma",
+      "tanks": 229
     },
     {
       "unit_designation": "15. Panzer-Division",
@@ -503,5 +502,8 @@
       "Italian divisions formed roughly 60% of personnel but German units held all armored/mobile assets",
       "This data reflects aggregate theater-level strength. Individual division TO&Es available in subordinate unit files"
     ]
-  }
+  },
+  "aggregation_status": "calculated_from_subordinates",
+  "aggregation_date": "2025-10-28T02:56:34.458Z",
+  "aggregation_notes": "Aggregated from 1 subordinate units. Previous totals: 50500 personnel, 229 tanks."
 }

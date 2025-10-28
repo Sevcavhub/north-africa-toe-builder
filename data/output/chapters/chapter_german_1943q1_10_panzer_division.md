@@ -190,9 +190,9 @@ Upgraded to schema v3.1.0 for consistency
 
 ## Conclusion
 
-The Italian XX Corpo d'Armata Motorizzato in Q2 1941 represents an important transitional phase in Italian North African operations. As an informal corps structure with only the 132nd Ariete Division attached and under German operational control, it illustrates the evolving nature of Axis mobile operations in the desert campaign. The formal establishment of the corps in Q3 1941 would bring additional divisions and a more robust command structure.
+10. Panzer-Division in 1943 Q1 represents a significant formation in the German order of battle during the North Africa Campaign. With 12,800 personnel and 70 tanks, this division played an important role in the theater. 
 
 ---
 
-*Data compiled from historical records for 1941-Q2 North Africa Campaign*
+*Data compiled from historical records for 1943 North Africa Campaign*
 

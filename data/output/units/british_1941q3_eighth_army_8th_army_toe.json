@@ -28,7 +28,7 @@
       "enlisted": 680
     }
   },
-  "total_personnel": 82865,
+  "total_personnel": 81650,
   "officers": 3815,
   "ncos": 12025,
   "enlisted": 67025,
@@ -54,80 +54,39 @@
   ],
   "ground_vehicles_total": 16939,
   "tanks": {
-    "total": 302,
-    "operational": 274,
+    "total": 130,
+    "operational": 118,
     "heavy_tanks": {
       "total": 52,
-      "operational": 48,
-      "variants": {
-        "Matilda II Infantry Tank": {
-          "count": 52,
-          "operational": 48,
-          "witw_id": "UK_TANK_MATILDA_II",
-          "notes": "XXX Corps (7th Armoured Division - 4th Armoured Brigade). Reduced from Operation Battleaxe losses."
-        }
-      }
+      "variants": {},
+      "operational": 48
     },
     "medium_tanks": {
       "total": 108,
-      "operational": 96,
-      "variants": {
-        "Crusader Mk I": {
-          "count": 44,
-          "operational": 38,
-          "witw_id": "UK_TANK_CRUSADER_I",
-          "notes": "XXX Corps (7th Armoured Division - 7th Armoured Brigade). New equipment, first major deployment."
-        },
-        "Crusader Mk II": {
-          "count": 22,
-          "operational": 20,
-          "witw_id": "UK_TANK_CRUSADER_II",
-          "notes": "XXX Corps (7th Armoured Division - 7th Armoured Brigade)."
-        },
-        "A13 Mk II Cruiser Mk IV": {
-          "count": 18,
-          "operational": 18,
-          "witw_id": "UK_TANK_CRUISER_A13",
-          "notes": "XXX Corps (7th Armoured Division - 7th Armoured Brigade)."
-        },
-        "A10 Cruiser Mk II": {
-          "count": 14,
-          "operational": 14,
-          "witw_id": "UK_TANK_CRUISER_A10",
-          "notes": "XXX Corps (7th Armoured Division)."
-        },
-        "A9 Cruiser Mk I": {
-          "count": 10,
-          "operational": 10,
-          "witw_id": "UK_TANK_CRUISER_A9",
-          "notes": "XXX Corps (7th Armoured Division)."
-        }
-      }
+      "variants": {},
+      "operational": 96
     },
     "light_tanks": {
       "total": 142,
       "operational": 130,
       "variants": {
-        "Matilda II Infantry Tank (XIII Corps)": {
+        "Matilda II Infantry Tank": {
           "count": 98,
           "operational": 92,
-          "witw_id": "UK_TANK_MATILDA_II",
-          "notes": "XIII Corps (1st Army Tank Brigade - 42nd RTR). Primary infantry support tank."
+          "witw_id": "uk_tank_matilda_ii",
+          "unit": "1st Army Tank Brigade (42nd RTR)",
+          "notes": "Primary infantry support tank"
         },
         "Valentine II/IV Infantry Tank": {
           "count": 32,
           "operational": 26,
-          "witw_id": "UK_TANK_VALENTINE_II",
-          "notes": "XIII Corps (1st Army Tank Brigade - 8th RTR). New equipment, combat debut at Operation Crusader."
-        },
-        "Stuart M3 'Honey'": {
-          "count": 12,
-          "operational": 12,
-          "witw_id": "US_TANK_STUART_M3",
-          "notes": "XXX Corps (7th Armoured Division). First American tanks arriving Q3 1941, small numbers."
+          "witw_id": "uk_tank_valentine_ii",
+          "unit": "1st Army Tank Brigade (8th RTR)",
+          "notes": "New equipment, combat debut at Crusader"
         }
       }
-    }
+    },
+    "notes": "1st Army Tank Brigade attached to XIII Corps. 130 infantry tanks total, mostly Matildas with some Valentines."
   },
   "armored_cars": {
     "total": 227,
@@ -351,7 +310,8 @@
       "strength": 45000,
       "reference_file": "british_1941q3_xiii_corps_toe.json",
       "composition": "2nd New Zealand Division, 4th Indian Division (arrived late Q3), 1st Army Tank Brigade (Matilda/Valentine infantry tanks), corps troops",
-      "notes": "Infantry-heavy corps. Previously Western Desert Force (redesignated 1 September 1941). Experienced desert fighters. Assigned to southern flank for Operation Crusader."
+      "notes": "Infantry-heavy corps. Previously Western Desert Force (redesignated 1 September 1941). Experienced desert fighters. Assigned to southern flank for Operation Crusader.",
+      "tanks": 130
     },
     {
       "unit_designation": "XXX Corps",
@@ -360,7 +320,8 @@
       "strength": 36650,
       "reference_file": "british_1941q3_xxx_corps_toe.json",
       "composition": "7th Armoured Division (Desert Rats), 1st South African Division, 22nd Guards Brigade, corps troops",
-      "notes": "Armoured strike corps. Formed August 1941. 7th Armoured Division rebuilt after Battleaxe with new Crusader tanks. Assigned to main armoured thrust for Operation Crusader. Commander Pope killed in air crash 5 October (Q4), succeeded by Lt-Gen Willoughby Norrie."
+      "notes": "Armoured strike corps. Formed August 1941. 7th Armoured Division rebuilt after Battleaxe with new Crusader tanks. Assigned to main armoured thrust for Operation Crusader. Commander Pope killed in air crash 5 October (Q4), succeeded by Lt-Gen Willoughby Norrie.",
+      "tanks": 172
     },
     {
       "unit_designation": "Tobruk Garrison (attached)",
@@ -491,5 +452,8 @@
         "British Army Lists October 1941 - UK Ministry of Defence official records"
       ]
     }
-  }
+  },
+  "aggregation_status": "calculated_from_subordinates",
+  "aggregation_date": "2025-10-28T02:56:34.423Z",
+  "aggregation_notes": "Aggregated from 2 subordinate units. Previous totals: 81650 personnel, 130 tanks."
 }

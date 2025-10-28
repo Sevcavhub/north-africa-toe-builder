@@ -1,0 +1,215 @@
+{
+  "unit_identifier": {
+    "unit_name": "No. 94 Squadron SAAF",
+    "nation": "british",
+    "formation_type": "fighter_squadron",
+    "quarter": "1942q4",
+    "parent_formation": "Desert Air Force",
+    "data_tier": "research_brief_created",
+    "tier_percentage": 0
+  },
+  "metadata": {
+    "extraction_date": "2025-10-27",
+    "schema_version": "3.1.0",
+    "extraction_phase": "Phase 7: Air Forces",
+    "extraction_type": "air_unit_hybrid_validation",
+    "data_quality": {
+      "tier": "tier_4",
+      "tier_percentage": 0,
+      "tier_rationale": "CRITICAL FINDING: No. 94 Squadron SAAF does not appear to have existed. Extensive research across authoritative sources (historyofwar.org SAAF squadron index, Wikipedia, SAAF official sources) confirms no SAAF squadron numbered 94. No. 94 Squadron RAF existed and operated in North Africa, but was Royal Air Force, not South African Air Force. Seed file entry appears to be based on Wikipedia Desert Air Force article error that incorrectly listed 'No. 94 Squadron SAAF' in Nov 1941 order of battle.",
+      "confidence_level": 0,
+      "confidence_rationale": "Unit existence cannot be confirmed",
+      "primary_sources_used": 0,
+      "secondary_sources_used": 8,
+      "estimated_completeness": "0% - unit does not exist"
+    },
+    "extractor": "Claude Code (AIR FORCES extraction specialist)",
+    "validation_notes": "Research brief created instead of extraction due to unit non-existence"
+  },
+  "research_brief": {
+    "issue_type": "unit_non_existence",
+    "severity": "critical",
+    "summary": "No. 94 Squadron SAAF does not appear to have existed as a South African Air Force unit during World War 2",
+    "detailed_findings": {
+      "authoritative_sources_consulted": [
+        "historyofwar.org Subject Index: SAAF Squadrons, Second World War - Lists squadrons 1, 2, 3, 4, 5, 7, 9, 10, 11, 12, 15, 16, 17, 18, 19, 21, 22, 23, 24, 25, 26, 27, 28, 30, 31, 32, 34, 40, 41, 43, 44, 50, and 60. NO squadron 94.",
+        "Wikipedia: List of squadrons of the South African Air Force - No squadron 94 mentioned",
+        "Wikipedia: South African Air Force - No squadron 94 in WWII section",
+        "Wikipedia: History of the South African Air Force - No squadron 94 mentioned",
+        "DefenceWeb: SAAF Squadrons present and past - No squadron 94 listed",
+        "Wikipedia: Desert Air Force - Lists SAAF squadrons 1, 2, 4, 5, 7, 12, 21, 24, 40, 60 in Oct 1942 order of battle. NO squadron 94 in late 1942.",
+        "No. 94 Squadron RAF History - Confirms No. 94 Squadron was RAF, operated Hurricanes/Kittyhawks in North Africa",
+        "Multiple web searches for 'No. 94 Squadron SAAF' returned zero results"
+      ],
+      "likely_explanation": "The seed file entry appears to be based on an error in the Wikipedia Desert Air Force article, which listed 'No. 94 Squadron SAAF (Hurricanes)' in the 262 Wing section of a November 1941 organizational chart. However, this is contradicted by all other authoritative sources. No. 94 Squadron RAF (Royal Air Force) did exist and operated in North Africa with Hurricanes, but was NOT a South African Air Force unit.",
+      "actual_unit_confusion": {
+        "no_94_squadron_raf": {
+          "status": "confirmed_existed",
+          "nation": "british_raf",
+          "aircraft_1942q4": "Hawker Hurricane IIC",
+          "operations": "Converted from Kittyhawks back to Hurricanes in May 1942. Flew defensive patrols through El Alamein period. Not SAAF.",
+          "source": "historyofwar.org No. 94 Squadron RAF"
+        },
+        "no_30_squadron_saaf": {
+          "status": "existed_but_formed_1944",
+          "formation": "Formed 12 August 1944 from RAF No. 223 Squadron at Pescara, Italy",
+          "aircraft": "Martin Marauder (not Hurricane)",
+          "note": "Seed file states '94 Squadron SAAF later became 30 Squadron SAAF' but 30 Squadron was formed from RAF 223 Squadron, NOT from a squadron 94",
+          "source": "Wikipedia: 30 Squadron SAAF"
+        }
+      },
+      "search_queries_attempted": [
+        "No. 94 Squadron SAAF South African Air Force 1942 El Alamein Tunisia aircraft",
+        "94 Squadron SAAF 1942 Kittyhawk P-40 Desert Air Force",
+        "South African Air Force squadrons North Africa 1942 equipment organization",
+        "No. 94 Squadron SAAF OR 94 Squadron South African 1942 1943",
+        "complete list SAAF squadrons World War 2 numbers 1 2 3 4 5 94",
+        "No. 94 Squadron RAF NOT SAAF 1942 North Africa Hurricane Kittyhawk",
+        "94 Squadron SAAF -RAF 1941 1942 1943",
+        "South African Air Force squadron 94 history formation disbanded",
+        "30 Squadron SAAF 94 Squadron renamed history 1942",
+        "SAAF squadron 94 30 Baltimore light bomber 1942 redesignation"
+      ],
+      "zero_results_searches": [
+        "94 Squadron SAAF -RAF 1941 1942 1943",
+        "30 Squadron SAAF 94 Squadron renamed history 1942",
+        "No. 30 Squadron SAAF Baltimore bomber 1942 formation history"
+      ]
+    },
+    "recommendations": {
+      "immediate": "Remove No. 94 Squadron SAAF from air units seed file (north_africa_air_units_seed_COMPLETE.json)",
+      "verification": "Cross-check all seed file entries against authoritative squadron indexes (historyofwar.org, official air force histories) before extraction",
+      "data_correction": "If Hurricane fighter squadron coverage desired for 1942 Q4, consider adding legitimate SAAF squadrons that operated Hurricanes: No. 1 Squadron SAAF, No. 40 Squadron SAAF (if they operated Hurricanes during this period)",
+      "alternative_units": [
+        "No. 1 Squadron SAAF - Operated Hurricanes, part of Desert Air Force",
+        "No. 2 Squadron SAAF - Operated Kittyhawks, confirmed in 1942 Q4",
+        "No. 4 Squadron SAAF - Operated Kittyhawks, confirmed in 1942 Q4",
+        "No. 5 Squadron SAAF - Operated Tomahawks/Kittyhawks, confirmed in 1942 Q4",
+        "No. 7 Squadron SAAF - Operated anti-tank Hurricanes, confirmed in 1942 Q4"
+      ]
+    },
+    "seed_file_correction_needed": {
+      "current_entry": {
+        "designation": "No. 94 Squadron SAAF",
+        "nation": "south_african",
+        "aircraft_type": "Hawker Hurricane",
+        "type": "fighter_squadron",
+        "parent_formation": "Desert Air Force",
+        "quarters": ["1942-Q2", "1942-Q3", "1942-Q4", "1943-Q1", "1943-Q2"],
+        "battles": ["El Alamein", "Tunisia"],
+        "confidence": 75,
+        "notes": "Returned to operational light bomber duties May 1942 with Baltimore, supporting Eighth Army. Later became 30 Squadron SAAF"
+      },
+      "errors_identified": [
+        "Unit designation: No. 94 Squadron SAAF does not exist",
+        "Nation: If referring to RAF squadron, should be 'british' not 'south_african'",
+        "Aircraft type: Notes mention Baltimore light bomber, but entry lists Hurricane fighter - inconsistent",
+        "Squadron 30 SAAF connection: 30 Squadron formed from RAF 223 Squadron in 1944, not from squadron 94",
+        "Source attribution: Wikipedia Desert Air Force article contains error"
+      ],
+      "proposed_action": "DELETE this entry from seed file and replace with verified SAAF fighter squadrons if Hurricane coverage needed"
+    }
+  },
+  "sources_consulted": {
+    "tier_1_sources": [],
+    "tier_2_sources": [
+      {
+        "title": "Subject Index: SAAF Squadrons, Second World War",
+        "type": "military_history_index",
+        "url": "http://www.historyofwar.org/subject_SAAF_units.html",
+        "relevance": "authoritative",
+        "key_finding": "Comprehensive SAAF squadron index lists no squadron 94"
+      },
+      {
+        "title": "No. 94 Squadron (RAF) during the Second World War",
+        "type": "unit_history",
+        "url": "http://www.historyofwar.org/air/units/RAF/94_wwII.html",
+        "relevance": "critical",
+        "key_finding": "No. 94 Squadron was Royal Air Force, not SAAF. Operated Hurricanes in North Africa 1942."
+      },
+      {
+        "title": "List of squadrons of the South African Air Force - Wikipedia",
+        "type": "reference",
+        "url": "https://en.wikipedia.org/wiki/List_of_squadrons_of_the_South_African_Air_Force",
+        "relevance": "authoritative",
+        "key_finding": "No squadron 94 listed in any era"
+      },
+      {
+        "title": "30 Squadron SAAF - Wikipedia",
+        "type": "unit_history",
+        "url": "https://en.wikipedia.org/wiki/30_Squadron_SAAF",
+        "relevance": "high",
+        "key_finding": "Formed from RAF 223 Squadron in Aug 1944, not from squadron 94"
+      },
+      {
+        "title": "Desert Air Force - Wikipedia",
+        "type": "formation_history",
+        "url": "https://en.wikipedia.org/wiki/Desert_Air_Force",
+        "relevance": "high",
+        "key_finding": "Nov 1941 chart lists 'No. 94 Squadron SAAF' but Oct 1942 order of battle has no SAAF squadron 94. Likely error in Nov 1941 chart."
+      },
+      {
+        "title": "2 Squadron SAAF - Wikipedia",
+        "type": "unit_history",
+        "url": "https://en.wikipedia.org/wiki/2_Squadron_SAAF",
+        "relevance": "contextual",
+        "key_finding": "Received Kittyhawks from RAF 94 Squadron in May 1942, confirming 94 was RAF"
+      },
+      {
+        "title": "History of the South African Air Force - Wikipedia",
+        "type": "service_history",
+        "url": "https://en.wikipedia.org/wiki/History_of_the_South_African_Air_Force",
+        "relevance": "authoritative",
+        "key_finding": "No mention of squadron 94 in WWII sections"
+      },
+      {
+        "title": "SAAF Squadrons – present and past (DefenceWeb)",
+        "type": "official_reference",
+        "url": "https://www.defenceweb.co.za/wp-content/uploads/Repository/A-Guide-to-the-SANDF/A-guide-to-the-SANDF-chapter-10-saaf-app-b-squadrons.pdf",
+        "relevance": "authoritative",
+        "key_finding": "No squadron 94 in comprehensive listing"
+      }
+    ],
+    "wikipedia_sources": [
+      {
+        "title": "Desert Air Force",
+        "note": "Contains apparent error listing 'No. 94 Squadron SAAF' in Nov 1941 organizational chart"
+      }
+    ]
+  },
+  "validation": {
+    "schema_version": "3.1.0",
+    "validation_status": "tier_4_research_brief",
+    "critical_issues": [
+      {
+        "type": "unit_non_existence",
+        "severity": "critical",
+        "description": "No. 94 Squadron SAAF does not appear to have existed. All authoritative sources confirm no SAAF squadron numbered 94.",
+        "impact": "Cannot extract non-existent unit",
+        "resolution": "Research brief created. Seed file correction required."
+      }
+    ],
+    "required_field_gaps": [
+      "unit_structure",
+      "personnel",
+      "aircraft_inventory",
+      "equipment",
+      "operational_history",
+      "supply_logistics",
+      "weather_environment",
+      "combat_record",
+      "leadership"
+    ],
+    "gap_documentation": {
+      "unit_structure": "Unit does not exist - no organizational data available",
+      "personnel": "Unit does not exist - no personnel data available",
+      "aircraft_inventory": "Unit does not exist - no aircraft data available",
+      "equipment": "Unit does not exist - no equipment data available",
+      "operational_history": "Unit does not exist - no operational data available",
+      "supply_logistics": "Unit does not exist - no logistics data available",
+      "weather_environment": "Unit does not exist - no environmental data available",
+      "combat_record": "Unit does not exist - no combat data available",
+      "leadership": "Unit does not exist - no leadership data available"
+    }
+  }
+}

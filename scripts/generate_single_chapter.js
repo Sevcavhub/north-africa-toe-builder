@@ -499,14 +499,57 @@ function generateChapterFromData(data) {
 
   // Section 16: Conclusion
   chapter += `## Conclusion\n\n`;
-  chapter += `The Italian XX Corpo d'Armata Motorizzato in Q2 1941 represents an important transitional phase in Italian North African operations. `;
-  chapter += `As an informal corps structure with only the 132nd Ariete Division attached and under German operational control, it illustrates `;
-  chapter += `the evolving nature of Axis mobile operations in the desert campaign. The formal establishment of the corps in Q3 1941 would bring `;
-  chapter += `additional divisions and a more robust command structure.\n\n`;
+
+  // Generate dynamic conclusion based on unit data
+  if (data.conclusion) {
+    chapter += `${data.conclusion}\n\n`;
+  } else {
+    // Generate generic conclusion from unit data
+    const nationName = nation.charAt(0).toUpperCase() + nation.slice(1);
+    const yearQuarter = quarter.replace('q', ' Q');
+    chapter += `${unitDesignation} in ${yearQuarter} represents `;
+
+    if (data.organization_level === 'division') {
+      chapter += `a significant formation in the ${nationName} order of battle during the North Africa Campaign. `;
+      if (data.total_personnel) {
+        chapter += `With ${formatNumber(data.total_personnel)} personnel `;
+        if (data.tanks && data.tanks.total > 0) {
+          chapter += `and ${data.tanks.total} tanks, `;
+        }
+        chapter += `this division played an important role in the theater. `;
+      }
+    } else if (data.organization_level === 'corps') {
+      chapter += `a critical corps-level formation coordinating multiple divisions. `;
+      if (data.subordinate_units && data.subordinate_units.length > 0) {
+        chapter += `Commanding ${data.subordinate_units.length} subordinate units `;
+        if (data.total_personnel) {
+          chapter += `totaling ${formatNumber(data.total_personnel)} personnel, `;
+        }
+        chapter += `this corps formed a major component of ${nationName} operations. `;
+      }
+    } else if (data.organization_level === 'army' || data.organization_level === 'theater') {
+      chapter += `the highest operational formation in this sector. `;
+      if (data.subordinate_units && data.subordinate_units.length > 0) {
+        chapter += `Controlling ${data.subordinate_units.length} subordinate formations `;
+        if (data.total_personnel) {
+          chapter += `with combined strength of ${formatNumber(data.total_personnel)} personnel, `;
+        }
+        chapter += `this army directed major operations in the North Africa theater. `;
+      }
+    } else {
+      chapter += `an important formation in ${nationName} North African operations. `;
+    }
+
+    if (data.validation && data.validation.overall_confidence) {
+      chapter += `Data confidence: ${data.validation.overall_confidence}%.`;
+    }
+    chapter += `\n\n`;
+  }
 
   // Footer
   chapter += `---\n\n`;
-  chapter += `*Data compiled from historical records for 1941-Q2 North Africa Campaign*\n\n`;
+  const yearOnly = quarter.substring(0, 4);
+  chapter += `*Data compiled from historical records for ${yearOnly} North Africa Campaign*\n\n`;
 
   return chapter;
 }

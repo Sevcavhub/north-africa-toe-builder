@@ -1,20 +1,29 @@
-# Session Checkpoint - 2025-10-27T04:35:34.446Z
+# Session Checkpoint - 2025-10-28T13:12:19.291Z
 
 ## Progress Summary
 
-- **Total Unit-Quarters:** 411
-- **Completed:** 402 (97.8%)
-- **Remaining:** 9
-- **Last Commit:** e0844e9
+- **Total Unit-Quarters:** 402
+- **Completed:** 402 (100.0%)
+- **Remaining:** 0
+- **Last Commit:** ce3801e
 
 ## Validation Status
 
 - **Total Validated:** 402
 - **✅ Passed:** 0 (0.0%)
-- **❌ Failed:** 0 ✅
-- **⚠️ Warnings:** 402
+- **❌ Failed:** 3 ⚠️
+- **⚠️ Warnings:** 399
 
-**All units passed validation** ✅
+### Critical Validation Failures
+
+**british_1941q3_eighth_army_8th_army:**
+  - ❌ Tank total mismatch: total=130 but heavy+medium+light=302
+
+**british_1942q4_eighth_army_8th_army:**
+  - ❌ Tank total mismatch: total=172 but heavy+medium+light=336
+
+**british_1943q2_first_army:**
+  - ❌ Tank total mismatch: total=165 but heavy+medium+light=973
 
 ## Chapter Status
 
@@ -51,8 +60,8 @@ If this session crashes or needs to resume:
 ## Session Info
 
 - **Session ID:** undefined
-- **Checkpoint Time:** 2025-10-27T04:35:34.350Z
-- **Git Commit:** e0844e9
+- **Checkpoint Time:** 2025-10-28T13:12:19.191Z
+- **Git Commit:** ce3801e
 
 ---
 

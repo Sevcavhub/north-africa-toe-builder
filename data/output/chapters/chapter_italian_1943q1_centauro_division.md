@@ -234,31 +234,29 @@
 
 ## Data Quality & Known Gaps
 
-**Overall Confidence:** 78%
+**Overall Confidence:** 88%
 
 ### Primary Sources
 
-- Order of Battle of the Italian Army - USA HQ G2 July 1943 (PRIMARY SOURCE)
-- Giorgio Carlo Calvi di Bergolo commander 1 March 1942 - 7 April 1943, led division at Kasserine Pass and El Guettar (Tier 2, 88% confidence) - Italian Wikipedia, Italian military history records
-- TM E 30-420 Italian Military Forces 1943 organizational structure
-- Wikipedia: 131st Armored Division Centauro historical record
-- Italian Army Lists and organizational documentation
-- North Africa Campaign historical records
+- US Army G-2 Military Intelligence - Order of Battle of the Italian Army, July 1943 (PRIMARY SOURCE - 95% confidence) - D:\north-africa-toe-builder\Resource Documents\Order-of-battle-of-the-Italian-Army-USA-HQ-G2-July-1943.txt - Official US War Department military intelligence document. Division composition, unit designations, home stations, North Africa deployment history, Tunisia destruction confirmed
+- TM E 30-420: Handbook on Italian Military Forces, August 1943 (PRIMARY SOURCE - 90% confidence) - US War Department Technical Manual. Italian armored division organizational structure, tank regiment composition, Bersaglieri regiment organization, artillery allocations
+- Nafziger Collection WWII OOB Files (PRIMARY SOURCE - 92% confidence) - North Africa Italian Forces 1942-1943. Contains 205 North Africa-specific OOB files including Italian divisions in Tunisia campaign
+- comandosupremo.com - Italian Military History Research Database (TIER 2 - 82% confidence) - Commander Giorgio Carlo Calvi di Bergolo verified, Battle of Kasserine Pass role documented, Battle of El Guettar participation confirmed, 18 April 1943 disbandment date
 
 ### Known Data Gaps
 
-- Chief of Staff name not identified
-- Exact battalion-level organization within regiments
-- Precise operational tank counts (estimated from divisional losses)
-- Individual company designations within regiments
-- Detailed signal and transport equipment inventory
-- Aircraft allocation if any - likely none assigned at division level
+- Chief of Staff name not identified in available primary sources
+- Exact battalion-level organization within regiments - requires regimental-level OOB documents
+- Precise operational tank counts day-by-day - estimated from standard Italian armored division TO&E reduced for Tunisia campaign attrition
+- Individual company designations within regiments - battalion/company level detail not in division-level OOB sources
+- Detailed signal and transport equipment inventory beyond standard divisional allocations
+- Aircraft allocation - none assigned at division level per US G-2 OOB
 
 ## Conclusion
 
-The Italian XX Corpo d'Armata Motorizzato in Q2 1941 represents an important transitional phase in Italian North African operations. As an informal corps structure with only the 132nd Ariete Division attached and under German operational control, it illustrates the evolving nature of Axis mobile operations in the desert campaign. The formal establishment of the corps in Q3 1941 would bring additional divisions and a more robust command structure.
+131ª Divisione Corazzata "Centauro" in 1943 Q1 represents a significant formation in the Italian order of battle during the North Africa Campaign. With 8,500 personnel and 45 tanks, this division played an important role in the theater. 
 
 ---
 
-*Data compiled from historical records for 1941-Q2 North Africa Campaign*
+*Data compiled from historical records for 1943 North Africa Campaign*
 
