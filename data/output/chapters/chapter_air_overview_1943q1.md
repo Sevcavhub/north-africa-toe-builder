@@ -2,7 +2,7 @@
 
 **Theater:** North Africa
 **Quarter:** 1943Q1
-**Coverage:** British, German, Italian
+**Coverage:** American, British, German, Italian
 
 ---
 
@@ -11,16 +11,16 @@
 Quarterly snapshot of air forces operating in the North African theater as of 1943q1.
 
 **Theater-Wide Totals:**
-- 1,170 total aircraft
-- 980 operational aircraft
+- 1,360 total aircraft
+- 1,130 operational aircraft
 - 0 operational squadrons/gruppi
 
 ### Force Balance
 
 | Side | Total Aircraft | Percentage |
 |------|----------------|------------|
-| **Axis** | 270 | 23% |
-| **Allies** | 900 | 77% |
+| **Axis** | 270 | 20% |
+| **Allies** | 1,090 | 80% |
 
 ## Air Forces by Nation
 
@@ -73,6 +73,23 @@ Quarterly snapshot of air forces operating in the North African theater as of 19
 
 ---
 
+### American Air Forces
+
+**Command:** Northwest African Air Forces (NAAF)
+**Commander:** Lieutenant General Carl Spaatz
+**Headquarters:** Algeria
+
+**Aggregate Strength:**
+- Total Aircraft: 190
+- Operational: 150
+- Serviceability: ~79%
+- Units: 0 squadrons/gruppi
+
+**Source:** Northwest African Air Forces - Tunisia Campaign (1943-02-18)
+**Confidence:** 72% (partial_needs_research)
+
+---
+
 ## Detailed Unit Lists
 
 ### German Units
@@ -87,6 +104,10 @@ Quarterly snapshot of air forces operating in the North African theater as of 19
 
 *Detailed unit breakdown not available*
 
+### American Units
+
+*Detailed unit breakdown not available*
+
 ## Data Quality & Sources
 
 **German:** Aggregate estimate from campaign records. Confidence: 65% (partial_needs_research).
@@ -94,6 +115,8 @@ Quarterly snapshot of air forces operating in the North African theater as of 19
 **Italian:** Campaign records estimate from Axis totals. Confidence: 60% (partial_needs_research).
 
 **British:** Campaign records + organizational documents. Confidence: 75% (partial_needs_research).
+
+**American:** Campaign records + organizational data + Allied total calculation. Confidence: 72% (partial_needs_research).
 
 ### Notes
 

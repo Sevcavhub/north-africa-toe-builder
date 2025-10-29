@@ -2,7 +2,7 @@
 
 **Theater:** North Africa
 **Quarter:** 1942Q4
-**Coverage:** British, German, Italian
+**Coverage:** American, British, German, Italian
 
 ---
 
@@ -11,16 +11,16 @@
 Quarterly snapshot of air forces operating in the North African theater as of 1942q4.
 
 **Theater-Wide Totals:**
-- 1,850 total aircraft
-- 1,610 operational aircraft
+- 2,350 total aircraft
+- 2,010 operational aircraft
 - 0 operational squadrons/gruppi
 
 ### Force Balance
 
 | Side | Total Aircraft | Percentage |
 |------|----------------|------------|
-| **Axis** | 350 | 19% |
-| **Allies** | 1,500 | 81% |
+| **Axis** | 350 | 15% |
+| **Allies** | 2,000 | 85% |
 
 ## Air Forces by Nation
 
@@ -74,6 +74,23 @@ Quarterly snapshot of air forces operating in the North African theater as of 19
 
 ---
 
+### American Air Forces
+
+**Command:** Twelfth Air Force
+**Commander:** Major General James H. Doolittle
+**Headquarters:** Algeria (Oran)
+
+**Aggregate Strength:**
+- Total Aircraft: 500
+- Operational: 400
+- Serviceability: ~80%
+- Units: 0 squadrons/gruppi
+
+**Source:** Twelfth Air Force - Operation Torch (1942-11-08)
+**Confidence:** 70% (partial_needs_research)
+
+---
+
 ## Detailed Unit Lists
 
 ### German Units
@@ -88,6 +105,10 @@ Quarterly snapshot of air forces operating in the North African theater as of 19
 
 *Detailed unit breakdown not available*
 
+### American Units
+
+*Detailed unit breakdown not available*
+
 ## Data Quality & Sources
 
 **German:** Battle records calculation from Axis totals. Confidence: 72% (partial_needs_research).
@@ -95,6 +116,8 @@ Quarterly snapshot of air forces operating in the North African theater as of 19
 **Italian:** Battle records calculation from Axis totals. Confidence: 72% (partial_needs_research).
 
 **British:** Battle records aggregate + standard RAF establishments. Confidence: 75% (partial_needs_research).
+
+**American:** Organizational records + Operation Torch data + group strength estimates. Confidence: 70% (partial_needs_research).
 
 ### Notes
 
