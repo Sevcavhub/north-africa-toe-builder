@@ -31,6 +31,9 @@ from penetration_converter import convert_penetration_to_battlegroup, estimate_p
 from points_estimator import estimate_tank_points, estimate_infantry_points, estimate_gun_points, estimate_vehicle_points
 from battle_rating_assigner import assign_tank_br, assign_infantry_br, assign_gun_br, assign_vehicle_br, assign_experience_level, calculate_force_br
 
+# Import scenario slicer
+from battlegroup_scenario_slicer import BattleGroupScenarioSlicer
+
 
 class BattleGroupExporter(ScenarioExporter):
     """BattleGroup scenario exporter"""
@@ -39,6 +42,7 @@ class BattleGroupExporter(ScenarioExporter):
         super().__init__(project_root)
         self.game_name = "battlegroup"
         self.output_dir = self.scenarios_dir / self.game_name
+        self.slicer = BattleGroupScenarioSlicer()  # Initialize slicer
 
     def format_equipment_data(self, unit_data: Dict) -> List[Dict]:
         """
@@ -89,69 +93,11 @@ class BattleGroupExporter(ScenarioExporter):
         """Process tank variants into BattleGroup format"""
         tank_list = []
 
-        # Handle nested structure (heavy_tanks, medium_tanks, light_tanks)
-        tank_categories = ['heavy_tanks', 'medium_tanks', 'light_tanks', 'command_tanks']
+        # Handle two possible structures:
+        # 1. Nested: tanks -> heavy_tanks -> variants -> tank_name
+        # 2. Flat: tanks -> variants -> tank_name (with category counts as integers)
 
-        for category in tank_categories:
-            if category in tanks_section and 'variants' in tanks_section[category]:
-                variants = tanks_section[category]['variants']
-
-                for tank_name, tank_data in variants.items():
-                    if not isinstance(tank_data, dict):
-                        continue
-
-                    count = tank_data.get('count', 0)
-                    if count == 0:
-                        continue
-
-                    # Extract armor values
-                    armor_front = tank_data.get('armor_front_mm', 30)
-                    armor_side = tank_data.get('armor_side_mm', 20)
-                    armor_rear = tank_data.get('armor_rear_mm', 20)
-
-                    # Extract gun penetration
-                    gun_pen_mm = self._extract_gun_penetration(tank_data)
-
-                    # Determine special rules
-                    special_rules = []
-                    if 'radio' in str(tank_data).lower():
-                        special_rules.append('radio')
-                    if 'smoke' in str(tank_data).lower():
-                        special_rules.append('smoke')
-
-                    is_command = 'command' in category.lower() or 'command' in tank_name.lower()
-                    if is_command:
-                        special_rules.append('command')
-
-                    # Calculate BattleGroup stats
-                    armor_profile = convert_tank_armor(armor_front, armor_side, armor_rear)
-                    penetration = convert_penetration_to_battlegroup(gun_pen_mm)
-                    points = estimate_tank_points(armor_front, armor_side, armor_rear, gun_pen_mm, special_rules)
-                    br = assign_tank_br(armor_front, gun_pen_mm, is_command)
-
-                    tank_list.append({
-                        'name': tank_name,
-                        'count': count,
-                        'type': 'tank',
-                        'category': category.replace('_tanks', ''),
-                        'battlegroup_stats': {
-                            'armor': f"{armor_profile['front']}/{armor_profile['side']}/{armor_profile['rear']}",
-                            'armor_category': get_armor_category(armor_profile['front']),
-                            'penetration': penetration,
-                            'points_each': points,
-                            'points_total': points * count,
-                            'br_each': br,
-                            'br_total': br * count,
-                            'experience': experience,
-                            'special_rules': special_rules
-                        },
-                        'original_data': {
-                            'armor_mm': f"{armor_front}/{armor_side}/{armor_rear}",
-                            'gun_pen_mm': gun_pen_mm
-                        }
-                    })
-
-        # Handle flat variants structure
+        # Check if there's a top-level 'variants' key (flat structure)
         if 'variants' in tanks_section:
             variants = tanks_section['variants']
             for tank_name, tank_data in variants.items():
@@ -162,14 +108,26 @@ class BattleGroupExporter(ScenarioExporter):
                 if count == 0:
                     continue
 
+                # Extract armor values
                 armor_front = tank_data.get('armor_front_mm', 30)
                 armor_side = tank_data.get('armor_side_mm', 20)
                 armor_rear = tank_data.get('armor_rear_mm', 20)
+
+                # Extract gun penetration
                 gun_pen_mm = self._extract_gun_penetration(tank_data)
 
-                special_rules = ['radio', 'smoke']
-                is_command = 'command' in tank_name.lower()
+                # Determine special rules
+                special_rules = []
+                if 'radio' in str(tank_data).lower():
+                    special_rules.append('radio')
+                if 'smoke' in str(tank_data).lower():
+                    special_rules.append('smoke')
 
+                is_command = 'command' in tank_name.lower()
+                if is_command:
+                    special_rules.append('command')
+
+                # Calculate BattleGroup stats
                 armor_profile = convert_tank_armor(armor_front, armor_side, armor_rear)
                 penetration = convert_penetration_to_battlegroup(gun_pen_mm)
                 points = estimate_tank_points(armor_front, armor_side, armor_rear, gun_pen_mm, special_rules)
@@ -179,7 +137,7 @@ class BattleGroupExporter(ScenarioExporter):
                     'name': tank_name,
                     'count': count,
                     'type': 'tank',
-                    'category': 'medium',
+                    'category': 'unknown',  # Category not available in flat structure
                     'battlegroup_stats': {
                         'armor': f"{armor_profile['front']}/{armor_profile['side']}/{armor_profile['rear']}",
                         'armor_category': get_armor_category(armor_profile['front']),
@@ -197,6 +155,73 @@ class BattleGroupExporter(ScenarioExporter):
                     }
                 })
 
+        # Also check nested structure (heavy_tanks, medium_tanks, etc.)
+        tank_categories = ['heavy_tanks', 'medium_tanks', 'light_tanks', 'command_tanks']
+        for category in tank_categories:
+            if category in tanks_section:
+                category_data = tanks_section[category]
+                # Skip if it's a count (integer) instead of a nested dict
+                if not isinstance(category_data, dict):
+                    continue
+                if 'variants' in category_data:
+                    variants = category_data['variants']
+
+                    for tank_name, tank_data in variants.items():
+                        if not isinstance(tank_data, dict):
+                            continue
+
+                        count = tank_data.get('count', 0)
+                        if count == 0:
+                            continue
+
+                        # Extract armor values
+                        armor_front = tank_data.get('armor_front_mm', 30)
+                        armor_side = tank_data.get('armor_side_mm', 20)
+                        armor_rear = tank_data.get('armor_rear_mm', 20)
+
+                        # Extract gun penetration
+                        gun_pen_mm = self._extract_gun_penetration(tank_data)
+
+                        # Determine special rules
+                        special_rules = []
+                        if 'radio' in str(tank_data).lower():
+                            special_rules.append('radio')
+                        if 'smoke' in str(tank_data).lower():
+                            special_rules.append('smoke')
+
+                        is_command = 'command' in category.lower() or 'command' in tank_name.lower()
+                        if is_command:
+                            special_rules.append('command')
+
+                        # Calculate BattleGroup stats
+                        armor_profile = convert_tank_armor(armor_front, armor_side, armor_rear)
+                        penetration = convert_penetration_to_battlegroup(gun_pen_mm)
+                        points = estimate_tank_points(armor_front, armor_side, armor_rear, gun_pen_mm, special_rules)
+                        br = assign_tank_br(armor_front, gun_pen_mm, is_command)
+
+                        tank_list.append({
+                            'name': tank_name,
+                            'count': count,
+                            'type': 'tank',
+                            'category': category.replace('_tanks', ''),
+                            'battlegroup_stats': {
+                                'armor': f"{armor_profile['front']}/{armor_profile['side']}/{armor_profile['rear']}",
+                                'armor_category': get_armor_category(armor_profile['front']),
+                                'penetration': penetration,
+                                'points_each': points,
+                                'points_total': points * count,
+                                'br_each': br,
+                                'br_total': br * count,
+                                'experience': experience,
+                                'special_rules': special_rules
+                            },
+                            'original_data': {
+                                'armor_mm': f"{armor_front}/{armor_side}/{armor_rear}",
+                                'gun_pen_mm': gun_pen_mm
+                            }
+                        })
+
+        # Return processed tanks
         return tank_list
 
     def _process_artillery(self, artillery_section: Dict, experience: str) -> List[Dict]:
@@ -539,6 +564,111 @@ class BattleGroupExporter(ScenarioExporter):
             'scenario_dir': str(scenario_dir)
         }
 
+    def export_scenario_all_sizes(self, unit_file_path: Path) -> Dict:
+        """
+        Export 4 BattleGroup scenarios (squad, platoon, company, battalion)
+        from a single unit JSON
+
+        Returns dict with export results for each size
+        """
+        filename = unit_file_path.name
+        print(f"\n[BattleGroup Multi-Size Export] {filename}")
+
+        # Load unit data
+        unit_data = self.load_unit_json(unit_file_path)
+
+        # Extract metadata
+        metadata = self.extract_scenario_metadata(unit_data, filename)
+        if not metadata:
+            print(f"  [SKIP] Cannot extract metadata from {filename}")
+            return None
+
+        # Extract enhanced data (same for all sizes)
+        supply = self.extract_supply_states(unit_data)
+        environment = self.extract_weather_environment(unit_data)
+        air_support = self.extract_air_support(unit_data)
+
+        # Convert equipment to BattleGroup format (full division)
+        full_equipment_list = self.format_equipment_data(unit_data)
+        print(f"  Full force: {len(full_equipment_list)} equipment types")
+
+        if not full_equipment_list:
+            print(f"  [SKIP] No equipment data in {filename}")
+            return None
+
+        results = {
+            'unit_file': str(unit_file_path),
+            'unit_name': metadata['unit_designation'],
+            'scenarios_generated': {}
+        }
+
+        # Generate 4 scenario sizes
+        for size_key in ['squad', 'platoon', 'company', 'battalion']:
+            try:
+                print(f"  Generating {size_key.title()} scenario...")
+
+                # Use slicer to create playable force
+                sliced_result = self.slicer.slice_force(full_equipment_list, size_key)
+                sliced_equipment = sliced_result['equipment']
+
+                if not sliced_equipment:
+                    print(f"    [SKIP] Could not slice force for {size_key}")
+                    continue
+
+                # Calculate totals
+                total_points = sliced_result['totals']['points']
+                total_br = sliced_result['totals']['br']
+
+                print(f"    {total_points}pts, BR {total_br}, {len(sliced_equipment)} types")
+
+                # Generate narrative
+                narrative = self.generate_narrative(metadata, unit_data, supply, environment, air_support)
+                narrative['scenario_size'] = sliced_result['scenario_size']
+                narrative['recommended_points'] = sliced_result['points_target']
+
+                # Create scenario directory (with size suffix)
+                scenario_name = f"{metadata['nation']}_{metadata['quarter']}_{metadata['unit_designation'].replace(' ', '_')}_{size_key}"
+                scenario_dir = self.output_dir / scenario_name
+                scenario_dir.mkdir(parents=True, exist_ok=True)
+
+                # Write force list JSON
+                force_list_file = scenario_dir / 'force_list.json'
+                with open(force_list_file, 'w', encoding='utf-8') as f:
+                    json.dump({
+                        'battlegroup_name': metadata['unit_designation'],
+                        'nation': metadata['nation'],
+                        'quarter': metadata['quarter'],
+                        'scenario_size': size_key,
+                        'total_points': total_points,
+                        'total_br': total_br,
+                        'equipment': sliced_equipment,
+                        'full_force_available': len(full_equipment_list),
+                        'composition': sliced_result['composition'],
+                        'exported_at': datetime.now().isoformat(),
+                        'exporter_version': 'Phase 9B BattleGroup Slicer (Oct 2025)'
+                    }, f, indent=2, ensure_ascii=False)
+
+                # Write scenario markdown
+                scenario_md_file = scenario_dir / 'scenario.md'
+                self._write_scenario_md(scenario_md_file, narrative, metadata, sliced_equipment,
+                                      total_points, total_br, supply, environment)
+
+                results['scenarios_generated'][size_key] = {
+                    'directory': str(scenario_dir),
+                    'points': total_points,
+                    'br': total_br,
+                    'equipment_types': len(sliced_equipment)
+                }
+
+                print(f"    [OK] Saved to {scenario_dir.name}/")
+
+            except Exception as e:
+                print(f"    [ERROR] {size_key}: {e}")
+                results['scenarios_generated'][size_key] = {'error': str(e)}
+
+        print(f"  [COMPLETE] Generated {len(results['scenarios_generated'])} scenarios")
+        return results
+
     def _write_scenario_md(self, scenario_file: Path, narrative: Dict, metadata: Dict,
                           equipment_list: List[Dict], total_points: int, total_br: int,
                           supply: Dict, environment: Dict):
@@ -623,14 +753,54 @@ class BattleGroupExporter(ScenarioExporter):
 
 
 def main():
-    """Export all BattleGroup scenarios"""
+    """Export all BattleGroup scenarios (multi-size version)"""
     exporter = BattleGroupExporter()
-    results = exporter.export_all_scenarios()
 
-    print(f"\n[Phase 9B] BattleGroup export complete:")
-    print(f"  - Scenarios exported: {results['exported']}")
-    print(f"  - Scenarios skipped: {results['skipped']}")
-    print(f"  - Errors: {results['errors']}")
+    # Get all unit JSON files
+    units_dir = exporter.project_root / 'data' / 'output' / 'units'
+    unit_files = sorted(units_dir.glob('*_toe.json'))
+
+    print(f"\n{'='*80}")
+    print(f"BattleGroup Multi-Size Scenario Generation")
+    print(f"{'='*80}")
+    print(f"Total units found: {len(unit_files)}")
+    print(f"Target: {len(unit_files) * 4} scenarios (4 sizes per unit)")
+    print(f"{'='*80}\n")
+
+    results = {
+        'units_processed': 0,
+        'scenarios_generated': 0,
+        'units_skipped': 0,
+        'errors': []
+    }
+
+    for unit_file in unit_files:
+        try:
+            result = exporter.export_scenario_all_sizes(unit_file)
+            if result:
+                results['units_processed'] += 1
+                results['scenarios_generated'] += len(result.get('scenarios_generated', {}))
+            else:
+                results['units_skipped'] += 1
+        except Exception as e:
+            print(f"[ERROR] Failed to process {unit_file.name}: {e}")
+            results['errors'].append(str(unit_file.name))
+            results['units_skipped'] += 1
+
+    print(f"\n{'='*80}")
+    print(f"[Phase 9B] BattleGroup Multi-Size Export Complete")
+    print(f"{'='*80}")
+    print(f"  Units processed: {results['units_processed']}")
+    print(f"  Scenarios generated: {results['scenarios_generated']}")
+    print(f"  Units skipped: {results['units_skipped']}")
+    print(f"  Errors: {len(results['errors'])}")
+    if results['errors']:
+        print(f"\n  Failed units:")
+        for error in results['errors'][:10]:  # Show first 10
+            print(f"    - {error}")
+        if len(results['errors']) > 10:
+            print(f"    ... and {len(results['errors']) - 10} more")
+    print(f"{'='*80}\n")
 
     return results
 
