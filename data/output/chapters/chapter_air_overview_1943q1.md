@@ -2,7 +2,7 @@
 
 **Theater:** North Africa
 **Quarter:** 1943Q1
-**Coverage:** German
+**Coverage:** British, German, Italian
 
 ---
 
@@ -11,9 +11,16 @@
 Quarterly snapshot of air forces operating in the North African theater as of 1943q1.
 
 **Theater-Wide Totals:**
-- 150 total aircraft
-- 120 operational aircraft
+- 1,170 total aircraft
+- 980 operational aircraft
 - 0 operational squadrons/gruppi
+
+### Force Balance
+
+| Side | Total Aircraft | Percentage |
+|------|----------------|------------|
+| **Axis** | 270 | 23% |
+| **Allies** | 900 | 77% |
 
 ## Air Forces by Nation
 
@@ -33,15 +40,60 @@ Quarterly snapshot of air forces operating in the North African theater as of 19
 
 ---
 
+### Italian Air Forces
+
+**Command:** Regia Aeronautica - Tunisia
+**Headquarters:** Tunisia
+
+**Aggregate Strength:**
+- Total Aircraft: 120
+- Operational: 60
+- Serviceability: ~50%
+- Units: 0 squadrons/gruppi
+
+**Source:** Regia Aeronautica Tunisia - Final Phase (1943-02-01)
+**Confidence:** 60% (partial_needs_research)
+
+---
+
+### British Air Forces
+
+**Command:** Northwest African Tactical Air Force
+**Commander:** Air Vice-Marshal Arthur Coningham
+**Headquarters:** Tunisia
+
+**Aggregate Strength:**
+- Total Aircraft: 900
+- Operational: 800
+- Serviceability: ~89%
+- Units: 0 squadrons/gruppi
+
+**Source:** Northwest African Tactical Air Force - Tunisia Campaign (1943-02-01)
+**Confidence:** 75% (partial_needs_research)
+
+---
+
 ## Detailed Unit Lists
 
 ### German Units
 
 *Detailed unit breakdown not available*
 
+### Italian Units
+
+*Detailed unit breakdown not available*
+
+### British Units
+
+*Detailed unit breakdown not available*
+
 ## Data Quality & Sources
 
 **German:** Aggregate estimate from campaign records. Confidence: 65% (partial_needs_research).
+
+**Italian:** Campaign records estimate from Axis totals. Confidence: 60% (partial_needs_research).
+
+**British:** Campaign records + organizational documents. Confidence: 75% (partial_needs_research).
 
 ### Notes
 

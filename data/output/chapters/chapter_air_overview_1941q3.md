@@ -1,76 +1,76 @@
-# North Africa Air Forces - 1942Q3
+# North Africa Air Forces - 1941Q3
 
 **Theater:** North Africa
-**Quarter:** 1942Q3
+**Quarter:** 1941Q3
 **Coverage:** British, German, Italian
 
 ---
 
 ## Executive Summary
 
-Quarterly snapshot of air forces operating in the North African theater as of 1942q3.
+Quarterly snapshot of air forces operating in the North African theater as of 1941q3.
 
 **Theater-Wide Totals:**
-- 1,312 total aircraft
-- 1,075 operational aircraft
+- 1,320 total aircraft
+- 1,035 operational aircraft
 - 0 operational squadrons/gruppi
 
 ### Force Balance
 
 | Side | Total Aircraft | Percentage |
 |------|----------------|------------|
-| **Axis** | 572 | 44% |
-| **Allies** | 740 | 56% |
+| **Axis** | 520 | 39% |
+| **Allies** | 800 | 61% |
 
 ## Air Forces by Nation
 
 ### German Air Forces
 
-**Command:** Luftflotte 2 (Africa Component)
-**Commander:** Generalfeldmarschall Albert Kesselring
-**Headquarters:** Sicily/Libya
+**Command:** Fliegerführer Afrika
+**Commander:** Generalmajor Stefan Fröhlich
+**Headquarters:** Libya
 
 **Aggregate Strength:**
-- Total Aircraft: 200
-- Operational: 140
-- Serviceability: ~70%
+- Total Aircraft: 120
+- Operational: 65
+- Serviceability: ~54%
 - Units: 0 squadrons/gruppi
 
-**Source:** Luftwaffe North Africa - Pre-El Alamein (1942-08-31)
+**Source:** Fliegerführer Afrika - Pre-Crusader (1941-09-15)
 **Confidence:** 60% (partial_needs_research)
 
 ---
 
 ### Italian Air Forces
 
-**Command:** Regia Aeronautica - North Africa
+**Command:** Regia Aeronautica - Libya
 **Headquarters:** Libya
 
 **Aggregate Strength:**
-- Total Aircraft: 372
-- Operational: 260
-- Serviceability: 70%
+- Total Aircraft: 400
+- Operational: 240
+- Serviceability: ~60%
 - Units: 0 squadrons/gruppi
 
-**Source:** Regia Aeronautica North Africa - Alam el Halfa (1942-08-31)
-**Confidence:** 75% (partial_needs_research)
+**Source:** Regia Aeronautica Libya - Pre-Crusader (1941-09-01)
+**Confidence:** 60% (partial_needs_research)
 
 ---
 
 ### British Air Forces
 
-**Command:** RAF Desert Air Force
-**Commander:** Air Vice-Marshal Arthur Coningham
-**Headquarters:** Western Desert
+**Command:** RAF Middle East Command
+**Commander:** Air Chief Marshal Arthur Tedder
+**Headquarters:** Cairo
 
 **Aggregate Strength:**
-- Total Aircraft: 740
-- Operational: 675
+- Total Aircraft: 800
+- Operational: 730
 - Serviceability: ~91%
 - Units: 0 squadrons/gruppi
 
-**Source:** British Western Desert Air Force, 1 September 1942 (1942-09-01)
-**Confidence:** 75% (partial_needs_research)
+**Source:** RAF Middle East - Pre-Crusader Buildup (1941-10-01)
+**Confidence:** 70% (partial_needs_research)
 
 ---
 
@@ -92,9 +92,9 @@ Quarterly snapshot of air forces operating in the North African theater as of 19
 
 **German:** Battle records extrapolation + campaign data. Confidence: 60% (partial_needs_research).
 
-**Italian:** Italian military records + battle data. Confidence: 75% (partial_needs_research).
+**Italian:** Historical records aggregate estimate. Confidence: 60% (partial_needs_research).
 
-**British:** Hybrid: Wikipedia aggregate + Nafziger organization + standard RAF establishments. Confidence: 75% (partial_needs_research).
+**British:** RAF records aggregate + standard RAF establishments. Confidence: 70% (partial_needs_research).
 
 ### Notes
 
