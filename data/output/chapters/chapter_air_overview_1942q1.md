@@ -13,7 +13,7 @@ Quarterly snapshot of air forces operating in the North African theater as of 19
 **Theater-Wide Totals:**
 - 405 total aircraft
 - 264 operational aircraft
-- 23 operational squadrons/gruppi
+- 1 operational squadrons/gruppi
 
 ## Air Forces by Nation
 
@@ -45,14 +45,12 @@ Quarterly snapshot of air forces operating in the North African theater as of 19
 - Total Aircraft: 400
 - Operational: 260
 - Serviceability: 65%
-- Units: 22 squadrons/gruppi
+- Units: 0 squadrons/gruppi
 
-**Key Aircraft Types:** MC202, Ju87, CR42, SM79, Z1007, BR20
+**Key Aircraft Types:** MC.202, MC.200, G.50, SM.79, Z.1007
 
 **Source:** Axis Air Force in North Africa, 18 January 1942 (1942-01-18)
 **Confidence:** 70% (partial_needs_research)
-
-**Operating Bases:** Unknown
 
 ---
 
@@ -66,36 +64,13 @@ Quarterly snapshot of air forces operating in the North African theater as of 19
 
 ### Italian Units
 
-| Unit | Base | Aircraft Type | Estimated Strength |
-|------|------|---------------|--------------------|
-| 6� Gruppo | Unknown | MC202 | 27 |
-| 17� Gruppo | Unknown | MC202 | 27 |
-| 8� Gruppo | Unknown | MC202 | 27 |
-| 150� Gruppo | Unknown | MC202 | 27 |
-| 3� Gruppo | Unknown | MC202 | 27 |
-| 209� Squadriglia | Unknown | Ju87 | 27 |
-| 236� Squadriglia | Unknown | CR42 | 27 |
-| 174� Squadriglia | Unknown | SM79 | 27 |
-| 176� Squadriglia | Unknown | Z1007 | 27 |
-| 13� Stormo | Unknown | BR20 | 54 |
-| 279� Squadriglia | Unknown | SM79 | 27 |
-| 284� Squadriglia | Unknown | SM79 | 27 |
-| 175� Squadriglia | Unknown | SM79 | 27 |
-| 160� Gruppo | Unknown | CR42 | 27 |
-| 12� Gruppo | Unknown | G50 | 27 |
-| 69� Gruppo | Unknown | CA311 | 27 |
-| 145� Squadriglia | Unknown | Z501 | 27 |
-| 146� Squadriglia | Unknown | Z501 | 27 |
-| 1� Gruppo | Unknown | Ghiblis | 27 |
-| 103� Squadriglia | Unknown | SM81,SM79, CR42 | 27 |
-| 145� Gruppo | Unknown | SM82,SM75, SM81 | 27 |
-| 614� Squadriglia | Unknown | Z506B | 27 |
+*Detailed unit breakdown not available*
 
 ## Data Quality & Sources
 
 **German:** Automated PDF parsing - Nafziger quarterly OOB snapshot. Confidence: 90% (production_ready).
 
-**Italian:** Hybrid: Wikipedia general aggregate + Nafziger organization + Italian standard establishments. Confidence: 70% (partial_needs_research).
+**Italian:** Hybrid: Wikipedia general aggregate + Nafziger organization. Confidence: 70% (partial_needs_research).
 
 ### Notes
 

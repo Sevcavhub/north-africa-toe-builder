@@ -1,35 +1,35 @@
-# North Africa Air Forces - 1942Q3
+# North Africa Air Forces - 1942Q4
 
 **Theater:** North Africa
-**Quarter:** 1942Q3
+**Quarter:** 1942Q4
 **Coverage:** British
 
 ---
 
 ## Executive Summary
 
-Quarterly snapshot of air forces operating in the North African theater as of 1942q3.
+Quarterly snapshot of air forces operating in the North African theater as of 1942q4.
 
 **Theater-Wide Totals:**
-- 740 total aircraft
-- 675 operational aircraft
+- 1,500 total aircraft
+- 1,365 operational aircraft
 - 0 operational squadrons/gruppi
 
 ## Air Forces by Nation
 
 ### British Air Forces
 
-**Command:** RAF Desert Air Force
-**Commander:** Air Vice-Marshal Arthur Coningham
+**Command:** RAF Middle East Command / Desert Air Force
+**Commander:** Air Vice-Marshal Arthur Coningham (DAF)
 **Headquarters:** Western Desert
 
 **Aggregate Strength:**
-- Total Aircraft: 740
-- Operational: 675
+- Total Aircraft: 1,500
+- Operational: 1,365
 - Serviceability: ~91%
 - Units: 0 squadrons/gruppi
 
-**Source:** British Western Desert Air Force, 1 September 1942 (1942-09-01)
+**Source:** RAF Middle East - El Alamein Offensive (1942-10-23)
 **Confidence:** 75% (partial_needs_research)
 
 ---
@@ -42,7 +42,7 @@ Quarterly snapshot of air forces operating in the North African theater as of 19
 
 ## Data Quality & Sources
 
-**British:** Hybrid: Wikipedia aggregate + Nafziger organization + standard RAF establishments. Confidence: 75% (partial_needs_research).
+**British:** Battle records aggregate + standard RAF establishments. Confidence: 75% (partial_needs_research).
 
 ### Notes
 

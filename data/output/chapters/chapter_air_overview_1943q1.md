@@ -1,48 +1,47 @@
-# North Africa Air Forces - 1942Q3
+# North Africa Air Forces - 1943Q1
 
 **Theater:** North Africa
-**Quarter:** 1942Q3
-**Coverage:** British
+**Quarter:** 1943Q1
+**Coverage:** German
 
 ---
 
 ## Executive Summary
 
-Quarterly snapshot of air forces operating in the North African theater as of 1942q3.
+Quarterly snapshot of air forces operating in the North African theater as of 1943q1.
 
 **Theater-Wide Totals:**
-- 740 total aircraft
-- 675 operational aircraft
+- 150 total aircraft
+- 120 operational aircraft
 - 0 operational squadrons/gruppi
 
 ## Air Forces by Nation
 
-### British Air Forces
+### German Air Forces
 
-**Command:** RAF Desert Air Force
-**Commander:** Air Vice-Marshal Arthur Coningham
-**Headquarters:** Western Desert
+**Command:** Luftflotte 2 / Fliegerführer Tunesien
+**Headquarters:** Tunisia
 
 **Aggregate Strength:**
-- Total Aircraft: 740
-- Operational: 675
-- Serviceability: ~91%
+- Total Aircraft: 150
+- Operational: 120
+- Serviceability: ~80%
 - Units: 0 squadrons/gruppi
 
-**Source:** British Western Desert Air Force, 1 September 1942 (1942-09-01)
-**Confidence:** 75% (partial_needs_research)
+**Source:** Luftwaffe Tunisia - Final Phase (1943-02-01)
+**Confidence:** 65% (partial_needs_research)
 
 ---
 
 ## Detailed Unit Lists
 
-### British Units
+### German Units
 
 *Detailed unit breakdown not available*
 
 ## Data Quality & Sources
 
-**British:** Hybrid: Wikipedia aggregate + Nafziger organization + standard RAF establishments. Confidence: 75% (partial_needs_research).
+**German:** Aggregate estimate from campaign records. Confidence: 65% (partial_needs_research).
 
 ### Notes
 
