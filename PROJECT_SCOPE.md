@@ -1,13 +1,13 @@
 # North Africa TO&E Builder - Complete Project Scope
 
-**Version**: 1.2.0
-**Last Updated**: 2025-10-29 (Phase 8 marked OBE - Cross-linking complete during Phase 7)
+**Version**: 1.3.0
+**Last Updated**: 2025-10-29 (Phase 9A Complete - WITW enhancement + multi-game architecture)
 **Status**: 🟢 LIVING DOCUMENT - Subject to updates
 
 <!-- AUTO-UPDATED: START - Progress Stats -->
-**Current Phase**: Phase 9 (Scenario Generation) - Ready to begin
-**Completed Phases**: Phase 1-8 (100%) ✅ | Ground: 402/402 ✅ | Air: 23 summaries ✅ | Cross-linking: OBE ✅
-**Overall Progress**: Extraction phases complete, now ready for scenario generation
+**Current Phase**: Phase 9A (WITW Enhancement) ✅ COMPLETE | Phase 9B (BattleGroup) - Next
+**Completed Phases**: Phase 1-8 (100%) ✅ | Phase 9A (WITW) ✅ 369 scenarios
+**Overall Progress**: Extraction complete, WITW scenarios enhanced, multi-game architecture ready
 <!-- AUTO-UPDATED: END - Progress Stats -->
 
 **Architecture**: v4.0 (Canonical Output Locations)
@@ -504,13 +504,85 @@ Due to the **Phase 7 design pivot** (quarterly theater summaries instead of per-
 
 ---
 
-### **Phase 9: Scenario Generation**
+### **Phase 9: Scenario Generation** ⏳ **Phase 9A COMPLETE, 9B-9E IN PROGRESS**
 
-**Goal**: Create 12+ playable historical battle scenarios
+**Goal**: Create multi-game scenario exports (WITW, BattleGroup, Achtung Panzer, Flames of War)
 
-**Status**: Ready to begin (Phases 1-8 complete)
+**Status**: Phase 9A complete (WITW enhanced), Phase 9B next (BattleGroup implementation)
 
-**Planned Scenarios**:
+---
+
+#### **Phase 9A: WITW Enhancement + Architecture** ✅ **COMPLETE (October 29, 2025)**
+
+**Deliverables**:
+- ✅ Pluggable scenario generation architecture (`scripts/scenario_generation/`)
+- ✅ Base `ScenarioExporter` class with game-agnostic functionality
+- ✅ Enhanced WITW exporter with supply/weather/air support integration
+- ✅ 369 WITW scenarios exported (91.8% of 402 units)
+- ✅ 98% supply data coverage, 83% weather data coverage
+- ✅ Validation report: `docs/PHASE_9A_VALIDATION_REPORT.md`
+
+**Time Spent**: ~10 hours
+
+**Key Achievement**: Established multi-game export framework with Schema v3.0 and Phase 8 cross-linking integration
+
+---
+
+#### **Phase 9B: BattleGroup Implementation** 📋 **NEXT**
+
+**Goal**: Generate BattleGroup tabletop scenarios with points costs and Battle Ratings
+
+**Deliverables**:
+- `game_exporters/battlegroup_exporter.py` (inherits from `ScenarioExporter`)
+- Conversion scripts (penetration, armor, points estimation)
+- 12 BattleGroup scenarios (one per major battle)
+- Validation against official BattleGroup scenarios
+
+**Prerequisites**:
+- ✅ Base architecture complete
+- ✅ BattleGroup research complete (852-line guide available)
+- ✅ Conversion formulas documented
+
+**Timeline**: ~20-30 hours
+
+---
+
+#### **Phase 9C: Achtung Panzer Implementation** 📋 **PLANNED**
+
+**Goal**: Generate Achtung Panzer operational/tactical scenarios
+
+**Prerequisites**: Achtung Panzer rulebook PDFs (user will provide)
+
+**Timeline**: ~30-40 hours (research + implementation)
+
+---
+
+#### **Phase 9D: Flames of War Implementation** 📋 **PLANNED**
+
+**Goal**: Generate Flames of War 15mm miniatures scenarios
+
+**Prerequisites**: Flames of War rulebook PDFs (user will provide)
+
+**Timeline**: ~30-40 hours (research + implementation)
+
+---
+
+#### **Phase 9E: Documentation & QA** 📋 **PLANNED**
+
+**Goal**: Complete user documentation and scenario catalog
+
+**Timeline**: ~8-12 hours
+
+---
+
+**Phase 9 Total Scenarios**:
+- WITW: 369 scenarios ✅
+- BattleGroup: 12 scenarios 📋
+- Achtung Panzer: 12 scenarios 📋
+- Flames of War: 12 scenarios 📋
+- **Total**: 405 scenarios across 4 game systems
+
+**Phase 9 Planned Battles** (12 major operations):
 1. Operation Battleaxe (June 1941)
 2. Operation Crusader (November 1941)
 3. Gazala (May-June 1942)
@@ -520,16 +592,6 @@ Due to the **Phase 7 design pivot** (quarterly theater summaries instead of per-
 7. Operation Torch (November 1942)
 8. Tunisia Campaign (December 1942 - May 1943)
 9. Plus 4+ additional operations
-
-**Scenario Contents**:
-- Complete OOB (ground + air units)
-- Supply states at battle start (fuel days, ammo days, water reserves)
-- Weather conditions (temperature, visibility, storms)
-- Air support assignments (which units available, sortie rates)
-- Victory conditions
-- Historical outcome for validation
-
-**Timeline**: ~40-50 hours (scenario design + testing)
 
 ---
 

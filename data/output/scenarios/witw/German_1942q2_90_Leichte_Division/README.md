@@ -1,0 +1,48 @@
+# 90 Leichte Division - 1942Q2
+
+**Date**: 1942-06-01
+**Location**: North Africa
+**Nation**: German
+**Unit Type**: Light Motorized Infantry Division
+
+## Situation
+
+German Light Motorized Infantry Division deployed in North Africa during 1942Q2.
+
+## Objectives
+
+### Axis
+Maintain defensive positions and inflict maximum casualties on Allied forces.
+
+### Allied
+Advance and secure strategic objectives while minimizing casualties.
+
+## Supply States
+
+- **Fuel**: 4.5 days
+- **Ammunition**: 0 days
+- **Water**: 0 liters/day
+- **Supply Status**: unknown
+
+## Weather & Environment
+
+- **Terrain**: Coastal plain and rocky desert - Cyrenaica/western Egypt frontier
+- **Temperature**: Unknown
+- **Visibility**: Clear
+
+## Air Support
+
+No theater air summary available for this quarter
+
+## Special Rules
+
+- Desert mobility and navigation
+- Independent operations far from supply bases
+- Rapid deployment and concentration
+- Combined arms coordination with Italian mobile forces
+
+## Equipment
+
+Total equipment items: 18
+
+See `equipment.csv` for complete WITW equipment list.
