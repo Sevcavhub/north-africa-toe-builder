@@ -1,0 +1,152 @@
+# BattleGroup: 5Th Panzer Army - 1943Q2
+
+**Date**: 1943-06-01
+**Location**: North Africa - Tunisia Campaign Final Phase (Northern Sector)
+**Nation**: German
+**Scenario Size**: Platoon (500pts)
+
+## Historical Situation
+
+North Africa Campaign engagement.
+
+## Battlegroup Stats
+
+- **Total Points**: 22224pts
+- **Battle Rating**: 506
+- **Equipment Items**: 24
+
+## Force List
+
+### Tanks (5 types)
+
+**Pz.Kpfw.III Ausf L/M (5cm KwK 39 L/60)** (x4)
+- Armor: 4/2/2 (Light)
+- Penetration: 1
+- Points: 80pts each (320pts total)
+- BR: 3 each (12 total)
+- Experience: V
+
+**Pz.Kpfw.III Ausf N (7.5cm KwK L/24)** (x2)
+- Armor: 4/2/2 (Light)
+- Penetration: 1
+- Points: 80pts each (160pts total)
+- BR: 3 each (6 total)
+- Experience: V
+
+**Pz.Kpfw.IV Ausf G (7.5cm KwK 40 L/43)** (x5)
+- Armor: 4/2/2 (Light)
+- Penetration: 1
+- Points: 80pts each (400pts total)
+- BR: 3 each (15 total)
+- Experience: V
+
+**Pz.Kpfw.IV Ausf H (7.5cm KwK 40 L/48)** (x8)
+- Armor: 4/2/2 (Light)
+- Penetration: 1
+- Points: 80pts each (640pts total)
+- BR: 3 each (24 total)
+- Experience: V
+
+**Pz.Kpfw.II Ausf F** (x4)
+- Armor: 4/2/2 (Light)
+- Penetration: 1
+- Points: 80pts each (320pts total)
+- BR: 3 each (12 total)
+- Experience: V
+
+### Guns (7 types)
+
+**10.5cm leFH 18** (x31)
+- Penetration: 1
+- HE: Medium
+- Points: 60pts each (1860pts total)
+- BR: 3 each (93 total)
+- Mobility: Towed
+
+**15cm sFH 18** (x13)
+- Penetration: 1
+- HE: Medium
+- Points: 60pts each (780pts total)
+- BR: 3 each (39 total)
+- Mobility: Towed
+
+**10cm K 18** (x2)
+- Penetration: 1
+- HE: Light
+- Points: 50pts each (100pts total)
+- BR: 3 each (6 total)
+- Mobility: Towed
+
+**15cm sIG 33** (x2)
+- Penetration: 1
+- HE: Medium
+- Points: 60pts each (120pts total)
+- BR: 3 each (6 total)
+- Mobility: Towed
+
+**7.5cm PaK 40** (x19)
+- Penetration: 1
+- HE: Light
+- Points: 50pts each (950pts total)
+- BR: 2 each (38 total)
+- Mobility: Towed
+
+**5cm PaK 38** (x17)
+- Penetration: 1
+- HE: Very Light
+- Points: 40pts each (680pts total)
+- BR: 2 each (34 total)
+- Mobility: Towed
+
+**Marder II/III SPG** (x3)
+- Penetration: 5
+- HE: Light
+- Points: 70pts each (210pts total)
+- BR: 3 each (9 total)
+- Mobility: Towed
+
+### Support Vehicles (12 types)
+
+**Sd.Kfz. 251** (x26): 780pts, BR 26
+**Sd.Kfz. 250** (x12): 360pts, BR 12
+**Opel Blitz 3-ton** (x520): 5200pts, BR 0
+**Mercedes-Benz L3000** (x240): 2400pts, BR 0
+**Büssing-NAG 4500A** (x110): 1100pts, BR 0
+**Various light trucks** (x210): 2100pts, BR 0
+**Captured vehicles** (x200): 2000pts, BR 0
+**Sd.Kfz. 222 (2cm KwK 30)** (x6): 240pts, BR 6
+**Sd.Kfz. 231 (8-Rad)** (x3): 120pts, BR 3
+**Sd.Kfz. 232 (8-Rad)** (x2): 80pts, BR 2
+**BMW R75** (x96): 768pts, BR 96
+**Zündapp KS 750** (x67): 536pts, BR 67
+
+## Deployment
+
+**Defender**: German forces deploy first, within 18" of table edge
+
+**Attacker**: Opponent deploys within 12" of opposite edge
+
+**Terrain**: Cap Bon peninsula and northern Tunisia final defensive perimeter. Mountainous terrain with coastal plains. Djebel Abderrahman mountains (800-1,000m elevation) provide natural defensive barrier. Coastal plains suitable for mechanized operations (favors Allied armor superiority). Numerous wadis, olive groves, agricultural villages create compartmented terrain. Final perimeter centered on Tunis-Bizerte area compressed to Cap Bon peninsula (30km x 40km) by May 8. Restrictive terrain limits maneuver but also restricts Allied flanking movements - forces frontal assaults. Tunis urban area (population ~200,000) falls May 7 - street fighting avoided as German forces withdraw to peninsula. Cap Bon peninsula rocky hills and coastal lowlands - limited water sources (springs, wells adequate). Terrain favors defense but immobile defense without fuel/vehicles = death trap vs Allied mobility.
+
+## Victory Conditions
+
+**Primary**: Break enemy Battlegroup Rating (BR)
+
+**Secondary**:
+- Hold 2 of 3 objectives
+- Destroy enemy command unit
+- Take fewer casualties than opponent
+
+## Special Rules
+
+- Limited Fuel: Vehicles move at half speed after Turn 5
+
+## Supply & Environment
+
+**Fuel**: Unknown days
+**Ammunition**: Unknown days
+**Terrain**: Cap Bon peninsula and northern Tunisia final defensive perimeter. Mountainous terrain with coastal plains. Djebel Abderrahman mountains (800-1,000m elevation) provide natural defensive barrier. Coastal plains suitable for mechanized operations (favors Allied armor superiority). Numerous wadis, olive groves, agricultural villages create compartmented terrain. Final perimeter centered on Tunis-Bizerte area compressed to Cap Bon peninsula (30km x 40km) by May 8. Restrictive terrain limits maneuver but also restricts Allied flanking movements - forces frontal assaults. Tunis urban area (population ~200,000) falls May 7 - street fighting avoided as German forces withdraw to peninsula. Cap Bon peninsula rocky hills and coastal lowlands - limited water sources (springs, wells adequate). Terrain favors defense but immobile defense without fuel/vehicles = death trap vs Allied mobility.
+
+---
+
+*Generated by BattleGroup Exporter Phase 9B*

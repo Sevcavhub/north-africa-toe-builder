@@ -1,0 +1,175 @@
+# BattleGroup: 5Th Panzer Army - 1943Q1
+
+**Date**: 1943-03-01
+**Location**: North Africa - Tunisia Campaign (Northern Sector)
+**Nation**: German
+**Scenario Size**: Platoon (500pts)
+
+## Historical Situation
+
+North Africa Campaign engagement.
+
+## Battlegroup Stats
+
+- **Total Points**: 98624pts
+- **Battle Rating**: 2382
+- **Equipment Items**: 28
+
+## Force List
+
+### Tanks (8 types)
+
+**Pz.Kpfw.VI Tiger Ausf E** (x1)
+- Armor: 4/2/2 (Light)
+- Penetration: 12
+- Points: 140pts each (140pts total)
+- BR: 3 each (3 total)
+- Experience: V
+
+**Pz.Kpfw.III Ausf L/M (5cm KwK 39 L/60)** (x34)
+- Armor: 4/2/2 (Light)
+- Penetration: 1
+- Points: 80pts each (2720pts total)
+- BR: 3 each (102 total)
+- Experience: V
+
+**Pz.Kpfw.III Ausf N (7.5cm KwK L/24)** (x21)
+- Armor: 4/2/2 (Light)
+- Penetration: 1
+- Points: 80pts each (1680pts total)
+- BR: 3 each (63 total)
+- Experience: V
+
+**Pz.Kpfw.IV Ausf G (7.5cm KwK 40 L/43)** (x32)
+- Armor: 4/2/2 (Light)
+- Penetration: 1
+- Points: 80pts each (2560pts total)
+- BR: 3 each (96 total)
+- Experience: V
+
+**Pz.Kpfw.IV Ausf H (7.5cm KwK 40 L/48)** (x49)
+- Armor: 4/2/2 (Light)
+- Penetration: 1
+- Points: 80pts each (3920pts total)
+- BR: 3 each (147 total)
+- Experience: V
+
+**Pz.Kpfw.III (various) - 10. Panzer** (x28)
+- Armor: 4/2/2 (Light)
+- Penetration: 1
+- Points: 80pts each (2240pts total)
+- BR: 3 each (84 total)
+- Experience: V
+
+**Pz.Kpfw.IV (various) - 10. Panzer** (x13)
+- Armor: 4/2/2 (Light)
+- Penetration: 1
+- Points: 80pts each (1040pts total)
+- BR: 3 each (39 total)
+- Experience: V
+
+**Pz.Kpfw.II Ausf F** (x28)
+- Armor: 4/2/2 (Light)
+- Penetration: 1
+- Points: 80pts each (2240pts total)
+- BR: 3 each (84 total)
+- Experience: V
+
+### Guns (7 types)
+
+**10.5cm leFH 18** (x88)
+- Penetration: 1
+- HE: Medium
+- Points: 60pts each (5280pts total)
+- BR: 3 each (264 total)
+- Mobility: Towed
+
+**15cm sFH 18** (x39)
+- Penetration: 1
+- HE: Medium
+- Points: 60pts each (2340pts total)
+- BR: 3 each (117 total)
+- Mobility: Towed
+
+**10cm K 18** (x8)
+- Penetration: 1
+- HE: Light
+- Points: 50pts each (400pts total)
+- BR: 3 each (24 total)
+- Mobility: Towed
+
+**15cm sIG 33** (x4)
+- Penetration: 1
+- HE: Medium
+- Points: 60pts each (240pts total)
+- BR: 3 each (12 total)
+- Mobility: Towed
+
+**7.5cm PaK 40** (x44)
+- Penetration: 1
+- HE: Light
+- Points: 50pts each (2200pts total)
+- BR: 2 each (88 total)
+- Mobility: Towed
+
+**5cm PaK 38** (x45)
+- Penetration: 1
+- HE: Very Light
+- Points: 40pts each (1800pts total)
+- BR: 2 each (90 total)
+- Mobility: Towed
+
+**Marder II/III SPG** (x12)
+- Penetration: 5
+- HE: Light
+- Points: 70pts each (840pts total)
+- BR: 3 each (36 total)
+- Mobility: Towed
+
+### Support Vehicles (13 types)
+
+**Sd.Kfz. 251** (x166): 4980pts, BR 166
+**Sd.Kfz. 250** (x50): 1500pts, BR 50
+**Opel Blitz 3-ton** (x2100): 21000pts, BR 0
+**Mercedes-Benz L3000** (x980): 9800pts, BR 0
+**Büssing-NAG 4500A** (x450): 4500pts, BR 0
+**Various light trucks** (x870): 8700pts, BR 0
+**Captured vehicles** (x800): 8000pts, BR 0
+**Sd.Kfz. 222 (2cm KwK 30)** (x51): 2040pts, BR 51
+**Sd.Kfz. 231 (8-Rad)** (x26): 1040pts, BR 26
+**Sd.Kfz. 232 (8-Rad)** (x20): 800pts, BR 20
+**Sd.Kfz. 234 Puma** (x2): 80pts, BR 2
+**BMW R75** (x480): 3840pts, BR 480
+**Zündapp KS 750** (x338): 2704pts, BR 338
+
+## Deployment
+
+**Defender**: German forces deploy first, within 18" of table edge
+
+**Attacker**: Opponent deploys within 12" of opposite edge
+
+**Terrain**: Northern and central Tunisia - highly varied terrain. Coastal plains (Tunis, Bizerte area) suitable for mechanized operations. Eastern Dorsal mountain range (Faïd Pass, Kasserine Pass, Sbiba Pass) creates natural defensive barrier - rocky mountains up to 1,000-1,500m elevation with limited pass roads. Central plateau region between mountains and coast - mixed agricultural land and rocky hills. Wadis (dry riverbeds) throughout - flash flood hazards during winter rains. More compartmentalized terrain than Libyan open desert - limits maneuver warfare, favors defensive operations.
+
+## Victory Conditions
+
+**Primary**: Break enemy Battlegroup Rating (BR)
+
+**Secondary**:
+- Hold 2 of 3 objectives
+- Destroy enemy command unit
+- Take fewer casualties than opponent
+
+## Special Rules
+
+- Limited Fuel: Vehicles move at half speed after Turn 5
+- Desert Conditions: Visibility 48" maximum, dust after vehicle movement
+
+## Supply & Environment
+
+**Fuel**: Unknown days
+**Ammunition**: Unknown days
+**Terrain**: Northern and central Tunisia - highly varied terrain. Coastal plains (Tunis, Bizerte area) suitable for mechanized operations. Eastern Dorsal mountain range (Faïd Pass, Kasserine Pass, Sbiba Pass) creates natural defensive barrier - rocky mountains up to 1,000-1,500m elevation with limited pass roads. Central plateau region between mountains and coast - mixed agricultural land and rocky hills. Wadis (dry riverbeds) throughout - flash flood hazards during winter rains. More compartmentalized terrain than Libyan open desert - limits maneuver warfare, favors defensive operations.
+
+---
+
+*Generated by BattleGroup Exporter Phase 9B*
