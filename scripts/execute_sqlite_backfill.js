@@ -13,7 +13,7 @@ const path = require('path');
 
 const PROJECT_ROOT = path.join(__dirname, '..');
 const SQL_FILE = path.join(PROJECT_ROOT, 'data/backfill_safe.sql');
-const DB_FILE = path.join(PROJECT_ROOT, 'data/toe_database.db');
+const DB_FILE = path.join(PROJECT_ROOT, 'database/master_database.db');
 
 async function main() {
     console.log('\n' + '═'.repeat(80));

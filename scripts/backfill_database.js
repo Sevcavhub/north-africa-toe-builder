@@ -13,7 +13,7 @@ const fs = require('fs').promises;
 const path = require('path');
 
 const PROJECT_ROOT = path.join(__dirname, '..');
-const DATABASE_PATH = path.join(PROJECT_ROOT, 'data/toe_database.db');
+const DATABASE_PATH = path.join(PROJECT_ROOT, 'database/master_database.db');
 
 async function main() {
     console.log('\n' + '═'.repeat(80));
@@ -127,33 +127,40 @@ async function main() {
 }
 
 /**
- * Scan all autonomous_* directories for unit JSON files
+ * Scan canonical Architecture v4.0 directories for unit JSON files
+ * - Ground units: data/output/units/
+ * - Air summaries: data/output/air_summaries/
  */
 async function scanForUnitFiles() {
-    const outputDir = path.join(PROJECT_ROOT, 'data/output');
     const files = [];
 
+    // Scan ground units (Architecture v4.0 canonical location)
+    const unitsDir = path.join(PROJECT_ROOT, 'data/output/units');
     try {
-        const sessions = await fs.readdir(outputDir);
-
-        for (const session of sessions) {
-            if (!session.startsWith('autonomous_')) continue;
-
-            const unitsDir = path.join(outputDir, session, 'units');
-            try {
-                const unitFiles = await fs.readdir(unitsDir);
-                for (const file of unitFiles) {
-                    if (file.endsWith('_toe.json')) {
-                        files.push(path.join(unitsDir, file));
-                    }
-                }
-            } catch (error) {
-                // Session might not have units directory
-                continue;
+        const unitFiles = await fs.readdir(unitsDir);
+        for (const file of unitFiles) {
+            if (file.endsWith('_toe.json')) {
+                files.push(path.join(unitsDir, file));
             }
         }
+        console.log(`   Found ${files.length} ground unit files`);
     } catch (error) {
-        console.error(`❌ Error scanning output directory: ${error.message}`);
+        console.error(`❌ Error scanning units directory: ${error.message}`);
+    }
+
+    // Scan air summaries (Architecture v4.0 canonical location)
+    const airSummariesDir = path.join(PROJECT_ROOT, 'data/output/air_summaries');
+    try {
+        const airFiles = await fs.readdir(airSummariesDir);
+        const airCount = files.length;
+        for (const file of airFiles) {
+            if (file.endsWith('.json')) {
+                files.push(path.join(airSummariesDir, file));
+            }
+        }
+        console.log(`   Found ${files.length - airCount} air summary files`);
+    } catch (error) {
+        console.error(`❌ Error scanning air summaries directory: ${error.message}`);
     }
 
     return files;
@@ -188,10 +195,14 @@ function extractDatabaseFields(unit, filePath) {
         sourceTier = 2;
     }
 
+    // Generate unit_id from components
+    const unitId = `${nation}_${unit.quarter}_${(unit.unit_designation || 'unknown').toLowerCase().replace(/[^a-z0-9]+/g, '_')}`;
+
     return {
+        unit_id: unitId,
         nation: nation,
         quarter: unit.quarter || 'unknown',
-        unit_designation: unit.unit_designation || 'Unknown Unit',
+        designation: unit.unit_designation || 'Unknown Unit',
         unit_type: unit.unit_type || null,
         organization_level: unit.organization_level || null,
         commander_name: unit.command?.commander?.name || null,
@@ -200,18 +211,9 @@ function extractDatabaseFields(unit, filePath) {
         officers: unit.officers || 0,
         ncos: unit.ncos || 0,
         enlisted: unit.enlisted || 0,
-        tanks_total: unit.tanks?.total || 0,
-        tanks_heavy: tanksHeavy,
-        tanks_medium: tanksMedium,
-        tanks_light: tanksLight,
-        artillery_total: unit.artillery_total || 0,
-        ground_vehicles_total: unit.ground_vehicles_total || 0,
-        aircraft_total: unit.aircraft_total || 0,
-        confidence_score: unit.validation?.confidence || 0,
-        source_tier: sourceTier,
-        primary_source: primarySource,
-        extraction_date: unit.validation?.last_updated || new Date().toISOString().split('T')[0],
-        json_file_path: filePath.replace(/\\/g, '/')
+        source_file: path.basename(filePath),
+        schema_version: unit.schema_version || 'unknown',
+        theater: 'north_africa'
     };
 }
 
@@ -254,21 +256,16 @@ function generateInsertSQL(unit) {
     };
 
     return `INSERT INTO units (
-    nation, quarter, unit_designation, unit_type, organization_level,
+    unit_id, nation, quarter, designation, unit_type, organization_level,
     commander_name, commander_rank,
     total_personnel, officers, ncos, enlisted,
-    tanks_total, tanks_heavy, tanks_medium, tanks_light,
-    artillery_total, ground_vehicles_total, aircraft_total,
-    confidence_score, source_tier, primary_source, extraction_date, json_file_path
+    source_file, schema_version, theater
 ) VALUES (
-    ${escape(unit.nation)}, ${escape(unit.quarter)}, ${escape(unit.unit_designation)},
-    ${escape(unit.unit_type)}, ${escape(unit.organization_level)},
+    ${escape(unit.unit_id)}, ${escape(unit.nation)}, ${escape(unit.quarter)},
+    ${escape(unit.designation)}, ${escape(unit.unit_type)}, ${escape(unit.organization_level)},
     ${escape(unit.commander_name)}, ${escape(unit.commander_rank)},
     ${unit.total_personnel}, ${unit.officers}, ${unit.ncos}, ${unit.enlisted},
-    ${unit.tanks_total}, ${unit.tanks_heavy}, ${unit.tanks_medium}, ${unit.tanks_light},
-    ${unit.artillery_total}, ${unit.ground_vehicles_total}, ${unit.aircraft_total},
-    ${unit.confidence_score}, ${unit.source_tier}, ${escape(unit.primary_source)},
-    ${escape(unit.extraction_date)}, ${escape(unit.json_file_path)}
+    ${escape(unit.source_file)}, ${escape(unit.schema_version)}, ${escape(unit.theater)}
 );`;
 }
 

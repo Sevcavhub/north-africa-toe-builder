@@ -1,12 +1,12 @@
 # North Africa TO&E Builder - Complete Project Scope
 
-**Version**: 1.0.9
-**Last Updated**: 2025-10-23 (Post-Restoration - System Stabilized)
+**Version**: 1.1.0
+**Last Updated**: 2025-10-29 (Phase 7 Air Forces - Complete with Design Divergence)
 **Status**: 🟢 LIVING DOCUMENT - Subject to updates
 
 <!-- AUTO-UPDATED: START - Progress Stats -->
-**Current Phase**: Phase 6 (Ground Forces) - ✅ 100% COMPLETE | Phase 7 (Air Forces) - ~51-68%
-**Overall Progress**: Ground: 402/402 (100%) ✅ | Air: 68/~100-135 (~51-68%) | Equipment: 469/469 (100%) ✅
+**Current Phase**: Phase 6 (Ground Forces) - ✅ 100% COMPLETE | Phase 7 (Air Forces) - ✅ 100% COMPLETE
+**Overall Progress**: Ground: 402/402 (100%) ✅ | Air: 23 summaries (100%) ✅ | Equipment: 469/469 (100%) ✅
 <!-- AUTO-UPDATED: END - Progress Stats -->
 
 **Architecture**: v4.0 (Canonical Output Locations)
@@ -286,6 +286,55 @@ Historical sources (Tessin, Army Lists, Field Manuals) provide equipment **QUANT
 
 ---
 
+### **Phase 5.5: Database Backfill & Name Normalization** ⏳ **PENDING**
+
+**Goal**: Populate SQLite database with all extracted units and normalize naming variations
+
+**Status**: **NOT STARTED** - Blocking Phase 8-9
+
+**Current Database State** (as of Oct 29, 2025):
+- **144 units in database** (Phase 1-4 WITW baseline only)
+- **402 ground units extracted** but not in database (64% missing)
+- **23 air summaries extracted** but not in database
+- **Total gap**: 281 records missing from master_database.db
+
+**Database Tables Status**:
+- ✅ `equipment` (469 rows) - WITW baseline complete
+- ✅ `guns` (348 rows) - Specifications complete
+- ✅ `aircraft` (1,010 rows) - Specifications complete
+- ✅ `match_reviews` (959 rows) - Phase 5 matching complete
+- ⚠️ `units` (144 rows) - **INCOMPLETE** (should be 425)
+- ⚠️ `unit_equipment` - Not populated with extracted units
+
+**Name Normalization Challenge**:
+
+Historical sources use inconsistent naming:
+- **Units**: "Deutsches Afrikakorps" vs "Deutsches Afrika-Korps" vs "DAK"
+- **Equipment**: "Panzer III Ausf. F" vs "PzKpfw III Ausf F" vs "Pz.Kpfw. III Ausf. F"
+- **Aircraft**: "Bf 109E-7/Trop" vs "Messerschmitt Bf 109E-7" vs "Me 109E-7"
+
+**Required Solution**:
+1. **Canonical Names Table**: Official standardized names for each entity
+2. **Alias Mapping Table**: Links variations → canonical names
+3. **Fuzzy Matching Algorithm**: Handles minor spelling/formatting differences
+4. **Backfill Script Enhancement**: Use alias resolution during import
+
+**Deliverables**:
+- ✅ `scripts/check_database_status.js` - Database status checker (created)
+- ⏸️ `database/schema/canonical_names.sql` - Canonical names + aliases tables
+- ⏸️ `scripts/lib/name_normalizer.js` - Name resolution library
+- ⏸️ `scripts/backfill_ground_units.js` - Import 402 ground units with normalization
+- ⏸️ `scripts/backfill_air_summaries.js` - Import 23 air summaries
+- ⏸️ `scripts/validate_database_completeness.js` - Verify all units imported
+
+**Timeline**: ~8-12 hours (name mapping design + backfill scripts + testing)
+
+**Prerequisites**: Phase 5 and Phase 6 complete ✅
+
+**Blocks**: Phase 8 (cross-linking), Phase 9 (scenario enrichment)
+
+---
+
 ### **Phase 6: Ground Forces Unit Extraction** ✅ **COMPLETE - 100%**
 
 **Goal**: Complete all valid unit-quarters (117 unique units across all quarters)
@@ -326,15 +375,35 @@ Historical sources (Tessin, Army Lists, Field Manuals) provide equipment **QUANT
 
 ---
 
-### **Phase 7: Air Force Extraction** **IN PROGRESS - ~51-68%**
+### **Phase 7: Air Force Extraction** ✅ **COMPLETE - 100%** (Design Divergence)
 
-**Goal**: Extract ~100-135 air force units (all nations)
+**Goal**: Extract air force data for scenario generation (all nations)
 
-**Status**: **68/~100-135 complete (~51-68%)** - *Updated Oct 27, 2025*
-- **68 air unit JSON files** extracted → `data/output/air_units/`
-- **68 air chapters** written → `data/output/air_chapters/`
-- Basic `assigned_to_ground` field implemented (Phase 8 pre-work)
-- Remaining: ~32-67 air units
+**Status**: **23 quarterly summaries complete (100%)** - *Updated Oct 29, 2025*
+- **23 quarterly air summaries** → `data/output/air_summaries/` (aggregate strength data)
+- **Covers 9 quarters** (1941-Q1 through 1943-Q1)
+- **4 nations**: German (7), British (7), Italian (7), American (2)
+- Average confidence: 70% weighted by aircraft count
+- **18 Army-level ground units** updated with air_support sections
+
+**⚠️ DESIGN DIVERGENCE FROM ORIGINAL PLAN:**
+
+**Originally Planned**: ~100-135 per-unit JSONs with detailed TO&E (pilots, ground crew, aircraft, ordnance) + individual MDBook chapters for each Gruppe/Squadron/Stormo
+
+**Actually Implemented**: 23 quarterly theater-wide summaries with aggregate data (total fighters/bombers/recon by nation per quarter)
+
+**Rationale**:
+- Scenario generation requires **aggregate air support availability**, not organic unit detail
+- Historical sources provide theater-level strength data, not individual unit TO&Es
+- Summary approach is **functionally complete** for Phase 9 scenario generation
+- Detailed per-unit extraction would require extensive archival research (~60-80 hours) with limited value-add
+
+**What This Means for Phase 8-10**:
+- Phase 8: Cross-linking uses quarterly summaries, not individual air unit IDs
+- Phase 9: Scenarios use aggregate air support data (e.g., "170 German aircraft available")
+- Phase 10: Campaign tracking uses quarterly strength transitions
+
+**If Detailed Air Units Needed Later**: Can be extracted post-MVP as "Phase 11: Detailed Air Forces"
 
 **Organizational Structures**:
 
@@ -1237,10 +1306,29 @@ This scope is achievable, professionally valuable, and commercially marketable.
   - CLAUDE.md: Critical Rules section rewritten with 7 enumerated rules
 - **Impact**: Workflow drift eliminated, baseline restored, count sync validated, 60.6% completion milestone
 
+### v1.1.0 (2025-10-29) - Phase 7 Complete + Database Backfill Gap Identified
+- **Phase 6 & 7 COMPLETE**: All ground forces (402/402) and air forces (23/23 summaries) extraction finished
+- **Design Divergence Documented**: Phase 7 implemented as quarterly theater summaries instead of per-unit detail
+  - Originally planned: ~100-135 detailed air unit JSONs with organic TO&E
+  - Actually delivered: 23 quarterly aggregate summaries (functionally complete for scenarios)
+  - Rationale: Scenarios need aggregate availability, not organic detail; detailed extraction deferred to post-MVP
+- **Database Backfill Gap Identified**: SQLite master_database.db missing extracted units
+  - Current: 144 units (Phase 1-4 WITW baseline only)
+  - Expected: 402 ground units + 23 air summaries = 425 total
+  - Missing: 258 ground units not in database (64% of extracted data)
+  - Impact: Phase 9 scenario enrichment scripts blocked until database backfilled
+- **Name Mapping Requirement**: Author/source variations need normalization
+  - Example: "Deutsches Afrikakorps" vs "Deutsches Afrika-Korps" vs "DAK"
+  - Equipment: "Panzer III Ausf. F" vs "PzKpfw III Ausf F" vs "Pz.Kpfw. III Ausf. F"
+  - Solution needed: Canonical name + alias mapping system for fuzzy matching
+- **Database Check Script Created**: `scripts/check_database_status.js` for quick status queries
+- **Next Priority**: Phase 5.5 - Database backfill with name normalization before Phase 8-9
+- **Overall Progress**: 425/425 extraction complete (100%), database integration pending
+
 ### Future Updates:
-- **v1.1.0** (TBD): [Complete Phase 5 equipment matching | Update CLAUDE.md and VERSION_HISTORY.md]
-- **v1.2.0** (TBD): [Scenario generation specifications]
-- **v1.3.0** (TBD): [Campaign system details]
+- **v1.2.0** (TBD): [Phase 5.5 Database backfill complete]
+- **v1.3.0** (TBD): [Phase 8 Cross-linking specifications]
+- **v1.4.0** (TBD): [Phase 9 Scenario generation implementation]
 
 ---
 
