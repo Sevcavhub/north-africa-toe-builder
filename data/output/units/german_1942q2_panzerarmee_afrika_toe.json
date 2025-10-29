@@ -382,8 +382,8 @@
   "supply_logistics": {
     "supply_status": "IMPROVED from Q1 but CRITICALLY CONSTRAINED. Panzerarmee Afrika preparing for Operation Theseus (Gazala offensive, 26 May 1942). Supply lines from Tripoli (800km) and Benghazi (recaptured Jan 1942, now operational 350km forward). British Malta-based RAF/RN interdiction destroys 25-35% of Axis Mediterranean convoys. Q2 1942 build-up: Fuel reserves 6-8 days (improved from Q1 crisis), ammunition 8-12 days, water 10-15L/man/day. Rommel accumulated supplies April-May for Gazala offensive. CRITICAL STRATEGIC ISSUE: British Grant tanks arriving Egypt with 75mm gun superior to all Axis tanks except 43 Panzer IV F2 (19% of German tank strength). Rommel's gamble: Attack before British 8th Army fully equipped. Italian units heavily dependent on German logistics coordination. Supply crisis WILL occur if offensive extends beyond Tobruk into Egypt (historical: First Alamein supply collapse July 1942). Theater logistics: Tripoli main port (25-35% convoy losses), Benghazi forward port (critical for Gazala), coastal road vulnerable to British air/commando raids, no railway. German DAK prioritized for fuel/ammunition over Italian divisions.",
     "operational_radius_km": 220,
-    "fuel_reserves_days": 7.0,
-    "ammunition_days": 10.0,
+    "fuel_reserves_days": 7,
+    "ammunition_days": 10,
     "water_liters_per_day": 12.5
   },
   "weather_environment": {
@@ -530,6 +530,32 @@
       "Pursuit to Egypt and First Battle of El Alamein (late June-July 1942) - Overextended advance halted by supply collapse and British defense at El Alamein"
     ]
   },
+  "air_support": {
+    "theater_air_command": {
+      "designation": "Fliegerführer Afrika",
+      "commander": "Unknown",
+      "headquarters": "Libya"
+    },
+    "aggregate_strength": {
+      "total_aircraft": 20,
+      "operational_aircraft": 16,
+      "serviceability_rate": 80,
+      "unit_count": 2,
+      "note": "Data from Axis Air Forces in North Africa, 10 May 1942"
+    },
+    "key_aircraft_types": [
+      "Ju88C-6"
+    ],
+    "organizational_summary": "2 operational units providing air support to ground forces",
+    "source": {
+      "file": "942geme.pdf",
+      "title": "Axis Air Forces in North Africa, 10 May 1942",
+      "date": "1942-05-10",
+      "confidence": 90,
+      "tier": "production_ready"
+    },
+    "integration_note": "Air forces data integrated from quarterly air summary. See german_1942q2_air_summary.json for detailed squadron/gruppo breakdown."
+  },
   "validation": {
     "source": [
       "The Rommel Papers - PRIMARY SOURCE: Panzerarmee Afrika Q2 1942 operations, Gazala offensive planning/execution, supply situation, command transitions (Tier 1, 95% confidence)",
@@ -574,5 +600,9 @@
       "Historical significance: Rommel's masterpiece - drove British 8th Army to El Alamein, threatened Egypt/Suez Canal, high-water mark of Axis North Africa campaign",
       "Army-level aggregation: High-level data with references to subordinate unit files for detailed TO&E. Focus on theater-level operations, combined German-Italian coordination, Rommel's leadership."
     ]
+  },
+  "metadata": {
+    "air_support_integration_date": "2025-10-29",
+    "air_support_source": "german_1942q2_air_summary.json"
   }
 }

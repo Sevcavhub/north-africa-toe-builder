@@ -120,6 +120,41 @@ No vehicle data available.
 **Strength**: 325 personnel
 **Notes**: Corps headquarters, signals, minimal mobile assets. Static defense orientation.
 
+## Air Support
+
+**Theater Air Command:** Regia Aeronautica - North Africa
+**Air Commander:** Unknown
+**Headquarters:** Libya
+
+### Aggregate Strength
+
+| Metric | Value |
+|--------|-------|
+| **Total Aircraft** | 412 |
+| **Operational Aircraft** | 238 |
+| **Serviceability Rate** | 58% |
+| **Operational Units** | 5 squadrons/gruppi |
+
+*Aggregate strength from Wikipedia Battle of Gazala (22 June 1942: 238 operational + 174 reserve). Unit details from Nafziger Collection. Per-unit strength estimated using Italian standard establishments.*
+
+### Key Aircraft Types
+
+- CR42
+- MC202
+
+### Organization
+
+5 operational units providing air support to ground forces
+
+### Data Source
+
+**Source Document:** Axis Air Forces in North Africa, 10 May 1942
+**Date:** 1942-05-10
+**Confidence:** 75%
+**Tier:** partial_needs_research
+
+*Air forces data integrated from quarterly air summary. See italian_1942q2_air_summary.json for detailed squadron/gruppo breakdown.*
+
 ## Tactical Doctrine & Capabilities
 
 Tactical doctrine and capabilities not detailed in TO&E.

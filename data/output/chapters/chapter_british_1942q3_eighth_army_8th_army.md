@@ -82,6 +82,45 @@
    - Status: undefined
    - Notes: XXX Corps heavily battered at Gazala, reorganized at El Alamein. Norrie relieved 5 July 'to give him a rest' after Gazala defeat. 9th Australian Division and 1st South African Division reinforced from XIII Corps. Free French Brigade withdrawn after Bir Hakeim evacuation
 
+## Air Support
+
+**Theater Air Command:** RAF Desert Air Force
+**Air Commander:** Air Vice-Marshal Arthur Coningham
+**Headquarters:** Western Desert
+
+### Aggregate Strength
+
+| Metric | Value |
+|--------|-------|
+| **Total Aircraft** | 740 |
+| **Operational Aircraft** | 675 |
+| **Serviceability Rate** | ~91% |
+| **Operational Units** | 37 squadrons/gruppi |
+
+*Aggregate strength from Wikipedia Second Battle of El Alamein (October-November 1942: 730-750 aircraft, using midpoint 740). Squadron details from Nafziger Collection (1 September 1942). Per-squadron strength estimated using RAF standard establishment.*
+
+### Key Aircraft Types
+
+- Spitfire VB
+- Maryland/Baltimore
+- Bostons
+- Baltimore II/III
+- Hurricane IIB
+- Hurricane IID,I/IIB2
+
+### Organization
+
+37 operational units providing air support to ground forces
+
+### Data Source
+
+**Source Document:** British Western Desert Air Force, 1 September 1942
+**Date:** 1942-09-01
+**Confidence:** 75%
+**Tier:** review_recommended
+
+*Air forces data integrated from quarterly air summary. See british_1942q3_air_summary.json for detailed squadron/gruppo breakdown.*
+
 ## Supply Status
 
 ## Tactical Doctrine & Capabilities

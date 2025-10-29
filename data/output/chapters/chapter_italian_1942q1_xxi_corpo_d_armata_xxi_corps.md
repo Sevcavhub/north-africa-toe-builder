@@ -277,6 +277,45 @@ XXI Corpo d'Armata comprised four divisions holding the Gazala Line's southern s
 
 ---
 
+## Air Support
+
+**Theater Air Command:** Regia Aeronautica - North Africa
+**Air Commander:** Unknown
+**Headquarters:** Libya
+
+### Aggregate Strength
+
+| Metric | Value |
+|--------|-------|
+| **Total Aircraft** | 400 |
+| **Operational Aircraft** | 260 |
+| **Serviceability Rate** | 65% |
+| **Operational Units** | 22 squadrons/gruppi |
+
+*Aggregate strength from Wikipedia Regia Aeronautica article (~400 aircraft in Libya, 60-70% operational). Unit details from Nafziger Collection. Per-unit strength estimated using Italian standard establishments.*
+
+### Key Aircraft Types
+
+- MC202
+- Ju87
+- CR42
+- SM79
+- Z1007
+- BR20
+
+### Organization
+
+22 operational units providing air support to ground forces
+
+### Data Source
+
+**Source Document:** Axis Air Force in North Africa, 18 January 1942
+**Date:** 1942-01-18
+**Confidence:** 70%
+**Tier:** partial_needs_research
+
+*Air forces data integrated from quarterly air summary. See italian_1942q1_air_summary.json for detailed squadron/gruppo breakdown.*
+
 ## 12. Tactical Doctrine & Capabilities
 
 **Operational Role:**

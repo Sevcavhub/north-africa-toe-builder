@@ -59,6 +59,40 @@
 
 ---
 
+## Air Support
+
+**Theater Air Command:** Fliegerführer Afrika
+**Air Commander:** Unknown
+**Headquarters:** Libya
+
+### Aggregate Strength
+
+| Metric | Value |
+|--------|-------|
+| **Total Aircraft** | 20 |
+| **Operational Aircraft** | 16 |
+| **Serviceability Rate** | 80 |
+| **Operational Units** | 2 squadrons/gruppi |
+
+*Data from Axis Air Forces in North Africa, 10 May 1942*
+
+### Key Aircraft Types
+
+- Ju88C-6
+
+### Organization
+
+2 operational units providing air support to ground forces
+
+### Data Source
+
+**Source Document:** Axis Air Forces in North Africa, 10 May 1942
+**Date:** 1942-05-10
+**Confidence:** 90%
+**Tier:** production_ready
+
+*Air forces data integrated from quarterly air summary. See german_1942q2_air_summary.json for detailed squadron/gruppo breakdown.*
+
 ## Strength Summary
 
 **Total Personnel**: 109,915

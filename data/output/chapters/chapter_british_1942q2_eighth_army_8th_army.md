@@ -80,6 +80,45 @@
    - Strength: 0 personnel
    - Status: undefined
 
+## Air Support
+
+**Theater Air Command:** RAF Desert Air Force
+**Air Commander:** Air Vice-Marshal Arthur Coningham
+**Headquarters:** Western Desert
+
+### Aggregate Strength
+
+| Metric | Value |
+|--------|-------|
+| **Total Aircraft** | 463 |
+| **Operational Aircraft** | 420 |
+| **Serviceability Rate** | 91% |
+| **Operational Units** | 21 squadrons/gruppi |
+
+*Aggregate strength from Wikipedia Battle of Gazala (22 June 1942: 463 total, 420 operational). Squadron details from Nafziger Collection (26 May 1942). Per-squadron strength estimated using RAF standard establishment of 16 aircraft per squadron.*
+
+### Key Aircraft Types
+
+- Hurricane I/Tomahawks
+- Marylands
+- Boston III
+- Baltimore I
+- Tomahawks
+- Kittyhawk I
+
+### Organization
+
+21 operational units providing air support to ground forces
+
+### Data Source
+
+**Source Document:** British Western Desert Air Force, 26 May 1942
+**Date:** 1942-05-26
+**Confidence:** 75%
+**Tier:** review_recommended
+
+*Air forces data integrated from quarterly air summary. See british_1942q2_air_summary.json for detailed squadron/gruppo breakdown.*
+
 ## Supply Status
 
 ## Tactical Doctrine & Capabilities
