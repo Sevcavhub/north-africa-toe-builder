@@ -375,10 +375,25 @@ class ScenarioMatchmaker:
         return f"{quarter}_{axis_name}_vs_{allied_name}_{size}"
 
     def _generate_oob_ground(self, matchup: Dict, scenario_dir: Path):
-        """Generate oob_ground.json with both forces and TO&E tables"""
+        """Generate oob_ground.json with both forces and TO&E tables (sliced to scenario size)"""
         # This will use data from the unit JSONs directly
         axis_unit = matchup['axis_force']['unit_data']
         allied_unit = matchup['allied_force']['unit_data']
+        scenario_size = matchup['scenario_size']
+
+        # Extract full TOE and summaries
+        axis_toe_full = self._extract_toe_table(axis_unit)
+        allied_toe_full = self._extract_toe_table(allied_unit)
+        axis_summary_full = self._extract_equipment_summary(axis_unit)
+        allied_summary_full = self._extract_equipment_summary(allied_unit)
+
+        # Slice forces to appropriate size for BattleGroup
+        axis_toe_sliced = self._slice_toe_to_scenario_size(axis_toe_full, scenario_size)
+        allied_toe_sliced = self._slice_toe_to_scenario_size(allied_toe_full, scenario_size)
+
+        # Recalculate summaries from sliced TOE (ensure they match)
+        axis_summary_sliced = self._calculate_summary_from_toe(axis_toe_sliced, axis_summary_full, scenario_size)
+        allied_summary_sliced = self._calculate_summary_from_toe(allied_toe_sliced, allied_summary_full, scenario_size)
 
         oob = {
             'scenario_name': scenario_dir.name,
@@ -391,22 +406,136 @@ class ScenarioMatchmaker:
                 'nation': matchup['axis_force']['nation'],
                 'unit_name': matchup['axis_force']['unit_name'],
                 'experience': matchup['axis_force']['experience'],
-                'toe': self._extract_toe_table(axis_unit),
-                'equipment_summary': self._extract_equipment_summary(axis_unit)
+                'toe': axis_toe_sliced,
+                'equipment_summary': axis_summary_sliced
             },
 
             'allied_force': {
                 'nation': matchup['allied_force']['nation'],
                 'unit_name': matchup['allied_force']['unit_name'],
                 'experience': matchup['allied_force']['experience'],
-                'toe': self._extract_toe_table(allied_unit),
-                'equipment_summary': self._extract_equipment_summary(allied_unit)
+                'toe': allied_toe_sliced,
+                'equipment_summary': allied_summary_sliced
             }
         }
 
         output_file = scenario_dir / 'oob_ground.json'
         with open(output_file, 'w', encoding='utf-8') as f:
             json.dump(oob, f, indent=2, ensure_ascii=False)
+
+    def _slice_toe_to_scenario_size(self, toe: Dict, scenario_size: str) -> Dict:
+        """
+        Slice TOE to appropriate size for BattleGroup scenarios
+
+        Reduction ratios based on BattleGroup scenarios (from Torch Mission PDF):
+        - Squad: 0.5-1.5% of division (~50-150 personnel, 5-9 units)
+        - Platoon: 2-4% of division (~200-400 personnel, 10-15 units)
+        - Company: 6-10% of division (~600-1000 personnel, 15-25 units)
+        - Battalion: 15-25% of division (~1500-2500 personnel, 30-50 units)
+        """
+        import math
+
+        # Reduction percentages (average of range)
+        reduction_ratios = {
+            'squad': 0.01,      # 1% of division
+            'platoon': 0.03,    # 3% of division
+            'company': 0.08,    # 8% of division
+            'battalion': 0.20   # 20% of division
+        }
+
+        ratio = reduction_ratios.get(scenario_size, 0.01)
+
+        sliced_toe = {
+            'tanks': {},
+            'artillery': {},
+            'anti_tank': {},
+            'infantry': {},
+            'vehicles': {}
+        }
+
+        # Slice each equipment category
+        for category in ['tanks', 'artillery', 'anti_tank', 'vehicles']:
+            if category in toe:
+                for equipment_name, equipment_data in toe[category].items():
+                    if isinstance(equipment_data, dict) and 'count' in equipment_data:
+                        original_count = equipment_data['count']
+                        # Apply reduction and round (minimum 1 if original > 0)
+                        sliced_count = max(1, math.ceil(original_count * ratio)) if original_count > 0 else 0
+
+                        if sliced_count > 0:
+                            sliced_toe[category][equipment_name] = {
+                                **equipment_data,
+                                'count': sliced_count
+                            }
+
+        # Infantry doesn't get sliced the same way (keep minimal representation)
+        if 'infantry' in toe:
+            sliced_toe['infantry'] = toe['infantry']
+
+        return sliced_toe
+
+    def _slice_summary_to_scenario_size(self, summary: Dict, scenario_size: str) -> Dict:
+        """Slice equipment summary to match scenario size"""
+        import math
+
+        reduction_ratios = {
+            'squad': 0.01,
+            'platoon': 0.03,
+            'company': 0.08,
+            'battalion': 0.20
+        }
+
+        ratio = reduction_ratios.get(scenario_size, 0.01)
+
+        sliced_summary = {}
+        for key, value in summary.items():
+            if isinstance(value, int):
+                # Apply reduction (minimum 1 if original > 0, except for personnel)
+                if key == 'total_personnel':
+                    sliced_summary[key] = max(50, math.ceil(value * ratio))  # Minimum 50 personnel for squad
+                else:
+                    sliced_summary[key] = max(1, math.ceil(value * ratio)) if value > 0 else 0
+            else:
+                sliced_summary[key] = value
+
+        return sliced_summary
+
+    def _calculate_summary_from_toe(self, toe: Dict, original_summary: Dict, scenario_size: str) -> Dict:
+        """
+        Calculate equipment summary from sliced TOE (ensures TOE and summary match)
+
+        Args:
+            toe: Sliced TOE dict
+            original_summary: Original full division summary (for personnel calculation)
+            scenario_size: Scenario size for personnel slicing
+
+        Returns:
+            Equipment summary matching the sliced TOE
+        """
+        import math
+
+        # Count equipment from TOE
+        total_tanks = sum(item['count'] for item in toe.get('tanks', {}).values() if isinstance(item, dict))
+        total_artillery = sum(item['count'] for item in toe.get('artillery', {}).values() if isinstance(item, dict))
+        total_at_guns = sum(item['count'] for item in toe.get('anti_tank', {}).values() if isinstance(item, dict))
+
+        # Slice personnel proportionally
+        reduction_ratios = {
+            'squad': 0.01,
+            'platoon': 0.03,
+            'company': 0.08,
+            'battalion': 0.20
+        }
+        ratio = reduction_ratios.get(scenario_size, 0.01)
+        original_personnel = original_summary.get('total_personnel', 10000)
+        total_personnel = max(50, math.ceil(original_personnel * ratio))
+
+        return {
+            'total_tanks': total_tanks,
+            'total_artillery': total_artillery,
+            'total_at_guns': total_at_guns,
+            'total_personnel': total_personnel
+        }
 
     def _extract_toe_table(self, unit_data: Dict) -> Dict:
         """Extract TO&E table from unit JSON (supports schema v3.0.0 and v3.1.0)"""
