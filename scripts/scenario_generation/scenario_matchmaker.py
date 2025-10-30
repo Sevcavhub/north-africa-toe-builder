@@ -114,6 +114,14 @@ class ScenarioMatchmaker:
                     skipped += 1
                     continue
 
+                # Filter by organizational level - only match divisions
+                org_level = unit_data.get('organization_level', '').lower()
+                if org_level not in ['division', 'brigade']:
+                    # Skip armies, corps, and other high-level formations
+                    # (These create unbalanced matchups - armies have 10x personnel of divisions)
+                    skipped += 1
+                    continue
+
                 # Classify as Axis or Allied
                 alignment = 'axis' if nation in self.AXIS_NATIONS else 'allied'
 
@@ -124,6 +132,7 @@ class ScenarioMatchmaker:
                     'quarter': quarter,
                     'unit_name': unit_name,
                     'unit_data': unit_data,
+                    'organization_level': org_level,
                     'experience': self._extract_experience(unit_data, nation, quarter)
                 }
 
@@ -250,6 +259,16 @@ class ScenarioMatchmaker:
             allied_exp_tier = self.EXPERIENCE_TIERS.get(allied_force['experience'], 2)
 
             score = 100  # Base score
+
+            # Organizational level matching (CRITICAL - prevents army vs division)
+            axis_org = axis_force.get('organization_level', 'division')
+            allied_org = allied_force.get('organization_level', 'division')
+
+            if axis_org == allied_org:
+                score += 50  # Same level (division vs division, brigade vs brigade)
+            else:
+                # Mismatched levels are unacceptable (army vs division creates 10:1 imbalance)
+                score -= 1000  # Effectively disqualify this matchup
 
             # Experience matching (±1 tier is acceptable)
             exp_diff = abs(axis_exp_tier - allied_exp_tier)
