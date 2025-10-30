@@ -1,0 +1,57 @@
+{
+  "scenario_size": "squad",
+  "table_dimensions": {
+    "width_cm": 120,
+    "length_cm": 120
+  },
+  "terrain_features": [
+    {
+      "type": "hill",
+      "position": "center",
+      "elevation_m": 50
+    },
+    {
+      "type": "wadi",
+      "position": "left_flank",
+      "depth_m": 3
+    },
+    {
+      "type": "rocky_outcrop",
+      "position": "right_flank",
+      "size": "small"
+    },
+    {
+      "type": "sparse_vegetation",
+      "coverage": "10%"
+    }
+  ],
+  "deployment_zones": {
+    "axis": {
+      "edge": "north",
+      "depth_cm": 30,
+      "description": "Axis forces deploy within 30cm of north table edge"
+    },
+    "allied": {
+      "edge": "south",
+      "depth_cm": 30,
+      "description": "Allied forces deploy within 30cm of south table edge"
+    }
+  },
+  "objectives": [
+    {
+      "type": "capture_point",
+      "location": "center_hill",
+      "points": 3
+    },
+    {
+      "type": "capture_point",
+      "location": "left_wadi",
+      "points": 2
+    },
+    {
+      "type": "capture_point",
+      "location": "right_outcrop",
+      "points": 2
+    }
+  ]
+}
