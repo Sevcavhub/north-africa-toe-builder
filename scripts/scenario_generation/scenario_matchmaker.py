@@ -270,6 +270,38 @@ class ScenarioMatchmaker:
                 # Mismatched levels are unacceptable (army vs division creates 10:1 imbalance)
                 score -= 1000  # Effectively disqualify this matchup
 
+            # Personnel ratio matching (CRITICAL - prevents 3:1 imbalances)
+            axis_personnel = axis_force['unit_data'].get('total_personnel', 0)
+            allied_personnel = allied_force['unit_data'].get('total_personnel', 0)
+
+            # Safely convert to int (handles dict/None/invalid values)
+            try:
+                axis_personnel = int(axis_personnel) if axis_personnel else 0
+            except (TypeError, ValueError):
+                axis_personnel = 0
+
+            try:
+                allied_personnel = int(allied_personnel) if allied_personnel else 0
+            except (TypeError, ValueError):
+                allied_personnel = 0
+
+            if axis_personnel > 0 and allied_personnel > 0:
+                # Calculate ratio (higher / lower)
+                if axis_personnel > allied_personnel:
+                    ratio = axis_personnel / allied_personnel
+                else:
+                    ratio = allied_personnel / axis_personnel
+
+                # Score based on ratio quality
+                if ratio <= 1.5:
+                    score += 40  # Excellent balance (within 1.5:1)
+                elif ratio <= 2.0:
+                    score += 20  # Acceptable balance (within 2:1)
+                elif ratio <= 2.5:
+                    score -= 30  # Poor balance (2-2.5:1)
+                else:
+                    score -= 100  # Very imbalanced (>2.5:1) - heavily penalize
+
             # Experience matching (±1 tier is acceptable)
             exp_diff = abs(axis_exp_tier - allied_exp_tier)
             if exp_diff == 0:
@@ -377,7 +409,7 @@ class ScenarioMatchmaker:
             json.dump(oob, f, indent=2, ensure_ascii=False)
 
     def _extract_toe_table(self, unit_data: Dict) -> Dict:
-        """Extract TO&E table from unit JSON"""
+        """Extract TO&E table from unit JSON (supports schema v3.0.0 and v3.1.0)"""
         toe = {
             'tanks': {},
             'artillery': {},
@@ -386,46 +418,106 @@ class ScenarioMatchmaker:
             'vehicles': {}
         }
 
-        # Extract tanks
+        schema_version = unit_data.get('schema_version', '3.0.0')
+
+        # Extract tanks (both schemas)
         if 'tanks' in unit_data and isinstance(unit_data['tanks'], dict):
-            if 'variants' in unit_data['tanks']:
-                for tank_name, tank_data in unit_data['tanks']['variants'].items():
-                    if isinstance(tank_data, dict):
+            # Try v3.1.0 'breakdown' first, then v3.0.0 'variants'
+            equipment = unit_data['tanks'].get('breakdown', unit_data['tanks'].get('variants', {}))
+            if equipment:
+                for tank_name, data in equipment.items():
+                    # Schema v3.1.0: data is int, Schema v3.0.0: data is dict with 'count' key
+                    count = data if isinstance(data, int) else (data.get('count', 0) if isinstance(data, dict) else 0)
+                    if count > 0:
                         toe['tanks'][tank_name] = {
-                            'count': tank_data.get('count', 0),
-                            'type': tank_data.get('type', 'unknown'),
-                            'gun': tank_data.get('gun', 'unknown')
+                            'count': count,
+                            'type': 'tank'
                         }
 
-        # Extract artillery
-        for section in ['field_artillery', 'artillery']:
-            if section in unit_data and isinstance(unit_data[section], dict):
-                if 'variants' in unit_data[section]:
-                    for gun_name, gun_data in unit_data[section]['variants'].items():
-                        if isinstance(gun_data, dict):
-                            toe['artillery'][gun_name] = {
-                                'count': gun_data.get('count', 0),
-                                'caliber': gun_data.get('caliber', 'unknown')
-                            }
+        # Extract field artillery (both schemas)
+        if 'field_artillery' in unit_data and isinstance(unit_data['field_artillery'], dict):
+            # Try v3.1.0 'breakdown' first, then v3.0.0 'variants'
+            equipment = unit_data['field_artillery'].get('breakdown', unit_data['field_artillery'].get('variants', {}))
+            if equipment:
+                for gun_name, data in equipment.items():
+                    # Schema v3.1.0: data is int, Schema v3.0.0: data is dict with 'count' key
+                    count = data if isinstance(data, int) else (data.get('count', 0) if isinstance(data, dict) else 0)
+                    if count > 0:
+                        # Caliber from v3.0.0 dict or extract from name
+                        caliber = data.get('caliber', self._extract_caliber_from_name(gun_name)) if isinstance(data, dict) else self._extract_caliber_from_name(gun_name)
+                        toe['artillery'][gun_name] = {
+                            'count': count,
+                            'caliber': caliber
+                        }
 
-        # Extract AT guns
-        if 'anti_tank' in unit_data and isinstance(unit_data['anti_tank'], dict):
-            if 'variants' in unit_data['anti_tank']:
-                for gun_name, gun_data in unit_data['anti_tank']['variants'].items():
-                    if isinstance(gun_data, dict):
+        # Extract AT guns (schema v3.1.0 uses 'anti_tank_guns', v3.0.0 uses 'anti_tank')
+        at_section = 'anti_tank_guns' if schema_version >= '3.1.0' else 'anti_tank'
+        if at_section in unit_data and isinstance(unit_data[at_section], dict):
+            # Try v3.1.0 'breakdown' first, then v3.0.0 'variants'
+            equipment = unit_data[at_section].get('breakdown', unit_data[at_section].get('variants', {}))
+            if equipment:
+                for gun_name, data in equipment.items():
+                    # Schema v3.1.0: data is int, Schema v3.0.0: data is dict with 'count' key
+                    count = data if isinstance(data, int) else (data.get('count', 0) if isinstance(data, dict) else 0)
+                    if count > 0:
+                        # Caliber from v3.0.0 dict or extract from name
+                        caliber = data.get('caliber', self._extract_caliber_from_name(gun_name)) if isinstance(data, dict) else self._extract_caliber_from_name(gun_name)
                         toe['anti_tank'][gun_name] = {
-                            'count': gun_data.get('count', 0),
-                            'caliber': gun_data.get('caliber', 'unknown')
+                            'count': count,
+                            'caliber': caliber
                         }
 
-        # Extract infantry (if available)
-        if 'infantry' in unit_data:
-            toe['infantry'] = unit_data['infantry']
+        # Also check the other AT field name as fallback
+        alt_at_section = 'anti_tank' if at_section == 'anti_tank_guns' else 'anti_tank_guns'
+        if not toe['anti_tank'] and alt_at_section in unit_data and isinstance(unit_data[alt_at_section], dict):
+            equipment = unit_data[alt_at_section].get('breakdown', unit_data[alt_at_section].get('variants', {}))
+            if equipment:
+                for gun_name, data in equipment.items():
+                    # Schema v3.1.0: data is int, Schema v3.0.0: data is dict with 'count' key
+                    count = data if isinstance(data, int) else (data.get('count', 0) if isinstance(data, dict) else 0)
+                    if count > 0:
+                        # Caliber from v3.0.0 dict or extract from name
+                        caliber = data.get('caliber', self._extract_caliber_from_name(gun_name)) if isinstance(data, dict) else self._extract_caliber_from_name(gun_name)
+                        toe['anti_tank'][gun_name] = {
+                            'count': count,
+                            'caliber': caliber
+                        }
+
+        # Extract vehicles (both schemas)
+        if 'trucks_and_lorries' in unit_data and isinstance(unit_data['trucks_and_lorries'], dict):
+            equipment = unit_data['trucks_and_lorries'].get('breakdown', unit_data['trucks_and_lorries'].get('variants', {}))
+            if equipment:
+                for vehicle_name, data in equipment.items():
+                    # Schema v3.1.0: data is int, Schema v3.0.0: data is dict with 'count' key
+                    count = data if isinstance(data, int) else (data.get('count', 0) if isinstance(data, dict) else 0)
+                    if count > 0:
+                        toe['vehicles'][vehicle_name] = {
+                            'count': count,
+                            'type': 'transport'
+                        }
 
         return toe
 
+    def _extract_caliber_from_name(self, gun_name: str) -> str:
+        """Extract caliber from gun name (e.g., '75/27 Mod. 1911' -> '75mm')"""
+        import re
+        # Match patterns like "75/27", "105/28", "QF 25-pounder" (87.6mm), etc.
+        match = re.search(r'(\d+)[/-]', gun_name)
+        if match:
+            return f"{match.group(1)}mm"
+        # Special case for British QF 25-pounder
+        if '25-pounder' in gun_name or '25 pounder' in gun_name:
+            return '87.6mm'
+        if '2-pounder' in gun_name or '2 pounder' in gun_name:
+            return '40mm'
+        if '6-pounder' in gun_name or '6 pounder' in gun_name:
+            return '57mm'
+        if '17-pounder' in gun_name or '17 pounder' in gun_name:
+            return '76.2mm'
+        return 'unknown'
+
     def _extract_equipment_summary(self, unit_data: Dict) -> Dict:
-        """Extract equipment summary counts"""
+        """Extract equipment summary counts (supports schema v3.0.0 and v3.1.0)"""
         summary = {
             'total_tanks': 0,
             'total_artillery': 0,
@@ -433,20 +525,33 @@ class ScenarioMatchmaker:
             'total_personnel': unit_data.get('total_personnel', 0) or 0
         }
 
-        # Count tanks
+        # Safely extract personnel (handle dict/None/invalid values)
+        try:
+            summary['total_personnel'] = int(summary['total_personnel']) if summary['total_personnel'] else 0
+        except (TypeError, ValueError):
+            summary['total_personnel'] = 0
+
+        schema_version = unit_data.get('schema_version', '3.0.0')
+
+        # Count tanks (both schemas use same structure)
         if 'tanks' in unit_data:
             if isinstance(unit_data['tanks'], dict):
                 summary['total_tanks'] = unit_data['tanks'].get('total', 0) or 0
 
-        # Count artillery
-        for section in ['field_artillery', 'artillery']:
-            if section in unit_data and isinstance(unit_data[section], dict):
-                total = unit_data[section].get('total', 0)
-                summary['total_artillery'] += total if total is not None else 0
+        # Count artillery (field_artillery in both schemas)
+        if 'field_artillery' in unit_data and isinstance(unit_data['field_artillery'], dict):
+            total = unit_data['field_artillery'].get('total', 0)
+            summary['total_artillery'] = total if total is not None else 0
 
-        # Count AT guns
-        if 'anti_tank' in unit_data and isinstance(unit_data['anti_tank'], dict):
-            summary['total_at_guns'] = unit_data['anti_tank'].get('total', 0) or 0
+        # Count AT guns (schema v3.1.0 uses 'anti_tank_guns', v3.0.0 uses 'anti_tank')
+        at_section = 'anti_tank_guns' if schema_version >= '3.1.0' else 'anti_tank'
+        if at_section in unit_data and isinstance(unit_data[at_section], dict):
+            summary['total_at_guns'] = unit_data[at_section].get('total', 0) or 0
+
+        # Fallback to alternative AT section name
+        alt_at_section = 'anti_tank' if at_section == 'anti_tank_guns' else 'anti_tank_guns'
+        if summary['total_at_guns'] == 0 and alt_at_section in unit_data and isinstance(unit_data[alt_at_section], dict):
+            summary['total_at_guns'] = unit_data[alt_at_section].get('total', 0) or 0
 
         return summary
 
