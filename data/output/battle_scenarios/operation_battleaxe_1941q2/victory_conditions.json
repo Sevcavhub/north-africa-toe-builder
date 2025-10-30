@@ -1,0 +1,336 @@
+{
+  "operation": "Operation Battleaxe",
+  "dates": "June 15-17, 1941",
+  "scenario_type": "Historical offensive operation",
+  "duration_turns": "3 days (or equivalent turn structure based on game system)",
+
+  "strategic_context": {
+    "churchill_directive": "Prime Minister Winston Churchill personally ordered offensive to relieve Tobruk and restore British position in Cyrenaica after Rommel's spring offensive.",
+    "political_pressure": "Churchill needed victory to justify Mediterranean strategy and strengthen position with USA. Heavy political pressure on Wavell to attack.",
+    "rommel_threat": "Rommel's rapid conquest of Cyrenaica (March-April 1941) shocked British command. Need to stop Axis advance and relieve besieged Tobruk.",
+    "strategic_objective": "Break Axis frontier positions, relieve Tobruk, recapture Cyrenaica, destroy Deutsches Afrikakorps if possible.",
+    "operational_constraints": "Limited time window before summer heat peak. Supply limitations. Churchill demanding immediate action."
+  },
+
+  "allied_british_objectives": {
+    "strategic_mission": "Offensive operation to destroy Axis frontier defenses, relieve Tobruk, and recapture Cyrenaica",
+
+    "primary_objectives": [
+      {
+        "objective_id": 1,
+        "name": "Capture Halfaya Pass",
+        "description": "Assault and capture the fortified Halfaya Pass escarpment position",
+        "importance": "CRITICAL",
+        "assigned_force": "4th Indian Division + 4th Armoured Brigade (Matilda tanks)",
+        "rationale": "Halfaya Pass controls access between coast and desert. Must be captured to enable advance along coastal road toward Bardia-Tobruk.",
+        "victory_points": 30,
+        "historical_outcome": "FAILED - German 88mm guns in prepared positions destroyed 30+ British tanks. British attacks repulsed with heavy losses.",
+        "axis_defender": "Battlegroup Bach (5. leichte Division) with 4x 88mm FlaK guns"
+      },
+      {
+        "objective_id": 2,
+        "name": "Capture and Hold Fort Capuzzo",
+        "description": "Assault, capture, and consolidate Fort Capuzzo fortress",
+        "importance": "HIGH",
+        "assigned_force": "4th Indian Division elements",
+        "rationale": "Fort Capuzzo controls road junction and provides observation. Needed as base for further advance.",
+        "victory_points": 20,
+        "historical_outcome": "PARTIAL SUCCESS then FAILURE - Captured June 15, lost to German counterattack June 16.",
+        "axis_defender": "Mixed German-Italian garrison, then 15. Panzer-Division counterattack"
+      },
+      {
+        "objective_id": 3,
+        "name": "Destroy German Armor",
+        "description": "Engage and destroy 15. Panzer-Division and Ariete Division in mobile battle",
+        "importance": "CRITICAL",
+        "assigned_force": "7th Armoured Division",
+        "rationale": "Destroy Axis mobile reserves to enable exploitation toward Tobruk. Defeat of German armor key to campaign success.",
+        "victory_points": 40,
+        "historical_outcome": "FAILED - British armor suffered heavy losses in tank battles at Hafid Ridge. 91 British tanks lost vs 25 Axis. British withdrew defeated.",
+        "axis_defender": "15. Panzer-Division (180 tanks) + Ariete Division (146 tanks)"
+      }
+    ],
+
+    "secondary_objectives": [
+      {
+        "objective_id": 4,
+        "name": "Capture Point 206",
+        "description": "Seize Point 206 hill mass for observation",
+        "importance": "MODERATE",
+        "victory_points": 10,
+        "historical_outcome": "CONTESTED - Limited action, no decisive result"
+      },
+      {
+        "objective_id": 5,
+        "name": "Link up with Tobruk Garrison",
+        "description": "Break through to Tobruk and relieve besieged garrison",
+        "importance": "STRATEGIC OBJECTIVE (if primary objectives achieved)",
+        "victory_points": 50,
+        "historical_outcome": "NOT ATTEMPTED - Offensive failed before reaching Tobruk (150km distant)"
+      },
+      {
+        "objective_id": 6,
+        "name": "Minimize Losses",
+        "description": "Limit tank and personnel casualties",
+        "importance": "HIGH - Limited British armor resources",
+        "victory_points": "Negative points for heavy losses",
+        "historical_outcome": "FAILED - 50% tank losses (91 of 190). Unsustainable attrition."
+      }
+    ],
+
+    "victory_conditions": {
+      "decisive_victory": {
+        "points_required": 100,
+        "conditions": [
+          "Capture Halfaya Pass (30 pts)",
+          "Capture and hold Fort Capuzzo (20 pts)",
+          "Destroy majority of Axis armor (40 pts)",
+          "Advance toward Tobruk (10 pts)",
+          "Limit own losses below 30% (20 pts)"
+        ],
+        "historical_possibility": "Extremely difficult. Required capturing Halfaya quickly and defeating 15. Panzer in mobile battle."
+      },
+      "marginal_victory": {
+        "points_required": 60,
+        "conditions": [
+          "Capture Halfaya Pass OR Fort Capuzzo (either 30/20 pts)",
+          "Inflict heavy losses on Axis armor without being destroyed (20 pts)",
+          "Hold ground gained (10 pts)"
+        ],
+        "historical_possibility": "Possible if 88mm guns at Halfaya suppressed and better tank tactics employed."
+      },
+      "draw": {
+        "points_required": 30-59,
+        "conditions": [
+          "Capture some objectives temporarily",
+          "Roughly equal casualties",
+          "No strategic breakthrough"
+        ],
+        "historical_note": "This approximates the actual situation - British gained temporary ground but withdrew."
+      },
+      "defeat": {
+        "points_required": "<30",
+        "conditions": [
+          "Fail to capture major objectives",
+          "Heavy tank losses (>40%)",
+          "Forced to withdraw"
+        ],
+        "historical_outcome": "THIS IS WHAT HAPPENED - British lost 91 tanks (48%), failed all major objectives, withdrew June 17."
+      }
+    },
+
+    "operational_constraints": {
+      "time_limit": "3 days combat operations maximum (supply constraints)",
+      "casualty_limits": "Cannot sustain >40% tank losses - would eliminate offensive capability",
+      "supply_limits": "Fuel and ammunition for 3-4 days only. No sustained operations possible.",
+      "political_pressure": "Wavell under extreme pressure from Churchill. Failure would cost him command (historical: relieved July 1941)."
+    }
+  },
+
+  "axis_german_italian_objectives": {
+    "strategic_mission": "Defend frontier positions, defeat British offensive, maintain siege of Tobruk",
+
+    "primary_objectives": [
+      {
+        "objective_id": 1,
+        "name": "Hold Halfaya Pass",
+        "description": "Defend Halfaya Pass against British assault",
+        "importance": "CRITICAL",
+        "assigned_force": "Battlegroup Bach (5. leichte Division) - battalion+ with 88mm guns",
+        "rationale": "Halfaya Pass is lynchpin of frontier defense. Loss would unravel entire position.",
+        "victory_points": 30,
+        "historical_outcome": "SUCCESS - British attacks repulsed with heavy losses. 88mm guns destroyed 30+ British tanks.",
+        "defender_advantage": "Prepared positions, 88mm guns, observation from escarpment"
+      },
+      {
+        "objective_id": 2,
+        "name": "Defeat British Armor",
+        "description": "Counterattack and destroy British armored divisions",
+        "importance": "CRITICAL",
+        "assigned_force": "15. Panzer-Division + Ariete Division",
+        "rationale": "Destroy British offensive capability. Defeating British armor ends threat to Axis positions.",
+        "victory_points": 40,
+        "historical_outcome": "SUCCESS - 15. Panzer counterattacks from Hafid Ridge destroyed British armor. 91 British tanks lost vs 25 Axis.",
+        "rommel_factor": "Rommel personally directed counterattacks from forward positions"
+      },
+      {
+        "objective_id": 3,
+        "name": "Recapture Fort Capuzzo (if lost)",
+        "description": "Counterattack to recapture Fort Capuzzo if British take it",
+        "importance": "HIGH",
+        "assigned_force": "15. Panzer-Division",
+        "victory_points": 20,
+        "historical_outcome": "SUCCESS - 15. Panzer recaptured Capuzzo June 16 in armored counterattack"
+      }
+    ],
+
+    "secondary_objectives": [
+      {
+        "objective_id": 4,
+        "name": "Maintain Tobruk Siege",
+        "description": "Prevent British from breaking through to Tobruk",
+        "importance": "STRATEGIC",
+        "victory_points": 20,
+        "historical_outcome": "SUCCESS - British never approached Tobruk"
+      },
+      {
+        "objective_id": 5,
+        "name": "Exploit British Withdrawal (if applicable)",
+        "description": "Pursue defeated British forces into Egypt if opportunity arises",
+        "importance": "OPPORTUNISTIC",
+        "victory_points": 30,
+        "historical_outcome": "NOT ACHIEVED - Rommel wanted to pursue but fuel shortages prevented. Axis forces remained in positions."
+      },
+      {
+        "objective_id": 6,
+        "name": "Preserve Armor Strength",
+        "description": "Minimize Axis tank losses",
+        "importance": "HIGH - Limited German armor in theater",
+        "victory_points": "Bonus for low losses",
+        "historical_outcome": "SUCCESS - Only 25 Axis tanks lost vs 91 British. Highly favorable exchange ratio."
+      }
+    ],
+
+    "victory_conditions": {
+      "decisive_victory": {
+        "points_required": 100,
+        "conditions": [
+          "Hold all frontier positions (30 pts)",
+          "Destroy British offensive capability - inflict >50% tank losses (40 pts)",
+          "Recapture any lost positions (20 pts)",
+          "Exploit with pursuit into Egypt (30 pts)"
+        ],
+        "historical_outcome": "NEARLY ACHIEVED - All conditions except pursuit met. Rommel wanted to pursue but logistics prevented."
+      },
+      "marginal_victory": {
+        "points_required": 60,
+        "conditions": [
+          "Hold most positions (Halfaya minimum) (30 pts)",
+          "Inflict heavy losses >30% on British armor (20 pts)",
+          "Successful counterattacks (10 pts)"
+        ],
+        "historical_note": "Minimum acceptable outcome for Axis"
+      },
+      "draw": {
+        "points_required": 30-59,
+        "conditions": [
+          "Trading ground for casualties",
+          "Roughly equal losses",
+          "British maintain some gains"
+        ]
+      },
+      "defeat": {
+        "points_required": "<30",
+        "conditions": [
+          "Loss of Halfaya Pass or other critical terrain",
+          "Heavy Axis armor losses",
+          "British breakthrough toward Tobruk"
+        ],
+        "strategic_consequence": "Would unravel entire frontier position, possibly force evacuation of Cyrenaica"
+      }
+    },
+
+    "operational_constraints": {
+      "fuel_shortage": "Chronic fuel shortage limits mobile operations and pursuit",
+      "supply_lines": "1,400km supply line from Tripoli vulnerable to interdiction",
+      "italian_weakness": "Italian forces of variable quality - Germans must provide stiffening",
+      "no_reserves": "No strategic reserves available. Must win with forces in theater."
+    }
+  },
+
+  "special_scenario_rules": {
+    "88mm_flak_guns": {
+      "rule": "German 88mm FlaK guns at Halfaya Pass are DECISIVE",
+      "effect": "88mm can defeat Matilda II at range - only weapon capable of this",
+      "historical_impact": "These guns inflicted 50%+ of British tank losses",
+      "game_mechanics": "88mm should have significant range and penetration advantage vs British armor"
+    },
+    "matilda_ii_armor": {
+      "rule": "British Matilda II is immune to most German AT weapons (except 88mm)",
+      "effect": "5cm PaK 38 (standard German AT gun) cannot penetrate Matilda II frontal armor",
+      "historical_impact": "Matilda II could only be killed by 88mm FlaK or close assault",
+      "game_mechanics": "Matilda should be nearly invulnerable to standard AT weapons"
+    },
+    "crusader_reliability": {
+      "rule": "British Crusader tanks suffer mechanical breakdowns",
+      "effect": "Random breakdowns reduce British effective strength by 10-15% per day",
+      "historical_impact": "Crusader was new tank with severe teething problems",
+      "game_mechanics": "Crusaders should have breakdown checks or reduced reliability"
+    },
+    "luftwaffe_air_superiority": {
+      "rule": "Axis has air superiority",
+      "effect": "Ju 87 Stuka attacks disrupt British formations, inflict casualties, morale impact",
+      "historical_impact": "Stuka attacks major factor in British defeat",
+      "game_mechanics": "Axis gets significant air support, British limited"
+    },
+    "supply_constraints": {
+      "rule": "Both sides have limited fuel and ammunition (3-4 days)",
+      "effect": "Extended operations not possible. British must achieve objectives quickly.",
+      "historical_impact": "British withdrew partly due to supply exhaustion",
+      "game_mechanics": "Turn limit or supply attrition rules"
+    },
+    "rommel_leadership": {
+      "rule": "Rommel personally commands from forward positions",
+      "effect": "German counterattacks are aggressive and well-coordinated",
+      "historical_impact": "Rommel's tactical skill major factor in Axis victory",
+      "game_mechanics": "German mobile forces get command bonus or special abilities"
+    }
+  },
+
+  "historical_outcome": {
+    "victor": "Axis (German-Italian forces)",
+    "result": "Decisive Axis defensive victory",
+    "british_losses": {
+      "tanks": "91 (48% of force - 50 Matilda II, 27 Crusader, 14 other)",
+      "personnel": "~1,000 casualties",
+      "aircraft": "23 lost"
+    },
+    "axis_losses": {
+      "tanks": "25 (12 German, 13 Italian) - 5% of force",
+      "personnel": "~700 casualties (mostly German)",
+      "aircraft": "17 lost"
+    },
+    "exchange_ratio": "3.6:1 in Axis favor (tanks)",
+    "strategic_consequences": [
+      "British offensive defeated - no relief of Tobruk",
+      "Wavell relieved of command by Churchill (July 1941)",
+      "Tobruk siege continued until November 1941 (Operation Crusader)",
+      "Demonstrated effectiveness of 88mm FlaK in AT role - became standard German doctrine",
+      "Showed British armor tactics and equipment needed improvement",
+      "Rommel's reputation enhanced - 'Desert Fox' legend grows",
+      "Churchill dispatched more reinforcements - set stage for Operation Crusader (November 1941)"
+    ]
+  },
+
+  "lessons_learned": {
+    "british": [
+      "88mm FlaK gun is lethal to all British tanks - must be suppressed by artillery or air",
+      "Crusader tank unreliable - needed better testing before deployment",
+      "Air-ground coordination inadequate - need forward air controllers",
+      "Tank tactics need improvement - piecemeal attacks defeated by concentrated German defense",
+      "Supply planning must account for longer operations or accept shorter timeline",
+      "Need superior fighters to contest Luftwaffe air superiority"
+    ],
+    "axis": [
+      "88mm FlaK in prepared AT positions devastatingly effective - expand use",
+      "Mobile defense doctrine works - fortified strongpoints + mobile counterattack reserves",
+      "Luftwaffe close air support (Ju 87 Stuka) critical to ground success",
+      "Fuel shortage prevents exploitation - logistics is strategic vulnerability",
+      "Italian forces need German stiffening - mixed battlegroups more effective"
+    ]
+  },
+
+  "data_provenance": {
+    "sources": [
+      "Official British and German military histories",
+      "War diaries and after-action reports",
+      "The Rommel Papers (Liddell Hart, 1953)",
+      "Unit histories and operational accounts",
+      "Strategic Command summaries and casualty reports"
+    ],
+    "confidence": 90,
+    "note": "Victory conditions based on historical objectives and outcomes. Point values designed for game balance while reflecting historical importance.",
+    "extraction_date": "2025-10-29",
+    "schema_version": "phase_9_historical_operation_v1.0"
+  }
+}

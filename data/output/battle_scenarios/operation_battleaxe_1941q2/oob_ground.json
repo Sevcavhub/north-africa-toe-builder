@@ -1,0 +1,351 @@
+{
+  "operation": "Operation Battleaxe",
+  "dates": "June 15-17, 1941",
+  "location": "Libya-Egypt Border (Halfaya Pass, Fort Capuzzo, Hafid Ridge)",
+  "objective": "British offensive to relieve Tobruk and recapture Cyrenaica",
+  "historical_outcome": "Axis defensive victory - British offensive repulsed with heavy tank losses",
+
+  "allied_forces": {
+    "overall_command": {
+      "theater_commander": "General Sir Archibald Wavell",
+      "rank": "General",
+      "headquarters": "Cairo, Egypt",
+      "role": "Commander-in-Chief Middle East Command"
+    },
+    "operational_command": {
+      "formation": "XIII Corps (Western Desert Force)",
+      "commander": "Lieutenant-General Noel Beresford-Peirse",
+      "rank": "Lieutenant-General",
+      "headquarters": "Sidi Barrani area, Egypt",
+      "total_personnel": 45000,
+      "data_source": "data/output/units/british_1941q2_xiii_corps_toe.json"
+    },
+    "subordinate_formations": [
+      {
+        "designation": "7th Armoured Division",
+        "commander": "Major-General Michael O'Moore Creagh",
+        "role": "Main armored striking force",
+        "personnel": 18500,
+        "tanks": 190,
+        "tank_composition": {
+          "Matilda II Infantry Tank": {
+            "count": 90,
+            "operational": 82,
+            "unit": "4th Armoured Brigade (4th RTR, 7th RTR)",
+            "role": "Heavy support for infantry attack on fortifications",
+            "armor_mm": 78,
+            "gun": "2-pdr (40mm)",
+            "note": "Most heavily armored British tank, immune to most German AT guns except 88mm"
+          },
+          "Crusader Mk I Cruiser Tank": {
+            "count": 50,
+            "operational": 46,
+            "unit": "7th Armoured Brigade",
+            "role": "Fast exploitation and tank-vs-tank combat",
+            "armor_mm": 40,
+            "gun": "2-pdr (40mm)",
+            "note": "New tank with mechanical reliability issues"
+          },
+          "Cruiser Mk IV (A13 Mk II)": {
+            "count": 20,
+            "operational": 16,
+            "unit": "7th Armoured Brigade",
+            "role": "Tank combat support",
+            "armor_mm": 30,
+            "gun": "2-pdr (40mm)"
+          },
+          "Light Tank Mk VI": {
+            "count": 30,
+            "operational": 26,
+            "unit": "Reconnaissance elements",
+            "role": "Scouting and flank security",
+            "armor_mm": 14,
+            "gun": ".50 cal and .303 MG"
+          }
+        },
+        "artillery": 48,
+        "data_source": "data/output/units/british_1941q2_7th_armoured_division_toe.json"
+      },
+      {
+        "designation": "4th Indian Division",
+        "commander": "Major-General Frank Messervy",
+        "role": "Infantry assault on fortified positions",
+        "personnel": 17200,
+        "composition": {
+          "11th Indian Infantry Brigade": "Assault on Fort Capuzzo",
+          "22nd Guards Brigade": "Support and reserve",
+          "Artillery": "72 field guns, 24 anti-tank guns"
+        },
+        "note": "Veteran division from Operation Compass with extensive desert experience",
+        "data_source": "data/output/units/british_1941q2_4th_indian_division_toe.json"
+      },
+      {
+        "designation": "22nd Guards Brigade",
+        "commander": "Brigadier John Marriott",
+        "role": "Infantry support and defensive reserve",
+        "personnel": 3200,
+        "composition": "3 battalions of Guards infantry"
+      }
+    ],
+    "deployment": {
+      "7th_armoured_division": {
+        "axis_of_advance": "Via Hafid Ridge toward Sidi Omar",
+        "objective": "Outflank Axis positions, engage and destroy German armor"
+      },
+      "4th_indian_division": {
+        "axis_of_advance": "Direct assault on Fort Capuzzo",
+        "objective": "Capture fortified positions with Matilda tank support"
+      },
+      "reserve": {
+        "formation": "22nd Guards Brigade",
+        "position": "Rear areas near Sidi Barrani"
+      }
+    }
+  },
+
+  "axis_forces": {
+    "overall_command": {
+      "formation": "Panzergruppe Afrika (informal)",
+      "commander": "Generalleutnant Erwin Rommel",
+      "rank": "Generalleutnant",
+      "headquarters": "Mobile HQ, Cyrenaica",
+      "role": "Theater commander - direct operational control of DAK and Italian formations",
+      "note": "Rommel personally commanded defensive operations from forward positions"
+    },
+    "german_forces": {
+      "formation": "Deutsches Afrikakorps (DAK)",
+      "commander": "Generalleutnant Erwin Rommel (direct command)",
+      "chief_of_staff": "Oberst Alfred Gause",
+      "total_personnel": 31160,
+      "tanks": 320,
+      "data_source": "data/output/units/german_1941q2_deutsches_afrikakorps_toe.json",
+      "subordinate_divisions": [
+        {
+          "designation": "15. Panzer-Division",
+          "commander": "Generalmajor Walter Neumann-Silkow",
+          "role": "Mobile armored reserve and counterattack force",
+          "deployment": "Hafid Ridge area - mobile defense",
+          "tanks": 180,
+          "tank_composition": {
+            "Panzer III (Ausf F/G/H)": {
+              "count": 148,
+              "operational": 135,
+              "gun": "5cm KwK 38 L/42",
+              "armor_mm": 30,
+              "note": "Main battle tank - effective against British cruisers"
+            },
+            "Panzer IV (Ausf D/E)": {
+              "count": 22,
+              "operational": 20,
+              "gun": "7.5cm KwK 37 L/24 (HE)",
+              "armor_mm": 30,
+              "note": "Close support role with high-explosive shells"
+            },
+            "Panzer II": {
+              "count": 70,
+              "operational": 65,
+              "gun": "2cm KwK 30/38",
+              "note": "Light tank for reconnaissance and flank security"
+            },
+            "Panzer I": {
+              "count": 10,
+              "operational": 8,
+              "note": "Obsolete - limited to reconnaissance only"
+            }
+          },
+          "artillery": {
+            "88mm FlaK 18/36": {
+              "count": 12,
+              "role": "Dual-purpose: Anti-aircraft AND anti-tank",
+              "note": "CRITICAL - Only weapon capable of defeating Matilda II at range. Positioned at Halfaya Pass"
+            },
+            "10.5cm leFH 18": {
+              "count": 24,
+              "role": "Field artillery support"
+            },
+            "5cm PaK 38": {
+              "count": 32,
+              "role": "Anti-tank (ineffective vs Matilda II frontal armor)"
+            }
+          },
+          "data_source": "data/output/units/german_1941q2_15_panzer_division_toe.json"
+        },
+        {
+          "designation": "5. leichte Division",
+          "commander": "Generalmajor Johann von Ravenstein",
+          "role": "Defensive positions at Halfaya Pass and Sollum",
+          "deployment": "Static defense of fortified positions",
+          "note": "Mixed motorized/armored division - later redesignated 21. Panzer-Division",
+          "tanks": 140,
+          "tank_composition": "Similar to 15. Panzer-Division",
+          "artillery": {
+            "88mm FlaK at Halfaya Pass": {
+              "count": 4,
+              "commander": "Hauptmann Wilhelm Bach",
+              "position": "Dug-in positions commanding the pass",
+              "note": "These guns inflicted devastating losses on British tanks"
+            }
+          },
+          "data_source": "data/output/units/german_1941q2_5_leichte_division_toe.json"
+        }
+      ]
+    },
+    "italian_forces": {
+      "command": {
+        "formation": "XX Corpo d'Armata Motorizzato (XX Mobile Corps)",
+        "commander": "Generale di Corpo Gastone Gambara",
+        "role": "Mobile armored reserve and screening force"
+      },
+      "subordinate_divisions": [
+        {
+          "designation": "132ª Divisione Corazzata 'Ariete'",
+          "commander": "Generale di Divisione Balotta Baldassarre",
+          "role": "Armored counterattack and flank security",
+          "tanks": 146,
+          "tank_composition": {
+            "M13/40 Medium Tank": {
+              "count": 146,
+              "operational": 120,
+              "gun": "47mm",
+              "armor_mm": 42,
+              "note": "Italian main battle tank - outmatched by British armor"
+            }
+          },
+          "note": "Only Italian armored division in theater - supported German mobile operations",
+          "data_source": "data/output/units/italian_1941q2_ariete_division_toe.json"
+        },
+        {
+          "designation": "27ª Divisione di Fanteria 'Brescia'",
+          "commander": "Generale di Divisione Zambon",
+          "role": "Static defense of Bardia-Sollum sector",
+          "personnel": 12000,
+          "note": "Infantry division holding defensive positions",
+          "data_source": "data/output/units/italian_1941q2_brescia_division_toe.json"
+        },
+        {
+          "designation": "17ª Divisione di Fanteria 'Pavia'",
+          "commander": "Generale di Divisione Pietro Zaglio",
+          "role": "Defense of Tobruk perimeter",
+          "personnel": 11800,
+          "note": "Besieging Tobruk - not directly engaged in Battleaxe",
+          "data_source": "data/output/units/italian_1941q2_pavia_division_toe.json"
+        },
+        {
+          "designation": "55ª Divisione Motorizzata 'Trento'",
+          "commander": "Generale di Divisione Arnaldo Azzi",
+          "role": "Mobile reserve",
+          "personnel": 8500,
+          "note": "Motorized infantry - supported screening operations",
+          "data_source": "data/output/units/italian_1941q2_trento_division_toe.json"
+        }
+      ]
+    },
+    "deployment": {
+      "halfaya_pass": {
+        "formation": "5. leichte Division elements",
+        "commander": "Hauptmann Wilhelm Bach",
+        "strength": "Battalion-level battlegroup with 88mm guns",
+        "note": "Known as 'Hellfire Pass' - critical defensive position"
+      },
+      "fort_capuzzo": {
+        "formation": "Mixed German-Italian garrison",
+        "strength": "Reinforced battalion",
+        "note": "Fortified position captured and recaptured multiple times"
+      },
+      "hafid_ridge": {
+        "formation": "15. Panzer-Division (mobile reserve)",
+        "strength": "Full division with 180 tanks",
+        "note": "Positioned for counterattack against British armor"
+      },
+      "sollum_bardia_sector": {
+        "formation": "Brescia Division",
+        "strength": "12,000 infantry",
+        "note": "Static defensive positions"
+      }
+    }
+  },
+
+  "force_comparison": {
+    "personnel": {
+      "allied": 45000,
+      "axis": "~50,000 (31,160 German + ~19,000 Italian)"
+    },
+    "tanks": {
+      "allied": 190,
+      "axis": "~466 (320 German + 146 Italian)",
+      "note": "Axis numerical superiority, but British Matilda II had superior armor"
+    },
+    "artillery": {
+      "allied": "~120 field guns + AT guns",
+      "axis": "~80 field guns + 16 critical 88mm FlaK guns in AT role",
+      "critical_factor": "German 88mm FlaK guns proved decisive against British armor"
+    }
+  },
+
+  "key_terrain": {
+    "halfaya_pass": {
+      "description": "Escarpment pass between Libya and Egypt - only vehicle route in sector",
+      "strategic_value": "Critical for supply routes and maneuver",
+      "defender": "German 88mm guns in prepared positions",
+      "nickname": "Hellfire Pass (after battle)"
+    },
+    "fort_capuzzo": {
+      "description": "Italian-built fortress on coastal road",
+      "strategic_value": "Controls coastal approach to Bardia",
+      "status": "Heavily fortified with concrete bunkers"
+    },
+    "hafid_ridge": {
+      "description": "Low ridge providing observation over surrounding desert",
+      "strategic_value": "Excellent defensive position for armor",
+      "defender": "15. Panzer-Division mobile reserve"
+    },
+    "point_206": {
+      "description": "Hill mass east of Capuzzo",
+      "strategic_value": "Observation and defensive anchor",
+      "elevation_m": 206
+    }
+  },
+
+  "historical_notes": {
+    "operation_context": "First major British offensive after Rommel's arrival in North Africa. Attempt to relieve besieged Tobruk garrison and recapture lost ground from Operation Compass.",
+    "british_advantages": [
+      "Matilda II tanks immune to most German anti-tank weapons",
+      "Superior numbers of heavy infantry tanks",
+      "Veteran divisions from Operation Compass",
+      "Air superiority (though limited by distance)"
+    ],
+    "axis_advantages": [
+      "Superior overall tank numbers",
+      "88mm FlaK guns in prepared anti-tank positions",
+      "Interior lines of communication",
+      "Aggressive mobile defense doctrine",
+      "Rommel's tactical leadership from forward positions"
+    ],
+    "outcome": "Axis defensive victory. British lost 91 tanks (50% of force) vs 25 German/Italian. British withdrew after 3 days. Tobruk remained besieged.",
+    "significance": "First British defeat in North Africa after string of victories. Demonstrated effectiveness of 88mm FlaK in anti-tank role. Led to Wavell's relief and Churchill's dispatch of Tiger convoy with reinforcements."
+  },
+
+  "data_provenance": {
+    "ground_toe_sources": [
+      "British XIII Corps: data/output/units/british_1941q2_xiii_corps_toe.json (78% confidence)",
+      "7th Armoured Division: data/output/units/british_1941q2_7th_armoured_division_toe.json",
+      "4th Indian Division: data/output/units/british_1941q2_4th_indian_division_toe.json",
+      "German DAK: data/output/units/german_1941q2_deutsches_afrikakorps_toe.json",
+      "15. Panzer-Division: data/output/units/german_1941q2_15_panzer_division_toe.json",
+      "5. leichte Division: data/output/units/german_1941q2_5_leichte_division_toe.json",
+      "Ariete Division: data/output/units/italian_1941q2_ariete_division_toe.json",
+      "Brescia Division: data/output/units/italian_1941q2_brescia_division_toe.json",
+      "Pavia Division: data/output/units/italian_1941q2_pavia_division_toe.json",
+      "Trento Division: data/output/units/italian_1941q2_trento_division_toe.json"
+    ],
+    "historical_sources": [
+      "The Rommel Papers (Liddell Hart, 1953)",
+      "Military Wiki - Operation Battleaxe order of battle",
+      "World War II Database - Operation Battleaxe",
+      "British Army Lists April-June 1941",
+      "TM 30-410 Handbook on British Army (1942)"
+    ],
+    "extraction_date": "2025-10-29",
+    "schema_version": "phase_9_historical_operation_v1.0"
+  }
+}
