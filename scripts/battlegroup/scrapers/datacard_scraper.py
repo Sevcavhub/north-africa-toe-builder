@@ -33,7 +33,7 @@ import argparse
 # Project root
 PROJECT_ROOT = Path(__file__).parent.parent.parent.parent
 RESOURCE_DIR = PROJECT_ROOT / "Resource Documents" / "Battlegroup Game"
-DB_PATH = PROJECT_ROOT / "database" / "battlegroup_reference.db"
+DB_PATH = PROJECT_ROOT / "database" / "master_database.db"  # Integrated with master database
 
 
 @dataclass
