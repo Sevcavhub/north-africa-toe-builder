@@ -183,7 +183,7 @@ class DatacardScraper:
         """)
 
         self.conn.commit()
-        print(f"✅ Database initialized: {self.db_path}")
+        print(f"[OK] Database initialized: {self.db_path}")
 
     def scrape_file(self, file_path: Path, nation: str = None) -> Tuple[int, int]:
         """
@@ -215,7 +215,7 @@ class DatacardScraper:
             else:
                 nation = "unknown"
 
-        print(f"\n📄 Processing: {file_path.name}")
+        print(f"\n[FILE] Processing: {file_path.name}")
         print(f"   Nation: {nation}")
 
         content = file_path.read_text(encoding='utf-8', errors='ignore')
@@ -234,37 +234,276 @@ class DatacardScraper:
         """, (str(file_path), vehicles_inserted, guns_inserted))
         self.conn.commit()
 
-        print(f"   ✅ Extracted: {vehicles_inserted} vehicles, {guns_inserted} guns")
+        print(f"   [OK] Extracted: {vehicles_inserted} vehicles, {guns_inserted} guns")
 
         return vehicles_inserted, guns_inserted
 
     def _extract_vehicles(self, content: str, nation: str, source_file: str) -> List[VehicleProfile]:
         """Extract vehicle profiles from content"""
         vehicles = []
+        lines = content.split('\n')
 
-        # TODO: Implement vehicle extraction patterns
-        # This will need sophisticated regex patterns to match:
-        # - Vehicle names with year ranges (e.g., "M4 SHERMAN (A1, A2, A3) 1942-45")
-        # - Movement section (Off-Road: 9", Road: 14")
-        # - Armor section (Front: K, Side: L, Rear: N)
-        # - Weapons section (75mm L40, MG co-axial, etc.)
-        # - Special rules
+        # Find vehicle table sections
+        # Look for "VEHICLE" header followed by "MOVEMENT" and "ARMOUR"
+        i = 0
+        while i < len(lines):
+            line = lines[i].strip()
 
-        # For now, return empty list (will implement in next iteration)
+            # Check if this is a vehicle table header
+            if 'VEHICLE' in line.upper() and 'MOVEMENT' in line.upper() and 'ARMOUR' in line.upper():
+                # Skip the sub-header line (Off-Road, Road, etc.)
+                i += 1
+                if i < len(lines) and ('Off-Road' in lines[i] or 'Road' in lines[i]):
+                    i += 1
+
+                # Skip blank lines
+                while i < len(lines) and not lines[i].strip():
+                    i += 1
+
+                # Now extract vehicles until we hit a section break
+                while i < len(lines):
+                    veh_line = lines[i].strip()
+
+                    # Stop if we hit a new section (all caps header, page number, or another table)
+                    if not veh_line or veh_line.isupper() and len(veh_line) > 20:
+                        break
+                    if re.match(r'^\d+$', veh_line):  # Page numbers
+                        break
+                    if 'VEHICLE' in veh_line.upper() and 'MOVEMENT' in veh_line.upper():
+                        break
+
+                    # Try to extract vehicle name (should be at start of line, may have variants)
+                    # Pattern: "Panzer III J" or "M4 Sherman (A1, A2)"
+                    vehicle_name_match = re.match(r'^([A-Za-z0-9\s\-\'/]+(?:\([^)]+\))?)', veh_line)
+
+                    if vehicle_name_match:
+                        vehicle_name = vehicle_name_match.group(1).strip()
+
+                        # Skip if this looks like a table continuation
+                        if vehicle_name.lower().startswith('weapon') or vehicle_name.lower().startswith('mg'):
+                            i += 1
+                            continue
+
+                        # Next line should have the vehicle data
+                        i += 1
+                        if i >= len(lines):
+                            break
+
+                        data_line = lines[i]
+
+                        # Try to parse the data line
+                        # Format: movement(off-road road special) armor(front side rear) weapon mount ammo
+                        # Example: "  8" 12" - L N N                                                              50mmL42        Turret        10"
+
+                        # Extract movement (first two numbers with quotes)
+                        movement_match = re.search(r'(\d+)"?\s+(\d+)"?\s+([A-Za-z\-]*)\s+([A-O])\s+([A-O])\s+([A-O])', data_line)
+
+                        if movement_match:
+                            off_road = int(movement_match.group(1))
+                            road = int(movement_match.group(2))
+                            special = movement_match.group(3).strip() if movement_match.group(3).strip() != '-' else None
+                            armor_front = movement_match.group(4)
+                            armor_side = movement_match.group(5)
+                            armor_rear = movement_match.group(6)
+
+                            # Extract weapons (may span multiple lines)
+                            weapons = []
+                            weapon_line = data_line[movement_match.end():]
+
+                            # Parse first weapon from same line
+                            weapon_match = re.search(r'(\d+mm\s*L?\d*|MG|HMG)\s+(Turret|Co-axial|Bow|Hull|Fixed)\s+(\d+|-)', weapon_line)
+                            if weapon_match:
+                                weapons.append({
+                                    'weapon': weapon_match.group(1).strip(),
+                                    'mount': weapon_match.group(2).strip(),
+                                    'ammo': weapon_match.group(3) if weapon_match.group(3) != '-' else None
+                                })
+
+                            # Check next lines for additional weapons
+                            temp_i = i + 1
+                            while temp_i < len(lines):
+                                next_line = lines[temp_i]
+                                # Additional weapons are indented and start with weapon designation
+                                if re.match(r'^\s{20,}(MG|HMG|\d+mm)', next_line):
+                                    weapon_match = re.search(r'(MG|HMG|\d+mm[^A-Z]*)\s+(Turret|Co-axial|Bow|Hull|Fixed)\s+(\d+|-)', next_line)
+                                    if weapon_match:
+                                        weapons.append({
+                                            'weapon': weapon_match.group(1).strip(),
+                                            'mount': weapon_match.group(2).strip(),
+                                            'ammo': weapon_match.group(3) if weapon_match.group(3) != '-' else None
+                                        })
+                                    temp_i += 1
+                                else:
+                                    break
+
+                            # Create vehicle profile
+                            vehicle = VehicleProfile(
+                                name=vehicle_name,
+                                nation=nation,
+                                year_range=None,  # TODO: Extract from section header or name
+                                vehicle_type=self._classify_vehicle_type(vehicle_name),
+                                off_road_inches=off_road,
+                                road_inches=road,
+                                special_movement=special,
+                                armor_front=armor_front,
+                                armor_side=armor_side,
+                                armor_rear=armor_rear,
+                                weapons=json.dumps(weapons),
+                                source_file=source_file,
+                                extraction_confidence='high' if weapons else 'medium'
+                            )
+
+                            vehicles.append(vehicle)
+
+                    i += 1
+            else:
+                i += 1
+
         return vehicles
+
+    def _classify_vehicle_type(self, name: str) -> str:
+        """Classify vehicle type from name"""
+        name_lower = name.lower()
+
+        if 'panzer i' in name_lower or 'l3' in name_lower or 'stuart' in name_lower:
+            return 'light_tank'
+        elif 'panzer' in name_lower or 'tiger' in name_lower or 'sherman' in name_lower or 't-34' in name_lower or 'kv-' in name_lower:
+            return 'tank'
+        elif 'armored car' in name_lower or 'sdkfz 222' in name_lower or 'daimler' in name_lower or 'ab41' in name_lower:
+            return 'armored_car'
+        elif 'halftrack' in name_lower or 'sdkfz 251' in name_lower or 'carrier' in name_lower:
+            return 'halftrack'
+        elif 'truck' in name_lower or 'lorry' in name_lower:
+            return 'truck'
+        else:
+            return 'unknown'
 
     def _extract_guns(self, content: str, nation: str, source_file: str) -> List[GunProfile]:
         """Extract gun profiles from content"""
         guns = []
+        lines = content.split('\n')
 
-        # TODO: Implement gun extraction patterns
-        # This will need regex patterns to match:
-        # - Gun designation (e.g., "50mm L60 (PaK38)")
-        # - HE effect (e.g., "HE: 3/6+")
-        # - AP penetration by range (e.g., "AP: - | 5, 5, 4, 3, 2, -")
-        # - Range bands (0-10", 10-20", etc.)
+        # Find gun table sections
+        # Look for "WEAPON" header followed by "AMMO" and "HE EFFECT" and "RANGE"
+        i = 0
+        while i < len(lines):
+            line = lines[i].strip()
 
-        # For now, return empty list (will implement in next iteration)
+            # Check if this is a gun table header
+            if 'WEAPON' in line.upper() and 'AMMO' in line.upper() and 'HE EFFECT' in line.upper() and 'RANGE' in line.upper():
+                # Skip the sub-header line (0-10", 10-20", etc.)
+                i += 1
+                if i < len(lines) and '0-10' in lines[i]:
+                    i += 1
+
+                # Skip blank lines
+                while i < len(lines) and not lines[i].strip():
+                    i += 1
+
+                # Now extract guns until we hit a section break
+                while i < len(lines):
+                    gun_line = lines[i].strip()
+
+                    # Stop if we hit a new section
+                    if not gun_line:
+                        i += 1
+                        continue
+                    if gun_line.isupper() and len(gun_line) > 20:
+                        break
+                    if re.match(r'^\d+$', gun_line):  # Page numbers
+                        break
+                    if 'WEAPON' in gun_line.upper() and 'AMMO' in gun_line.upper():
+                        break
+
+                    # Try to extract gun name with HE data
+                    # Pattern: "50mmL60 (PaK38)    HE      3/5+       2        2        2        2        2        -"
+                    #                                                  ^0-10   ^10-20  ^20-30   ^30-40   ^40-50  ^50-70
+
+                    # Match gun name: caliber + barrel length + optional designation
+                    gun_match = re.match(r'^(\d+mm\s*L?\d*)\s*(\([^)]+\))?\s+(HE|AP)', gun_line, re.IGNORECASE)
+
+                    if gun_match:
+                        gun_name_base = gun_match.group(1).strip()
+                        designation = gun_match.group(2).strip('()') if gun_match.group(2) else None
+                        gun_name = f"{gun_name_base} ({designation})" if designation else gun_name_base
+
+                        # Extract caliber from name (e.g., "50mm" -> 50)
+                        caliber_match = re.search(r'(\d+)mm', gun_name_base)
+                        caliber = int(caliber_match.group(1)) if caliber_match else None
+
+                        # Extract barrel length (e.g., "L60")
+                        barrel_match = re.search(r'L(\d+)', gun_name_base, re.IGNORECASE)
+                        barrel_length = f"L{barrel_match.group(1)}" if barrel_match else None
+
+                        # Now parse the HE and AP lines
+                        he_dice = None
+                        he_target = None
+                        ap_0_10 = None
+                        ap_10_20 = None
+                        ap_20_30 = None
+                        ap_30_40 = None
+                        ap_40_50 = None
+                        ap_50_70 = None
+
+                        # Check if current line has HE data
+                        if 'HE' in gun_line.upper():
+                            # Parse HE effect (e.g., "3/5+")
+                            he_match = re.search(r'HE\s+(\d+)/(\d\+)', gun_line, re.IGNORECASE)
+                            if he_match:
+                                he_dice = int(he_match.group(1))
+                                he_target = he_match.group(2)
+
+                            # Parse HE range values (6 numbers or dashes)
+                            # After HE effect, there should be 6 range band values
+                            he_ranges = re.findall(r'(\d+|-)\s+(\d+|-)\s+(\d+|-)\s+(\d+|-)\s+(\d+|-)\s+(\d+|-)', gun_line[he_match.end():] if he_match else gun_line)
+                            if he_ranges:
+                                # HE values are constant across range (stored but not critical)
+                                pass
+
+                        # Check next line for AP data
+                        i += 1
+                        if i < len(lines):
+                            ap_line = lines[i].strip()
+                            if 'AP' in ap_line.upper():
+                                # Parse AP penetration values
+                                # Example: "AP        -        5        5        4        3        2        -"
+                                ap_values = re.findall(r'(\d+|-)', ap_line)
+                                if len(ap_values) >= 6:
+                                    # Skip first value (the dash in "AP -")
+                                    # Take next 6 values as range bands
+                                    start_idx = 1 if ap_values[0] == '-' else 0
+                                    if len(ap_values) > start_idx + 5:
+                                        ap_0_10 = int(ap_values[start_idx]) if ap_values[start_idx] != '-' else None
+                                        ap_10_20 = int(ap_values[start_idx + 1]) if ap_values[start_idx + 1] != '-' else None
+                                        ap_20_30 = int(ap_values[start_idx + 2]) if ap_values[start_idx + 2] != '-' else None
+                                        ap_30_40 = int(ap_values[start_idx + 3]) if ap_values[start_idx + 3] != '-' else None
+                                        ap_40_50 = int(ap_values[start_idx + 4]) if ap_values[start_idx + 4] != '-' else None
+                                        ap_50_70 = int(ap_values[start_idx + 5]) if ap_values[start_idx + 5] != '-' else None
+
+                        # Create gun profile
+                        gun = GunProfile(
+                            name=gun_name,
+                            nation=nation,
+                            caliber_mm=caliber,
+                            barrel_length=barrel_length,
+                            he_dice=he_dice,
+                            he_target=he_target,
+                            ap_0_10=ap_0_10,
+                            ap_10_20=ap_10_20,
+                            ap_20_30=ap_20_30,
+                            ap_30_40=ap_30_40,
+                            ap_40_50=ap_40_50,
+                            ap_50_70=ap_50_70,
+                            source_file=source_file,
+                            extraction_confidence='high' if (he_dice or ap_0_10) else 'medium'
+                        )
+
+                        guns.append(gun)
+                    else:
+                        i += 1
+            else:
+                i += 1
+
         return guns
 
     def _insert_vehicles(self, vehicles: List[VehicleProfile]) -> int:
@@ -393,15 +632,15 @@ def main():
             print("\n" + "="*60)
             print("BATTLEGROUP REFERENCE DATABASE STATISTICS")
             print("="*60)
-            print(f"\n📊 Total Vehicles: {stats['total_vehicles']}")
+            print(f"\n[VEHICLES] Total Vehicles: {stats['total_vehicles']}")
             for nation, count in stats['vehicles_by_nation'].items():
                 print(f"   - {nation.title()}: {count}")
 
-            print(f"\n🔫 Total Guns: {stats['total_guns']}")
+            print(f"\n[GUNS] Total Guns: {stats['total_guns']}")
             for nation, count in stats['guns_by_nation'].items():
                 print(f"   - {nation.title()}: {count}")
 
-            print(f"\n📝 Extraction History ({len(stats['extraction_history'])} files):")
+            print(f"\n[LOG] Extraction History ({len(stats['extraction_history'])} files):")
             for entry in stats['extraction_history'][:10]:  # Show last 10
                 print(f"   - {Path(entry['file']).name}: {entry['vehicles']}v, {entry['guns']}g ({entry['date']})")
 
@@ -433,12 +672,12 @@ def main():
                     total_vehicles += v
                     total_guns += g
                 else:
-                    print(f"\n⚠️  File not found: {file_path.name}")
+                    print(f"\n[WARN] File not found: {file_path.name}")
 
             print("\n" + "="*60)
-            print(f"✅ COMPLETE: {total_vehicles} vehicles, {total_guns} guns extracted")
+            print(f"[OK] COMPLETE: {total_vehicles} vehicles, {total_guns} guns extracted")
             print("="*60)
-            print(f"\n💾 Database: {DB_PATH}")
+            print(f"\n[DB] Database: {DB_PATH}")
             print("\nRun with --stats to see detailed statistics")
 
         else:
