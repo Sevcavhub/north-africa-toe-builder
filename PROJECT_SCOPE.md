@@ -1,13 +1,13 @@
 # North Africa TO&E Builder - Complete Project Scope
 
-**Version**: 1.3.0
-**Last Updated**: 2025-10-29 (Phase 9A Complete - WITW enhancement + multi-game architecture)
+**Version**: 1.4.0
+**Last Updated**: 2025-10-31 (Phase 9B Scope Added - BattleGroup book generation system)
 **Status**: 🟢 LIVING DOCUMENT - Subject to updates
 
 <!-- AUTO-UPDATED: START - Progress Stats -->
-**Current Phase**: Phase 9A (WITW Enhancement) ✅ COMPLETE | Phase 9B (BattleGroup) - Next
+**Current Phase**: Phase 9B (BattleGroup Implementation) 🔄 IN PROGRESS - Step 1 starting
 **Completed Phases**: Phase 1-8 (100%) ✅ | Phase 9A (WITW) ✅ 369 scenarios
-**Overall Progress**: Extraction complete, WITW scenarios enhanced, multi-game architecture ready
+**Overall Progress**: Extraction complete, WITW scenarios enhanced, BattleGroup system in development
 <!-- AUTO-UPDATED: END - Progress Stats -->
 
 **Architecture**: v4.0 (Canonical Output Locations)
@@ -528,22 +528,155 @@ Due to the **Phase 7 design pivot** (quarterly theater summaries instead of per-
 
 ---
 
-#### **Phase 9B: BattleGroup Implementation** 📋 **NEXT**
+#### **Phase 9B: BattleGroup Book Generation** 🔄 **IN PROGRESS**
 
-**Goal**: Generate BattleGroup tabletop scenarios with points costs and Battle Ratings
+**Goal**: Generate complete BattleGroup-format books for North Africa battles (matching Battlegroup-Kursk style)
+
+**Approach**: Hybrid historical accuracy + game balance adjustments
+
+**Status**: Step 1 starting (Datacard scraping & reference database creation)
 
 **Deliverables**:
-- `game_exporters/battlegroup_exporter.py` (inherits from `ScenarioExporter`)
-- Conversion scripts (penetration, armor, points estimation)
-- 12 BattleGroup scenarios (one per major battle)
-- Validation against official BattleGroup scenarios
+
+1. **Reference Database** (Step 1):
+   - Scraped datacard database from existing BattleGroup PDFs/text files
+   - ~200+ vehicle profiles (armor letters, movement, weapons, points, BR)
+   - ~150+ gun profiles (HE/AP values, penetration scale, range bands)
+   - Cross-reference mapping to our master database
+
+2. **Conversion Formula Suite** (Step 2):
+   - `armor_converter.py`: mm thickness → letter rating (A-O scale)
+   - `penetration_converter.py`: mm @ distance → value (1-15 scale)
+   - `movement_calculator.py`: weight/type → inches (off-road/road)
+   - `he_calculator.py`: caliber → dice/target number (e.g., "4/4+")
+   - Validation: 95%+ accuracy vs scraped reference data
+
+3. **Game Balance System** (Step 3):
+   - `points_calculator.py`: Reverse-engineered points cost algorithm
+   - `battle_rating_assigner.py`: BR value assignment (pattern-based)
+   - Analysis of official BattleGroup army lists (±10% tolerance target)
+
+4. **Database Schema Extensions** (Step 4):
+   - 11 new SQLite tables for BattleGroup-specific data
+   - `bg_reference_vehicles`, `bg_reference_guns` (scraped data)
+   - `bg_armor_conversion`, `bg_penetration_scale` (lookup tables)
+   - `equipment_battlegroup` (generated stats for all 469 equipment items)
+
+5. **Generator Tools** (Step 5):
+   - `datacard_generator.py`: Vehicle/gun stat cards (text format)
+   - `force_list_compiler.py`: Army lists with historical restrictions
+   - `oob_formatter.py`: Historical order of battle timelines
+   - `scenario_generator.py`: Playable scenarios with victory conditions
+
+6. **Complete Battle Books** (Step 6 - 12 books):
+   - Operation Compass (1940q4-1941q1)
+   - Operation Sonnenblume (1941q1)
+   - Siege of Tobruk (1941q2)
+   - Operation Battleaxe (1941q2)
+   - Operation Crusader (1941q4)
+   - Gazala (1942q2)
+   - First Alamein (1942q3)
+   - Alam Halfa (1942q3)
+   - Second Alamein (1942q4)
+   - Operation Torch (1942q4)
+   - Tunisia Campaign (1943q1)
+   - Mareth Line (1943q1)
+
+**Book Structure Per Battle**:
+```
+data/output/battlegroup/[battle_name]/
+├── 00_introduction.md (historical overview)
+├── 01_timeline.md (day-by-day battle events)
+├── 02_oob.md (complete orders of battle)
+├── 03_army_lists/ (force selection with points/BR)
+│   ├── german_panzer_division.txt
+│   ├── italian_division.txt
+│   ├── british_armoured_division.txt
+│   ├── american_armored_division.txt
+│   └── restrictions.txt
+├── 04_datacards/
+│   ├── vehicles/ (all vehicle profiles)
+│   ├── guns/ (all gun profiles)
+│   └── aircraft/ (aircraft support profiles)
+├── 05_scenarios/ (7+ playable scenarios)
+│   ├── scenario_01_meeting_engagement.txt
+│   ├── scenario_02_attack_defence.txt
+│   ├── scenario_03_breakthrough.txt
+│   └── [...]
+├── 06_appendices/
+│   ├── armor_penetration_table.txt
+│   ├── special_rules_reference.txt
+│   ├── terrain_rules.txt (desert-specific)
+│   ├── weather_rules.txt
+│   └── fire_support_tables.txt
+└── battlegroup_[battle_name]_COMPLETE.pdf
+```
+
+**Key Features**:
+- **Points System**: Reverse-engineered from official lists (base cost + modifiers)
+- **Battle Rating**: Pattern-based assignment (company: 35-45, battalion: 60-80)
+- **Movement Values**: Derived from weight/power ratio (light tanks: 12-14", medium: 8-10")
+- **Armor Ratings**: Letter-based (A-O scale) converted from our mm values
+- **Penetration Scale**: 1-15 values mapped from our penetration database
+- **HE Effectiveness**: Caliber-based (20-37mm: 2/6+, 75-88mm: 4/4+, etc.)
+- **Special Rules**: Doctrinal assignment (Unreliable, Elite, Scout, Engineer, etc.)
+- **Scenarios**: 7+ per battle with victory conditions and special rules
+
+**Project Structure**:
+```
+scripts/battlegroup/
+├── scrapers/
+│   ├── datacard_scraper.py (extract from PDFs/text)
+│   └── army_list_analyzer.py (analyze official lists)
+├── conversion/
+│   ├── armor_converter.py
+│   ├── penetration_converter.py
+│   ├── movement_calculator.py
+│   └── he_calculator.py
+├── points/
+│   ├── points_calculator.py
+│   └── battle_rating_assigner.py
+├── generators/
+│   ├── datacard_generator.py
+│   ├── force_list_compiler.py
+│   ├── oob_formatter.py
+│   └── scenario_generator.py
+├── templates/
+│   ├── datacard_vehicle.txt
+│   ├── datacard_gun.txt
+│   ├── force_list.txt
+│   ├── scenario_briefing.txt
+│   └── appendix_tables.txt
+└── battlegroup_exporter.py (main orchestrator)
+```
+
+**Timeline**: 100-125 hours total
+| Step | Task | Hours |
+|------|------|-------|
+| 1 | Datacard scraping & reference DB | 15-20 |
+| 2 | Conversion formula development | 20-25 |
+| 3 | Points/BR reverse engineering | 15-20 |
+| 4 | Database schema extensions | 5 |
+| 5 | Generator tools | 20-25 |
+| 6 | Battle book assembly (12 books) | 15-20 |
+| 7 | Validation & testing | 10 |
+
+**Success Criteria**:
+- [ ] Reference database: 200+ vehicle profiles, 150+ gun profiles scraped
+- [ ] Conversion formulas: 95%+ accuracy vs official BattleGroup stats
+- [ ] Points calculator: ±10% accuracy vs official army lists
+- [ ] All 469 equipment items have BattleGroup stats generated
+- [ ] 12 complete battle books (84+ scenarios total)
+- [ ] Datacards match official format layout
+- [ ] Force lists enforce historical restrictions
+- [ ] Scenarios playtested and balanced
 
 **Prerequisites**:
-- ✅ Base architecture complete
-- ✅ BattleGroup research complete (852-line guide available)
-- ✅ Conversion formulas documented
-
-**Timeline**: ~20-30 hours
+- ✅ Base architecture complete (Phase 9A)
+- ✅ BattleGroup research complete (comprehensive analysis document)
+- ✅ Conversion formulas documented (armor, penetration, movement, HE)
+- ✅ Master database has 402 ground units + 469 equipment items
+- ✅ 23 air summaries for aircraft integration
 
 ---
 
@@ -1391,10 +1524,39 @@ This scope is achievable, professionally valuable, and commercially marketable.
 - **Next Priority**: Phase 5.5 - Database backfill with name normalization before Phase 8-9
 - **Overall Progress**: 425/425 extraction complete (100%), database integration pending
 
+### v1.4.0 (2025-10-31) - Phase 9B BattleGroup System Scope Defined
+- **Phase 9B Comprehensive Plan Added**: Complete BattleGroup book generation system designed
+- **User Requirements Captured**: Complete book output (Battlegroup-Kursk style) for North Africa battles
+- **Approach Defined**: Hybrid historical accuracy + game balance adjustments
+- **7-Step Implementation Plan**:
+  1. Datacard scraping (15-20 hours) - Build reference database from existing BG materials
+  2. Conversion formulas (20-25 hours) - Armor/penetration/movement/HE converters with 95% accuracy target
+  3. Points/BR system (15-20 hours) - Reverse engineer game balance mechanics (±10% tolerance)
+  4. Database extensions (5 hours) - 11 new SQLite tables for BattleGroup-specific data
+  5. Generator tools (20-25 hours) - Datacards, force lists, OOB, scenarios
+  6. Battle books (15-20 hours) - 12 complete books with 7+ scenarios each
+  7. Validation (10 hours) - Playtesting and accuracy checks
+- **12 Battle Books Planned**: Compass, Sonnenblume, Tobruk, Battleaxe, Crusader, Gazala, First Alamein, Alam Halfa, Second Alamein, Torch, Tunisia, Mareth
+- **Book Structure Defined**: 6-section format (intro, timeline, OOB, army lists, datacards, scenarios, appendices)
+- **Key Mechanics Documented**:
+  - Points System: Reverse-engineered from official lists (base + modifiers)
+  - Battle Rating: Pattern-based (company: 35-45 BR, battalion: 60-80 BR)
+  - Armor Conversion: mm thickness → letter scale (A-O)
+  - Penetration Scale: mm @ distance → 1-15 values
+  - Movement: Weight/type → inches (light tanks 12-14", medium 8-10", heavy 6-8")
+  - HE Effectiveness: Caliber-based dice/target (20-37mm: 2/6+, 75-88mm: 4/4+)
+- **Project Structure Defined**: `scripts/battlegroup/` with 5 subdirectories (scrapers, conversion, points, generators, templates)
+- **Success Criteria**: 8 measurable deliverables (200+ vehicles, 150+ guns, 95% accuracy, 469 items, 84+ scenarios)
+- **Timeline**: 100-125 hours total across 7 steps
+- **Prerequisites Met**: Phase 9A architecture complete, research complete, master database ready (402 units, 469 equipment, 23 air summaries)
+- **Next Action**: Begin Step 1 (datacard scraping) to build reference database
+- **Commercial Impact**: Second major export format (WITW + BattleGroup), increases product value for Kickstarter
+- **Documentation Created**: Comprehensive BattleGroup research report analyzing game mechanics, data requirements, conversion formulas
+
 ### Future Updates:
-- **v1.2.0** (TBD): [Phase 5.5 Database backfill complete]
-- **v1.3.0** (TBD): [Phase 8 Cross-linking specifications]
-- **v1.4.0** (TBD): [Phase 9 Scenario generation implementation]
+- **v1.5.0** (TBD): [Phase 9B Step 1-3 Complete - Reference database and conversion formulas]
+- **v1.6.0** (TBD): [Phase 9B Complete - First BattleGroup books generated]
+- **v1.7.0** (TBD): [Phase 9C-9D - Additional game systems]
 
 ---
 
