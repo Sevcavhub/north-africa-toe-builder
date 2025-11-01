@@ -316,6 +316,182 @@ All converters include:
 
 ---
 
+## 🎯 Commercial Supplement Development Goal
+
+**Date Established**: November 1, 2025
+**Target**: Commercial-quality BattleGroup North Africa theatre supplement
+**Timeline**: 6-month MVP (4 standalone battle books)
+
+### Product Structure: "Desert War" Series - Volume 1
+
+**Format**: Individual battle books (not combined volumes)
+
+#### Book 1: Operation Battleaxe (June 1941)
+- **Page Count**: 45-55 pages
+- **Scenarios**: 8 scenarios (squad to battalion scale)
+- **Historical Focus**: German 88mm surprise, British tank losses, first major tank clash
+- **Individual Price**: $15-20 (PDF + print-on-demand)
+
+#### Book 2: Operation Crusader (November-December 1941)
+- **Page Count**: 60-70 pages
+- **Scenarios**: 12-15 scenarios (largest early-war battle)
+- **Historical Focus**: Tobruk relief, tank battles, British offensive
+- **Individual Price**: $20-25 (PDF + print-on-demand)
+
+#### Book 3: Gazala (May-June 1942)
+- **Page Count**: 50-60 pages
+- **Scenarios**: 10-12 scenarios
+- **Historical Focus**: Free French at Bir Hacheim, Rommel's masterpiece, Cauldron battle
+- **Individual Price**: $18-23 (PDF + print-on-demand)
+
+#### Book 4: First El Alamein (July 1942)
+- **Page Count**: 40-50 pages
+- **Scenarios**: 6-8 scenarios
+- **Historical Focus**: Defensive stalemate, turning point, Ruweisat Ridge
+- **Individual Price**: $15-18 (PDF + print-on-demand)
+
+### Bundle Pricing Strategy
+
+**Complete Volume 1 Bundle**: $50-65 (all 4 books)
+- Individual pricing if bought separately: $68-86
+- **Bundle discount**: 20-30% savings
+- **Total content**: 195-235 pages, 36-43 scenarios
+
+### 6-Month Development Timeline
+
+**Phase 1 (Weeks 1-4): Core Systems**
+- Complete Points/BR calculators (Step 3)
+- Purchase Tobruk supplement for validation ($40-50)
+- Build database extensions (Step 4)
+
+**Phase 2 (Weeks 5-8): Generation Pipeline**
+- Create generator tools (Step 5)
+- Test with Operation Battleaxe (first book)
+- Validate end-to-end workflow
+
+**Phase 3 (Weeks 9-16): Content Creation**
+- Week 9-10: Generate Book 1 (Battleaxe)
+- Week 11-12: Generate Book 2 (Crusader)
+- Week 13-14: Generate Book 3 (Gazala)
+- Week 15-16: Generate Book 4 (First Alamein)
+
+**Phase 4 (Weeks 17-20): Production Polish**
+- Layout all 4 books (Markdown → PDF)
+- Source historical photography (public domain archives)
+- Coordinate miniature photography (DIY from collections)
+- Playtest 4-6 scenarios (validation)
+
+**Phase 5 (Weeks 21-24): Market Launch**
+- Distribution strategy decision (Kickstarter vs direct sales vs hybrid)
+- Soft launch on DriveThruRPG/Wargame Vault
+- Gather feedback and reviews
+- Plan Volume 2 (remaining 8 operations: 1940-1943)
+
+### Commercial Success Criteria
+
+**Technical Quality**:
+- ✅ Points calculator within ±10% of official values
+- ✅ 36-43 playtested, balanced scenarios
+- ✅ 100+ vehicle/gun datacards with accurate stats
+- ✅ Historical accuracy validated against primary sources
+
+**Market Validation**:
+- 🎯 50+ sales in first 3 months
+- 🎯 4+ star average rating
+- 🎯 Positive reception from BattleGroup community (Facebook group ~10,000 members)
+- 🎯 Foundation established for Volume 2 production
+
+**Revenue Projections** (Conservative):
+- MVP sales (6 months): 50-100 copies @ $50-60 = $2,500-6,000
+- Individual book sales: Additional 20-30% revenue
+- Long-tail sales: $500-1,000/year
+
+### Unique Competitive Advantages
+
+1. **Quarterly Granularity** ⭐
+   - Track equipment evolution quarter-by-quarter (1940-Q4 through 1943-Q2)
+   - Exact historical TO&E from primary sources (not estimates)
+
+2. **Scenario Volume** ⭐
+   - 36-43 scenarios in Volume 1 alone (vs 5-10 in typical supplements)
+   - Multiple scales from same historical engagement
+
+3. **Data-Driven Accuracy** ⭐
+   - 402 historical units extracted from Tessin, Army Lists, Field Manuals
+   - 469-item equipment database with variant-specific details
+
+4. **Campaign Integration** ⭐
+   - Quarterly progression system links scenarios chronologically
+   - Unit evolution, attrition, replacements tracked
+
+5. **Digital Tools** ⭐ (future)
+   - Web-based scenario generator
+   - Automatic force list builder from historical TO&E
+   - Searchable equipment database
+
+### Distribution Strategy Options
+
+**Option A: Kickstarter Campaign**
+- Pre-launch validation of demand
+- Fund Volume 2 development
+- Build community early
+- Goal: $10k-15k (200-250 backers)
+
+**Option B: Direct Sales**
+- DriveThruRPG/Wargame Vault (30% commission, large wargaming audience)
+- itch.io (10% optional commission, indie-friendly)
+- Own website via Gumroad/Payhip
+- No upfront cost, immediate revenue
+
+**Option C: Hybrid Approach** ⭐ RECOMMENDED
+- Soft launch on DriveThruRPG ($49-59 PDF)
+- Gather reviews/testimonials (4-6 weeks)
+- Use feedback for Kickstarter Volume 2
+- Offer Volume 1+2 bundle in campaign
+- Lower risk, proven product before crowdfunding
+
+### Budget Requirements
+
+**Immediate Costs**:
+- Tobruk supplement: $45 (validation data - critical)
+- Historical photography: $0 (public domain archives)
+- Miniature photography: $0 (DIY with existing collections)
+- Print-on-demand setup: $0 (no upfront cost)
+- **Total Immediate: ~$50**
+
+**Optional Quality Enhancements**:
+- Professional editing: $300-500
+- Cover art commission: $200-400
+- Kickstarter video: $300-500
+- Marketing budget: $200-300
+
+### Roadmap Beyond MVP
+
+**Volume 2 (6-8 months)**: Remaining 8 operations
+- Operation Compass (1940-41)
+- Sonnenblume (1941)
+- Tobruk Siege (1941)
+- Alam Halfa (1942)
+- Second El Alamein (1942)
+- Operation Torch (1942)
+- Tunisia Campaign (1942-43)
+- Final Surrender (1943)
+
+**Digital Tools (2-3 months)**:
+- Web-based scenario generator
+- Force roster builder with points calculator
+- Digital datacard database (searchable)
+
+**Professional Production (1-2 months)**:
+- Professional layout and design
+- Licensed historical photography
+- Custom deployment maps
+- Painting guides
+
+**Total to Complete Product**: 10-14 months from MVP launch
+
+---
+
 ## 💾 Git Commits (To Be Created)
 
 **Recommended Commits**:
