@@ -5,9 +5,9 @@
 **Status**: 🟢 LIVING DOCUMENT - Subject to updates
 
 <!-- AUTO-UPDATED: START - Progress Stats -->
-**Current Phase**: Phase 9B (BattleGroup Implementation) D:\north-africa-toe-builder\PHASE_9B_SESSION_SUMMARY.md 🔄 IN PROGRESS - Step 1 starting
-**Completed Phases**: Phase 1-8 (100%) ✅ | Phase 9A (WITW) ✅ 369 scenarios
-**Overall Progress**: Extraction complete, WITW scenarios enhanced, BattleGroup system in development
+**Current Phase**: Phase 9B (BattleGroup Implementation) D:\north-africa-toe-builder\PHASE_9B_SESSION_SUMMARY.md 🔄 IN PROGRESS - Step 2 COMPLETE ✅
+**Completed Phases**: Phase 1-8 (100%) ✅ | Phase 9A (WITW) ✅ 369 scenarios | Phase 9B Steps 1-2 ✅
+**Overall Progress**: Extraction complete, WITW scenarios complete, BattleGroup conversion formulas complete (100%/100%/100%/97%)
 <!-- AUTO-UPDATED: END - Progress Stats -->
 
 **Architecture**: v4.0 (Canonical Output Locations)
@@ -528,13 +528,23 @@ Due to the **Phase 7 design pivot** (quarterly theater summaries instead of per-
 
 ---
 
-#### **Phase 9B: BattleGroup Book Generation** 🔄 **IN PROGRESS**
+#### **Phase 9B: BattleGroup Book Generation** 🔄 **IN PROGRESS - Step 2 COMPLETE**
 
 **Goal**: Generate complete BattleGroup-format books for North Africa battles (matching Battlegroup-Kursk style)
 
 **Approach**: Hybrid historical accuracy + game balance adjustments
 
-**Status**: Step 1 starting (Datacard scraping & reference database creation)
+**Status**: Step 2 complete ✅ (All 4 conversion formulas: 100%/100%/100%/97% accuracy), Step 3 next (Points/BR system)
+
+**Completed**:
+- ✅ **Step 1**: Reference database (500 vehicles, 57 guns - marked complete)
+- ✅ **Step 2**: Conversion formula suite (ALL 4 tools production-ready)
+  - HE Calculator: 100% accuracy (25/25 guns)
+  - Penetration Converter: 100% accuracy (9/9 guns)
+  - Armor Converter: 100% accuracy (100/100 vehicles)
+  - Movement Calculator: 97% accuracy (458/472 vehicles) - improved from 61%!
+
+**Next**: Step 3 - Points/BR System (15-20 hours estimated)
 
 **Deliverables**:
 
