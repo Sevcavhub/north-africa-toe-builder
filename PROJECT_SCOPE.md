@@ -5,7 +5,7 @@
 **Status**: 🟢 LIVING DOCUMENT - Subject to updates
 
 <!-- AUTO-UPDATED: START - Progress Stats -->
-**Current Phase**: Phase 9B (BattleGroup Implementation) 🔄 IN PROGRESS - Step 1 starting
+**Current Phase**: Phase 9B (BattleGroup Implementation) D:\north-africa-toe-builder\PHASE_9B_SESSION_SUMMARY.md 🔄 IN PROGRESS - Step 1 starting
 **Completed Phases**: Phase 1-8 (100%) ✅ | Phase 9A (WITW) ✅ 369 scenarios
 **Overall Progress**: Extraction complete, WITW scenarios enhanced, BattleGroup system in development
 <!-- AUTO-UPDATED: END - Progress Stats -->

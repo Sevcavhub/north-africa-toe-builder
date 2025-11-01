@@ -220,7 +220,17 @@ class DatacardScraper:
 
         content = file_path.read_text(encoding='utf-8', errors='ignore')
 
-        vehicles = self._extract_vehicles(content, nation, file_path.name)
+        # Detect format type: Kursk table vs datacard
+        is_datacard_format = "DataCards" in file_path.name or "DataCard" in file_path.name
+        format_type = "datacard" if is_datacard_format else "table"
+        print(f"   Format: {format_type}")
+
+        # Use appropriate parser for format
+        if is_datacard_format:
+            vehicles = self._extract_vehicles_from_datacards(content, nation, file_path.name)
+        else:
+            vehicles = self._extract_vehicles(content, nation, file_path.name)
+
         guns = self._extract_guns(content, nation, file_path.name)
 
         # Insert into database
@@ -377,6 +387,146 @@ class DatacardScraper:
             return 'truck'
         else:
             return 'unknown'
+
+    def _extract_vehicles_from_datacards(self, content: str, nation: str, source_file: str) -> List[VehicleProfile]:
+        """
+        Extract vehicle profiles from datacard format (card-based layout).
+        Different from Kursk table format - each vehicle is its own card.
+
+        Format:
+            M4 SHERMAN
+            1942-1945
+            Description text
+
+            VEHICLE    MOVEMENT       ARMOUR      ARMAMENT
+                    Off-Road Road Special F S R  Weapon  Mount Ammo
+            M4 Sherman  9"   14"    -   K L N   75mmL40 Turret  9
+                                                 MG      Co-axial -
+        """
+        vehicles = []
+        lines = content.split('\n')
+        i = 0
+
+        while i < len(lines):
+            line = lines[i].strip()
+
+            # Look for VEHICLE header as primary trigger
+            if 'VEHICLE' in line.upper() and 'MOVEMENT' in line.upper() and 'ARMOUR' in line.upper():
+                header_line = i
+
+                # Look backwards for vehicle name (should be 1-5 lines before, all caps)
+                vehicle_name = "Unknown"
+                year_range = None
+                for j in range(max(0, header_line - 5), header_line):
+                    back_line = lines[j].strip()
+                    # Look for all-caps line that's a reasonable length
+                    if back_line and len(back_line) > 2 and len(back_line) < 60:
+                        # Check if mostly uppercase (handles OCR errors)
+                        upper_chars = sum(1 for c in back_line if c.isupper())
+                        total_alpha = sum(1 for c in back_line if c.isalpha())
+                        if total_alpha > 0 and upper_chars / total_alpha > 0.7:
+                            vehicle_name = back_line
+
+                            # Check next line for year
+                            if j + 1 < len(lines):
+                                year_line = lines[j + 1].strip()
+                                year_match = re.match(r'^(\d{4})[-\s](\d{4})$', year_line)
+                                if year_match:
+                                    year_range = f"{year_match.group(1)}-{year_match.group(2)}"
+                            break
+
+                # Find the data line (has movement values with inches)
+                data_line_idx = None
+                for j in range(header_line + 1, min(header_line + 5, len(lines))):
+                    data_line = lines[j].strip()
+                    # Data line has digits followed by " and more digits
+                    if re.search(r'\d+"\s+\d+"', data_line):
+                        data_line_idx = j
+                        break
+
+                if data_line_idx is None:
+                    i += 1
+                    continue
+
+                data_line = lines[data_line_idx].strip()
+
+                # Extract movement values (first two digits with ")
+                movement_match = re.search(r'(\d+)"\s+(\d+)"', data_line)
+                off_road = int(movement_match.group(1)) if movement_match else None
+                road = int(movement_match.group(2)) if movement_match else None
+
+                # Extract special movement (between movement and armor)
+                special = None
+                if movement_match:
+                    after_movement = data_line[movement_match.end():].strip()
+                    special_match = re.match(r'^([\w\-]+)\s+', after_movement)
+                    if special_match and special_match.group(1) not in ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O']:
+                        special = special_match.group(1) if special_match.group(1) != '-' else None
+
+                # Extract armor values (3 single letters A-O)
+                armor_match = re.search(r'\b([A-O])\s+([A-O])\s+([A-O])\b', data_line)
+                armor_front = armor_match.group(1) if armor_match else None
+                armor_side = armor_match.group(2) if armor_match else None
+                armor_rear = armor_match.group(3) if armor_match else None
+
+                # Extract weapons (after armor or after special)
+                weapons = []
+                if armor_match:
+                    weapons_text = data_line[armor_match.end():].strip()
+                elif movement_match:
+                    weapons_text = data_line[movement_match.end():].strip()
+                else:
+                    weapons_text = ""
+
+                # Parse main weapon
+                weapon_match = re.search(r'(\d+mm\w*|\w+pdr|MG|HMG)\s+(Turret|Co-axial|Hull|Bow|Fixed|Pin[tl]e|Mouilt)\s+(\d+|-)', weapons_text)
+                if weapon_match:
+                    weapons.append({
+                        'weapon': weapon_match.group(1).strip(),
+                        'mount': weapon_match.group(2).strip().replace('Mouilt', 'Mount'),
+                        'ammo': int(weapon_match.group(3)) if weapon_match.group(3).isdigit() else None
+                    })
+
+                # Check next few lines for additional weapons
+                j = data_line_idx + 1
+                while j < len(lines) and j < data_line_idx + 5:
+                    extra_line = lines[j].strip()
+                    if not extra_line or 'WEAPON' in extra_line.upper() or 'VEHICLE' in extra_line.upper():
+                        break
+                    extra_match = re.search(r'(\d+mm\w*|\w+pdr|MG|HMG)\s+(Turret|Co-axial|Hull|Bow|Fixed|Pin[tl]e)\s+(\d+|-)', extra_line)
+                    if extra_match:
+                        weapons.append({
+                            'weapon': extra_match.group(1).strip(),
+                            'mount': extra_match.group(2).strip(),
+                            'ammo': int(extra_match.group(3)) if extra_match.group(3).isdigit() else None
+                        })
+                    j += 1
+
+                # Create vehicle profile
+                vehicle = VehicleProfile(
+                    name=vehicle_name,
+                    nation=nation,
+                    year_range=year_range,
+                    vehicle_type=self._classify_vehicle_type(vehicle_name),
+                    off_road_inches=off_road,
+                    road_inches=road,
+                    special_movement=special,
+                    armor_front=armor_front,
+                    armor_side=armor_side,
+                    armor_rear=armor_rear,
+                    weapons=json.dumps(weapons) if weapons else None,
+                    source_file=source_file,
+                    extraction_confidence='medium'
+                )
+
+                vehicles.append(vehicle)
+
+                # Skip past this vehicle card
+                i = data_line_idx + 5
+            else:
+                i += 1
+
+        return vehicles
 
     def _extract_guns(self, content: str, nation: str, source_file: str) -> List[GunProfile]:
         """Extract gun profiles from content"""
@@ -616,7 +766,7 @@ def main():
     """Main entry point"""
     parser = argparse.ArgumentParser(description="Scrape BattleGroup datacards")
     parser.add_argument('--file', type=str, help="Specific file to scrape")
-    parser.add_argument('--nation', type=str, choices=['german', 'british', 'italian', 'american'],
+    parser.add_argument('--nation', type=str, choices=['german', 'british', 'italian', 'american', 'french', 'soviet'],
                        help="Nation to assign (otherwise auto-detect)")
     parser.add_argument('--stats', action='store_true', help="Show database statistics")
     parser.add_argument('--all', action='store_true', help="Scrape all known datacard files")

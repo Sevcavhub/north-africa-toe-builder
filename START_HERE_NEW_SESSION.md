@@ -230,6 +230,7 @@ npm run orchestrate         # API-based orchestration (uses tokens)
 ```
 ### Yolo Mode
     claude --dangerously-skip-permissions
+    OCR Successfully Tested: Tesseract extracted
 ### Session Management:
 ```bash
   Pre-configured automated modes:
