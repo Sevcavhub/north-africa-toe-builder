@@ -1,0 +1,117 @@
+================================================================================
+VALIDATION REPORT
+================================================================================
+Generated: 2025-11-02 10:31:53
+
+
+Part 1
+--------------------------------------------------------------------------------
+[PASS] - Part 1: Datacard Generator: Template Files Exist
+  Info:
+    [i] Found: datacard_vehicle.txt
+    [i] Found: datacard_gun.txt
+    [i] Found: datacard_defence.txt
+    [i] Found: datacard_fire_support.txt
+
+[PASS] - Part 1: Datacard Generator: Module Import
+  Info:
+    [i] Successfully imported DatacardGenerator
+    [i] Successfully instantiated DatacardGenerator
+
+[FAIL] - Part 1: Datacard Generator: Vehicle Datacard Generation
+  Errors (1):
+    [X] Vehicle datacard generation failed: DatacardGenerator.format_vehicle_datacard() takes from 2 to 3 positional arguments but 4 were given
+
+[FAIL] - Part 1: Datacard Generator: Gun Datacard Generation
+  Errors (1):
+    [X] Gun datacard generation failed: DatacardGenerator.format_gun_datacard() takes from 2 to 3 positional arguments but 4 were given
+
+
+Part 2
+--------------------------------------------------------------------------------
+[FAIL] - Part 2: Special Rules Database: Table Structure
+  Errors (1):
+    [X] Special rules table query failed: no such table: special_rules
+
+[PASS] - Part 2: Special Rules Database: Equipment Linkages
+  Info:
+    [i] Found 1599 equipment-rule linkages (target: 1500+)
+    [i] Equipment coverage: 100.0% (target: 80%+)
+
+
+Part 3
+--------------------------------------------------------------------------------
+[FAIL] - Part 3: Force Roster Builder: Module Import
+  Errors (1):
+    [X] Import/instantiation failed: ForceRosterBuilder.__init__() takes 1 positional argument but 3 were given
+  Info:
+    [i] Successfully imported ForceRosterBuilder
+
+[FAIL] - Part 3: Force Roster Builder: Composition Validation
+  Errors (1):
+    [X] Validation logic test failed: ForceRoster.__init__() missing 1 required positional argument: 'points_budget'
+
+
+Part 4
+--------------------------------------------------------------------------------
+[PASS] - Part 4: Scenario Generators: Random Scenario Generator Import
+  Info:
+    [i] Successfully imported RandomScenarioGenerator
+    [i] Successfully instantiated RandomScenarioGenerator
+
+[FAIL] - Part 4: Scenario Generators: Historical Scenario Generator Import
+  Errors (1):
+    [X] Import/instantiation failed: cannot import name 'HistoricalScenarioGenerator' from 'scripts.battlegroup.generators.historical_scenario_generator' (D:\north-africa-toe-builder\scripts\battlegroup\generators\historical_scenario_generator.py)
+
+[FAIL] - Part 4: Scenario Generators: Random Scenario Templates
+  Errors (1):
+    [X] Template count check failed: 'RandomScenarioGenerator' object has no attribute 'SCENARIO_TEMPLATES'
+
+
+Part 5
+--------------------------------------------------------------------------------
+[FAIL] - Part 5: Book Structure Generator: Module Import
+  Errors (1):
+    [X] Import/instantiation failed: cannot import name 'BookStructureGenerator' from 'scripts.battlegroup.generators.book_structure_generator' (D:\north-africa-toe-builder\scripts\battlegroup\generators\book_structure_generator.py)
+
+[PASS] - Part 5: Book Structure Generator: Template Files
+  Info:
+    [i] Found: book_structure.yaml
+    [i] Found: mdbook_summary.txt
+    [i] Found: book_print.tex
+
+
+Part 6
+--------------------------------------------------------------------------------
+[PASS] - Part 6: Army List Generator: Module Import
+  Info:
+    [i] Successfully imported ArmyListGenerator
+    [i] Successfully instantiated ArmyListGenerator
+
+[PASS] - Part 6: Army List Generator: Phase6UnitParser Integration
+  Info:
+    [i] Successfully imported Phase6UnitParser
+    [i] Found 7 American 1942q4 units
+
+[PASS] - Part 6: Army List Generator: Force Organization Categories
+  Warnings (1):
+    [!] Missing category mapping: HQ
+  Info:
+    [i] Found category: INFANTRY
+    [i] Found category: ARMOR
+    [i] Found category: ARTILLERY
+    [i] Found category: ANTI-TANK
+    [i] Found category: ANTI-AIRCRAFT
+    [i] Found category: RECONNAISSANCE
+    [i] Found category: SUPPORT
+
+================================================================================
+SUMMARY
+================================================================================
+Total Tests: 16
+Passed: 8 (50.0%)
+Failed: 8
+Total Errors: 8
+Total Warnings: 1
+
+[FAIL] SOME TESTS FAILED
