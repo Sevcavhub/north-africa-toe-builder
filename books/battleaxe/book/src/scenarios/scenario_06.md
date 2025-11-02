@@ -1,45 +1,69 @@
-# Scenario 6: [Title TBD]
+# 6. The Cauldron - Surrounded at Halfaya
+## SITUATION REPORT
+**Date**: June 16, 1941, 14:00
+**Location**: Southwest of Halfaya Pass
 
-**Date**: [TBD]
-**Location**: [TBD]
-**Scale**: [TBD]
+British armored company finds itself surrounded by converging German forces. Must break out while German pincers close.
 
-## Historical Context
+Part of Battleaxe operation.
+## THE BATTLE
+British armored company finds itself surrounded by converging German forces. Must break out while German pincers close.
 
-[Historical background will be added from scenario_research.md]
+**British Objective**: Break out (exit 50% force off designated table edge)
 
-## Forces
+**German Objective**: Encircle and destroy British force (70% casualties)
+## THE BATTLEFIELD
+**Table Size**: 6' × 4'
 
-### Attacker
-[Force roster will be generated from Phase 6 units]
+**Terrain**:
+- **terrain**: Open desert with occasional rocky outcrops
 
-### Defender
-[Force roster will be generated from Phase 6 units]
-
-## Terrain Setup
-
-[Terrain map and setup instructions]
-
-## Deployment
-
-[Deployment zones and rules]
-
-## Objectives
-
-[Victory conditions for both sides]
-
-## Special Rules
-
-[Scenario-specific special rules]
-
-## Historical Outcome
-
-[What actually happened in history]
-
-## Designer's Notes
-
-[Balancing notes, suggestions, variants]
+**Special Battlefield Rules**:
+- Encirclement (German forces arrive from multiple edges)
+- Limited ammunition (British limited ammo for prolonged engagement)
+- Fighting withdrawal mechanics
 
 ---
 
-*Scenario 6 of 8*
+## OBJECTIVES
+**Victory Type**: mixed
+
+**British Victory**: Break out (exit 50% force off designated table edge)
+
+**German Victory**: Encircle and destroy British force (70% casualties)
+
+**Draw**: Neither side achieves their objectives
+
+## DEPLOYMENT
+**British**: British deploy within 12" of south table edge
+
+**German**: German deploy within 12" of north table edge
+
+**Turn Order**: Roll off for initiative
+
+## SPECIAL SCENARIO RULES
+- Encirclement (German forces arrive from multiple edges)
+- Limited ammunition (British limited ammo for prolonged engagement)
+- Fighting withdrawal mechanics
+
+**Turn Limit**: 8 turns
+
+## FORCES
+
+### BRITISH FORCES
+**Nation**: British
+**Points Budget**: 900
+**Total Battle Rating**: 45
+
+
+### GERMAN FORCES
+**Nation**: German
+**Points Budget**: 900
+**Total Battle Rating**: 45
+
+
+## ALTERNATIVE FORCES
+This scenario can be adapted for other battles or periods.
+
+- Use units from adjacent quarters for force variation
+- Adjust points budget for smaller/larger engagements

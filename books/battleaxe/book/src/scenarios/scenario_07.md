@@ -1,45 +1,69 @@
-# Scenario 7: [Title TBD]
+# 7. Withdrawal Under Fire
+## SITUATION REPORT
+**Date**: June 17, 1941, 08:00
+**Location**: East of Capuzzo, withdrawing toward Egypt
 
-**Date**: [TBD]
-**Location**: [TBD]
-**Scale**: [TBD]
+British 7th Armoured Division conducts fighting withdrawal as Operation Battleaxe fails. German forces pursue, attempting to inflict maximum casualties before British reach safety.
 
-## Historical Context
+Part of Battleaxe operation.
+## THE BATTLE
+British 7th Armoured Division conducts fighting withdrawal as Operation Battleaxe fails. German forces pursue, attempting to inflict maximum casualties before British reach safety.
 
-[Historical background will be added from scenario_research.md]
+**British Objective**: Preserve force (exit 60%+ off Egypt edge)
 
-## Forces
+**German Objective**: Inflict maximum casualties (destroy 40%+ British force)
+## THE BATTLEFIELD
+**Table Size**: 6' × 4'
 
-### Attacker
-[Force roster will be generated from Phase 6 units]
+**Terrain**:
+- **terrain**: Open desert with British moving toward table edge (Egypt)
 
-### Defender
-[Force roster will be generated from Phase 6 units]
-
-## Terrain Setup
-
-[Terrain map and setup instructions]
-
-## Deployment
-
-[Deployment zones and rules]
-
-## Objectives
-
-[Victory conditions for both sides]
-
-## Special Rules
-
-[Scenario-specific special rules]
-
-## Historical Outcome
-
-[What actually happened in history]
-
-## Designer's Notes
-
-[Balancing notes, suggestions, variants]
+**Special Battlefield Rules**:
+- Fighting withdrawal (British force starts on table, must exit)
+- Pursuit (German forces enter from multiple points)
+- Delaying actions (British can sacrifice units to slow Germans)
 
 ---
 
-*Scenario 7 of 8*
+## OBJECTIVES
+**Victory Type**: mixed
+
+**British Victory**: Preserve force (exit 60%+ off Egypt edge)
+
+**German Victory**: Inflict maximum casualties (destroy 40%+ British force)
+
+**Draw**: Neither side achieves their objectives
+
+## DEPLOYMENT
+**British**: British deploy within 12" of south table edge
+
+**German**: German deploy within 12" of north table edge
+
+**Turn Order**: Roll off for initiative
+
+## SPECIAL SCENARIO RULES
+- Fighting withdrawal (British force starts on table, must exit)
+- Pursuit (German forces enter from multiple points)
+- Delaying actions (British can sacrifice units to slow Germans)
+
+**Turn Limit**: 8 turns
+
+## FORCES
+
+### BRITISH FORCES
+**Nation**: British
+**Points Budget**: 700
+**Total Battle Rating**: 35
+
+
+### GERMAN FORCES
+**Nation**: German
+**Points Budget**: 700
+**Total Battle Rating**: 35
+
+
+## ALTERNATIVE FORCES
+This scenario can be adapted for other battles or periods.
+
+- Use units from adjacent quarters for force variation
+- Adjust points budget for smaller/larger engagements

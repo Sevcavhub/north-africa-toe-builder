@@ -1,45 +1,71 @@
-# Scenario 3: [Title TBD]
+# 3. Point 206 - Clash of Armor
+## SITUATION REPORT
+**Date**: June 15, 1941, 12:00
+**Location**: Point 206, southwest of Capuzzo
 
-**Date**: [TBD]
-**Location**: [TBD]
-**Scale**: [TBD]
+British 7th Armoured Division's Crusader and Honey Stuart tanks engage German 5th Light Division's Panzer IIIs in open desert tank battle. Superior German gunnery and tactics offset British numerical advantage.
 
-## Historical Context
+Part of Battleaxe operation.
+## THE BATTLE
+British 7th Armoured Division's Crusader and Honey Stuart tanks engage German 5th Light Division's Panzer IIIs in open desert tank battle. Superior German gunnery and tactics offset British numerical advantage.
 
-[Historical background will be added from scenario_research.md]
+**British Objective**: Destroy German armor force (60% casualties)
 
-## Forces
+**German Objective**: Hold Point 206 hill feature OR inflict 50% British tank losses
+## THE BATTLEFIELD
+**Table Size**: 8' × 4'
 
-### Attacker
-[Force roster will be generated from Phase 6 units]
+**Terrain**:
+- **terrain**: Open desert with scattered rocks
+- **terrain**: slight ridgelines
+- **terrain**: excellent tank country
 
-### Defender
-[Force roster will be generated from Phase 6 units]
-
-## Terrain Setup
-
-[Terrain map and setup instructions]
-
-## Deployment
-
-[Deployment zones and rules]
-
-## Objectives
-
-[Victory conditions for both sides]
-
-## Special Rules
-
-[Scenario-specific special rules]
-
-## Historical Outcome
-
-[What actually happened in history]
-
-## Designer's Notes
-
-[Balancing notes, suggestions, variants]
+**Special Battlefield Rules**:
+- Open desert (unrestricted movement, long sight lines)
+- Tank dueling (crew quality important)
+- German tactical superiority (veteran crews vs regular British)
 
 ---
 
-*Scenario 3 of 8*
+## OBJECTIVES
+**Victory Type**: mixed
+
+**British Victory**: Destroy German armor force (60% casualties)
+
+**German Victory**: Hold Point 206 hill feature OR inflict 50% British tank losses
+
+**Draw**: Neither side achieves their objectives
+
+## DEPLOYMENT
+**British**: British deploy within 12" of south table edge
+
+**German**: German deploy within 12" of north table edge
+
+**Turn Order**: Roll off for initiative
+
+## SPECIAL SCENARIO RULES
+- Open desert (unrestricted movement, long sight lines)
+- Tank dueling (crew quality important)
+- German tactical superiority (veteran crews vs regular British)
+
+**Turn Limit**: 8 turns
+
+## FORCES
+
+### BRITISH FORCES
+**Nation**: British
+**Points Budget**: 1100
+**Total Battle Rating**: 55
+
+
+### GERMAN FORCES
+**Nation**: German
+**Points Budget**: 1100
+**Total Battle Rating**: 55
+
+
+## ALTERNATIVE FORCES
+This scenario can be adapted for other battles or periods.
+
+- Use units from adjacent quarters for force variation
+- Adjust points budget for smaller/larger engagements

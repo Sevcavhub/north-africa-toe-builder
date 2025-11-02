@@ -1,45 +1,72 @@
-# Scenario 1: [Title TBD]
+# 1. Dawn at Fort Capuzzo
+## SITUATION REPORT
+**Date**: June 15, 1941, 05:30
+**Location**: Fort Capuzzo, Libya
 
-**Date**: [TBD]
-**Location**: [TBD]
-**Scale**: [TBD]
+British 4th Armoured Brigade assaults Italian-held Fort Capuzzo at dawn. Initial success as Matilda IIs breakthrough outer defenses, but German reinforcements from 104th Infantry Regiment arrive mid-battle.
 
-## Historical Context
+Part of Battleaxe operation.
+## THE BATTLE
+British 4th Armoured Brigade assaults Italian-held Fort Capuzzo at dawn. Initial success as Matilda IIs breakthrough outer defenses, but German reinforcements from 104th Infantry Regiment arrive mid-battle.
 
-[Historical background will be added from scenario_research.md]
+**British Objective**: Capture fort by turn 8
 
-## Forces
+**Axis Objective**: Hold fort OR destroy 50% British tanks
+## THE BATTLEFIELD
+**Table Size**: 6' × 4'
 
-### Attacker
-[Force roster will be generated from Phase 6 units]
+**Terrain**:
+- **terrain**: Desert fortification with stone walls
+- **terrain**: trenches
+- **terrain**: barbed wire
+- **terrain**: open approaches
 
-### Defender
-[Force roster will be generated from Phase 6 units]
-
-## Terrain Setup
-
-[Terrain map and setup instructions]
-
-## Deployment
-
-[Deployment zones and rules]
-
-## Objectives
-
-[Victory conditions for both sides]
-
-## Special Rules
-
-[Scenario-specific special rules]
-
-## Historical Outcome
-
-[What actually happened in history]
-
-## Designer's Notes
-
-[Balancing notes, suggestions, variants]
+**Special Battlefield Rules**:
+- Dawn attack (limited visibility first 2 turns)
+- Fortified positions (Italian defenders in prepared positions)
+- Reinforcements (German platoon arrives turn 4-5 on random table edge)
 
 ---
 
-*Scenario 1 of 8*
+## OBJECTIVES
+**Victory Type**: mixed
+
+**British Victory**: Capture fort by turn 8
+
+**Axis Victory**: Hold fort OR destroy 50% British tanks
+
+**Draw**: Neither side achieves their objectives
+
+## DEPLOYMENT
+**British**: British deploy within 12" of south table edge
+
+**Axis**: Axis deploy within 12" of north table edge
+
+**Turn Order**: Roll off for initiative
+
+## SPECIAL SCENARIO RULES
+- Dawn attack (limited visibility first 2 turns)
+- Fortified positions (Italian defenders in prepared positions)
+- Reinforcements (German platoon arrives turn 4-5 on random table edge)
+
+**Turn Limit**: 8 turns
+
+## FORCES
+
+### BRITISH FORCES
+**Nation**: British
+**Points Budget**: 700
+**Total Battle Rating**: 35
+
+
+### AXIS FORCES
+**Nation**: Axis
+**Points Budget**: 700
+**Total Battle Rating**: 35
+
+
+## ALTERNATIVE FORCES
+This scenario can be adapted for other battles or periods.
+
+- Use units from adjacent quarters for force variation
+- Adjust points budget for smaller/larger engagements

@@ -1,45 +1,71 @@
-# Scenario 4: [Title TBD]
+# 4. Hafid Ridge - Infantry Struggle
+## SITUATION REPORT
+**Date**: June 15, 1941, 15:00
+**Location**: Hafid Ridge, east of Sollum
 
-**Date**: [TBD]
-**Location**: [TBD]
-**Scale**: [TBD]
+British Indian infantry platoon attempts to secure rocky Hafid Ridge held by German Panzergrenadier platoon. Close-quarters fighting in broken terrain.
 
-## Historical Context
+Part of Battleaxe operation.
+## THE BATTLE
+British Indian infantry platoon attempts to secure rocky Hafid Ridge held by German Panzergrenadier platoon. Close-quarters fighting in broken terrain.
 
-[Historical background will be added from scenario_research.md]
+**British Objective**: Secure ridge crest (control 3+ objectives)
 
-## Forces
+**German Objective**: Hold ridge OR inflict 40% British casualties
+## THE BATTLEFIELD
+**Table Size**: 4' × 4'
 
-### Attacker
-[Force roster will be generated from Phase 6 units]
+**Terrain**:
+- **terrain**: Rocky ridge with boulders
+- **terrain**: wadis
+- **terrain**: limited vehicle access
 
-### Defender
-[Force roster will be generated from Phase 6 units]
-
-## Terrain Setup
-
-[Terrain map and setup instructions]
-
-## Deployment
-
-[Deployment zones and rules]
-
-## Objectives
-
-[Victory conditions for both sides]
-
-## Special Rules
-
-[Scenario-specific special rules]
-
-## Historical Outcome
-
-[What actually happened in history]
-
-## Designer's Notes
-
-[Balancing notes, suggestions, variants]
+**Special Battlefield Rules**:
+- Infantry focus (minimal vehicles)
+- Rocky terrain (movement penalties, cover bonuses)
+- Close combat likely (short engagement ranges)
 
 ---
 
-*Scenario 4 of 8*
+## OBJECTIVES
+**Victory Type**: mixed
+
+**British Victory**: Secure ridge crest (control 3+ objectives)
+
+**German Victory**: Hold ridge OR inflict 40% British casualties
+
+**Draw**: Neither side achieves their objectives
+
+## DEPLOYMENT
+**British**: British deploy within 12" of south table edge
+
+**German**: German deploy within 12" of north table edge
+
+**Turn Order**: Roll off for initiative
+
+## SPECIAL SCENARIO RULES
+- Infantry focus (minimal vehicles)
+- Rocky terrain (movement penalties, cover bonuses)
+- Close combat likely (short engagement ranges)
+
+**Turn Limit**: 8 turns
+
+## FORCES
+
+### BRITISH FORCES
+**Nation**: British
+**Points Budget**: 500
+**Total Battle Rating**: 25
+
+
+### GERMAN FORCES
+**Nation**: German
+**Points Budget**: 500
+**Total Battle Rating**: 25
+
+
+## ALTERNATIVE FORCES
+This scenario can be adapted for other battles or periods.
+
+- Use units from adjacent quarters for force variation
+- Adjust points budget for smaller/larger engagements

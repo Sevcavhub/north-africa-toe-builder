@@ -1,45 +1,73 @@
-# Scenario 2: [Title TBD]
+# 2. Hellfire Pass - The 88mm Ambush
+## SITUATION REPORT
+**Date**: June 15, 1941, 08:00
+**Location**: Halfaya Pass, Egyptian-Libyan border
 
-**Date**: [TBD]
-**Location**: [TBD]
-**Scale**: [TBD]
+British 4th Indian Division attacks Halfaya Pass ("Hellfire Pass") held by German 33rd Panzer Regiment with concealed 88mm FlaK guns in hull-down positions. Devastating German anti-tank fire destroyed 11 Matilda IIs in minutes - the first major demonstration of 88mm effectiveness against British armor.
 
-## Historical Context
+Part of Battleaxe operation.
+## THE BATTLE
+British 4th Indian Division attacks Halfaya Pass ("Hellfire Pass") held by German 33rd Panzer Regiment with concealed 88mm FlaK guns in hull-down positions. Devastating German anti-tank fire destroyed 11 Matilda IIs in minutes - the first major demonstration of 88mm effectiveness against British armor.
 
-[Historical background will be added from scenario_research.md]
+**British Objective**: Clear pass and advance beyond (exit 50% force off far edge)
 
-## Forces
+**German Objective**: Inflict 40% casualties on British tanks
+## THE BATTLEFIELD
+**Table Size**: 6' × 4'
 
-### Attacker
-[Force roster will be generated from Phase 6 units]
+**Terrain**:
+- **terrain**: Escarpment pass with steep slopes
+- **terrain**: rocky outcrops
+- **terrain**: limited approach routes
 
-### Defender
-[Force roster will be generated from Phase 6 units]
-
-## Terrain Setup
-
-[Terrain map and setup instructions]
-
-## Deployment
-
-[Deployment zones and rules]
-
-## Objectives
-
-[Victory conditions for both sides]
-
-## Special Rules
-
-[Scenario-specific special rules]
-
-## Historical Outcome
-
-[What actually happened in history]
-
-## Designer's Notes
-
-[Balancing notes, suggestions, variants]
+**Special Battlefield Rules**:
+- Concealed 88mm positions (not revealed until first shot)
+- Hull-down defensive positions (German armor bonuses)
+- Matilda thick armor (immune to most German guns except 88mm)
+- Escarpment terrain (vehicle movement restrictions)
 
 ---
 
-*Scenario 2 of 8*
+## OBJECTIVES
+**Victory Type**: mixed
+
+**British Victory**: Clear pass and advance beyond (exit 50% force off far edge)
+
+**German Victory**: Inflict 40% casualties on British tanks
+
+**Draw**: Neither side achieves their objectives
+
+## DEPLOYMENT
+**British**: British deploy within 12" of south table edge
+
+**German**: German deploy within 12" of north table edge
+
+**Turn Order**: Roll off for initiative
+
+## SPECIAL SCENARIO RULES
+- Concealed 88mm positions (not revealed until first shot)
+- Hull-down defensive positions (German armor bonuses)
+- Matilda thick armor (immune to most German guns except 88mm)
+- Escarpment terrain (vehicle movement restrictions)
+
+**Turn Limit**: 8 turns
+
+## FORCES
+
+### BRITISH FORCES
+**Nation**: British
+**Points Budget**: 900
+**Total Battle Rating**: 45
+
+
+### GERMAN FORCES
+**Nation**: German
+**Points Budget**: 900
+**Total Battle Rating**: 45
+
+
+## ALTERNATIVE FORCES
+This scenario can be adapted for other battles or periods.
+
+- Use units from adjacent quarters for force variation
+- Adjust points budget for smaller/larger engagements

@@ -1,45 +1,71 @@
-# Scenario 8: [Title TBD]
+# 8. Last Stand at Sidi Omar
+## SITUATION REPORT
+**Date**: June 17, 1941, 15:00
+**Location**: Sidi Omar, Egyptian border
 
-**Date**: [TBD]
-**Location**: [TBD]
-**Scale**: [TBD]
+British rearguard platoon holds vital crossroads at Sidi Omar to allow main force to withdraw. Overwhelming German force attacks.
 
-## Historical Context
+Part of Battleaxe operation.
+## THE BATTLE
+British rearguard platoon holds vital crossroads at Sidi Omar to allow main force to withdraw. Overwhelming German force attacks.
 
-[Historical background will be added from scenario_research.md]
+**British Objective**: Delay Germans for 8 turns OR inflict 40% casualties
 
-## Forces
+**German Objective**: Clear crossroads by turn 6
+## THE BATTLEFIELD
+**Table Size**: 4' × 4'
 
-### Attacker
-[Force roster will be generated from Phase 6 units]
+**Terrain**:
+- **terrain**: Desert crossroads with scattered buildings
+- **terrain**: wadis
+- **terrain**: limited cover
 
-### Defender
-[Force roster will be generated from Phase 6 units]
-
-## Terrain Setup
-
-[Terrain map and setup instructions]
-
-## Deployment
-
-[Deployment zones and rules]
-
-## Objectives
-
-[Victory conditions for both sides]
-
-## Special Rules
-
-[Scenario-specific special rules]
-
-## Historical Outcome
-
-[What actually happened in history]
-
-## Designer's Notes
-
-[Balancing notes, suggestions, variants]
+**Special Battlefield Rules**:
+- Rearguard action (British fight to last)
+- Overwhelming odds (German numerical superiority)
+- Time pressure (British must hold X turns)
 
 ---
 
-*Scenario 8 of 8*
+## OBJECTIVES
+**Victory Type**: mixed
+
+**British Victory**: Delay Germans for 8 turns OR inflict 40% casualties
+
+**German Victory**: Clear crossroads by turn 6
+
+**Draw**: Neither side achieves their objectives
+
+## DEPLOYMENT
+**British**: British deploy within 12" of south table edge
+
+**German**: German deploy within 12" of north table edge
+
+**Turn Order**: Roll off for initiative
+
+## SPECIAL SCENARIO RULES
+- Rearguard action (British fight to last)
+- Overwhelming odds (German numerical superiority)
+- Time pressure (British must hold X turns)
+
+**Turn Limit**: 8 turns
+
+## FORCES
+
+### BRITISH FORCES
+**Nation**: British
+**Points Budget**: 500
+**Total Battle Rating**: 25
+
+
+### GERMAN FORCES
+**Nation**: German
+**Points Budget**: 500
+**Total Battle Rating**: 25
+
+
+## ALTERNATIVE FORCES
+This scenario can be adapted for other battles or periods.
+
+- Use units from adjacent quarters for force variation
+- Adjust points budget for smaller/larger engagements
