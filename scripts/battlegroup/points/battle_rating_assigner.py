@@ -208,7 +208,8 @@ class BattleRatingAssigner:
         is_squadron = 'squadron' in name_lower
         is_troop = 'troop' in name_lower
         is_battery = 'battery' in name_lower
-        is_squad = 'squad' in name_lower or 'section' in name_lower
+        is_squad = 'squad' in name_lower
+        is_section = 'section' in name_lower
         is_team = 'team' in name_lower
 
         # Type detection
