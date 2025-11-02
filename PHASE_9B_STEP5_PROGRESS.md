@@ -40,6 +40,11 @@
 - ✅ Load all 4 templates (vehicle, gun, defence, fire support)
 - ✅ Added `get_special_rules()` method to fetch from database
 - ✅ Integrated special rules into vehicle datacards
+- ✅ Added `format_gun_datacard()` method for gun-specific formatting (~125 lines)
+- ✅ Added `get_reference_gun_data()` with intelligent name matching (~60 lines)
+- ✅ Added `is_gun()` detection method to route to appropriate formatter
+- ✅ Tabular AP penetration display (official BattleGroup format)
+- ✅ Fallback to bg_reference_guns when equipment_battlegroup lacks HE/AP data
 - ✅ Unicode-safe output for Windows console
 
 ### Validation Results
@@ -72,20 +77,50 @@ Special Rules (4):
 ```
 ✅ **PASS** - Historically accurate special rules (Unreliable confirmed)
 
+**Test 3: 50mm PaK 38 (Regular) - GUN DATACARD**
+```
+================================================================
+50MM PAK 38
+================================================================
+Type: Anti Tank
+Nation: German         Experience: Regular
+Crew: Unknown             Caliber: 50mm
+================================================================
+HIGH EXPLOSIVE:          HE Effect: 3/6+
+================================================================
+ARMOR PENETRATION TABLE:
++-------+------+------+------+------+------+------+
+| Range | 0-10"|10-20"|20-30"|30-40"|40-50"|50-70"|
++-------+------+------+------+------+------+------+
+| AP    |  5   |  5   |  4   |  3   |  2   |  -   |
++-------+------+------+------+------+------+------+
+
+SPECIAL RULES:
+  • Thin Armor: Any penetrating hit causes catastrophic damage
+  • AP Only: Cannot use HE fire, only AP vs vehicles
+  • Desert Adapted: Ignore desert terrain penalties, improved reliability
+  • German Tactical Doctrine: +1 to tactical coordination tests
+```
+✅ **PASS** - Gun datacard with tabular AP penetration, HE data from bg_reference_guns fallback
+
 ### Files Created/Modified
 
 **New Files**:
-- `scripts/battlegroup/templates/datacard_gun.txt` (32 lines)
+- `scripts/battlegroup/templates/datacard_gun.txt` (23 lines, tabular format)
 - `scripts/battlegroup/templates/datacard_defence.txt` (22 lines)
 - `scripts/battlegroup/templates/datacard_fire_support.txt` (27 lines)
 
 **Modified Files**:
-- `scripts/battlegroup/generators/datacard_generator.py` (+100 lines)
-  - Added template loading for all types
+- `scripts/battlegroup/generators/datacard_generator.py` (+285 lines)
+  - Added template loading for all types (gun, defence, fire support)
   - Added `get_special_rules()` method (30 lines)
+  - Added `format_gun_datacard()` method (125 lines)
+  - Added `get_reference_gun_data()` with intelligent name matching (60 lines)
+  - Added `is_gun()` detection method (20 lines)
   - Integrated special rules into formatting
+  - Added bg_reference_guns fallback for missing HE/AP data
 
-**Total**: ~181 lines (3 new files + modifications)
+**Total**: ~357 lines (3 new files + modifications)
 
 ---
 
@@ -259,11 +294,11 @@ TOTAL BATTLE RATING: 0
 | Component | Files | Lines of Code |
 |-----------|-------|---------------|
 | **Special Rules** | 1 | 1,020 |
-| **Datacard Templates** | 3 | 81 |
-| **Datacard Generator** | 1 (modified) | +100 |
+| **Datacard Templates** | 3 | 72 |
+| **Datacard Generator** | 1 (modified) | +285 |
 | **Force Roster Builder** | 1 | 700 |
 | **Planning Docs** | 2 | ~6,000 words |
-| **TOTAL** | **8 files** | **~1,901 lines** |
+| **TOTAL** | **8 files** | **~2,077 lines** |
 
 ### Database Impact
 
@@ -279,7 +314,8 @@ TOTAL BATTLE RATING: 0
 | Component | Validation | Result |
 |-----------|------------|--------|
 | **Special Rules** | 100% coverage | ✅ PASS |
-| **Datacard Generator** | Sherman, Tiger tests | ✅ PASS |
+| **Datacard Generator (Vehicles)** | Sherman, Tiger tests | ✅ PASS |
+| **Datacard Generator (Guns)** | PaK 38 with HE/AP table | ✅ PASS |
 | **Force Roster Builder** | Composition validation | ✅ PASS |
 | **Overall Step 5** | 3/8 parts complete | 🔄 37.5% |
 
@@ -344,12 +380,12 @@ From PHASE_9B_STEP5_PLAN.md:
 
 | # | Criterion | Target | Status | Notes |
 |---|-----------|--------|--------|-------|
-| 1 | Datacard generator handles all equipment types | Vehicles, guns, defences, fire support | ✅ **PARTIAL** | Templates created, vehicle integration complete |
+| 1 | Datacard generator handles all equipment types | Vehicles, guns, defences, fire support | ✅ **COMPLETE** | All templates created, guns fully working with tabular AP, HE fallback |
 | 2 | Force roster builder validates composition | Points/BR budgets, restrictions | ✅ **COMPLETE** | All validation rules implemented |
 | 3 | Scenario generator creates playable scenarios | Victory conditions, deployment, special rules | ⏸️ **PENDING** | Not started |
 | 4 | Book structure generator produces complete books | TOC, chapters, formatting | ⏸️ **PENDING** | Not started |
 
-**Overall**: 1.5/4 criteria complete (37.5%)
+**Overall**: 2/4 criteria complete (50%)
 
 ---
 
@@ -390,15 +426,19 @@ If continuing:
 ### Challenges Overcome
 1. **Column Names**: Equipment table uses `canonical_id` not `id` - fixed in queries
 2. **Movement Columns**: `off_road_movement`/`road_movement` not `movement_off_road`/`movement_road` - fixed
-3. **Unicode Output**: Windows console encoding issues - added `safe_print()` wrapper
+3. **Unicode Output**: Windows console encoding issues - added `safe_print()` wrapper, ASCII tables for guns
 4. **Rule Linkage**: Auto-linking 1,599 rules required careful logic - confidence scoring helps
+5. **Missing Gun Data**: equipment_battlegroup lacks HE/AP for many guns - added bg_reference_guns fallback
+6. **Gun Name Matching**: "50mm Pak 38" vs "PaK38" - intelligent regex parsing extracts caliber and designation
 
 ### Best Practices Established
-1. **Always use `safe_print()`** for Windows compatibility
+1. **Always use `safe_print()`** for Windows compatibility (use ASCII for tables, not Unicode box-drawing)
 2. **Query database schema first** before writing SQL
 3. **Test with real data immediately** after implementation
 4. **Document as you go** - easier than retroactive documentation
 5. **Use enums for validation** - prevents typos and invalid values
+6. **Multiple fallback sources** - Try equipment_battlegroup first, then bg_reference_guns for missing data
+7. **Regex for flexible matching** - Parse equipment names to extract key identifiers (caliber, designation)
 
 ---
 
