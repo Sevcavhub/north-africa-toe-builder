@@ -1,68 +1,72 @@
-# 12. The Corridor to Tobruk
+# 20. Final Push to Benghazi
 ## SITUATION REPORT
-**Date**: November 21, 1941, 10:00
-**Location**: Between Sidi Rezegh and Ed Duda
+**Date**: December 24, 1941, 08:00
+**Location**: Approaches to Benghazi
 
-New Zealand infantry attempts to create corridor linking British forces at Sidi Rezegh with Tobruk garrison breaking out from siege. German forces attempt to block the link-up.
+British attempt to capture Benghazi before year end. Axis forces conduct delaying action before abandoning city. Christmas Eve attack.
 
 Part of Crusader operation.
 ## THE BATTLE
-New Zealand infantry attempts to create corridor linking British forces at Sidi Rezegh with Tobruk garrison breaking out from siege. German forces attempt to block the link-up.
+British attempt to capture Benghazi before year end. Axis forces conduct delaying action before abandoning city. Christmas Eve attack.
 
-**New Zealand Objective**: 
+**British Objective**: Push through rearguard, advance on city
 
-**British (Tobruk) Objective**: 
+**Italian Objective**: Delay British 8+ turns to allow evacuation
 ## THE BATTLEFIELD
-**Table Size**: 6' × 4'
+**Table Size**: 8' × 4'
 
 **Terrain**:
-- **terrain**: Desert with ridges
-- **terrain**: wadis
-- **terrain**: creating "corridor" between forces
+- **terrain**: Approaches to city with roads
+- **terrain**: buildings on outskirts
+- **terrain**: Italian defensive positions
 
 **Special Battlefield Rules**:
-- Two Allied forces (converging from opposite edges)
-- Link-up mechanics (must physically meet)
-- German blocking force (outnumbered but central position)
+- Delaying action (Italian mission to slow, not stop)
+- Urban fringe (buildings provide cover)
+- Withdrawal option (Italian can retreat when casualties mount)
 
 ---
 
 ## OBJECTIVES
 **Victory Type**: mixed
 
-**New Zealand Victory**: 
+**British Victory**: Push through rearguard, advance on city
 
-**British (Tobruk) Victory**: 
+**Italian Victory**: Delay British 8+ turns to allow evacuation
 
 **Draw**: Neither side achieves their objectives
 
 ## DEPLOYMENT
-**New Zealand**: New Zealand deploy within 12" of south table edge
+**British**: British deploy within 12" of south table edge
 
-**British (Tobruk)**: British (Tobruk) deploy within 12" of north table edge
+**Italian**: Italian deploy within 12" of north table edge
 
 **Turn Order**: Roll off for initiative
 
 ## SPECIAL SCENARIO RULES
-- Two Allied forces (converging from opposite edges)
-- Link-up mechanics (must physically meet)
-- German blocking force (outnumbered but central position)
+- Delaying action (Italian mission to slow, not stop)
+- Urban fringe (buildings provide cover)
+- Withdrawal option (Italian can retreat when casualties mount)
 
 **Turn Limit**: 8 turns
 
 ## FORCES
 
-### NEW ZEALAND FORCES
-**Nation**: New Zealand
-**Points Budget**: 900
-**Total Battle Rating**: 45
+### BRITISH FORCES
+**Nation**: British
+**Points Budget**: 1100
+**Total Battle Rating**: 55
 
+**Units**:
+- 1x Mixed Force (veteran) - 1100 pts, BR: 55 [Assault force (3 squadrons tanks 28-32 mixed, 1 battalion motorized infantry, 1 battery artillery)...]
 
-### BRITISH (TOBRUK) FORCES
-**Nation**: British (Tobruk)
-**Points Budget**: 900
-**Total Battle Rating**: 45
+### ITALIAN FORCES
+**Nation**: Italian
+**Points Budget**: 1100
+**Total Battle Rating**: 55
 
+**Units**:
+- 1x Mixed Force (veteran) - 1100 pts, BR: 55 [Rearguard (1 battalion Bersaglieri, 1 company M13/40 tanks 8-10, 1 battery 75mm guns), covering Germ...]
 
 ## ALTERNATIVE FORCES
 This scenario can be adapted for other battles or periods.

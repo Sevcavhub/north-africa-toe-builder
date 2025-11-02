@@ -285,6 +285,53 @@ class ForceRosterBuilder:
         self.db_path = db_path
         self.parser = Phase6UnitParser()
 
+        # BattleGroup point values by equipment type (approximate)
+        self.POINTS = {
+            # Tanks
+            "matilda": 145,  # Heavy armor
+            "crusader": 95,  # Medium cruiser
+            "panzer iii": 100,  # Medium tank
+            "panzer iv": 120,  # Medium tank with better gun
+            "panzer ii": 65,  # Light tank
+            "m13/40": 85,  # Italian medium
+            "m3 stuart": 70,  # Light tank
+            "a9": 75,  # Early cruiser
+            "a10": 80,  # Early cruiser
+            "a13": 85,  # Cruiser
+
+            # Artillery
+            "25-pdr": 65,  # British field gun
+            "88mm": 95,  # German dual-purpose
+            "pak 38": 45,  # 50mm AT gun
+            "2-pounder": 35,  # British AT gun
+            "bofors": 45,  # AA gun
+
+            # Infantry
+            "infantry": 12,  # Per soldier (25-man platoon = 300pts)
+            "engineer": 15,  # Per soldier
+        }
+
+        # BR values by equipment type (approximate)
+        self.BR = {
+            "matilda": 3,
+            "crusader": 2,
+            "panzer iii": 2,
+            "panzer iv": 2,
+            "panzer ii": 1,
+            "m13/40": 2,
+            "m3 stuart": 1,
+            "a9": 2,
+            "a10": 2,
+            "a13": 2,
+            "25-pdr": 1,
+            "88mm": 2,
+            "pak 38": 1,
+            "2-pounder": 1,
+            "bofors": 1,
+            "infantry": 1,  # Per platoon
+            "engineer": 1,
+        }
+
     def build_roster(
         self,
         nation: str,
@@ -306,24 +353,216 @@ class ForceRosterBuilder:
         Returns:
             ForceRoster object
         """
-        # For now, create a simple roster structure
-        # In future iterations, this will parse force_description and query equipment
-
         units = []
-        estimated_br = points_budget // 20  # Rough estimate: 20 pts per BR
+        total_points = 0
+        total_br = 0
 
-        # Parse force description to extract unit types
-        # This is a simplified version - full implementation would use Phase 6 data
+        # Parse force description for units
+        # Pattern: "1 squadron Matilda II (7-9 tanks)"
+        # Pattern: "2 companies 4th Indian infantry (160-200 men)"
+        # Pattern: "4x 88mm FlaK 18/36 (hull-down)"
+        # Pattern: "1 battery 25-pdr (4 guns)"
+
+        # Try to extract unit entries
+        unit_entries = self._parse_force_description(force_description)
+
+        for entry in unit_entries:
+            unit_name, count, equipment_type, notes = entry
+
+            # Get points and BR
+            points_per_unit = self._get_points(equipment_type)
+            br_per_unit = self._get_br(equipment_type)
+
+            unit_points = points_per_unit * count
+            unit_br = br_per_unit * max(1, count // 3)  # Group BR
+
+            total_points += unit_points
+            total_br += unit_br
+
+            # Create unit entry
+            unit_dict = {
+                "name": unit_name,
+                "type": equipment_type,
+                "count": count,
+                "experience": experience,
+                "points": unit_points,
+                "br": unit_br,
+                "notes": notes
+            }
+            units.append(unit_dict)
+
+        # If no units parsed, create placeholder
+        if not units:
+            units.append({
+                "name": "Mixed Force",
+                "type": "combined_arms",
+                "count": 1,
+                "experience": experience,
+                "points": points_budget,
+                "br": points_budget // 20,
+                "notes": force_description[:100] + "..."
+            })
+            total_points = points_budget
+            total_br = points_budget // 20
 
         roster = ForceRoster(
             nation=nation,
             name=f"{nation.upper()} FORCES",
-            battle_rating=estimated_br,
+            battle_rating=total_br,
             points_budget=points_budget,
             units=units
         )
 
         return roster
+
+    def _parse_force_description(self, description: str) -> List[Tuple[str, int, str, str]]:
+        """
+        Parse force description to extract unit entries
+
+        Returns:
+            List of (unit_name, count, equipment_type, notes) tuples
+        """
+        entries = []
+
+        # Clean up description - remove modifiers like "+ fortifications"
+        description = re.sub(r'\s*\+\s*fortifications?\s*', '', description, flags=re.IGNORECASE)
+
+        # Split by commas or semicolons
+        parts = re.split(r'[,;]\s*', description)
+
+        for part in parts:
+            part = part.strip()
+            if not part:
+                continue
+
+            # Try various patterns (order matters - most specific first!)
+
+            # Pattern 1: "1 squadron Matilda II (7-9 tanks)"
+            match = re.search(r'(\d+)\s*squadron\s+([^(]+)\((\d+)-(\d+)\s+tanks?\)', part, re.IGNORECASE)
+            if match:
+                squadron_count = int(match.group(1))
+                tank_name = match.group(2).strip()
+                tank_min = int(match.group(3))
+                tank_max = int(match.group(4))
+                tank_count = (tank_min + tank_max) // 2  # Average
+
+                equipment_type = self._identify_equipment_type(tank_name)
+                entries.append((tank_name, tank_count, equipment_type, f"{squadron_count} squadron"))
+                continue
+
+            # Pattern 2: "2 companies 4th Indian infantry (160-200 men)" or "1 company Italian infantry (80-100 men)"
+            match = re.search(r'(\d+)\s*compan(?:y|ies)\s+([^(]*?)infantry\s*\((\d+)-(\d+)\s+men\)', part, re.IGNORECASE)
+            if match:
+                company_count = int(match.group(1))
+                descriptor = match.group(2).strip()  # e.g., "4th Indian", "Italian", etc.
+                men_min = int(match.group(3))
+                men_max = int(match.group(4))
+                men_count = (men_min + men_max) // 2
+
+                # Extract nationality/description
+                nationality = self._extract_nationality(descriptor)
+                unit_name = f"{nationality}Infantry Company" if nationality else "Infantry Company"
+                notes = f"{company_count} companies, {men_count} men"
+
+                entries.append((unit_name, men_count, "infantry", notes))
+                continue
+
+            # Pattern 3: "1 platoon infantry (25-30 men)" or "1 platoon German infantry reinforcement (30 men)"
+            match = re.search(r'(\d+)\s*platoon(?:s)?\s+([^(]*?)infantry(?:\s+([^(]+?))?\s*\((\d+)(?:-(\d+))?\s+men\)', part, re.IGNORECASE)
+            if match:
+                platoon_count = int(match.group(1))
+                descriptor = match.group(2).strip() if match.group(2) else ""
+                modifier = match.group(3).strip() if match.group(3) else ""  # e.g., "reinforcement"
+                men_min = int(match.group(4))
+                men_max = int(match.group(5)) if match.group(5) else men_min  # Handle single number like (30 men)
+                men_count = (men_min + men_max) // 2
+
+                # Extract nationality and reinforcement status
+                nationality = self._extract_nationality(descriptor + " " + modifier)
+                is_reinforcement = "reinforcement" in modifier.lower()
+
+                unit_name = f"{nationality}Infantry Platoon" if nationality else "Infantry Platoon"
+                if is_reinforcement:
+                    unit_name += " (Reinforcement)"
+
+                notes = f"{platoon_count} platoon, {men_count} men"
+
+                entries.append((unit_name, men_count, "infantry", notes))
+                continue
+
+            # Pattern 4: "1 battery 25-pdr (4 guns)" or "1 section 25-pdr (2 guns)"
+            match = re.search(r'(\d+)\s*(?:battery|section)\s+([^(]+)\((\d+)\s+guns?\)', part, re.IGNORECASE)
+            if match:
+                battery_count = int(match.group(1))
+                gun_name = match.group(2).strip()
+                gun_count = int(match.group(3))
+
+                equipment_type = self._identify_equipment_type(gun_name)
+                entries.append((gun_name, gun_count, equipment_type, f"{battery_count} battery/section"))
+                continue
+
+            # Pattern 5: "4x 88mm FlaK 18/36" or "3x Panzer III" (generic equipment with explicit 'x')
+            match = re.search(r'(\d+)x\s+([^(]+?)(?:\(|$)', part)
+            if match:
+                count = int(match.group(1))
+                equipment_name = match.group(2).strip()
+                equipment_type = self._identify_equipment_type(equipment_name)
+
+                notes = ""
+                if '(' in part:
+                    notes_match = re.search(r'\(([^)]+)\)', part)
+                    if notes_match:
+                        notes = notes_match.group(1)
+
+                entries.append((equipment_name, count, equipment_type, notes))
+                continue
+
+        return entries
+
+    def _extract_nationality(self, text: str) -> str:
+        """Extract nationality from text descriptor"""
+        text_lower = text.lower()
+
+        # Check for nationality keywords
+        if "german" in text_lower or "panzergrenadier" in text_lower:
+            return "German "
+        elif "italian" in text_lower:
+            return "Italian "
+        elif "british" in text_lower or "indian" in text_lower or "australian" in text_lower or "new zealand" in text_lower or "south african" in text_lower:
+            return "British "
+        elif "french" in text_lower or "free french" in text_lower:
+            return "French "
+        elif "american" in text_lower or "us " in text_lower:
+            return "American "
+        else:
+            return ""
+
+    def _identify_equipment_type(self, name: str) -> str:
+        """Identify equipment type from name"""
+        name_lower = name.lower()
+
+        # Check against known equipment
+        for equipment, _ in self.POINTS.items():
+            if equipment in name_lower:
+                return equipment
+
+        # Fallback based on keywords
+        if any(word in name_lower for word in ["tank", "panzer", "matilda", "crusader", "stuart"]):
+            return "tank_medium"
+        elif any(word in name_lower for word in ["infantry", "soldier", "men"]):
+            return "infantry"
+        elif any(word in name_lower for word in ["gun", "pdr", "mm", "artillery"]):
+            return "artillery"
+        else:
+            return "unknown"
+
+    def _get_points(self, equipment_type: str) -> int:
+        """Get points value for equipment type"""
+        return self.POINTS.get(equipment_type, 50)  # Default 50pts
+
+    def _get_br(self, equipment_type: str) -> int:
+        """Get BR value for equipment type"""
+        return self.BR.get(equipment_type, 1)  # Default 1 BR
 
 
 class ScenarioWorkflow:
@@ -346,15 +585,17 @@ class ScenarioWorkflow:
         self,
         battle: str,
         scenario_num: int,
-        output_dir: Optional[Path] = None
+        output_dir: Optional[Path] = None,
+        per_book_index: Optional[int] = None
     ) -> Scenario:
         """
         Generate a complete scenario
 
         Args:
             battle: Battle name (battleaxe, crusader, gazala, first_alamein)
-            scenario_num: Scenario number (1-based)
+            scenario_num: Global scenario number (1-45)
             output_dir: Optional output directory override
+            per_book_index: Per-book scenario index (1-N for each battle), for filename
 
         Returns:
             Complete Scenario object
@@ -417,21 +658,40 @@ class ScenarioWorkflow:
             draw_conditions="Neither side achieves their objectives"
         )
 
-        # Build force rosters (simplified for now)
-        attacker_roster = ForceRoster(
-            nation=attacker_side.lower(),
-            name=f"{attacker_side.upper()} FORCES",
-            battle_rating=points_budget // 20,
+        # Build force rosters from research data
+        attacker_force_desc = research.forces.get(attacker_side, "")
+        defender_force_desc = research.forces.get(defender_side, "")
+
+        # Map attacker/defender to nations from Phase 6 units
+        # nation_quarter is like {"british": "1941q2", "german": "1941q2"}
+        # attacker_side is like "British" or "Axis"
+
+        # Infer nation from side name
+        attacker_nation_guess = "british" if "british" in attacker_side.lower() else "german"
+        defender_nation_guess = "german" if "german" in defender_side.lower() or "axis" in defender_side.lower() else "italian"
+
+        # Get quarter from nation_quarter dict (or use first available)
+        available_quarters = list(nation_quarter.items())
+        attacker_quarter = nation_quarter.get(attacker_nation_guess, available_quarters[0][1] if available_quarters else "1941q2")
+        defender_quarter = nation_quarter.get(defender_nation_guess, available_quarters[1][1] if len(available_quarters) > 1 else "1941q2")
+
+        attacker_nation = attacker_side.lower()  # Use actual side name
+        defender_nation = defender_side.lower()
+
+        attacker_roster = self.roster_builder.build_roster(
+            nation=attacker_nation,
+            quarter=attacker_quarter,
+            force_description=attacker_force_desc,
             points_budget=points_budget,
-            units=[]
+            experience="veteran"  # Most North Africa units were experienced
         )
 
-        defender_roster = ForceRoster(
-            nation=defender_side.lower(),
-            name=f"{defender_side.upper()} FORCES",
-            battle_rating=points_budget // 20,
+        defender_roster = self.roster_builder.build_roster(
+            nation=defender_nation,
+            quarter=defender_quarter,
+            force_description=defender_force_desc,
             points_budget=points_budget,
-            units=[]
+            experience="veteran"
         )
 
         # Create deployment
@@ -472,7 +732,9 @@ class ScenarioWorkflow:
         if output_dir is None:
             output_dir = BOOKS_DIR / battle / "book" / "src" / "scenarios"
 
-        output_file = output_dir / f"scenario_{scenario_num:02d}.md"
+        # Use per-book index for filename if provided, otherwise use global scenario_num
+        file_index = per_book_index if per_book_index is not None else scenario_num
+        output_file = output_dir / f"scenario_{file_index:02d}.md"
         scenario.to_markdown(output_file)
 
         print(f"[SUCCESS] Generated {output_file}")
@@ -530,8 +792,9 @@ class ScenarioWorkflow:
 
         scenarios = self.scenarios_data.get(battle, [])
 
-        for research_data in scenarios:
-            self.generate_scenario(battle, research_data.scenario_number)
+        # Generate scenarios using per-book numbering (1-N for each battle)
+        for idx, research_data in enumerate(scenarios, 1):
+            self.generate_scenario(battle, research_data.scenario_number, per_book_index=idx)
 
         print(f"\n[COMPLETE] Generated {len(scenarios)} scenarios for {battle}")
 

@@ -57,14 +57,22 @@ British 4th Indian Division attacks Halfaya Pass ("Hellfire Pass") held by Germa
 ### BRITISH FORCES
 **Nation**: British
 **Points Budget**: 900
-**Total Battle Rating**: 45
+**Total Battle Rating**: 61
 
+**Units**:
+- 180x British Infantry Company (veteran) - 2160 pts, BR: 60 [2 companies, 180 men]
+- 4x 25-pdr (veteran) - 260 pts, BR: 1 [1 battery/section]
 
 ### GERMAN FORCES
 **Nation**: German
 **Points Budget**: 900
-**Total Battle Rating**: 45
+**Total Battle Rating**: 25
 
+**Units**:
+- 4x 88mm FlaK 18/36 (veteran) - 380 pts, BR: 2 [hull-down]
+- 60x Infantry Platoon (veteran) - 720 pts, BR: 20 [2 platoon, 60 men]
+- 2x PAK 38 50mm AT guns (veteran) - 90 pts, BR: 1
+- 3x Panzer III (veteran) - 300 pts, BR: 2
 
 ## ALTERNATIVE FORCES
 This scenario can be adapted for other battles or periods.

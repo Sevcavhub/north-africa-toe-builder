@@ -1,39 +1,39 @@
-# 11. Sidi Rezegh Airfield Assault
+# 19. El Agheila Defensive Line
 ## SITUATION REPORT
-**Date**: November 19, 1941, 15:00
-**Location**: Sidi Rezegh airfield, south of Tobruk
+**Date**: December 15, 1941, 10:00
+**Location**: El Agheila, western Cyrenaica
 
-British 7th Armoured Brigade attacks Axis-held Sidi Rezegh airfield in first attempt to link with Tobruk garrison. Initial success captured airfield but German counterattacks followed.
+British probe Axis defensive line at El Agheila bottleneck. Rommel established strong defensive position in narrow coastal corridor between sea and impassable sand sea. British test defenses before full assault.
 
 Part of Crusader operation.
 ## THE BATTLE
-British 7th Armoured Brigade attacks Axis-held Sidi Rezegh airfield in first attempt to link with Tobruk garrison. Initial success captured airfield but German counterattacks followed.
+British probe Axis defensive line at El Agheila bottleneck. Rommel established strong defensive position in narrow coastal corridor between sea and impassable sand sea. British test defenses before full assault.
 
-**British Objective**: Capture airfield and hold until turn 10
+**British Objective**: Probe defenses, identify weaknesses (recon objectives)
 
-**Axis Objective**: Hold airfield OR recapture if lost
+**Axis Objective**: Hold line, inflict casualties (defensive victory if British attack fails)
 ## THE BATTLEFIELD
 **Table Size**: 8' × 4'
 
 **Terrain**:
-- **terrain**: Airfield with hangars
-- **terrain**: fuel dumps
-- **terrain**: parked aircraft
-- **terrain**: surrounding defensive positions
+- **terrain**: Narrow corridor with sea on north
+- **terrain**: salt marshes south
+- **terrain**: minefields
+- **terrain**: defensive works
 
 **Special Battlefield Rules**:
-- Airfield assault (objectives at key buildings)
-- Fuel dumps (flammable targets)
-- Reinforcements (Axis reinforcements possible later turns)
+- Reconnaissance in force (British probing, not full assault)
+- Narrow frontage (limited maneuver room)
+- Fortified line (Axis in prepared positions)
 
 ---
 
 ## OBJECTIVES
 **Victory Type**: mixed
 
-**British Victory**: Capture airfield and hold until turn 10
+**British Victory**: Probe defenses, identify weaknesses (recon objectives)
 
-**Axis Victory**: Hold airfield OR recapture if lost
+**Axis Victory**: Hold line, inflict casualties (defensive victory if British attack fails)
 
 **Draw**: Neither side achieves their objectives
 
@@ -45,9 +45,9 @@ British 7th Armoured Brigade attacks Axis-held Sidi Rezegh airfield in first att
 **Turn Order**: Roll off for initiative
 
 ## SPECIAL SCENARIO RULES
-- Airfield assault (objectives at key buildings)
-- Fuel dumps (flammable targets)
-- Reinforcements (Axis reinforcements possible later turns)
+- Reconnaissance in force (British probing, not full assault)
+- Narrow frontage (limited maneuver room)
+- Fortified line (Axis in prepared positions)
 
 **Turn Limit**: 8 turns
 
@@ -58,12 +58,16 @@ British 7th Armoured Brigade attacks Axis-held Sidi Rezegh airfield in first att
 **Points Budget**: 1100
 **Total Battle Rating**: 55
 
+**Units**:
+- 1x Mixed Force (veteran) - 1100 pts, BR: 55 [Probing force (2 squadrons tanks 18-22 Crusader, 1 battalion infantry, 1 battery 25-pdr)...]
 
 ### AXIS FORCES
 **Nation**: Axis
 **Points Budget**: 1100
 **Total Battle Rating**: 55
 
+**Units**:
+- 1x Mixed Force (veteran) - 1100 pts, BR: 55 [Defensive line (1 company Panzer III/IV 10-12 tanks, Italian infantry battalion with AT guns, 2 batt...]
 
 ## ALTERNATIVE FORCES
 This scenario can be adapted for other battles or periods.

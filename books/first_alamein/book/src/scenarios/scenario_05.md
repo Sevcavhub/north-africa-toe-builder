@@ -1,0 +1,73 @@
+# 40. Miteirya Ridge
+## SITUATION REPORT
+**Date**: July 14-15, 1942, 22:00-06:00 (night/dawn attack)
+**Location**: Miteirya Ridge, central sector
+
+New Zealand night attack on Miteirya Ridge. Difficult night assault with mixed results. Demonstrates challenges of night operations in desert.
+
+Part of First Alamein operation.
+## THE BATTLE
+New Zealand night attack on Miteirya Ridge. Difficult night assault with mixed results. Demonstrates challenges of night operations in desert.
+
+**New Zealand Objective**: Capture ridge by dawn
+
+**Axis Objective**: Hold ridge OR counterattack at dawn
+## THE BATTLEFIELD
+**Table Size**: 8' × 4'
+
+**Terrain**:
+- **terrain**: Ridge with defensive positions
+
+**Special Battlefield Rules**:
+- Night attack (limited visibility, close combat likely)
+- Infiltration (New Zealand stealth approach)
+- Dawn counterattack (Axis tanks arrive at sunrise)
+
+---
+
+## OBJECTIVES
+**Victory Type**: mixed
+
+**New Zealand Victory**: Capture ridge by dawn
+
+**Axis Victory**: Hold ridge OR counterattack at dawn
+
+**Draw**: Neither side achieves their objectives
+
+## DEPLOYMENT
+**New Zealand**: New Zealand deploy within 12" of south table edge
+
+**Axis**: Axis deploy within 12" of north table edge
+
+**Turn Order**: Roll off for initiative
+
+## SPECIAL SCENARIO RULES
+- Night attack (limited visibility, close combat likely)
+- Infiltration (New Zealand stealth approach)
+- Dawn counterattack (Axis tanks arrive at sunrise)
+
+**Turn Limit**: 8 turns
+
+## FORCES
+
+### NEW ZEALAND FORCES
+**Nation**: New Zealand
+**Points Budget**: 1100
+**Total Battle Rating**: 55
+
+**Units**:
+- 1x Mixed Force (veteran) - 1100 pts, BR: 55 [2 battalions infantry (600-700 men), supporting tanks arrive at dawn (1 squadron 10-12 tanks)...]
+
+### AXIS FORCES
+**Nation**: Axis
+**Points Budget**: 1100
+**Total Battle Rating**: 55
+
+**Units**:
+- 1x Mixed Force (veteran) - 1100 pts, BR: 55 [Mixed German/Italian defense (1 battalion German infantry, defensive positions, counterattack force ...]
+
+## ALTERNATIVE FORCES
+This scenario can be adapted for other battles or periods.
+
+- Use units from adjacent quarters for force variation
+- Adjust points budget for smaller/larger engagements

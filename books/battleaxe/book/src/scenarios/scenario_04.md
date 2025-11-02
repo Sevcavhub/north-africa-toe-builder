@@ -55,14 +55,19 @@ British Indian infantry platoon attempts to secure rocky Hafid Ridge held by Ger
 ### BRITISH FORCES
 **Nation**: British
 **Points Budget**: 500
-**Total Battle Rating**: 25
+**Total Battle Rating**: 11
 
+**Units**:
+- 32x British Infantry Platoon (veteran) - 384 pts, BR: 10 [1 platoon, 32 men]
+- 2x 3" mortars) (veteran) - 100 pts, BR: 1 [2x 3" mortars]
 
 ### GERMAN FORCES
 **Nation**: German
 **Points Budget**: 500
-**Total Battle Rating**: 25
+**Total Battle Rating**: 1
 
+**Units**:
+- 2x MG34) (veteran) - 100 pts, BR: 1 [2x MG34]
 
 ## ALTERNATIVE FORCES
 This scenario can be adapted for other battles or periods.

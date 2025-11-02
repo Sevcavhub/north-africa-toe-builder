@@ -1,9 +1,9 @@
 # Phase 9B Step 6: Book Generation - Progress Tracking
 
 **Started**: November 2, 2025
-**Status**: ✅ COMPLETE
-**Actual Duration**: ~15 hours
-**Final Progress**: 11/11 parts complete (100%)
+**Status**: ✅ COMPLETE (Enhanced)
+**Actual Duration**: ~17 hours (11 parts + 2 hours enhancements)
+**Final Progress**: 11/11 parts complete + enhancements (100%)
 
 ---
 
@@ -23,8 +23,9 @@
 | 9 | Validation suite | 1 hour | ✅ COMPLETE | validate_scenarios.py |
 | 10 | Integration testing | 1 hour | ✅ COMPLETE | integration_test.py |
 | 11 | Step 6 summary | 1 hour | ✅ COMPLETE | PHASE_9B_STEP6_SUMMARY.md |
+| **12** | **Force roster enhancement** | **2 hours** | **✅ COMPLETE** | **Populated rosters + nationality** |
 
-**Total Parts**: 11/11 complete (100%)
+**Total Parts**: 12/12 complete (100%)
 
 ---
 
@@ -505,3 +506,47 @@ books/{book_name}/
 **Last Updated**: November 2, 2025
 **Status**: 🔄 IN PROGRESS - Ready for Part 1
 **Next Update**: After Part 1 completion
+### Part 12: Force Roster Enhancement (✅ COMPLETE)
+
+**Duration**: 2 hours
+**Date**: November 2, 2025 (evening)
+
+**Objective**: Populate scenario force rosters with actual unit lists and nationality distinction
+
+**Critical Issue**: User feedback revealed scenarios appeared as "shells with no content" - force rosters were empty.
+
+**Accomplishments**:
+- ✅ Enhanced ForceRosterBuilder with regex-based parsing (5 patterns)
+- ✅ Added BattleGroup point values for 15+ equipment types
+- ✅ Implemented nationality extraction (_extract_nationality method)
+- ✅ Added reinforcement detection and markers
+- ✅ Fixed per-book scenario numbering bug
+- ✅ Regenerated all 45 scenarios with populated force rosters
+- ✅ All validation tests passing (0 errors, 0 warnings)
+- ✅ All 4 MDBook builds successful
+
+**Force Roster Parsing Patterns**:
+1. Squadron tanks: `"1 squadron Matilda II (7-9 tanks)"` → 8x Matilda II
+2. Company infantry: `"2 companies infantry (160-200 men)"` → 180x Infantry  
+3. Platoon infantry: `"1 platoon German infantry reinforcement (30 men)"`
+4. Artillery: `"1 battery 25-pdr (4 guns)"` → 4x 25-pdr
+5. Generic equipment: `"4x 88mm FlaK 18/36 (hull-down)"`
+
+**Nationality Recognition**:
+- German, Italian, British (+ Commonwealth), French, American
+- Distinguishes mixed-nation forces (e.g., Italian defenders + German reinforcements)
+
+**Before/After Example** (Scenario 1):
+- **Before**: Empty force roster, placeholder points
+- **After**: 
+  - 90x Italian Infantry Company (defenders in fort)
+  - 30x German Infantry Platoon (Reinforcement) (arriving turn 4-5)
+
+**Files Modified**:
+- `scenario_generator_workflow.py` (+150 lines)
+- `historical_scenario_generator.py` (+30 lines) 
+- All 45 scenario .md files (regenerated)
+
+**Status**: Enhancement complete - scenarios now have fully playable force rosters with nationality distinction
+
+---

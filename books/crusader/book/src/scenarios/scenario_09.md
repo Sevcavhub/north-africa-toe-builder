@@ -1,67 +1,71 @@
-# 9. Opening Moves - Gabr Saleh
+# 17. Relief of Tobruk - Ed Duda Link-Up
 ## SITUATION REPORT
-**Date**: November 18, 1941, 10:00
-**Location**: Gabr Saleh, south of Tobruk
+**Date**: November 28, 1941, 14:00
+**Location**: Ed Duda, final link-up point
 
-British 7th Armoured Division's 4th Armoured Brigade encounters Italian Ariete Division screening force. First major tank engagement of Operation Crusader.
+New Zealand forces advancing from south finally link with Tobruk garrison forces at Ed Duda. Historic moment ending 242-day siege of Tobruk.
 
 Part of Crusader operation.
 ## THE BATTLE
-British 7th Armoured Division's 4th Armoured Brigade encounters Italian Ariete Division screening force. First major tank engagement of Operation Crusader.
+New Zealand forces advancing from south finally link with Tobruk garrison forces at Ed Duda. Historic moment ending 242-day siege of Tobruk.
 
-**British Objective**: Push through screening force, advance north
+**New Zealand Objective**: 
 
-**Italian Objective**: Delay British advance 8+ turns OR inflict 40% tank losses
+**British (Tobruk) Objective**: 
 ## THE BATTLEFIELD
-**Table Size**: 8' × 4'
+**Table Size**: 6' × 4'
 
 **Terrain**:
-- **terrain**: Open desert with slight ridges
-- **terrain**: good tank country
+- **terrain**: Open desert with ridge at Ed Duda
 
 **Special Battlefield Rules**:
-- Italian armored debut (M13/40 stats)
-- Meeting engagement (forces enter from opposite edges)
-- Screening action (Italian withdraws when casualties reach 50%)
+- Converging forces (Allied from two directions)
+- German spoiling attack (outnumbered but trying to prevent link)
+- Historic moment (high stakes)
 
 ---
 
 ## OBJECTIVES
 **Victory Type**: mixed
 
-**British Victory**: Push through screening force, advance north
+**New Zealand Victory**: 
 
-**Italian Victory**: Delay British advance 8+ turns OR inflict 40% tank losses
+**British (Tobruk) Victory**: 
 
 **Draw**: Neither side achieves their objectives
 
 ## DEPLOYMENT
-**British**: British deploy within 12" of south table edge
+**New Zealand**: New Zealand deploy within 12" of south table edge
 
-**Italian**: Italian deploy within 12" of north table edge
+**British (Tobruk)**: British (Tobruk) deploy within 12" of north table edge
 
 **Turn Order**: Roll off for initiative
 
 ## SPECIAL SCENARIO RULES
-- Italian armored debut (M13/40 stats)
-- Meeting engagement (forces enter from opposite edges)
-- Screening action (Italian withdraws when casualties reach 50%)
+- Converging forces (Allied from two directions)
+- German spoiling attack (outnumbered but trying to prevent link)
+- Historic moment (high stakes)
 
 **Turn Limit**: 8 turns
 
 ## FORCES
 
-### BRITISH FORCES
-**Nation**: British
-**Points Budget**: 1100
-**Total Battle Rating**: 55
+### NEW ZEALAND FORCES
+**Nation**: New Zealand
+**Points Budget**: 700
+**Total Battle Rating**: 39
 
+**Units**:
+- 110x Infantry Company (veteran) - 1320 pts, BR: 36 [1 companies, 110 men]
+- 9x Valentine tanks (veteran) - 450 pts, BR: 3 [1 squadron]
 
-### ITALIAN FORCES
-**Nation**: Italian
-**Points Budget**: 1100
-**Total Battle Rating**: 55
+### BRITISH (TOBRUK) FORCES
+**Nation**: British (Tobruk)
+**Points Budget**: 700
+**Total Battle Rating**: 30
 
+**Units**:
+- 90x Infantry Company (veteran) - 1080 pts, BR: 30 [1 companies, 90 men]
 
 ## ALTERNATIVE FORCES
 This scenario can be adapted for other battles or periods.

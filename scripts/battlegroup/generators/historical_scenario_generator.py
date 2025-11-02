@@ -219,13 +219,23 @@ class Scenario:
         if self.forces_attacker.units:
             md.append("**Units**:\n")
             for unit in self.forces_attacker.units:
-                md.append(f"- {unit.get('name', 'Unknown')}")
-                if 'experience' in unit:
-                    md.append(f" ({unit['experience']})")
-                if 'points' in unit:
-                    md.append(f" - {unit['points']} pts")
-                if 'br' in unit:
-                    md.append(f", BR: {unit['br']}")
+                # Format: "- 8x Matilda II (veteran) - 1160 pts, BR: 6 [1 squadron]"
+                count = unit.get('count', 1)
+                name = unit.get('name', 'Unknown')
+                exp = unit.get('experience', '')
+                pts = unit.get('points', 0)
+                br = unit.get('br', 0)
+                notes = unit.get('notes', '')
+
+                md.append(f"- {count}x {name}")
+                if exp:
+                    md.append(f" ({exp})")
+                if pts > 0:
+                    md.append(f" - {pts} pts")
+                if br > 0:
+                    md.append(f", BR: {br}")
+                if notes:
+                    md.append(f" [{notes}]")
                 md.append("\n")
 
         md.append(f"\n### {self.forces_defender.name}\n")
@@ -236,13 +246,23 @@ class Scenario:
         if self.forces_defender.units:
             md.append("**Units**:\n")
             for unit in self.forces_defender.units:
-                md.append(f"- {unit.get('name', 'Unknown')}")
-                if 'experience' in unit:
-                    md.append(f" ({unit['experience']})")
-                if 'points' in unit:
-                    md.append(f" - {unit['points']} pts")
-                if 'br' in unit:
-                    md.append(f", BR: {unit['br']}")
+                # Format: "- 4x 88mm FlaK 18/36 (veteran) - 380 pts, BR: 2 [hull-down]"
+                count = unit.get('count', 1)
+                name = unit.get('name', 'Unknown')
+                exp = unit.get('experience', '')
+                pts = unit.get('points', 0)
+                br = unit.get('br', 0)
+                notes = unit.get('notes', '')
+
+                md.append(f"- {count}x {name}")
+                if exp:
+                    md.append(f" ({exp})")
+                if pts > 0:
+                    md.append(f" - {pts} pts")
+                if br > 0:
+                    md.append(f", BR: {br}")
+                if notes:
+                    md.append(f" [{notes}]")
                 md.append("\n")
 
         # Alternative Forces
