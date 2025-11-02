@@ -113,47 +113,169 @@
 ---
 
 ### Part 4: Scenario Generator ⭐ HIGH PRIORITY
-**Current**: Does not exist
-**Enhancement**: Create from scratch
+**Current**: Does not exist (one partial file created but needs renaming/restructuring)
+**Enhancement**: Create TWO distinct scenario generation systems
+
+#### **REVISED PLAN** (Based on Kursk book analysis):
+
+Part 4 is split into **TWO systems** with different purposes:
+
+---
+
+#### **Part 4A: Random Scenario Generator** (North Africa)
+**Purpose**: Player-facing tool for quick scenario generation (like Kursk book's scenario generator)
 
 **Features Required**:
-1. **Scenario Structure**:
-   - Title and historical context
-   - Date and location
-   - Belligerents (attacker/defender)
-   - Force selection (points budgets)
-   - Map size and terrain
-   - Deployment zones
-   - Victory conditions
-   - Special rules
-   - Turn limits
+1. **North Africa Terrain Table** (D6×D6 = 36 terrain types):
+   - Hills/Elevation: Escarpment, Rocky Hill, Sand Dune, Jebel, Ridge, Plateau
+   - Desert: Open Desert, Rocky Desert, Sand Sea, Salt Flat, Wadi, Depression
+   - Vegetation: Oasis, Palm Grove, Scrubland, Wadi (bushes), Scattered Vegetation, Stone Ruins
+   - Structures: Stone Building, Mud-brick Village, Fortified Position, Ancient Ruins, Farm/Well, Tomb/Shrine
+   - Infrastructure: Track, Paved Road, Railway, Airfield, Supply Dump, Wrecks
+   - Water: Well, Cistern, Seasonal Stream, Sabkha
+   - Each terrain type includes description and special rules
 
-2. **Template System**:
-   - Multiple scenario templates (assault, defense, meeting engagement, breakthrough, etc.)
-   - Template variables for customization
-   - Historical context injection
+2. **Scenario Templates** (10-12 templates - Option C: adapted + new Africa-specific):
+   - **Adapted from Kursk** (desert flavor):
+     1. Desert Patrol Clash (Clash of Reconnaissance)
+     2. Oasis Counter-Attack (Attack/Counter-Attack)
+     3. Desert Flanking Maneuver (Flanking Attack)
+     4. Wadi Crossing (Bridgehead Breakout)
+     5. Escarpment Defense (Defence Line)
+     6. Pass Assault (High Ground - Halfaya, Kasserine)
+   - **New Africa-Specific**:
+     7. Supply Convoy Ambush
+     8. Airfield Assault
+     9. Fortified Box Defense (Gazala boxes, Tobruk perimeter)
+     10. Coastal Road Defense (Via Balbia)
+     11. Desert Breakthrough
+     12. Rearguard Action
 
-3. **Balance Calculation**:
-   - Asymmetric point allocations (defender +20%, etc.)
-   - Objective point values
-   - Reinforcement schedules
+3. **Scout-Based Mechanics**:
+   - Initiative rolls (+1 per scout unit)
+   - Deployment priority (most scouts deploys first)
+   - Table edge selection (highest scout count chooses)
+   - Ambush fire eligibility (D3-D6 units)
+   - Flanking force arrival
 
-4. **Integration**:
-   - Pull from Phase 6 unit data (future)
-   - Use army lists for force generation
-   - Apply historical restrictions
+4. **Objective Placement**:
+   - D3+2 objectives typically
+   - 10" spacing rules from edges/other objectives
+   - First objective placement varies by scenario
+
+5. **Reinforcement Scheduler**:
+   - Squad/Platoon: D6 units/turn
+   - Company: 2D6 units/turn
+   - Battalion: 3D6 units/turn
+   - Turn-based arrival (varies by scenario)
+
+6. **Weather System** (North Africa):
+   - 1 in 6 = sandstorm (not thunderstorm)
+   - Grounds aircraft
+   - Visibility reduced to 20"
+   - Movement penalties for vehicles
+
+7. **2-Page Markdown Output**:
+   - **Page 1**:
+     - Scenario title and number
+     - Metadata (battle, date, location, battle size, points)
+     - Situation report
+     - Terrain setup (from terrain table rolls)
+     - ASCII deployment map
+   - **Page 2**:
+     - Objectives and victory conditions
+     - Deployment procedure (step-by-step)
+     - Special scenario rules
+     - Forces (attacker/defender with points budgets)
+     - Image placeholders (historical photo, miniatures setup)
+     - Alternative forces suggestions
+
+8. **ASCII Deployment Maps**:
+   - Visual representation of deployment zones
+   - Objective markers
+   - Terrain features
+   - Table dimensions
+
+9. **Force Integration**:
+   - Output points budgets
+   - Optional: call force_roster_builder_v2.py to generate example forces
 
 **Files to Create**:
-- `scenario_generator.py` (600+ lines)
-- `templates/scenario_assault.txt`
-- `templates/scenario_defense.txt`
-- `templates/scenario_meeting_engagement.txt`
-- `templates/scenario_breakthrough.txt`
+- `random_scenario_generator.py` (~1000 lines)
+  - Terrain table with full descriptions
+  - 10-12 scenario templates with step-by-step deployment
+  - Scout mechanics
+  - Objective placement calculator
+  - Reinforcement scheduler
+  - Weather roller
+  - 2-page markdown output with metadata
+  - ASCII map generator
+  - CLI interface
 
-**Validation**: Generate 3 test scenarios:
-- Operation Battleaxe assault scenario
-- Operation Crusader meeting engagement
-- Gazala defensive scenario
+**Validation**: Generate all 10-12 scenario types with:
+- Random terrain rolls (verify all 36 terrain types work)
+- Different scout counts (0, 1, 3, 5 scouts)
+- Different battle sizes (squad, company, battalion)
+- Weather variations
+- Objective placement validation
+
+---
+
+#### **Part 4B: Historical Scenario Builder**
+**Purpose**: Book-ready tool for curated historical scenarios (like "Surrounded at Komsomolets" 2-page format)
+
+**Features Required**:
+1. **2-Page Format**:
+   - Page 1: Historical narrative, tactical situation, battlefield setup, map
+   - Page 2: Objectives, forces with specific rosters, deployment, photos
+
+2. **Historical Context**:
+   - Detailed situation report with historical background
+   - Strategic situation
+   - Specific battle names and dates
+   - Historical outcome
+
+3. **Specific Force Rosters**:
+   - Integration with force_roster_builder_v2.py
+   - Named units with specific equipment
+   - Historical compositions
+
+4. **Curated Terrain**:
+   - Specific terrain placement (not random)
+   - Historical accuracy
+   - Tactical considerations
+
+5. **Metadata**:
+   - Battle name (e.g., "Operation Battleaxe")
+   - Date and quarter (e.g., "June 1941", "1941q2")
+   - Location (e.g., "Halfaya Pass, Libya-Egypt Border")
+   - Battle size (squad/platoon/company/battalion)
+   - Recommended points
+   - Historical outcome
+
+6. **Image Placeholders**:
+   - Historical photos: `![Battle Photo](images/battle_name.jpg)`
+   - Miniatures setup: `![Miniatures Setup](images/scenario_setup.jpg)`
+
+**Files to Create/Modify**:
+- Rename `scenario_generator.py` → `historical_scenario_generator.py`
+- Enhance with 2-page format template
+- Add metadata fields
+- Add ASCII deployment maps
+- Add image placeholders
+- Integration with force roster builder
+
+**Validation**: Generate 3 historical scenarios:
+- Operation Battleaxe: Halfaya Pass Assault (June 1941)
+- Operation Crusader: Sidi Rezegh Meeting Engagement (November 1941)
+- Gazala: "Cauldron" Defense (May-June 1942)
+
+---
+
+**Total Estimated Time for Part 4**: 5-7 hours
+- Part 4A (Random): 3-4 hours
+- Part 4B (Historical): 1-2 hours
+- Testing/Validation: 1 hour
 
 ---
 

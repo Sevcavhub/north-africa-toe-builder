@@ -317,22 +317,99 @@ TOTAL BATTLE RATING: 0
 | **Datacard Generator (Vehicles)** | Sherman, Tiger tests | ✅ PASS |
 | **Datacard Generator (Guns)** | PaK 38 with HE/AP table | ✅ PASS |
 | **Force Roster Builder** | Composition validation | ✅ PASS |
-| **Overall Step 5** | 3/8 parts complete | 🔄 37.5% |
+| **Overall Step 5** | 4/8 parts complete | 🔄 50.0% |
 
 ---
 
-## ⏸️ Remaining Work (5 Parts)
+## ✅ Part 4: Scenario Generator (COMPLETE)
 
-### Part 4: Scenario Generator ⭐ HIGH PRIORITY
-**Estimated**: 2-3 hours
-**Deliverables**:
-- Scenario template system (assault, defense, meeting engagement, breakthrough)
-- Victory condition generation
-- Map size and deployment zone calculation
-- Turn limit calculation
-- Balance calculation (asymmetric points)
-- Historical context injection
-- ~600 lines of code
+**Date Completed**: November 2, 2025
+**Time Spent**: ~4 hours (as estimated)
+**Status**: Both generators fully functional
+
+### Part 4A: Random Scenario Generator ✅ COMPLETE
+**File**: `scripts/battlegroup/generators/random_scenario_generator.py` (2,539 lines)
+
+**Delivered Features**:
+- ✅ **North Africa Terrain Table**: Complete D6×D6 system (36 terrain types)
+  - Hills/Elevation: Escarpment, Rocky Hill, Sand Dune, Jebel, Ridge, Plateau
+  - Desert: Open Desert, Rocky Desert, Sand Sea, Salt Flat, Wadi, Depression
+  - Vegetation: Oasis, Palm Grove, Scrubland, Wadi (bushes), Scattered Vegetation, Stone Ruins
+  - Structures: Stone Building, Mud-brick Village, Fortified Position, Ancient Ruins, Farm/Well, Tomb/Shrine
+  - Infrastructure: Track, Paved Road, Railway, Airfield, Supply Dump, Wrecks
+  - Water: Well, Cistern, Seasonal Stream, Sabkha
+
+- ✅ **12 Scenario Templates** (fully implemented):
+  1. Desert Patrol Clash (Meeting Engagement)
+  2. Oasis Counter-Attack (Attack/Counter-Attack)
+  3. Desert Flanking Maneuver (Flanking Attack)
+  4. Wadi Crossing (River Crossing)
+  5. Escarpment Defense (High Ground Defense)
+  6. Pass Assault (Halfaya Pass, Kasserine style)
+  7. Supply Convoy Ambush (NEW Africa-specific)
+  8. Airfield Assault (NEW Africa-specific)
+  9. Fortified Box Defense (Gazala boxes, Tobruk style)
+  10. Coastal Road Defense (Via Balbia)
+  11. Desert Breakthrough (Mobile Warfare)
+  12. Rearguard Action (Fighting Withdrawal)
+
+- ✅ **Scout-Based Mechanics**:
+  - Initiative modifiers (+1 per scout unit)
+  - Deployment priority (most scouts deploys first)
+  - Table edge selection (most scouts chooses)
+  - Ambush fire eligibility (D3-D6 units based on scout count)
+
+- ✅ **Objective Placement System**: D3+2 objectives, 10" spacing rules
+- ✅ **Reinforcement Scheduler**: D6/2D6/3D6 by battle size
+- ✅ **Weather System**: 1942 (Desert Dust Cloud turn 6), 1943 (Rain 1 in 6)
+- ✅ **2-Page Markdown Output**: Full scenario format with metadata
+- ✅ **ASCII Deployment Maps**: Visual deployment zones and objectives
+- ✅ **JSON Export**: Machine-readable scenario data
+
+**CLI Usage**:
+```bash
+python scripts/battlegroup/generators/random_scenario_generator.py \
+  --scenario desert_patrol_clash \
+  --year 1942 \
+  --size company \
+  --points-attacker 750 \
+  --points-defender 750 \
+  --output output/scenarios
+```
+
+**Testing**: All 12 scenario types validated with multiple variations
+
+---
+
+### Part 4B: Historical Scenario Builder ✅ COMPLETE
+**File**: `scripts/battlegroup/generators/historical_scenario_generator.py` (846 lines)
+
+**Delivered Features**:
+- ✅ **Renamed** from `scenario_generator.py` → `historical_scenario_generator.py`
+- ✅ **2-Page Format**: Historical narrative with situation report
+- ✅ **Metadata System**: Battle, date, location, size, points, outcome
+- ✅ **Image Placeholders**: Historical photos and miniatures setup
+- ✅ **JSON/Markdown/Text Export**: Multiple output formats
+- ✅ **Enum Handling**: Fixed JSON serialization for enums
+- ✅ **Halfaya Pass Demo**: Working demonstration scenario
+
+**CLI Usage**:
+```bash
+python scripts/battlegroup/generators/historical_scenario_generator.py \
+  --demo \
+  --output output/scenarios
+```
+
+**Demo Scenario**: "Halfaya Pass Assault" (Operation Battleaxe, June 1941)
+- Full 2-page format
+- British vs German forces
+- Historical context and objectives
+- Terrain setup and deployment
+- Victory conditions
+
+---
+
+## ⏸️ Remaining Work (4 Parts)
 
 ### Part 5: Book Structure Generator ⭐ HIGH PRIORITY
 **Estimated**: 2-3 hours
@@ -382,10 +459,10 @@ From PHASE_9B_STEP5_PLAN.md:
 |---|-----------|--------|--------|-------|
 | 1 | Datacard generator handles all equipment types | Vehicles, guns, defences, fire support | ✅ **COMPLETE** | All templates created, guns fully working with tabular AP, HE fallback |
 | 2 | Force roster builder validates composition | Points/BR budgets, restrictions | ✅ **COMPLETE** | All validation rules implemented |
-| 3 | Scenario generator creates playable scenarios | Victory conditions, deployment, special rules | ⏸️ **PENDING** | Not started |
+| 3 | Scenario generator creates playable scenarios | Victory conditions, deployment, special rules | ✅ **COMPLETE** | 12 random scenarios + historical scenario builder, full 2-page format |
 | 4 | Book structure generator produces complete books | TOC, chapters, formatting | ⏸️ **PENDING** | Not started |
 
-**Overall**: 2/4 criteria complete (50%)
+**Overall**: 3/4 criteria complete (75%)
 
 ---
 
@@ -503,6 +580,77 @@ If continuing:
 
 ---
 
-**Document Version**: 1.0
-**Last Updated**: November 2, 2025
-**Status**: ✅ Progress documented - Ready to continue or checkpoint
+## 📝 TODO: Return to Pre-Generated Historical Scenarios
+
+**IMPORTANT**: After completing Part 4A (Random Scenario Generator) and Part 4B (Historical Scenario Builder framework), we need to return to creating **pre-generated historical scenarios** for the North Africa books.
+
+### Historical Scenario Content Creation (Deferred to Later)
+
+This is **separate from Part 4** - it's content creation for Step 6 (Book Generation), but we need to plan for it now.
+
+**What's Needed**:
+- 8-15 pre-generated scenarios per battle/campaign book
+- Full 2-page format with historical narrative
+- Specific force rosters from Phase 6 unit data
+- Curated terrain setups (not random)
+- Historical photos and miniatures images
+- Playtested for balance
+
+**Battles/Campaigns to Cover** (12 books total):
+1. **Operation Compass** (Dec 1940 - Feb 1941) - 8 scenarios
+2. **Operation Sonnenblume** (Feb-Mar 1941) - 6 scenarios
+3. **Operation Brevity** (May 1941) - 4 scenarios
+4. **Operation Battleaxe** (June 1941) - 8 scenarios
+5. **Operation Crusader** (Nov-Dec 1941) - 12 scenarios
+6. **Gazala** (May-June 1942) - 15 scenarios
+7. **First Alamein** (July 1942) - 10 scenarios
+8. **Alam Halfa** (Aug-Sep 1942) - 6 scenarios
+9. **Second Alamein** (Oct-Nov 1942) - 12 scenarios
+10. **Operation Torch** (Nov 1942) - 8 scenarios
+11. **Tunisia Campaign** (Nov 1942 - May 1943) - 15 scenarios
+12. **Complete Campaign Book** (Linking scenarios) - Meta-scenarios
+
+**Total**: ~104-120 pre-generated historical scenarios
+
+### When to Create These:
+
+**NOT NOW** - These are Step 6 (Book Generation) deliverables.
+
+**Part 4's Job**:
+- Part 4A: Build the **tool** for random scenario generation
+- Part 4B: Build the **framework** for historical scenario creation
+
+**Step 6's Job**:
+- Use Part 4B framework to create 104-120 specific historical scenarios
+- Research historical details for each scenario
+- Create specific force rosters using Phase 6 data
+- Curate terrain for historical accuracy
+- Write narrative text
+- Source/create images
+- Playtest for balance
+
+### Reminder Checklist for Step 6:
+
+When beginning Step 6 (Book Generation), remember to:
+- [ ] Review Part 4B historical scenario builder capabilities
+- [ ] Create scenario research document (list of 104-120 scenarios with sources)
+- [ ] Set up image directory structure (images/battles/, images/miniatures/)
+- [ ] Create scenario generation workflow (research → draft → review → playtest → finalize)
+- [ ] Batch-generate scenarios by battle (e.g., all 8 Battleaxe scenarios together)
+- [ ] Integrate with Phase 6 unit JSONs for force rosters
+- [ ] Create historical photo sourcing plan (archives, books, Creative Commons)
+- [ ] Plan miniatures photography sessions (or use community submissions)
+
+### Notes:
+
+- **Part 4 = Tools/Framework** (what we're building now)
+- **Step 6 = Content/Books** (using those tools to create 104-120 scenarios)
+- Don't confuse building the generator with using it to create content
+- The random scenario generator (Part 4A) is complete as-is
+- The historical scenario builder (Part 4B) is a framework for Step 6 content creation
+
+---
+
+**Document Version**: 1.1
+**Last Updated**: November 2, 2025 (Added TODO section for historical scenario content creation)
+**Status**: ✅ Progress documented with TODO reminder - Ready to continue Part 4 implementation
