@@ -1,45 +1,72 @@
-# Scenario 10: [Title TBD]
+# 10. Clash at Bir el Gubi
+## SITUATION REPORT
+**Date**: November 19, 1941, 12:00
+**Location**: Bir el Gubi airfield
 
-**Date**: [TBD]
-**Location**: [TBD]
-**Scale**: [TBD]
+British 22nd Armoured Brigade attacks Italian Ariete Division holding Bir el Gubi. British expected easy victory but Italians fought stubbornly with well-placed AT guns and M13/40 tanks in hull-down positions.
 
-## Historical Context
+Part of Crusader operation.
+## THE BATTLE
+British 22nd Armoured Brigade attacks Italian Ariete Division holding Bir el Gubi. British expected easy victory but Italians fought stubbornly with well-placed AT guns and M13/40 tanks in hull-down positions.
 
-[Historical background will be added from scenario_research.md]
+**British Objective**: Capture airfield by turn 10
 
-## Forces
+**Italian Objective**: Hold airfield OR destroy 50% British tanks
+## THE BATTLEFIELD
+**Table Size**: 8' × 4'
 
-### Attacker
-[Force roster will be generated from Phase 6 units]
+**Terrain**:
+- **terrain**: Airfield with buildings
+- **terrain**: AT gun positions
+- **terrain**: defensive works
+- **terrain**: open approaches
 
-### Defender
-[Force roster will be generated from Phase 6 units]
-
-## Terrain Setup
-
-[Terrain map and setup instructions]
-
-## Deployment
-
-[Deployment zones and rules]
-
-## Objectives
-
-[Victory conditions for both sides]
-
-## Special Rules
-
-[Scenario-specific special rules]
-
-## Historical Outcome
-
-[What actually happened in history]
-
-## Designer's Notes
-
-[Balancing notes, suggestions, variants]
+**Special Battlefield Rules**:
+- Fortified defense (Italian prepared positions)
+- Hull-down tanks (Italian M13/40s in prepared positions)
+- Surprise resistance (British expected easy win, got brutal fight)
 
 ---
 
-*Scenario 10 of 12*
+## OBJECTIVES
+**Victory Type**: mixed
+
+**British Victory**: Capture airfield by turn 10
+
+**Italian Victory**: Hold airfield OR destroy 50% British tanks
+
+**Draw**: Neither side achieves their objectives
+
+## DEPLOYMENT
+**British**: British deploy within 12" of south table edge
+
+**Italian**: Italian deploy within 12" of north table edge
+
+**Turn Order**: Roll off for initiative
+
+## SPECIAL SCENARIO RULES
+- Fortified defense (Italian prepared positions)
+- Hull-down tanks (Italian M13/40s in prepared positions)
+- Surprise resistance (British expected easy win, got brutal fight)
+
+**Turn Limit**: 8 turns
+
+## FORCES
+
+### BRITISH FORCES
+**Nation**: British
+**Points Budget**: 1350
+**Total Battle Rating**: 67
+
+
+### ITALIAN FORCES
+**Nation**: Italian
+**Points Budget**: 1350
+**Total Battle Rating**: 67
+
+
+## ALTERNATIVE FORCES
+This scenario can be adapted for other battles or periods.
+
+- Use units from adjacent quarters for force variation
+- Adjust points budget for smaller/larger engagements
