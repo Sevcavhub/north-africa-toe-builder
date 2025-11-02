@@ -1,0 +1,109 @@
+{
+  "number": 9,
+  "name": "FORTIFIED BOX DEFENSE",
+  "scenario_type": "Attack/Defence",
+  "battle_size": "Company",
+  "table_size": "6' × 4'",
+  "year": "1942",
+  "location_type": "Open Desert",
+  "recommended_nations": [
+    "british",
+    "german",
+    "italian",
+    "american"
+  ],
+  "situation_report": "Enemy forces have created a fortified 'box' position with all-around defenses. This strongpoint blocks our advance and must be reduced. The position is heavily mined and wired, with prepared gun positions covering all approaches. Historical examples: Gazala boxes, Tobruk perimeter strongpoints.",
+  "tactical_context": "Breaking a fortified box requires overwhelming force, careful breaching of minefields, and accepting heavy casualties. The defender has prepared fields of fire and can engage from all sides. Artillery and engineer support are essential.",
+  "terrain_features": [
+    {
+      "name": "Perimeter Defenses",
+      "size": "18\" × 18\" square in table center",
+      "description": "Minefields, barbed wire, defensive positions forming a box",
+      "special_rules": "Minefield (dangerous terrain). Wire (difficult terrain). Trenches (hard cover).",
+      "cover_type": "hard",
+      "movement_penalty": "dangerous"
+    },
+    {
+      "name": "Command Post",
+      "size": "Center of box",
+      "description": "Fortified HQ bunker",
+      "special_rules": "Hard cover with +1 cover save. Primary objective.",
+      "cover_type": "hard",
+      "movement_penalty": "impassable"
+    },
+    {
+      "name": "Supply Dump",
+      "size": "Inside box (East side)",
+      "description": "Ammunition and supply cache",
+      "special_rules": "Objective. Explodes if hit.",
+      "cover_type": "soft",
+      "movement_penalty": "none"
+    },
+    {
+      "name": "Gun Positions",
+      "size": "Corners of box (4 positions)",
+      "description": "Dug-in AT gun positions",
+      "special_rules": "Hard cover, prepared fields of fire.",
+      "cover_type": "hard",
+      "movement_penalty": "difficult"
+    }
+  ],
+  "terrain_notes": "Central fortified box with mines, wire, and dug-in positions",
+  "weather": {
+    "condition": "clear",
+    "turn_starts": 9,
+    "effects": [
+      "Desert Dust Cloud begins on turn 9",
+      "From turn 9: -1 to observation tests",
+      "From turn 9: Maximum weapon range 40\"",
+      "From turn 9: Maximum artillery spotter range 40\""
+    ]
+  },
+  "victory_conditions": "**Attacker Victory**: Capture command post AND 1+ gun position.\n\n**Defender Victory**: Hold command post OR attacker reaches BR limit.\n\n**Draw**: Attacker breaches perimeter but cannot take command post.",
+  "deployment_steps": [
+    "Place 18\" × 18\" fortified box in table center",
+    "Place minefields and wire around perimeter",
+    "Place command post in center, gun positions at corners",
+    "Defender deploys all units inside box (dug in)",
+    "Attacker chooses which table edge(s) to attack from",
+    "Attacker deploys and attacks first"
+  ],
+  "deployment_zones": [
+    {
+      "side": "Attacker",
+      "location": "All table edges except within 12\" of box",
+      "special_rules": [
+        "May choose which edge(s) to attack from",
+        "Must breach perimeter to reach objectives",
+        "Heavy losses expected"
+      ]
+    },
+    {
+      "side": "Defender",
+      "location": "Within the fortified box (18\" × 18\")",
+      "special_rules": [
+        "All units start dug-in (+1 cover save)",
+        "Minefields and wire on perimeter",
+        "Prepared fields of fire (re-roll missed AT shots turn 1-2)"
+      ]
+    }
+  ],
+  "objectives": {
+    "count": 3,
+    "first_objective": "Command Post (center of box)",
+    "spacing_rules": "Command post + 2 corner gun positions = 3 objectives",
+    "placed_by": "Scenario-defined (fortified box positions)"
+  },
+  "attacker_points": 1125,
+  "defender_points": 750,
+  "reinforcements": [],
+  "special_rules": [
+    "**Fortified Box**: Defender's units start dug-in (+1 cover save)",
+    "**Minefields**: D6 per unit entering, 6 = immobilized vehicle or pinned infantry",
+    "**Barbed Wire**: Difficult terrain, infantry may cut (requires turn in contact)",
+    "**Prepared Defense**: Defender re-rolls missed AT shots turns 1-2",
+    "**All-Around Defense**: Defender can face any direction without penalty",
+    "**Breakthrough Required**: Attacker must breach perimeter and reach objectives"
+  ],
+  "deployment_map": "DEPLOYMENT MAP: Fortified Box Defense\nTable Size: 6' x 4'\n\n+------------------------------------------------------------+\n|============================================================|  NORTH (Defender)\n|                                                            |  Defender Zone\n|                                                            |  Defender Zone\n|                                                            |  Defender Zone\n|                                                            |  Defender Zone\n|                                                            |  Defender Zone\n|                                                            |  Defender Zone\n|                                                            |  Defender Zone\n|                                                            |  Defender Zone\n|                                                            |  Defender Zone\n|                                                            |  Defender Zone\n|                                                            |  Defender Zone\n|                                                            |  Defender Zone\n|                                                            |\n|                                                            |\n|                                                            |\n|                                                            |\n|                                                            |\n|                                                            |\n|                                                            |\n|               O              O              O              |  Objectives\n|                                                            |\n|                                                            |\n|                                                            |\n|                                                            |\n|                                                            |\n|                                                            |\n|                                                            |  Attacker Zone\n|                                                            |  Attacker Zone\n|                                                            |  Attacker Zone\n|                                                            |  Attacker Zone\n|                                                            |  Attacker Zone\n|                                                            |  Attacker Zone\n|                                                            |  Attacker Zone\n|                                                            |  Attacker Zone\n|                                                            |  Attacker Zone\n|                                                            |  Attacker Zone\n|                                                            |  Attacker Zone\n|                                                            |  Attacker Zone\n|============================================================|  SOUTH (Attacker)\n+------------------------------------------------------------+\n\nLegend: O = Objective, = = Deployment Zone Edge"
+}

@@ -51,19 +51,49 @@
   },
   "ground_vehicles_total": 2850,
   "tanks": {
-    "total": 0,
-    "operational": 0,
+    "total": {
+      "count": 0,
+      "witw_id": "BRI_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
+    "operational": {
+      "count": 0,
+      "witw_id": "BRI_OPERATIONAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "heavy_tanks": {
-      "total": 0,
-      "variants": {}
+      "count": {
+        "total": 0,
+        "variants": {}
+      },
+      "witw_id": "BRI_HEAVY_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     },
     "medium_tanks": {
-      "total": 0,
-      "variants": {}
+      "count": {
+        "total": 0,
+        "variants": {}
+      },
+      "witw_id": "BRI_MEDIUM_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     },
     "light_tanks": {
-      "total": 0,
-      "variants": {}
+      "count": {
+        "total": 0,
+        "variants": {}
+      },
+      "witw_id": "BRI_LIGHT_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     }
   },
   "halftracks": {
@@ -71,31 +101,49 @@
     "variants": {}
   },
   "armored_cars": {
-    "total": 48,
-    "operational": 45,
+    "total": {
+      "count": 48,
+      "witw_id": "BRI_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
+    "operational": {
+      "count": 45,
+      "witw_id": "BRI_OPERATIONAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "variants": {
-      "Armoured Carrier Wheeled Indian Pattern (ACV-IP)": {
-        "count": 24,
-        "operational": 23,
-        "witw_id": "UK_ARMOREDCAR_ACVIP",
-        "role": "Reconnaissance (Central India Horse)",
-        "armament": ".303 Bren gun or Vickers K",
-        "armor": "11mm maximum"
+      "count": {
+        "Armoured Carrier Wheeled Indian Pattern (ACV-IP)": {
+          "count": 24,
+          "operational": 23,
+          "witw_id": "UK_ARMOREDCAR_ACVIP",
+          "role": "Reconnaissance (Central India Horse)",
+          "armament": ".303 Bren gun or Vickers K",
+          "armor": "11mm maximum"
+        },
+        "Morris CS9 Armoured Car": {
+          "count": 12,
+          "operational": 11,
+          "witw_id": "UK_ARMOREDCAR_MORRIS_CS9",
+          "role": "Reconnaissance",
+          "armament": ".303 Vickers machine guns"
+        },
+        "Marmon-Herrington Armoured Car Mk II": {
+          "count": 12,
+          "operational": 11,
+          "witw_id": "UK_ARMOREDCAR_MARMON_MKII",
+          "role": "Reconnaissance",
+          "armament": ".303 Vickers machine guns and Boys AT rifle"
+        }
       },
-      "Morris CS9 Armoured Car": {
-        "count": 12,
-        "operational": 11,
-        "witw_id": "UK_ARMOREDCAR_MORRIS_CS9",
-        "role": "Reconnaissance",
-        "armament": ".303 Vickers machine guns"
-      },
-      "Marmon-Herrington Armoured Car Mk II": {
-        "count": 12,
-        "operational": 11,
-        "witw_id": "UK_ARMOREDCAR_MARMON_MKII",
-        "role": "Reconnaissance",
-        "armament": ".303 Vickers machine guns and Boys AT rifle"
-      }
+      "witw_id": "BRI_VARIANTS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     }
   },
   "trucks": {
@@ -276,22 +324,34 @@
     }
   },
   "mortars": {
-    "total": 144,
+    "total": {
+      "count": 144,
+      "witw_id": "BRI_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "variants": {
-      "Ordnance ML 3-inch Mortar": {
-        "count": 72,
-        "caliber": "3-inch (76mm)",
-        "witw_id": "UK_MORTAR_3INCH",
-        "range": "2,800 yards",
-        "role": "Battalion heavy mortar"
+      "count": {
+        "Ordnance ML 3-inch Mortar": {
+          "count": 72,
+          "caliber": "3-inch (76mm)",
+          "witw_id": "UK_MORTAR_3INCH",
+          "range": "2,800 yards",
+          "role": "Battalion heavy mortar"
+        },
+        "Ordnance SBML 2-inch Mortar": {
+          "count": 72,
+          "caliber": "2-inch (51mm)",
+          "witw_id": "UK_MORTAR_2INCH",
+          "range": "500 yards",
+          "role": "Platoon light mortar"
+        }
       },
-      "Ordnance SBML 2-inch Mortar": {
-        "count": 72,
-        "caliber": "2-inch (51mm)",
-        "witw_id": "UK_MORTAR_2INCH",
-        "range": "500 yards",
-        "role": "Platoon light mortar"
-      }
+      "witw_id": "BRI_VARIANTS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     }
   },
   "aircraft_total": 0,
@@ -498,5 +558,12 @@
       "confidence_change": "82% → 92% (upgraded from Tier 3/Wikipedia to Tier 1/2 primary sources)",
       "data_integrity": "ALL equipment counts, personnel numbers, subordinate units, and tactical data PRESERVED - only source citations upgraded"
     }
+  },
+  "_enrichment": {
+    "enriched_at": "2025-11-02T10:17:26.356671",
+    "enriched_count": 10,
+    "source_file": "british_1941q1_4th_indian_division_toe.json",
+    "database_version": "master_database.db",
+    "phase": "phase_5_equipment_matching_complete"
   }
 }

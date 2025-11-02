@@ -1,0 +1,117 @@
+{
+  "number": 7,
+  "name": "SUPPLY CONVOY AMBUSH",
+  "scenario_type": "Attack/Defence",
+  "battle_size": "Squad/Platoon",
+  "table_size": "6' × 4'",
+  "year": "1943",
+  "location_type": "Tunisia",
+  "recommended_nations": [
+    "british",
+    "german",
+    "italian",
+    "american"
+  ],
+  "situation_report": "Intelligence reports an enemy supply convoy moving along the desert road. This is an opportunity to strike a critical blow against enemy logistics. Your forces have positioned for an ambush. Destroy or capture the convoy trucks before they escape.",
+  "tactical_context": "The ambusher must strike fast and hard before escorts can react. The convoy must keep moving - stopping means destruction. Classic desert warfare: fast raids on vulnerable supply lines.",
+  "terrain_features": [
+    {
+      "name": "Desert Road/Track",
+      "size": "Runs East-West across table center",
+      "description": "Main supply route for the convoy",
+      "special_rules": "Fast movement for vehicles. Convoy must stay on road.",
+      "cover_type": "none",
+      "movement_penalty": "none"
+    },
+    {
+      "name": "Mud-Brick Village",
+      "size": "4-6 buildings, 20\" area",
+      "description": "Small North African village with adobe houses.",
+      "special_rules": "Buildings provide hard cover. Narrow streets are difficult terrain for vehicles.",
+      "cover_type": "hard",
+      "movement_penalty": "difficult"
+    },
+    {
+      "name": "Salt Flat (Sabkha)",
+      "size": "15\" × 15\" area",
+      "description": "Dried salt lake bed. Treacherous for vehicles.",
+      "special_rules": "Looks flat but is dangerous terrain for vehicles (risk of breakthrough). Infantry move normally.",
+      "cover_type": "none",
+      "movement_penalty": "dangerous"
+    },
+    {
+      "name": "Rocky Desert",
+      "size": "20\" × 20\" area",
+      "description": "Desert floor scattered with rocks and stones.",
+      "special_rules": "Vehicles treat as difficult terrain. Infantry move normally.",
+      "cover_type": "none",
+      "movement_penalty": "difficult"
+    },
+    {
+      "name": "Fortified Position",
+      "size": "12\" × 12\" area",
+      "description": "Prepared defensive position with trenches and dugouts.",
+      "special_rules": "Infantry gain hard cover with +1 to cover saves. Difficult terrain for vehicles.",
+      "cover_type": "hard",
+      "movement_penalty": "difficult"
+    }
+  ],
+  "terrain_notes": "Open terrain with limited cover near the road",
+  "weather": {
+    "condition": "rain",
+    "turn_starts": null,
+    "effects": [
+      "All aircraft grounded (Air Attack counters automatically fail)",
+      "All off-road terrain counts as difficult",
+      "Tracks become muddy (difficult terrain)",
+      "Visibility normal (rain, not dust)"
+    ]
+  },
+  "victory_conditions": "**Attacker Victory**: Destroy or capture 2+ convoy trucks before they escape.\n\n**Defender Victory**: Get 2+ trucks off East edge OR destroy ambush force.\n\n**Draw**: Equal trucks destroyed/escaped, or convoy halted.",
+  "deployment_steps": [
+    "Place road running E-W across table",
+    "Defender places 3-4 convoy trucks on road at West edge",
+    "Defender deploys escort forces within 6\" of convoy",
+    "Attacker places hidden deployment markers (reveal when acting)",
+    "Convoy begins moving East on turn 1",
+    "Ambush is sprung when attacker reveals or defender spots them"
+  ],
+  "deployment_zones": [
+    {
+      "side": "Attacker (Ambush Force)",
+      "location": "Hidden deployment within 18\" of road (excluding defender zone)",
+      "special_rules": [
+        "Deploy hidden (reveal when moving or firing)",
+        "May deploy after seeing convoy positions",
+        "First turn surprise (+1 to hit)"
+      ]
+    },
+    {
+      "side": "Defender (Convoy)",
+      "location": "West table edge moving East along road",
+      "special_rules": [
+        "Convoy trucks must be on road",
+        "Escorts deploy within 6\" of trucks",
+        "Convoy moves first turn toward East edge"
+      ]
+    }
+  ],
+  "objectives": {
+    "count": 3,
+    "first_objective": "Convoy trucks (defender controlled)",
+    "spacing_rules": "Trucks start on road in defender's deployment zone",
+    "placed_by": "Defender places convoy trucks on road"
+  },
+  "attacker_points": 600,
+  "defender_points": 750,
+  "reinforcements": [],
+  "special_rules": [
+    "**Convoy Movement**: Trucks move 12\" per turn along road toward East edge",
+    "**Hidden Deployment**: Attacker deploys hidden, reveals when moving/firing",
+    "**Surprise**: First turn of ambush, attacker gets +1 to hit",
+    "**Truck Vulnerability**: Convoy trucks have Armor 0, destroyed on any penetrating hit",
+    "**Escape**: Trucks that exit East edge are saved (count as objectives held)",
+    "**Escort**: Defender must keep escorts within 12\" of convoy or trucks stop"
+  ],
+  "deployment_map": "DEPLOYMENT MAP: Supply Convoy Ambush\nTable Size: 6' x 4'\n\n+------------------------------------------------------------+\n|============================================================|  NORTH (Defender)\n|                                                            |  Defender Zone\n|                                                            |  Defender Zone\n|                                                            |  Defender Zone\n|                                                            |  Defender Zone\n|                                                            |  Defender Zone\n|                                                            |  Defender Zone\n|                                                            |  Defender Zone\n|                                                            |  Defender Zone\n|                                                            |  Defender Zone\n|                                                            |  Defender Zone\n|                                                            |  Defender Zone\n|                                                            |  Defender Zone\n|                                                            |\n|                                                            |\n|                                                            |\n|                                                            |\n|                                                            |\n|                                                            |\n|                                                            |\n|               O              O              O              |  Objectives\n|                                                            |\n|                                                            |\n|                                                            |\n|                                                            |\n|                                                            |\n|                                                            |\n|                                                            |  Attacker Zone\n|                                                            |  Attacker Zone\n|                                                            |  Attacker Zone\n|                                                            |  Attacker Zone\n|                                                            |  Attacker Zone\n|                                                            |  Attacker Zone\n|                                                            |  Attacker Zone\n|                                                            |  Attacker Zone\n|                                                            |  Attacker Zone\n|                                                            |  Attacker Zone\n|                                                            |  Attacker Zone\n|                                                            |  Attacker Zone\n|============================================================|  SOUTH (Attacker)\n+------------------------------------------------------------+\n\nLegend: O = Objective, = = Deployment Zone Edge"
+}

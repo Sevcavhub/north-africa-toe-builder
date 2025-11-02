@@ -51,26 +51,56 @@
   },
   "ground_vehicles_total": 1850,
   "tanks": {
-    "total": 37,
-    "operational": 35,
+    "total": {
+      "count": 37,
+      "witw_id": "ITA_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
+    "operational": {
+      "count": 35,
+      "witw_id": "ITA_OPERATIONAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "heavy_tanks": {
-      "total": 0,
-      "variants": {}
+      "count": {
+        "total": 0,
+        "variants": {}
+      },
+      "witw_id": "ITA_HEAVY_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     },
     "medium_tanks": {
-      "total": 37,
-      "variants": {
-        "M13/40": {
-          "count": 37,
-          "operational": 35,
-          "witw_id": "ITA_M13_40",
-          "note": "VI Tank Battalion - partially operational at Beda Fomm"
+      "count": {
+        "total": 37,
+        "variants": {
+          "M13/40": {
+            "count": 37,
+            "operational": 35,
+            "witw_id": "ITA_M13_40",
+            "note": "VI Tank Battalion - partially operational at Beda Fomm"
+          }
         }
-      }
+      },
+      "witw_id": "ITA_MEDIUM_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     },
     "light_tanks": {
-      "total": 0,
-      "variants": {}
+      "count": {
+        "total": 0,
+        "variants": {}
+      },
+      "witw_id": "ITA_LIGHT_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     }
   },
   "halftracks": {
@@ -78,20 +108,32 @@
     "variants": {}
   },
   "armored_cars": {
-    "total": 18,
+    "total": {
+      "count": 18,
+      "witw_id": "ITA_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "variants": {
-      "AB41": {
-        "count": 12,
-        "operational": 10,
-        "witw_id": "ITA_AB41",
-        "role": "Reconnaissance"
+      "count": {
+        "AB41": {
+          "count": 12,
+          "operational": 10,
+          "witw_id": "ITA_AB41",
+          "role": "Reconnaissance"
+        },
+        "Lancia Ansaldo": {
+          "count": 6,
+          "operational": 5,
+          "witw_id": "ITA_LANCIA_ANSALDO_ARMORED_CAR",
+          "role": "Reconnaissance"
+        }
       },
-      "Lancia Ansaldo": {
-        "count": 6,
-        "operational": 5,
-        "witw_id": "ITA_LANCIA_ANSALDO_ARMORED_CAR",
-        "role": "Reconnaissance"
-      }
+      "witw_id": "ITA_VARIANTS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     }
   },
   "trucks": {
@@ -263,21 +305,33 @@
     }
   },
   "mortars": {
-    "total": 54,
+    "total": {
+      "count": 54,
+      "witw_id": "ITA_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "variants": {
-      "81mm Mod 35": {
-        "count": 36,
-        "caliber": "81mm",
-        "witw_id": "ITA_81MM_MOD_35",
-        "unit": "Infantry regiment mortar companies",
-        "note": "18 per infantry regiment"
+      "count": {
+        "81mm Mod 35": {
+          "count": 36,
+          "caliber": "81mm",
+          "witw_id": "ITA_81MM_MOD_35",
+          "unit": "Infantry regiment mortar companies",
+          "note": "18 per infantry regiment"
+        },
+        "45mm Brixia Mod 35": {
+          "count": 18,
+          "caliber": "45mm",
+          "witw_id": "ITA_45MM_BRIXIA_MOD_35",
+          "unit": "Battalion support mortars"
+        }
       },
-      "45mm Brixia Mod 35": {
-        "count": 18,
-        "caliber": "45mm",
-        "witw_id": "ITA_45MM_BRIXIA_MOD_35",
-        "unit": "Battalion support mortars"
-      }
+      "witw_id": "ITA_VARIANTS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     }
   },
   "aircraft_total": 0,
@@ -494,5 +548,12 @@
         "estimate_method": "Based on standard Italian auto-transportable division establishment: ~7,000-7,500 men. Assumed 7,200 based on partial motorization reducing support troops vs. full motorized divisions."
       }
     }
+  },
+  "_enrichment": {
+    "enriched_at": "2025-11-02T10:17:27.346695",
+    "enriched_count": 9,
+    "source_file": "italian_1941q1_sabratha_division_toe.json",
+    "database_version": "master_database.db",
+    "phase": "phase_5_equipment_matching_complete"
   }
 }

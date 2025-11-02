@@ -55,50 +55,92 @@
   },
   "ground_vehicles_total": 3862,
   "tanks": {
-    "total": 169,
-    "operational": 159,
+    "total": {
+      "count": 169,
+      "witw_id": "ITA_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
+    "operational": {
+      "count": 159,
+      "witw_id": "ITA_OPERATIONAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "heavy_tanks": {
-      "total": 0,
-      "variants": {}
+      "count": {
+        "total": 0,
+        "variants": {}
+      },
+      "witw_id": "ITA_HEAVY_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     },
     "medium_tanks": {
-      "total": 37,
-      "variants": {
-        "Carro Armato M13/40": {
-          "count": 37,
-          "operational": 35,
-          "witw_id": "ITA_M13_40",
-          "notes": "132nd Ariete Division - III Tank Battalion 'M'"
+      "count": {
+        "total": 37,
+        "variants": {
+          "Carro Armato M13/40": {
+            "count": 37,
+            "operational": 35,
+            "witw_id": "ITA_M13_40",
+            "notes": "132nd Ariete Division - III Tank Battalion 'M'"
+          }
         }
-      }
+      },
+      "witw_id": "ITA_MEDIUM_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     },
     "light_tanks": {
-      "total": 132,
-      "variants": {
-        "Carro Armato L3/35 Tankette": {
-          "count": 132,
-          "operational": 124,
-          "witw_id": "ITA_L3_35",
-          "notes": "132nd Ariete (74), 25th Bologna (46), 27th Brescia (12)"
+      "count": {
+        "total": 132,
+        "variants": {
+          "Carro Armato L3/35 Tankette": {
+            "count": 132,
+            "operational": 124,
+            "witw_id": "ITA_L3_35",
+            "notes": "132nd Ariete (74), 25th Bologna (46), 27th Brescia (12)"
+          }
         }
-      }
+      },
+      "witw_id": "ITA_LIGHT_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     }
   },
   "armored_cars": {
-    "total": 32,
+    "total": {
+      "count": 32,
+      "witw_id": "ITA_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "variants": {
-      "Autoblinda AB40": {
-        "count": 28,
-        "operational": 26,
-        "witw_id": "ITA_AB40",
-        "role": "reconnaissance"
+      "count": {
+        "Autoblinda AB40": {
+          "count": 28,
+          "operational": 26,
+          "witw_id": "ITA_AB40",
+          "role": "reconnaissance"
+        },
+        "Lancia 1ZM": {
+          "count": 4,
+          "operational": 4,
+          "witw_id": "italian_lancia_1zm",
+          "role": "command_liaison"
+        }
       },
-      "Lancia 1ZM": {
-        "count": 4,
-        "operational": 4,
-        "witw_id": "italian_lancia_1zm",
-        "role": "command_liaison"
-      }
+      "witw_id": "ITA_VARIANTS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     }
   },
   "trucks": {
@@ -302,18 +344,30 @@
     }
   },
   "mortars": {
-    "total": 423,
+    "total": {
+      "count": 423,
+      "witw_id": "ITA_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "variants": {
-      "Mortaio da 81/14 Modello 35": {
-        "count": 120,
-        "caliber": "81mm",
-        "witw_id": "italian_81mm_mod35"
+      "count": {
+        "Mortaio da 81/14 Modello 35": {
+          "count": 120,
+          "caliber": "81mm",
+          "witw_id": "italian_81mm_mod35"
+        },
+        "Mortaio da 45mm Modello 35 (Brixia)": {
+          "count": 303,
+          "caliber": "45mm",
+          "witw_id": "italian_45mm_brixia"
+        }
       },
-      "Mortaio da 45mm Modello 35 (Brixia)": {
-        "count": 303,
-        "caliber": "45mm",
-        "witw_id": "italian_45mm_brixia"
-      }
+      "witw_id": "ITA_VARIANTS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     }
   },
   "infantry_support_guns": {
@@ -503,5 +557,12 @@
       "remaining_gaps": "Chief of Staff name still unknown (not documented in available primary sources). Full 10th Army TO&E requires extraction of remaining 4-5 forward divisions (Cirene, Catanzaro, Sirte, Sabratha, Marmarica) and Blackshirt/Libyan divisions for complete organizational picture.",
       "next_steps": "Extract remaining 10th Army forward divisions from Christie thesis appendices and TM E 30-420 divisional organization tables. Cross-reference with USA G2 OOB for complete December 1940 order of battle."
     }
+  },
+  "_enrichment": {
+    "enriched_at": "2025-11-02T10:17:27.233212",
+    "enriched_count": 9,
+    "source_file": "italian_1940q4_10_armata_italian_10th_army_toe.json",
+    "database_version": "master_database.db",
+    "phase": "phase_5_equipment_matching_complete"
   }
 }

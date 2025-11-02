@@ -52,19 +52,49 @@
   },
   "ground_vehicles_total": 245,
   "tanks": {
-    "total": 0,
-    "operational": 0,
+    "total": {
+      "count": 0,
+      "witw_id": "ITA_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
+    "operational": {
+      "count": 0,
+      "witw_id": "ITA_OPERATIONAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "heavy_tanks": {
-      "total": 0,
-      "variants": {}
+      "count": {
+        "total": 0,
+        "variants": {}
+      },
+      "witw_id": "ITA_HEAVY_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     },
     "medium_tanks": {
-      "total": 0,
-      "variants": {}
+      "count": {
+        "total": 0,
+        "variants": {}
+      },
+      "witw_id": "ITA_MEDIUM_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     },
     "light_tanks": {
-      "total": 0,
-      "variants": {}
+      "count": {
+        "total": 0,
+        "variants": {}
+      },
+      "witw_id": "ITA_LIGHT_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     }
   },
   "halftracks": {
@@ -72,8 +102,20 @@
     "variants": {}
   },
   "armored_cars": {
-    "total": 0,
-    "variants": {}
+    "total": {
+      "count": 0,
+      "witw_id": "ITA_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
+    "variants": {
+      "count": {},
+      "witw_id": "ITA_VARIANTS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    }
   },
   "trucks": {
     "total": 145,
@@ -173,20 +215,32 @@
     }
   },
   "mortars": {
-    "total": 54,
+    "total": {
+      "count": 54,
+      "witw_id": "ITA_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "variants": {
-      "81mm Mod. 35 Mortar": {
-        "count": 18,
-        "caliber": "81mm",
-        "witw_id": "ITA_MORT_81MM",
-        "notes": "9 per infantry regiment (LXIII Battaglione Mortai Divisionale)"
+      "count": {
+        "81mm Mod. 35 Mortar": {
+          "count": 18,
+          "caliber": "81mm",
+          "witw_id": "ITA_MORT_81MM",
+          "notes": "9 per infantry regiment (LXIII Battaglione Mortai Divisionale)"
+        },
+        "45mm Mod. 35 Brixia": {
+          "count": 36,
+          "caliber": "45mm",
+          "witw_id": "ITA_MORT_45MM",
+          "notes": "Light mortar, company level in infantry regiments"
+        }
       },
-      "45mm Mod. 35 Brixia": {
-        "count": 36,
-        "caliber": "45mm",
-        "witw_id": "ITA_MORT_45MM",
-        "notes": "Light mortar, company level in infantry regiments"
-      }
+      "witw_id": "ITA_VARIANTS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     }
   },
   "infantry_guns": {
@@ -385,5 +439,12 @@
     "aggregation_status": "calculated",
     "notes": "Upgraded to 78% confidence through enhanced Tier 1 Italian TO&E sources. 63a Divisione di Fanteria Cirene was a Metropolitan Infantry Division (not Colonial) permanently stationed in Libya pre-war. Personnel 12,169 total calculated from TM E 30-420 Figure 5 (binary division standard: 10,864 + 2-battalion Militia legion: 1,305). Division composition confirmed: 157th LIGURIA Infantry Regiment, 158th LIGURIA Infantry Regiment, 45th CIRENE Artillery Regiment. Binary structure implemented March 1940 reduced regiments from 3 to 2, reducing combat power but increasing administrative efficiency. This was a standard foot-mobile division (NOT autotrasportabile like Brescia/Pavia), with limited motor transport (145 trucks vs. 300+ for motorized divisions). Artillery: 36 guns standard binary allocation (24× 75/27mm, 12× 100/17mm). Division destroyed during British Operation Compass and follow-on offensive (December 1940-February 1941). Supply status good at June 1940 entry into war as long-term garrison division. Weather Q2 1940: Late spring, 16-35°C, moderate conditions before peak summer heat.",
     "data_quality_notes": "This TO&E represents 10 June 1940 (Italy's entry into WWII). Division was one of several metropolitan divisions defending Cyrenaica sector. Binary structure (2 infantry regiments vs. pre-1940 ternary 3 regiments) was recent reorganization. Fascist Militia legion attached 1 March 1940 but full integration may have been incomplete by June. Equipment allocations from TM E 30-420 standard binary division tables, adjusted for non-motorized status. Vehicle counts significantly lower than autotrasportabile divisions. Division fate well-documented (destroyed 1940-41) but commander name remains unidentified in available sources."
+  },
+  "_enrichment": {
+    "enriched_at": "2025-11-02T10:17:27.166704",
+    "enriched_count": 9,
+    "source_file": "italian_1940q2_cirene_division_toe.json",
+    "database_version": "master_database.db",
+    "phase": "phase_5_equipment_matching_complete"
   }
 }

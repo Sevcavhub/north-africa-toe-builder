@@ -52,37 +52,73 @@
   },
   "ground_vehicles_total": 6800,
   "tanks": {
-    "total": 78,
-    "operational": 65,
+    "total": {
+      "count": 78,
+      "witw_id": "BRI_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
+    "operational": {
+      "count": 65,
+      "witw_id": "BRI_OPERATIONAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "heavy_tanks": {
-      "total": 0,
-      "variants": {}
+      "count": {
+        "total": 0,
+        "variants": {}
+      },
+      "witw_id": "BRI_HEAVY_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     },
     "medium_tanks": {
-      "total": 0,
-      "variants": {}
+      "count": {
+        "total": 0,
+        "variants": {}
+      },
+      "witw_id": "BRI_MEDIUM_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     },
     "light_tanks": {
-      "total": 78,
-      "operational": 65,
-      "variants": {
-        "Matilda II Infantry Tank": {
-          "count": 62,
-          "operational": 52,
-          "witw_id": "uk_tank_matilda_ii",
-          "unit": "1st Army Tank Brigade (remnants)",
-          "notes": "Heavy losses during Crusader - started with 98, ended Q4 with 62 survivors"
-        },
-        "Valentine II/IV Infantry Tank": {
-          "count": 16,
-          "operational": 13,
-          "witw_id": "uk_tank_valentine_ii",
-          "unit": "1st Army Tank Brigade (remnants)",
-          "notes": "Combat losses during Crusader - started Q4 with 32, ended with 16"
+      "count": {
+        "total": 78,
+        "operational": 65,
+        "variants": {
+          "Matilda II Infantry Tank": {
+            "count": 62,
+            "operational": 52,
+            "witw_id": "uk_tank_matilda_ii",
+            "unit": "1st Army Tank Brigade (remnants)",
+            "notes": "Heavy losses during Crusader - started with 98, ended Q4 with 62 survivors"
+          },
+          "Valentine II/IV Infantry Tank": {
+            "count": 16,
+            "operational": 13,
+            "witw_id": "uk_tank_valentine_ii",
+            "unit": "1st Army Tank Brigade (remnants)",
+            "notes": "Combat losses during Crusader - started Q4 with 32, ended with 16"
+          }
         }
-      }
+      },
+      "witw_id": "BRI_LIGHT_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     },
-    "notes": "1st Army Tank Brigade suffered severe losses during Operation Crusader. Started Q4 with 130 infantry tanks (135 per Eighth Army records), reduced to 78 by end December after intense combat operations and mechanical failures in desert conditions."
+    "notes": {
+      "count": "1st Army Tank Brigade suffered severe losses during Operation Crusader. Started Q4 with 130 infantry tanks (135 per Eighth Army records), reduced to 78 by end December after intense combat operations and mechanical failures in desert conditions.",
+      "witw_id": "BRI_NOTES",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    }
   },
   "halftracks": {
     "total": 0,
@@ -90,20 +126,32 @@
     "notes": "British Commonwealth forces did not employ halftracks. Universal Carriers used instead."
   },
   "armored_cars": {
-    "total": 108,
+    "total": {
+      "count": 108,
+      "witw_id": "BRI_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "variants": {
-      "Marmon-Herrington Mk II Armoured Car": {
-        "count": 64,
-        "operational": 58,
-        "witw_id": "uk_armored_car_marmon_herrington",
-        "role": "Divisional reconnaissance"
+      "count": {
+        "Marmon-Herrington Mk II Armoured Car": {
+          "count": 64,
+          "operational": 58,
+          "witw_id": "uk_armored_car_marmon_herrington",
+          "role": "Divisional reconnaissance"
+        },
+        "Universal Carrier Mk I/II": {
+          "count": 44,
+          "operational": 40,
+          "witw_id": "uk_carrier_universal",
+          "role": "Infantry support, scouts"
+        }
       },
-      "Universal Carrier Mk I/II": {
-        "count": 44,
-        "operational": 40,
-        "witw_id": "uk_carrier_universal",
-        "role": "Infantry support, scouts"
-      }
+      "witw_id": "BRI_VARIANTS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     }
   },
   "trucks": {
@@ -393,5 +441,12 @@
       "Artillery aggregated from divisions: 72 (2nd NZ) + 72 (4th Indian) = 144 25-pounders",
       "Ground vehicles reduced from Q3 7,200 to Q4 6,800 (600 vehicle losses during Crusader)"
     ]
+  },
+  "_enrichment": {
+    "enriched_at": "2025-11-02T10:17:26.517439",
+    "enriched_count": 8,
+    "source_file": "british_1941q4_xiii_corps_toe.json",
+    "database_version": "master_database.db",
+    "phase": "phase_5_equipment_matching_complete"
   }
 }

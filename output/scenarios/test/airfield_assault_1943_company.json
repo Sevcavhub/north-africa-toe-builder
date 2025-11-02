@@ -1,0 +1,118 @@
+{
+  "number": 8,
+  "name": "AIRFIELD ASSAULT",
+  "scenario_type": "Attack/Defence",
+  "battle_size": "Company",
+  "table_size": "6' × 4'",
+  "year": "1943",
+  "location_type": "Tunisia",
+  "recommended_nations": [
+    "british",
+    "german",
+    "italian",
+    "american"
+  ],
+  "situation_report": "An enemy airfield lies lightly defended. A bold raid could destroy aircraft on the ground and cripple enemy air operations. Your forces must strike fast, destroy as much as possible, and withdraw before enemy reinforcements arrive from the main base.",
+  "tactical_context": "This is a raid, not an occupation. Speed is essential. Destroy high-value targets (aircraft, fuel) quickly and get out. Don't get bogged down or you'll be trapped when reinforcements arrive.",
+  "terrain_features": [
+    {
+      "name": "Desert Airstrip",
+      "size": "Center of table, 30\" × 20\" area",
+      "description": "Cleared runway with fuel dumps and aircraft dispersals",
+      "special_rules": "Open ground. Aircraft and fuel dumps are objectives/targets.",
+      "cover_type": "none",
+      "movement_penalty": "none"
+    },
+    {
+      "name": "Hangar/Control Tower",
+      "size": "North side of runway",
+      "description": "Small buildings for airfield operations",
+      "special_rules": "Hard cover. May be fortified by defender.",
+      "cover_type": "hard",
+      "movement_penalty": "impassable"
+    },
+    {
+      "name": "Fuel Dump",
+      "size": "East side of runway",
+      "description": "Stacked fuel drums (target)",
+      "special_rules": "Soft cover. Explodes if destroyed (pinning within 10\").",
+      "cover_type": "soft",
+      "movement_penalty": "none"
+    },
+    {
+      "name": "Aircraft Dispersals",
+      "size": "Scatter 3-4 around runway",
+      "description": "Parked aircraft (targets)",
+      "special_rules": "Destroying aircraft is attacker objective.",
+      "cover_type": "none",
+      "movement_penalty": "none"
+    }
+  ],
+  "terrain_notes": "Open airfield with parked aircraft and fuel as primary targets",
+  "weather": {
+    "condition": "clear",
+    "turn_starts": null,
+    "effects": [
+      "Clear weather. No special effects."
+    ]
+  },
+  "victory_conditions": "**Attacker Major Victory**: Destroy 3+ aircraft AND fuel dump AND withdraw by turn 6.\n\n**Attacker Minor Victory**: Destroy 2+ aircraft or fuel dump AND withdraw.\n\n**Defender Victory**: Prevent destruction of aircraft OR trap attacker (don't let them withdraw).\n\n**Draw**: Heavy damage but both sides depleted.",
+  "deployment_steps": [
+    "Place airfield runway in table center",
+    "Place 3-4 aircraft at dispersals around runway",
+    "Place fuel dump, hangar, control tower",
+    "Defender deploys light garrison (50% points) within 12\" of runway",
+    "Attacker deploys entire force in deployment zone",
+    "Attacker gets first turn (surprise raid)"
+  ],
+  "deployment_zones": [
+    {
+      "side": "Attacker (Raiding Force)",
+      "location": "South table edge, 12\" deep",
+      "special_rules": [
+        "Fast moving raid force",
+        "Must destroy aircraft and facilities",
+        "May need to withdraw before reinforcements arrive"
+      ]
+    },
+    {
+      "side": "Defender (Airfield Garrison)",
+      "location": "Within 12\" of runway/buildings",
+      "special_rules": [
+        "Light garrison forces (50% of attacker points)",
+        "Reinforcements arrive turn 3+ (main base nearby)",
+        "May fortify control tower"
+      ]
+    }
+  ],
+  "objectives": {
+    "count": 5,
+    "first_objective": "Destroy/capture airfield facilities",
+    "spacing_rules": "3-4 aircraft + fuel dump + control tower = 5 objectives",
+    "placed_by": "Scenario-defined (airfield facilities)"
+  },
+  "attacker_points": 750,
+  "defender_points": 375,
+  "reinforcements": [
+    {
+      "side": "Defender",
+      "starting_turn": 3,
+      "dice_per_turn": "2D6",
+      "special_rules": [
+        "Roll 2D6 at start of turn 3+",
+        "On a 4+, reinforcements arrive from reserve edge",
+        "Maximum 1/3 of force may arrive per turn",
+        "Reinforcements are base reaction force arriving from North edge"
+      ]
+    }
+  ],
+  "special_rules": [
+    "**Aircraft Targets**: Each aircraft destroyed = 1 objective. Armor 0, any hit destroys.",
+    "**Fuel Dump**: Explodes on destruction (all units within 10\" must pass pinning test)",
+    "**Control Tower**: Capturing control tower = 1 objective (must have unit in base)",
+    "**Time Limit**: Attacker must withdraw by turn 6 or face overwhelming reinforcements",
+    "**Surprise Raid**: Attacker gets +1 to hit on turn 1 only",
+    "**Light Garrison**: Defender starts with 50% points, reinforcements 50% arrive turn 3+"
+  ],
+  "deployment_map": "DEPLOYMENT MAP: Airfield Assault\nTable Size: 6' x 4'\n\n+------------------------------------------------------------+\n|============================================================|  NORTH (Defender)\n|                                                            |  Defender Zone\n|                                                            |  Defender Zone\n|                                                            |  Defender Zone\n|                                                            |  Defender Zone\n|                                                            |  Defender Zone\n|                                                            |  Defender Zone\n|                                                            |  Defender Zone\n|                                                            |  Defender Zone\n|                                                            |  Defender Zone\n|                                                            |  Defender Zone\n|                                                            |  Defender Zone\n|                                                            |  Defender Zone\n|                                                            |\n|                                                            |\n|                                                            |\n|                                                            |\n|                                                            |\n|                                                            |\n|                                                            |\n|          O         O         O         O         O         |  Objectives\n|                                                            |\n|                                                            |\n|                                                            |\n|                                                            |\n|                                                            |\n|                                                            |\n|                                                            |  Attacker Zone\n|                                                            |  Attacker Zone\n|                                                            |  Attacker Zone\n|                                                            |  Attacker Zone\n|                                                            |  Attacker Zone\n|                                                            |  Attacker Zone\n|                                                            |  Attacker Zone\n|                                                            |  Attacker Zone\n|                                                            |  Attacker Zone\n|                                                            |  Attacker Zone\n|                                                            |  Attacker Zone\n|                                                            |  Attacker Zone\n|============================================================|  SOUTH (Attacker)\n+------------------------------------------------------------+\n\nLegend: O = Objective, = = Deployment Zone Edge"
+}

@@ -52,27 +52,57 @@
   },
   "ground_vehicles_total": 1285,
   "tanks": {
-    "total": 13,
-    "operational": 0,
+    "total": {
+      "count": 13,
+      "witw_id": "ITA_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
+    "operational": {
+      "count": 0,
+      "witw_id": "ITA_OPERATIONAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "heavy_tanks": {
-      "total": 0,
-      "variants": {}
+      "count": {
+        "total": 0,
+        "variants": {}
+      },
+      "witw_id": "ITA_HEAVY_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     },
     "medium_tanks": {
-      "total": 0,
-      "variants": {}
+      "count": {
+        "total": 0,
+        "variants": {}
+      },
+      "witw_id": "ITA_MEDIUM_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     },
     "light_tanks": {
-      "total": 13,
-      "variants": {
-        "L3/33 Tankette": {
-          "count": 13,
-          "operational": 0,
-          "caliber": "8mm twin MG",
-          "witw_id": "IT_L3_33",
-          "note": "Light tank company assigned but reportedly lost in transit when transport ship sunk en route to North Africa. Tanks never reached division."
+      "count": {
+        "total": 13,
+        "variants": {
+          "L3/33 Tankette": {
+            "count": 13,
+            "operational": 0,
+            "caliber": "8mm twin MG",
+            "witw_id": "IT_L3_33",
+            "note": "Light tank company assigned but reportedly lost in transit when transport ship sunk en route to North Africa. Tanks never reached division."
+          }
         }
-      }
+      },
+      "witw_id": "ITA_LIGHT_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     }
   },
   "halftracks": {
@@ -80,8 +110,20 @@
     "variants": {}
   },
   "armored_cars": {
-    "total": 0,
-    "variants": {}
+    "total": {
+      "count": 0,
+      "witw_id": "ITA_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
+    "variants": {
+      "count": {},
+      "witw_id": "ITA_VARIANTS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    }
   },
   "trucks": {
     "total": 895,
@@ -254,25 +296,43 @@
     }
   },
   "mortars": {
-    "total": 96,
-    "operational": 84,
+    "total": {
+      "count": 96,
+      "witw_id": "ITA_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
+    "operational": {
+      "count": 84,
+      "witw_id": "ITA_OPERATIONAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "variants": {
-      "Mortaio da 81/14 Modello 35": {
-        "count": 36,
-        "operational": 32,
-        "caliber": "81mm",
-        "type": "heavy_mortar",
-        "witw_id": "IT_Mortar_81mm_M35",
-        "note": "Regimental 81mm mortar companies restored to near-full strength for frontier defense"
+      "count": {
+        "Mortaio da 81/14 Modello 35": {
+          "count": 36,
+          "operational": 32,
+          "caliber": "81mm",
+          "type": "heavy_mortar",
+          "witw_id": "IT_Mortar_81mm_M35",
+          "note": "Regimental 81mm mortar companies restored to near-full strength for frontier defense"
+        },
+        "Mortaio da 45 Modello 35 (Brixia)": {
+          "count": 60,
+          "operational": 52,
+          "caliber": "45mm",
+          "type": "light_mortar",
+          "witw_id": "IT_Brixia_45mm_M35",
+          "note": "Battalion support mortars, improved from Q2 1941 levels"
+        }
       },
-      "Mortaio da 45 Modello 35 (Brixia)": {
-        "count": 60,
-        "operational": 52,
-        "caliber": "45mm",
-        "type": "light_mortar",
-        "witw_id": "IT_Brixia_45mm_M35",
-        "note": "Battalion support mortars, improved from Q2 1941 levels"
-      }
+      "witw_id": "ITA_VARIANTS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     }
   },
   "aircraft_total": 0,
@@ -506,5 +566,12 @@
       "Q3 1941 represents division at peak effectiveness before Operation Crusader offensive",
       "This TO&E represents Italian frontier defense division with German support attachments, useful for Italo-German cooperation scenarios"
     ]
+  },
+  "_enrichment": {
+    "enriched_at": "2025-11-02T10:17:27.423895",
+    "enriched_count": 10,
+    "source_file": "italian_1941q3_savona_division_toe.json",
+    "database_version": "master_database.db",
+    "phase": "phase_5_equipment_matching_complete"
   }
 }

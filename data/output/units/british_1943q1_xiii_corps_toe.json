@@ -53,53 +53,83 @@
   },
   "ground_vehicles_total": 3050,
   "tanks": {
-    "total": 195,
-    "operational": 175,
+    "total": {
+      "count": 195,
+      "witw_id": "BRI_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
+    "operational": {
+      "count": 175,
+      "witw_id": "BRI_OPERATIONAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "heavy_tanks": {
-      "total": 0,
-      "variants": {}
+      "count": {
+        "total": 0,
+        "variants": {}
+      },
+      "witw_id": "BRI_HEAVY_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     },
     "medium_tanks": {
-      "total": 145,
-      "operational": 130,
-      "variants": {
-        "Sherman M4": {
-          "count": 85,
-          "operational": 76,
-          "witw_id": "tank_sherman_m4",
-          "note": "10th Armoured Division. Main battle tank, post-El Alamein refit."
-        },
-        "Grant M3": {
-          "count": 45,
-          "operational": 40,
-          "witw_id": "tank_grant_m3",
-          "note": "10th Armoured Division. 75mm sponson gun, being phased out in favor of Sherman."
-        },
-        "Crusader III": {
-          "count": 15,
-          "operational": 14,
-          "witw_id": "tank_crusader_iii",
-          "note": "10th Armoured Division. 6-pounder gun, limited numbers remaining."
+      "count": {
+        "total": 145,
+        "operational": 130,
+        "variants": {
+          "Sherman M4": {
+            "count": 85,
+            "operational": 76,
+            "witw_id": "tank_sherman_m4",
+            "note": "10th Armoured Division. Main battle tank, post-El Alamein refit."
+          },
+          "Grant M3": {
+            "count": 45,
+            "operational": 40,
+            "witw_id": "tank_grant_m3",
+            "note": "10th Armoured Division. 75mm sponson gun, being phased out in favor of Sherman."
+          },
+          "Crusader III": {
+            "count": 15,
+            "operational": 14,
+            "witw_id": "tank_crusader_iii",
+            "note": "10th Armoured Division. 6-pounder gun, limited numbers remaining."
+          }
         }
-      }
+      },
+      "witw_id": "BRI_MEDIUM_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     },
     "light_tanks": {
-      "total": 50,
-      "operational": 45,
-      "variants": {
-        "Stuart M3 'Honey'": {
-          "count": 40,
-          "operational": 36,
-          "witw_id": "tank_stuart_m3",
-          "note": "10th Armoured Division reconnaissance squadrons."
-        },
-        "Crusader II": {
-          "count": 10,
-          "operational": 9,
-          "witw_id": "tank_crusader_ii",
-          "note": "10th Armoured Division. Reconnaissance, being replaced by Stuart."
+      "count": {
+        "total": 50,
+        "operational": 45,
+        "variants": {
+          "Stuart M3 'Honey'": {
+            "count": 40,
+            "operational": 36,
+            "witw_id": "tank_stuart_m3",
+            "note": "10th Armoured Division reconnaissance squadrons."
+          },
+          "Crusader II": {
+            "count": 10,
+            "operational": 9,
+            "witw_id": "tank_crusader_ii",
+            "note": "10th Armoured Division. Reconnaissance, being replaced by Stuart."
+          }
         }
-      }
+      },
+      "witw_id": "BRI_LIGHT_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     }
   },
   "halftracks": {
@@ -114,26 +144,38 @@
     }
   },
   "armored_cars": {
-    "total": 88,
+    "total": {
+      "count": 88,
+      "witw_id": "BRI_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "variants": {
-      "Humber Mk IV": {
-        "count": 36,
-        "operational": 33,
-        "witw_id": "armoredcar_humber_mk4",
-        "role": "10th Armoured Division reconnaissance squadrons."
+      "count": {
+        "Humber Mk IV": {
+          "count": 36,
+          "operational": 33,
+          "witw_id": "armoredcar_humber_mk4",
+          "role": "10th Armoured Division reconnaissance squadrons."
+        },
+        "Daimler Mk II": {
+          "count": 30,
+          "operational": 28,
+          "witw_id": "armoredcar_daimler",
+          "role": "10th Armoured Division. 2-pounder gun, reconnaissance."
+        },
+        "Marmon-Herrington Mk II": {
+          "count": 22,
+          "operational": 20,
+          "witw_id": "armoredcar_marmon_herrington",
+          "role": "10th Armoured Division. South African pattern."
+        }
       },
-      "Daimler Mk II": {
-        "count": 30,
-        "operational": 28,
-        "witw_id": "armoredcar_daimler",
-        "role": "10th Armoured Division. 2-pounder gun, reconnaissance."
-      },
-      "Marmon-Herrington Mk II": {
-        "count": 22,
-        "operational": 20,
-        "witw_id": "armoredcar_marmon_herrington",
-        "role": "10th Armoured Division. South African pattern."
-      }
+      "witw_id": "BRI_VARIANTS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     }
   },
   "trucks": {
@@ -467,5 +509,12 @@
       "NO Wikipedia used for specifications - only for command relationships and locations",
       "Aggregation from Tier 4 single division source plus estimates - low confidence"
     ]
+  },
+  "_enrichment": {
+    "enriched_at": "2025-11-02T10:17:26.782875",
+    "enriched_count": 7,
+    "source_file": "british_1943q1_xiii_corps_toe.json",
+    "database_version": "master_database.db",
+    "phase": "phase_5_equipment_matching_complete"
   }
 }

@@ -50,15 +50,39 @@
   },
   "ground_vehicles_total": 285,
   "tanks": {
-    "total": 0,
-    "operational_status": {
-      "total": 0,
-      "operational": 0,
-      "damaged": 0,
-      "readiness_percentage": 0
+    "total": {
+      "count": 0,
+      "witw_id": "FRE_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     },
-    "variants": {},
-    "notes": "Brigade had NO tanks. Relied on British armored support when needed. Had 63 Bren Gun Carriers (Universal Carriers) for reconnaissance and infantry support."
+    "operational_status": {
+      "count": {
+        "total": 0,
+        "operational": 0,
+        "damaged": 0,
+        "readiness_percentage": 0
+      },
+      "witw_id": "FRE_OPERATIONAL_STATUS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
+    "variants": {
+      "count": {},
+      "witw_id": "FRE_VARIANTS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
+    "notes": {
+      "count": "Brigade had NO tanks. Relied on British armored support when needed. Had 63 Bren Gun Carriers (Universal Carriers) for reconnaissance and infantry support.",
+      "witw_id": "FRE_NOTES",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    }
   },
   "artillery_total": 36,
   "field_artillery": {
@@ -99,24 +123,48 @@
     "notes": "Light AA weapons organic to 1er Bataillon de Fusiliers-Marins (naval infantry anti-aircraft battalion) not separately counted. Integrated with infantry units."
   },
   "mortars": {
-    "total": 48,
-    "operational": 46,
-    "readiness_percentage": 96,
+    "total": {
+      "count": 48,
+      "witw_id": "FRE_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
+    "operational": {
+      "count": 46,
+      "witw_id": "FRE_OPERATIONAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
+    "readiness_percentage": {
+      "count": 96,
+      "witw_id": "FRE_READINESS_PERCENTAGE",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "variants": {
-      "mortar_2in": {
-        "count": 32,
-        "operational": 31,
-        "witw_id": "BRIT_MORTAR_2IN",
-        "type": "light_mortar",
-        "description": "Ordnance ML 2-inch mortar (British supply) - Company level"
+      "count": {
+        "mortar_2in": {
+          "count": 32,
+          "operational": 31,
+          "witw_id": "BRIT_MORTAR_2IN",
+          "type": "light_mortar",
+          "description": "Ordnance ML 2-inch mortar (British supply) - Company level"
+        },
+        "mortar_3in": {
+          "count": 16,
+          "operational": 15,
+          "witw_id": "BRIT_MORTAR_3IN",
+          "type": "medium_mortar",
+          "description": "Ordnance ML 3-inch mortar (British supply) - Battalion level"
+        }
       },
-      "mortar_3in": {
-        "count": 16,
-        "operational": 15,
-        "witw_id": "BRIT_MORTAR_3IN",
-        "type": "medium_mortar",
-        "description": "Ordnance ML 3-inch mortar (British supply) - Battalion level"
-      }
+      "witw_id": "FRE_VARIANTS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     }
   },
   "soft_skin_vehicles": {
@@ -396,5 +444,12 @@
     "confidence_level": 80,
     "completeness": "Substantial - core organization, equipment, commanders verified. Some gaps in precise company-level details.",
     "notes": "Free French forces documentation limited in local sources. Relied on Tier 2 curated web sources (Ordre de la Libération, French Foreign Legion Information, military history sites). All Wikipedia sources excluded per project requirements. Equipment data based on British Commonwealth standard issue patterns for Free French forces in 1941. Artillery regiment formed December 1941 per French official sources."
+  },
+  "_enrichment": {
+    "enriched_at": "2025-11-02T10:17:26.863596",
+    "enriched_count": 8,
+    "source_file": "french_1941q4_1re_brigade_fran_aise_libre_toe.json",
+    "database_version": "master_database.db",
+    "phase": "phase_5_equipment_matching_complete"
   }
 }

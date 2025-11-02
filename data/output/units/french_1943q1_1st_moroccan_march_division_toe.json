@@ -59,52 +59,82 @@
   },
   "ground_vehicles_total": 380,
   "tanks": {
-    "total": 24,
-    "operational": 18,
+    "total": {
+      "count": 24,
+      "witw_id": "FRE_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
+    "operational": {
+      "count": 18,
+      "witw_id": "FRE_OPERATIONAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "heavy_tanks": {
-      "total": 0,
-      "variants": {}
+      "count": {
+        "total": 0,
+        "variants": {}
+      },
+      "witw_id": "FRE_HEAVY_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     },
     "medium_tanks": {
-      "total": 12,
-      "variants": {
-        "Somua S35": {
-          "count": 12,
-          "operational": 9,
-          "witw_id": "FRE_SOMUA_S35",
-          "specifications": {
-            "armament": "47mm SA35 gun + 7.5mm MAC 31 coax",
-            "armor": "40mm frontal",
-            "crew": 3
-          },
-          "note": "Best pre-war French tank still operational"
+      "count": {
+        "total": 12,
+        "variants": {
+          "Somua S35": {
+            "count": 12,
+            "operational": 9,
+            "witw_id": "FRE_SOMUA_S35",
+            "specifications": {
+              "armament": "47mm SA35 gun + 7.5mm MAC 31 coax",
+              "armor": "40mm frontal",
+              "crew": 3
+            },
+            "note": "Best pre-war French tank still operational"
+          }
         }
-      }
+      },
+      "witw_id": "FRE_MEDIUM_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     },
     "light_tanks": {
-      "total": 12,
-      "variants": {
-        "Hotchkiss H39": {
-          "count": 8,
-          "operational": 6,
-          "witw_id": "FRE_HOTCHKISS_H39",
-          "specifications": {
-            "armament": "37mm SA38 gun",
-            "armor": "45mm frontal",
-            "crew": 2
-          }
-        },
-        "Renault R35": {
-          "count": 4,
-          "operational": 3,
-          "witw_id": "FRE_RENAULT_R35",
-          "specifications": {
-            "armament": "37mm SA18 gun",
-            "armor": "40mm",
-            "crew": 2
+      "count": {
+        "total": 12,
+        "variants": {
+          "Hotchkiss H39": {
+            "count": 8,
+            "operational": 6,
+            "witw_id": "FRE_HOTCHKISS_H39",
+            "specifications": {
+              "armament": "37mm SA38 gun",
+              "armor": "45mm frontal",
+              "crew": 2
+            }
+          },
+          "Renault R35": {
+            "count": 4,
+            "operational": 3,
+            "witw_id": "FRE_RENAULT_R35",
+            "specifications": {
+              "armament": "37mm SA18 gun",
+              "armor": "40mm",
+              "crew": 2
+            }
           }
         }
-      }
+      },
+      "witw_id": "FRE_LIGHT_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     }
   },
   "halftracks": {
@@ -113,29 +143,41 @@
     "note": "No halftracks in French colonial divisions; relied on trucks for infantry transport"
   },
   "armored_cars": {
-    "total": 18,
+    "total": {
+      "count": 18,
+      "witw_id": "FRE_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "variants": {
-      "Panhard 178": {
-        "count": 12,
-        "operational": 9,
-        "witw_id": "FRE_PANHARD_178",
-        "role": "Armored reconnaissance",
-        "specifications": {
-          "armament": "25mm SA 35",
-          "armor": "20mm",
-          "crew": 4
+      "count": {
+        "Panhard 178": {
+          "count": 12,
+          "operational": 9,
+          "witw_id": "FRE_PANHARD_178",
+          "role": "Armored reconnaissance",
+          "specifications": {
+            "armament": "25mm SA 35",
+            "armor": "20mm",
+            "crew": 4
+          }
+        },
+        "White-Laffly AMD 50": {
+          "count": 6,
+          "operational": 5,
+          "role": "Armored reconnaissance",
+          "specifications": {
+            "armament": "37mm gun",
+            "armor": "13mm",
+            "crew": 3
+          }
         }
       },
-      "White-Laffly AMD 50": {
-        "count": 6,
-        "operational": 5,
-        "role": "Armored reconnaissance",
-        "specifications": {
-          "armament": "37mm gun",
-          "armor": "13mm",
-          "crew": 3
-        }
-      }
+      "witw_id": "FRE_VARIANTS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     }
   },
   "trucks": {
@@ -304,14 +346,23 @@
     "resupply_interval_days": 5,
     "operational_radius_km": 80,
     "fuel_consumption_per_day_liters": 12000,
-    "critical_shortages": ["Spare parts for French vehicles", "Anti-tank ammunition", "Modern anti-tank weapons"],
+    "critical_shortages": [
+      "Spare parts for French vehicles",
+      "Anti-tank ammunition",
+      "Modern anti-tank weapons"
+    ],
     "notes": "Division dependent on Allied logistics. American re-equipment beginning late Q1 1943 will improve sustainability."
   },
   "weather_environment": {
     "terrain_type": "Mountainous - Eastern Dorsal Mountains of central Tunisia with rocky passes and wadis",
     "temperature_range_celsius": "8-22°C (winter conditions January-March 1943)",
     "seasonal_impact": "Winter rains create mud, flash floods in wadis. Cold nights in mountains. Improved conditions for infantry defense versus armor mobility.",
-    "environmental_challenges": ["Mountain warfare conditions", "Flash flooding in wadis during winter rains", "Cold nights requiring winter clothing", "Rocky terrain limiting vehicle movement"],
+    "environmental_challenges": [
+      "Mountain warfare conditions",
+      "Flash flooding in wadis during winter rains",
+      "Cold nights requiring winter clothing",
+      "Rocky terrain limiting vehicle movement"
+    ],
     "tactical_advantages": "Mountainous terrain favors defensive infantry operations. Moroccan troops experienced in mountain warfare from Atlas Mountains campaigns."
   },
   "subordinate_units": [
@@ -455,5 +506,12 @@
     "aggregation_status": "mixed",
     "methodology": "Combined historical research from verified non-Wikipedia sources with existing project French 1943-Q1 data. Equipment counts based on standard French colonial division TO&E adjusted for documented shortages and re-equipment timeline. Personnel composition ratios (79% Maghrebi) from historical records of North African colonial units.",
     "critical_note": "This TO&E represents Division de Marche du Maroc (formed November 1942), NOT 2e Division d'Infanterie Marocaine (formed May 1, 1943). The latter did not exist during 1943-Q1 timeframe."
+  },
+  "_enrichment": {
+    "enriched_at": "2025-11-02T10:17:26.892126",
+    "enriched_count": 7,
+    "source_file": "french_1943q1_1st_moroccan_march_division_toe.json",
+    "database_version": "master_database.db",
+    "phase": "phase_5_equipment_matching_complete"
   }
 }

@@ -42,38 +42,68 @@
   },
   "ground_vehicles_total": 2855,
   "tanks": {
-    "total": 390,
-    "operational": 350,
+    "total": {
+      "count": 390,
+      "witw_id": "AME_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
+    "operational": {
+      "count": 350,
+      "witw_id": "AME_OPERATIONAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "heavy_tanks": {
-      "total": 0,
-      "variants": {}
+      "count": {
+        "total": 0,
+        "variants": {}
+      },
+      "witw_id": "AME_HEAVY_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     },
     "medium_tanks": {
-      "total": 232,
-      "operational": 210,
-      "variants": {
-        "M4 Sherman": {
-          "count": 150,
-          "operational": 135,
-          "witw_id": "M4_Sherman_75mm"
-        },
-        "M3 Lee/Grant": {
-          "count": 82,
-          "operational": 75,
-          "witw_id": "M3_Grant"
+      "count": {
+        "total": 232,
+        "operational": 210,
+        "variants": {
+          "M4 Sherman": {
+            "count": 150,
+            "operational": 135,
+            "witw_id": "M4_Sherman_75mm"
+          },
+          "M3 Lee/Grant": {
+            "count": 82,
+            "operational": 75,
+            "witw_id": "M3_Grant"
+          }
         }
-      }
+      },
+      "witw_id": "AME_MEDIUM_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     },
     "light_tanks": {
-      "total": 158,
-      "operational": 140,
-      "variants": {
-        "M3/M5 Stuart": {
-          "count": 158,
-          "operational": 140,
-          "witw_id": "M5_Stuart"
+      "count": {
+        "total": 158,
+        "operational": 140,
+        "variants": {
+          "M3/M5 Stuart": {
+            "count": 158,
+            "operational": 140,
+            "witw_id": "M5_Stuart"
+          }
         }
-      }
+      },
+      "witw_id": "AME_LIGHT_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     }
   },
   "halftracks": {
@@ -86,16 +116,28 @@
     }
   },
   "armored_cars": {
-    "total": 135,
+    "total": {
+      "count": 135,
+      "witw_id": "AME_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "variants": {
-      "M8 Armored Car": {
-        "count": 50,
-        "role": "reconnaissance"
+      "count": {
+        "M8 Armored Car": {
+          "count": 50,
+          "role": "reconnaissance"
+        },
+        "M3 Scout Car": {
+          "count": 85,
+          "role": "reconnaissance"
+        }
       },
-      "M3 Scout Car": {
-        "count": 85,
-        "role": "reconnaissance"
-      }
+      "witw_id": "AME_VARIANTS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     }
   },
   "trucks": {
@@ -153,16 +195,28 @@
     "variants": {}
   },
   "mortars": {
-    "total": 132,
+    "total": {
+      "count": 132,
+      "witw_id": "AME_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "variants": {
-      "M2 60mm Mortar": {
-        "count": 96,
-        "caliber": "60mm"
+      "count": {
+        "M2 60mm Mortar": {
+          "count": 96,
+          "caliber": "60mm"
+        },
+        "M1 81mm Mortar": {
+          "count": 36,
+          "caliber": "81mm"
+        }
       },
-      "M1 81mm Mortar": {
-        "count": 36,
-        "caliber": "81mm"
-      }
+      "witw_id": "AME_VARIANTS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     }
   },
   "aircraft_total": 0,
@@ -288,5 +342,12 @@
     "aggregation_status": "manually_entered",
     "required_field_gaps": [],
     "gap_documentation": {}
+  },
+  "_enrichment": {
+    "enriched_at": "2025-11-02T10:17:26.253663",
+    "enriched_count": 9,
+    "source_file": "american_1943q1_1st_armored_division_toe.json",
+    "database_version": "master_database.db",
+    "phase": "phase_5_equipment_matching_complete"
   }
 }

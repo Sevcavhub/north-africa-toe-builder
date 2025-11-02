@@ -51,36 +51,78 @@
   },
   "ground_vehicles_total": 2847,
   "tanks": {
-    "total": 0,
-    "operational": 0,
+    "total": {
+      "count": 0,
+      "witw_id": "BRI_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
+    "operational": {
+      "count": 0,
+      "witw_id": "BRI_OPERATIONAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "heavy_tanks": {
-      "total": 0,
-      "variants": {}
+      "count": {
+        "total": 0,
+        "variants": {}
+      },
+      "witw_id": "BRI_HEAVY_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     },
     "medium_tanks": {
-      "total": 0,
-      "variants": {}
+      "count": {
+        "total": 0,
+        "variants": {}
+      },
+      "witw_id": "BRI_MEDIUM_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     },
     "light_tanks": {
-      "total": 0,
-      "variants": {}
+      "count": {
+        "total": 0,
+        "variants": {}
+      },
+      "witw_id": "BRI_LIGHT_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     }
   },
   "armored_cars": {
-    "total": 44,
+    "total": {
+      "count": 44,
+      "witw_id": "BRI_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "variants": {
-      "Marmon-Herrington Mk II": {
-        "count": 16,
-        "operational": 14,
-        "witw_id": "SA_AC_MARMON_MK2",
-        "role": "Reconnaissance"
+      "count": {
+        "Marmon-Herrington Mk II": {
+          "count": 16,
+          "operational": 14,
+          "witw_id": "SA_AC_MARMON_MK2",
+          "role": "Reconnaissance"
+        },
+        "Marmon-Herrington Mk III": {
+          "count": 28,
+          "operational": 26,
+          "witw_id": "SA_AC_MARMON_MK3",
+          "role": "Reconnaissance and screening"
+        }
       },
-      "Marmon-Herrington Mk III": {
-        "count": 28,
-        "operational": 26,
-        "witw_id": "SA_AC_MARMON_MK3",
-        "role": "Reconnaissance and screening"
-      }
+      "witw_id": "BRI_VARIANTS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     }
   },
   "trucks": {
@@ -204,20 +246,32 @@
     }
   },
   "mortars": {
-    "total": 144,
+    "total": {
+      "count": 144,
+      "witw_id": "BRI_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "variants": {
-      "Ordnance ML 3-inch Mortar": {
-        "count": 108,
-        "caliber": "3-inch",
-        "witw_id": "UK_MORTAR_3IN",
-        "organization": "Battalion support companies"
+      "count": {
+        "Ordnance ML 3-inch Mortar": {
+          "count": 108,
+          "caliber": "3-inch",
+          "witw_id": "UK_MORTAR_3IN",
+          "organization": "Battalion support companies"
+        },
+        "Ordnance SBML 2-inch Mortar": {
+          "count": 36,
+          "caliber": "2-inch",
+          "witw_id": "UK_MORTAR_2IN",
+          "organization": "Company level"
+        }
       },
-      "Ordnance SBML 2-inch Mortar": {
-        "count": 36,
-        "caliber": "2-inch",
-        "witw_id": "UK_MORTAR_2IN",
-        "organization": "Company level"
-      }
+      "witw_id": "BRI_VARIANTS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     }
   },
   "aircraft_total": 0,
@@ -423,5 +477,12 @@
     ],
     "aggregation_status": "calculated",
     "validation_notes": "Division structure based on DefenceWeb fact file and contemporary Commonwealth infantry division establishments. Personnel strength estimated at ~17,250 based on three infantry brigades (3,850 each) plus divisional troops (5,400). Equipment allocations follow standard British 1941 establishment: 72x 25-pounder in three field regiments, 48x 2-pounder AT guns, standard infantry weapons. Marmon-Herrington armored cars were South African specialty. Commander de Villiers confirmed from multiple sources for Q3 1941."
+  },
+  "_enrichment": {
+    "enriched_at": "2025-11-02T10:17:26.420464",
+    "enriched_count": 9,
+    "source_file": "british_1941q3_2nd_south_african_division_toe.json",
+    "database_version": "master_database.db",
+    "phase": "phase_5_equipment_matching_complete"
   }
 }

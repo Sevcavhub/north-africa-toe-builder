@@ -43,55 +43,103 @@
     }
   },
   "tanks": {
-    "total": 164,
-    "operational": 156,
+    "total": {
+      "count": 164,
+      "witw_id": "BRI_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
+    "operational": {
+      "count": 156,
+      "witw_id": "BRI_OPERATIONAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "heavy_tanks": {
-      "total": 0,
-      "variants": {}
+      "count": {
+        "total": 0,
+        "variants": {}
+      },
+      "witw_id": "BRI_HEAVY_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     },
     "medium_tanks": {
-      "total": 112,
-      "variants": {
-        "M4 Sherman": {
-          "count": 104,
-          "operational": 98,
-          "notes": "2nd NZ Division 4th Armoured Brigade"
-        },
-        "M3 Grant": {
-          "count": 8,
-          "operational": 8,
-          "notes": "2nd NZ Division residual"
+      "count": {
+        "total": 112,
+        "variants": {
+          "M4 Sherman": {
+            "count": 104,
+            "operational": 98,
+            "notes": "2nd NZ Division 4th Armoured Brigade"
+          },
+          "M3 Grant": {
+            "count": 8,
+            "operational": 8,
+            "notes": "2nd NZ Division residual"
+          }
         }
-      }
+      },
+      "witw_id": "BRI_MEDIUM_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     },
     "light_tanks": {
-      "total": 52,
-      "variants": {
-        "M3 Stuart": {
-          "count": 52,
-          "operational": 50,
-          "notes": "2nd NZ Divisional Cavalry reconnaissance"
+      "count": {
+        "total": 52,
+        "variants": {
+          "M3 Stuart": {
+            "count": 52,
+            "operational": 50,
+            "notes": "2nd NZ Divisional Cavalry reconnaissance"
+          }
         }
-      }
+      },
+      "witw_id": "BRI_LIGHT_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     },
-    "notes": "All tanks organic to 2nd New Zealand Division (4th Armoured Brigade). 51st Highland and 9th Australian are pure infantry divisions with NO organic tanks."
+    "notes": {
+      "count": "All tanks organic to 2nd New Zealand Division (4th Armoured Brigade). 51st Highland and 9th Australian are pure infantry divisions with NO organic tanks.",
+      "witw_id": "BRI_NOTES",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    }
   },
   "ground_vehicles_total": 8785,
   "armored_cars": {
-    "total": 128,
+    "total": {
+      "count": 128,
+      "witw_id": "BRI_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "variants": {
-      "Humber Armoured Car": {
-        "count": 32,
-        "role": "reconnaissance"
+      "count": {
+        "Humber Armoured Car": {
+          "count": 32,
+          "role": "reconnaissance"
+        },
+        "Daimler Armoured Car": {
+          "count": 52,
+          "role": "reconnaissance"
+        },
+        "Marmon-Herrington Mk II": {
+          "count": 44,
+          "role": "reconnaissance"
+        }
       },
-      "Daimler Armoured Car": {
-        "count": 52,
-        "role": "reconnaissance"
-      },
-      "Marmon-Herrington Mk II": {
-        "count": 44,
-        "role": "reconnaissance"
-      }
+      "witw_id": "BRI_VARIANTS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     }
   },
   "halftracks": {
@@ -215,18 +263,30 @@
     }
   },
   "mortars": {
-    "total": 108,
+    "total": {
+      "count": 108,
+      "witw_id": "BRI_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "variants": {
-      "Ordnance ML 3-inch Mortar": {
-        "count": 81,
-        "caliber": "76mm",
-        "notes": "Infantry battalion heavy weapons"
+      "count": {
+        "Ordnance ML 3-inch Mortar": {
+          "count": 81,
+          "caliber": "76mm",
+          "notes": "Infantry battalion heavy weapons"
+        },
+        "Ordnance ML 2-inch Mortar": {
+          "count": 27,
+          "caliber": "51mm",
+          "notes": "Platoon-level indirect fire"
+        }
       },
-      "Ordnance ML 2-inch Mortar": {
-        "count": 27,
-        "caliber": "51mm",
-        "notes": "Platoon-level indirect fire"
-      }
+      "witw_id": "BRI_VARIANTS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     }
   },
   "aircraft_total": 0,
@@ -372,5 +432,12 @@
     ],
     "aggregation_status": "calculated",
     "notes": "Aggregated from three subordinate divisions: 51st Highland (17,850), 2nd NZ (16,500), 9th Australian (16,000). Personnel total includes ~700 corps HQ staff. Equipment totals summed from divisional files. XXX Corps was main breakthrough force at Second Battle of El Alamein, sustaining ~6,000 casualties but achieving decisive breakthrough in northern sector."
+  },
+  "_enrichment": {
+    "enriched_at": "2025-11-02T10:17:26.717067",
+    "enriched_count": 10,
+    "source_file": "british_1942q4_xxx_corps_toe.json",
+    "database_version": "master_database.db",
+    "phase": "phase_5_equipment_matching_complete"
   }
 }

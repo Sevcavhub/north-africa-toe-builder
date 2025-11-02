@@ -53,19 +53,49 @@
   },
   "ground_vehicles_total": 3050,
   "tanks": {
-    "total": 0,
-    "operational": 0,
+    "total": {
+      "count": 0,
+      "witw_id": "BRI_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
+    "operational": {
+      "count": 0,
+      "witw_id": "BRI_OPERATIONAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "heavy_tanks": {
-      "total": 0,
-      "variants": {}
+      "count": {
+        "total": 0,
+        "variants": {}
+      },
+      "witw_id": "BRI_HEAVY_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     },
     "medium_tanks": {
-      "total": 0,
-      "variants": {}
+      "count": {
+        "total": 0,
+        "variants": {}
+      },
+      "witw_id": "BRI_MEDIUM_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     },
     "light_tanks": {
-      "total": 0,
-      "variants": {}
+      "count": {
+        "total": 0,
+        "variants": {}
+      },
+      "witw_id": "BRI_LIGHT_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     }
   },
   "halftracks": {
@@ -73,20 +103,32 @@
     "variants": {}
   },
   "armored_cars": {
-    "total": 28,
+    "total": {
+      "count": 28,
+      "witw_id": "BRI_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "variants": {
-      "Humber Armoured Car Mk II": {
-        "count": 18,
-        "operational": 16,
-        "witw_id": "uk_armored_car_humber_mkii",
-        "role": "reconnaissance - 44th Recce Regiment"
+      "count": {
+        "Humber Armoured Car Mk II": {
+          "count": 18,
+          "operational": 16,
+          "witw_id": "uk_armored_car_humber_mkii",
+          "role": "reconnaissance - 44th Recce Regiment"
+        },
+        "Daimler Armoured Car": {
+          "count": 10,
+          "operational": 9,
+          "witw_id": "uk_armored_car_daimler",
+          "role": "reconnaissance"
+        }
       },
-      "Daimler Armoured Car": {
-        "count": 10,
-        "operational": 9,
-        "witw_id": "uk_armored_car_daimler",
-        "role": "reconnaissance"
-      }
+      "witw_id": "BRI_VARIANTS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     }
   },
   "trucks": {
@@ -168,18 +210,30 @@
     "variants": {}
   },
   "mortars": {
-    "total": 206,
+    "total": {
+      "count": 206,
+      "witw_id": "BRI_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "variants": {
-      "Ordnance ML 3-inch Mortar": {
-        "count": 49,
-        "caliber": "76mm",
-        "witw_id": "uk_mortar_3inch"
+      "count": {
+        "Ordnance ML 3-inch Mortar": {
+          "count": 49,
+          "caliber": "76mm",
+          "witw_id": "uk_mortar_3inch"
+        },
+        "Ordnance ML 2-inch Mortar": {
+          "count": 157,
+          "caliber": "51mm",
+          "witw_id": "uk_mortar_2inch"
+        }
       },
-      "Ordnance ML 2-inch Mortar": {
-        "count": 157,
-        "caliber": "51mm",
-        "witw_id": "uk_mortar_2inch"
-      }
+      "witw_id": "BRI_VARIANTS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     }
   },
   "aircraft_total": 0,
@@ -354,12 +408,22 @@
     {
       "designation": "131st (Queen's) Infantry Brigade",
       "nation": "british",
-      "quarters": ["1943q1", "1943q2"],
+      "quarters": [
+        "1943q1",
+        "1943q2"
+      ],
       "type": "brigade",
       "source": "44th Division history - brigade detached to 7th Armoured Division November 1942",
       "confidence": 95,
       "reason": "Brigade continued fighting independently after parent division disbanded. Remained with 7th Armoured Division through Tunisia Campaign ending May 1943.",
       "combat_evidence": "131st Brigade fought with 7th Armoured Division in Tunisia Campaign (January-May 1943), including operations at Mareth Line, Wadi Akarit, and final Axis surrender in Tunisia. Brigade took part in North African Campaign culminating in May 1943 with capture of ~250,000 Axis POWs."
     }
-  ]
+  ],
+  "_enrichment": {
+    "enriched_at": "2025-11-02T10:17:26.749686",
+    "enriched_count": 9,
+    "source_file": "british_1943q1_4th_infantry_division_toe.json",
+    "database_version": "master_database.db",
+    "phase": "phase_5_equipment_matching_complete"
+  }
 }

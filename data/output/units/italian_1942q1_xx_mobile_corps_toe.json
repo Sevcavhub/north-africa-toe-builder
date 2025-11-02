@@ -51,56 +51,98 @@
   },
   "ground_vehicles_total": 4917,
   "tanks": {
-    "total": 335,
-    "operational": 310,
+    "total": {
+      "count": 335,
+      "witw_id": "ITA_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
+    "operational": {
+      "count": 310,
+      "witw_id": "ITA_OPERATIONAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "heavy_tanks": {
-      "total": 0,
-      "variants": {}
+      "count": {
+        "total": 0,
+        "variants": {}
+      },
+      "witw_id": "ITA_HEAVY_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     },
     "medium_tanks": {
-      "total": 276,
-      "variants": {
-        "M13/40": {
-          "count": 156,
-          "operational": 146,
-          "witw_id": "italian_m13_40",
-          "notes": "Primary medium tank across all three armored divisions (Ariete 72, Littorio 84)"
-        },
-        "M14/41": {
-          "count": 120,
-          "operational": 114,
-          "witw_id": "italian_m14_41",
-          "notes": "Improved variant with better engine and armor (Ariete 58, Littorio 62)"
+      "count": {
+        "total": 276,
+        "variants": {
+          "M13/40": {
+            "count": 156,
+            "operational": 146,
+            "witw_id": "italian_m13_40",
+            "notes": "Primary medium tank across all three armored divisions (Ariete 72, Littorio 84)"
+          },
+          "M14/41": {
+            "count": 120,
+            "operational": 114,
+            "witw_id": "italian_m14_41",
+            "notes": "Improved variant with better engine and armor (Ariete 58, Littorio 62)"
+          }
         }
-      }
+      },
+      "witw_id": "ITA_MEDIUM_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     },
     "light_tanks": {
-      "total": 59,
-      "variants": {
-        "L6/40": {
-          "count": 59,
-          "operational": 50,
-          "witw_id": "italian_l6_40",
-          "notes": "Light reconnaissance tanks (Ariete 16, Littorio 43)"
+      "count": {
+        "total": 59,
+        "variants": {
+          "L6/40": {
+            "count": 59,
+            "operational": 50,
+            "witw_id": "italian_l6_40",
+            "notes": "Light reconnaissance tanks (Ariete 16, Littorio 43)"
+          }
         }
-      }
+      },
+      "witw_id": "ITA_LIGHT_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     }
   },
   "armored_cars": {
-    "total": 52,
+    "total": {
+      "count": 52,
+      "witw_id": "ITA_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "variants": {
-      "AB41": {
-        "count": 47,
-        "operational": 42,
-        "witw_id": "italian_ab41",
-        "notes": "Standard Italian armored reconnaissance vehicle (Ariete 18, Littorio 22, Trieste 7)"
+      "count": {
+        "AB41": {
+          "count": 47,
+          "operational": 42,
+          "witw_id": "italian_ab41",
+          "notes": "Standard Italian armored reconnaissance vehicle (Ariete 18, Littorio 22, Trieste 7)"
+        },
+        "AB40": {
+          "count": 5,
+          "operational": 4,
+          "witw_id": "italian_ab40",
+          "notes": "Earlier variant (Trieste division only)"
+        }
       },
-      "AB40": {
-        "count": 5,
-        "operational": 4,
-        "witw_id": "italian_ab40",
-        "notes": "Earlier variant (Trieste division only)"
-      }
+      "witw_id": "ITA_VARIANTS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     }
   },
   "trucks": {
@@ -290,20 +332,32 @@
     }
   },
   "mortars": {
-    "total": 99,
+    "total": {
+      "count": 99,
+      "witw_id": "ITA_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "variants": {
-      "Mortaio da 81/14 Mod 1935": {
-        "count": 72,
-        "operational": 66,
-        "witw_id": "italian_81mm_mortar",
-        "notes": "Heavy mortars (Ariete 24, Littorio 36, Trieste 12)"
+      "count": {
+        "Mortaio da 81/14 Mod 1935": {
+          "count": 72,
+          "operational": 66,
+          "witw_id": "italian_81mm_mortar",
+          "notes": "Heavy mortars (Ariete 24, Littorio 36, Trieste 12)"
+        },
+        "Mortaio da 45mm Brixia Mod 1935": {
+          "count": 27,
+          "operational": 24,
+          "witw_id": "italian_45mm_brixia",
+          "notes": "Light mortars (Littorio division only)"
+        }
       },
-      "Mortaio da 45mm Brixia Mod 1935": {
-        "count": 27,
-        "operational": 24,
-        "witw_id": "italian_45mm_brixia",
-        "notes": "Light mortars (Littorio division only)"
-      }
+      "witw_id": "ITA_VARIANTS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     }
   },
   "aircraft_total": 0,
@@ -442,5 +496,12 @@
       "All equipment counts are bottom-up aggregation from subordinate divisions",
       "Variant distributions preserved from subordinate division files"
     ]
+  },
+  "_enrichment": {
+    "enriched_at": "2025-11-02T10:17:27.505339",
+    "enriched_count": 9,
+    "source_file": "italian_1942q1_xx_mobile_corps_toe.json",
+    "database_version": "master_database.db",
+    "phase": "phase_5_equipment_matching_complete"
   }
 }

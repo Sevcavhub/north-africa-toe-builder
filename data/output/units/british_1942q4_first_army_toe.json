@@ -52,31 +52,73 @@
   },
   "ground_vehicles_total": 7050,
   "tanks": {
-    "total": 165,
-    "operational": 152,
-    "heavy": 0,
-    "medium": 165,
-    "light": 0
+    "total": {
+      "count": 165,
+      "witw_id": "BRI_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
+    "operational": {
+      "count": 152,
+      "witw_id": "BRI_OPERATIONAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
+    "heavy": {
+      "count": 0,
+      "witw_id": "BRI_HEAVY",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
+    "medium": {
+      "count": 165,
+      "witw_id": "BRI_MEDIUM",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
+    "light": {
+      "count": 0,
+      "witw_id": "BRI_LIGHT",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    }
   },
   "halftracks": {
     "total": 0,
     "variants": {}
   },
   "armored_cars": {
-    "total": 72,
+    "total": {
+      "count": 72,
+      "witw_id": "BRI_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "variants": {
-      "Humber Armoured Car Mk II": {
-        "count": 42,
-        "operational": 40,
-        "witw_id": "uk_armored_car_humber_mkii",
-        "role": "reconnaissance"
+      "count": {
+        "Humber Armoured Car Mk II": {
+          "count": 42,
+          "operational": 40,
+          "witw_id": "uk_armored_car_humber_mkii",
+          "role": "reconnaissance"
+        },
+        "Daimler Armoured Car": {
+          "count": 30,
+          "operational": 28,
+          "witw_id": "uk_armored_car_daimler",
+          "role": "reconnaissance"
+        }
       },
-      "Daimler Armoured Car": {
-        "count": 30,
-        "operational": 28,
-        "witw_id": "uk_armored_car_daimler",
-        "role": "reconnaissance"
-      }
+      "witw_id": "BRI_VARIANTS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     }
   },
   "trucks": {
@@ -161,18 +203,30 @@
     "note": "AA defense provided by attached RAF units and US anti-aircraft battalions"
   },
   "mortars": {
-    "total": 360,
+    "total": {
+      "count": 360,
+      "witw_id": "BRI_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "variants": {
-      "Ordnance ML 3-inch Mortar": {
-        "count": 90,
-        "caliber": "76mm",
-        "witw_id": "uk_mortar_3inch"
+      "count": {
+        "Ordnance ML 3-inch Mortar": {
+          "count": 90,
+          "caliber": "76mm",
+          "witw_id": "uk_mortar_3inch"
+        },
+        "Ordnance ML 2-inch Mortar": {
+          "count": 270,
+          "caliber": "51mm",
+          "witw_id": "uk_mortar_2inch"
+        }
       },
-      "Ordnance ML 2-inch Mortar": {
-        "count": 270,
-        "caliber": "51mm",
-        "witw_id": "uk_mortar_2inch"
-      }
+      "witw_id": "BRI_VARIANTS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     }
   },
   "aircraft_total": 0,
@@ -403,5 +457,12 @@
       "Tier 2 classification due to missing V Corps file, unknown Chief of Staff, estimated HQ staff",
       "CRITICAL: V Corps 1942-Q4 missing despite WORK_QUEUE showing complete - data inconsistency"
     ]
+  },
+  "_enrichment": {
+    "enriched_at": "2025-11-02T10:17:26.709641",
+    "enriched_count": 9,
+    "source_file": "british_1942q4_first_army_toe.json",
+    "database_version": "master_database.db",
+    "phase": "phase_5_equipment_matching_complete"
   }
 }

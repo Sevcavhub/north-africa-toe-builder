@@ -52,19 +52,49 @@
   },
   "ground_vehicles_total": 1920,
   "tanks": {
-    "total": 0,
-    "operational": 0,
+    "total": {
+      "count": 0,
+      "witw_id": "GER_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
+    "operational": {
+      "count": 0,
+      "witw_id": "GER_OPERATIONAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "heavy_tanks": {
-      "total": 0,
-      "variants": {}
+      "count": {
+        "total": 0,
+        "variants": {}
+      },
+      "witw_id": "GER_HEAVY_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     },
     "medium_tanks": {
-      "total": 0,
-      "variants": {}
+      "count": {
+        "total": 0,
+        "variants": {}
+      },
+      "witw_id": "GER_MEDIUM_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     },
     "light_tanks": {
-      "total": 0,
-      "variants": {}
+      "count": {
+        "total": 0,
+        "variants": {}
+      },
+      "witw_id": "GER_LIGHT_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     }
   },
   "halftracks": {
@@ -72,20 +102,32 @@
     "variants": {}
   },
   "armored_cars": {
-    "total": 28,
+    "total": {
+      "count": 28,
+      "witw_id": "GER_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "variants": {
-      "SdKfz 222": {
-        "count": 14,
-        "operational": 12,
-        "witw_id": "ger_sdkfz222",
-        "role": "Reconnaissance"
+      "count": {
+        "SdKfz 222": {
+          "count": 14,
+          "operational": 12,
+          "witw_id": "ger_sdkfz222",
+          "role": "Reconnaissance"
+        },
+        "SdKfz 231": {
+          "count": 14,
+          "operational": 11,
+          "witw_id": "ger_sdkfz231",
+          "role": "Reconnaissance"
+        }
       },
-      "SdKfz 231": {
-        "count": 14,
-        "operational": 11,
-        "witw_id": "ger_sdkfz231",
-        "role": "Reconnaissance"
-      }
+      "witw_id": "GER_VARIANTS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     }
   },
   "trucks": {
@@ -202,25 +244,37 @@
     }
   },
   "mortars": {
-    "total": 56,
+    "total": {
+      "count": 56,
+      "witw_id": "GER_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "variants": {
-      "8 cm GrW 34": {
-        "count": 38,
-        "caliber": "81mm",
-        "witw_id": "ger_81mm_grw34"
+      "count": {
+        "8 cm GrW 34": {
+          "count": 38,
+          "caliber": "81mm",
+          "witw_id": "ger_81mm_grw34"
+        },
+        "15 cm sIG 33": {
+          "count": 6,
+          "caliber": "150mm",
+          "witw_id": "ger_150mm_sig33",
+          "note": "Heavy infantry guns"
+        },
+        "7.5 cm leIG 18": {
+          "count": 12,
+          "caliber": "75mm",
+          "witw_id": "ger_75mm_leig18",
+          "note": "Light infantry guns"
+        }
       },
-      "15 cm sIG 33": {
-        "count": 6,
-        "caliber": "150mm",
-        "witw_id": "ger_150mm_sig33",
-        "note": "Heavy infantry guns"
-      },
-      "7.5 cm leIG 18": {
-        "count": 12,
-        "caliber": "75mm",
-        "witw_id": "ger_75mm_leig18",
-        "note": "Light infantry guns"
-      }
+      "witw_id": "GER_VARIANTS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     }
   },
   "aircraft_total": 0,
@@ -460,5 +514,12 @@
       "Equipment totals slightly improved from Q4 1941 due to supply deliveries and captured materiel",
       "Completeness tier: Tier 2 (review_recommended) - 82% confidence due to some commander gaps and estimated vehicle counts, but core organizational structure and equipment well-documented"
     ]
+  },
+  "_enrichment": {
+    "enriched_at": "2025-11-02T10:17:26.999894",
+    "enriched_count": 9,
+    "source_file": "german_1942q1_90_leichte_division_toe.json",
+    "database_version": "master_database.db",
+    "phase": "phase_5_equipment_matching_complete"
   }
 }

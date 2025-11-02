@@ -51,26 +51,56 @@
   },
   "ground_vehicles_total": 487,
   "tanks": {
-    "total": 12,
-    "operational": 10,
+    "total": {
+      "count": 12,
+      "witw_id": "ITA_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
+    "operational": {
+      "count": 10,
+      "witw_id": "ITA_OPERATIONAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "heavy_tanks": {
-      "total": 0,
-      "variants": {}
+      "count": {
+        "total": 0,
+        "variants": {}
+      },
+      "witw_id": "ITA_HEAVY_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     },
     "medium_tanks": {
-      "total": 0,
-      "variants": {}
+      "count": {
+        "total": 0,
+        "variants": {}
+      },
+      "witw_id": "ITA_MEDIUM_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     },
     "light_tanks": {
-      "total": 12,
-      "variants": {
-        "L3/35": {
-          "count": 12,
-          "operational": 10,
-          "witw_id": "ITA_TANK_L3_35",
-          "notes": "From 27th Tank Battalion"
+      "count": {
+        "total": 12,
+        "variants": {
+          "L3/35": {
+            "count": 12,
+            "operational": 10,
+            "witw_id": "ITA_TANK_L3_35",
+            "notes": "From 27th Tank Battalion"
+          }
         }
-      }
+      },
+      "witw_id": "ITA_LIGHT_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     }
   },
   "halftracks": {
@@ -78,13 +108,25 @@
     "variants": {}
   },
   "armored_cars": {
-    "total": 8,
+    "total": {
+      "count": 8,
+      "witw_id": "ITA_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "variants": {
-      "Autoblinda AB 40": {
-        "count": 8,
-        "operational": 7,
-        "witw_id": "ITA_AC_AB40"
-      }
+      "count": {
+        "Autoblinda AB 40": {
+          "count": 8,
+          "operational": 7,
+          "witw_id": "ITA_AC_AB40"
+        }
+      },
+      "witw_id": "ITA_VARIANTS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     }
   },
   "trucks": {
@@ -190,20 +232,32 @@
     }
   },
   "mortars": {
-    "total": 42,
+    "total": {
+      "count": 42,
+      "witw_id": "ITA_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "variants": {
-      "81mm Mod. 35 Mortar": {
-        "count": 12,
-        "caliber": "81mm",
-        "witw_id": "ITA_MORT_81MM",
-        "notes": "6 per infantry regiment"
+      "count": {
+        "81mm Mod. 35 Mortar": {
+          "count": 12,
+          "caliber": "81mm",
+          "witw_id": "ITA_MORT_81MM",
+          "notes": "6 per infantry regiment"
+        },
+        "45mm Mod. 35 Brixia": {
+          "count": 30,
+          "caliber": "45mm",
+          "witw_id": "ITA_MORT_45MM",
+          "notes": "Light mortar, company level"
+        }
       },
-      "45mm Mod. 35 Brixia": {
-        "count": 30,
-        "caliber": "45mm",
-        "witw_id": "ITA_MORT_45MM",
-        "notes": "Light mortar, company level"
-      }
+      "witw_id": "ITA_VARIANTS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     }
   },
   "infantry_guns": {
@@ -400,12 +454,23 @@
     {
       "designation": "XXI Corpo d'Armata",
       "nation": "italian",
-      "quarters": ["1940q3", "1940q4", "1941q1"],
+      "quarters": [
+        "1940q3",
+        "1940q4",
+        "1941q1"
+      ],
       "type": "corps",
       "source": "Parent formation listed in archived extraction and TM-E 30-420 North Africa order of battle references",
       "confidence": 85,
       "reason": "Parent corps for Brescia Division - not in seed file for these quarters",
       "combat_evidence": "XXI Corps commanded Brescia and Pavia Divisions during border security operations against French Tunisia (June-July 1940) and defensive positioning in western Cyrenaica during British buildup (Operation Compass preparation, Sept-Dec 1940)"
     }
-  ]
+  ],
+  "_enrichment": {
+    "enriched_at": "2025-11-02T10:17:27.197347",
+    "enriched_count": 9,
+    "source_file": "italian_1940q3_brescia_division_toe.json",
+    "database_version": "master_database.db",
+    "phase": "phase_5_equipment_matching_complete"
+  }
 }

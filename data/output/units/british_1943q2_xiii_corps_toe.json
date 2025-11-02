@@ -53,21 +53,51 @@
   },
   "ground_vehicles_total": 2798,
   "tanks": {
-    "total": 0,
-    "operational": 0,
+    "total": {
+      "count": 0,
+      "witw_id": "BRI_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
+    "operational": {
+      "count": 0,
+      "witw_id": "BRI_OPERATIONAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "heavy_tanks": {
-      "total": 0,
-      "variants": {}
+      "count": {
+        "total": 0,
+        "variants": {}
+      },
+      "witw_id": "BRI_HEAVY_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     },
     "medium_tanks": {
-      "total": 0,
-      "operational": 0,
-      "variants": {}
+      "count": {
+        "total": 0,
+        "operational": 0,
+        "variants": {}
+      },
+      "witw_id": "BRI_MEDIUM_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     },
     "light_tanks": {
-      "total": 0,
-      "operational": 0,
-      "variants": {}
+      "count": {
+        "total": 0,
+        "operational": 0,
+        "variants": {}
+      },
+      "witw_id": "BRI_LIGHT_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     }
   },
   "halftracks": {
@@ -75,26 +105,38 @@
     "variants": {}
   },
   "armored_cars": {
-    "total": 48,
+    "total": {
+      "count": 48,
+      "witw_id": "BRI_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "variants": {
-      "Humber Mk IV": {
-        "count": 24,
-        "operational": 22,
-        "witw_id": "armoredcar_humber_mk4",
-        "role": "50th Infantry Division reconnaissance."
+      "count": {
+        "Humber Mk IV": {
+          "count": 24,
+          "operational": 22,
+          "witw_id": "armoredcar_humber_mk4",
+          "role": "50th Infantry Division reconnaissance."
+        },
+        "Daimler Mk II": {
+          "count": 16,
+          "operational": 15,
+          "witw_id": "armoredcar_daimler",
+          "role": "50th Infantry Division reconnaissance."
+        },
+        "Marmon-Herrington Mk III": {
+          "count": 8,
+          "operational": 7,
+          "witw_id": "armoredcar_marmon_herrington",
+          "role": "50th Infantry Division reconnaissance."
+        }
       },
-      "Daimler Mk II": {
-        "count": 16,
-        "operational": 15,
-        "witw_id": "armoredcar_daimler",
-        "role": "50th Infantry Division reconnaissance."
-      },
-      "Marmon-Herrington Mk III": {
-        "count": 8,
-        "operational": 7,
-        "witw_id": "armoredcar_marmon_herrington",
-        "role": "50th Infantry Division reconnaissance."
-      }
+      "witw_id": "BRI_VARIANTS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     }
   },
   "trucks": {
@@ -425,5 +467,12 @@
       "NO Wikipedia used for specifications - only for command relationships and timelines",
       "Aggregation from Tier 2 single division source plus estimates - low confidence"
     ]
+  },
+  "_enrichment": {
+    "enriched_at": "2025-11-02T10:17:26.855904",
+    "enriched_count": 7,
+    "source_file": "british_1943q2_xiii_corps_toe.json",
+    "database_version": "master_database.db",
+    "phase": "phase_5_equipment_matching_complete"
   }
 }

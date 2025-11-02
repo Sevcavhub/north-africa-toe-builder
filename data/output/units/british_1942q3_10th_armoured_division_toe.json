@@ -50,45 +50,75 @@
   },
   "ground_vehicles_total": 3095,
   "tanks": {
-    "total": 168,
-    "operational": 154,
+    "total": {
+      "count": 168,
+      "witw_id": "BRI_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
+    "operational": {
+      "count": 154,
+      "witw_id": "BRI_OPERATIONAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "heavy_tanks": {
-      "total": 0,
-      "variants": {}
+      "count": {
+        "total": 0,
+        "variants": {}
+      },
+      "witw_id": "BRI_HEAVY_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     },
     "medium_tanks": {
-      "total": 122,
-      "variants": {
-        "M3 Grant": {
-          "count": 78,
-          "operational": 72,
-          "witw_id": "tank_grant_m3",
-          "note": "Primary medium tank, newly delivered Lend-Lease"
-        },
-        "Crusader III": {
-          "count": 44,
-          "operational": 40,
-          "witw_id": "tank_crusader_iii",
-          "note": "British cruiser tank"
+      "count": {
+        "total": 122,
+        "variants": {
+          "M3 Grant": {
+            "count": 78,
+            "operational": 72,
+            "witw_id": "tank_grant_m3",
+            "note": "Primary medium tank, newly delivered Lend-Lease"
+          },
+          "Crusader III": {
+            "count": 44,
+            "operational": 40,
+            "witw_id": "tank_crusader_iii",
+            "note": "British cruiser tank"
+          }
         }
-      }
+      },
+      "witw_id": "BRI_MEDIUM_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     },
     "light_tanks": {
-      "total": 46,
-      "variants": {
-        "M3 Stuart": {
-          "count": 38,
-          "operational": 34,
-          "witw_id": "tank_stuart_m3",
-          "note": "Reconnaissance and screening"
-        },
-        "Crusader II": {
-          "count": 8,
-          "operational": 8,
-          "witw_id": "tank_crusader_ii",
-          "note": "Light reconnaissance role"
+      "count": {
+        "total": 46,
+        "variants": {
+          "M3 Stuart": {
+            "count": 38,
+            "operational": 34,
+            "witw_id": "tank_stuart_m3",
+            "note": "Reconnaissance and screening"
+          },
+          "Crusader II": {
+            "count": 8,
+            "operational": 8,
+            "witw_id": "tank_crusader_ii",
+            "note": "Light reconnaissance role"
+          }
         }
-      }
+      },
+      "witw_id": "BRI_LIGHT_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     }
   },
   "halftracks": {
@@ -96,26 +126,38 @@
     "variants": {}
   },
   "armored_cars": {
-    "total": 88,
+    "total": {
+      "count": 88,
+      "witw_id": "BRI_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "variants": {
-      "Humber Armoured Car": {
-        "count": 36,
-        "operational": 34,
-        "witw_id": "armoredcar_humber",
-        "role": "Reconnaissance"
+      "count": {
+        "Humber Armoured Car": {
+          "count": 36,
+          "operational": 34,
+          "witw_id": "armoredcar_humber",
+          "role": "Reconnaissance"
+        },
+        "Daimler Armoured Car": {
+          "count": 28,
+          "operational": 26,
+          "witw_id": "armoredcar_daimler",
+          "role": "Reconnaissance"
+        },
+        "Marmon-Herrington Mk II": {
+          "count": 24,
+          "operational": 22,
+          "witw_id": "armoredcar_marmon_herrington",
+          "role": "Reconnaissance"
+        }
       },
-      "Daimler Armoured Car": {
-        "count": 28,
-        "operational": 26,
-        "witw_id": "armoredcar_daimler",
-        "role": "Reconnaissance"
-      },
-      "Marmon-Herrington Mk II": {
-        "count": 24,
-        "operational": 22,
-        "witw_id": "armoredcar_marmon_herrington",
-        "role": "Reconnaissance"
-      }
+      "witw_id": "BRI_VARIANTS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     }
   },
   "trucks": {
@@ -403,5 +445,12 @@
       "Vehicle variant proportions estimated from standard establishments"
     ],
     "aggregation_status": "manually_entered"
+  },
+  "_enrichment": {
+    "enriched_at": "2025-11-02T10:17:26.612673",
+    "enriched_count": 7,
+    "source_file": "british_1942q3_10th_armoured_division_toe.json",
+    "database_version": "master_database.db",
+    "phase": "phase_5_equipment_matching_complete"
   }
 }

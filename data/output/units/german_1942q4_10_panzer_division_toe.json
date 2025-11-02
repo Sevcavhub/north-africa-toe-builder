@@ -50,44 +50,74 @@
   },
   "ground_vehicles_total": 2450,
   "tanks": {
-    "total": 142,
-    "operational": 105,
+    "total": {
+      "count": 142,
+      "witw_id": "GER_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
+    "operational": {
+      "count": 105,
+      "witw_id": "GER_OPERATIONAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "heavy_tanks": {
-      "total": 0,
-      "variants": {}
+      "count": {
+        "total": 0,
+        "variants": {}
+      },
+      "witw_id": "GER_HEAVY_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     },
     "medium_tanks": {
-      "total": 99,
-      "variants": {
-        "Panzer III Ausf J/L": {
-          "count": 45,
-          "operational": 32,
-          "witw_id": "GER_PZIII_L",
-          "notes": "5cm L/60 gun"
-        },
-        "Panzer IV Ausf F2/G": {
-          "count": 54,
-          "operational": 42,
-          "witw_id": "GER_PZIV_F2",
-          "notes": "7.5cm L/43 gun"
+      "count": {
+        "total": 99,
+        "variants": {
+          "Panzer III Ausf J/L": {
+            "count": 45,
+            "operational": 32,
+            "witw_id": "GER_PZIII_L",
+            "notes": "5cm L/60 gun"
+          },
+          "Panzer IV Ausf F2/G": {
+            "count": 54,
+            "operational": 42,
+            "witw_id": "GER_PZIV_F2",
+            "notes": "7.5cm L/43 gun"
+          }
         }
-      }
+      },
+      "witw_id": "GER_MEDIUM_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     },
     "light_tanks": {
-      "total": 43,
-      "variants": {
-        "Panzer II Ausf F": {
-          "count": 28,
-          "operational": 21,
-          "witw_id": "GER_PZII_F"
-        },
-        "Panzer III Ausf E/F (command)": {
-          "count": 15,
-          "operational": 10,
-          "witw_id": "GER_PZIII_COMMAND",
-          "notes": "Battalion/company command tanks"
+      "count": {
+        "total": 43,
+        "variants": {
+          "Panzer II Ausf F": {
+            "count": 28,
+            "operational": 21,
+            "witw_id": "GER_PZII_F"
+          },
+          "Panzer III Ausf E/F (command)": {
+            "count": 15,
+            "operational": 10,
+            "witw_id": "GER_PZIII_COMMAND",
+            "notes": "Battalion/company command tanks"
+          }
         }
-      }
+      },
+      "witw_id": "GER_LIGHT_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     }
   },
   "halftracks": {
@@ -114,18 +144,30 @@
     }
   },
   "armored_cars": {
-    "total": 38,
+    "total": {
+      "count": 38,
+      "witw_id": "GER_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "variants": {
-      "SdKfz 222": {
-        "count": 24,
-        "operational": 20,
-        "witw_id": "GER_SDKFZ222"
+      "count": {
+        "SdKfz 222": {
+          "count": 24,
+          "operational": 20,
+          "witw_id": "GER_SDKFZ222"
+        },
+        "SdKfz 231 (8-rad)": {
+          "count": 14,
+          "operational": 12,
+          "witw_id": "GER_SDKFZ231_8RAD"
+        }
       },
-      "SdKfz 231 (8-rad)": {
-        "count": 14,
-        "operational": 12,
-        "witw_id": "GER_SDKFZ231_8RAD"
-      }
+      "witw_id": "GER_VARIANTS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     }
   },
   "trucks": {
@@ -436,5 +478,12 @@
         "estimate_method": "Applied 74% operational rate to total tank count (142 total = 105 operational). Based on German standard initial deployment readiness minus 10-15% for transit/acclimatization issues."
       }
     }
+  },
+  "_enrichment": {
+    "enriched_at": "2025-11-02T10:17:27.053886",
+    "enriched_count": 7,
+    "source_file": "german_1942q4_10_panzer_division_toe.json",
+    "database_version": "master_database.db",
+    "phase": "phase_5_equipment_matching_complete"
   }
 }

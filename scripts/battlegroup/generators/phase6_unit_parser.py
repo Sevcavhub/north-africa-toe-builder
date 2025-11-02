@@ -359,7 +359,42 @@ class Phase6UnitParser:
             if subcategory_name == 'total':
                 continue
 
-            if isinstance(subcategory_data, dict) and 'variants' in subcategory_data:
+            # Handle enriched format (direct witw_id/count)
+            if isinstance(subcategory_data, dict) and 'witw_id' in subcategory_data:
+                witw_id = subcategory_data.get('witw_id', '')
+                count = subcategory_data.get('count', 0)
+
+                if not witw_id or count == 0:
+                    continue
+
+                # Map to canonical ID
+                mapping_result = self.mapper.map_witw_id_to_canonical(
+                    witw_id,
+                    nation,
+                    subcategory_name
+                )
+
+                if mapping_result:
+                    canonical_id, confidence, method = mapping_result
+                    details = self.mapper.get_equipment_details(canonical_id)
+
+                    if details:
+                        equipment_list.append(MappedEquipment(
+                            canonical_id=canonical_id,
+                            name=details['name'],
+                            count=count,
+                            operational=count,
+                            category=category_name,
+                            points_regular=details.get('points_regular', 0) or 0,
+                            br_regular=details.get('battle_rating_regular', 0) or 0,
+                            confidence=confidence,
+                            mapping_method=method,
+                            original_witw_id=witw_id,
+                            original_variant_name=subcategory_name
+                        ))
+
+            # Handle old format (variants container)
+            elif isinstance(subcategory_data, dict) and 'variants' in subcategory_data:
                 equipment_list.extend(
                     self._extract_from_variants(
                         subcategory_data['variants'],
@@ -380,6 +415,10 @@ class Phase6UnitParser:
         equipment_list = []
 
         for variant_name, variant_data in variants.items():
+            # Skip if not a dict (safety check)
+            if not isinstance(variant_data, dict):
+                continue
+
             witw_id = variant_data.get('witw_id', '')
             count = variant_data.get('count', 0)
             operational = variant_data.get('operational', count)

@@ -1,0 +1,100 @@
+{
+  "number": 6,
+  "name": "PASS ASSAULT",
+  "scenario_type": "Attack/Defence",
+  "battle_size": "Battalion",
+  "table_size": "6' × 4'",
+  "year": "1942",
+  "location_type": "Open Desert",
+  "recommended_nations": [
+    "british",
+    "german",
+    "italian",
+    "american"
+  ],
+  "situation_report": "A vital mountain pass blocks your advance. The enemy has fortified the exit with anti-tank guns and positioned infantry on the commanding heights. To continue the offensive, the pass must be taken. Historical examples: Halfaya Pass, Kasserine Pass.",
+  "tactical_context": "This is one of the most difficult assaults in warfare: a frontal attack through a narrow defile against prepared defenses. The attacker must either force through with overwhelming firepower or infiltrate infantry up the heights to outflank the defenses.",
+  "terrain_features": [
+    {
+      "name": "Mountain Pass",
+      "size": "Runs North-South through table center, 12\" wide",
+      "description": "Narrow defile between impassable rocky hills/mountains",
+      "special_rules": "Only vehicles can use the pass road. Infantry can climb hills (dangerous terrain).",
+      "cover_type": "none",
+      "movement_penalty": "none"
+    },
+    {
+      "name": "Rocky Hills (East Side)",
+      "size": "East side of pass, impassable to vehicles",
+      "description": "Steep rocky terrain flanking the pass",
+      "special_rules": "Impassable to vehicles. Dangerous terrain for infantry. Provides hard cover and +1 observation.",
+      "cover_type": "hard",
+      "movement_penalty": "impassable"
+    },
+    {
+      "name": "Rocky Hills (West Side)",
+      "size": "West side of pass, impassable to vehicles",
+      "description": "Steep rocky terrain flanking the pass",
+      "special_rules": "Impassable to vehicles. Dangerous terrain for infantry. Provides hard cover and +1 observation.",
+      "cover_type": "hard",
+      "movement_penalty": "impassable"
+    }
+  ],
+  "terrain_notes": "Mountain pass creates a deadly funnel for attacking forces",
+  "weather": {
+    "condition": "clear",
+    "turn_starts": 2,
+    "effects": [
+      "Desert Dust Cloud begins on turn 2",
+      "From turn 2: -1 to observation tests",
+      "From turn 2: Maximum weapon range 40\"",
+      "From turn 2: Maximum artillery spotter range 40\""
+    ]
+  },
+  "victory_conditions": "**Attacker Victory**: Control north exit of pass (main objective) at game end.\n\n**Defender Victory**: Hold pass exit OR attacker reaches BR limit in the killing zone.\n\n**Draw**: Attacker controls 1-2 flank objectives but not pass exit.",
+  "deployment_steps": [
+    "Place mountain pass running N-S through table center (12\" wide)",
+    "Place impassable rocky hills on both sides of pass",
+    "Place 3 objectives: 1 at north pass exit, 1 on each flank height",
+    "Defender deploys in north half with prepared positions",
+    "Defender places obstacles/mines in pass (up to 3 locations)",
+    "Attacker deploys at south end entering pass",
+    "Attacker has first turn"
+  ],
+  "deployment_zones": [
+    {
+      "side": "Attacker",
+      "location": "South table edge (entering pass)",
+      "special_rules": [
+        "Funneled into narrow pass",
+        "Vehicles must use road"
+      ]
+    },
+    {
+      "side": "Defender",
+      "location": "North half of pass and flanking heights",
+      "special_rules": [
+        "Fortified pass exit",
+        "AT guns positioned to cover pass",
+        "Infantry on flanking heights"
+      ]
+    }
+  ],
+  "objectives": {
+    "count": 3,
+    "first_objective": "North exit of pass (defender's side)",
+    "spacing_rules": "Objectives along the pass road and flanking heights",
+    "placed_by": "Scenario-defined (1 in pass, 1 on each flank height)"
+  },
+  "attacker_points": 1050,
+  "defender_points": 750,
+  "reinforcements": [],
+  "special_rules": [
+    "**Narrow Frontage**: Only 2-3 vehicles abreast can move through pass",
+    "**Flanking Heights**: Infantry can climb hills but vehicles cannot",
+    "**Prepared Defense**: Defender has fortified pass exit and heights",
+    "**Observation**: Units on heights get +1 observation and can spot into pass",
+    "**Bottleneck**: Destroyed vehicles block the pass (difficult terrain)"
+  ],
+  "deployment_map": "DEPLOYMENT MAP: Pass Assault\nTable Size: 6' x 4'\n\n+------------------------------------------------------------+\n|============================================================|  NORTH (Defender)\n|                                                            |  Defender Zone\n|                                                            |  Defender Zone\n|                                                            |  Defender Zone\n|                                                            |  Defender Zone\n|                                                            |  Defender Zone\n|                                                            |  Defender Zone\n|                                                            |  Defender Zone\n|                                                            |  Defender Zone\n|                                                            |  Defender Zone\n|                                                            |  Defender Zone\n|                                                            |  Defender Zone\n|                                                            |  Defender Zone\n|                                                            |\n|                                                            |\n|                                                            |\n|                                                            |\n|                                                            |\n|                                                            |\n|                                                            |\n|               O              O              O              |  Objectives\n|                                                            |\n|                                                            |\n|                                                            |\n|                                                            |\n|                                                            |\n|                                                            |\n|                                                            |  Attacker Zone\n|                                                            |  Attacker Zone\n|                                                            |  Attacker Zone\n|                                                            |  Attacker Zone\n|                                                            |  Attacker Zone\n|                                                            |  Attacker Zone\n|                                                            |  Attacker Zone\n|                                                            |  Attacker Zone\n|                                                            |  Attacker Zone\n|                                                            |  Attacker Zone\n|                                                            |  Attacker Zone\n|                                                            |  Attacker Zone\n|============================================================|  SOUTH (Attacker)\n+------------------------------------------------------------+\n\nLegend: O = Objective, = = Deployment Zone Edge"
+}

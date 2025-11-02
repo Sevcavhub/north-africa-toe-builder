@@ -43,19 +43,49 @@
   },
   "ground_vehicles_total": 350,
   "tanks": {
-    "total": 0,
-    "operational": 0,
+    "total": {
+      "count": 0,
+      "witw_id": "ITA_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
+    "operational": {
+      "count": 0,
+      "witw_id": "ITA_OPERATIONAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "heavy_tanks": {
-      "total": 0,
-      "variants": {}
+      "count": {
+        "total": 0,
+        "variants": {}
+      },
+      "witw_id": "ITA_HEAVY_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     },
     "medium_tanks": {
-      "total": 0,
-      "variants": {}
+      "count": {
+        "total": 0,
+        "variants": {}
+      },
+      "witw_id": "ITA_MEDIUM_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     },
     "light_tanks": {
-      "total": 0,
-      "variants": {}
+      "count": {
+        "total": 0,
+        "variants": {}
+      },
+      "witw_id": "ITA_LIGHT_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     }
   },
   "trucks": {
@@ -138,23 +168,35 @@
     }
   },
   "mortars": {
-    "total": 162,
+    "total": {
+      "count": 162,
+      "witw_id": "ITA_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "variants": {
-      "45mm Brixia Mod 35": {
-        "count": 108,
-        "caliber": "45mm",
-        "type": "Light mortar"
+      "count": {
+        "45mm Brixia Mod 35": {
+          "count": 108,
+          "caliber": "45mm",
+          "type": "Light mortar"
+        },
+        "81mm Mod 35": {
+          "count": 36,
+          "caliber": "81mm",
+          "type": "Medium mortar"
+        },
+        "65mm/17 Infantry Gun": {
+          "count": 8,
+          "caliber": "65mm",
+          "type": "Infantry support gun"
+        }
       },
-      "81mm Mod 35": {
-        "count": 36,
-        "caliber": "81mm",
-        "type": "Medium mortar"
-      },
-      "65mm/17 Infantry Gun": {
-        "count": 8,
-        "caliber": "65mm",
-        "type": "Infantry support gun"
-      }
+      "witw_id": "ITA_VARIANTS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     }
   },
   "aircraft_total": 0,
@@ -333,12 +375,29 @@
     {
       "designation": "XXI Corpo d'Armata",
       "nation": "italian",
-      "quarters": ["1940q3", "1940q4", "1941q1", "1941q2", "1941q3", "1941q4", "1942q1", "1942q2", "1942q3"],
+      "quarters": [
+        "1940q3",
+        "1940q4",
+        "1941q1",
+        "1941q2",
+        "1941q3",
+        "1941q4",
+        "1942q1",
+        "1942q2",
+        "1942q3"
+      ],
       "type": "corps",
       "source": "Nafziger 941gima.txt and 941gkaa.txt - Parent corps repeatedly mentioned as commanding Brescia, Pavia, Bologna divisions",
       "confidence": 95,
       "reason": "Parent formation mentioned in multiple Nafziger sources across multiple quarters in North Africa",
       "combat_evidence": "XXI Corps commanded Italian infantry divisions (Brescia, Pavia, Bologna) during Operation Compass defensive battles at Sidi Barrani (Dec 1940), Bardia (Jan 1941), Tobruk siege operations (1941), Battle of Gazala (May-June 1942), and First/Second El Alamein (July-Nov 1942). Commanded by Gen. Enea Navarrini in Nov 1941."
     }
-  ]
+  ],
+  "_enrichment": {
+    "enriched_at": "2025-11-02T10:17:27.519842",
+    "enriched_count": 7,
+    "source_file": "italian_1942q2_brescia_division_toe.json",
+    "database_version": "master_database.db",
+    "phase": "phase_5_equipment_matching_complete"
+  }
 }

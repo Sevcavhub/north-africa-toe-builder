@@ -51,19 +51,49 @@
   },
   "ground_vehicles_total": 3350,
   "tanks": {
-    "total": 0,
-    "operational": 0,
+    "total": {
+      "count": 0,
+      "witw_id": "BRI_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
+    "operational": {
+      "count": 0,
+      "witw_id": "BRI_OPERATIONAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "heavy_tanks": {
-      "total": 0,
-      "variants": {}
+      "count": {
+        "total": 0,
+        "variants": {}
+      },
+      "witw_id": "BRI_HEAVY_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     },
     "medium_tanks": {
-      "total": 0,
-      "variants": {}
+      "count": {
+        "total": 0,
+        "variants": {}
+      },
+      "witw_id": "BRI_MEDIUM_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     },
     "light_tanks": {
-      "total": 0,
-      "variants": {}
+      "count": {
+        "total": 0,
+        "variants": {}
+      },
+      "witw_id": "BRI_LIGHT_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     }
   },
   "halftracks": {
@@ -71,20 +101,32 @@
     "variants": {}
   },
   "armored_cars": {
-    "total": 30,
+    "total": {
+      "count": 30,
+      "witw_id": "BRI_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "variants": {
-      "Marmon-Herrington Mk II": {
-        "count": 20,
-        "operational": 18,
-        "witw_id": "uk_armored_car_marmon_herrington_ii",
-        "role": "reconnaissance"
+      "count": {
+        "Marmon-Herrington Mk II": {
+          "count": 20,
+          "operational": 18,
+          "witw_id": "uk_armored_car_marmon_herrington_ii",
+          "role": "reconnaissance"
+        },
+        "Rolls-Royce Armoured Car": {
+          "count": 10,
+          "operational": 9,
+          "witw_id": "uk_armored_car_rolls_royce",
+          "role": "reconnaissance"
+        }
       },
-      "Rolls-Royce Armoured Car": {
-        "count": 10,
-        "operational": 9,
-        "witw_id": "uk_armored_car_rolls_royce",
-        "role": "reconnaissance"
-      }
+      "witw_id": "BRI_VARIANTS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     }
   },
   "trucks": {
@@ -158,18 +200,30 @@
     "variants": {}
   },
   "mortars": {
-    "total": 243,
+    "total": {
+      "count": 243,
+      "witw_id": "BRI_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "variants": {
-      "Ordnance ML 3-inch Mortar": {
-        "count": 54,
-        "caliber": "76mm",
-        "witw_id": "uk_mortar_3inch"
+      "count": {
+        "Ordnance ML 3-inch Mortar": {
+          "count": 54,
+          "caliber": "76mm",
+          "witw_id": "uk_mortar_3inch"
+        },
+        "Ordnance ML 2-inch Mortar": {
+          "count": 189,
+          "caliber": "51mm",
+          "witw_id": "uk_mortar_2inch"
+        }
       },
-      "Ordnance ML 2-inch Mortar": {
-        "count": 189,
-        "caliber": "51mm",
-        "witw_id": "uk_mortar_2inch"
-      }
+      "witw_id": "BRI_VARIANTS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     }
   },
   "aircraft_total": 0,
@@ -393,5 +447,12 @@
         "mitigation": "Access division equipment status reports or Eighth Army logistics summaries for February-March 1942"
       }
     }
+  },
+  "_enrichment": {
+    "enriched_at": "2025-11-02T10:17:26.540438",
+    "enriched_count": 9,
+    "source_file": "british_1942q1_4th_indian_division_toe.json",
+    "database_version": "master_database.db",
+    "phase": "phase_5_equipment_matching_complete"
   }
 }

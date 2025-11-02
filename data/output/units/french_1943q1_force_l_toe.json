@@ -51,31 +51,61 @@
   },
   "ground_vehicles_total": 420,
   "tanks": {
-    "total": 16,
-    "operational": 14,
+    "total": {
+      "count": 16,
+      "witw_id": "FRE_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
+    "operational": {
+      "count": 14,
+      "witw_id": "FRE_OPERATIONAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "heavy_tanks": {
-      "total": 0,
-      "variants": {}
+      "count": {
+        "total": 0,
+        "variants": {}
+      },
+      "witw_id": "FRE_HEAVY_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     },
     "medium_tanks": {
-      "total": 0,
-      "variants": {}
+      "count": {
+        "total": 0,
+        "variants": {}
+      },
+      "witw_id": "FRE_MEDIUM_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     },
     "light_tanks": {
-      "total": 16,
-      "variants": {
-        "Stuart M3": {
-          "count": 12,
-          "operational": 11,
-          "witw_id": "american_m3_stuart",
-          "note": "501st Tank Company - received January 1943 Tripoli"
-        },
-        "Marmon-Herrington Mk III": {
-          "count": 4,
-          "operational": 3,
-          "witw_id": "south_african_marmon_mk3"
+      "count": {
+        "total": 16,
+        "variants": {
+          "Stuart M3": {
+            "count": 12,
+            "operational": 11,
+            "witw_id": "american_m3_stuart",
+            "note": "501st Tank Company - received January 1943 Tripoli"
+          },
+          "Marmon-Herrington Mk III": {
+            "count": 4,
+            "operational": 3,
+            "witw_id": "south_african_marmon_mk3"
+          }
         }
-      }
+      },
+      "witw_id": "FRE_LIGHT_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     }
   },
   "halftracks": {
@@ -91,18 +121,30 @@
     }
   },
   "armored_cars": {
-    "total": 14,
+    "total": {
+      "count": 14,
+      "witw_id": "FRE_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "variants": {
-      "Marmon-Herrington Mk II": {
-        "count": 8,
-        "operational": 7,
-        "witw_id": "south_african_marmon_mk2"
+      "count": {
+        "Marmon-Herrington Mk II": {
+          "count": 8,
+          "operational": 7,
+          "witw_id": "south_african_marmon_mk2"
+        },
+        "Humber Mk III": {
+          "count": 6,
+          "operational": 5,
+          "witw_id": "british_humber_mk3"
+        }
       },
-      "Humber Mk III": {
-        "count": 6,
-        "operational": 5,
-        "witw_id": "british_humber_mk3"
-      }
+      "witw_id": "FRE_VARIANTS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     }
   },
   "trucks": {
@@ -228,18 +270,30 @@
     }
   },
   "mortars": {
-    "total": 18,
+    "total": {
+      "count": 18,
+      "witw_id": "FRE_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "variants": {
-      "Ordnance ML 3 inch Mortar": {
-        "count": 12,
-        "caliber": "76.2mm",
-        "witw_id": "mortar_3inch"
+      "count": {
+        "Ordnance ML 3 inch Mortar": {
+          "count": 12,
+          "caliber": "76.2mm",
+          "witw_id": "mortar_3inch"
+        },
+        "Ordnance SBML 2 inch Mortar": {
+          "count": 6,
+          "caliber": "50.8mm",
+          "witw_id": "mortar_2inch"
+        }
       },
-      "Ordnance SBML 2 inch Mortar": {
-        "count": 6,
-        "caliber": "50.8mm",
-        "witw_id": "mortar_2inch"
-      }
+      "witw_id": "FRE_VARIANTS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     }
   },
   "aircraft_total": 0,
@@ -461,5 +515,12 @@
       "subordinate_commanders": "Unit commander names not identified except Leclerc - typical for colonial forces with high officer turnover",
       "artillery_details": "Battery compositions estimated from reorganization notes - precise gun allocations unknown"
     }
+  },
+  "_enrichment": {
+    "enriched_at": "2025-11-02T10:17:26.906644",
+    "enriched_count": 9,
+    "source_file": "french_1943q1_force_l_toe.json",
+    "database_version": "master_database.db",
+    "phase": "phase_5_equipment_matching_complete"
   }
 }

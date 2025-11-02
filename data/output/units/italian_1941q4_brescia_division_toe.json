@@ -58,90 +58,258 @@
     }
   },
   "tanks": {
-    "heavy_tanks": 0,
-    "medium_tanks": 0,
-    "light_tanks": 0,
-    "total": 0,
-    "operational": 0
+    "heavy_tanks": {
+      "count": 0,
+      "witw_id": "ITA_HEAVY_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
+    "medium_tanks": {
+      "count": 0,
+      "witw_id": "ITA_MEDIUM_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
+    "light_tanks": {
+      "count": 0,
+      "witw_id": "ITA_LIGHT_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
+    "total": {
+      "count": 0,
+      "witw_id": "ITA_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
+    "operational": {
+      "count": 0,
+      "witw_id": "ITA_OPERATIONAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    }
   },
   "armored_cars": {
-    "ab40": 8,
-    "ab41": 4,
-    "total": 12,
-    "operational": 11
+    "ab40": {
+      "count": 8,
+      "error": "no such column: afv_id"
+    },
+    "ab41": {
+      "count": 4,
+      "error": "no such column: afv_id"
+    },
+    "total": {
+      "count": 12,
+      "witw_id": "ITA_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
+    "operational": {
+      "count": 11,
+      "witw_id": "ITA_OPERATIONAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    }
   },
   "artillery": {
     "field_guns": {
-      "75mm_13_mod06": {
-        "count": 8,
-        "operational": 7,
-        "organization": "3rd & 4th Artillery Groups - 1st Celere Artillery Regiment (not organic)"
+      "count": {
+        "75mm_13_mod06": {
+          "count": 8,
+          "operational": 7,
+          "organization": "3rd & 4th Artillery Groups - 1st Celere Artillery Regiment (not organic)"
+        },
+        "75mm_27_mod11": {
+          "count": 48,
+          "operational": 45,
+          "organization": "Standard divisional field artillery"
+        },
+        "100mm_17_mod14": {
+          "count": 20,
+          "operational": 18,
+          "organization": "1st & 2nd Howitzer Groups - 1st Celere Artillery Regiment (not organic)"
+        },
+        "total": 76
       },
-      "75mm_27_mod11": {
-        "count": 48,
-        "operational": 45,
-        "organization": "Standard divisional field artillery"
-      },
-      "100mm_17_mod14": {
-        "count": 20,
-        "operational": 18,
-        "organization": "1st & 2nd Howitzer Groups - 1st Celere Artillery Regiment (not organic)"
-      },
-      "total": 76
+      "witw_id": "ITA_FIELD_GUNS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     },
     "anti_tank": {
-      "47mm_32_mod35": {
-        "count": 36,
-        "operational": 33,
-        "organization": "Divisional AT company (6 guns) + regimental AT companies (12 guns each x 2) + reinforcement batteries"
+      "count": {
+        "47mm_32_mod35": {
+          "count": 36,
+          "operational": 33,
+          "organization": "Divisional AT company (6 guns) + regimental AT companies (12 guns each x 2) + reinforcement batteries"
+        },
+        "37mm_45_pom_pom": {
+          "count": 12,
+          "operational": 11,
+          "organization": "Independent platoons (2+4 guns) - light AT/AA dual purpose"
+        },
+        "total": 48
       },
-      "37mm_45_pom_pom": {
-        "count": 12,
-        "operational": 11,
-        "organization": "Independent platoons (2+4 guns) - light AT/AA dual purpose"
+      "witw_id": "ITA_ANTI_TANK",
+      "specifications": {
+        "type": "gun",
+        "details": "See match_reviews notes"
       },
-      "total": 48
+      "confidence": 85,
+      "source": "match_reviews"
     },
     "anti_aircraft": {
-      "20mm_65_mod35": {
-        "count": 32,
-        "operational": 29,
-        "organization": "8 guns organic AA battery + 24 guns reinforcement companies (404th, 502nd)"
+      "count": {
+        "20mm_65_mod35": {
+          "count": 32,
+          "operational": 29,
+          "organization": "8 guns organic AA battery + 24 guns reinforcement companies (404th, 502nd)"
+        },
+        "total": 32
       },
-      "total": 32
+      "witw_id": "ITA_ANTI_AIRCRAFT",
+      "specifications": {
+        "type": "gun",
+        "details": "See match_reviews notes"
+      },
+      "confidence": 85,
+      "source": "match_reviews"
     },
     "mortars": {
-      "81mm": {
-        "count": 54,
-        "operational": 51,
-        "organization": "Regimental mortar companies (2x10) + battalion companies (6x6) + divisional reserve"
+      "count": {
+        "81mm": {
+          "count": 54,
+          "operational": 51,
+          "organization": "Regimental mortar companies (2x10) + battalion companies (6x6) + divisional reserve"
+        },
+        "45mm_brixia": {
+          "count": 108,
+          "operational": 100,
+          "organization": "Company level - 3 per rifle company x 36 companies"
+        },
+        "total": 162
       },
-      "45mm_brixia": {
-        "count": 108,
-        "operational": 100,
-        "organization": "Company level - 3 per rifle company x 36 companies"
-      },
-      "total": 162
+      "witw_id": "ITA_MORTARS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     },
-    "total_tubes": 318
+    "total_tubes": {
+      "count": 318,
+      "witw_id": "ITA_TOTAL_TUBES",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    }
   },
   "ground_vehicles": {
-    "trucks": 895,
-    "motorcycles": 145,
-    "staff_cars": 28,
-    "ambulances": 42,
-    "water_tankers": 55,
-    "fuel_tankers": 35,
-    "workshop_trucks": 18,
-    "radio_trucks": 10,
-    "total": 1228,
-    "operational": 882
+    "trucks": {
+      "count": 895,
+      "witw_id": "ITA_TRUCKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
+    "motorcycles": {
+      "count": 145,
+      "witw_id": "ITA_MOTORCYCLES",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
+    "staff_cars": {
+      "count": 28,
+      "witw_id": "ITA_STAFF_CARS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
+    "ambulances": {
+      "count": 42,
+      "witw_id": "ITA_AMBULANCES",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
+    "water_tankers": {
+      "count": 55,
+      "witw_id": "ITA_WATER_TANKERS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
+    "fuel_tankers": {
+      "count": 35,
+      "witw_id": "ITA_FUEL_TANKERS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
+    "workshop_trucks": {
+      "count": 18,
+      "witw_id": "ITA_WORKSHOP_TRUCKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
+    "radio_trucks": {
+      "count": 10,
+      "witw_id": "ITA_RADIO_TRUCKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
+    "total": {
+      "count": 1228,
+      "witw_id": "ITA_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
+    "operational": {
+      "count": 882,
+      "witw_id": "ITA_OPERATIONAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    }
   },
   "small_arms": {
-    "rifles": 8420,
-    "lmg": 324,
-    "hmg": 108,
-    "submachine_guns": 180
+    "rifles": {
+      "count": 8420,
+      "witw_id": "ITA_RIFLES",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
+    "lmg": {
+      "count": 324,
+      "witw_id": "ITA_LMG",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
+    "hmg": {
+      "count": 108,
+      "witw_id": "ITA_HMG",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
+    "submachine_guns": {
+      "count": 180,
+      "witw_id": "ITA_SUBMACHINE_GUNS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    }
   },
   "fuel_days": 8.5,
   "ammo_days": 12,
@@ -203,5 +371,12 @@
       "Water critical: division requires 45,000 liters/day in desert environment",
       "Commander Zambon served from June 1940 through October 10, 1941"
     ]
+  },
+  "_enrichment": {
+    "enriched_at": "2025-11-02T10:17:27.451052",
+    "enriched_count": 26,
+    "source_file": "italian_1941q4_brescia_division_toe.json",
+    "database_version": "master_database.db",
+    "phase": "phase_5_equipment_matching_complete"
   }
 }

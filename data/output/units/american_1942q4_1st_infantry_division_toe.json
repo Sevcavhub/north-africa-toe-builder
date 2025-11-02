@@ -51,19 +51,49 @@
   },
   "ground_vehicles_total": 2281,
   "tanks": {
-    "total": 0,
-    "operational": 0,
+    "total": {
+      "count": 0,
+      "witw_id": "AME_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
+    "operational": {
+      "count": 0,
+      "witw_id": "AME_OPERATIONAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "heavy_tanks": {
-      "total": 0,
-      "variants": {}
+      "count": {
+        "total": 0,
+        "variants": {}
+      },
+      "witw_id": "AME_HEAVY_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     },
     "medium_tanks": {
-      "total": 0,
-      "variants": {}
+      "count": {
+        "total": 0,
+        "variants": {}
+      },
+      "witw_id": "AME_MEDIUM_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     },
     "light_tanks": {
-      "total": 0,
-      "variants": {}
+      "count": {
+        "total": 0,
+        "variants": {}
+      },
+      "witw_id": "AME_LIGHT_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     }
   },
   "halftracks": {
@@ -82,18 +112,30 @@
     }
   },
   "armored_cars": {
-    "total": 67,
+    "total": {
+      "count": 67,
+      "witw_id": "AME_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "variants": {
-      "M8 Greyhound Armored Car": {
-        "count": 45,
-        "operational": 43,
-        "witw_id": "M8_Greyhound"
+      "count": {
+        "M8 Greyhound Armored Car": {
+          "count": 45,
+          "operational": 43,
+          "witw_id": "M8_Greyhound"
+        },
+        "M3A1 Scout Car": {
+          "count": 22,
+          "operational": 21,
+          "witw_id": "M3A1_Scout_Car"
+        }
       },
-      "M3A1 Scout Car": {
-        "count": 22,
-        "operational": 21,
-        "witw_id": "M3A1_Scout_Car"
-      }
+      "witw_id": "AME_VARIANTS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     }
   },
   "trucks": {
@@ -406,5 +448,12 @@
       "Individual soldier positions at squad level (not included at division level per schema)"
     ],
     "aggregation_status": "calculated"
+  },
+  "_enrichment": {
+    "enriched_at": "2025-11-02T10:17:26.233807",
+    "enriched_count": 7,
+    "source_file": "american_1942q4_1st_infantry_division_toe.json",
+    "database_version": "master_database.db",
+    "phase": "phase_5_equipment_matching_complete"
   }
 }

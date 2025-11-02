@@ -142,34 +142,64 @@
   },
   "ground_vehicles_total": 209,
   "tanks": {
-    "total": 28,
-    "operational": 26,
+    "total": {
+      "count": 28,
+      "witw_id": "GER_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
+    "operational": {
+      "count": 26,
+      "witw_id": "GER_OPERATIONAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "heavy_tanks": {
-      "total": 0,
-      "variants": {}
+      "count": {
+        "total": 0,
+        "variants": {}
+      },
+      "witw_id": "GER_HEAVY_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     },
     "medium_tanks": {
-      "total": 0,
-      "variants": {}
+      "count": {
+        "total": 0,
+        "variants": {}
+      },
+      "witw_id": "GER_MEDIUM_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     },
     "light_tanks": {
-      "total": 28,
-      "variants": {
-        "Pz.Kpfw. I Ausf. B": {
-          "count": 4,
-          "operational": 2,
-          "role": "command_reconnaissance",
-          "notes": "2 tanks short of authorized strength"
-        },
-        "Pz.Kpfw. I Ausf. B with 4.7cm PaK(t)": {
-          "count": 24,
-          "operational": 24,
-          "authorized": 28,
-          "role": "tank_destroyer",
-          "witw_id": "GER_PzJgr_I",
-          "notes": "Self-propelled anti-tank guns on Pz.Kpfw. I chassis; 4 tanks short"
+      "count": {
+        "total": 28,
+        "variants": {
+          "Pz.Kpfw. I Ausf. B": {
+            "count": 4,
+            "operational": 2,
+            "role": "command_reconnaissance",
+            "notes": "2 tanks short of authorized strength"
+          },
+          "Pz.Kpfw. I Ausf. B with 4.7cm PaK(t)": {
+            "count": 24,
+            "operational": 24,
+            "authorized": 28,
+            "role": "tank_destroyer",
+            "witw_id": "GER_PzJgr_I",
+            "notes": "Self-propelled anti-tank guns on Pz.Kpfw. I chassis; 4 tanks short"
+          }
         }
-      }
+      },
+      "witw_id": "GER_LIGHT_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     }
   },
   "halftracks": {
@@ -192,8 +222,20 @@
     }
   },
   "armored_cars": {
-    "total": 0,
-    "variants": {}
+    "total": {
+      "count": 0,
+      "witw_id": "GER_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
+    "variants": {
+      "count": {},
+      "witw_id": "GER_VARIANTS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    }
   },
   "motorcycles": {
     "total": 41,
@@ -616,5 +658,12 @@
     "aggregation_status": "manually_entered_from_primary_source",
     "data_quality_notes": "Excellent source quality - Nafziger OOB derived from German Army High Command records (Microcopy T-313, Roll 458). Document includes actual vs authorized strength for all weapons and vehicles as of 1 October 1942. This is exact snapshot during El Alamein defensive period. Personnel estimates based on unit organization and historical divisional strengths for German light divisions in North Africa.",
     "historical_context": "90. leichte Afrika-Division at El Alamein represents a veteran formation suffering from chronic supply and equipment shortages typical of Axis forces in North Africa by Q4 1942. Despite having only 17.5% of authorized trucks, the division fought effectively in defensive operations under von Sponeck's command. The division's equipment mix of German, captured Soviet, captured French, and captured British weapons reflects the desperate supply situation. Montgomery later praised von Sponeck's handling of the retreat from El Alamein."
+  },
+  "_enrichment": {
+    "enriched_at": "2025-11-02T10:17:27.072743",
+    "enriched_count": 7,
+    "source_file": "german_1942q4_90_leichte_division_toe.json",
+    "database_version": "master_database.db",
+    "phase": "phase_5_equipment_matching_complete"
   }
 }

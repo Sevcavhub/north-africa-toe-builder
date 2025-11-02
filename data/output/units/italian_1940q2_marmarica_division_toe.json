@@ -52,25 +52,73 @@
   },
   "ground_vehicles_total": 357,
   "tanks": {
-    "total": 0,
-    "operational": 0,
+    "total": {
+      "count": 0,
+      "witw_id": "ITA_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
+    "operational": {
+      "count": 0,
+      "witw_id": "ITA_OPERATIONAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "heavy_tanks": {
-      "total": 0,
-      "variants": {}
+      "count": {
+        "total": 0,
+        "variants": {}
+      },
+      "witw_id": "ITA_HEAVY_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     },
     "medium_tanks": {
-      "total": 0,
-      "variants": {}
+      "count": {
+        "total": 0,
+        "variants": {}
+      },
+      "witw_id": "ITA_MEDIUM_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     },
     "light_tanks": {
-      "total": 0,
-      "variants": {}
+      "count": {
+        "total": 0,
+        "variants": {}
+      },
+      "witw_id": "ITA_LIGHT_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     }
   },
   "armored_cars": {
-    "total": 0,
-    "operational": 0,
-    "variants": {}
+    "total": {
+      "count": 0,
+      "witw_id": "ITA_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
+    "operational": {
+      "count": 0,
+      "witw_id": "ITA_OPERATIONAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
+    "variants": {
+      "count": {},
+      "witw_id": "ITA_VARIANTS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    }
   },
   "trucks": {
     "total": 269,
@@ -203,23 +251,41 @@
     }
   },
   "mortars": {
-    "total": 144,
-    "operational": 138,
+    "total": {
+      "count": 144,
+      "witw_id": "ITA_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
+    "operational": {
+      "count": 138,
+      "witw_id": "ITA_OPERATIONAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "variants": {
-      "Mortaio da 45mm Brixia Modello 35": {
-        "count": 108,
-        "operational": 104,
-        "caliber": "45mm",
-        "type": "light_mortar",
-        "witw_id": null
+      "count": {
+        "Mortaio da 45mm Brixia Modello 35": {
+          "count": 108,
+          "operational": 104,
+          "caliber": "45mm",
+          "type": "light_mortar",
+          "witw_id": null
+        },
+        "Mortaio da 81/14 Modello 35": {
+          "count": 36,
+          "operational": 34,
+          "caliber": "81mm",
+          "type": "medium_mortar",
+          "witw_id": null
+        }
       },
-      "Mortaio da 81/14 Modello 35": {
-        "count": 36,
-        "operational": 34,
-        "caliber": "81mm",
-        "type": "medium_mortar",
-        "witw_id": null
-      }
+      "witw_id": "ITA_VARIANTS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     }
   },
   "aircraft_total": 0,
@@ -402,5 +468,12 @@
     "aggregation_status": "manually_entered",
     "data_quality_notes": "Primary source data from US Army G-2 1943 order of battle document confirmed division composition (115th, 116th Infantry Regiments + 44th Artillery Regiment). Personnel and equipment numbers derived from standard Italian binary division TO&E documented in TM E 30-420. Historical context cross-referenced with multiple sources. Commander name not found despite extensive search - marked as Unknown per project guidelines (confidence <50% for this specific data point). Division destroyed in January 1941 so Q2 1940 represents early operational status.",
     "research_methodology": "Three-tier source waterfall: (1) Primary local documents (US Army OOB, TM E 30-420), (2) Curated web sources for historical context, (3) Standard division TO&E applied where unit-specific data unavailable. Conservative estimates used for operational readiness (90-95% of authorized)."
+  },
+  "_enrichment": {
+    "enriched_at": "2025-11-02T10:17:27.170663",
+    "enriched_count": 11,
+    "source_file": "italian_1940q2_marmarica_division_toe.json",
+    "database_version": "master_database.db",
+    "phase": "phase_5_equipment_matching_complete"
   }
 }

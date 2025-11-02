@@ -51,31 +51,61 @@
   },
   "ground_vehicles_total": 445,
   "tanks": {
-    "total": 18,
-    "operational": 16,
+    "total": {
+      "count": 18,
+      "witw_id": "FRE_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
+    "operational": {
+      "count": 16,
+      "witw_id": "FRE_OPERATIONAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "heavy_tanks": {
-      "total": 0,
-      "variants": {}
+      "count": {
+        "total": 0,
+        "variants": {}
+      },
+      "witw_id": "FRE_HEAVY_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     },
     "medium_tanks": {
-      "total": 0,
-      "variants": {}
+      "count": {
+        "total": 0,
+        "variants": {}
+      },
+      "witw_id": "FRE_MEDIUM_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     },
     "light_tanks": {
-      "total": 18,
-      "variants": {
-        "Stuart M3": {
-          "count": 14,
-          "operational": 13,
-          "witw_id": "american_m3_stuart",
-          "note": "501st Tank Company - reinforced from 12 to 14 tanks April 1943"
-        },
-        "Marmon-Herrington Mk III": {
-          "count": 4,
-          "operational": 3,
-          "witw_id": "south_african_marmon_mk3"
+      "count": {
+        "total": 18,
+        "variants": {
+          "Stuart M3": {
+            "count": 14,
+            "operational": 13,
+            "witw_id": "american_m3_stuart",
+            "note": "501st Tank Company - reinforced from 12 to 14 tanks April 1943"
+          },
+          "Marmon-Herrington Mk III": {
+            "count": 4,
+            "operational": 3,
+            "witw_id": "south_african_marmon_mk3"
+          }
         }
-      }
+      },
+      "witw_id": "FRE_LIGHT_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     }
   },
   "halftracks": {
@@ -91,19 +121,31 @@
     }
   },
   "armored_cars": {
-    "total": 16,
+    "total": {
+      "count": 16,
+      "witw_id": "FRE_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "variants": {
-      "Marmon-Herrington Mk II": {
-        "count": 10,
-        "operational": 9,
-        "witw_id": "south_african_marmon_mk2",
-        "note": "Increased from 8 to 10 units"
+      "count": {
+        "Marmon-Herrington Mk II": {
+          "count": 10,
+          "operational": 9,
+          "witw_id": "south_african_marmon_mk2",
+          "note": "Increased from 8 to 10 units"
+        },
+        "Humber Mk III": {
+          "count": 6,
+          "operational": 5,
+          "witw_id": "british_humber_mk3"
+        }
       },
-      "Humber Mk III": {
-        "count": 6,
-        "operational": 5,
-        "witw_id": "british_humber_mk3"
-      }
+      "witw_id": "FRE_VARIANTS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     }
   },
   "trucks": {
@@ -230,19 +272,31 @@
     }
   },
   "mortars": {
-    "total": 20,
+    "total": {
+      "count": 20,
+      "witw_id": "FRE_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "variants": {
-      "Ordnance ML 3 inch Mortar": {
-        "count": 14,
-        "caliber": "76.2mm",
-        "witw_id": "mortar_3inch",
-        "note": "Increased from 12 to 14 mortars"
+      "count": {
+        "Ordnance ML 3 inch Mortar": {
+          "count": 14,
+          "caliber": "76.2mm",
+          "witw_id": "mortar_3inch",
+          "note": "Increased from 12 to 14 mortars"
+        },
+        "Ordnance SBML 2 inch Mortar": {
+          "count": 6,
+          "caliber": "50.8mm",
+          "witw_id": "mortar_2inch"
+        }
       },
-      "Ordnance SBML 2 inch Mortar": {
-        "count": 6,
-        "caliber": "50.8mm",
-        "witw_id": "mortar_2inch"
-      }
+      "witw_id": "FRE_VARIANTS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     }
   },
   "aircraft_total": 0,
@@ -483,5 +537,12 @@
       "combat_effectiveness": "Elite. Force L demonstrated continued high effectiveness in Q2 1943 despite terrain transition from Saharan desert to Mediterranean mountains/plains. Successfully seized difficult objectives (Djebel Garci), maintained operational tempo during rapid pursuit, and integrated effectively with British Eighth Army final offensive",
       "casualties": "Casualties during April-May 1943 operations not quantified in available sources but were replaced through reinforcements - force strength increased from 3,400 (Q1) to 4,000 (Q2)"
     }
+  },
+  "_enrichment": {
+    "enriched_at": "2025-11-02T10:17:26.928582",
+    "enriched_count": 9,
+    "source_file": "french_1943q2_force_l_toe.json",
+    "database_version": "master_database.db",
+    "phase": "phase_5_equipment_matching_complete"
   }
 }

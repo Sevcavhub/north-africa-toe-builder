@@ -50,32 +50,68 @@
     }
   },
   "tanks": {
-    "total": 21,
-    "operational": 17,
+    "total": {
+      "count": 21,
+      "witw_id": "ITA_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
+    "operational": {
+      "count": 17,
+      "witw_id": "ITA_OPERATIONAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "heavy_tanks": {
-      "total": 0,
-      "variants": {}
+      "count": {
+        "total": 0,
+        "variants": {}
+      },
+      "witw_id": "ITA_HEAVY_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     },
     "medium_tanks": {
-      "total": 0,
-      "variants": {}
+      "count": {
+        "total": 0,
+        "variants": {}
+      },
+      "witw_id": "ITA_MEDIUM_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     },
     "light_tanks": {
-      "total": 21,
-      "variants": {
-        "L3/35 Tankette": {
-          "count": 20,
-          "operational": 16,
-          "notes": "XLII Light Tank Battalion - authorized 49 vehicles, actual strength ~21 (43% of establishment). Severe under-strength due to equipment shortages and mechanical failures."
-        },
-        "L3/35 Carro Commando": {
-          "count": 1,
-          "operational": 1,
-          "notes": "Command vehicle variant with enhanced radio equipment"
+      "count": {
+        "total": 21,
+        "variants": {
+          "L3/35 Tankette": {
+            "count": 20,
+            "operational": 16,
+            "notes": "XLII Light Tank Battalion - authorized 49 vehicles, actual strength ~21 (43% of establishment). Severe under-strength due to equipment shortages and mechanical failures."
+          },
+          "L3/35 Carro Commando": {
+            "count": 1,
+            "operational": 1,
+            "notes": "Command vehicle variant with enhanced radio equipment"
+          }
         }
-      }
+      },
+      "witw_id": "ITA_LIGHT_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     },
-    "notes": "XLII Light Tank Battalion catastrophically under-strength. L3/35 tankettes obsolete - twin 8mm MGs ineffective against British armor. Will prove completely useless against Matilda II tanks at Bardia (January 1941)."
+    "notes": {
+      "count": "XLII Light Tank Battalion catastrophically under-strength. L3/35 tankettes obsolete - twin 8mm MGs ineffective against British armor. Will prove completely useless against Matilda II tanks at Bardia (January 1941).",
+      "witw_id": "ITA_NOTES",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    }
   },
   "artillery_total": 56,
   "field_artillery": {
@@ -124,18 +160,30 @@
     }
   },
   "mortars": {
-    "total": 54,
+    "total": {
+      "count": 54,
+      "witw_id": "ITA_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "variants": {
-      "45mm Brixia": {
-        "count": 42,
-        "caliber": "45mm",
-        "notes": "Battalion mortars - 7 per battalion x 6 battalions. Mortaio da 45mm Mod. 1935 (Brixia)."
+      "count": {
+        "45mm Brixia": {
+          "count": 42,
+          "caliber": "45mm",
+          "notes": "Battalion mortars - 7 per battalion x 6 battalions. Mortaio da 45mm Mod. 1935 (Brixia)."
+        },
+        "81mm Mortar": {
+          "count": 12,
+          "caliber": "81mm",
+          "notes": "Legion Mortar Companies - 6 per legion x 2 legions. Mortaio da 81mm Mod. 1935."
+        }
       },
-      "81mm Mortar": {
-        "count": 12,
-        "caliber": "81mm",
-        "notes": "Legion Mortar Companies - 6 per legion x 2 legions. Mortaio da 81mm Mod. 1935."
-      }
+      "witw_id": "ITA_VARIANTS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     }
   },
   "ground_vehicles_total": 312,
@@ -165,13 +213,25 @@
     }
   },
   "armored_cars": {
-    "total": 4,
+    "total": {
+      "count": 4,
+      "witw_id": "ITA_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "variants": {
-      "Autoblinda AB 40": {
-        "count": 4,
-        "operational": 3,
-        "notes": "Reconnaissance armored cars. 4x4 drive, triple 8mm MGs, 9mm armor, 78 km/h road speed."
-      }
+      "count": {
+        "Autoblinda AB 40": {
+          "count": 4,
+          "operational": 3,
+          "notes": "Reconnaissance armored cars. 4x4 drive, triple 8mm MGs, 9mm armor, 78 km/h road speed."
+        }
+      },
+      "witw_id": "ITA_VARIANTS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     }
   },
   "motorcycles": {
@@ -457,5 +517,12 @@
       "Division will be destroyed at Bardia January 3-5, 1941 (see 1941q1 TO&E for battle snapshot)"
     ]
   },
-  "discovered_units": []
+  "discovered_units": [],
+  "_enrichment": {
+    "enriched_at": "2025-11-02T10:17:27.244138",
+    "enriched_count": 10,
+    "source_file": "italian_1940q4_2nd_ccnn_division_28_ottobre_toe.json",
+    "database_version": "master_database.db",
+    "phase": "phase_5_equipment_matching_complete"
+  }
 }

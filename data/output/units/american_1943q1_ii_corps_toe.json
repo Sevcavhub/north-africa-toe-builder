@@ -66,53 +66,83 @@
   },
   "ground_vehicles_total": 23218,
   "tanks": {
-    "total": 390,
-    "operational": 320,
+    "total": {
+      "count": 390,
+      "witw_id": "AME_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
+    "operational": {
+      "count": 320,
+      "witw_id": "AME_OPERATIONAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "heavy_tanks": {
-      "total": 0,
-      "variants": {}
+      "count": {
+        "total": 0,
+        "variants": {}
+      },
+      "witw_id": "AME_HEAVY_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     },
     "medium_tanks": {
-      "total": 320,
-      "operational": 275,
-      "variants": {
-        "M4 Sherman": {
-          "count": 150,
-          "operational": 130,
-          "witw_id": "213",
-          "note": "Early production models with 75mm gun"
-        },
-        "M4A1 Sherman": {
-          "count": 100,
-          "operational": 85,
-          "witw_id": "214",
-          "note": "Cast hull variant"
-        },
-        "M3 Lee/Grant": {
-          "count": 70,
-          "operational": 60,
-          "witw_id": "211",
-          "note": "Interim design, being phased out"
+      "count": {
+        "total": 320,
+        "operational": 275,
+        "variants": {
+          "M4 Sherman": {
+            "count": 150,
+            "operational": 130,
+            "witw_id": "213",
+            "note": "Early production models with 75mm gun"
+          },
+          "M4A1 Sherman": {
+            "count": 100,
+            "operational": 85,
+            "witw_id": "214",
+            "note": "Cast hull variant"
+          },
+          "M3 Lee/Grant": {
+            "count": 70,
+            "operational": 60,
+            "witw_id": "211",
+            "note": "Interim design, being phased out"
+          }
         }
-      }
+      },
+      "witw_id": "AME_MEDIUM_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     },
     "light_tanks": {
-      "total": 70,
-      "operational": 45,
-      "variants": {
-        "M5 Stuart": {
-          "count": 40,
-          "operational": 30,
-          "witw_id": "209",
-          "note": "Improved Stuart with Cadillac engine"
-        },
-        "M3A1 Stuart": {
-          "count": 30,
-          "operational": 15,
-          "witw_id": "208",
-          "note": "Earlier model, limited combat value"
+      "count": {
+        "total": 70,
+        "operational": 45,
+        "variants": {
+          "M5 Stuart": {
+            "count": 40,
+            "operational": 30,
+            "witw_id": "209",
+            "note": "Improved Stuart with Cadillac engine"
+          },
+          "M3A1 Stuart": {
+            "count": 30,
+            "operational": 15,
+            "witw_id": "208",
+            "note": "Earlier model, limited combat value"
+          }
         }
-      }
+      },
+      "witw_id": "AME_LIGHT_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     }
   },
   "halftracks": {
@@ -134,21 +164,39 @@
     }
   },
   "armored_cars": {
-    "total": 195,
-    "operational": 165,
+    "total": {
+      "count": 195,
+      "witw_id": "AME_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
+    "operational": {
+      "count": 165,
+      "witw_id": "AME_OPERATIONAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "variants": {
-      "M8 Greyhound": {
-        "count": 120,
-        "operational": 105,
-        "witw_id": "224",
-        "role": "Reconnaissance"
+      "count": {
+        "M8 Greyhound": {
+          "count": 120,
+          "operational": 105,
+          "witw_id": "224",
+          "role": "Reconnaissance"
+        },
+        "M3 Scout Car": {
+          "count": 75,
+          "operational": 60,
+          "witw_id": "223",
+          "role": "Light reconnaissance and command vehicle"
+        }
       },
-      "M3 Scout Car": {
-        "count": 75,
-        "operational": 60,
-        "witw_id": "223",
-        "role": "Light reconnaissance and command vehicle"
-      }
+      "witw_id": "AME_VARIANTS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     }
   },
   "trucks": {
@@ -596,5 +644,12 @@
       "Equipment totals represent peak strength end of Q1 1943",
       "Kasserine Pass (Feb 19-25) resulted in significant losses, partially replaced by end of quarter"
     ]
+  },
+  "_enrichment": {
+    "enriched_at": "2025-11-02T10:17:26.277050",
+    "enriched_count": 8,
+    "source_file": "american_1943q1_ii_corps_toe.json",
+    "database_version": "master_database.db",
+    "phase": "phase_5_equipment_matching_complete"
   }
 }

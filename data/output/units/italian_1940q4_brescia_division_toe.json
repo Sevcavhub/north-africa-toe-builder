@@ -52,26 +52,56 @@
   },
   "ground_vehicles_total": 495,
   "tanks": {
-    "total": 12,
-    "operational": 11,
+    "total": {
+      "count": 12,
+      "witw_id": "ITA_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
+    "operational": {
+      "count": 11,
+      "witw_id": "ITA_OPERATIONAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "heavy_tanks": {
-      "total": 0,
-      "variants": {}
+      "count": {
+        "total": 0,
+        "variants": {}
+      },
+      "witw_id": "ITA_HEAVY_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     },
     "medium_tanks": {
-      "total": 0,
-      "variants": {}
+      "count": {
+        "total": 0,
+        "variants": {}
+      },
+      "witw_id": "ITA_MEDIUM_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     },
     "light_tanks": {
-      "total": 12,
-      "variants": {
-        "L3/35": {
-          "count": 12,
-          "operational": 11,
-          "witw_id": "ITA_TANK_L3_35",
-          "notes": "From XXVII Battaglione Carri, operational rate improved from Q3"
+      "count": {
+        "total": 12,
+        "variants": {
+          "L3/35": {
+            "count": 12,
+            "operational": 11,
+            "witw_id": "ITA_TANK_L3_35",
+            "notes": "From XXVII Battaglione Carri, operational rate improved from Q3"
+          }
         }
-      }
+      },
+      "witw_id": "ITA_LIGHT_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     }
   },
   "halftracks": {
@@ -79,14 +109,26 @@
     "variants": {}
   },
   "armored_cars": {
-    "total": 8,
+    "total": {
+      "count": 8,
+      "witw_id": "ITA_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "variants": {
-      "Autoblinda AB 40": {
-        "count": 8,
-        "operational": 8,
-        "witw_id": "ITA_AC_AB40",
-        "notes": "All operational by Q4"
-      }
+      "count": {
+        "Autoblinda AB 40": {
+          "count": 8,
+          "operational": 8,
+          "witw_id": "ITA_AC_AB40",
+          "notes": "All operational by Q4"
+        }
+      },
+      "witw_id": "ITA_VARIANTS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     }
   },
   "trucks": {
@@ -193,20 +235,32 @@
     }
   },
   "mortars": {
-    "total": 42,
+    "total": {
+      "count": 42,
+      "witw_id": "ITA_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "variants": {
-      "81mm Mod. 35 Mortar": {
-        "count": 12,
-        "caliber": "81mm",
-        "witw_id": "ITA_MORT_81MM",
-        "notes": "6 per infantry regiment"
+      "count": {
+        "81mm Mod. 35 Mortar": {
+          "count": 12,
+          "caliber": "81mm",
+          "witw_id": "ITA_MORT_81MM",
+          "notes": "6 per infantry regiment"
+        },
+        "45mm Mod. 35 Brixia": {
+          "count": 30,
+          "caliber": "45mm",
+          "witw_id": "ITA_MORT_45MM",
+          "notes": "Light mortar, company level"
+        }
       },
-      "45mm Mod. 35 Brixia": {
-        "count": 30,
-        "caliber": "45mm",
-        "witw_id": "ITA_MORT_45MM",
-        "notes": "Light mortar, company level"
-      }
+      "witw_id": "ITA_VARIANTS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     }
   },
   "infantry_guns": {
@@ -420,5 +474,12 @@
       "reason": "Parent corps for Brescia Division - not in seed file for these quarters",
       "combat_evidence": "XXI Corps commanded Brescia and Pavia Divisions during coastal defense operations west of Tripoli (Q4 1940) and reserve positioning during Operation Compass initial phase (Dec 1940). Corps provided transport and logistics support for autotrasportabile divisions under its command."
     }
-  ]
+  ],
+  "_enrichment": {
+    "enriched_at": "2025-11-02T10:17:27.262306",
+    "enriched_count": 9,
+    "source_file": "italian_1940q4_brescia_division_toe.json",
+    "database_version": "master_database.db",
+    "phase": "phase_5_equipment_matching_complete"
+  }
 }

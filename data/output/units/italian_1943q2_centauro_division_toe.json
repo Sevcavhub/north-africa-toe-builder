@@ -51,32 +51,62 @@
   },
   "ground_vehicles_total": 210,
   "tanks": {
-    "total": 28,
-    "operational": 18,
+    "total": {
+      "count": 28,
+      "witw_id": "ITA_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
+    "operational": {
+      "count": 18,
+      "witw_id": "ITA_OPERATIONAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "heavy_tanks": {
-      "total": 0,
-      "variants": {}
+      "count": {
+        "total": 0,
+        "variants": {}
+      },
+      "witw_id": "ITA_HEAVY_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     },
     "medium_tanks": {
-      "total": 28,
-      "variants": {
-        "M14/41": {
-          "count": 17,
-          "operational": 12,
-          "witw_id": "93",
-          "specifications": "47mm L/40 gun, 30mm frontal armor, diesel engine, superior to M13/40"
-        },
-        "M13/40": {
-          "count": 11,
-          "operational": 6,
-          "witw_id": "92",
-          "specifications": "47mm L/32 gun, 30mm frontal armor, gasoline engine"
+      "count": {
+        "total": 28,
+        "variants": {
+          "M14/41": {
+            "count": 17,
+            "operational": 12,
+            "witw_id": "93",
+            "specifications": "47mm L/40 gun, 30mm frontal armor, diesel engine, superior to M13/40"
+          },
+          "M13/40": {
+            "count": 11,
+            "operational": 6,
+            "witw_id": "92",
+            "specifications": "47mm L/32 gun, 30mm frontal armor, gasoline engine"
+          }
         }
-      }
+      },
+      "witw_id": "ITA_MEDIUM_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     },
     "light_tanks": {
-      "total": 0,
-      "variants": {}
+      "count": {
+        "total": 0,
+        "variants": {}
+      },
+      "witw_id": "ITA_LIGHT_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     }
   },
   "assault_guns": {
@@ -95,20 +125,32 @@
     "variants": {}
   },
   "armored_cars": {
-    "total": 12,
+    "total": {
+      "count": 12,
+      "witw_id": "ITA_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "variants": {
-      "Autoblinda AB 41": {
-        "count": 8,
-        "operational": 6,
-        "witw_id": null,
-        "role": "Reconnaissance, 20mm gun"
+      "count": {
+        "Autoblinda AB 41": {
+          "count": 8,
+          "operational": 6,
+          "witw_id": null,
+          "role": "Reconnaissance, 20mm gun"
+        },
+        "Autoblinda AB 40": {
+          "count": 4,
+          "operational": 3,
+          "witw_id": null,
+          "role": "Reconnaissance, MG armed"
+        }
       },
-      "Autoblinda AB 40": {
-        "count": 4,
-        "operational": 3,
-        "witw_id": null,
-        "role": "Reconnaissance, MG armed"
-      }
+      "witw_id": "ITA_VARIANTS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     }
   },
   "trucks": {
@@ -213,22 +255,34 @@
     }
   },
   "mortars": {
-    "total": 38,
+    "total": {
+      "count": 38,
+      "witw_id": "ITA_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "variants": {
-      "Mortaio da 81mm modello 35": {
-        "count": 26,
-        "caliber": "81mm",
-        "type": "Medium mortar",
-        "witw_id": null,
-        "note": "Battalion-level indirect fire support"
+      "count": {
+        "Mortaio da 81mm modello 35": {
+          "count": 26,
+          "caliber": "81mm",
+          "type": "Medium mortar",
+          "witw_id": null,
+          "note": "Battalion-level indirect fire support"
+        },
+        "Mortaio da 45mm modello 35 Brixia": {
+          "count": 12,
+          "caliber": "45mm",
+          "type": "Light mortar",
+          "witw_id": null,
+          "note": "Company-level support weapon"
+        }
       },
-      "Mortaio da 45mm modello 35 Brixia": {
-        "count": 12,
-        "caliber": "45mm",
-        "type": "Light mortar",
-        "witw_id": null,
-        "note": "Company-level support weapon"
-      }
+      "witw_id": "ITA_VARIANTS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     }
   },
   "aircraft_total": 0,
@@ -419,5 +473,12 @@
         "estimate_method": "Total Q2 casualties calculated from: (Q1 ending strength) - (Q2 combat losses) - (Q2 ending strength at surrender). Captured count = surviving personnel at 13 May 1943 surrender."
       }
     }
+  },
+  "_enrichment": {
+    "enriched_at": "2025-11-02T10:17:27.667445",
+    "enriched_count": 9,
+    "source_file": "italian_1943q2_centauro_division_toe.json",
+    "database_version": "master_database.db",
+    "phase": "phase_5_equipment_matching_complete"
   }
 }

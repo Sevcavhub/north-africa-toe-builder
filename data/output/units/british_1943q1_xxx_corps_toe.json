@@ -43,41 +43,89 @@
     }
   },
   "tanks": {
-    "total": 0,
-    "operational": 0,
+    "total": {
+      "count": 0,
+      "witw_id": "BRI_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
+    "operational": {
+      "count": 0,
+      "witw_id": "BRI_OPERATIONAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "heavy_tanks": {
-      "total": 0,
-      "variants": {}
+      "count": {
+        "total": 0,
+        "variants": {}
+      },
+      "witw_id": "BRI_HEAVY_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     },
     "medium_tanks": {
-      "total": 0,
-      "variants": {}
+      "count": {
+        "total": 0,
+        "variants": {}
+      },
+      "witw_id": "BRI_MEDIUM_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     },
     "light_tanks": {
-      "total": 0,
-      "variants": {}
+      "count": {
+        "total": 0,
+        "variants": {}
+      },
+      "witw_id": "BRI_LIGHT_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     },
-    "notes": "XXX Corps was a pure infantry corps with NO organic tanks. All three divisions (4th Indian, 50th Northumbrian, 51st Highland) were infantry divisions without armored elements. Valentine tanks from 23rd Armoured Brigade were attached for Mareth assault operations (March 1943) but were not organic to the corps."
+    "notes": {
+      "count": "XXX Corps was a pure infantry corps with NO organic tanks. All three divisions (4th Indian, 50th Northumbrian, 51st Highland) were infantry divisions without armored elements. Valentine tanks from 23rd Armoured Brigade were attached for Mareth assault operations (March 1943) but were not organic to the corps.",
+      "witw_id": "BRI_NOTES",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    }
   },
   "ground_vehicles_total": 9400,
   "armored_cars": {
-    "total": 134,
+    "total": {
+      "count": 134,
+      "witw_id": "BRI_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "variants": {
-      "Humber Armoured Car": {
-        "count": 56,
-        "operational": 53,
-        "role": "reconnaissance"
+      "count": {
+        "Humber Armoured Car": {
+          "count": 56,
+          "operational": 53,
+          "role": "reconnaissance"
+        },
+        "Daimler Armoured Car": {
+          "count": 32,
+          "operational": 31,
+          "role": "reconnaissance"
+        },
+        "Marmon-Herrington Mk II/III": {
+          "count": 46,
+          "operational": 43,
+          "role": "reconnaissance"
+        }
       },
-      "Daimler Armoured Car": {
-        "count": 32,
-        "operational": 31,
-        "role": "reconnaissance"
-      },
-      "Marmon-Herrington Mk II/III": {
-        "count": 46,
-        "operational": 43,
-        "role": "reconnaissance"
-      }
+      "witw_id": "BRI_VARIANTS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     }
   },
   "halftracks": {
@@ -202,18 +250,30 @@
     }
   },
   "mortars": {
-    "total": 360,
+    "total": {
+      "count": 360,
+      "witw_id": "BRI_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "variants": {
-      "Ordnance ML 3-inch Mortar": {
-        "count": 137,
-        "caliber": "76mm",
-        "notes": "Battalion-level heavy mortars across three divisions. 4th Indian: 56, 51st Highland: 81"
+      "count": {
+        "Ordnance ML 3-inch Mortar": {
+          "count": 137,
+          "caliber": "76mm",
+          "notes": "Battalion-level heavy mortars across three divisions. 4th Indian: 56, 51st Highland: 81"
+        },
+        "Ordnance ML 2-inch Mortar": {
+          "count": 223,
+          "caliber": "51mm",
+          "notes": "Platoon-level light mortars. 4th Indian: 196, 51st Highland: 27"
+        }
       },
-      "Ordnance ML 2-inch Mortar": {
-        "count": 223,
-        "caliber": "51mm",
-        "notes": "Platoon-level light mortars. 4th Indian: 196, 51st Highland: 27"
-      }
+      "witw_id": "BRI_VARIANTS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     }
   },
   "aircraft_total": 0,
@@ -432,5 +492,12 @@
       "Aggregated from three subordinate divisions per bottom-up aggregation workflow"
     ]
   },
-  "discovered_units": []
+  "discovered_units": [],
+  "_enrichment": {
+    "enriched_at": "2025-11-02T10:17:26.785852",
+    "enriched_count": 10,
+    "source_file": "british_1943q1_xxx_corps_toe.json",
+    "database_version": "master_database.db",
+    "phase": "phase_5_equipment_matching_complete"
+  }
 }

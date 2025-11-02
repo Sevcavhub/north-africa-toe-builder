@@ -51,20 +51,50 @@
   },
   "ground_vehicles_total": 2012,
   "tanks": {
-    "total": 0,
-    "operational": 0,
+    "total": {
+      "count": 0,
+      "witw_id": "AME_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
+    "operational": {
+      "count": 0,
+      "witw_id": "AME_OPERATIONAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "heavy_tanks": {
-      "total": 0,
-      "variants": {}
+      "count": {
+        "total": 0,
+        "variants": {}
+      },
+      "witw_id": "AME_HEAVY_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     },
     "medium_tanks": {
-      "total": 0,
-      "variants": {}
+      "count": {
+        "total": 0,
+        "variants": {}
+      },
+      "witw_id": "AME_MEDIUM_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     },
     "light_tanks": {
-      "total": 0,
-      "variants": {},
-      "note": "Infantry divisions had no organic tanks. Tank battalions attached separately for specific operations."
+      "count": {
+        "total": 0,
+        "variants": {},
+        "note": "Infantry divisions had no organic tanks. Tank battalions attached separately for specific operations."
+      },
+      "witw_id": "AME_LIGHT_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     }
   },
   "halftracks": {
@@ -85,14 +115,26 @@
     }
   },
   "armored_cars": {
-    "total": 28,
+    "total": {
+      "count": 28,
+      "witw_id": "AME_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "variants": {
-      "M3A1 Scout Car": {
-        "count": 28,
-        "operational": 26,
-        "witw_id": "US_M3A1_SCOUT",
-        "role": "Cavalry reconnaissance troop"
-      }
+      "count": {
+        "M3A1 Scout Car": {
+          "count": 28,
+          "operational": 26,
+          "witw_id": "US_M3A1_SCOUT",
+          "role": "Cavalry reconnaissance troop"
+        }
+      },
+      "witw_id": "AME_VARIANTS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     }
   },
   "trucks": {
@@ -185,20 +227,32 @@
     "note": "No organic AA artillery. Anti-aircraft defense provided by attached AA battalions when needed."
   },
   "mortars": {
-    "total": 153,
+    "total": {
+      "count": 153,
+      "witw_id": "AME_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "variants": {
-      "60mm Mortar M2": {
-        "count": 81,
-        "caliber": "60mm",
-        "witw_id": "US_60MM_M2",
-        "organization": "3 per rifle company, 27 per infantry regiment (9 rifle companies), 81 total across 3 regiments"
+      "count": {
+        "60mm Mortar M2": {
+          "count": 81,
+          "caliber": "60mm",
+          "witw_id": "US_60MM_M2",
+          "organization": "3 per rifle company, 27 per infantry regiment (9 rifle companies), 81 total across 3 regiments"
+        },
+        "81mm Mortar M1": {
+          "count": 72,
+          "caliber": "81mm",
+          "witw_id": "US_81MM_M1",
+          "organization": "6 per infantry battalion (heavy weapons company), 18 per regiment (3 battalions), 54 total across 3 regiments, plus 18 in division support units"
+        }
       },
-      "81mm Mortar M1": {
-        "count": 72,
-        "caliber": "81mm",
-        "witw_id": "US_81MM_M1",
-        "organization": "6 per infantry battalion (heavy weapons company), 18 per regiment (3 battalions), 54 total across 3 regiments, plus 18 in division support units"
-      }
+      "witw_id": "AME_VARIANTS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     }
   },
   "small_arms": {
@@ -446,5 +500,12 @@
       "Individual battalion commander names for artillery and support units"
     ],
     "aggregation_status": "manually_entered"
+  },
+  "_enrichment": {
+    "enriched_at": "2025-11-02T10:17:26.246700",
+    "enriched_count": 9,
+    "source_file": "american_1942q4_9th_infantry_division_toe.json",
+    "database_version": "master_database.db",
+    "phase": "phase_5_equipment_matching_complete"
   }
 }

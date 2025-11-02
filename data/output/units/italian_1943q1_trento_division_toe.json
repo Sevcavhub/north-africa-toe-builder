@@ -42,31 +42,79 @@
     }
   },
   "tanks": {
-    "total": 0,
-    "operational": 0,
+    "total": {
+      "count": 0,
+      "witw_id": "ITA_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
+    "operational": {
+      "count": 0,
+      "witw_id": "ITA_OPERATIONAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "heavy_tanks": {
-      "total": 0,
-      "variants": {}
+      "count": {
+        "total": 0,
+        "variants": {}
+      },
+      "witw_id": "ITA_HEAVY_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     },
     "medium_tanks": {
-      "total": 0,
-      "variants": {}
+      "count": {
+        "total": 0,
+        "variants": {}
+      },
+      "witw_id": "ITA_MEDIUM_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     },
     "light_tanks": {
-      "total": 0,
-      "variants": {}
+      "count": {
+        "total": 0,
+        "variants": {}
+      },
+      "witw_id": "ITA_LIGHT_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     },
-    "notes": "Division destroyed at El Alamein November 1942. No tanks with remnant survivors. Division never received planned tank battalion during AS42 reorganization (Feb 1942)."
+    "notes": {
+      "count": "Division destroyed at El Alamein November 1942. No tanks with remnant survivors. Division never received planned tank battalion during AS42 reorganization (Feb 1942).",
+      "witw_id": "ITA_NOTES",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    }
   },
   "ground_vehicles_total": 65,
   "armored_cars": {
-    "total": 2,
+    "total": {
+      "count": 2,
+      "witw_id": "ITA_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "variants": {
-      "AB 41": {
-        "count": 2,
-        "role": "reconnaissance",
-        "notes": "Remnant reconnaissance vehicles from 7th Bersaglieri Regiment"
-      }
+      "count": {
+        "AB 41": {
+          "count": 2,
+          "role": "reconnaissance",
+          "notes": "Remnant reconnaissance vehicles from 7th Bersaglieri Regiment"
+        }
+      },
+      "witw_id": "ITA_VARIANTS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     }
   },
   "trucks": {
@@ -148,18 +196,30 @@
     }
   },
   "mortars": {
-    "total": 12,
+    "total": {
+      "count": 12,
+      "witw_id": "ITA_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "variants": {
-      "Mortaio da 81/14 modello 35": {
-        "count": 8,
-        "caliber": "81mm",
-        "notes": "Battalion-level mortars with survivors"
+      "count": {
+        "Mortaio da 81/14 modello 35": {
+          "count": 8,
+          "caliber": "81mm",
+          "notes": "Battalion-level mortars with survivors"
+        },
+        "Brixia Model 35": {
+          "count": 4,
+          "caliber": "45mm",
+          "notes": "Company-level light mortars"
+        }
       },
-      "Brixia Model 35": {
-        "count": 4,
-        "caliber": "45mm",
-        "notes": "Company-level light mortars"
-      }
+      "witw_id": "ITA_VARIANTS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     }
   },
   "aircraft_total": 0,
@@ -403,5 +463,12 @@
     },
     "notes": "UPGRADED TO TIER 2 (75% confidence) from previous 65% by replacing Wikipedia sources with Tier 1 primary documents. Source quality significantly improved with: (1) US Army G-2 Intelligence Order of Battle of the Italian Army July 1943 (PRIMARY SOURCE, 95% confidence) - official military intelligence document with authoritative division history, composition, fate at El Alamein; (2) TM E 30-420 Handbook on Italian Military Forces August 1943 (PRIMARY SOURCE, 90% confidence) - US War Department technical manual on Italian divisional organization; (3) Nafziger Collection WWII Orders of Battle (PRIMARY SOURCE, 92% confidence) - comprehensive North Africa OOB files including Italian divisions Nov 1941; (4) Rommel's Riposte strength data (4,518 personnel at 43% strength Feb 1942); (5) Corroborating web search results. KEY HISTORICAL FACTS CONFIRMED BY PRIMARY SOURCES: (1) Division officially destroyed at El Alamein November 1942 (US G2 OOB 1943); (2) Survivors reorganized into III Battalion 'Trento' (3 companies); (3) Battalion integrated into 65th Infantry Regiment 'Trieste' alongside survivors from Pavia, Bologna, Brescia divisions; (4) Battalion participated in Tunisia Campaign until 13 May 1943 surrender; (5) Division composition: 61st/62d SICILIA Infantry Regiments, 7th Bersaglieri Regiment, 46th TRENTO Artillery Regiment (US G2 OOB 1943); (6) Home station: Trento (US G2 OOB 1943); (7) Strength reduced to 43% after Operation Crusader (Rommel's Riposte). REMAINING GAPS: Battalion commander name, company designations, precise equipment counts (estimates based on TM E 30-420 battalion allocations and 8% survival rate), Tunisia Campaign casualties. Confidence sufficient for wargaming scenarios with documented caveats. All Wikipedia sources removed and replaced with US military intelligence and technical manual primary sources."
   },
-  "discovered_units": []
+  "discovered_units": [],
+  "_enrichment": {
+    "enriched_at": "2025-11-02T10:17:27.650443",
+    "enriched_count": 10,
+    "source_file": "italian_1943q1_trento_division_toe.json",
+    "database_version": "master_database.db",
+    "phase": "phase_5_equipment_matching_complete"
+  }
 }

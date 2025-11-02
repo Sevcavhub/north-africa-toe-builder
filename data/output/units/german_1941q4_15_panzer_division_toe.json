@@ -52,43 +52,73 @@
   },
   "ground_vehicles_total": 2845,
   "tanks": {
-    "total": 139,
-    "operational": 118,
+    "total": {
+      "count": 139,
+      "witw_id": "GER_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
+    "operational": {
+      "count": 118,
+      "witw_id": "GER_OPERATIONAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "heavy_tanks": {
-      "total": 0,
-      "variants": {}
+      "count": {
+        "total": 0,
+        "variants": {}
+      },
+      "witw_id": "GER_HEAVY_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     },
     "medium_tanks": {
-      "total": 71,
-      "variants": {
-        "Panzer III Ausf. J": {
-          "count": 45,
-          "operational": 38,
-          "main_gun": "50mm KwK 38 L/42",
-          "armor_front": "50mm",
-          "witw_id": "ger_pz3j"
-        },
-        "Panzer IV Ausf. F1": {
-          "count": 26,
-          "operational": 22,
-          "main_gun": "75mm KwK 37 L/24",
-          "armor_front": "50mm",
-          "witw_id": "ger_pz4f1"
+      "count": {
+        "total": 71,
+        "variants": {
+          "Panzer III Ausf. J": {
+            "count": 45,
+            "operational": 38,
+            "main_gun": "50mm KwK 38 L/42",
+            "armor_front": "50mm",
+            "witw_id": "ger_pz3j"
+          },
+          "Panzer IV Ausf. F1": {
+            "count": 26,
+            "operational": 22,
+            "main_gun": "75mm KwK 37 L/24",
+            "armor_front": "50mm",
+            "witw_id": "ger_pz4f1"
+          }
         }
-      }
+      },
+      "witw_id": "GER_MEDIUM_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     },
     "light_tanks": {
-      "total": 68,
-      "variants": {
-        "Panzer II Ausf. F": {
-          "count": 68,
-          "operational": 58,
-          "main_gun": "20mm KwK 30",
-          "armor_front": "35mm",
-          "witw_id": "ger_pz2f",
-          "notes": "Reconnaissance and screening role"
+      "count": {
+        "total": 68,
+        "variants": {
+          "Panzer II Ausf. F": {
+            "count": 68,
+            "operational": 58,
+            "main_gun": "20mm KwK 30",
+            "armor_front": "35mm",
+            "witw_id": "ger_pz2f",
+            "notes": "Reconnaissance and screening role"
+          }
         }
-      }
+      },
+      "witw_id": "GER_LIGHT_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     }
   },
   "halftracks": {
@@ -121,28 +151,40 @@
     }
   },
   "armored_cars": {
-    "total": 92,
+    "total": {
+      "count": 92,
+      "witw_id": "GER_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "variants": {
-      "Sd.Kfz. 222": {
-        "count": 48,
-        "operational": 42,
-        "armament": "20mm KwK 30 autocannon",
-        "role": "Light armored reconnaissance",
-        "witw_id": "ger_sdkfz222"
+      "count": {
+        "Sd.Kfz. 222": {
+          "count": 48,
+          "operational": 42,
+          "armament": "20mm KwK 30 autocannon",
+          "role": "Light armored reconnaissance",
+          "witw_id": "ger_sdkfz222"
+        },
+        "Sd.Kfz. 231 (8-rad)": {
+          "count": 28,
+          "operational": 24,
+          "armament": "20mm KwK 30",
+          "role": "Heavy armored reconnaissance",
+          "witw_id": "ger_sdkfz231_8rad"
+        },
+        "Sd.Kfz. 263 (8-rad)": {
+          "count": 16,
+          "operational": 14,
+          "role": "Radio vehicle (command and control)",
+          "witw_id": "ger_sdkfz263_8rad"
+        }
       },
-      "Sd.Kfz. 231 (8-rad)": {
-        "count": 28,
-        "operational": 24,
-        "armament": "20mm KwK 30",
-        "role": "Heavy armored reconnaissance",
-        "witw_id": "ger_sdkfz231_8rad"
-      },
-      "Sd.Kfz. 263 (8-rad)": {
-        "count": 16,
-        "operational": 14,
-        "role": "Radio vehicle (command and control)",
-        "witw_id": "ger_sdkfz263_8rad"
-      }
+      "witw_id": "GER_VARIANTS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     }
   },
   "trucks": {
@@ -475,5 +517,12 @@
     ],
     "aggregation_status": "manually_entered",
     "methodology": "Extracted from Tessin Band 03 primary source with cross-reference to period Kriegsstärkenachweisungen (KStN) organizational tables. Equipment numbers based on authorized strength modified by reported operational status in Q4 1941. Commander information verified from multiple sources. Supply status based on DAK quartermasters' reports and British intelligence assessments."
+  },
+  "_enrichment": {
+    "enriched_at": "2025-11-02T10:17:26.972001",
+    "enriched_count": 7,
+    "source_file": "german_1941q4_15_panzer_division_toe.json",
+    "database_version": "master_database.db",
+    "phase": "phase_5_equipment_matching_complete"
   }
 }

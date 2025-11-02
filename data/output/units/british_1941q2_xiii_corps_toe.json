@@ -51,43 +51,73 @@
   },
   "ground_vehicles_total": 4200,
   "tanks": {
-    "total": 190,
-    "operational": 170,
+    "total": {
+      "count": 190,
+      "witw_id": "BRI_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
+    "operational": {
+      "count": 170,
+      "witw_id": "BRI_OPERATIONAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "heavy_tanks": {
-      "total": 90,
-      "variants": {
-        "Matilda II": {
-          "count": 90,
-          "operational": 82,
-          "witw_id": "GBR_MATILDA_II",
-          "note": "Infantry tanks with 4th Armoured Brigade (4th RTR, 7th RTR) for Operation Battleaxe"
+      "count": {
+        "total": 90,
+        "variants": {
+          "Matilda II": {
+            "count": 90,
+            "operational": 82,
+            "witw_id": "GBR_MATILDA_II",
+            "note": "Infantry tanks with 4th Armoured Brigade (4th RTR, 7th RTR) for Operation Battleaxe"
+          }
         }
-      }
+      },
+      "witw_id": "BRI_HEAVY_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     },
     "medium_tanks": {
-      "total": 70,
-      "variants": {
-        "Crusader Mk I": {
-          "count": 50,
-          "operational": 46,
-          "witw_id": "GBR_CRUSADER_MK1"
-        },
-        "Cruiser Mk IV (A13 Mk II)": {
-          "count": 20,
-          "operational": 16,
-          "witw_id": "GBR_CRUISER_MK4"
+      "count": {
+        "total": 70,
+        "variants": {
+          "Crusader Mk I": {
+            "count": 50,
+            "operational": 46,
+            "witw_id": "GBR_CRUSADER_MK1"
+          },
+          "Cruiser Mk IV (A13 Mk II)": {
+            "count": 20,
+            "operational": 16,
+            "witw_id": "GBR_CRUISER_MK4"
+          }
         }
-      }
+      },
+      "witw_id": "BRI_MEDIUM_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     },
     "light_tanks": {
-      "total": 30,
-      "variants": {
-        "Light Tank Mk VI": {
-          "count": 30,
-          "operational": 26,
-          "witw_id": "GBR_LIGHT_TANK_MK6"
+      "count": {
+        "total": 30,
+        "variants": {
+          "Light Tank Mk VI": {
+            "count": 30,
+            "operational": 26,
+            "witw_id": "GBR_LIGHT_TANK_MK6"
+          }
         }
-      }
+      },
+      "witw_id": "BRI_LIGHT_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     }
   },
   "halftracks": {
@@ -95,20 +125,32 @@
     "variants": {}
   },
   "armored_cars": {
-    "total": 65,
+    "total": {
+      "count": 65,
+      "witw_id": "BRI_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "variants": {
-      "Marmon-Herrington Mk II": {
-        "count": 40,
-        "operational": 35,
-        "witw_id": "GBR_MARMON_HERRINGTON_MK2",
-        "role": "Reconnaissance"
+      "count": {
+        "Marmon-Herrington Mk II": {
+          "count": 40,
+          "operational": 35,
+          "witw_id": "GBR_MARMON_HERRINGTON_MK2",
+          "role": "Reconnaissance"
+        },
+        "Humber Mk I": {
+          "count": 25,
+          "operational": 22,
+          "witw_id": "GBR_HUMBER_AC_MK1",
+          "role": "Reconnaissance"
+        }
       },
-      "Humber Mk I": {
-        "count": 25,
-        "operational": 22,
-        "witw_id": "GBR_HUMBER_AC_MK1",
-        "role": "Reconnaissance"
-      }
+      "witw_id": "BRI_VARIANTS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     }
   },
   "trucks": {
@@ -403,5 +445,12 @@
         "estimate_method": "Tank distribution: 90 Matilda II (4th Armoured Brigade documented), 120 cruisers (Crusader + A13 mix), 30 light tanks. Soft-skin vehicles estimated at corps level using British 1941 scales."
       }
     }
+  },
+  "_enrichment": {
+    "enriched_at": "2025-11-02T10:17:26.410464",
+    "enriched_count": 7,
+    "source_file": "british_1941q2_xiii_corps_toe.json",
+    "database_version": "master_database.db",
+    "phase": "phase_5_equipment_matching_complete"
   }
 }

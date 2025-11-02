@@ -51,51 +51,81 @@
   },
   "ground_vehicles_total": 1848,
   "tanks": {
-    "total": 263,
-    "operational": 232,
+    "total": {
+      "count": 263,
+      "witw_id": "AME_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
+    "operational": {
+      "count": 232,
+      "witw_id": "AME_OPERATIONAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "heavy_tanks": {
-      "total": 0,
-      "variants": {}
+      "count": {
+        "total": 0,
+        "variants": {}
+      },
+      "witw_id": "AME_HEAVY_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     },
     "medium_tanks": {
-      "total": 168,
-      "variants": {
-        "M3 Lee": {
-          "count": 54,
-          "operational": 48,
-          "witw_id": "M3_LEE",
-          "notes": "75mm gun in hull sponson, 37mm gun in turret. Used by 13th Armored Regiment"
-        },
-        "M3 Grant": {
-          "count": 36,
-          "operational": 32,
-          "witw_id": "M3_GRANT",
-          "notes": "British turret variant with radio. Some received from British stocks"
-        },
-        "M4 Sherman": {
-          "count": 78,
-          "operational": 68,
-          "witw_id": "M4_SHERMAN",
-          "notes": "75mm gun. One regiment's worth transferred to British for El Alamein"
+      "count": {
+        "total": 168,
+        "variants": {
+          "M3 Lee": {
+            "count": 54,
+            "operational": 48,
+            "witw_id": "M3_LEE",
+            "notes": "75mm gun in hull sponson, 37mm gun in turret. Used by 13th Armored Regiment"
+          },
+          "M3 Grant": {
+            "count": 36,
+            "operational": 32,
+            "witw_id": "M3_GRANT",
+            "notes": "British turret variant with radio. Some received from British stocks"
+          },
+          "M4 Sherman": {
+            "count": 78,
+            "operational": 68,
+            "witw_id": "M4_SHERMAN",
+            "notes": "75mm gun. One regiment's worth transferred to British for El Alamein"
+          }
         }
-      }
+      },
+      "witw_id": "AME_MEDIUM_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     },
     "light_tanks": {
-      "total": 95,
-      "variants": {
-        "M3 Stuart": {
-          "count": 72,
-          "operational": 64,
-          "witw_id": "M3_STUART",
-          "notes": "37mm gun. Equipped light tank battalions of both armored regiments"
-        },
-        "M5 Stuart": {
-          "count": 23,
-          "operational": 20,
-          "witw_id": "M5_STUART",
-          "notes": "37mm gun. Beginning to replace M3 Stuarts"
+      "count": {
+        "total": 95,
+        "variants": {
+          "M3 Stuart": {
+            "count": 72,
+            "operational": 64,
+            "witw_id": "M3_STUART",
+            "notes": "37mm gun. Equipped light tank battalions of both armored regiments"
+          },
+          "M5 Stuart": {
+            "count": 23,
+            "operational": 20,
+            "witw_id": "M5_STUART",
+            "notes": "37mm gun. Beginning to replace M3 Stuarts"
+          }
         }
-      }
+      },
+      "witw_id": "AME_LIGHT_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     }
   },
   "halftracks": {
@@ -122,14 +152,26 @@
     }
   },
   "armored_cars": {
-    "total": 54,
+    "total": {
+      "count": 54,
+      "witw_id": "AME_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "variants": {
-      "M8 Greyhound": {
-        "count": 54,
-        "operational": 48,
-        "witw_id": "M8_GREYHOUND",
-        "notes": "37mm gun. Reconnaissance Battalion equipment"
-      }
+      "count": {
+        "M8 Greyhound": {
+          "count": 54,
+          "operational": 48,
+          "witw_id": "M8_GREYHOUND",
+          "notes": "37mm gun. Reconnaissance Battalion equipment"
+        }
+      },
+      "witw_id": "AME_VARIANTS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     }
   },
   "trucks": {
@@ -404,5 +446,12 @@
       "Some support vehicle exact counts aggregated from category totals"
     ],
     "aggregation_status": "manually_entered"
+  },
+  "_enrichment": {
+    "enriched_at": "2025-11-02T10:17:26.229805",
+    "enriched_count": 7,
+    "source_file": "american_1942q4_1st_armored_division_toe.json",
+    "database_version": "master_database.db",
+    "phase": "phase_5_equipment_matching_complete"
   }
 }

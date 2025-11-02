@@ -52,37 +52,73 @@
   },
   "ground_vehicles_total": 7200,
   "tanks": {
-    "total": 130,
-    "operational": 118,
+    "total": {
+      "count": 130,
+      "witw_id": "BRI_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
+    "operational": {
+      "count": 118,
+      "witw_id": "BRI_OPERATIONAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "heavy_tanks": {
-      "total": 0,
-      "variants": {}
+      "count": {
+        "total": 0,
+        "variants": {}
+      },
+      "witw_id": "BRI_HEAVY_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     },
     "medium_tanks": {
-      "total": 0,
-      "variants": {}
+      "count": {
+        "total": 0,
+        "variants": {}
+      },
+      "witw_id": "BRI_MEDIUM_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     },
     "light_tanks": {
-      "total": 130,
-      "operational": 118,
-      "variants": {
-        "Matilda II Infantry Tank": {
-          "count": 98,
-          "operational": 92,
-          "witw_id": "uk_tank_matilda_ii",
-          "unit": "1st Army Tank Brigade (42nd RTR)",
-          "notes": "Primary infantry support tank"
-        },
-        "Valentine II/IV Infantry Tank": {
-          "count": 32,
-          "operational": 26,
-          "witw_id": "uk_tank_valentine_ii",
-          "unit": "1st Army Tank Brigade (8th RTR)",
-          "notes": "New equipment, combat debut at Crusader"
+      "count": {
+        "total": 130,
+        "operational": 118,
+        "variants": {
+          "Matilda II Infantry Tank": {
+            "count": 98,
+            "operational": 92,
+            "witw_id": "uk_tank_matilda_ii",
+            "unit": "1st Army Tank Brigade (42nd RTR)",
+            "notes": "Primary infantry support tank"
+          },
+          "Valentine II/IV Infantry Tank": {
+            "count": 32,
+            "operational": 26,
+            "witw_id": "uk_tank_valentine_ii",
+            "unit": "1st Army Tank Brigade (8th RTR)",
+            "notes": "New equipment, combat debut at Crusader"
+          }
         }
-      }
+      },
+      "witw_id": "BRI_LIGHT_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     },
-    "notes": "1st Army Tank Brigade attached to XIII Corps. 130 infantry tanks total, mostly Matildas with some Valentines."
+    "notes": {
+      "count": "1st Army Tank Brigade attached to XIII Corps. 130 infantry tanks total, mostly Matildas with some Valentines.",
+      "witw_id": "BRI_NOTES",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    }
   },
   "halftracks": {
     "total": 0,
@@ -90,20 +126,32 @@
     "notes": "British Commonwealth forces did not employ halftracks. Universal Carriers used instead."
   },
   "armored_cars": {
-    "total": 95,
+    "total": {
+      "count": 95,
+      "witw_id": "BRI_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "variants": {
-      "Marmon-Herrington Mk II Armoured Car": {
-        "count": 58,
-        "operational": 54,
-        "witw_id": "uk_armored_car_marmon_herrington",
-        "role": "Divisional reconnaissance"
+      "count": {
+        "Marmon-Herrington Mk II Armoured Car": {
+          "count": 58,
+          "operational": 54,
+          "witw_id": "uk_armored_car_marmon_herrington",
+          "role": "Divisional reconnaissance"
+        },
+        "Universal Carrier Mk I/II": {
+          "count": 37,
+          "operational": 35,
+          "witw_id": "uk_carrier_universal",
+          "role": "Infantry support, scouts"
+        }
       },
-      "Universal Carrier Mk I/II": {
-        "count": 37,
-        "operational": 35,
-        "witw_id": "uk_carrier_universal",
-        "role": "Infantry support, scouts"
-      }
+      "witw_id": "BRI_VARIANTS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     }
   },
   "trucks": {
@@ -379,5 +427,12 @@
       "Tank totals validated: 130 = 0 heavy + 0 medium + 130 light (Matilda/Valentine classified as infantry tanks)",
       "Artillery aggregated from two divisions: 72 + 72 = 144 25-pounders"
     ]
+  },
+  "_enrichment": {
+    "enriched_at": "2025-11-02T10:17:26.463966",
+    "enriched_count": 8,
+    "source_file": "british_1941q3_xiii_corps_toe.json",
+    "database_version": "master_database.db",
+    "phase": "phase_5_equipment_matching_complete"
   }
 }

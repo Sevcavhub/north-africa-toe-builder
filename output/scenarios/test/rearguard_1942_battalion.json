@@ -1,0 +1,109 @@
+{
+  "number": 12,
+  "name": "REARGUARD ACTION",
+  "scenario_type": "Attack/Defence",
+  "battle_size": "Battalion",
+  "table_size": "6' × 4'",
+  "year": "1942",
+  "location_type": "Open Desert",
+  "recommended_nations": [
+    "british",
+    "german",
+    "italian",
+    "american"
+  ],
+  "situation_report": "The main force is withdrawing and your rearguard must buy them time. Enemy forces are pursuing aggressively. Your mission: establish successive delay positions, inflict casualties, slow the pursuit, and extract your forces intact. Every hour of delay is a success.",
+  "tactical_context": "This is one of the most difficult missions: fighting while retreating. The rearguard must trade space for time without being decisively engaged. Position, delay, inflict casualties, disengage, fall back, repeat. The pursuer must press hard before the rearguard can organize the next position.",
+  "terrain_features": [
+    {
+      "name": "Paved Road",
+      "size": "6\" wide, table length",
+      "description": "Metalled road, often Italian-built.",
+      "special_rules": "Fast movement for vehicles. Key strategic route. Often an objective.",
+      "cover_type": "none",
+      "movement_penalty": "none"
+    },
+    {
+      "name": "Fortified Position",
+      "size": "12\" × 12\" area",
+      "description": "Prepared defensive position with trenches and dugouts.",
+      "special_rules": "Infantry gain hard cover with +1 to cover saves. Difficult terrain for vehicles.",
+      "cover_type": "hard",
+      "movement_penalty": "difficult"
+    },
+    {
+      "name": "Escarpment",
+      "size": "Table edge to 12\" deep",
+      "description": "Steep cliff face or escarpment. Major tactical feature.",
+      "special_rules": "Impassable to vehicles. Infantry can climb (dangerous terrain). Artillery observers gain +1.",
+      "cover_type": "hard",
+      "movement_penalty": "impassable"
+    },
+    {
+      "name": "Wadi (Dry)",
+      "size": "20\" long, 6\" wide",
+      "description": "Dry riverbed cutting through desert. Excellent cover and concealment.",
+      "special_rules": "Infantry and vehicles in wadi gain hard cover. Counts as difficult terrain to enter/exit.",
+      "cover_type": "hard",
+      "movement_penalty": "difficult"
+    }
+  ],
+  "terrain_notes": "Mix of terrain providing successive defensive positions",
+  "weather": {
+    "condition": "clear",
+    "turn_starts": 2,
+    "effects": [
+      "Desert Dust Cloud begins on turn 2",
+      "From turn 2: -1 to observation tests",
+      "From turn 2: Maximum weapon range 40\"",
+      "From turn 2: Maximum artillery spotter range 40\""
+    ]
+  },
+  "victory_conditions": "**Defender Major Victory**: Exit 75%+ of force off North edge by turn 8.\n\n**Defender Minor Victory**: Exit 50-74% of force off North edge.\n\n**Attacker Victory**: Prevent defender escape (defender exits <50%).\n\n**Draw**: Defender escapes but suffers 50%+ casualties.",
+  "deployment_steps": [
+    "Defender places 3 successive delay positions (South, Center, North)",
+    "Defender deploys 1/3 force at each position",
+    "Attacker deploys at South edge",
+    "Defender may withdraw units that break contact (move to next position)",
+    "Game has 8 turn limit - defender wins by surviving",
+    "Attacker moves first (pursuing)"
+  ],
+  "deployment_zones": [
+    {
+      "side": "Attacker",
+      "location": "South table edge, 12\" deep",
+      "special_rules": [
+        "Pursuing retreating enemy",
+        "Must prevent enemy escape",
+        "Aggressive advance required"
+      ]
+    },
+    {
+      "side": "Defender (Rearguard)",
+      "location": "Center and North areas (successive positions)",
+      "special_rules": [
+        "Must delay attacker",
+        "Can withdraw units that break contact",
+        "Victory = time delay, not holding ground"
+      ]
+    }
+  ],
+  "objectives": {
+    "count": 3,
+    "first_objective": "Defender's withdrawal route (North edge)",
+    "spacing_rules": "3 delay positions across table",
+    "placed_by": "Defender places 3 successive delay positions"
+  },
+  "attacker_points": 900,
+  "defender_points": 750,
+  "reinforcements": [],
+  "special_rules": [
+    "**Fighting Withdrawal**: Defender may withdraw units to next position if not in contact",
+    "**Successive Positions**: Defender has 3 prepared positions to fall back through",
+    "**Time Limit**: 8 turns - defender wins by exiting units off North edge",
+    "**Exit Points**: Defender scores points for units exited off North edge",
+    "**Pursuit**: Attacker must press hard to prevent organized withdrawal",
+    "**Prepared Positions**: Each defender position starts with defensive prep"
+  ],
+  "deployment_map": "DEPLOYMENT MAP: Rearguard Action\nTable Size: 6' x 4'\n\n+------------------------------------------------------------+\n|============================================================|  NORTH (Defender)\n|                                                            |  Defender Zone\n|                                                            |  Defender Zone\n|                                                            |  Defender Zone\n|                                                            |  Defender Zone\n|                                                            |  Defender Zone\n|                                                            |  Defender Zone\n|                                                            |  Defender Zone\n|                                                            |  Defender Zone\n|                                                            |  Defender Zone\n|                                                            |  Defender Zone\n|                                                            |  Defender Zone\n|                                                            |  Defender Zone\n|                                                            |\n|                                                            |\n|                                                            |\n|                                                            |\n|                                                            |\n|                                                            |\n|                                                            |\n|               O              O              O              |  Objectives\n|                                                            |\n|                                                            |\n|                                                            |\n|                                                            |\n|                                                            |\n|                                                            |\n|                                                            |  Attacker Zone\n|                                                            |  Attacker Zone\n|                                                            |  Attacker Zone\n|                                                            |  Attacker Zone\n|                                                            |  Attacker Zone\n|                                                            |  Attacker Zone\n|                                                            |  Attacker Zone\n|                                                            |  Attacker Zone\n|                                                            |  Attacker Zone\n|                                                            |  Attacker Zone\n|                                                            |  Attacker Zone\n|                                                            |  Attacker Zone\n|============================================================|  SOUTH (Attacker)\n+------------------------------------------------------------+\n\nLegend: O = Objective, = = Deployment Zone Edge"
+}

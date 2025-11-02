@@ -47,62 +47,104 @@
   },
   "ground_vehicles_total": 1799,
   "tanks": {
-    "total": 165,
-    "operational": 148,
+    "total": {
+      "count": 165,
+      "witw_id": "ITA_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
+    "operational": {
+      "count": 148,
+      "witw_id": "ITA_OPERATIONAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "heavy_tanks": {
-      "total": 0,
-      "variants": {}
+      "count": {
+        "total": 0,
+        "variants": {}
+      },
+      "witw_id": "ITA_HEAVY_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     },
     "medium_tanks": {
-      "total": 141,
-      "variants": {
-        "M13/40": {
-          "count": 115,
-          "operational": 103,
-          "witw_id": "ITA_M13_40",
-          "notes": "Main battle tank, 47mm gun, 30mm frontal armor"
-        },
-        "M14/41": {
-          "count": 26,
-          "operational": 24,
-          "witw_id": "ITA_M14_41",
-          "notes": "Improved M13/40 with better engine, began arriving Q3 1941"
+      "count": {
+        "total": 141,
+        "variants": {
+          "M13/40": {
+            "count": 115,
+            "operational": 103,
+            "witw_id": "ITA_M13_40",
+            "notes": "Main battle tank, 47mm gun, 30mm frontal armor"
+          },
+          "M14/41": {
+            "count": 26,
+            "operational": 24,
+            "witw_id": "ITA_M14_41",
+            "notes": "Improved M13/40 with better engine, began arriving Q3 1941"
+          }
         }
-      }
+      },
+      "witw_id": "ITA_MEDIUM_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     },
     "light_tanks": {
-      "total": 24,
-      "variants": {
-        "L3/35": {
-          "count": 18,
-          "operational": 16,
-          "witw_id": "ITA_L3_35",
-          "notes": "Tankette for reconnaissance and liaison"
-        },
-        "L6/40": {
-          "count": 6,
-          "operational": 5,
-          "witw_id": "ITA_L6_40",
-          "notes": "New light tank entering service Q3 1941"
+      "count": {
+        "total": 24,
+        "variants": {
+          "L3/35": {
+            "count": 18,
+            "operational": 16,
+            "witw_id": "ITA_L3_35",
+            "notes": "Tankette for reconnaissance and liaison"
+          },
+          "L6/40": {
+            "count": 6,
+            "operational": 5,
+            "witw_id": "ITA_L6_40",
+            "notes": "New light tank entering service Q3 1941"
+          }
         }
-      }
+      },
+      "witw_id": "ITA_LIGHT_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     }
   },
   "armored_cars": {
-    "total": 32,
+    "total": {
+      "count": 32,
+      "witw_id": "ITA_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "variants": {
-      "AB 40": {
-        "count": 18,
-        "operational": 16,
-        "witw_id": "ITA_AB40",
-        "role": "reconnaissance"
+      "count": {
+        "AB 40": {
+          "count": 18,
+          "operational": 16,
+          "witw_id": "ITA_AB40",
+          "role": "reconnaissance"
+        },
+        "AB 41": {
+          "count": 14,
+          "operational": 13,
+          "witw_id": "ITA_AB41",
+          "role": "reconnaissance, armed escort"
+        }
       },
-      "AB 41": {
-        "count": 14,
-        "operational": 13,
-        "witw_id": "ITA_AB41",
-        "role": "reconnaissance, armed escort"
-      }
+      "witw_id": "ITA_VARIANTS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     }
   },
   "trucks": {
@@ -201,20 +243,32 @@
     }
   },
   "mortars": {
-    "total": 54,
+    "total": {
+      "count": 54,
+      "witw_id": "ITA_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "variants": {
-      "81mm Mod. 35": {
-        "count": 36,
-        "caliber": "81mm",
-        "witw_id": "ITA_81MM_M35",
-        "notes": "Medium mortar"
+      "count": {
+        "81mm Mod. 35": {
+          "count": 36,
+          "caliber": "81mm",
+          "witw_id": "ITA_81MM_M35",
+          "notes": "Medium mortar"
+        },
+        "45mm Mod. 35 (Brixia)": {
+          "count": 18,
+          "caliber": "45mm",
+          "witw_id": "ITA_45MM_BRIXIA",
+          "notes": "Light mortar"
+        }
       },
-      "45mm Mod. 35 (Brixia)": {
-        "count": 18,
-        "caliber": "45mm",
-        "witw_id": "ITA_45MM_BRIXIA",
-        "notes": "Light mortar"
-      }
+      "witw_id": "ITA_VARIANTS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     }
   },
   "aircraft_total": 0,
@@ -362,5 +416,12 @@
       "Artillery totals validation: 24 field + 16 AT + 16 AA = 56 total guns (40 artillery proper + 16 AA) PASS",
       "Personnel breakdown: 342 officers + 895 NCOs + 6202 enlisted = 7439 total PASS"
     ]
+  },
+  "_enrichment": {
+    "enriched_at": "2025-11-02T10:17:27.411849",
+    "enriched_count": 9,
+    "source_file": "italian_1941q3_ariete_division_toe.json",
+    "database_version": "master_database.db",
+    "phase": "phase_5_equipment_matching_complete"
   }
 }

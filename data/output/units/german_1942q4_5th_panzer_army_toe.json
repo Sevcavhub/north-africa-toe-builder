@@ -51,45 +51,75 @@
   },
   "ground_vehicles_total": 6850,
   "tanks": {
-    "total": 142,
-    "operational": 105,
+    "total": {
+      "count": 142,
+      "witw_id": "GER_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
+    "operational": {
+      "count": 105,
+      "witw_id": "GER_OPERATIONAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "heavy_tanks": {
-      "total": 0,
-      "variants": {}
+      "count": {
+        "total": 0,
+        "variants": {}
+      },
+      "witw_id": "GER_HEAVY_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     },
     "medium_tanks": {
-      "total": 99,
-      "variants": {
-        "Panzer III Ausf J/L": {
-          "count": 45,
-          "operational": 32,
-          "witw_id": "GER_PZIII_L",
-          "notes": "From 10. Panzer-Division - 5cm L/60 gun"
-        },
-        "Panzer IV Ausf F2/G": {
-          "count": 54,
-          "operational": 42,
-          "witw_id": "GER_PZIV_F2",
-          "notes": "From 10. Panzer-Division - 7.5cm L/43 gun"
+      "count": {
+        "total": 99,
+        "variants": {
+          "Panzer III Ausf J/L": {
+            "count": 45,
+            "operational": 32,
+            "witw_id": "GER_PZIII_L",
+            "notes": "From 10. Panzer-Division - 5cm L/60 gun"
+          },
+          "Panzer IV Ausf F2/G": {
+            "count": 54,
+            "operational": 42,
+            "witw_id": "GER_PZIV_F2",
+            "notes": "From 10. Panzer-Division - 7.5cm L/43 gun"
+          }
         }
-      }
+      },
+      "witw_id": "GER_MEDIUM_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     },
     "light_tanks": {
-      "total": 43,
-      "variants": {
-        "Panzer II Ausf F": {
-          "count": 28,
-          "operational": 21,
-          "witw_id": "GER_PZII_F",
-          "notes": "From 10. Panzer-Division"
-        },
-        "Panzer III Ausf E/F (command)": {
-          "count": 15,
-          "operational": 10,
-          "witw_id": "GER_PZIII_COMMAND",
-          "notes": "Battalion/company command tanks"
+      "count": {
+        "total": 43,
+        "variants": {
+          "Panzer II Ausf F": {
+            "count": 28,
+            "operational": 21,
+            "witw_id": "GER_PZII_F",
+            "notes": "From 10. Panzer-Division"
+          },
+          "Panzer III Ausf E/F (command)": {
+            "count": 15,
+            "operational": 10,
+            "witw_id": "GER_PZIII_COMMAND",
+            "notes": "Battalion/company command tanks"
+          }
         }
-      }
+      },
+      "witw_id": "GER_LIGHT_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     }
   },
   "halftracks": {
@@ -116,18 +146,30 @@
     }
   },
   "armored_cars": {
-    "total": 58,
+    "total": {
+      "count": 58,
+      "witw_id": "GER_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "variants": {
-      "SdKfz 222": {
-        "count": 36,
-        "operational": 30,
-        "witw_id": "GER_SDKFZ222"
+      "count": {
+        "SdKfz 222": {
+          "count": 36,
+          "operational": 30,
+          "witw_id": "GER_SDKFZ222"
+        },
+        "SdKfz 231 (8-rad)": {
+          "count": 22,
+          "operational": 18,
+          "witw_id": "GER_SDKFZ231_8RAD"
+        }
       },
-      "SdKfz 231 (8-rad)": {
-        "count": 22,
-        "operational": 18,
-        "witw_id": "GER_SDKFZ231_8RAD"
-      }
+      "witw_id": "GER_VARIANTS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     }
   },
   "trucks": {
@@ -506,7 +548,11 @@
     {
       "designation": "334th Infantry Division",
       "nation": "german",
-      "quarters": ["1942q4", "1943q1", "1943q2"],
+      "quarters": [
+        "1942q4",
+        "1943q1",
+        "1943q2"
+      ],
       "type": "infantry_division",
       "source": "Historical context - German Tunisia Campaign order of battle. Division arrived Tunisia December 1942.",
       "confidence": 92,
@@ -516,12 +562,23 @@
     {
       "designation": "5th Fallschirmjäger Regiment",
       "nation": "german",
-      "quarters": ["1942q4", "1943q1", "1943q2"],
+      "quarters": [
+        "1942q4",
+        "1943q1",
+        "1943q2"
+      ],
       "type": "parachute_regiment",
       "source": "Nafziger Collection 942GLEA - 5th Panzer Army, 16 December 1942 (attached to 10. Panzer-Division, two battalions)",
       "confidence": 93,
       "reason": "Elite Luftwaffe parachute regiment, not listed as separate unit in seed file (may be covered under Hermann Göring Division or as attachment)",
       "combat_evidence": "5th Fallschirmjäger Regiment (2 battalions) deployed Tunisia as part of German airborne response to Operation Torch (November-December 1942). Regiment attached to 10. Panzer-Division, participated in Tebourba offensive (December 1942), Medjez el Bab battles, and throughout Tunisia Campaign until May 1943 surrender."
     }
-  ]
+  ],
+  "_enrichment": {
+    "enriched_at": "2025-11-02T10:17:27.068681",
+    "enriched_count": 7,
+    "source_file": "german_1942q4_5th_panzer_army_toe.json",
+    "database_version": "master_database.db",
+    "phase": "phase_5_equipment_matching_complete"
+  }
 }

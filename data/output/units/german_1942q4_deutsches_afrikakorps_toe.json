@@ -62,45 +62,87 @@
   "ground_vehicles_total": 6163,
   "ground_vehicles_notes": "Aggregated from divisions: 15.Pz (1,344), 21.Pz (2,150), 90.le.Afr (1,247), 164.le.Afr (1,424). Plus corps-level assets. Operational percentage approximately 65% due to combat damage, mechanical breakdown, and lack of spare parts.",
   "tanks": {
-    "heavy_tanks": 0,
-    "medium_tanks": 164,
-    "light_tanks": 9,
-    "total": 173,
-    "operational": 107,
-    "variants": {
-      "Panzer II": {
-        "count": 9,
-        "operational": 7,
-        "type": "light_tank",
-        "witw_id": "#1025",
-        "notes": "15. Pz.Div only, reconnaissance role"
-      },
-      "Panzer III (short 50mm L/42)": {
-        "count": 62,
-        "operational": 38,
-        "type": "medium_tank",
-        "gun": "5cm KwK 38 L/42",
-        "witw_id": "#1027",
-        "notes": "Combined from both panzer divisions, being phased out"
-      },
-      "Panzer III (long 50mm L/60)": {
-        "count": 88,
-        "operational": 54,
-        "type": "medium_tank",
-        "gun": "5cm KwK 39 L/60",
-        "witw_id": "#1028",
-        "notes": "Main battle tank of Afrika Korps panzer regiments"
-      },
-      "Panzer IV (short 75mm L/24)": {
-        "count": 14,
-        "operational": 8,
-        "type": "medium_tank",
-        "gun": "7.5cm KwK 37 L/24",
-        "witw_id": "#1030",
-        "notes": "Obsolescent close support tanks"
-      }
+    "heavy_tanks": {
+      "count": 0,
+      "witw_id": "GER_HEAVY_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     },
-    "tank_notes": "Establishment strength aggregated from 15. Pz.Div (118 tanks) and 21. Pz.Div (85 tanks). Total: 203 establishment, 173 on hand at start El Alamein (85% fill). Operational rate 62% (107 operational). By November 7 after El Alamein battle, only 16 operational tanks remained in entire Afrika Korps (92% loss rate). Tank strength catastrophic throughout Q4 due to: combat losses at El Alamein (156 tanks destroyed/captured), mechanical breakdowns (fuel/oil shortages prevented proper maintenance), lack of spare parts, inability to recover damaged tanks during retreat."
+    "medium_tanks": {
+      "count": 164,
+      "witw_id": "GER_MEDIUM_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
+    "light_tanks": {
+      "count": 9,
+      "witw_id": "GER_LIGHT_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
+    "total": {
+      "count": 173,
+      "witw_id": "GER_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
+    "operational": {
+      "count": 107,
+      "witw_id": "GER_OPERATIONAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
+    "variants": {
+      "count": {
+        "Panzer II": {
+          "count": 9,
+          "operational": 7,
+          "type": "light_tank",
+          "witw_id": "#1025",
+          "notes": "15. Pz.Div only, reconnaissance role"
+        },
+        "Panzer III (short 50mm L/42)": {
+          "count": 62,
+          "operational": 38,
+          "type": "medium_tank",
+          "gun": "5cm KwK 38 L/42",
+          "witw_id": "#1027",
+          "notes": "Combined from both panzer divisions, being phased out"
+        },
+        "Panzer III (long 50mm L/60)": {
+          "count": 88,
+          "operational": 54,
+          "type": "medium_tank",
+          "gun": "5cm KwK 39 L/60",
+          "witw_id": "#1028",
+          "notes": "Main battle tank of Afrika Korps panzer regiments"
+        },
+        "Panzer IV (short 75mm L/24)": {
+          "count": 14,
+          "operational": 8,
+          "type": "medium_tank",
+          "gun": "7.5cm KwK 37 L/24",
+          "witw_id": "#1030",
+          "notes": "Obsolescent close support tanks"
+        }
+      },
+      "witw_id": "GER_VARIANTS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
+    "tank_notes": {
+      "count": "Establishment strength aggregated from 15. Pz.Div (118 tanks) and 21. Pz.Div (85 tanks). Total: 203 establishment, 173 on hand at start El Alamein (85% fill). Operational rate 62% (107 operational). By November 7 after El Alamein battle, only 16 operational tanks remained in entire Afrika Korps (92% loss rate). Tank strength catastrophic throughout Q4 due to: combat losses at El Alamein (156 tanks destroyed/captured), mechanical breakdowns (fuel/oil shortages prevented proper maintenance), lack of spare parts, inability to recover damaged tanks during retreat.",
+      "witw_id": "GER_TANK_NOTES",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    }
   },
   "halftracks": {
     "total": 260,
@@ -134,35 +176,59 @@
     "notes": "Aggregated from divisions. Halftracks critical for motorized infantry mobility but high breakdown rate in desert conditions."
   },
   "armored_cars": {
-    "total": 101,
-    "operational": 65,
-    "variants": {
-      "SdKfz 222 (20mm autocannon)": {
-        "count": 44,
-        "operational": 28,
-        "witw_id": "#1051",
-        "role": "Light armored reconnaissance"
-      },
-      "SdKfz 221 (MG)": {
-        "count": 10,
-        "operational": 6,
-        "witw_id": "#1050",
-        "role": "Light reconnaissance, liaison"
-      },
-      "SdKfz 231/232 (8-rad heavy)": {
-        "count": 29,
-        "operational": 18,
-        "witw_id": "#1052",
-        "role": "Heavy armored reconnaissance, radio"
-      },
-      "SdKfz 260/261 (Radio)": {
-        "count": 18,
-        "operational": 13,
-        "witw_id": "#1053",
-        "role": "Command and signals vehicles"
-      }
+    "total": {
+      "count": 101,
+      "witw_id": "GER_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     },
-    "notes": "Reconnaissance battalions of all four divisions. Essential for desert operations deep reconnaissance."
+    "operational": {
+      "count": 65,
+      "witw_id": "GER_OPERATIONAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
+    "variants": {
+      "count": {
+        "SdKfz 222 (20mm autocannon)": {
+          "count": 44,
+          "operational": 28,
+          "witw_id": "#1051",
+          "role": "Light armored reconnaissance"
+        },
+        "SdKfz 221 (MG)": {
+          "count": 10,
+          "operational": 6,
+          "witw_id": "#1050",
+          "role": "Light reconnaissance, liaison"
+        },
+        "SdKfz 231/232 (8-rad heavy)": {
+          "count": 29,
+          "operational": 18,
+          "witw_id": "#1052",
+          "role": "Heavy armored reconnaissance, radio"
+        },
+        "SdKfz 260/261 (Radio)": {
+          "count": 18,
+          "operational": 13,
+          "witw_id": "#1053",
+          "role": "Command and signals vehicles"
+        }
+      },
+      "witw_id": "GER_VARIANTS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
+    "notes": {
+      "count": "Reconnaissance battalions of all four divisions. Essential for desert operations deep reconnaissance.",
+      "witw_id": "GER_NOTES",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    }
   },
   "trucks": {
     "total": 4082,
@@ -632,5 +698,12 @@
     ],
     "human_review_required": false,
     "human_review_notes": "Comprehensive extraction with excellent source documentation. Bottom-up aggregation validated against corps-level sources. Historical context (El Alamein, supply crisis) extremely well-documented. Suitable for immediate use in MDBook chapter generation and scenario export."
+  },
+  "_enrichment": {
+    "enriched_at": "2025-11-02T10:17:27.077116",
+    "enriched_count": 11,
+    "source_file": "german_1942q4_deutsches_afrikakorps_toe.json",
+    "database_version": "master_database.db",
+    "phase": "phase_5_equipment_matching_complete"
   }
 }

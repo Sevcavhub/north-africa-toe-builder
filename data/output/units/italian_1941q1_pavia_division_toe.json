@@ -51,50 +51,92 @@
   },
   "ground_vehicles_total": 890,
   "tanks": {
-    "total": 45,
-    "operational": 38,
+    "total": {
+      "count": 45,
+      "witw_id": "ITA_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
+    "operational": {
+      "count": 38,
+      "witw_id": "ITA_OPERATIONAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "heavy_tanks": {
-      "total": 0,
-      "variants": {}
+      "count": {
+        "total": 0,
+        "variants": {}
+      },
+      "witw_id": "ITA_HEAVY_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     },
     "medium_tanks": {
-      "total": 15,
-      "variants": {
-        "Fiat M13/40": {
-          "count": 15,
-          "operational": 13,
-          "witw_id": "italian_m13_40",
-          "notes": "6th Armoured Battalion equipment"
+      "count": {
+        "total": 15,
+        "variants": {
+          "Fiat M13/40": {
+            "count": 15,
+            "operational": 13,
+            "witw_id": "italian_m13_40",
+            "notes": "6th Armoured Battalion equipment"
+          }
         }
-      }
+      },
+      "witw_id": "ITA_MEDIUM_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     },
     "light_tanks": {
-      "total": 30,
-      "variants": {
-        "Fiat L3/35": {
-          "count": 30,
-          "operational": 25,
-          "witw_id": "italian_l3_35",
-          "notes": "Light tankettes for reconnaissance"
+      "count": {
+        "total": 30,
+        "variants": {
+          "Fiat L3/35": {
+            "count": 30,
+            "operational": 25,
+            "witw_id": "italian_l3_35",
+            "notes": "Light tankettes for reconnaissance"
+          }
         }
-      }
+      },
+      "witw_id": "ITA_LIGHT_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     }
   },
   "armored_cars": {
-    "total": 25,
+    "total": {
+      "count": 25,
+      "witw_id": "ITA_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "variants": {
-      "Autoblinda AB 40": {
-        "count": 15,
-        "operational": 12,
-        "witw_id": "italian_ab40",
-        "role": "5th Armoured Car Battalion"
+      "count": {
+        "Autoblinda AB 40": {
+          "count": 15,
+          "operational": 12,
+          "witw_id": "italian_ab40",
+          "role": "5th Armoured Car Battalion"
+        },
+        "Autoblinda AB 41": {
+          "count": 10,
+          "operational": 9,
+          "witw_id": "italian_ab41",
+          "role": "Reconnaissance"
+        }
       },
-      "Autoblinda AB 41": {
-        "count": 10,
-        "operational": 9,
-        "witw_id": "italian_ab41",
-        "role": "Reconnaissance"
-      }
+      "witw_id": "ITA_VARIANTS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     }
   },
   "trucks": {
@@ -203,20 +245,32 @@
     }
   },
   "mortars": {
-    "total": 62,
+    "total": {
+      "count": 62,
+      "witw_id": "ITA_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "variants": {
-      "Mortaio da 81/14 modello 35": {
-        "count": 36,
-        "caliber": "81mm",
-        "witw_id": "italian_81mm_m35",
-        "notes": "Divisional mortar battalion"
+      "count": {
+        "Mortaio da 81/14 modello 35": {
+          "count": 36,
+          "caliber": "81mm",
+          "witw_id": "italian_81mm_m35",
+          "notes": "Divisional mortar battalion"
+        },
+        "Mortaio da 45mm Brixia Modello 35": {
+          "count": 26,
+          "caliber": "45mm",
+          "witw_id": "italian_45mm_brixia",
+          "notes": "Company-level infantry mortars"
+        }
       },
-      "Mortaio da 45mm Brixia Modello 35": {
-        "count": 26,
-        "caliber": "45mm",
-        "witw_id": "italian_45mm_brixia",
-        "notes": "Company-level infantry mortars"
-      }
+      "witw_id": "ITA_VARIANTS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     }
   },
   "aircraft_total": 0,
@@ -370,5 +424,12 @@
     ],
     "aggregation_status": "manually_entered",
     "notes": "Data compiled from TME 30-420 standard divisione fanteria autotrasportabile organization tables applied to Pavia Division specific deployment. Personnel strength based on standard Italian binary division establishment (10,864 without Blackshirt legion). Equipment numbers derived from TME organizational charts for Italian infantry divisions. Actual field strength may have varied from establishment. Division was in process of adapting to desert conditions having arrived Libya February 1941."
+  },
+  "_enrichment": {
+    "enriched_at": "2025-11-02T10:17:27.343696",
+    "enriched_count": 9,
+    "source_file": "italian_1941q1_pavia_division_toe.json",
+    "database_version": "master_database.db",
+    "phase": "phase_5_equipment_matching_complete"
   }
 }

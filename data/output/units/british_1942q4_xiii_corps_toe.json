@@ -52,53 +52,83 @@
   },
   "ground_vehicles_total": 8827,
   "tanks": {
-    "total": 172,
-    "operational": 148,
+    "total": {
+      "count": 172,
+      "witw_id": "BRI_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
+    "operational": {
+      "count": 148,
+      "witw_id": "BRI_OPERATIONAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "heavy_tanks": {
-      "total": 0,
-      "variants": {}
+      "count": {
+        "total": 0,
+        "variants": {}
+      },
+      "witw_id": "BRI_HEAVY_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     },
     "medium_tanks": {
-      "total": 118,
-      "operational": 104,
-      "variants": {
-        "M4 Sherman": {
-          "count": 48,
-          "operational": 43,
-          "witw_id": "tank_sherman_m4",
-          "note": "7th Armoured Division, 22nd Armoured Brigade"
-        },
-        "M3 Grant": {
-          "count": 38,
-          "operational": 33,
-          "witw_id": "tank_grant_m3",
-          "note": "7th Armoured Division, 22nd Armoured Brigade"
-        },
-        "Crusader III": {
-          "count": 32,
-          "operational": 28,
-          "witw_id": "tank_crusader_iii",
-          "note": "7th Armoured Division cruiser tank squadrons"
+      "count": {
+        "total": 118,
+        "operational": 104,
+        "variants": {
+          "M4 Sherman": {
+            "count": 48,
+            "operational": 43,
+            "witw_id": "tank_sherman_m4",
+            "note": "7th Armoured Division, 22nd Armoured Brigade"
+          },
+          "M3 Grant": {
+            "count": 38,
+            "operational": 33,
+            "witw_id": "tank_grant_m3",
+            "note": "7th Armoured Division, 22nd Armoured Brigade"
+          },
+          "Crusader III": {
+            "count": 32,
+            "operational": 28,
+            "witw_id": "tank_crusader_iii",
+            "note": "7th Armoured Division cruiser tank squadrons"
+          }
         }
-      }
+      },
+      "witw_id": "BRI_MEDIUM_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     },
     "light_tanks": {
-      "total": 54,
-      "operational": 44,
-      "variants": {
-        "M3 Stuart (Honey)": {
-          "count": 40,
-          "operational": 34,
-          "witw_id": "tank_stuart_m3",
-          "note": "7th Armoured Division reconnaissance squadrons"
-        },
-        "Crusader II": {
-          "count": 14,
-          "operational": 10,
-          "witw_id": "tank_crusader_ii",
-          "note": "7th Armoured Division light squadrons"
+      "count": {
+        "total": 54,
+        "operational": 44,
+        "variants": {
+          "M3 Stuart (Honey)": {
+            "count": 40,
+            "operational": 34,
+            "witw_id": "tank_stuart_m3",
+            "note": "7th Armoured Division reconnaissance squadrons"
+          },
+          "Crusader II": {
+            "count": 14,
+            "operational": 10,
+            "witw_id": "tank_crusader_ii",
+            "note": "7th Armoured Division light squadrons"
+          }
         }
-      }
+      },
+      "witw_id": "BRI_LIGHT_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     }
   },
   "halftracks": {
@@ -106,26 +136,38 @@
     "variants": {}
   },
   "armored_cars": {
-    "total": 172,
+    "total": {
+      "count": 172,
+      "witw_id": "BRI_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "variants": {
-      "Humber Armoured Car Mk III": {
-        "count": 72,
-        "operational": 64,
-        "witw_id": "armoredcar_humber_mk3",
-        "role": "Corps and divisional reconnaissance"
+      "count": {
+        "Humber Armoured Car Mk III": {
+          "count": 72,
+          "operational": 64,
+          "witw_id": "armoredcar_humber_mk3",
+          "role": "Corps and divisional reconnaissance"
+        },
+        "Marmon-Herrington Mk III": {
+          "count": 42,
+          "operational": 38,
+          "witw_id": "armoredcar_marmon_herrington",
+          "role": "7th Armoured Division reconnaissance"
+        },
+        "Daimler Armoured Car": {
+          "count": 58,
+          "operational": 52,
+          "witw_id": "armoredcar_daimler",
+          "role": "Corps reconnaissance and screening"
+        }
       },
-      "Marmon-Herrington Mk III": {
-        "count": 42,
-        "operational": 38,
-        "witw_id": "armoredcar_marmon_herrington",
-        "role": "7th Armoured Division reconnaissance"
-      },
-      "Daimler Armoured Car": {
-        "count": 58,
-        "operational": 52,
-        "witw_id": "armoredcar_daimler",
-        "role": "Corps reconnaissance and screening"
-      }
+      "witw_id": "BRI_VARIANTS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     }
   },
   "trucks": {
@@ -465,5 +507,12 @@
     "required_field_gaps": [],
     "gap_documentation": {},
     "methodology": "Corps data aggregated from subordinate division files (7th Armoured Division, 50th Infantry Division available in canonical units directory). 44th Infantry Division estimated from standard British infantry division establishment (16,850 personnel, 72x 25-pdr, 36x 6-pdr AT guns). Free French brigade strengths from historical references. Corps-level assets (medium artillery, corps troops) estimated from British corps organization 1942. Personnel totals: 7th Armoured (14,850) + 44th Infantry (16,850 est.) + 50th Infantry (15,500) + Free French (1,150 est.) + Corps HQ/troops (3,350 est.) = 48,200 total. Historical mission and tactical doctrine from Montgomery's El Alamein plan and XIII Corps after-action reports as documented in Alexander's London Gazette despatch, Playfair/Molony official history, and Carver's first-hand account."
+  },
+  "_enrichment": {
+    "enriched_at": "2025-11-02T10:17:26.712639",
+    "enriched_count": 7,
+    "source_file": "british_1942q4_xiii_corps_toe.json",
+    "database_version": "master_database.db",
+    "phase": "phase_5_equipment_matching_complete"
   }
 }

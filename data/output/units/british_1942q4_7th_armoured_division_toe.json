@@ -52,53 +52,83 @@
   },
   "ground_vehicles_total": 3247,
   "tanks": {
-    "total": 172,
-    "operational": 148,
+    "total": {
+      "count": 172,
+      "witw_id": "BRI_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
+    "operational": {
+      "count": 148,
+      "witw_id": "BRI_OPERATIONAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "heavy_tanks": {
-      "total": 0,
-      "variants": {}
+      "count": {
+        "total": 0,
+        "variants": {}
+      },
+      "witw_id": "BRI_HEAVY_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     },
     "medium_tanks": {
-      "total": 118,
-      "operational": 104,
-      "variants": {
-        "M4 Sherman": {
-          "count": 48,
-          "operational": 43,
-          "witw_id": "tank_sherman_m4",
-          "note": "75mm gun, assigned to 7th Armoured Division at El Alamein"
-        },
-        "M3 Grant": {
-          "count": 38,
-          "operational": 33,
-          "witw_id": "tank_grant_m3",
-          "note": "75mm sponson gun, 37mm turret gun"
-        },
-        "Crusader III": {
-          "count": 32,
-          "operational": 28,
-          "witw_id": "tank_crusader_iii",
-          "note": "6-pounder (57mm) gun, cruiser tank"
+      "count": {
+        "total": 118,
+        "operational": 104,
+        "variants": {
+          "M4 Sherman": {
+            "count": 48,
+            "operational": 43,
+            "witw_id": "tank_sherman_m4",
+            "note": "75mm gun, assigned to 7th Armoured Division at El Alamein"
+          },
+          "M3 Grant": {
+            "count": 38,
+            "operational": 33,
+            "witw_id": "tank_grant_m3",
+            "note": "75mm sponson gun, 37mm turret gun"
+          },
+          "Crusader III": {
+            "count": 32,
+            "operational": 28,
+            "witw_id": "tank_crusader_iii",
+            "note": "6-pounder (57mm) gun, cruiser tank"
+          }
         }
-      }
+      },
+      "witw_id": "BRI_MEDIUM_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     },
     "light_tanks": {
-      "total": 54,
-      "operational": 44,
-      "variants": {
-        "M3 Stuart (Honey)": {
-          "count": 40,
-          "operational": 34,
-          "witw_id": "tank_stuart_m3",
-          "note": "37mm gun, reconnaissance and light squadrons"
-        },
-        "Crusader II": {
-          "count": 14,
-          "operational": 10,
-          "witw_id": "tank_crusader_ii",
-          "note": "2-pounder (40mm) gun, light squadrons"
+      "count": {
+        "total": 54,
+        "operational": 44,
+        "variants": {
+          "M3 Stuart (Honey)": {
+            "count": 40,
+            "operational": 34,
+            "witw_id": "tank_stuart_m3",
+            "note": "37mm gun, reconnaissance and light squadrons"
+          },
+          "Crusader II": {
+            "count": 14,
+            "operational": 10,
+            "witw_id": "tank_crusader_ii",
+            "note": "2-pounder (40mm) gun, light squadrons"
+          }
         }
-      }
+      },
+      "witw_id": "BRI_LIGHT_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     }
   },
   "halftracks": {
@@ -106,26 +136,38 @@
     "variants": {}
   },
   "armored_cars": {
-    "total": 124,
+    "total": {
+      "count": 124,
+      "witw_id": "BRI_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "variants": {
-      "Humber Armoured Car Mk III": {
-        "count": 48,
-        "operational": 42,
-        "witw_id": "armoredcar_humber_mk3",
-        "role": "Reconnaissance squadrons"
+      "count": {
+        "Humber Armoured Car Mk III": {
+          "count": 48,
+          "operational": 42,
+          "witw_id": "armoredcar_humber_mk3",
+          "role": "Reconnaissance squadrons"
+        },
+        "Marmon-Herrington Mk III": {
+          "count": 42,
+          "operational": 38,
+          "witw_id": "armoredcar_marmon_herrington",
+          "role": "South African pattern, reconnaissance"
+        },
+        "Daimler Armoured Car": {
+          "count": 34,
+          "operational": 30,
+          "witw_id": "armoredcar_daimler",
+          "role": "2-pounder gun, reconnaissance"
+        }
       },
-      "Marmon-Herrington Mk III": {
-        "count": 42,
-        "operational": 38,
-        "witw_id": "armoredcar_marmon_herrington",
-        "role": "South African pattern, reconnaissance"
-      },
-      "Daimler Armoured Car": {
-        "count": 34,
-        "operational": 30,
-        "witw_id": "armoredcar_daimler",
-        "role": "2-pounder gun, reconnaissance"
-      }
+      "witw_id": "BRI_VARIANTS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     }
   },
   "trucks": {
@@ -461,5 +503,12 @@
     ],
     "aggregation_status": "manually_entered",
     "notes": "Data compiled from multiple sources including organizational tables, battle reports, and unit histories. Tank numbers based on August 1942 Middle East armoured division establishment (172 tanks) with types reflecting El Alamein/pursuit period allocations. Personnel strength estimated at 14,850 based on standard British armoured division establishment. Supply/logistics data reflects historical accounts of extended pursuit operations across Libya with 1800km supply line from Alexandria."
+  },
+  "_enrichment": {
+    "enriched_at": "2025-11-02T10:17:26.699673",
+    "enriched_count": 7,
+    "source_file": "british_1942q4_7th_armoured_division_toe.json",
+    "database_version": "master_database.db",
+    "phase": "phase_5_equipment_matching_complete"
   }
 }

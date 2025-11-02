@@ -49,22 +49,58 @@
   },
   "ground_vehicles_total": 1850,
   "tanks": {
-    "total": 0,
-    "operational": 0,
-    "readiness_percentage": 0,
+    "total": {
+      "count": 0,
+      "witw_id": "GER_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
+    "operational": {
+      "count": 0,
+      "witw_id": "GER_OPERATIONAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
+    "readiness_percentage": {
+      "count": 0,
+      "witw_id": "GER_READINESS_PERCENTAGE",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "heavy_tanks": {
-      "total": 0,
-      "variants": {}
+      "count": {
+        "total": 0,
+        "variants": {}
+      },
+      "witw_id": "GER_HEAVY_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     },
     "medium_tanks": {
-      "total": 0,
-      "operational": 0,
-      "variants": {}
+      "count": {
+        "total": 0,
+        "operational": 0,
+        "variants": {}
+      },
+      "witw_id": "GER_MEDIUM_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     },
     "light_tanks": {
-      "total": 0,
-      "operational": 0,
-      "variants": {}
+      "count": {
+        "total": 0,
+        "operational": 0,
+        "variants": {}
+      },
+      "witw_id": "GER_LIGHT_TANKS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     }
   },
   "halftracks": {
@@ -73,23 +109,41 @@
     "variants": {}
   },
   "armored_cars": {
-    "total": 24,
-    "operational": 21,
+    "total": {
+      "count": 24,
+      "witw_id": "GER_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
+    "operational": {
+      "count": 21,
+      "witw_id": "GER_OPERATIONAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "variants": {
-      "SdKfz 222": {
-        "count": 12,
-        "operational": 10,
-        "armament": "2cm KwK 30, MG 34",
-        "armor_mm": "5-14.5mm",
-        "role": "Light reconnaissance"
+      "count": {
+        "SdKfz 222": {
+          "count": 12,
+          "operational": 10,
+          "armament": "2cm KwK 30, MG 34",
+          "armor_mm": "5-14.5mm",
+          "role": "Light reconnaissance"
+        },
+        "SdKfz 231 (8-rad)": {
+          "count": 12,
+          "operational": 11,
+          "armament": "2cm KwK 30",
+          "armor_mm": "5-18mm",
+          "role": "Heavy reconnaissance"
+        }
       },
-      "SdKfz 231 (8-rad)": {
-        "count": 12,
-        "operational": 11,
-        "armament": "2cm KwK 30",
-        "armor_mm": "5-18mm",
-        "role": "Heavy reconnaissance"
-      }
+      "witw_id": "GER_VARIANTS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     }
   },
   "trucks": {
@@ -232,30 +286,48 @@
     }
   },
   "mortars": {
-    "total": 54,
-    "operational": 52,
+    "total": {
+      "count": 54,
+      "witw_id": "GER_TOTAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
+    "operational": {
+      "count": 52,
+      "witw_id": "GER_OPERATIONAL",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
+    },
     "variants": {
-      "8cm GrW 34": {
-        "count": 36,
-        "operational": 35,
-        "caliber": "81mm",
-        "range_meters": 2400,
-        "notes": "Battalion support mortars"
+      "count": {
+        "8cm GrW 34": {
+          "count": 36,
+          "operational": 35,
+          "caliber": "81mm",
+          "range_meters": 2400,
+          "notes": "Battalion support mortars"
+        },
+        "15cm sIG 33": {
+          "count": 6,
+          "operational": 5,
+          "caliber": "150mm",
+          "range_meters": 4700,
+          "notes": "Heavy infantry guns for direct fire support"
+        },
+        "7.5cm leIG 18": {
+          "count": 12,
+          "operational": 12,
+          "caliber": "75mm",
+          "range_meters": 3550,
+          "notes": "Light infantry guns"
+        }
       },
-      "15cm sIG 33": {
-        "count": 6,
-        "operational": 5,
-        "caliber": "150mm",
-        "range_meters": 4700,
-        "notes": "Heavy infantry guns for direct fire support"
-      },
-      "7.5cm leIG 18": {
-        "count": 12,
-        "operational": 12,
-        "caliber": "75mm",
-        "range_meters": 3550,
-        "notes": "Light infantry guns"
-      }
+      "witw_id": "GER_VARIANTS",
+      "specifications": null,
+      "confidence": 0,
+      "source": "not_matched"
     }
   },
   "aircraft_total": 0,
@@ -517,5 +589,12 @@
       "company_organization": "Battalion-level organization documented in sources. Company/platoon internal structure, weapons allocations, and personnel distributions not detailed."
     },
     "required_field_gaps": []
+  },
+  "_enrichment": {
+    "enriched_at": "2025-11-02T10:17:26.961982",
+    "enriched_count": 12,
+    "source_file": "german_1941q3_90_leichte_division_toe.json",
+    "database_version": "master_database.db",
+    "phase": "phase_5_equipment_matching_complete"
   }
 }
