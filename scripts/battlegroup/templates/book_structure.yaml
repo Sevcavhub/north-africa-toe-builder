@@ -1,0 +1,289 @@
+# Book Structure Template for BattleGroup North Africa Series
+# This YAML defines the canonical structure for all battle books
+# Generators will use this to create both MDBook (web) and print formats
+
+book:
+  # Metadata
+  title: "{battle_name} - BattleGroup North Africa"
+  subtitle: "Historical Scenarios and Army Lists"
+  author: "Generated from Primary Sources"
+  version: "1.0"
+  date: "{publication_date}"
+
+  # Battle-specific metadata
+  battle:
+    name: "{battle_name}"
+    operation: "{operation_code}"  # e.g., "Operation Battleaxe"
+    date_range: "{start_date} - {end_date}"
+    quarter: "{quarter}"  # e.g., "1941q2"
+    location: "{location}"
+    nations: ["{attacker_nation}", "{defender_nation}"]
+
+  # Book structure (order matters)
+  structure:
+
+    # Front Matter
+    front_matter:
+      - title_page:
+          template: "title_page.md"
+          data:
+            - title
+            - subtitle
+            - author
+            - version
+            - date
+            - cover_image  # placeholder
+
+      - credits:
+          template: "credits.md"
+          sections:
+            - primary_sources
+            - data_sources
+            - software_credits
+            - license
+
+      - table_of_contents:
+          auto_generate: true
+          depth: 2  # H1 and H2 only
+          format: "mdbook"  # or "latex" for print
+
+      - preface:
+          template: "preface.md"
+          content:
+            - about_this_book
+            - how_to_use
+            - data_provenance
+            - accuracy_notes
+
+    # Main Content
+    main_content:
+
+      # Chapter 1: Introduction
+      - introduction:
+          chapter_number: 1
+          title: "Introduction"
+          template: "chapter_intro.md"
+          sections:
+            - historical_overview:
+                title: "Historical Overview"
+                content: "{battle_name} historical context"
+                length: "2-3 pages"
+
+            - strategic_situation:
+                title: "Strategic Situation"
+                content: "Forces, objectives, terrain"
+                length: "1-2 pages"
+
+            - orders_of_battle:
+                title: "Orders of Battle"
+                content: "Unit compositions by nation and quarter"
+                length: "2-4 pages"
+                source: "phase6_units"  # Links to Phase 6 JSON data
+
+      # Chapter 2: Equipment Reference
+      - equipment:
+          chapter_number: 2
+          title: "Equipment Reference"
+          template: "chapter_equipment.md"
+          sections:
+            - vehicles:
+                title: "Vehicles"
+                source: "datacards"
+                filter: {type: "vehicle", nations: ["all"]}
+                sort_by: "nation_then_name"
+                layout: "grid_2col"  # 2 datacards per page
+
+            - guns:
+                title: "Guns and Artillery"
+                source: "datacards"
+                filter: {type: "gun"}
+                sort_by: "nation_then_caliber"
+                layout: "grid_2col"
+
+            - defences:
+                title: "Defensive Structures"
+                source: "datacards"
+                filter: {type: "defence"}
+                layout: "list"
+
+            - fire_support:
+                title: "Fire Support"
+                source: "datacards"
+                filter: {type: "fire_support"}
+                layout: "list"
+
+      # Chapter 3: Army Lists
+      - army_lists:
+          chapter_number: 3
+          title: "Army Lists"
+          template: "chapter_army_lists.md"
+          sections:
+            - force_list_attacker:
+                title: "{attacker_nation_full} Forces"
+                source: "army_list_generator"
+                nation: "{attacker_nation}"
+                quarter: "{quarter}"
+                include:
+                  - force_organization
+                  - unit_descriptions
+                  - special_rules
+                  - historical_notes
+
+            - force_list_defender:
+                title: "{defender_nation_full} Forces"
+                source: "army_list_generator"
+                nation: "{defender_nation}"
+                quarter: "{quarter}"
+                include:
+                  - force_organization
+                  - unit_descriptions
+                  - special_rules
+                  - historical_notes
+
+      # Chapter 4: Scenarios
+      - scenarios:
+          chapter_number: 4
+          title: "Historical Scenarios"
+          template: "chapter_scenarios.md"
+          format: "2_page_spreads"  # Each scenario = 2 facing pages
+          sections:
+            - scenario_overview:
+                title: "Using These Scenarios"
+                content: "How to play, modifications, linking scenarios"
+                length: "1 page"
+
+            - scenarios_list:
+                source: "historical_scenario_generator"
+                count: "{scenario_count}"  # 8-15 scenarios
+                layout: "2_page_spread"
+                include_images: true
+                image_placeholders:
+                  - historical_photo
+                  - miniatures_setup
+                  - deployment_map
+
+      # Chapter 5: Special Rules
+      - special_rules:
+          chapter_number: 5
+          title: "Special Rules Reference"
+          template: "chapter_special_rules.md"
+          sections:
+            - nation_rules:
+                title: "Nation-Specific Rules"
+                source: "bg_special_rules"
+                filter: {category: "nation"}
+
+            - terrain_rules:
+                title: "North Africa Terrain"
+                content: "Desert, wadis, escarpments, etc."
+                source: "terrain_table"
+
+            - scenario_rules:
+                title: "Scenario Special Rules"
+                content: "Rules appearing in scenarios"
+                auto_collect: true  # Gather from all scenarios
+
+      # Chapter 6: Campaign System (optional)
+      - campaign:
+          chapter_number: 6
+          title: "Campaign System"
+          template: "chapter_campaign.md"
+          optional: true  # Only if campaign_mode enabled
+          sections:
+            - campaign_overview:
+                title: "Playing a Campaign"
+                content: "Linking scenarios, progression, attrition"
+
+            - campaign_timeline:
+                title: "Historical Timeline"
+                source: "campaign_tracker"
+                quarter_start: "{quarter_start}"
+                quarter_end: "{quarter_end}"
+
+            - unit_progression:
+                title: "Unit Progression Rules"
+                content: "Experience, replacements, casualties"
+
+    # Back Matter
+    back_matter:
+
+      - appendices:
+          sections:
+            - appendix_a:
+                title: "Quick Reference Tables"
+                content:
+                  - armor_penetration_table
+                  - movement_rates
+                  - points_costs_summary
+
+            - appendix_b:
+                title: "Historical Sources"
+                content: "Bibliography and references"
+                auto_generate: true  # From Phase 6 provenance
+
+            - appendix_c:
+                title: "Force Roster Sheet"
+                content: "Blank roster template for photocopying"
+                template: "force_roster_blank.md"
+
+      - index:
+          auto_generate: true
+          include:
+            - equipment_names
+            - unit_names
+            - scenario_names
+            - special_rules
+            - historical_terms
+
+# Output Formats
+outputs:
+
+  # MDBook format (web)
+  mdbook:
+    enabled: true
+    structure: "src/"  # MDBook expects src/ directory
+    files:
+      - "SUMMARY.md"  # Auto-generated TOC
+      - "chapter_*.md"  # Individual chapters
+    config: "book.toml"  # MDBook configuration
+    theme: "custom"  # Custom CSS for datacard styling
+
+  # Print format (LaTeX/PDF)
+  print:
+    enabled: true
+    format: "latex"  # or "docx" for MS Word
+    template: "book_print.tex"
+    paper_size: "letter"  # or "a4"
+    page_layout:
+      margins: {top: "1in", bottom: "1in", left: "0.75in", right: "0.75in"}
+      two_column: false  # Single column for scenarios
+      datacard_grid: true  # 2-column grid for datacards
+    fonts:
+      body: "Liberation Serif"  # Free font, good print quality
+      heading: "Liberation Sans"
+      monospace: "Liberation Mono"
+    images:
+      format: "png"  # or "jpg"
+      dpi: 300  # Print quality
+
+  # HTML format (standalone)
+  html:
+    enabled: true
+    single_file: true  # All-in-one HTML
+    css: "custom_print.css"
+    include_toc: true
+
+  # Markdown format (raw)
+  markdown:
+    enabled: true
+    format: "github"  # GitHub-flavored markdown
+    preserve_yaml_metadata: true
+
+# Feature Flags
+features:
+  campaign_mode: false  # Enable Chapter 6
+  random_scenarios: false  # Include random scenario generator rules
+  blank_templates: true  # Include blank roster sheets
+  historical_photos: true  # Include image placeholders
+  miniatures_photos: true  # Include miniatures setup photos
+  tactical_maps: true  # Include ASCII/graphical deployment maps

@@ -1,0 +1,146 @@
+% BattleGroup North Africa - Print Template
+% LaTeX document for professional print output
+
+\documentclass[11pt,letterpaper,twoside]{book}
+
+% Packages
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{libertine}  % Liberation-like fonts
+\usepackage[margin=0.75in]{geometry}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{booktabs}
+\usepackage{multicol}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{tocloft}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{mdframed}
+\usepackage{hyperref}
+
+% Color definitions (desert theme)
+\definecolor{deserttan}{RGB}{210,180,140}
+\definecolor{desertsand}{RGB}{237,201,175}
+\definecolor{desertbrown}{RGB}{139,90,43}
+
+% Page style
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE,RO]{\thepage}
+\fancyhead[RE]{\leftmark}
+\fancyhead[LO]{\rightmark}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% Chapter/Section styling
+\titleformat{\chapter}[display]
+  {\normalfont\huge\bfseries\color{desertbrown}}
+  {\chaptertitlename\ \thechapter}{20pt}{\Huge}
+
+\titleformat{\section}
+  {\normalfont\Large\bfseries\color{desertbrown}}
+  {\thesection}{1em}{}
+
+% Datacard environment (for equipment)
+\mdfdefinestyle{datacard}{
+  linecolor=desertbrown,
+  linewidth=2pt,
+  frametitlerule=true,
+  frametitlebackgroundcolor=deserttan,
+  innertopmargin=10pt,
+  innerbottommargin=10pt,
+  innerrightmargin=10pt,
+  innerleftmargin=10pt
+}
+
+\newenvironment{datacard}[1]{
+  \begin{mdframed}[style=datacard,frametitle={\textbf{#1}}]
+}{
+  \end{mdframed}
+}
+
+% Scenario box environment
+\mdfdefinestyle{scenario}{
+  linecolor=black,
+  linewidth=1pt,
+  backgroundcolor=desertsand,
+  innertopmargin=10pt,
+  innerbottommargin=10pt,
+  innerrightmargin=10pt,
+  innerleftmargin=10pt
+}
+
+% Hyperlink setup
+\hypersetup{
+  colorlinks=true,
+  linkcolor=desertbrown,
+  filecolor=desertbrown,
+  urlcolor=desertbrown,
+  pdftitle={{title}},
+  pdfauthor={{author}}
+}
+
+% Document metadata
+\title{{title}}
+\author{{author}}
+\date{{date}}
+
+\begin{document}
+
+% Title page
+\begin{titlepage}
+  \centering
+  \vspace*{2cm}
+
+  {\Huge\bfseries {title}\par}
+  \vspace{0.5cm}
+  {\Large {subtitle}\par}
+  \vspace{2cm}
+
+  {\large {battle_name}\par}
+  {\large {date_range}\par}
+  \vspace{1cm}
+
+  % Cover image placeholder
+  \ifx\coverimage\undefined
+  \else
+    \includegraphics[width=0.8\textwidth]{\coverimage}
+  \fi
+
+  \vfill
+
+  {\large {author}\par}
+  {\large Version {version}\par}
+  {\large {date}\par}
+\end{titlepage}
+
+% Credits
+\chapter*{Credits}
+\addcontentsline{toc}{chapter}{Credits}
+
+{credits_content}
+
+% Table of Contents
+\tableofcontents
+\clearpage
+
+% Preface
+\chapter*{Preface}
+\addcontentsline{toc}{chapter}{Preface}
+
+{preface_content}
+
+% Main content starts here
+{main_content}
+
+% Back matter
+\appendix
+
+{appendices_content}
+
+% Index
+\printindex
+
+\end{document}
