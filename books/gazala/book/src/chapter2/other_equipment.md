@@ -10,20 +10,22 @@
 | TYPE | MOVEMENT | | | ARMOUR | | | |
 |------|----------|----------|----------|--------|---|---|---|
 | | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Tank | 10" | 16" | - | N | O | O | None |
+| Tank | 10 | 16 | - | N | O | O | 2pdr |
 
 ### ARMAMENT
 
 | Weapon | Mount | Ammo |
 |--------|-------|------|
-| None | - | - |
+| 2pdr | Turret | 8 |
+| MG | Co-Axial | - |
+| MG | Hull | - |
 
 ### WEAPON PERFORMANCE
 
 | WEAPON | AMMO | HE | RANGE | | | | | |
 |--------|------|----|----|----|----|----|----|----|
 | | | | **0-10"** | **10-20"** | **20-30"** | **30-40"** | **40-50"** | **50-70"** |
-| None | HE/AP | - | - | - | - | - | - | - |
+| 2pdr | HE/AP | - | - | - | - | - | - | - |
 
 **Points:** 24 | **Battle Rating:** 2 | **Crew:** Unknown
 **Special Rules:**
@@ -40,20 +42,21 @@
 | TYPE | MOVEMENT | | | ARMOUR | | | |
 |------|----------|----------|----------|--------|---|---|---|
 | | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Tank | 8" | 12" | - | N | O | O | None |
+| Tank | 8 | 12 | - | N | O | O | 2pdr |
 
 ### ARMAMENT
 
 | Weapon | Mount | Ammo |
 |--------|-------|------|
-| None | - | - |
+| 2pdr | Turret | 8 |
+| MG | Co-Axial | - |
 
 ### WEAPON PERFORMANCE
 
 | WEAPON | AMMO | HE | RANGE | | | | | |
 |--------|------|----|----|----|----|----|----|----|
 | | | | **0-10"** | **10-20"** | **20-30"** | **30-40"** | **40-50"** | **50-70"** |
-| None | HE/AP | - | - | - | - | - | - | - |
+| 2pdr | HE/AP | - | - | - | - | - | - | - |
 
 **Points:** 20 | **Battle Rating:** 1 | **Crew:** Unknown
 **Special Rules:**
@@ -70,7 +73,7 @@
 | TYPE | MOVEMENT | | | ARMOUR | | | |
 |------|----------|----------|----------|--------|---|---|---|
 | | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Tank | 8" | 12" | - | N | O | O | None |
+| Tank | 8 | 12 | - | N | O | O | None |
 
 ### ARMAMENT
 
@@ -100,7 +103,7 @@
 | TYPE | MOVEMENT | | | ARMOUR | | | |
 |------|----------|----------|----------|--------|---|---|---|
 | | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Tank | 8" | 12" | - | N | O | O | None |
+| Tank | 8 | 12 | - | N | O | O | None |
 
 ### ARMAMENT
 
@@ -130,7 +133,7 @@
 | TYPE | MOVEMENT | | | ARMOUR | | | |
 |------|----------|----------|----------|--------|---|---|---|
 | | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Unknown | 8" | 12" | - | N | O | O | None |
+| Unknown | 8 | 12 | - | N | O | O | None |
 
 ### ARMAMENT
 
@@ -160,7 +163,7 @@
 | TYPE | MOVEMENT | | | ARMOUR | | | |
 |------|----------|----------|----------|--------|---|---|---|
 | | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Unknown | 8" | 12" | - | N | O | O | None |
+| Unknown | 8 | 12 | - | N | O | O | None |
 
 ### ARMAMENT
 
@@ -190,7 +193,7 @@
 | TYPE | MOVEMENT | | | ARMOUR | | | |
 |------|----------|----------|----------|--------|---|---|---|
 | | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Tank | 8" | 12" | - | N | O | O | None |
+| Tank | 8 | 12 | - | N | O | O | None |
 
 ### ARMAMENT
 
@@ -223,7 +226,7 @@
 | TYPE | MOVEMENT | | | ARMOUR | | | |
 |------|----------|----------|----------|--------|---|---|---|
 | | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Unknown | 8" | 12" | - | N | O | O | None |
+| Unknown | 8 | 12 | - | N | O | O | None |
 
 ### ARMAMENT
 
@@ -253,7 +256,7 @@
 | TYPE | MOVEMENT | | | ARMOUR | | | |
 |------|----------|----------|----------|--------|---|---|---|
 | | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Unknown | 8" | 12" | - | N | O | O | None |
+| Unknown | 8 | 12 | - | N | O | O | None |
 
 ### ARMAMENT
 
@@ -286,7 +289,7 @@
 | TYPE | MOVEMENT | | | ARMOUR | | | |
 |------|----------|----------|----------|--------|---|---|---|
 | | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Unknown | 8" | 12" | - | N | O | O | None |
+| Unknown | 8 | 12 | - | N | O | O | None |
 
 ### ARMAMENT
 
@@ -317,7 +320,7 @@
 | TYPE | MOVEMENT | | | ARMOUR | | | |
 |------|----------|----------|----------|--------|---|---|---|
 | | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Unknown | 8" | 12" | - | N | O | O | None |
+| Unknown | 8 | 12 | - | N | O | O | None |
 
 ### ARMAMENT
 

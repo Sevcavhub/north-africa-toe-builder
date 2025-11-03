@@ -10,14 +10,13 @@
 | TYPE | MOVEMENT | | | ARMOUR | | | |
 |------|----------|----------|----------|--------|---|---|---|
 | | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Halftrack | 8" | 12" | - | N | O | O | None |
+| Halftrack | 8 | 12 | - | N | O | O | None |
 
 ### ARMAMENT
 
 | Weapon | Mount | Ammo |
 |--------|-------|------|
 | None | - | - |
-| 7.92mm MG 13 | Pintle | - |
 
 ### WEAPON PERFORMANCE
 
@@ -46,7 +45,7 @@
 | TYPE | MOVEMENT | | | ARMOUR | | | |
 |------|----------|----------|----------|--------|---|---|---|
 | | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Vehicle | 8" | 12" | - | N | O | O | None |
+| Vehicle | 8 | 12 | - | N | O | O | None |
 
 ### ARMAMENT
 
@@ -77,7 +76,7 @@
 | TYPE | MOVEMENT | | | ARMOUR | | | |
 |------|----------|----------|----------|--------|---|---|---|
 | | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Vehicle | 6" | 24" | - | Soft-Skinned | - | - | None |
+| Vehicle | 6 | 24 | - | Soft-Skinned | - | - | None |
 
 ### ARMAMENT
 
@@ -107,7 +106,7 @@
 | TYPE | MOVEMENT | | | ARMOUR | | | |
 |------|----------|----------|----------|--------|---|---|---|
 | | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Vehicle | 6" | 24" | - | Soft-Skinned | - | - | None |
+| Vehicle | 6 | 24 | - | Soft-Skinned | - | - | None |
 
 ### ARMAMENT
 
@@ -137,7 +136,7 @@
 | TYPE | MOVEMENT | | | ARMOUR | | | |
 |------|----------|----------|----------|--------|---|---|---|
 | | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Vehicle | 8" | 12" | - | N | O | O | None |
+| Vehicle | 8 | 12 | - | N | O | O | None |
 
 ### ARMAMENT
 
@@ -167,7 +166,7 @@
 | TYPE | MOVEMENT | | | ARMOUR | | | |
 |------|----------|----------|----------|--------|---|---|---|
 | | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Vehicle | 6" | 24" | - | Soft-Skinned | - | - | None |
+| Vehicle | 6 | 24 | - | Soft-Skinned | - | - | None |
 
 ### ARMAMENT
 
@@ -197,7 +196,7 @@
 | TYPE | MOVEMENT | | | ARMOUR | | | |
 |------|----------|----------|----------|--------|---|---|---|
 | | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Vehicle | 8" | 12" | - | N | O | O | None |
+| Vehicle | 8 | 12 | - | N | O | O | None |
 
 ### ARMAMENT
 
@@ -228,7 +227,7 @@
 | TYPE | MOVEMENT | | | ARMOUR | | | |
 |------|----------|----------|----------|--------|---|---|---|
 | | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Vehicle | 8" | 12" | - | N | O | O | None |
+| Vehicle | 8 | 12 | - | N | O | O | None |
 
 ### ARMAMENT
 
@@ -258,7 +257,7 @@
 | TYPE | MOVEMENT | | | ARMOUR | | | |
 |------|----------|----------|----------|--------|---|---|---|
 | | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Vehicle | 8" | 12" | - | N | O | O | None |
+| Vehicle | 8 | 12 | - | N | O | O | None |
 
 ### ARMAMENT
 
@@ -289,7 +288,7 @@
 | TYPE | MOVEMENT | | | ARMOUR | | | |
 |------|----------|----------|----------|--------|---|---|---|
 | | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Vehicle | 8" | 12" | - | N | O | O | None |
+| Vehicle | 8 | 12 | - | N | O | O | None |
 
 ### ARMAMENT
 
@@ -319,7 +318,7 @@
 | TYPE | MOVEMENT | | | ARMOUR | | | |
 |------|----------|----------|----------|--------|---|---|---|
 | | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Vehicle | 8" | 12" | - | N | O | O | None |
+| Vehicle | 8 | 12 | - | N | O | O | None |
 
 ### ARMAMENT
 
@@ -349,7 +348,7 @@
 | TYPE | MOVEMENT | | | ARMOUR | | | |
 |------|----------|----------|----------|--------|---|---|---|
 | | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Armored Car | 8" | 24" | - | N | O | O | None |
+| Armored Car | 8 | 24 | - | N | O | O | None |
 
 ### ARMAMENT
 
@@ -380,7 +379,7 @@
 | TYPE | MOVEMENT | | | ARMOUR | | | |
 |------|----------|----------|----------|--------|---|---|---|
 | | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Vehicle | 8" | 12" | - | N | O | O | None |
+| Vehicle | 8 | 12 | - | N | O | O | None |
 
 ### ARMAMENT
 
@@ -410,7 +409,7 @@
 | TYPE | MOVEMENT | | | ARMOUR | | | |
 |------|----------|----------|----------|--------|---|---|---|
 | | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Vehicle | 8" | 12" | - | N | O | O | None |
+| Vehicle | 8 | 12 | - | N | O | O | None |
 
 ### ARMAMENT
 
@@ -440,7 +439,7 @@
 | TYPE | MOVEMENT | | | ARMOUR | | | |
 |------|----------|----------|----------|--------|---|---|---|
 | | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Armored Car | 8" | 12" | - | N | O | O | None |
+| Armored Car | 8 | 12 | - | N | O | O | None |
 
 ### ARMAMENT
 
@@ -470,14 +469,13 @@
 | TYPE | MOVEMENT | | | ARMOUR | | | |
 |------|----------|----------|----------|--------|---|---|---|
 | | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Armored Car | 10" | 24" | - | N | O | O | None |
+| Armored Car | 10 | 24 | - | N | O | O | None |
 
 ### ARMAMENT
 
 | Weapon | Mount | Ammo |
 |--------|-------|------|
 | None | - | - |
-| 7.92mm MG 13 | Pintle | - |
 
 ### WEAPON PERFORMANCE
 
@@ -502,7 +500,7 @@
 | TYPE | MOVEMENT | | | ARMOUR | | | |
 |------|----------|----------|----------|--------|---|---|---|
 | | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Armored Car | 8" | 12" | - | N | O | O | None |
+| Armored Car | 8 | 12 | - | N | O | O | None |
 
 ### ARMAMENT
 
@@ -532,7 +530,7 @@
 | TYPE | MOVEMENT | | | ARMOUR | | | |
 |------|----------|----------|----------|--------|---|---|---|
 | | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Vehicle | 8" | 12" | - | N | O | O | None |
+| Vehicle | 8 | 12 | - | N | O | O | None |
 
 ### ARMAMENT
 
@@ -562,7 +560,7 @@
 | TYPE | MOVEMENT | | | ARMOUR | | | |
 |------|----------|----------|----------|--------|---|---|---|
 | | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Armored Car | 8" | 12" | - | N | O | O | None |
+| Armored Car | 8 | 12 | - | N | O | O | None |
 
 ### ARMAMENT
 
@@ -592,7 +590,7 @@
 | TYPE | MOVEMENT | | | ARMOUR | | | |
 |------|----------|----------|----------|--------|---|---|---|
 | | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Vehicle | 8" | 24" | - | Soft-Skinned | - | - | None |
+| Vehicle | 8 | 24 | - | Soft-Skinned | - | - | None |
 
 ### ARMAMENT
 
@@ -622,7 +620,7 @@
 | TYPE | MOVEMENT | | | ARMOUR | | | |
 |------|----------|----------|----------|--------|---|---|---|
 | | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Armored Car | 8" | 12" | - | N | O | O | None |
+| Armored Car | 8 | 12 | - | N | O | O | None |
 
 ### ARMAMENT
 
@@ -652,7 +650,7 @@
 | TYPE | MOVEMENT | | | ARMOUR | | | |
 |------|----------|----------|----------|--------|---|---|---|
 | | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Vehicle | 8" | 12" | - | N | O | O | None |
+| Vehicle | 8 | 12 | - | N | O | O | None |
 
 ### ARMAMENT
 
@@ -682,7 +680,7 @@
 | TYPE | MOVEMENT | | | ARMOUR | | | |
 |------|----------|----------|----------|--------|---|---|---|
 | | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Vehicle | 8" | 12" | - | N | O | O | None |
+| Vehicle | 8 | 12 | - | N | O | O | None |
 
 ### ARMAMENT
 
@@ -715,7 +713,7 @@
 | TYPE | MOVEMENT | | | ARMOUR | | | |
 |------|----------|----------|----------|--------|---|---|---|
 | | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Vehicle | 8" | 12" | - | N | O | O | None |
+| Vehicle | 8 | 12 | - | N | O | O | None |
 
 ### ARMAMENT
 
@@ -747,7 +745,7 @@
 | TYPE | MOVEMENT | | | ARMOUR | | | |
 |------|----------|----------|----------|--------|---|---|---|
 | | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Vehicle | 8" | 12" | - | N | O | O | None |
+| Vehicle | 8 | 12 | - | N | O | O | None |
 
 ### ARMAMENT
 
@@ -777,7 +775,7 @@
 | TYPE | MOVEMENT | | | ARMOUR | | | |
 |------|----------|----------|----------|--------|---|---|---|
 | | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Vehicle | 8" | 12" | - | N | O | O | None |
+| Vehicle | 8 | 12 | - | N | O | O | None |
 
 ### ARMAMENT
 
@@ -807,7 +805,7 @@
 | TYPE | MOVEMENT | | | ARMOUR | | | |
 |------|----------|----------|----------|--------|---|---|---|
 | | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Vehicle | 8" | 12" | - | N | O | O | None |
+| Vehicle | 8 | 12 | - | N | O | O | None |
 
 ### ARMAMENT
 
@@ -837,7 +835,7 @@
 | TYPE | MOVEMENT | | | ARMOUR | | | |
 |------|----------|----------|----------|--------|---|---|---|
 | | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Vehicle | 8" | 12" | - | N | O | O | None |
+| Vehicle | 8 | 12 | - | N | O | O | None |
 
 ### ARMAMENT
 
@@ -867,7 +865,7 @@
 | TYPE | MOVEMENT | | | ARMOUR | | | |
 |------|----------|----------|----------|--------|---|---|---|
 | | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Vehicle | 6" | 24" | - | Soft-Skinned | - | - | None |
+| Vehicle | 6 | 24 | - | Soft-Skinned | - | - | None |
 
 ### ARMAMENT
 
@@ -897,13 +895,13 @@
 | TYPE | MOVEMENT | | | ARMOUR | | | |
 |------|----------|----------|----------|--------|---|---|---|
 | | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Armored Car | 8" | 24" | - | O | O | O | 20mmL55 |
+| Armored Car | 8 | 24 | - | O | O | O | 20mmL55 |
 
 ### ARMAMENT
 
 | Weapon | Mount | Ammo |
 |--------|-------|------|
-| 20mmL55 | Turret | - |
+| 20mmL55 | Turret | 18 |
 | 7.92mm MG 13 | Co-Axial | - |
 
 ### WEAPON PERFORMANCE
@@ -929,13 +927,13 @@
 | TYPE | MOVEMENT | | | ARMOUR | | | |
 |------|----------|----------|----------|--------|---|---|---|
 | | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Armored Car | 10" | 28" | - | N | O | O | 20mmL55 |
+| Armored Car | 10 | 28 | - | N | O | O | 20mmL55 |
 
 ### ARMAMENT
 
 | Weapon | Mount | Ammo |
 |--------|-------|------|
-| 20mmL55 | Turret | - |
+| 20mmL55 | Turret | 10 |
 | 7.92mm MG 13 | Co-Axial | - |
 
 ### WEAPON PERFORMANCE
@@ -960,14 +958,13 @@
 | TYPE | MOVEMENT | | | ARMOUR | | | |
 |------|----------|----------|----------|--------|---|---|---|
 | | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Armored Car | 222" | 8" | - | N | O | O | None |
+| Armored Car | 222 | 8 | - | N | O | O | None |
 
 ### ARMAMENT
 
 | Weapon | Mount | Ammo |
 |--------|-------|------|
 | None | - | - |
-| 7.92mm MG 13 | Co-Axial | - |
 
 ### WEAPON PERFORMANCE
 
@@ -993,14 +990,13 @@
 | TYPE | MOVEMENT | | | ARMOUR | | | |
 |------|----------|----------|----------|--------|---|---|---|
 | | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Halftrack | 8" | 18" | - | N | O | O | None |
+| Halftrack | 8 | 18 | - | N | O | O | None |
 
 ### ARMAMENT
 
 | Weapon | Mount | Ammo |
 |--------|-------|------|
 | None | - | - |
-| 7.92mm MG 13 | Pintle | - |
 
 ### WEAPON PERFORMANCE
 
@@ -1024,14 +1020,13 @@
 | TYPE | MOVEMENT | | | ARMOUR | | | |
 |------|----------|----------|----------|--------|---|---|---|
 | | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Halftrack | 222" | 8" | - | O | O | O | None |
+| Halftrack | 222 | 8 | - | O | O | O | None |
 
 ### ARMAMENT
 
 | Weapon | Mount | Ammo |
 |--------|-------|------|
 | None | - | - |
-| 7.92mm MG 13 | Pintle | - |
 
 ### WEAPON PERFORMANCE
 
@@ -1057,7 +1052,7 @@
 | TYPE | MOVEMENT | | | ARMOUR | | | |
 |------|----------|----------|----------|--------|---|---|---|
 | | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Vehicle | 8" | 12" | - | N | O | O | None |
+| Vehicle | 8 | 12 | - | N | O | O | None |
 
 ### ARMAMENT
 
@@ -1090,7 +1085,7 @@
 | TYPE | MOVEMENT | | | ARMOUR | | | |
 |------|----------|----------|----------|--------|---|---|---|
 | | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Armored Car | 8" | 12" | - | N | O | O | None |
+| Armored Car | 8 | 12 | - | N | O | O | None |
 
 ### ARMAMENT
 
@@ -1120,7 +1115,7 @@
 | TYPE | MOVEMENT | | | ARMOUR | | | |
 |------|----------|----------|----------|--------|---|---|---|
 | | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Armored Car | 8" | 12" | - | N | O | O | None |
+| Armored Car | 8 | 12 | - | N | O | O | None |
 
 ### ARMAMENT
 
@@ -1150,7 +1145,7 @@
 | TYPE | MOVEMENT | | | ARMOUR | | | |
 |------|----------|----------|----------|--------|---|---|---|
 | | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Vehicle | 8" | 12" | - | N | O | O | None |
+| Vehicle | 8 | 12 | - | N | O | O | None |
 
 ### ARMAMENT
 
@@ -1180,7 +1175,7 @@
 | TYPE | MOVEMENT | | | ARMOUR | | | |
 |------|----------|----------|----------|--------|---|---|---|
 | | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Vehicle | 8" | 12" | - | N | O | O | None |
+| Vehicle | 8 | 12 | - | N | O | O | None |
 
 ### ARMAMENT
 
@@ -1211,7 +1206,7 @@
 | TYPE | MOVEMENT | | | ARMOUR | | | |
 |------|----------|----------|----------|--------|---|---|---|
 | | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Vehicle | 8" | 12" | - | N | O | O | None |
+| Vehicle | 8 | 12 | - | N | O | O | None |
 
 ### ARMAMENT
 
@@ -1241,7 +1236,7 @@
 | TYPE | MOVEMENT | | | ARMOUR | | | |
 |------|----------|----------|----------|--------|---|---|---|
 | | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Vehicle | 8" | 12" | - | N | O | O | None |
+| Vehicle | 8 | 12 | - | N | O | O | None |
 
 ### ARMAMENT
 
@@ -1271,7 +1266,7 @@
 | TYPE | MOVEMENT | | | ARMOUR | | | |
 |------|----------|----------|----------|--------|---|---|---|
 | | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Vehicle | 8" | 12" | - | N | O | O | None |
+| Vehicle | 8 | 12 | - | N | O | O | None |
 
 ### ARMAMENT
 

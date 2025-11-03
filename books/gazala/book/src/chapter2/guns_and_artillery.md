@@ -10,20 +10,20 @@
 | TYPE | MOVEMENT | | | ARMOUR | | | |
 |------|----------|----------|----------|--------|---|---|---|
 | | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Unknown | 8" | 12" | - | N | O | O | None |
+| Unknown | 1" | 1" | - | N | O | O | 81mm mortar |
 
 ### ARMAMENT
 
 | Weapon | Mount | Ammo |
 |--------|-------|------|
-| None | - | - |
+| 81mm mortar | Turret | - |
 
 ### WEAPON PERFORMANCE
 
 | WEAPON | AMMO | HE | RANGE | | | | | |
 |--------|------|----|----|----|----|----|----|----|
 | | | | **0-10"** | **10-20"** | **20-30"** | **30-40"** | **40-50"** | **50-70"** |
-| None | HE/AP | - | - | - | - | - | - | - |
+| 81mm mortar | HE/AP | - | - | - | - | - | - | - |
 
 **Points:** 20 | **Battle Rating:** 2 | **Crew:** Unknown
 **Special Rules:**
@@ -44,7 +44,7 @@
 | TYPE | MOVEMENT | | | ARMOUR | | | |
 |------|----------|----------|----------|--------|---|---|---|
 | | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Artillery | 8" | 12" | - | N | O | O | 25 gun |
+| Artillery | 8 | 12 | - | N | O | O | 25 gun |
 
 ### ARMAMENT
 
@@ -74,7 +74,7 @@
 | TYPE | MOVEMENT | | | ARMOUR | | | |
 |------|----------|----------|----------|--------|---|---|---|
 | | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Artillery | 8" | 12" | - | N | O | O | 5 gun |
+| Artillery | 8 | 12 | - | N | O | O | 5 gun |
 
 ### ARMAMENT
 
@@ -105,7 +105,7 @@
 | TYPE | MOVEMENT | | | ARMOUR | | | |
 |------|----------|----------|----------|--------|---|---|---|
 | | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Artillery | 8" | 12" | - | N | O | O | Self (towed gun) |
+| Artillery | 8 | 12 | - | N | O | O | Self (towed gun) |
 
 ### ARMAMENT
 
@@ -135,7 +135,7 @@
 | TYPE | MOVEMENT | | | ARMOUR | | | |
 |------|----------|----------|----------|--------|---|---|---|
 | | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Artillery | 8" | 12" | - | N | O | O | None |
+| Artillery | 8 | 12 | - | N | O | O | None |
 
 ### ARMAMENT
 
@@ -165,7 +165,7 @@
 | TYPE | MOVEMENT | | | ARMOUR | | | |
 |------|----------|----------|----------|--------|---|---|---|
 | | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Unknown | 8" | 12" | - | N | O | O | None |
+| Unknown | 8 | 12 | - | N | O | O | None |
 
 ### ARMAMENT
 
@@ -196,7 +196,7 @@
 | TYPE | MOVEMENT | | | ARMOUR | | | |
 |------|----------|----------|----------|--------|---|---|---|
 | | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Artillery | 8" | 12" | - | N | O | O | Self (towed gun) |
+| Artillery | 8 | 12 | - | N | O | O | Self (towed gun) |
 
 ### ARMAMENT
 
@@ -226,20 +226,20 @@
 | TYPE | MOVEMENT | | | ARMOUR | | | |
 |------|----------|----------|----------|--------|---|---|---|
 | | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Artillery | 8" | 12" | - | N | O | O | Self (towed gun) |
+| Artillery | 1" | 1" | - | N | O | O | 3" mortar |
 
 ### ARMAMENT
 
 | Weapon | Mount | Ammo |
 |--------|-------|------|
-| Self (towed gun) | - | - |
+| 3" mortar | Turret | - |
 
 ### WEAPON PERFORMANCE
 
 | WEAPON | AMMO | HE | RANGE | | | | | |
 |--------|------|----|----|----|----|----|----|----|
 | | | | **0-10"** | **10-20"** | **20-30"** | **30-40"** | **40-50"** | **50-70"** |
-| Self (towed gun) | HE/AP | - | - | - | - | - | - | - |
+| 3" mortar | HE/AP | - | - | - | - | - | - | - |
 
 **Points:** 20 | **Battle Rating:** 1 | **Crew:** Unknown
 **Special Rules:**
@@ -259,20 +259,20 @@
 | TYPE | MOVEMENT | | | ARMOUR | | | |
 |------|----------|----------|----------|--------|---|---|---|
 | | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Artillery | 8" | 12" | - | N | O | O | 50 gun |
+| Artillery | 2" | 2" | - | N | O | O | 50mm |
 
 ### ARMAMENT
 
 | Weapon | Mount | Ammo |
 |--------|-------|------|
-| 50 gun | Turret | - |
+| 50mm | Turret | - |
 
 ### WEAPON PERFORMANCE
 
 | WEAPON | AMMO | HE | RANGE | | | | | |
 |--------|------|----|----|----|----|----|----|----|
 | | | | **0-10"** | **10-20"** | **20-30"** | **30-40"** | **40-50"** | **50-70"** |
-| 50 gun | HE/AP | - | - | - | - | - | - | - |
+| 50mm | HE/AP | - | - | - | - | - | - | - |
 
 **Points:** 20 | **Battle Rating:** 1 | **Crew:** Unknown
 **Special Rules:**
@@ -293,7 +293,7 @@
 | TYPE | MOVEMENT | | | ARMOUR | | | |
 |------|----------|----------|----------|--------|---|---|---|
 | | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Artillery | 8" | 12" | - | N | O | O | None |
+| Artillery | 8 | 12 | - | N | O | O | None |
 
 ### ARMAMENT
 
@@ -323,7 +323,7 @@
 | TYPE | MOVEMENT | | | ARMOUR | | | |
 |------|----------|----------|----------|--------|---|---|---|
 | | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Artillery | 8" | 12" | - | N | O | O | None |
+| Artillery | 8 | 12 | - | N | O | O | None |
 
 ### ARMAMENT
 
@@ -354,7 +354,7 @@
 | TYPE | MOVEMENT | | | ARMOUR | | | |
 |------|----------|----------|----------|--------|---|---|---|
 | | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Artillery | 8" | 12" | - | N | O | O | None |
+| Artillery | 8 | 12 | - | N | O | O | None |
 
 ### ARMAMENT
 

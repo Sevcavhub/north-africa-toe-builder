@@ -1,0 +1,188 @@
+================================================================================
+DATABASE LINKAGE ANALYSIS - SUMMARY
+================================================================================
+Date: 2025-11-03
+Task: Populate equipment_battlegroup.reference_vehicle_id
+Method: Exact pattern matching (non-fuzzy)
+
+================================================================================
+CURRENT STATE
+================================================================================
+
+Database Tables:
+  - equipment: 469 items
+  - equipment_battlegroup: 469 items (reference_vehicle_id = NULL for ALL)
+  - bg_reference_vehicles: 954 items (499 with nation set)
+  - bg_reference_guns: 57 items
+
+Reference Problem: 469/469 (100%) equipment items have NULL reference_vehicle_id
+Impact: Phase 9B BG datacards show "Weapon: None" and null penetration values
+
+================================================================================
+MATCHING RESULTS
+================================================================================
+
+TIER 1: Exact Matches (READY NOW)
+  Status: SQL script generated, ready to execute
+  Method: LOWER(TRIM(name)) with nation validation
+  Matches: 19 items (4.1% of equipment)
+  Confidence: 100 (perfect match)
+  
+  Breakdown:
+    - American: 6 matches
+    - British: 6 matches
+    - German: 7 matches
+  
+  Priority Test Cases:
+    ✅ GBR_MATILDA_II → id:290 (Matilda II)
+    ✅ USA_M4_SHERMAN → id:203 (M4 Sherman)
+    ❌ GER_PANZER_III_AUSF_F (needs Tier 2 normalization)
+    ❌ GBR_25_POUNDER (blocked - no ref_gun_id column)
+
+TIER 2: Normalized Matches (ESTIMATED)
+  Status: Requires Python script development
+  Method: Punctuation/spacing normalization + reverse order
+  Matches: 40-60 items (8.5-12.8% additional)
+  Confidence: 90
+  
+  Sample Patterns:
+    - Reverse order: "Sherman M4" → "M4 Sherman"
+    - Punctuation: "Panzer III Ausf. F" → "Panzer III F"
+    - Roman numerals: "Mk1" → "Mk I"
+
+TIER 3: Base Model Matches (ESTIMATED)
+  Status: Requires variant detection logic
+  Method: Strip variant suffixes, match on base model
+  Matches: 20-30 items (4.3-6.4% additional)
+  Confidence: 80
+  
+  Example: "Panzer III Ausf F" → base "Panzer III" → match any variant
+
+================================================================================
+COVERAGE PROJECTIONS
+================================================================================
+
+Conservative (Tier 1 Only):
+  Linked: 19 items (4.1%)
+  NULL: 450 items (95.9%)
+
+Moderate (Tier 1 + Tier 2):
+  Linked: 60-80 items (12.8-17.1%)
+  NULL: 389-409 items (82.9-87.2%)
+
+Optimistic (Tier 1 + Tier 2 + Tier 3):
+  Linked: 80-100 items (17.1-21.3%)
+  NULL: 369-389 items (78.7-82.9%)
+
+Realistic Maximum (+ ref_gun_id for artillery):
+  Linked: 130-170 items (27.7-36.3%)
+  NULL: 299-339 items (63.7-72.3%)
+
+================================================================================
+ARCHITECTURE ISSUES
+================================================================================
+
+Issue #1: Missing reference_gun_id Column
+  Impact: 110 artillery items (23.5%) cannot be linked
+  Categories: field_artillery (48), anti_tank (32), anti_aircraft (25)
+  Available Data: bg_reference_guns has 57 items ready
+  Solution: ALTER TABLE equipment_battlegroup ADD COLUMN reference_gun_id
+
+Issue #2: Multiple Variant Handling
+  Impact: 4 items have 2-5 BG variants (e.g., SdKfz 222 has 5 variants)
+  Current Strategy: Use MIN(id) to select primary variant
+  Better Solution: Create variant_preferences table with metadata
+
+Issue #3: Unknown Nation Records
+  Impact: 454 bg_reference_vehicles have nation='Unknown'
+  Reason: Generic unit templates without nation context
+  Solution: Parse vehicle names, infer nation, or exclude from matching
+
+================================================================================
+UNMATCHABLE ITEMS (Architecture/Scope Limits)
+================================================================================
+
+Artillery/Guns: 110 items (23.5%)
+  Reason: No reference_gun_id column in equipment_battlegroup
+
+Aircraft: 59 items (12.6%)
+  Reason: No BG reference tables (out of scope for Battlegroup game)
+
+Support Vehicles: 89 items (19.0%)
+  Reason: Limited BG coverage (trucks, support vehicles not in game)
+
+Total Unmatchable: 258 items (55.0%)
+Potentially Matchable: 211 items (45.0%)
+
+================================================================================
+FILES GENERATED
+================================================================================
+
+1. LINKAGE_ANALYSIS.md
+   - Comprehensive database state analysis
+   - Tier breakdown and matching potential
+   - Architecture issue identification
+
+2. MATCHING_STRATEGY.md
+   - Detailed matching tier definitions
+   - Normalization rule specifications
+   - Safety protocol and rollback procedures
+
+3. scripts/linkage/tier1_exact_matches.sql
+   - Executable SQL for Tier 1 (19 items)
+   - Full transaction with audit trail
+   - Rollback script included
+
+4. LINKAGE_REPORT.md
+   - Final analysis summary
+   - Match statistics by tier
+   - Recommendations for next steps
+
+5. EXECUTE_TIER1.md
+   - Quick start guide for execution
+   - Before/after examples
+   - Validation checklist
+
+6. LINKAGE_SUMMARY.txt (this file)
+   - Quick reference summary
+
+================================================================================
+RECOMMENDATIONS
+================================================================================
+
+Immediate Action (This Session):
+  1. Execute Tier 1 SQL script (19 items, zero risk)
+  2. Verify 2 priority test cases solved (Matilda II, M4 Sherman)
+  3. Test BG datacard generation with linked items
+
+Follow-Up Actions (Next Session):
+  1. Develop Tier 2 Python normalization script
+  2. Add reference_gun_id column (architecture fix)
+  3. Link 110 artillery items using bg_reference_guns
+  4. Develop Tier 3 base model matching
+
+Expected Final Coverage: 27-36% (130-170 items)
+  - Vehicles via reference_vehicle_id: 80-100 items
+  - Guns via reference_gun_id: 50-70 items
+  - Remaining NULL: Aircraft (59) + Support (89) + Missing refs (50-100)
+
+================================================================================
+EXECUTION READY
+================================================================================
+
+Status: ✅ READY FOR TIER 1 EXECUTION
+
+SQL Script: D:\north-africa-toe-builder\scripts\linkage\tier1_exact_matches.sql
+Database: D:\north-africa-toe-builder\database\master_database.db
+Records: 19
+Confidence: 100
+Risk: Zero (full rollback available)
+
+Command to Execute:
+  sqlite3 database/master_database.db < scripts/linkage/tier1_exact_matches.sql
+
+OR use Python MCP tool to execute step-by-step with review.
+
+================================================================================
+Awaiting approval to proceed with Tier 1 execution.
+================================================================================

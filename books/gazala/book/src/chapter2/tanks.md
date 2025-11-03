@@ -10,7 +10,7 @@
 | TYPE | MOVEMENT | | | ARMOUR | | | |
 |------|----------|----------|----------|--------|---|---|---|
 | | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Tank | 9" | 14" | - | N | O | O | None |
+| Tank | 9 | 14 | - | N | O | O | None |
 
 ### ARMAMENT
 
@@ -41,7 +41,7 @@
 | TYPE | MOVEMENT | | | ARMOUR | | | |
 |------|----------|----------|----------|--------|---|---|---|
 | | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Tank | 8" | 12" | - | N | O | O | None |
+| Tank | 8 | 12 | - | N | O | O | None |
 
 ### ARMAMENT
 
@@ -71,20 +71,20 @@
 | TYPE | MOVEMENT | | | ARMOUR | | | |
 |------|----------|----------|----------|--------|---|---|---|
 | | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Tank | 8" | 12" | - | N | O | O | 37mmL53 |
+| Tank | 8 | 12 | - | N | O | O | None |
 
 ### ARMAMENT
 
 | Weapon | Mount | Ammo |
 |--------|-------|------|
-| 37mmL53 | Turret | - |
+| None | - | - |
 
 ### WEAPON PERFORMANCE
 
 | WEAPON | AMMO | HE | RANGE | | | | | |
 |--------|------|----|----|----|----|----|----|----|
 | | | | **0-10"** | **10-20"** | **20-30"** | **30-40"** | **40-50"** | **50-70"** |
-| 37mmL53 | HE/AP | - | - | - | - | - | - | - |
+| None | HE/AP | - | - | - | - | - | - | - |
 
 **Points:** 20 | **Battle Rating:** 1 | **Crew:** Unknown
 **Special Rules:**
@@ -105,22 +105,20 @@
 | TYPE | MOVEMENT | | | ARMOUR | | | |
 |------|----------|----------|----------|--------|---|---|---|
 | | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Tank | 10" | 14" | - | N | O | O | 50mmL42 |
+| Tank | 10 | 14 | - | N | O | O | None |
 
 ### ARMAMENT
 
 | Weapon | Mount | Ammo |
 |--------|-------|------|
-| 50mmL42 | Turret | - |
-| 7.92mm MG 13 | Co-Axial | - |
-| 7.92mm MG 13 | Hull | - |
+| None | - | - |
 
 ### WEAPON PERFORMANCE
 
 | WEAPON | AMMO | HE | RANGE | | | | | |
 |--------|------|----|----|----|----|----|----|----|
 | | | | **0-10"** | **10-20"** | **20-30"** | **30-40"** | **40-50"** | **50-70"** |
-| 50mmL42 | HE/AP | - | - | - | - | - | - | - |
+| None | HE/AP | - | - | - | - | - | - | - |
 
 **Points:** 24 | **Battle Rating:** 2 | **Crew:** Unknown
 **Special Rules:**
@@ -144,7 +142,7 @@
 | TYPE | MOVEMENT | | | ARMOUR | | | |
 |------|----------|----------|----------|--------|---|---|---|
 | | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Tank | 8" | 12" | - | N | O | O | None |
+| Tank | 8 | 12 | - | N | O | O | None |
 
 ### ARMAMENT
 

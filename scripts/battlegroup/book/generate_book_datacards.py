@@ -312,7 +312,7 @@ class BookDatacardGenerator:
         """
         cursor = self.conn.cursor()
 
-        # Get BattleGroup stats + crew + production info
+        # Get BattleGroup stats + crew + production info + LINKED DATA
         cursor.execute("""
             SELECT
                 eb.armor_front, eb.armor_side, eb.armor_rear,
@@ -325,7 +325,9 @@ class BookDatacardGenerator:
                 eb.points_veteran, eb.points_elite,
                 eb.battle_rating_regular, eb.battle_rating_inexperienced,
                 eb.battle_rating_veteran, eb.battle_rating_elite,
-                e.crew, e.production_start, e.production_end
+                eb.reference_vehicle_id, eb.reference_match_confidence,
+                eb.reference_gun_id, eb.reference_gun_match_confidence,
+                e.crew, e.production_start, e.production_end, e.name, e.category
             FROM equipment_battlegroup eb
             JOIN equipment e ON eb.equipment_id = e.canonical_id
             WHERE eb.equipment_id = ?
@@ -347,8 +349,10 @@ class BookDatacardGenerator:
         points = row[points_col]
         br = row[br_col]
 
-        # Get main gun - try multiple sources
+        # Get main gun - try multiple sources (FIXED: use linked reference_vehicle_id/reference_gun_id)
         main_gun = None
+        main_gun_ammo = None
+        weapon_data = None  # Store full weapon data for penetration lookup
 
         # Source 1: equipment_guns table (if populated)
         cursor.execute("""
@@ -362,51 +366,46 @@ class BookDatacardGenerator:
         if gun_row:
             main_gun = gun_row['name']
 
-        # Source 2: bg_reference_vehicles (JSON weapons field)
-        if not main_gun:
-            # Try exact match first, then fuzzy match
-            search_terms = [equipment['name']]
-
-            # For variants, also try base model name
-            # e.g., "Panzer III Command" -> also try "Panzer III"
-            import re
-            base_name_match = re.match(r'(.*?(?:Panzer|Tank|Sherman|Matilda|Valentine|Crusader|Stuart))\s+(?:I+|Command|CS|AA)', equipment['name'], re.IGNORECASE)
-            if base_name_match:
-                search_terms.append(base_name_match.group(1))
-
-            ref_rows = []
-            for search_term in search_terms:
-                cursor.execute("""
-                    SELECT weapons
-                    FROM bg_reference_vehicles
-                    WHERE name LIKE ?
-                    ORDER BY LENGTH(weapons) DESC
-                """, (f"%{search_term}%",))
-                ref_rows.extend(cursor.fetchall())
-                if ref_rows:
-                    break  # Stop if we found matches
-
-            for ref_row in ref_rows:
-                if ref_row and ref_row['weapons']:
-                    try:
-                        import json
-                        weapons = json.loads(ref_row['weapons'])
-                        # Find main gun (usually turret-mounted, not MG)
-                        for weapon in weapons:
-                            mount = weapon.get('mount', '').lower()
-                            weapon_name = weapon.get('weapon', '')
-                            # Look for turret-mounted weapon that's not just "MG"
-                            if 'turret' in mount and weapon_name.upper() != 'MG':
-                                main_gun = weapon_name
-                                break
-                        # If we found a gun, stop searching
-                        if main_gun:
+        # Source 2: bg_reference_vehicles (via reference_vehicle_id - FIXED!)
+        if not main_gun and row['reference_vehicle_id']:
+            cursor.execute("""
+                SELECT weapons, name
+                FROM bg_reference_vehicles
+                WHERE id = ?
+            """, (row['reference_vehicle_id'],))
+            ref_row = cursor.fetchone()
+            if ref_row and ref_row['weapons']:
+                try:
+                    import json
+                    weapons = json.loads(ref_row['weapons'])
+                    # Find main gun (usually turret-mounted, not MG)
+                    for weapon in weapons:
+                        mount = weapon.get('mount', '').lower()
+                        weapon_name = weapon.get('weapon', '')
+                        ammo = weapon.get('ammo', None)
+                        # Look for turret-mounted weapon that's not just "MG"
+                        if 'turret' in mount and weapon_name.upper() != 'MG':
+                            main_gun = weapon_name
+                            main_gun_ammo = ammo
+                            weapon_data = weapon
                             break
-                    except (json.JSONDecodeError, TypeError):
-                        continue
+                except (json.JSONDecodeError, TypeError):
+                    pass
 
-        # For towed guns, the gun IS the equipment
-        if not main_gun and any(x in equipment['name'].lower() for x in ['pak', 'pounder', 'howitzer', 'flak']):
+        # Source 3: For towed guns, use reference_gun_id (NEW!)
+        if not main_gun and row['reference_gun_id']:
+            cursor.execute("""
+                SELECT name, caliber_mm
+                FROM bg_reference_guns
+                WHERE id = ?
+            """, (row['reference_gun_id'],))
+            gun_ref = cursor.fetchone()
+            if gun_ref:
+                main_gun = gun_ref['name']
+                # Gun IS the equipment for towed artillery
+
+        # Source 4: For towed guns without reference_gun_id, extract from name
+        if not main_gun and any(x in equipment['name'].lower() for x in ['pak', 'pounder', 'howitzer', 'flak', 'mortar']):
             # Extract caliber from name if present
             import re
             caliber_match = re.search(r'(\d+(?:\.\d+)?)\s*(?:mm|cm|inch|pounder|pdr)', equipment['name'], re.IGNORECASE)
@@ -419,7 +418,7 @@ class BookDatacardGenerator:
         if not main_gun:
             main_gun = 'None'
 
-        # Get secondary weapons
+        # Get secondary weapons (FIXED: use reference_vehicle_id)
         cursor.execute("""
             SELECT g.name, eg.mount_type
             FROM equipment_guns eg
@@ -430,16 +429,13 @@ class BookDatacardGenerator:
 
         secondary = cursor.fetchall()
 
-        # If no secondary weapons, try bg_reference_vehicles
-        if not secondary:
-            # Get the entry with most complete weapon data (longest JSON)
+        # If no secondary weapons, try bg_reference_vehicles via reference_vehicle_id (FIXED!)
+        if not secondary and row['reference_vehicle_id']:
             cursor.execute("""
                 SELECT weapons
                 FROM bg_reference_vehicles
-                WHERE name LIKE ?
-                ORDER BY LENGTH(weapons) DESC
-                LIMIT 1
-            """, (f"%{equipment['name']}%",))
+                WHERE id = ?
+            """, (row['reference_vehicle_id'],))
             ref_row = cursor.fetchone()
             if ref_row and ref_row['weapons']:
                 try:
@@ -450,30 +446,43 @@ class BookDatacardGenerator:
                     for weapon in weapons:
                         mount = weapon.get('mount', 'Unknown')
                         weapon_name = weapon.get('weapon', 'Unknown')
+                        weapon_ammo = weapon.get('ammo', None)
                         # Get all weapons except the main gun we already extracted
                         # Include co-axial/bow MGs and other secondary armament
-                        if 'turret' not in mount.lower() or weapon_name.upper() == 'MG' or weapon_name == main_gun:
-                            if weapon_name.upper() != 'MG' or 'mg' in weapon_name.lower():
-                                # Only add if it's not the duplicate of main_gun
-                                if weapon_name != main_gun:
-                                    secondary.append({'name': weapon_name, 'mount': mount})
+                        if weapon_name != main_gun and weapon_name.upper() != 'NONE':
+                            secondary.append({
+                                'name': weapon_name,
+                                'mount': mount,
+                                'ammo': weapon_ammo
+                            })
                 except (json.JSONDecodeError, TypeError):
                     pass
 
-        # Build armament table rows
-        main_gun_mount = 'Turret' if main_gun != 'None' and main_gun != 'Self (towed gun)' else '-'
-        armament_rows = [f"| {main_gun} | {main_gun_mount} | - |"]
+        # Build armament table rows (FIXED: include ammo counts)
+        # Check if this is a soft-skinned/unarmed vehicle (no weapons)
+        has_weapons = main_gun and main_gun != 'None' and main_gun != '-'
 
-        for sec in secondary:
-            if isinstance(sec, dict):
-                sec_name = sec.get('name', 'Unknown')
-                sec_mount = sec.get('mount', 'Unknown')
-            else:
-                sec_name = sec['name']
-                sec_mount = sec[1] if len(sec) > 1 else 'Unknown'
-            armament_rows.append(f"| {sec_name} | {sec_mount.title()} | - |")
+        if has_weapons:
+            main_gun_mount = 'Turret' if main_gun != 'None' and main_gun != 'Self (towed gun)' else '-'
+            main_gun_ammo_display = main_gun_ammo if main_gun_ammo else '-'
+            armament_rows = [f"| {main_gun} | {main_gun_mount} | {main_gun_ammo_display} |"]
 
-        armament_table = '\n'.join(armament_rows)
+            for sec in secondary:
+                if isinstance(sec, dict):
+                    sec_name = sec.get('name', 'Unknown')
+                    sec_mount = sec.get('mount', 'Unknown')
+                    sec_ammo = sec.get('ammo', '-')
+                else:
+                    sec_name = sec['name']
+                    sec_mount = sec[1] if len(sec) > 1 else 'Unknown'
+                    sec_ammo = '-'
+                sec_ammo_display = sec_ammo if sec_ammo else '-'
+                armament_rows.append(f"| {sec_name} | {sec_mount.title()} | {sec_ammo_display} |")
+
+            armament_table = '\n'.join(armament_rows)
+        else:
+            # Soft-skinned/unarmed vehicle - show minimal armament info
+            armament_table = "| None | - | - |"
 
         # Get special rules
         cursor.execute("""
@@ -497,8 +506,46 @@ class BookDatacardGenerator:
         armor_front = row['armor_front'] or '-'
         armor_side = row['armor_side'] or '-'
         armor_rear = row['armor_rear'] or '-'
-        off_road = row['off_road_movement'] or '-'
-        road = row['road_movement'] or '-'
+
+        # Fix gun movement speeds (BattleGroup rules for manhandled guns)
+        # If this is a towed gun/mortar, apply correct manhandled speeds
+        is_towed_gun = row['reference_gun_id'] is not None or any(x in row['name'].lower() for x in ['pak', 'pounder', 'howitzer', 'flak', 'mortar'])
+
+        if is_towed_gun and row['reference_gun_id']:
+            # Get caliber from bg_reference_guns
+            cursor.execute("""
+                SELECT caliber_mm
+                FROM bg_reference_guns
+                WHERE id = ?
+            """, (row['reference_gun_id'],))
+            gun_cal = cursor.fetchone()
+            caliber_mm = None
+            if gun_cal and gun_cal['caliber_mm']:
+                caliber_mm = gun_cal['caliber_mm']
+
+            # Apply BattleGroup manhandled gun movement rules
+            if caliber_mm:
+                if caliber_mm < 50:  # Very Light (mortars, <50mm)
+                    off_road = '3"'
+                    road = '3"'
+                elif 50 <= caliber_mm < 75:  # Light (50-57mm AT)
+                    off_road = '2"'
+                    road = '2"'
+                elif 75 <= caliber_mm < 100:  # Medium (75-88mm)
+                    off_road = '1"'
+                    road = '1"'
+                else:  # Heavy (105mm+)
+                    off_road = '0"'
+                    road = '0" (must be towed)'
+            else:
+                # Fallback: use existing values or default
+                off_road = row['off_road_movement'] or '1"'
+                road = row['road_movement'] or '1"'
+        else:
+            # Not a towed gun, use vehicle speeds
+            off_road = row['off_road_movement'] or '-'
+            road = row['road_movement'] or '-'
+
         he_format = row['he_format'] or '-'
 
         # Get crew count (by column name - using row_factory = sqlite3.Row)
@@ -515,10 +562,31 @@ class BookDatacardGenerator:
         else:
             production_period = "1940-1945"
 
+        # Get penetration values (FIXED: use reference_gun_id if available)
         ap_vals = []
-        for col in ['ap_0_10', 'ap_10_20', 'ap_20_30', 'ap_30_40', 'ap_40_50', 'ap_50_70']:
-            val = row[col]
-            ap_vals.append(str(val) if val is not None else '-')
+
+        # Try to get penetration from bg_reference_guns if reference_gun_id is set
+        if row['reference_gun_id']:
+            cursor.execute("""
+                SELECT ap_0_10, ap_10_20, ap_20_30, ap_30_40, ap_40_50, ap_50_70
+                FROM bg_reference_guns
+                WHERE id = ?
+            """, (row['reference_gun_id'],))
+            gun_pen = cursor.fetchone()
+            if gun_pen:
+                for col in ['ap_0_10', 'ap_10_20', 'ap_20_30', 'ap_30_40', 'ap_40_50', 'ap_50_70']:
+                    val = gun_pen[col]
+                    ap_vals.append(str(val) if val is not None else '-')
+            else:
+                # Fallback to equipment_battlegroup values
+                for col in ['ap_0_10', 'ap_10_20', 'ap_20_30', 'ap_30_40', 'ap_40_50', 'ap_50_70']:
+                    val = row[col]
+                    ap_vals.append(str(val) if val is not None else '-')
+        else:
+            # Use equipment_battlegroup values
+            for col in ['ap_0_10', 'ap_10_20', 'ap_20_30', 'ap_30_40', 'ap_40_50', 'ap_50_70']:
+                val = row[col]
+                ap_vals.append(str(val) if val is not None else '-')
 
         # Determine equipment type label
         eq_type = equipment.get('equipment_type', '')
@@ -535,7 +603,7 @@ class BookDatacardGenerator:
 | TYPE | MOVEMENT | | | ARMOUR | | | |
 |------|----------|----------|----------|--------|---|---|---|
 | | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| {type_label} | {off_road}" | {road}" | - | {armor_front} | {armor_side} | {armor_rear} | {main_gun} |
+| {type_label} | {off_road} | {road} | - | {armor_front} | {armor_side} | {armor_rear} | {main_gun} |
 
 ### ARMAMENT
 
