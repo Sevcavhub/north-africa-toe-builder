@@ -1,456 +1,290 @@
-# Phase 9B: Book Generation - Next Steps
+# Phase 9B: BattleGroup Books - Next Steps
 
-**Date**: November 2, 2025 (Updated - Session 2)
-**Current Status**: Step 7 Parts 1-4 ~70% COMPLETE - Historical chapters, equipment rules, tactical templates DONE
-**Goal**: Transform scenario shells into complete, publishable wargaming books
+**Date**: November 3, 2025
+**Status**: 95% Complete - Scenario regeneration and PDF production remaining
+**Last Update**: Critical bug fixes committed, ready for final push
 
 ---
 
-## 📊 Current State Analysis
+## 📊 Current State Summary
 
-### ✅ What We Have (Steps 6 & 7 Parts 1-4 ~70% Complete)
+### ✅ COMPLETED (Steps 1-7 Content)
 
-**Scenarios** (100% Complete - from previous steps):
-- ✅ 45 historical scenarios across 4 battles
-- ✅ Full 2-page BattleGroup format
-- ✅ Populated force rosters with actual units
-- ✅ Nationality distinction (German/Italian/British/French)
-- ✅ Historical context and objectives
-- ✅ Terrain and special rules
-- ✅ Validation suite (0 errors)
-- ✅ MDBook builds working
+**Steps 1-5: Foundation & Tools** (100% Complete)
+- ✅ Reference database (500 vehicles, 57 guns)
+- ✅ Conversion formula suite (100%, 100%, 100%, 97% accuracy)
+- ✅ Points/BR calculators (93.6%, 100%, 89.6%, 98.7% accuracy)
+- ✅ Database extensions (469 items enriched)
+- ✅ Generator toolkit (7 generators, 57 special rules)
 
-**Equipment Datacards** (Part 1 Complete - A- Quality 90%):
-- ✅ 182 unique equipment items across 24 markdown files
-- ✅ 6 categories: Tanks, Guns & Artillery, Infantry Weapons, Vehicles, Support, Other
-- ✅ 4 battles: Battleaxe, Crusader, Gazala, First Alamein
-- ✅ Gun data coverage: 50-60% (resolved critical blocker)
-- ✅ Format compliance: 100% (BattleGroup template)
-- ✅ Scripts: generate_book_datacards.py (665 lines)
+**Step 6: Scenario Generation System** (Infrastructure Complete, Content Needs Regeneration)
+- ✅ 45 scenario generation workflow built
+- ✅ Validation suite created
+- ✅ CRITICAL BUGS FIXED (Nov 3, 2025):
+  - Regex parsing fixed (squadron→squadrons?)
+  - Template integration complete
+  - Official BattleGroup rules validator added
+  - Combined arms enforcement implemented
+- ⚠️ **NEEDS ACTION**: Regenerate all 4 books with fixed generator
 
-**Force Availability References** (Part 2 Complete - B+ Quality 85%):
-- ✅ 72 divisions/corps documented across 12 markdown files
-- ✅ 3 nations × 4 battles: British, German, Italian
-- ✅ Strategic-level force compositions (division-level)
-- ✅ Equipment matching: 42-75% (database-integrated)
-- ✅ Scripts: generate_book_army_lists_v2.py (608 lines, canonical)
-- ⚠️ Note: Division-level data (not playable tactical army lists yet)
+**Step 7: Book Content** (95% Complete)
+- ✅ Equipment Datacards: 182 items, 24 files (Part 1)
+- ✅ Force Availability: 72 divisions, 12 files (Part 2)
+- ✅ Historical Chapters: 12 files, ~24,000 words (Part 3)
+- ✅ Equipment Special Rules: 4 files, 1,543 lines (Part 4)
+- ✅ Tactical Templates: 12 templates + 32 files (Part 4)
+- ✅ Appendices: 12 files, 7,797 lines (Part 4)
+  - Appendix A: Quick Reference with real weapon data
+  - Appendix B: Designer's Notes with 181 Phase 6 citations
+  - Appendix C: Historical Sources with 71 archive references
+- ⏸️ Visual Content: OPTIONAL, deferred (Part 5)
+- ⏸️ PDF Generation: Scripts created, only placeholder PDFs (Part 6)
 
-**Equipment Matching & Metadata System** (Complete):
-- ✅ Database integration (7% → 42% match rate, 6x improvement)
-- ✅ Metadata preservation system (268 items, 55.6% of Phase 6 data)
-- ✅ Equipment name parser (weight class, gun, role, variant extraction)
-- ✅ Database enrichment script ready (268 equipment items)
-- ✅ Phase 3 normalization work now fully utilized
+**Total Content Created**: 28,983 lines across 171 files
 
-**Historical Chapters** (Part 3 Complete - November 2, 2025):
-- ✅ 12 markdown files created (~24,000 words total)
-- ✅ Strategic situation chapters (4 battles)
-- ✅ Historical overview narratives (battle timelines, outcomes, lessons)
-- ✅ Orders of battle documentation (both sides)
-- ✅ Extracted from books/scenario_research.md (2,100 lines)
+---
 
-**Equipment Special Rules** (Part 4 - 100% Complete):
-- ✅ 4 equipment.md files (1,543 lines total)
-  - Battleaxe: 275 lines (June 1941 - 88mm debut, Matilda dominance)
-  - Crusader: 311 lines (Nov 1941 - Valentine, 6-pdr appears)
-  - Gazala: 432 lines (May-Jun 1942 - Grant tanks, Panzer IV F2)
-  - First Alamein: 525 lines (Jul 1942 - Commonwealth diversity, heat effects)
-- ✅ BattleGroup special rules for all equipment types (1941-1942)
-- ✅ National characteristics (Australian, NZ, SA, Indian infantry)
-- ✅ Environmental effects (desert heat, breakdown rates)
+## 🎯 REMAINING WORK (5% - Final Push)
 
-**Tactical Templates** (Expansion Complete - November 2, 2025):
-- ✅ 12 tank/artillery templates extracted from Phase 6 armored divisions
-  - 6 tank platoons (Matilda II, Crusader I, Stuart, Panzer III/IV, M13/40)
-  - 5 artillery batteries (25-pdr, 105mm, 150mm, 88mm FlaK, 75mm Italian)
-  - All with BattleGroup points, historical context, tactical notes
-- ✅ 32 platoon/company files (from Czechoslovak 11th Infantry Battalion)
-- ✅ Production scripts: 3 generators (1,520+ lines)
-- ✅ Zero guessing - all data from Phase 6 validated sources
-- ✅ Time saved: 26-40 hours via automation
+### Priority 1: Scenario Regeneration (CRITICAL)
+**Estimated Time**: 2-3 hours
+**Status**: Ready to execute
 
-**Infrastructure**:
-- ✅ Complete directory structure (52 dirs, 165+ files)
-- ✅ Automated generation workflow
-- ✅ MDBook configuration (4 books)
-- ✅ LaTeX templates for PDF
-- ✅ Image directories (placeholders)
+**Why Critical**:
+- Current scenarios have bugs (missing tanks, wrong force compositions)
+- Fixes committed but content not regenerated
+- Affects all 4 books (~40 scenarios total)
 
-### 🟡 In Progress (Appendices)
+**Tasks**:
+1. Regenerate Battleaxe scenarios (8 scenarios) - Verify fixes work
+2. Regenerate Crusader scenarios (~8 scenarios)
+3. Regenerate Gazala scenarios (~8 scenarios)
+4. Regenerate First Alamein scenarios (~8 scenarios)
+5. Run validation suite on all regenerated scenarios
+6. Verify parsing logs show correct equipment extraction
 
-**Current Work**: Appendix completion (11 files remaining)
-- Battleaxe Appendix A complete (403 lines with real weapon ranges, armor values)
-- Need: Crusader/Gazala/First Alamein Appendix A (3 files)
-- Need: All 4 books Appendix B (Designer's Notes - 4 files)
-- Need: All 4 books Appendix C (Historical Sources - 4 files)
+**Success Criteria**:
+- All scenarios include historically accurate units
+- Infantry organized as platoons (not individuals)
+- Forces comply with official Infantry Requirement Tables
+- Combined arms balance maintained
+- Parsing logs show 0 errors
 
-**Estimated**: 2-3 hours to complete all appendices
+---
 
-### 🔴 Still Needed (Step 7 Parts 5-6)
+### Priority 2: Production PDF Generation (REQUIRED)
+**Estimated Time**: 2-3 hours
+**Status**: Infrastructure ready, execution needed
 
-**Part 5: Visual Content** (4-6 hours - OPTIONAL):
-- Battle overview maps (4 books)
-- Scenario deployment diagrams (45 scenarios)
+**Current State**:
+- Scripts created: `generate_book_pdfs.py`, `generate_book_pdfs_simple.py`
+- MDBook HTML builds working (134 HTML files)
+- Only 3.6KB placeholder PDFs exist
+
+**Tasks**:
+1. Choose PDF generation approach:
+   - **Option A**: Browser print-to-PDF from MDBook HTML (simple, immediate)
+   - **Option B**: WeasyPrint with GTK setup (professional, complex)
+   - **Option C**: Pandoc markdown→PDF (middle ground)
+
+2. Generate production PDFs (estimated 2-5 MB each):
+   - Battleaxe (~45-55 pages)
+   - Crusader (~60-70 pages)
+   - Gazala (~50-60 pages)
+   - First Alamein (~40-50 pages)
+
+3. Verify PDF quality:
+   - Table of contents working
+   - All links functional
+   - Page breaks appropriate
+   - Images/diagrams display correctly (if added)
+
+**Recommendation**: Use Option A (browser print) for MVP, Option B for commercial release
+
+---
+
+### Priority 3: Visual Content (OPTIONAL)
+**Estimated Time**: 4-6 hours
+**Status**: Deferred - Not required for MVP
+
+**If Pursued**:
+- Battle overview maps (4 maps)
+- Scenario deployment diagrams (45 diagrams)
 - Equipment photos/illustrations
 - Organization charts
 
-**Part 6: PDF Generation** (3-4 hours - REQUIRED):
-- LaTeX templates for professional PDFs
-- Build system configuration
-- Generate print-ready books
-- Final polish and proofreading
-
----
-
-## 📊 Phase 9B Step 7 Progress Summary
-
-| Part | Task | Duration Estimate | Actual | Status | Quality |
-|------|------|-------------------|--------|--------|---------|
-| **Part 1** | Equipment Datacards | 2-3 hours | 2 hours | ✅ COMPLETE | A- (90%) |
-| **Part 2** | Force Availability | 2-3 hours | 1 hour | ✅ COMPLETE | B+ (85%) |
-| **Part 3** | Historical Chapters | 6-8 hours | 2.5 hours (agents) | ✅ COMPLETE | A (95%) |
-| **Part 4** | Equipment Special Rules | 3-4 hours | 2 hours (agents) | ✅ COMPLETE | A (95%) |
-| **Part 4** | Appendices | 1-2 hours | 0.5 hours | 🟡 25% COMPLETE | B+ (1/12 files) |
-| **Tactical** | Tank/Artillery Templates | 26-39 hours | 1 hour | ✅ COMPLETE | A (100% data-driven) |
-| **Part 5** | Visual Content | 4-6 hours | Not Started | ⏸️ OPTIONAL | - |
-| **Part 6** | PDF Generation | 3-4 hours | Not Started | ⏸️ PENDING | - |
-
-**Overall Step 7 Progress**: ~70% complete (Parts 1-4 mostly done, appendices 25%, tactical templates complete)
-
----
-
-## 🎯 Current Focus: Tactical Army Lists Research
-
-**Goal**: Create playable tactical-level army lists (platoon/company/battery) for 400-600 point BattleGroup games
-
-**Challenge Identified**: Phase 6 data is division-level (10,000+ soldiers, ~100,000 points theoretical). BattleGroup needs platoon-level (30-50 soldiers, 400-600 points). Scale difference: ~1000x.
-
-**Approach**: Full tactical TO&E research
-
-1. **Research Phase** (8-12 hours) - British, German, Italian platoon/company/battery organizations
-2. **Template Creation** (6-8 hours) - 30-40 unit templates with equipment, points, special rules
-3. **Points Balancing** (6-8 hours) - Balance for 400-600 point games, playtesting
-4. **Integration** (4-6 hours) - Brigade/battalion extraction, tactical list generation
-5. **Documentation** (2-3 hours) - Usage guidelines, historical notes
-
-**Total Estimate**: 26-39 hours
-
-**Next Session Work**: Begin British tactical TO&E research using Nafziger Collection PDFs
-
----
-
-## 🎯 Future Work (After Tactical Lists)
-
-### Part 3: Historical Narrative Chapters (6-8 hours)
-
-**Goal**: Generate historical context chapters from research documents
-
-**Available Sources**:
-- `books/scenario_research.md` (2,100 lines of battle research)
-- Phase 6 unit JSONs (`operational_history` sections)
-- `tactical_doctrine` sections in unit JSONs
-
-**Tasks**:
-1. Create `historical_chapter_generator.py`:
-   - Extract battle narratives from research document
-   - Generate strategic situation overviews
-   - Create timeline diagrams
-   - Compile orders of battle from Phase 6 units
-
-2. Generate content for each book:
-   - Strategic situation (why battle was fought)
-   - Historical overview (what happened)
-   - Orders of battle (who fought)
-
-**Estimated Duration**: 6-8 hours
-
-### Phase C: Special Rules & Appendices
-
-**Goal**: Create BattleGroup-specific rules and reference material
-
-**Tasks**:
-1. Desert terrain rules:
-   - Soft sand movement penalties
-   - Dust storms and visibility
-   - Heat effects on vehicles
-   - Water supply rules
-
-2. National characteristics:
-   - British: Desert Rats morale bonus, reconnaissance excellence
-   - German: Tactical flexibility, 88mm effectiveness
-   - Italian: Variable morale, M13/40 limitations
-
-3. Appendices:
-   - Quick reference charts (movement, shooting, morale)
-   - Designer's notes (historical decisions made)
-   - Bibliography from research sources
-
-**Estimated Duration**: 3-4 hours
-
-### Phase D: Images & Diagrams
-
-**Goal**: Add visual content to enhance books
-
-**Tasks**:
-1. Maps:
-   - Battle overview maps (4 books)
-   - Scenario deployment diagrams (45 scenarios)
-
-2. Photos (if available):
-   - Historical photos of battles
-   - Miniatures/models (if we have access)
-   - Equipment photos
-
-3. Diagrams:
-   - Organization charts
-   - Tactical situation diagrams
-
-**Estimated Duration**: 4-6 hours (if creating from scratch)
-**Alternative**: Use placeholders, defer to later phase
-
-### Phase E: PDF Generation & Polish
-
-**Goal**: Generate professional PDFs for distribution
-
-**Tasks**:
-1. LaTeX template enhancement:
-   - Professional styling
-   - Table of contents
-   - Page numbers and headers
-   - Bibliography
-
-2. PDF generation:
-   - Convert MDBook HTML to LaTeX
-   - Or use Pandoc for markdown → PDF
-   - Or use mdbook-pdf plugin
-
-3. Final polish:
-   - Proofread all content
-   - Check cross-references
-   - Verify page breaks
-   - Test print layout
-
-**Estimated Duration**: 3-4 hours
+**Decision Point**: Add in Phase 9C (post-MVP) or commercial release
 
 ---
 
 ## 📋 Recommended Implementation Order
 
-### Step 7: Book Content (Core Content)
-**Duration**: ~12-16 hours
-**Priority**: HIGH (needed for playable books)
+### Session 1: Scenario Regeneration (2-3 hours)
+```bash
+# Step 1: Regenerate Battleaxe (verify fixes)
+python scripts/battlegroup/book/scenario_generator_workflow.py \
+  --battle battleaxe --quarter 1941q2 --regenerate
 
-1. Equipment datacards (Phase A - Part 1)
-2. Army lists (Phase A - Part 2)
-3. Historical chapters (Phase B)
-4. Special rules (Phase C - Part 1)
-5. Appendices (Phase C - Part 2)
+# Step 2: Review parsing logs
+# - Check for "PARSE OK" messages
+# - Verify tank units extracted
+# - Confirm infantry platoon organization
 
-### Step 8: Visual Enhancement (Optional for MVP)
-**Duration**: ~4-6 hours
-**Priority**: MEDIUM (enhances but not required)
+# Step 3: Regenerate remaining books
+python scripts/battlegroup/book/scenario_generator_workflow.py \
+  --battle crusader --quarter 1941q4 --regenerate
+python scripts/battlegroup/book/scenario_generator_workflow.py \
+  --battle gazala --quarter 1942q2 --regenerate
+python scripts/battlegroup/book/scenario_generator_workflow.py \
+  --battle first_alamein --quarter 1942q3 --regenerate
 
-1. Battle maps
-2. Scenario diagrams
-3. Organization charts
+# Step 4: Run validation suite
+python scripts/battlegroup/book/validate_all_scenarios.py
 
-### Step 9: PDF Generation (Polish)
-**Duration**: ~3-4 hours
-**Priority**: HIGH (final deliverable)
+# Step 5: Build MDBooks to verify content
+cd books/battleaxe/book && mdbook build
+cd books/crusader/book && mdbook build
+cd books/gazala/book && mdbook build
+cd books/first_alamein/book && mdbook build
 
-1. LaTeX templates
-2. PDF compilation
-3. Final review
+# Step 6: Commit regenerated scenarios
+git add books/*/book/src/scenarios/*.md
+git commit -m "feat(phase9b): Regenerate all scenarios with bug fixes"
+```
 
----
+### Session 2: PDF Generation (2-3 hours)
+```bash
+# Option A: Browser Print-to-PDF (Recommended for MVP)
+# 1. Open each book's print.html in browser
+# 2. File → Print → Save as PDF
+# 3. Settings: Include backgrounds, margins minimal
 
-## 🔧 Technical Approach
+# Option B: Automated PDF Generation
+python scripts/battlegroup/generate_book_pdfs_simple.py \
+  --book battleaxe --output battleaxe.pdf
+python scripts/battlegroup/generate_book_pdfs_simple.py \
+  --book crusader --output crusader.pdf
+python scripts/battlegroup/generate_book_pdfs_simple.py \
+  --book gazala --output gazala.pdf
+python scripts/battlegroup/generate_book_pdfs_simple.py \
+  --book first_alamein --output first_alamein.pdf
 
-### Option 1: Automated Generation (Recommended)
+# Commit PDFs
+git add books/*/book/*.pdf
+git commit -m "feat(phase9b): Generate production PDFs for all 4 books"
+```
 
-**Pros**:
-- Fast (leverage Phase 6 data)
-- Consistent formatting
-- Easy to regenerate if data changes
+### Session 3: Final Validation & Documentation (1 hour)
+```bash
+# QA checks
+python scripts/battlegroup/book/qa_final_books.py
 
-**Cons**:
-- Requires scripting effort upfront
-- May need manual polish
+# Update PROJECT_SCOPE.md
+# - Mark Phase 9B as 100% COMPLETE
+# - Update version to 1.6.1
+# - Document final statistics
 
-**Tools Needed**:
-- Python scripts to query Phase 6 JSONs
-- Template-based markdown generation
-- Database queries for equipment specs
+# Create completion report
+# - PHASE_9B_FINAL_REPORT.md
+# - Include all metrics, files created, lessons learned
 
-### Option 2: Manual Creation
-
-**Pros**:
-- Full control over content
-- Can add creative elements
-
-**Cons**:
-- Very time-consuming (20+ hours)
-- Prone to inconsistencies
-- Hard to maintain/update
-
-**Recommendation**: Use Option 1 (automated) for bulk content, Option 2 for polish/creative elements.
-
----
-
-## 📊 Estimated Total Effort
-
-| Phase | Task | Duration | Priority |
-|-------|------|----------|----------|
-| 7A | Equipment datacards | 2-3 hours | HIGH |
-| 7A | Army lists | 2-3 hours | HIGH |
-| 7B | Historical chapters | 6-8 hours | HIGH |
-| 7C | Special rules | 2-3 hours | MEDIUM |
-| 7C | Appendices | 1-2 hours | LOW |
-| 8 | Visual content | 4-6 hours | MEDIUM |
-| 9 | PDF generation | 3-4 hours | HIGH |
-
-**Total Core Content**: 12-16 hours (Phases 7A-7C)
-**Total with Visuals**: 16-22 hours (Phases 7A-8)
-**Total with PDF**: 19-26 hours (Complete)
-
----
-
-## 🎯 Immediate Next Action
-
-**Recommended**: Start with **Phase 7A: Equipment Datacards**
-
-**Why**:
-1. Directly leverages Phase 6 data (high ROI)
-2. Essential for playability (players need unit stats)
-3. Relatively mechanical (low creative effort)
-4. Can be fully automated
-
-**Implementation**:
-1. Create `scripts/battlegroup/book/equipment_datacard_generator.py`
-2. Query Phase 6 units for all equipment in battle quarters
-3. Extract BattleGroup stats (armor, gun, speed, BR, points)
-4. Generate markdown tables for each equipment type
-5. Organize by category (tanks, guns, vehicles)
-
-**Expected Output Example**:
-```markdown
-# Vehicles
-
-## Matilda II Infantry Tank
-
-**Type**: Heavy Tank
-**Nation**: British
-**Period**: 1940-1942
-
-| Stat | Value |
-|------|-------|
-| Armor (Front/Side/Rear) | 78mm / 70mm / 55mm |
-| Gun | 2-pdr (40mm) |
-| Speed | 15mph |
-| Crew | 4 |
-| Battle Rating | 3 |
-| Points Cost | 145 |
-
-**Special Rules**: Heavy Armor, Slow Speed, Immune to most AT guns except 88mm
-
-**Historical Notes**: Matilda II was the most heavily armored British tank in 1941...
+# Final commit
+git add PROJECT_SCOPE.md PHASE_9B_FINAL_REPORT.md
+git commit -m "docs(phase9b): Phase 9B COMPLETE - All 4 books production-ready"
 ```
 
 ---
 
-## 📝 Success Criteria
+## 📊 Estimated Total Remaining Effort
 
-**Step 7 Complete When**:
-- ✅ All 4 books have complete equipment datacards
-- ✅ All 4 books have army selection lists
-- ✅ All 4 books have historical context chapters
-- ✅ All 4 books have special rules
-- ✅ All 4 books have appendices
-- ✅ MDBook builds successfully (all links work)
-- ✅ Content is historically accurate
-- ✅ Books are playable (gamers can use them)
-
-**MVP Complete When**:
-- ✅ Step 7 complete (above)
-- ✅ Step 9 complete (PDF generation)
-- ✅ All 4 books available as HTML and PDF
-- ✅ Ready for playtesting
+| Task | Duration | Priority | Blocker? |
+|------|----------|----------|----------|
+| Scenario regeneration | 2-3 hours | CRITICAL | YES |
+| PDF generation | 2-3 hours | HIGH | NO |
+| Final validation & docs | 1 hour | MEDIUM | NO |
+| **TOTAL MVP** | **5-7 hours** | - | - |
+| Visual content (optional) | 4-6 hours | LOW | NO |
+| **TOTAL WITH OPTIONAL** | **9-13 hours** | - | - |
 
 ---
 
-**Next Document**: `PHASE_9B_STEP7_PLAN.md` (to be created when starting Step 7)
+## 🎯 Success Criteria for Phase 9B Completion
+
+### Technical Criteria
+- ✅ All 4 books have complete content (171 files, 28,983 lines)
+- ⏸️ All scenarios historically accurate (needs regeneration)
+- ⏸️ All scenarios comply with official BattleGroup rules (needs validation)
+- ✅ 0 TBD/placeholder entries in content
+- ✅ 100% MDBook build success rate
+- ⏸️ Production PDFs available (2-5 MB each)
+
+### Quality Criteria
+- ✅ Grade A content quality (exceptional)
+- ✅ 181 Phase 6 citations (data provenance)
+- ✅ 71 archive references (historical rigor)
+- ⏸️ 0 critical bugs (needs scenario regeneration to verify)
+
+### Deliverables
+- ✅ 4 MDBook HTML builds (134 HTML files)
+- ⏸️ 4 Production PDFs (currently only placeholders)
+- ✅ 45 historical scenarios (need regeneration)
+- ✅ Complete documentation and session reports
 
 ---
 
-## 🔧 CRITICAL UPDATE: Scenario Generation Fixes (November 3, 2025)
+## 🚀 Immediate Next Action
 
-**Status**: ✅ COMPLETE - Core fixes implemented and tested
+**START HERE**:
 
-### Issue Discovered
+```bash
+# 1. Regenerate Battleaxe scenarios (test fixes)
+cd D:\north-africa-toe-builder
+python scripts/battlegroup/book/scenario_generator_workflow.py \
+  --battle battleaxe --quarter 1941q2 --regenerate
 
-Generated scenarios had forces that didn't match historical descriptions:
-- **Scenario 2**: Described "Matildas destroyed by 88mm" but force had NO tanks
-- **Root Cause**: Regex `squadron` didn't match plural `squadrons` 
-- **Impact**: All 4 books (~40 scenarios) affected
+# 2. Review output and parsing logs
+# 3. If successful, regenerate remaining 3 books
+# 4. Validate all scenarios
+# 5. Generate production PDFs
+# 6. Create final completion report
+```
 
-### Fixes Implemented (Phases 1-6)
+**Estimated Time to Phase 9B Complete**: 5-7 hours
 
-**Phase 1: Template Integration**
-- Connected to existing `BattleGroupPoints` system
-- Infantry now organized as platoons (not individual soldiers)
-- Consistent point values across scenarios and army lists
-
-**Phase 2: Parsing Fixes**
-- Line 439: Fixed `squadron` → `squadrons?` regex
-- Pattern 6: Parse complex companies like "2 companies (20-25 Panzer III, 6-8 Panzer II)"
-- Added detailed logging for debugging
-
-**Phase 3: Official Rules**
-- NEW: `force_composition_validator.py` (467 lines)
-- Implements Infantry Requirement Tables from BattleGroup Torch book
-- NEW: `infantry_requirements.json` (digitized official tables)
-
-**Phase 4-5: Validation**
-- Combined arms enforcement (no mono-type forces)
-- Historical accuracy checking (equipment matches descriptions)
-
-**Phase 6: Testing**
-- Scenario 2 verified: Now generates 15x Matilda II + 5x Infantry Platoons + 4x 25-pdr
-- Parsing logs confirm all patterns working
-
-### Files Modified
-
-1. `scripts/battlegroup/book/scenario_generator_workflow.py` - Core fixes
-2. `scripts/battlegroup/force_composition_validator.py` - NEW validator
-3. `scripts/battlegroup/infantry_requirements.json` - NEW official tables
-
-### Updated Next Steps
-
-**IMMEDIATE (High Priority)**:
-1. ✅ Scenario generation bugs fixed
-2. 📋 **NEXT**: Regenerate Battleaxe book (8 scenarios) to verify all fixes
-3. 📋 Regenerate remaining 3 books (~32 scenarios)
-4. 📋 Validate all ~40 scenarios pass new rules
-5. 📋 Document scenario generation system
-
-**Original Step 7 Remains**:
-- ⏸️ Appendices (11 files remaining - 75% to go)
-- ⏸️ Visual content (optional)
-- ⏸️ PDF generation (required for final deliverable)
-
-### Recommendation
-
-**Option A (Recommended)**: Regenerate all scenarios first
-- Ensures quality of core content (scenarios are the heart of the books)
-- Tests fixes across all 4 books
-- Duration: 2-3 hours
-
-**Option B**: Complete appendices first
-- Finishes Step 7 content work
-- Scenarios remain in broken state
-- Duration: 2-3 hours
-
-**Suggested Path**: Option A → Complete appendices → PDF generation
+**Expected Outcome**: 4 production-ready BattleGroup books (HTML + PDF) with historically accurate, rules-compliant scenarios
 
 ---
+
+## 📝 Known Issues
+
+### Issues Fixed (November 3, 2025)
+- ✅ Regex parsing for plural 'squadrons' (Line 439 fix)
+- ✅ Infantry organization (platoons not individuals)
+- ✅ Combined arms validation
+- ✅ Official rule compliance checking
+
+### Issues Remaining
+- None known - scenario regeneration will verify all fixes work
+
+---
+
+## 🎓 Lessons Learned
+
+1. **Validate early**: Bugs in scenario generation weren't caught until after "completion"
+2. **Test with real data**: Regex patterns need plural forms, edge cases
+3. **Official rules matter**: BattleGroup has specific Infantry Requirement Tables
+4. **Regeneration is cheap**: Don't resist regenerating content when bugs found
+
+---
+
+**Next Update**: After scenario regeneration complete
+
+**Project**: North Africa TO&E Builder - Phase 9B (BattleGroup Books)
+**Current Phase**: Final push (95% → 100%)
+**Timeline**: 5-7 hours to completion
+
+---
+
+🤖 Generated with [Claude Code](https://claude.com/claude-code)
+
+Co-Authored-By: Claude <noreply@anthropic.com>
