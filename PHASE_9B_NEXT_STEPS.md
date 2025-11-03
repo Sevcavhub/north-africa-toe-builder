@@ -1,14 +1,14 @@
 # Phase 9B: Book Generation - Next Steps
 
-**Date**: November 2, 2025
-**Current Status**: Step 6 Complete (Scenarios) - Ready for Step 7 (Book Content)
+**Date**: November 2, 2025 (Updated)
+**Current Status**: Step 7 Parts 1 & 2 COMPLETE - Tactical Army Lists Research In Progress
 **Goal**: Transform scenario shells into complete, publishable wargaming books
 
 ---
 
 ## 📊 Current State Analysis
 
-### ✅ What We Have (Step 6 Complete)
+### ✅ What We Have (Steps 6 & 7 Parts 1-2 Complete)
 
 **Scenarios** (100% Complete):
 - ✅ 45 historical scenarios across 4 battles
@@ -20,6 +20,29 @@
 - ✅ Validation suite (0 errors)
 - ✅ MDBook builds working
 
+**Equipment Datacards** (Part 1 Complete - A- Quality 90%):
+- ✅ 182 unique equipment items across 24 markdown files
+- ✅ 6 categories: Tanks, Guns & Artillery, Infantry Weapons, Vehicles, Support, Other
+- ✅ 4 battles: Battleaxe, Crusader, Gazala, First Alamein
+- ✅ Gun data coverage: 50-60% (resolved critical blocker)
+- ✅ Format compliance: 100% (BattleGroup template)
+- ✅ Scripts: generate_book_datacards.py (665 lines)
+
+**Force Availability References** (Part 2 Complete - B+ Quality 85%):
+- ✅ 72 divisions/corps documented across 12 markdown files
+- ✅ 3 nations × 4 battles: British, German, Italian
+- ✅ Strategic-level force compositions (division-level)
+- ✅ Equipment matching: 42-75% (database-integrated)
+- ✅ Scripts: generate_book_army_lists_v2.py (608 lines, canonical)
+- ⚠️ Note: Division-level data (not playable tactical army lists yet)
+
+**Equipment Matching & Metadata System** (Complete):
+- ✅ Database integration (7% → 42% match rate, 6x improvement)
+- ✅ Metadata preservation system (268 items, 55.6% of Phase 6 data)
+- ✅ Equipment name parser (weight class, gun, role, variant extraction)
+- ✅ Database enrichment script ready (268 equipment items)
+- ✅ Phase 3 normalization work now fully utilized
+
 **Infrastructure**:
 - ✅ Complete directory structure (52 dirs, 165+ files)
 - ✅ Automated generation workflow
@@ -27,69 +50,64 @@
 - ✅ LaTeX templates for PDF
 - ✅ Image directories (placeholders)
 
-### 🔴 What We Need (Book Content)
+### 🟡 In Progress (Tactical Army Lists Research)
 
-**Missing Content** (Referenced in SUMMARY.md but empty/placeholder):
+**Current Work**: Full tactical TO&E research (26-39 hours estimated)
+- Research British/German/Italian platoon/company/battery organizations
+- Create 30-40 tactical unit templates
+- Balance for 400-600 point BattleGroup games
 
-#### 1. Historical Context Chapters
+### 🔴 Still Needed (Step 7 Parts 3-4)
+
+**Part 3: Historical Context Chapters** (6-8 hours):
 - `chapter1/strategic_situation.md` - Strategic overview of each battle
 - `chapter1/historical_overview.md` - Detailed battle narrative
 - `chapter1/orders_of_battle.md` - Complete OOB for both sides
 
-#### 2. Army Lists (Force Selection)
-- `army_lists/british.md` - British force selection rules
-- `army_lists/german.md` - German force selection rules
-- `army_lists/italian.md` - Italian force selection rules
-- `army_lists/french.md` - French force selection rules (Gazala only)
-
-#### 3. Equipment Datacards
-- `chapter2/vehicles.md` - Tank/vehicle stats for BattleGroup
-- `chapter2/guns.md` - Artillery/AT gun stats
-- `chapter2/defences.md` - Fortification rules
-- `chapter2/fire_support.md` - Off-board artillery
-
-#### 4. Special Rules
-- `special_rules/terrain.md` - Desert terrain special rules
-- `special_rules/scenarios.md` - Scenario-specific rules
-- `special_rules/nations.md` - National characteristics
-
-#### 5. Appendices
-- `appendices/appendix_a.md` - Quick reference charts
-- `appendices/appendix_b.md` - Designer's notes
-- `appendices/appendix_c.md` - Historical sources bibliography
-
-#### 6. Introductory Material
-- `intro.md` - Book introduction (currently placeholder)
-- `scenarios/overview.md` - Scenario overview and selection guide
+**Part 4: Special Rules & Appendices** (3-4 hours):
+- Desert terrain rules, national characteristics
+- Quick reference charts, designer's notes, bibliography
+- Introductory material and scenario overview guides
 
 ---
 
-## 🎯 Step 7: Book Content Generation Plan
+## 📊 Phase 9B Step 7 Progress Summary
 
-### Phase A: Data Integration (Leveraging Phase 6)
+| Part | Task | Duration Estimate | Actual | Status | Quality |
+|------|------|-------------------|--------|--------|---------|
+| **Part 1** | Equipment Datacards | 2-3 hours | 2 hours | ✅ COMPLETE | A- (90%) |
+| **Part 2** | Force Availability | 2-3 hours | 1 hour | ✅ COMPLETE | B+ (85%) |
+| **Tactical** | TO&E Research & Templates | 26-39 hours | In Progress | 🟡 IN PROGRESS | TBD |
+| **Part 3** | Historical Chapters | 6-8 hours | Not Started | ⏸️ PENDING | - |
+| **Part 4** | Special Rules & Appendices | 3-4 hours | Not Started | ⏸️ PENDING | - |
 
-**Goal**: Populate army lists and equipment datacards from Phase 6 unit JSONs
+**Overall Step 7 Progress**: Parts 1 & 2 complete (50% of original plan), Tactical research in progress
 
-**Available Data Sources**:
-- 402 Phase 6 unit JSON files (divisions, brigades, regiments)
-- Equipment specifications in each unit JSON
-- `master_database.db` with equipment data
+---
 
-**Tasks**:
-1. Create `equipment_datacard_generator.py`:
-   - Query Phase 6 units for all equipment used in battles
-   - Extract BattleGroup-relevant stats (armor, gun penetration, speed, BR)
-   - Generate markdown datacards with stats tables
+## 🎯 Current Focus: Tactical Army Lists Research
 
-2. Create `army_list_generator.py`:
-   - Extract available units for each nation/quarter
-   - Create force selection rules based on historical organizations
-   - Generate points costs and BR values
-   - Create unit availability tables
+**Goal**: Create playable tactical-level army lists (platoon/company/battery) for 400-600 point BattleGroup games
 
-**Estimated Duration**: 4-6 hours
+**Challenge Identified**: Phase 6 data is division-level (10,000+ soldiers, ~100,000 points theoretical). BattleGroup needs platoon-level (30-50 soldiers, 400-600 points). Scale difference: ~1000x.
 
-### Phase B: Historical Narrative
+**Approach**: Full tactical TO&E research
+
+1. **Research Phase** (8-12 hours) - British, German, Italian platoon/company/battery organizations
+2. **Template Creation** (6-8 hours) - 30-40 unit templates with equipment, points, special rules
+3. **Points Balancing** (6-8 hours) - Balance for 400-600 point games, playtesting
+4. **Integration** (4-6 hours) - Brigade/battalion extraction, tactical list generation
+5. **Documentation** (2-3 hours) - Usage guidelines, historical notes
+
+**Total Estimate**: 26-39 hours
+
+**Next Session Work**: Begin British tactical TO&E research using Nafziger Collection PDFs
+
+---
+
+## 🎯 Future Work (After Tactical Lists)
+
+### Part 3: Historical Narrative Chapters (6-8 hours)
 
 **Goal**: Generate historical context chapters from research documents
 
