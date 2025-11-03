@@ -57,7 +57,7 @@ British 4th Armoured Brigade assaults Italian-held Fort Capuzzo at dawn. Initial
 
 **Forces**:
 - **British**: 1 squadron Matilda II (7-9 tanks), 1 platoon infantry (25-30 men), 1 section 25-pdr (2 guns)
-- **Axis**: 1 company Italian infantry (80-100 men) + fortifications, 1 platoon German infantry reinforcement (30 men)
+- **Axis**: 1 company Italian infantry (80-100 men) + fortifications, 2x 47mm Cannone da 47/32 AT guns, 2x Breda M37 heavy MG, 1 platoon German infantry reinforcement (30 men), 1x 50mm PaK 38 (with reinforcement)
 
 **Terrain**: Desert fortification with stone walls, trenches, barbed wire, open approaches
 
@@ -183,7 +183,7 @@ German 15th Panzer Division launches dawn counterattack to retake Fort Capuzzo f
 
 **Forces**:
 - **German**: 2 companies Panzer III (20-24 tanks), 2 companies Panzergrenadiers (160-180 men), 1 battery 105mm artillery (4 guns)
-- **British**: 1 squadron Matilda II (8-10 tanks), 2 companies infantry (160-180 men), fortifications from captured fort
+- **British**: 1 squadron Matilda II (8-10 tanks), 2 companies infantry (160-180 men), 1 battery 25-pdr (4 guns), 2x 2-pdr AT guns, fortifications from captured fort
 
 **Terrain**: Fort with stone walls, trenches, barbed wire, open desert approaches
 
@@ -336,7 +336,7 @@ British 7th Armoured Division's 4th Armoured Brigade encounters Italian Ariete D
 
 **Forces**:
 - **British**: 3 squadrons (30-35 tanks: Crusader, Honey Stuart), 1 company motorized infantry, 1 battery 25-pdr
-- **Italian**: 2 companies M13/40 (16-20 tanks), 1 company Semovente 75mm (8-10 guns), 2 companies Bersaglieri motorized infantry
+- **Italian**: 2 companies M13/40 (16-20 tanks), 1 company Semovente 75mm (8-10 guns), 2 companies Bersaglieri motorized infantry, 1 section 47mm AT guns (2 guns)
 
 **Terrain**: Open desert with slight ridges, good tank country
 
@@ -398,7 +398,7 @@ British 7th Armoured Brigade attacks Axis-held Sidi Rezegh airfield in first att
 
 **Forces**:
 - **British**: 2 squadrons Crusader/Honey (20-25 tanks), 1 battalion King's Royal Rifles (motorized infantry), 1 battery 25-pdr
-- **Axis**: Mixed German/Italian defenders (1 company Panzer III 8-10 tanks, 1 company German infantry, 1 company Italian infantry), airfield defenses
+- **Axis**: Mixed German/Italian defenders (1 company Panzer III 8-10 tanks, 1 company German infantry, 1 company Italian infantry, 2-4x 50mm PAK 38, 2x 88mm FlaK 18, 1 battery 75mm Italian field guns), airfield defenses
 
 **Terrain**: Airfield with hangars, fuel dumps, parked aircraft, surrounding defensive positions
 
@@ -527,7 +527,7 @@ Largest tank battle in North Africa to date. German 15th and 21st Panzer Divisio
 Rommel's famous "dash to the wire" - personal leading of mobile kampfgruppe deep into British rear areas attempting to create panic and disrupt British logistics. Bold but ultimately unsuccessful raid.
 
 **Forces**:
-- **German**: Kampfgruppe (2 companies Panzer III/IV 18-20 tanks, 1 company motorized infantry, 1 battery artillery), fast-moving raiding force
+- **German**: Kampfgruppe (2 companies Panzer III/IV 18-20 tanks, 1 company motorized infantry, 1 battery 105mm leFH 18 artillery 4 guns, 2x 50mm PAK 38, 1x 88mm FlaK 18), fast-moving raiding force
 - **British**: Scattered rear-area units (1 company infantry, 2-3 tanks, supply column, artillery battery), unprepared for attack
 
 **Terrain**: Desert with British supply dumps, vehicle parks, scattered positions
@@ -560,7 +560,7 @@ British forces return to Sidi Rezegh after Rommel's dash to the wire ends. Must 
 
 **Forces**:
 - **British**: 2 squadrons fresh tanks (20-25 Crusader/Honey), 1 battalion New Zealand infantry (400 men), 1 battery 25-pdr
-- **German**: 1 company Panzer III/IV (10-12 tanks), 2 companies Panzergrenadiers (150-180 men), defensive positions, reduced strength
+- **German**: 1 company Panzer III/IV (10-12 tanks), 2 companies Panzergrenadiers (150-180 men), 2-4x 50mm PAK 38, 1 battery 105mm leFH 18 (4 guns), defensive positions, reduced strength
 
 **Terrain**: Previous battlefield with wrecked tanks, destroyed equipment, shell craters, German defensive positions
 
@@ -780,7 +780,7 @@ Rommel's forces trapped in "Cauldron" east of British minefields after left-hook
 
 **Forces**:
 - **British**: Converging forces (4 squadrons tanks 40-45 Grant/Crusader, 2 battalions motorized infantry, 2 batteries 25-pdr), attacking from east
-- **Axis**: Trapped forces (3 companies Panzer III/IV 30-35 tanks, Italian Ariete 2 companies M13/40 16-18 tanks, 2 battalions combined German/Italian infantry), surrounded but dangerous
+- **Axis**: Trapped forces (3 companies Panzer III/IV 30-35 tanks, Italian Ariete 2 companies M13/40 16-18 tanks, 2 battalions combined German/Italian infantry, 4-6x 50mm PAK 38, 2-3x 88mm FlaK 18, 1-2 batteries Italian 47mm AT guns, 2 batteries 105mm leFH 18 artillery), surrounded but dangerous
 
 **Terrain**: Open desert with British minefields to west (blocking Axis escape), shallow depressions providing limited cover
 
@@ -845,7 +845,7 @@ German/Italian forces launch first assault on Free French garrison at Bir Hachei
 
 **Forces**:
 - **Free French**: 1 battalion infantry (300-350 Foreign Legion, colonial troops), 2 batteries 75mm guns (12 guns), extensive fortifications, minefields
-- **Axis**: Italian Ariete Division assault (2 battalions Bersaglieri 500-600 men, 1 company M13/40 tanks 10-12, 2 batteries 75mm artillery)
+- **Axis**: Italian Ariete Division assault (2 battalions Bersaglieri 500-600 men, 1 company M13/40 tanks 10-12, 1 battery 47mm AT guns 4-6 guns, 2 batteries 75mm artillery)
 
 **Terrain**: Fortified position with trenches, dugouts, minefields, barbed wire, open approaches
 
@@ -908,7 +908,7 @@ Free French ordered to evacuate Bir Hacheim after 14-day siege. Night breakout t
 
 **Forces**:
 - **Free French**: Breakout force (remaining garrison 60-70% original strength, limited vehicles, wounded)
-- **Axis**: Encirclement force (German/Italian mixed units attempting to block escape routes)
+- **Axis**: Encirclement force (1 company German Panzergrenadiers 80-100 men, 1 company Italian Bersaglieri 80-100 men, 4-6x Panzer III tanks, 2x 50mm PAK 38, 2x Italian 47mm AT guns, scattered blocking positions attempting to block escape routes)
 
 **Terrain**: Dark (night action), minefields (both friendly and enemy), scattered German positions
 
@@ -1004,7 +1004,7 @@ British Gazala line collapses. 50th Division begins breakout from Gazala boxes b
 
 **Forces**:
 - **British**: Mixed breakout force (1 company infantry, 1 squadron tanks 8-10, various support units, supply trucks)
-- **German**: Pursuit/blocking force (1 company Panzer III/IV, 1 platoon motorized infantry, attempting to cut off retreat)
+- **German**: Pursuit/blocking force (1 company Panzer III/IV 10-12 tanks, 1 platoon motorized infantry, 1 section 50mm PAK 38 AT guns 2 guns, attempting to cut off retreat)
 
 **Terrain**: Desert with British attempting to move along coast road
 
@@ -1035,7 +1035,7 @@ British forces stream eastward in retreat. German forces pursue, conducting runn
 
 **Forces**:
 - **British**: Rearguard (1 squadron tanks, 1 company motorized infantry, 1 battery RHA 25-pdr, withdrawing)
-- **German**: Pursuit force (1+ companies Panzer III/IV, 1 company motorcycle troops, aggressive pursuit)
+- **German**: Pursuit force (1+ companies Panzer III/IV 16-20 tanks, 1 company motorcycle troops, 1 section 50mm PAK 38 AT guns 2 guns, aggressive pursuit)
 
 **Terrain**: Desert coastal area, British moving east to west across table
 
@@ -1129,7 +1129,7 @@ Rommel pursues defeated British into Egypt. British attempt to establish defensi
 
 **Forces**:
 - **British**: Withdrawing forces (2 squadrons tanks, 1 battalion motorized infantry, 1 battery artillery, conducting withdrawal)
-- **German**: Pursuit force (2 companies Panzer III/IV, 1 battalion motorized infantry, aggressive pursuit)
+- **German**: Pursuit force (2 companies Panzer III/IV 20-24 tanks, 1 battalion motorized infantry, 1 section 50mm PAK 38 AT guns 2 guns, aggressive pursuit)
 
 **Terrain**: Desert between Tobruk and Egypt
 
@@ -1160,7 +1160,7 @@ British attempt to hold Mersa Matruh defensive line. German forces probe defense
 
 **Forces**:
 - **British**: Defensive force (1 battalion infantry, 1 squadron tanks, 1 battery 25-pdr, hasty defenses)
-- **German**: Probing attack (1+ companies Panzer III/IV, 1 battalion Panzergrenadiers, testing British line)
+- **German**: Probing attack (1+ companies Panzer III/IV 20-24 tanks, 1 battalion Panzergrenadiers, 1 battery 50mm PAK 38 AT guns 6 guns, 1 battery 105mm leFH 18 artillery 4 guns, testing British line)
 
 **Terrain**: Coastal defensive position with minefields, AT positions
 
@@ -1276,7 +1276,7 @@ New Zealand and Indian forces attack Axis-held Ruweisat Ridge - key terrain domi
 
 **Forces**:
 - **British/NZ**: 2 battalions New Zealand infantry (600-700 men), 1 squadron Valentine tanks (10-12), 1 Indian battalion (400 men), artillery support
-- **Axis**: Mixed German/Italian defense (1 battalion German infantry, 1 battalion Italian infantry, 1 company Panzer III/IV 10-12, defensive positions)
+- **Axis**: Mixed German/Italian defense (1 battalion German Panzergrenadiers, 1 battalion Italian infantry, 1 company Panzer III/IV 10-12 tanks, 1 battery PAK 40 75mm AT guns 6-8 guns, 1 battery 47mm Italian AT guns 6 guns, 1 battery 105mm leFH 18 artillery 4-6 guns, 1 battery 75mm Italian field guns 4 guns, defensive positions)
 
 **Terrain**: Low ridge with defensive positions, open approaches, good fields of fire
 
@@ -1308,7 +1308,7 @@ New Zealand and Indian forces attack Axis-held Ruweisat Ridge - key terrain domi
 
 **Forces**:
 - **Australian**: 2 companies 9th Australian Division (180-220 men), 1 squadron Valentine tanks (8-10), artillery barrage support
-- **Axis**: Mixed defenders (1 company German infantry, 1 company Italian infantry, defensive positions)
+- **Axis**: Mixed defenders (1 company German infantry, 1 company Italian infantry, 1 battery 47mm AT guns 4-6 guns, 1 battery 75mm field artillery 4 guns, defensive positions)
 
 **Terrain**: Tel el Eisa ridge with defensive positions, some buildings
 
@@ -1340,7 +1340,7 @@ New Zealand and Indian forces attack Axis-held Ruweisat Ridge - key terrain domi
 
 **Forces**:
 - **South African**: 2 battalions infantry (600-700 men), 1 squadron Valentine tanks (10-12), artillery support
-- **Italian**: 2 battalions Sabratha Division (500-600 men), 1 battery 47mm AT guns, some German support
+- **Italian**: 2 battalions Sabratha Division (500-600 men), 1 battery 47mm AT guns 6-8 guns, 1 battery 75mm field artillery 4 guns, some German support (1 platoon Panzergrenadiers 30-35 men, 2x PAK 40 75mm AT guns)
 
 **Terrain**: Tel el Eisa positions with trenches, some rocky ground
 
@@ -1371,7 +1371,7 @@ New Zealand night attack on Miteirya Ridge. Difficult night assault with mixed r
 
 **Forces**:
 - **New Zealand**: 2 battalions infantry (600-700 men), supporting tanks arrive at dawn (1 squadron 10-12 tanks)
-- **Axis**: Mixed German/Italian defense (1 battalion German infantry, defensive positions, counterattack force with tanks ready)
+- **Axis**: Mixed German/Italian defense (1 battalion German Panzergrenadiers, 1 battery PAK 40 75mm AT guns 6-8 guns, 1 battery 88mm FlaK 36 4 guns, 1 battery 105mm leFH 18 artillery 4-6 guns, 1 company Italian infantry, defensive positions, counterattack force with tanks ready 1 company Panzer III/IV 10-12 tanks)
 
 **Terrain**: Ridge with defensive positions
 
@@ -1402,7 +1402,7 @@ Second major assault on Ruweisat Ridge. New Zealand and Indian forces attack aga
 
 **Forces**:
 - **British/NZ/Indian**: 2 battalions infantry (600-700 men), 2 squadrons tanks (20-24 Valentine/Grant), artillery support BUT poor coordination
-- **Axis**: Defenders (1 battalion German Panzergrenadiers, 1 company Panzer III/IV, AT guns, defensive positions)
+- **Axis**: Defenders (1 battalion German Panzergrenadiers, 1 company Panzer III/IV 10-12 tanks, 2 batteries PAK 40 75mm AT guns 8-12 guns, 1 battery 88mm FlaK 36 4-6 guns, 1 battery 105mm leFH 18 artillery 6 guns, defensive positions)
 
 **Terrain**: Ruweisat Ridge (same as Scenario 37 but now more fortified)
 
@@ -1496,7 +1496,7 @@ British reconnaissance in force toward Kidney Ridge. Probing Axis defenses in pr
 
 **Forces**:
 - **Australian**: 2 battalions 9th Australian Division (600-700 men), engineer support, artillery preparation
-- **Axis**: Mixed German/Italian defenders (1 battalion combined, defensive positions, minefields)
+- **Axis**: Mixed German/Italian defenders (1 battalion combined: 2 companies German infantry, 2 companies Italian infantry, 1 battery PAK 40 75mm AT guns 6-8 guns, 1 battery 88mm FlaK 36 4 guns, 1 battery mixed 75mm/105mm artillery 6 guns, defensive positions, minefields)
 
 **Terrain**: Defensive positions with minefields, barbed wire
 
