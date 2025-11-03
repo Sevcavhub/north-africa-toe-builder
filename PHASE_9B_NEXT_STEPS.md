@@ -83,14 +83,67 @@
 ## 🎯 REMAINING WORK (Revised - ~8-13 hours)
 
 ### Priority 1: Fix Equipment Datacards (CRITICAL BLOCKER)
-**Estimated Time**: 2-3 hours
-**Status**: Investigation + fix needed
-**Impact**: Core book content missing from MDBook
+**Estimated Time**: 4-6 hours (REVISED - data quality issues found)
+**Status**: ✅ Files generated, ❌ Data quality issues found (Nov 3, 2025)
+**Impact**: Core book content with critical data errors
 
-**Current State**:
-- Datacard generation scripts exist (`scripts/battlegroup/generators/`)
-- 182 datacard files were generated (24 files total)
-- But datacards are **BLANK/NOT VISIBLE** in MDBook HTML output
+**Current State** (Updated Nov 3, 2025):
+- ✅ Datacard generation scripts fixed and working
+- ✅ 7,991 lines of datacards generated across all 4 books
+- ✅ Files integrated into MDBook and visible in HTML output
+- ❌ **CRITICAL DATA QUALITY ISSUES FOUND** (7 major problems)
+
+**Data Quality Issues** (MUST FIX before books are production-ready):
+
+1. **Tanks Missing Weapons Data**
+   - Issue: All tank datacards show "Weapon: None" in armament table
+   - Expected: Tanks should show main gun (e.g., "75mm KwK 40", "2-pdr", "75mm M3")
+   - Root Cause: Database join not pulling weapon data from `equipment_guns` or `bg_reference_guns`
+   - Impact: CRITICAL - tanks without weapons are useless in game
+
+2. **Weapon Performance Charts All Null**
+   - Issue: All penetration values show "-" (empty) in range band tables (0-10", 10-20", etc.)
+   - Expected: AP penetration values (e.g., "K" at 0-10", "L" at 10-20", "M" at 20-30")
+   - Root Cause: `equipment_battlegroup.ap_0_10` through `ap_50_70` columns are NULL in database
+   - Impact: CRITICAL - players cannot determine tank/gun effectiveness
+
+3. **Ammo Loads Showing Null**
+   - Issue: Ammo column shows "-" (empty) for all weapons
+   - Expected: Ammo count (e.g., "9" for Panzer III, "85" for Sherman)
+   - Root Cause: Ammo data not in `equipment_battlegroup` table
+   - Impact: HIGH - game rule requires ammo tracking
+
+4. **Soft-Skinned Vehicles Need Conditional Weapons Table**
+   - Issue: Trucks/cars without weapons still show empty weapon performance table
+   - Expected: If vehicle has no weapons, omit weapon performance table entirely
+   - Example: Supply truck should NOT show "Weapon: None" + empty penetration table
+   - Fix: Add conditional logic in datacard template
+   - Impact: MEDIUM - confusing/cluttered datacards for non-combat vehicles
+
+5. **Gun Movement Speeds Incorrect**
+   - Issue: Towed guns/mortars show vehicle movement (8" off-road, 12" road)
+   - Expected: Manhandled gun movement per BattleGroup rules:
+     - Very Light guns (mortars): 3" manhandled
+     - Light guns (37mm-50mm AT): 2" manhandled
+     - Medium guns (75mm-88mm): 1" manhandled
+     - Heavy guns (105mm+): 0" (must be towed, cannot manhandle)
+   - Reference: BattleGroup Rules.txt, page 17, "Manhandled Gun" section
+   - Impact: CRITICAL - game-breaking error, guns far too mobile
+   - Example: M1 81mm Mortar currently shows 8"/12", should be 3" manhandled
+
+6. **Infantry Weapon Cards Don't Match Rules**
+   - Issue: Rifle/LMG/SMG datacards use tank/vehicle format (armor, movement, etc.)
+   - Expected: Infantry weapons have different format per BattleGroup rules
+     - Should show: ROF (Rate of Fire), Range, Special Rules
+     - Should NOT show: Armor values, movement speeds, vehicle stats
+   - Reference: BattleGroup Rules.txt, page 28, "Infantry Weapons of World War Two"
+   - Impact: HIGH - wrong datacard format for infantry weapons
+
+7. **Tanks Miscategorized in "Other Equipment"**
+   - Issue: Some tanks appearing in "Other Equipment" section instead of "Tanks"
+   - Expected: All tanks with "tank" in name or equipment_type should be in "Tanks" section
+   - Root Cause: Categorization logic in `generate_book_datacards.py` line 256-296
+   - Impact: MEDIUM - organizational issue, confusing for players
 
 **Investigation Steps**:
 1. Check if datacard markdown files exist:
