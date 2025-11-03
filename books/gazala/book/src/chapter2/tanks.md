@@ -3,7 +3,38 @@
 
 ## British
 
-## LIGHT TANK MK6
+## GRANT M3 LEE
+
+**1940-1945** | **Standard production version**
+
+| TYPE | MOVEMENT | | | ARMOUR | | | |
+|------|----------|----------|----------|--------|---|---|---|
+| | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
+| Tank | 9" | 14" | - | N | O | O | None |
+
+### ARMAMENT
+
+| Weapon | Mount | Ammo |
+|--------|-------|------|
+| None | - | - |
+
+### WEAPON PERFORMANCE
+
+| WEAPON | AMMO | HE | RANGE | | | | | |
+|--------|------|----|----|----|----|----|----|----|
+| | | | **0-10"** | **10-20"** | **20-30"** | **30-40"** | **40-50"** | **50-70"** |
+| None | HE/AP | - | - | - | - | - | - | - |
+
+**Points:** 22 | **Battle Rating:** 2 | **Crew:** Unknown
+**Special Rules:**
+- **British Resolve**: Steadfast under fire
+- **Desert Adapted**: Modified for desert conditions
+- **Half-Tracked**: Mixed wheel and track propulsion
+- **Thin Armor**: Minimal armor protection
+
+---
+
+## LIGHT TANK MK VI
 
 **1940-1945** | **Standard production version**
 
@@ -30,38 +61,6 @@
 - **British Resolve**: Steadfast under fire
 - **Desert Adapted**: Modified for desert conditions
 - **Thin Armor**: Minimal armor protection
-
----
-
-## MATILDA II
-
-**1940-1945** | **Standard production version**
-
-| TYPE | MOVEMENT | | | ARMOUR | | | |
-|------|----------|----------|----------|--------|---|---|---|
-| | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Tank | 5" | 8" | - | K | K | L | 40mm 2-pdr |
-
-### ARMAMENT
-
-| Weapon | Mount | Ammo |
-|--------|-------|------|
-| 40mm 2-pdr | Turret | - |
-| 7.92mm MG 13 | Co-Axial | - |
-| Ordnance Q.F. 2pdr | Turret | - |
-
-### WEAPON PERFORMANCE
-
-| WEAPON | AMMO | HE | RANGE | | | | | |
-|--------|------|----|----|----|----|----|----|----|
-| | | | **0-10"** | **10-20"** | **20-30"** | **30-40"** | **40-50"** | **50-70"** |
-| 40mm 2-pdr | HE/AP | - | - | - | - | - | - | - |
-
-**Points:** 28 | **Battle Rating:** 3 | **Crew:** Unknown
-**Special Rules:**
-- **British Resolve**: Steadfast under fire
-- **Desert Adapted**: Modified for desert conditions
-- **Slow**: Below-average speed
 
 ---
 
@@ -93,37 +92,6 @@
 - **Desert Adapted**: Modified for desert conditions
 - **Half-Tracked**: Mixed wheel and track propulsion
 - **Thin Armor**: Minimal armor protection
-
----
-
-## VALENTINE III
-
-**1940-1945** | **Standard production version**
-
-| TYPE | MOVEMENT | | | ARMOUR | | | |
-|------|----------|----------|----------|--------|---|---|---|
-| | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Tank | 5" | 8" | - | K | K | L | None |
-
-### ARMAMENT
-
-| Weapon | Mount | Ammo |
-|--------|-------|------|
-| None | - | - |
-| 7.92mm MG 13 | Co-Axial | - |
-
-### WEAPON PERFORMANCE
-
-| WEAPON | AMMO | HE | RANGE | | | | | |
-|--------|------|----|----|----|----|----|----|----|
-| | | | **0-10"** | **10-20"** | **20-30"** | **30-40"** | **40-50"** | **50-70"** |
-| None | HE/AP | - | - | - | - | - | - | - |
-
-**Points:** 34 | **Battle Rating:** 2 | **Crew:** Unknown
-**Special Rules:**
-- **British Resolve**: Steadfast under fire
-- **Desert Adapted**: Modified for desert conditions
-- **Slow**: Below-average speed
 
 ---
 

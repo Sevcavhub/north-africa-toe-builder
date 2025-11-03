@@ -33,36 +33,6 @@
 
 ---
 
-## BOYS ANTI-TANK RIFLE .55
-
-**1940-1945** | **Standard production version**
-
-| TYPE | MOVEMENT | | | ARMOUR | | | |
-|------|----------|----------|----------|--------|---|---|---|
-| | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Artillery | 8" | 12" | - | N | O | O | None |
-
-### ARMAMENT
-
-| Weapon | Mount | Ammo |
-|--------|-------|------|
-| None | - | - |
-
-### WEAPON PERFORMANCE
-
-| WEAPON | AMMO | HE | RANGE | | | | | |
-|--------|------|----|----|----|----|----|----|----|
-| | | | **0-10"** | **10-20"** | **20-30"** | **30-40"** | **40-50"** | **50-70"** |
-| None | HE/AP | - | - | - | - | - | - | - |
-
-**Points:** 20 | **Battle Rating:** 2 | **Crew:** Unknown
-**Special Rules:**
-- **British Resolve**: Steadfast under fire
-- **Desert Adapted**: Modified for desert conditions
-- **Thin Armor**: Minimal armor protection
-
----
-
 ## BREN MORTAR CARRIER
 
 **1940-1945** | **Standard production version**

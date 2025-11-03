@@ -32,10 +32,11 @@
 
 # Equipment Datacards
 
+- [Tanks](./chapter2/tanks.md)
 - [Vehicles](./chapter2/vehicles.md)
-- [Guns](./chapter2/guns.md)
-- [Defensive Structures](./chapter2/defences.md)
-- [Fire Support](./chapter2/fire_support.md)
+- [Guns & Artillery](./chapter2/guns_and_artillery.md)
+- [Infantry Weapons](./chapter2/infantry_weapons.md)
+- [Other Equipment](./chapter2/other_equipment.md)
 
 # Special Rules
 

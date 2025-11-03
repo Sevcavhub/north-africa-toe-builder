@@ -3,7 +3,38 @@
 
 ## British
 
-## LIGHT TANK MK6
+## GRANT M3 LEE
+
+**1940-1945** | **Standard production version**
+
+| TYPE | MOVEMENT | | | ARMOUR | | | |
+|------|----------|----------|----------|--------|---|---|---|
+| | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
+| Tank | 9" | 14" | - | N | O | O | None |
+
+### ARMAMENT
+
+| Weapon | Mount | Ammo |
+|--------|-------|------|
+| None | - | - |
+
+### WEAPON PERFORMANCE
+
+| WEAPON | AMMO | HE | RANGE | | | | | |
+|--------|------|----|----|----|----|----|----|----|
+| | | | **0-10"** | **10-20"** | **20-30"** | **30-40"** | **40-50"** | **50-70"** |
+| None | HE/AP | - | - | - | - | - | - | - |
+
+**Points:** 22 | **Battle Rating:** 2 | **Crew:** Unknown
+**Special Rules:**
+- **British Resolve**: Steadfast under fire
+- **Desert Adapted**: Modified for desert conditions
+- **Half-Tracked**: Mixed wheel and track propulsion
+- **Thin Armor**: Minimal armor protection
+
+---
+
+## LIGHT TANK MK VI
 
 **1940-1945** | **Standard production version**
 
@@ -33,35 +64,36 @@
 
 ---
 
-## MATILDA II
+## SHERMAN M4
 
 **1940-1945** | **Standard production version**
 
 | TYPE | MOVEMENT | | | ARMOUR | | | |
 |------|----------|----------|----------|--------|---|---|---|
 | | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Tank | 5" | 8" | - | K | K | L | 40mm 2-pdr |
+| Tank | 8" | 12" | - | N | O | O | None |
 
 ### ARMAMENT
 
 | Weapon | Mount | Ammo |
 |--------|-------|------|
-| 40mm 2-pdr | Turret | - |
-| 7.92mm MG 13 | Co-Axial | - |
-| Ordnance Q.F. 2pdr | Turret | - |
+| None | - | - |
 
 ### WEAPON PERFORMANCE
 
 | WEAPON | AMMO | HE | RANGE | | | | | |
 |--------|------|----|----|----|----|----|----|----|
 | | | | **0-10"** | **10-20"** | **20-30"** | **30-40"** | **40-50"** | **50-70"** |
-| 40mm 2-pdr | HE/AP | - | - | - | - | - | - | - |
+| None | HE/AP | - | - | - | - | - | - | - |
 
-**Points:** 28 | **Battle Rating:** 3 | **Crew:** Unknown
+**Points:** 20 | **Battle Rating:** 2 | **Crew:** Unknown
 **Special Rules:**
 - **British Resolve**: Steadfast under fire
 - **Desert Adapted**: Modified for desert conditions
-- **Slow**: Below-average speed
+- **Gyro-Stabilized Gun**: Stabilized gun mount for firing on the move
+- **Hull MG**: Machine gun in hull mount
+- **Sloped Armor**: Well-angled armor increases effective thickness
+- **Thin Armor**: Minimal armor protection
 
 ---
 
@@ -163,39 +195,6 @@
 - **Smoke Dischargers**: Vehicle can deploy smoke to obscure itself
 - **Thin Armor**: Minimal armor protection
 - **Tracked**: Caterpillar track propulsion
-
----
-
-
-## Italian
-
-## L3/35 TANKETTE
-
-**1940-1945** | **Standard production version**
-
-| TYPE | MOVEMENT | | | ARMOUR | | | |
-|------|----------|----------|----------|--------|---|---|---|
-| | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Tank | 8" | 12" | - | N | O | O | None |
-
-### ARMAMENT
-
-| Weapon | Mount | Ammo |
-|--------|-------|------|
-| None | - | - |
-
-### WEAPON PERFORMANCE
-
-| WEAPON | AMMO | HE | RANGE | | | | | |
-|--------|------|----|----|----|----|----|----|----|
-| | | | **0-10"** | **10-20"** | **20-30"** | **30-40"** | **40-50"** | **50-70"** |
-| None | HE/AP | - | - | - | - | - | - | - |
-
-**Points:** 20 | **Battle Rating:** 2 | **Crew:** Unknown
-**Special Rules:**
-- **Desert Adapted**: Modified for desert conditions
-- **Reluctant Warriors**: Poor morale in certain circumstances
-- **Thin Armor**: Minimal armor protection
 
 ---
 

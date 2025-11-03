@@ -3,7 +3,7 @@
 
 ## British
 
-## LIGHT TANK MK6
+## A15 CRUSADER MK I
 
 **1940-1945** | **Standard production version**
 
@@ -25,43 +25,11 @@
 | | | | **0-10"** | **10-20"** | **20-30"** | **30-40"** | **40-50"** | **50-70"** |
 | None | HE/AP | - | - | - | - | - | - | - |
 
-**Points:** 20 | **Battle Rating:** 2 | **Crew:** Unknown
+**Points:** 20 | **Battle Rating:** 1 | **Crew:** Unknown
 **Special Rules:**
 - **British Resolve**: Steadfast under fire
 - **Desert Adapted**: Modified for desert conditions
 - **Thin Armor**: Minimal armor protection
-
----
-
-## MATILDA II
-
-**1940-1945** | **Standard production version**
-
-| TYPE | MOVEMENT | | | ARMOUR | | | |
-|------|----------|----------|----------|--------|---|---|---|
-| | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Tank | 5" | 8" | - | K | K | L | 40mm 2-pdr |
-
-### ARMAMENT
-
-| Weapon | Mount | Ammo |
-|--------|-------|------|
-| 40mm 2-pdr | Turret | - |
-| 7.92mm MG 13 | Co-Axial | - |
-| Ordnance Q.F. 2pdr | Turret | - |
-
-### WEAPON PERFORMANCE
-
-| WEAPON | AMMO | HE | RANGE | | | | | |
-|--------|------|----|----|----|----|----|----|----|
-| | | | **0-10"** | **10-20"** | **20-30"** | **30-40"** | **40-50"** | **50-70"** |
-| 40mm 2-pdr | HE/AP | - | - | - | - | - | - | - |
-
-**Points:** 28 | **Battle Rating:** 3 | **Crew:** Unknown
-**Special Rules:**
-- **British Resolve**: Steadfast under fire
-- **Desert Adapted**: Modified for desert conditions
-- **Slow**: Below-average speed
 
 ---
 
@@ -96,6 +64,36 @@
 
 ---
 
+## VALENTINE I
+
+**1940-1945** | **Standard production version**
+
+| TYPE | MOVEMENT | | | ARMOUR | | | |
+|------|----------|----------|----------|--------|---|---|---|
+| | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
+| Tank | 8" | 12" | - | K | K | L | 40mm 2-pdr |
+
+### ARMAMENT
+
+| Weapon | Mount | Ammo |
+|--------|-------|------|
+| 40mm 2-pdr | Turret | - |
+| BESA MG | Coaxial | - |
+
+### WEAPON PERFORMANCE
+
+| WEAPON | AMMO | HE | RANGE | | | | | |
+|--------|------|----|----|----|----|----|----|----|
+| | | | **0-10"** | **10-20"** | **20-30"** | **30-40"** | **40-50"** | **50-70"** |
+| 40mm 2-pdr | HE/AP | - | - | - | - | - | - | - |
+
+**Points:** 32 | **Battle Rating:** 2 | **Crew:** Unknown
+**Special Rules:**
+- **British Resolve**: Steadfast under fire
+- **Desert Adapted**: Modified for desert conditions
+
+---
+
 ## VALENTINE III
 
 **1940-1945** | **Standard production version**
@@ -124,45 +122,6 @@
 - **British Resolve**: Steadfast under fire
 - **Desert Adapted**: Modified for desert conditions
 - **Slow**: Below-average speed
-
----
-
-
-## German
-
-## PANZER III COMMAND
-
-**1940-1945** | **Standard production version**
-
-| TYPE | MOVEMENT | | | ARMOUR | | | |
-|------|----------|----------|----------|--------|---|---|---|
-| | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Tank | 10" | 14" | - | N | O | O | 50mmL42 |
-
-### ARMAMENT
-
-| Weapon | Mount | Ammo |
-|--------|-------|------|
-| 50mmL42 | Turret | - |
-| 7.92mm MG 13 | Co-Axial | - |
-| 7.92mm MG 13 | Hull | - |
-
-### WEAPON PERFORMANCE
-
-| WEAPON | AMMO | HE | RANGE | | | | | |
-|--------|------|----|----|----|----|----|----|----|
-| | | | **0-10"** | **10-20"** | **20-30"** | **30-40"** | **40-50"** | **50-70"** |
-| 50mmL42 | HE/AP | - | - | - | - | - | - | - |
-
-**Points:** 24 | **Battle Rating:** 2 | **Crew:** Unknown
-**Special Rules:**
-- **Command Tank**: Enhanced radio equipment for command and control
-- **Desert Adapted**: Modified for desert conditions
-- **German Tactical Doctrine**: Superior tactical training
-- **Hull MG**: Machine gun in hull mount
-- **Smoke Dischargers**: Vehicle can deploy smoke to obscure itself
-- **Thin Armor**: Minimal armor protection
-- **Tracked**: Caterpillar track propulsion
 
 ---
 

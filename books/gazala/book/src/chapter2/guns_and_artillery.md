@@ -1,31 +1,65 @@
-# Other Equipment
+# Guns & Artillery
+
+
+## American
+
+## M1 81MM MORTAR
+
+**1940-1945** | **Standard production version**
+
+| TYPE | MOVEMENT | | | ARMOUR | | | |
+|------|----------|----------|----------|--------|---|---|---|
+| | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
+| Unknown | 8" | 12" | - | N | O | O | None |
+
+### ARMAMENT
+
+| Weapon | Mount | Ammo |
+|--------|-------|------|
+| None | - | - |
+
+### WEAPON PERFORMANCE
+
+| WEAPON | AMMO | HE | RANGE | | | | | |
+|--------|------|----|----|----|----|----|----|----|
+| | | | **0-10"** | **10-20"** | **20-30"** | **30-40"** | **40-50"** | **50-70"** |
+| None | HE/AP | - | - | - | - | - | - | - |
+
+**Points:** 20 | **Battle Rating:** 2 | **Crew:** Unknown
+**Special Rules:**
+- **American Firepower Doctrine**: Emphasis on overwhelming firepower
+- **Desert Adapted**: Modified for desert conditions
+- **HE Only**: No armor-piercing ammunition
+- **Thin Armor**: Minimal armor protection
+
+---
 
 
 ## British
 
-## A10 CRUISER MK II
+## 25 POUNDER
 
 **1940-1945** | **Standard production version**
 
 | TYPE | MOVEMENT | | | ARMOUR | | | |
 |------|----------|----------|----------|--------|---|---|---|
 | | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Tank | 10" | 16" | - | N | O | O | None |
+| Artillery | 8" | 12" | - | N | O | O | 25 gun |
 
 ### ARMAMENT
 
 | Weapon | Mount | Ammo |
 |--------|-------|------|
-| None | - | - |
+| 25 gun | Turret | - |
 
 ### WEAPON PERFORMANCE
 
 | WEAPON | AMMO | HE | RANGE | | | | | |
 |--------|------|----|----|----|----|----|----|----|
 | | | | **0-10"** | **10-20"** | **20-30"** | **30-40"** | **40-50"** | **50-70"** |
-| None | HE/AP | - | - | - | - | - | - | - |
+| 25 gun | HE/AP | - | - | - | - | - | - | - |
 
-**Points:** 24 | **Battle Rating:** 2 | **Crew:** Unknown
+**Points:** 20 | **Battle Rating:** 1 | **Crew:** Unknown
 **Special Rules:**
 - **British Resolve**: Steadfast under fire
 - **Desert Adapted**: Modified for desert conditions
@@ -33,14 +67,75 @@
 
 ---
 
-## A13 CRUISER MK2
+## 4 5 INCH HOWITZER
 
 **1940-1945** | **Standard production version**
 
 | TYPE | MOVEMENT | | | ARMOUR | | | |
 |------|----------|----------|----------|--------|---|---|---|
 | | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Tank | 8" | 12" | - | N | O | O | None |
+| Artillery | 8" | 12" | - | N | O | O | 5 gun |
+
+### ARMAMENT
+
+| Weapon | Mount | Ammo |
+|--------|-------|------|
+| 5 gun | Turret | - |
+
+### WEAPON PERFORMANCE
+
+| WEAPON | AMMO | HE | RANGE | | | | | |
+|--------|------|----|----|----|----|----|----|----|
+| | | | **0-10"** | **10-20"** | **20-30"** | **30-40"** | **40-50"** | **50-70"** |
+| 5 gun | HE/AP | - | - | - | - | - | - | - |
+
+**Points:** 20 | **Battle Rating:** 2 | **Crew:** Unknown
+**Special Rules:**
+- **British Resolve**: Steadfast under fire
+- **Desert Adapted**: Modified for desert conditions
+- **HE Only**: No armor-piercing ammunition
+- **Thin Armor**: Minimal armor protection
+
+---
+
+## 60-POUNDER HEAVY GUN
+
+**1940-1945** | **Standard production version**
+
+| TYPE | MOVEMENT | | | ARMOUR | | | |
+|------|----------|----------|----------|--------|---|---|---|
+| | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
+| Artillery | 8" | 12" | - | N | O | O | Self (towed gun) |
+
+### ARMAMENT
+
+| Weapon | Mount | Ammo |
+|--------|-------|------|
+| Self (towed gun) | - | - |
+
+### WEAPON PERFORMANCE
+
+| WEAPON | AMMO | HE | RANGE | | | | | |
+|--------|------|----|----|----|----|----|----|----|
+| | | | **0-10"** | **10-20"** | **20-30"** | **30-40"** | **40-50"** | **50-70"** |
+| Self (towed gun) | HE/AP | - | - | - | - | - | - | - |
+
+**Points:** 20 | **Battle Rating:** 2 | **Crew:** Unknown
+**Special Rules:**
+- **British Resolve**: Steadfast under fire
+- **Desert Adapted**: Modified for desert conditions
+- **Thin Armor**: Minimal armor protection
+
+---
+
+## BOFORS 40MM
+
+**1940-1945** | **Standard production version**
+
+| TYPE | MOVEMENT | | | ARMOUR | | | |
+|------|----------|----------|----------|--------|---|---|---|
+| | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
+| Artillery | 8" | 12" | - | N | O | O | None |
 
 ### ARMAMENT
 
@@ -63,68 +158,7 @@
 
 ---
 
-## A13 CRUISER MK3
-
-**1940-1945** | **Standard production version**
-
-| TYPE | MOVEMENT | | | ARMOUR | | | |
-|------|----------|----------|----------|--------|---|---|---|
-| | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Tank | 8" | 12" | - | N | O | O | None |
-
-### ARMAMENT
-
-| Weapon | Mount | Ammo |
-|--------|-------|------|
-| None | - | - |
-
-### WEAPON PERFORMANCE
-
-| WEAPON | AMMO | HE | RANGE | | | | | |
-|--------|------|----|----|----|----|----|----|----|
-| | | | **0-10"** | **10-20"** | **20-30"** | **30-40"** | **40-50"** | **50-70"** |
-| None | HE/AP | - | - | - | - | - | - | - |
-
-**Points:** 20 | **Battle Rating:** 1 | **Crew:** Unknown
-**Special Rules:**
-- **British Resolve**: Steadfast under fire
-- **Desert Adapted**: Modified for desert conditions
-- **Thin Armor**: Minimal armor protection
-
----
-
-## A9 CRUISER
-
-**1940-1945** | **Standard production version**
-
-| TYPE | MOVEMENT | | | ARMOUR | | | |
-|------|----------|----------|----------|--------|---|---|---|
-| | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Tank | 10" | 16" | - | L | N | N | 2pdr |
-
-### ARMAMENT
-
-| Weapon | Mount | Ammo |
-|--------|-------|------|
-| 2pdr | Turret | - |
-| 7.92mm MG 13 | Co-Axial | - |
-| Ordnance Q.F. 2pdr | Turret | - |
-
-### WEAPON PERFORMANCE
-
-| WEAPON | AMMO | HE | RANGE | | | | | |
-|--------|------|----|----|----|----|----|----|----|
-| | | | **0-10"** | **10-20"** | **20-30"** | **30-40"** | **40-50"** | **50-70"** |
-| 2pdr | HE/AP | - | - | - | - | - | - | - |
-
-**Points:** 29 | **Battle Rating:** 2 | **Crew:** Unknown
-**Special Rules:**
-- **British Resolve**: Steadfast under fire
-- **Desert Adapted**: Modified for desert conditions
-
----
-
-## BSA M20
+## LEWIS GUN AA
 
 **1940-1945** | **Standard production version**
 
@@ -146,65 +180,36 @@
 | | | | **0-10"** | **10-20"** | **20-30"** | **30-40"** | **40-50"** | **50-70"** |
 | None | HE/AP | - | - | - | - | - | - | - |
 
-**Points:** 20 | **Battle Rating:** 1 | **Crew:** Unknown
+**Points:** 20 | **Battle Rating:** 2 | **Crew:** Unknown
 **Special Rules:**
 - **British Resolve**: Steadfast under fire
 - **Desert Adapted**: Modified for desert conditions
+- **Dual-Purpose Gun**: Can engage ground and air targets
 - **Thin Armor**: Minimal armor protection
 
 ---
 
-## BLENHEIM MK1
+## ORDNANCE QF 25-POUNDER MK II
 
 **1940-1945** | **Standard production version**
 
 | TYPE | MOVEMENT | | | ARMOUR | | | |
 |------|----------|----------|----------|--------|---|---|---|
 | | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Aircraft | 8" | 12" | - | N | O | O | None |
+| Artillery | 8" | 12" | - | N | O | O | Self (towed gun) |
 
 ### ARMAMENT
 
 | Weapon | Mount | Ammo |
 |--------|-------|------|
-| None | - | - |
+| Self (towed gun) | - | - |
 
 ### WEAPON PERFORMANCE
 
 | WEAPON | AMMO | HE | RANGE | | | | | |
 |--------|------|----|----|----|----|----|----|----|
 | | | | **0-10"** | **10-20"** | **20-30"** | **30-40"** | **40-50"** | **50-70"** |
-| None | HE/AP | - | - | - | - | - | - | - |
-
-**Points:** 20 | **Battle Rating:** 1 | **Crew:** Unknown
-**Special Rules:**
-- **British Resolve**: Steadfast under fire
-- **Desert Adapted**: Modified for desert conditions
-- **Thin Armor**: Minimal armor protection
-
----
-
-## BLENHEIM MK4
-
-**1940-1945** | **Standard production version**
-
-| TYPE | MOVEMENT | | | ARMOUR | | | |
-|------|----------|----------|----------|--------|---|---|---|
-| | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Aircraft | 8" | 12" | - | N | O | O | None |
-
-### ARMAMENT
-
-| Weapon | Mount | Ammo |
-|--------|-------|------|
-| None | - | - |
-
-### WEAPON PERFORMANCE
-
-| WEAPON | AMMO | HE | RANGE | | | | | |
-|--------|------|----|----|----|----|----|----|----|
-| | | | **0-10"** | **10-20"** | **20-30"** | **30-40"** | **40-50"** | **50-70"** |
-| None | HE/AP | - | - | - | - | - | - | - |
+| Self (towed gun) | HE/AP | - | - | - | - | - | - | - |
 
 **Points:** 20 | **Battle Rating:** 1 | **Crew:** Unknown
 **Special Rules:**
@@ -214,27 +219,27 @@
 
 ---
 
-## BLENHEIM MK5
+## QF 17-POUNDER
 
 **1940-1945** | **Standard production version**
 
 | TYPE | MOVEMENT | | | ARMOUR | | | |
 |------|----------|----------|----------|--------|---|---|---|
 | | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Aircraft | 8" | 12" | - | N | O | O | None |
+| Artillery | 8" | 12" | - | N | O | O | Self (towed gun) |
 
 ### ARMAMENT
 
 | Weapon | Mount | Ammo |
 |--------|-------|------|
-| None | - | - |
+| Self (towed gun) | - | - |
 
 ### WEAPON PERFORMANCE
 
 | WEAPON | AMMO | HE | RANGE | | | | | |
 |--------|------|----|----|----|----|----|----|----|
 | | | | **0-10"** | **10-20"** | **20-30"** | **30-40"** | **40-50"** | **50-70"** |
-| None | HE/AP | - | - | - | - | - | - | - |
+| Self (towed gun) | HE/AP | - | - | - | - | - | - | - |
 
 **Points:** 20 | **Battle Rating:** 1 | **Crew:** Unknown
 **Special Rules:**
@@ -244,62 +249,36 @@
 
 ---
 
-## NORTON 16H
+
+## German
+
+## 50MM PAK 38
 
 **1940-1945** | **Standard production version**
 
 | TYPE | MOVEMENT | | | ARMOUR | | | |
 |------|----------|----------|----------|--------|---|---|---|
 | | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Unknown | 8" | 12" | - | N | O | O | None |
+| Artillery | 8" | 12" | - | N | O | O | 50 gun |
 
 ### ARMAMENT
 
 | Weapon | Mount | Ammo |
 |--------|-------|------|
-| None | - | - |
+| 50 gun | Turret | - |
 
 ### WEAPON PERFORMANCE
 
 | WEAPON | AMMO | HE | RANGE | | | | | |
 |--------|------|----|----|----|----|----|----|----|
 | | | | **0-10"** | **10-20"** | **20-30"** | **30-40"** | **40-50"** | **50-70"** |
-| None | HE/AP | - | - | - | - | - | - | - |
+| 50 gun | HE/AP | - | - | - | - | - | - | - |
 
 **Points:** 20 | **Battle Rating:** 1 | **Crew:** Unknown
 **Special Rules:**
-- **British Resolve**: Steadfast under fire
+- **AP Only**: No high-explosive ammunition
 - **Desert Adapted**: Modified for desert conditions
-- **Thin Armor**: Minimal armor protection
-
----
-
-## VICKERS MEDIUM
-
-**1940-1945** | **Standard production version**
-
-| TYPE | MOVEMENT | | | ARMOUR | | | |
-|------|----------|----------|----------|--------|---|---|---|
-| | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Tank | 8" | 12" | - | N | O | O | None |
-
-### ARMAMENT
-
-| Weapon | Mount | Ammo |
-|--------|-------|------|
-| None | - | - |
-
-### WEAPON PERFORMANCE
-
-| WEAPON | AMMO | HE | RANGE | | | | | |
-|--------|------|----|----|----|----|----|----|----|
-| | | | **0-10"** | **10-20"** | **20-30"** | **30-40"** | **40-50"** | **50-70"** |
-| None | HE/AP | - | - | - | - | - | - | - |
-
-**Points:** 20 | **Battle Rating:** 1 | **Crew:** Unknown
-**Special Rules:**
-- **British Resolve**: Steadfast under fire
-- **Desert Adapted**: Modified for desert conditions
+- **German Tactical Doctrine**: Superior tactical training
 - **Thin Armor**: Minimal armor protection
 
 ---
@@ -307,14 +286,44 @@
 
 ## Italian
 
-## BENELLI M36
+## 20MM BREDA
 
 **1940-1945** | **Standard production version**
 
 | TYPE | MOVEMENT | | | ARMOUR | | | |
 |------|----------|----------|----------|--------|---|---|---|
 | | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Unknown | 8" | 12" | - | N | O | O | None |
+| Artillery | 8" | 12" | - | N | O | O | None |
+
+### ARMAMENT
+
+| Weapon | Mount | Ammo |
+|--------|-------|------|
+| None | - | - |
+
+### WEAPON PERFORMANCE
+
+| WEAPON | AMMO | HE | RANGE | | | | | |
+|--------|------|----|----|----|----|----|----|----|
+| | | | **0-10"** | **10-20"** | **20-30"** | **30-40"** | **40-50"** | **50-70"** |
+| None | HE/AP | - | - | - | - | - | - | - |
+
+**Points:** 20 | **Battle Rating:** 1 | **Crew:** Unknown
+**Special Rules:**
+- **Desert Adapted**: Modified for desert conditions
+- **Reluctant Warriors**: Poor morale in certain circumstances
+- **Thin Armor**: Minimal armor protection
+
+---
+
+## 47MM CANNONE DA 47/32 M35
+
+**1940-1945** | **Standard production version**
+
+| TYPE | MOVEMENT | | | ARMOUR | | | |
+|------|----------|----------|----------|--------|---|---|---|
+| | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
+| Artillery | 8" | 12" | - | N | O | O | None |
 
 ### ARMAMENT
 
@@ -338,44 +347,14 @@
 
 ---
 
-## M14/41
+## 75MM CANNONE DA 75/27 MODELLO 11
 
 **1940-1945** | **Standard production version**
 
 | TYPE | MOVEMENT | | | ARMOUR | | | |
 |------|----------|----------|----------|--------|---|---|---|
 | | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Tank | 8" | 12" | - | N | O | O | None |
-
-### ARMAMENT
-
-| Weapon | Mount | Ammo |
-|--------|-------|------|
-| None | - | - |
-
-### WEAPON PERFORMANCE
-
-| WEAPON | AMMO | HE | RANGE | | | | | |
-|--------|------|----|----|----|----|----|----|----|
-| | | | **0-10"** | **10-20"** | **20-30"** | **30-40"** | **40-50"** | **50-70"** |
-| None | HE/AP | - | - | - | - | - | - | - |
-
-**Points:** 20 | **Battle Rating:** 1 | **Crew:** Unknown
-**Special Rules:**
-- **Desert Adapted**: Modified for desert conditions
-- **Reluctant Warriors**: Poor morale in certain circumstances
-- **Thin Armor**: Minimal armor protection
-
----
-
-## MOTO GUZZI ALCE
-
-**1940-1945** | **Standard production version**
-
-| TYPE | MOVEMENT | | | ARMOUR | | | |
-|------|----------|----------|----------|--------|---|---|---|
-| | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Unknown | 8" | 12" | - | N | O | O | None |
+| Artillery | 8" | 12" | - | N | O | O | None |
 
 ### ARMAMENT
 

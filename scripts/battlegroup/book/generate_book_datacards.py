@@ -573,7 +573,7 @@ class BookDatacardGenerator:
         categorized_equipment = self.get_all_equipment_for_battle(battle_key)
 
         # Create output directory
-        output_dir = OUTPUT_BASE / battle['output_dir'] / 'chapter2'
+        output_dir = OUTPUT_BASE / battle['output_dir'] / 'book' / 'src' / 'chapter2'
         output_dir.mkdir(parents=True, exist_ok=True)
 
         print(f"\nOutput directory: {output_dir}")

@@ -1,52 +1,50 @@
-# Vehicles
+# Other Equipment
 
 
 ## American
 
-## M2 HALFTRACK
+## M10 WOLVERINE
 
 **1940-1945** | **Standard production version**
 
 | TYPE | MOVEMENT | | | ARMOUR | | | |
 |------|----------|----------|----------|--------|---|---|---|
 | | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Halftrack | 8" | 12" | - | N | O | O | None |
+| Unknown | 9" | 14" | - | M | N | O | 76mmL53 |
 
 ### ARMAMENT
 
 | Weapon | Mount | Ammo |
 |--------|-------|------|
-| None | - | - |
-| 7.92mm MG 13 | Pintle | - |
+| 76mmL53 | Turret | - |
+| MG | Pintle | - |
 
 ### WEAPON PERFORMANCE
 
 | WEAPON | AMMO | HE | RANGE | | | | | |
 |--------|------|----|----|----|----|----|----|----|
 | | | | **0-10"** | **10-20"** | **20-30"** | **30-40"** | **40-50"** | **50-70"** |
-| None | HE/AP | - | - | - | - | - | - | - |
+| 76mmL53 | HE/AP | - | - | - | - | - | - | - |
 
-**Points:** 20 | **Battle Rating:** 1 | **Crew:** Unknown
+**Points:** 34 | **Battle Rating:** 2 | **Crew:** Unknown
 **Special Rules:**
 - **American Firepower Doctrine**: Emphasis on overwhelming firepower
 - **Desert Adapted**: Modified for desert conditions
-- **Half-Tracked**: Mixed wheel and track propulsion
 - **Thin Armor**: Minimal armor protection
-- **Transport**: Can carry infantry
 
 ---
 
 
 ## British
 
-## A9 RECOVERY
+## A10 CRUISER MK II
 
 **1940-1945** | **Standard production version**
 
 | TYPE | MOVEMENT | | | ARMOUR | | | |
 |------|----------|----------|----------|--------|---|---|---|
 | | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Vehicle | 8" | 12" | - | N | O | O | None |
+| Tank | 10" | 16" | - | N | O | O | None |
 
 ### ARMAMENT
 
@@ -61,38 +59,7 @@
 | | | | **0-10"** | **10-20"** | **20-30"** | **30-40"** | **40-50"** | **50-70"** |
 | None | HE/AP | - | - | - | - | - | - | - |
 
-**Points:** 20 | **Battle Rating:** 1 | **Crew:** Unknown
-**Special Rules:**
-- **British Resolve**: Steadfast under fire
-- **Desert Adapted**: Modified for desert conditions
-- **Recovery Vehicle**: Can recover damaged vehicles
-- **Thin Armor**: Minimal armor protection
-
----
-
-## AUSTIN K2
-
-**1940-1945** | **Standard production version**
-
-| TYPE | MOVEMENT | | | ARMOUR | | | |
-|------|----------|----------|----------|--------|---|---|---|
-| | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Vehicle | 6" | 24" | - | Soft-Skinned | - | - | None |
-
-### ARMAMENT
-
-| Weapon | Mount | Ammo |
-|--------|-------|------|
-| None | - | - |
-
-### WEAPON PERFORMANCE
-
-| WEAPON | AMMO | HE | RANGE | | | | | |
-|--------|------|----|----|----|----|----|----|----|
-| | | | **0-10"** | **10-20"** | **20-30"** | **30-40"** | **40-50"** | **50-70"** |
-| None | HE/AP | - | - | - | - | - | - | - |
-
-**Points:** 11 | **Battle Rating:** 1 | **Crew:** Unknown
+**Points:** 24 | **Battle Rating:** 2 | **Crew:** Unknown
 **Special Rules:**
 - **British Resolve**: Steadfast under fire
 - **Desert Adapted**: Modified for desert conditions
@@ -100,44 +67,14 @@
 
 ---
 
-## BEDFORD MW
+## A13 CRUISER
 
 **1940-1945** | **Standard production version**
 
 | TYPE | MOVEMENT | | | ARMOUR | | | |
 |------|----------|----------|----------|--------|---|---|---|
 | | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Vehicle | 6" | 24" | - | Soft-Skinned | - | - | None |
-
-### ARMAMENT
-
-| Weapon | Mount | Ammo |
-|--------|-------|------|
-| None | - | - |
-
-### WEAPON PERFORMANCE
-
-| WEAPON | AMMO | HE | RANGE | | | | | |
-|--------|------|----|----|----|----|----|----|----|
-| | | | **0-10"** | **10-20"** | **20-30"** | **30-40"** | **40-50"** | **50-70"** |
-| None | HE/AP | - | - | - | - | - | - | - |
-
-**Points:** 11 | **Battle Rating:** 1 | **Crew:** Unknown
-**Special Rules:**
-- **British Resolve**: Steadfast under fire
-- **Desert Adapted**: Modified for desert conditions
-- **Thin Armor**: Minimal armor protection
-
----
-
-## BEDFORD MW 15CWT
-
-**1940-1945** | **Standard production version**
-
-| TYPE | MOVEMENT | | | ARMOUR | | | |
-|------|----------|----------|----------|--------|---|---|---|
-| | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Vehicle | 8" | 12" | - | N | O | O | None |
+| Tank | 8" | 12" | - | N | O | O | None |
 
 ### ARMAMENT
 
@@ -160,75 +97,14 @@
 
 ---
 
-## BEDFORD QL
+## A13 CRUISER MK2
 
 **1940-1945** | **Standard production version**
 
 | TYPE | MOVEMENT | | | ARMOUR | | | |
 |------|----------|----------|----------|--------|---|---|---|
 | | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Vehicle | 6" | 24" | - | Soft-Skinned | - | - | None |
-
-### ARMAMENT
-
-| Weapon | Mount | Ammo |
-|--------|-------|------|
-| None | - | - |
-
-### WEAPON PERFORMANCE
-
-| WEAPON | AMMO | HE | RANGE | | | | | |
-|--------|------|----|----|----|----|----|----|----|
-| | | | **0-10"** | **10-20"** | **20-30"** | **30-40"** | **40-50"** | **50-70"** |
-| None | HE/AP | - | - | - | - | - | - | - |
-
-**Points:** 11 | **Battle Rating:** 1 | **Crew:** Unknown
-**Special Rules:**
-- **British Resolve**: Steadfast under fire
-- **Desert Adapted**: Modified for desert conditions
-- **Thin Armor**: Minimal armor protection
-
----
-
-## CMP TRUCKS (ALL VARIANTS)
-
-**1940-1945** | **Standard production version**
-
-| TYPE | MOVEMENT | | | ARMOUR | | | |
-|------|----------|----------|----------|--------|---|---|---|
-| | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Vehicle | 8" | 12" | - | N | O | O | None |
-
-### ARMAMENT
-
-| Weapon | Mount | Ammo |
-|--------|-------|------|
-| None | - | - |
-
-### WEAPON PERFORMANCE
-
-| WEAPON | AMMO | HE | RANGE | | | | | |
-|--------|------|----|----|----|----|----|----|----|
-| | | | **0-10"** | **10-20"** | **20-30"** | **30-40"** | **40-50"** | **50-70"** |
-| None | HE/AP | - | - | - | - | - | - | - |
-
-**Points:** 20 | **Battle Rating:** 1 | **Crew:** Unknown
-**Special Rules:**
-- **British Resolve**: Steadfast under fire
-- **Desert Adapted**: Modified for desert conditions
-- **Thin Armor**: Minimal armor protection
-- **Transport**: Can carry infantry
-
----
-
-## CHEVROLET C15A
-
-**1940-1945** | **Standard production version**
-
-| TYPE | MOVEMENT | | | ARMOUR | | | |
-|------|----------|----------|----------|--------|---|---|---|
-| | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Vehicle | 8" | 12" | - | N | O | O | None |
+| Tank | 8" | 12" | - | N | O | O | None |
 
 ### ARMAMENT
 
@@ -251,45 +127,14 @@
 
 ---
 
-## DAIMLER ARMORED CAR
+## A13 CRUISER MK3
 
 **1940-1945** | **Standard production version**
 
 | TYPE | MOVEMENT | | | ARMOUR | | | |
 |------|----------|----------|----------|--------|---|---|---|
 | | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Armored Car | 8" | 24" | - | N | O | O | None |
-
-### ARMAMENT
-
-| Weapon | Mount | Ammo |
-|--------|-------|------|
-| None | - | - |
-
-### WEAPON PERFORMANCE
-
-| WEAPON | AMMO | HE | RANGE | | | | | |
-|--------|------|----|----|----|----|----|----|----|
-| | | | **0-10"** | **10-20"** | **20-30"** | **30-40"** | **40-50"** | **50-70"** |
-| None | HE/AP | - | - | - | - | - | - | - |
-
-**Points:** 20 | **Battle Rating:** 1 | **Crew:** Unknown
-**Special Rules:**
-- **British Resolve**: Steadfast under fire
-- **Desert Adapted**: Modified for desert conditions
-- **Thin Armor**: Minimal armor protection
-- **Wheeled**: Wheel propulsion, road-dependent
-
----
-
-## FORD F15 15CWT
-
-**1940-1945** | **Standard production version**
-
-| TYPE | MOVEMENT | | | ARMOUR | | | |
-|------|----------|----------|----------|--------|---|---|---|
-| | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Vehicle | 8" | 12" | - | N | O | O | None |
+| Tank | 8" | 12" | - | N | O | O | None |
 
 ### ARMAMENT
 
@@ -312,14 +157,14 @@
 
 ---
 
-## HUMBER MK I
+## BSA M20
 
 **1940-1945** | **Standard production version**
 
 | TYPE | MOVEMENT | | | ARMOUR | | | |
 |------|----------|----------|----------|--------|---|---|---|
 | | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Armored Car | 8" | 12" | - | N | O | O | None |
+| Unknown | 8" | 12" | - | N | O | O | None |
 
 ### ARMAMENT
 
@@ -342,14 +187,14 @@
 
 ---
 
-## MARMON-HERRINGTON
+## BLENHEIM MK1
 
 **1940-1945** | **Standard production version**
 
 | TYPE | MOVEMENT | | | ARMOUR | | | |
 |------|----------|----------|----------|--------|---|---|---|
 | | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Armored Car | 8" | 12" | - | N | O | O | None |
+| Aircraft | 8" | 12" | - | N | O | O | None |
 
 ### ARMAMENT
 
@@ -372,14 +217,14 @@
 
 ---
 
-## MORRIS C8
+## MATCHLESS G3L
 
 **1940-1945** | **Standard production version**
 
 | TYPE | MOVEMENT | | | ARMOUR | | | |
 |------|----------|----------|----------|--------|---|---|---|
 | | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Vehicle | 8" | 12" | - | N | O | O | None |
+| Unknown | 8" | 12" | - | N | O | O | None |
 
 ### ARMAMENT
 
@@ -402,14 +247,44 @@
 
 ---
 
-## UNIVERSAL CARRIER
+## NORTON 16H
 
 **1940-1945** | **Standard production version**
 
 | TYPE | MOVEMENT | | | ARMOUR | | | |
 |------|----------|----------|----------|--------|---|---|---|
 | | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Vehicle | 8" | 12" | - | N | O | O | None |
+| Unknown | 8" | 12" | - | N | O | O | None |
+
+### ARMAMENT
+
+| Weapon | Mount | Ammo |
+|--------|-------|------|
+| None | - | - |
+
+### WEAPON PERFORMANCE
+
+| WEAPON | AMMO | HE | RANGE | | | | | |
+|--------|------|----|----|----|----|----|----|----|
+| | | | **0-10"** | **10-20"** | **20-30"** | **30-40"** | **40-50"** | **50-70"** |
+| None | HE/AP | - | - | - | - | - | - | - |
+
+**Points:** 20 | **Battle Rating:** 1 | **Crew:** Unknown
+**Special Rules:**
+- **British Resolve**: Steadfast under fire
+- **Desert Adapted**: Modified for desert conditions
+- **Thin Armor**: Minimal armor protection
+
+---
+
+## VICKERS MEDIUM
+
+**1940-1945** | **Standard production version**
+
+| TYPE | MOVEMENT | | | ARMOUR | | | |
+|------|----------|----------|----------|--------|---|---|---|
+| | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
+| Tank | 8" | 12" | - | N | O | O | None |
 
 ### ARMAMENT
 
@@ -435,14 +310,14 @@
 
 ## German
 
-## HENSCHEL TYPE 33G1
+## BMW R75
 
 **1940-1945** | **Standard production version**
 
 | TYPE | MOVEMENT | | | ARMOUR | | | |
 |------|----------|----------|----------|--------|---|---|---|
 | | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Vehicle | 8" | 12" | - | N | O | O | None |
+| Unknown | 8" | 12" | - | N | O | O | None |
 
 ### ARMAMENT
 
@@ -465,74 +340,14 @@
 
 ---
 
-## MERCEDES-BENZ L3000A
+## ZÜNDAPP KS750
 
 **1940-1945** | **Standard production version**
 
 | TYPE | MOVEMENT | | | ARMOUR | | | |
 |------|----------|----------|----------|--------|---|---|---|
 | | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Vehicle | 8" | 12" | - | N | O | O | None |
-
-### ARMAMENT
-
-| Weapon | Mount | Ammo |
-|--------|-------|------|
-| None | - | - |
-
-### WEAPON PERFORMANCE
-
-| WEAPON | AMMO | HE | RANGE | | | | | |
-|--------|------|----|----|----|----|----|----|----|
-| | | | **0-10"** | **10-20"** | **20-30"** | **30-40"** | **40-50"** | **50-70"** |
-| None | HE/AP | - | - | - | - | - | - | - |
-
-**Points:** 20 | **Battle Rating:** 1 | **Crew:** Unknown
-**Special Rules:**
-- **Desert Adapted**: Modified for desert conditions
-- **German Tactical Doctrine**: Superior tactical training
-- **Thin Armor**: Minimal armor protection
-
----
-
-## OPEL BLITZ
-
-**1940-1945** | **Standard production version**
-
-| TYPE | MOVEMENT | | | ARMOUR | | | |
-|------|----------|----------|----------|--------|---|---|---|
-| | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Vehicle | 6" | 24" | - | Soft-Skinned | - | - | None |
-
-### ARMAMENT
-
-| Weapon | Mount | Ammo |
-|--------|-------|------|
-| None | - | - |
-
-### WEAPON PERFORMANCE
-
-| WEAPON | AMMO | HE | RANGE | | | | | |
-|--------|------|----|----|----|----|----|----|----|
-| | | | **0-10"** | **10-20"** | **20-30"** | **30-40"** | **40-50"** | **50-70"** |
-| None | HE/AP | - | - | - | - | - | - | - |
-
-**Points:** 11 | **Battle Rating:** 1 | **Crew:** Unknown
-**Special Rules:**
-- **Desert Adapted**: Modified for desert conditions
-- **German Tactical Doctrine**: Superior tactical training
-- **Thin Armor**: Minimal armor protection
-
----
-
-## WORKSHOP VEHICLES
-
-**1940-1945** | **Standard production version**
-
-| TYPE | MOVEMENT | | | ARMOUR | | | |
-|------|----------|----------|----------|--------|---|---|---|
-| | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Vehicle | 8" | 12" | - | N | O | O | None |
+| Unknown | 8" | 12" | - | N | O | O | None |
 
 ### ARMAMENT
 
@@ -558,14 +373,74 @@
 
 ## Italian
 
-## AB40
+## BENELLI M36
 
 **1940-1945** | **Standard production version**
 
 | TYPE | MOVEMENT | | | ARMOUR | | | |
 |------|----------|----------|----------|--------|---|---|---|
 | | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Armored Car | 8" | 12" | - | N | O | O | None |
+| Unknown | 8" | 12" | - | N | O | O | None |
+
+### ARMAMENT
+
+| Weapon | Mount | Ammo |
+|--------|-------|------|
+| None | - | - |
+
+### WEAPON PERFORMANCE
+
+| WEAPON | AMMO | HE | RANGE | | | | | |
+|--------|------|----|----|----|----|----|----|----|
+| | | | **0-10"** | **10-20"** | **20-30"** | **30-40"** | **40-50"** | **50-70"** |
+| None | HE/AP | - | - | - | - | - | - | - |
+
+**Points:** 20 | **Battle Rating:** 1 | **Crew:** Unknown
+**Special Rules:**
+- **Desert Adapted**: Modified for desert conditions
+- **Half-Tracked**: Mixed wheel and track propulsion
+- **Reluctant Warriors**: Poor morale in certain circumstances
+- **Thin Armor**: Minimal armor protection
+
+---
+
+## M13/40
+
+**1940-1945** | **Standard production version**
+
+| TYPE | MOVEMENT | | | ARMOUR | | | |
+|------|----------|----------|----------|--------|---|---|---|
+| | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
+| Tank | 8" | 12" | - | L | M | M | None |
+
+### ARMAMENT
+
+| Weapon | Mount | Ammo |
+|--------|-------|------|
+| None | - | - |
+
+### WEAPON PERFORMANCE
+
+| WEAPON | AMMO | HE | RANGE | | | | | |
+|--------|------|----|----|----|----|----|----|----|
+| | | | **0-10"** | **10-20"** | **20-30"** | **30-40"** | **40-50"** | **50-70"** |
+| None | HE/AP | - | - | - | - | - | - | - |
+
+**Points:** 27 | **Battle Rating:** 2 | **Crew:** 4
+**Special Rules:**
+- **Desert Adapted**: Modified for desert conditions
+- **Reluctant Warriors**: Poor morale in certain circumstances
+
+---
+
+## M14/41
+
+**1940-1945** | **Standard production version**
+
+| TYPE | MOVEMENT | | | ARMOUR | | | |
+|------|----------|----------|----------|--------|---|---|---|
+| | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
+| Tank | 8" | 12" | - | N | O | O | None |
 
 ### ARMAMENT
 
@@ -588,14 +463,14 @@
 
 ---
 
-## AB41
+## MOTO GUZZI ALCE
 
 **1940-1945** | **Standard production version**
 
 | TYPE | MOVEMENT | | | ARMOUR | | | |
 |------|----------|----------|----------|--------|---|---|---|
 | | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Armored Car | 8" | 12" | - | N | O | O | None |
+| Unknown | 8" | 12" | - | N | O | O | None |
 
 ### ARMAMENT
 
@@ -618,195 +493,14 @@
 
 ---
 
-## ALFA ROMEO 800RE
+## SM79 SPARVIERO
 
 **1940-1945** | **Standard production version**
 
 | TYPE | MOVEMENT | | | ARMOUR | | | |
 |------|----------|----------|----------|--------|---|---|---|
 | | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Vehicle | 8" | 12" | - | N | O | O | None |
-
-### ARMAMENT
-
-| Weapon | Mount | Ammo |
-|--------|-------|------|
-| None | - | - |
-
-### WEAPON PERFORMANCE
-
-| WEAPON | AMMO | HE | RANGE | | | | | |
-|--------|------|----|----|----|----|----|----|----|
-| | | | **0-10"** | **10-20"** | **20-30"** | **30-40"** | **40-50"** | **50-70"** |
-| None | HE/AP | - | - | - | - | - | - | - |
-
-**Points:** 20 | **Battle Rating:** 1 | **Crew:** Unknown
-**Special Rules:**
-- **Desert Adapted**: Modified for desert conditions
-- **Reluctant Warriors**: Poor morale in certain circumstances
-- **Thin Armor**: Minimal armor protection
-
----
-
-## FIAT 508C BALILLA
-
-**1940-1945** | **Standard production version**
-
-| TYPE | MOVEMENT | | | ARMOUR | | | |
-|------|----------|----------|----------|--------|---|---|---|
-| | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Vehicle | 8" | 12" | - | N | O | O | None |
-
-### ARMAMENT
-
-| Weapon | Mount | Ammo |
-|--------|-------|------|
-| None | - | - |
-
-### WEAPON PERFORMANCE
-
-| WEAPON | AMMO | HE | RANGE | | | | | |
-|--------|------|----|----|----|----|----|----|----|
-| | | | **0-10"** | **10-20"** | **20-30"** | **30-40"** | **40-50"** | **50-70"** |
-| None | HE/AP | - | - | - | - | - | - | - |
-
-**Points:** 20 | **Battle Rating:** 1 | **Crew:** Unknown
-**Special Rules:**
-- **Desert Adapted**: Modified for desert conditions
-- **Reluctant Warriors**: Poor morale in certain circumstances
-- **Thin Armor**: Minimal armor protection
-
----
-
-## FIAT 626 RECOVERY
-
-**1940-1945** | **Standard production version**
-
-| TYPE | MOVEMENT | | | ARMOUR | | | |
-|------|----------|----------|----------|--------|---|---|---|
-| | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Vehicle | 8" | 12" | - | N | O | O | None |
-
-### ARMAMENT
-
-| Weapon | Mount | Ammo |
-|--------|-------|------|
-| None | - | - |
-
-### WEAPON PERFORMANCE
-
-| WEAPON | AMMO | HE | RANGE | | | | | |
-|--------|------|----|----|----|----|----|----|----|
-| | | | **0-10"** | **10-20"** | **20-30"** | **30-40"** | **40-50"** | **50-70"** |
-| None | HE/AP | - | - | - | - | - | - | - |
-
-**Points:** 20 | **Battle Rating:** 1 | **Crew:** Unknown
-**Special Rules:**
-- **Desert Adapted**: Modified for desert conditions
-- **Recovery Vehicle**: Can recover damaged vehicles
-- **Reluctant Warriors**: Poor morale in certain circumstances
-- **Thin Armor**: Minimal armor protection
-
----
-
-## FIAT 665NM
-
-**1940-1945** | **Standard production version**
-
-| TYPE | MOVEMENT | | | ARMOUR | | | |
-|------|----------|----------|----------|--------|---|---|---|
-| | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Vehicle | 8" | 12" | - | N | O | O | None |
-
-### ARMAMENT
-
-| Weapon | Mount | Ammo |
-|--------|-------|------|
-| None | - | - |
-
-### WEAPON PERFORMANCE
-
-| WEAPON | AMMO | HE | RANGE | | | | | |
-|--------|------|----|----|----|----|----|----|----|
-| | | | **0-10"** | **10-20"** | **20-30"** | **30-40"** | **40-50"** | **50-70"** |
-| None | HE/AP | - | - | - | - | - | - | - |
-
-**Points:** 20 | **Battle Rating:** 1 | **Crew:** Unknown
-**Special Rules:**
-- **Desert Adapted**: Modified for desert conditions
-- **Reluctant Warriors**: Poor morale in certain circumstances
-- **Thin Armor**: Minimal armor protection
-
----
-
-## LANCIA 3RO
-
-**1940-1945** | **Standard production version**
-
-| TYPE | MOVEMENT | | | ARMOUR | | | |
-|------|----------|----------|----------|--------|---|---|---|
-| | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Vehicle | 8" | 12" | - | N | O | O | None |
-
-### ARMAMENT
-
-| Weapon | Mount | Ammo |
-|--------|-------|------|
-| None | - | - |
-
-### WEAPON PERFORMANCE
-
-| WEAPON | AMMO | HE | RANGE | | | | | |
-|--------|------|----|----|----|----|----|----|----|
-| | | | **0-10"** | **10-20"** | **20-30"** | **30-40"** | **40-50"** | **50-70"** |
-| None | HE/AP | - | - | - | - | - | - | - |
-
-**Points:** 20 | **Battle Rating:** 1 | **Crew:** Unknown
-**Special Rules:**
-- **Desert Adapted**: Modified for desert conditions
-- **Reluctant Warriors**: Poor morale in certain circumstances
-- **Thin Armor**: Minimal armor protection
-
----
-
-## MOTO GUZZI TRIALCE
-
-**1940-1945** | **Standard production version**
-
-| TYPE | MOVEMENT | | | ARMOUR | | | |
-|------|----------|----------|----------|--------|---|---|---|
-| | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Vehicle | 8" | 12" | - | N | O | O | None |
-
-### ARMAMENT
-
-| Weapon | Mount | Ammo |
-|--------|-------|------|
-| None | - | - |
-
-### WEAPON PERFORMANCE
-
-| WEAPON | AMMO | HE | RANGE | | | | | |
-|--------|------|----|----|----|----|----|----|----|
-| | | | **0-10"** | **10-20"** | **20-30"** | **30-40"** | **40-50"** | **50-70"** |
-| None | HE/AP | - | - | - | - | - | - | - |
-
-**Points:** 20 | **Battle Rating:** 1 | **Crew:** Unknown
-**Special Rules:**
-- **Desert Adapted**: Modified for desert conditions
-- **Reluctant Warriors**: Poor morale in certain circumstances
-- **Thin Armor**: Minimal armor protection
-
----
-
-## SPA 38R
-
-**1940-1945** | **Standard production version**
-
-| TYPE | MOVEMENT | | | ARMOUR | | | |
-|------|----------|----------|----------|--------|---|---|---|
-| | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| Vehicle | 8" | 12" | - | N | O | O | None |
+| Aircraft | 8" | 12" | - | N | O | O | None |
 
 ### ARMAMENT
 
