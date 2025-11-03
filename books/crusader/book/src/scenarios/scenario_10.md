@@ -53,18 +53,21 @@ British forces pursue withdrawing Axis forces westward. Germans conduct fighting
 ### BRITISH FORCES
 **Nation**: British
 **Points Budget**: 900
-**Total Battle Rating**: 4
+**Total Battle Rating**: 12
 
 **Units**:
+- 24x tanks 20-24 Crusader/Honey (veteran) - 1200 pts, BR: 8 [2 squadron (~12/squadron assumed)]
 - 3x Motorized Infantry Company (veteran) - 480 pts, BR: 3 [1 companies, ~90 men (assumed)]
 - 4x RHA 25-pdr) (veteran) - 200 pts, BR: 1 [1 battery (4 guns per battery assumed)]
 
 ### AXIS FORCES
 **Nation**: Axis
 **Points Budget**: 900
-**Total Battle Rating**: 4
+**Total Battle Rating**: 9
 
 **Units**:
+- 11x tanks (veteran) - 550 pts, BR: 3 [Informal range]
+- 7x tanks (veteran) - 350 pts, BR: 2 [Informal range]
 - 3x Motorized Infantry Company (veteran) - 480 pts, BR: 3 [1 companies, ~90 men (assumed)]
 - 2x 88mm) (veteran) - 100 pts, BR: 1
 

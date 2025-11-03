@@ -53,17 +53,20 @@ Second major assault on Ruweisat Ridge. New Zealand and Indian forces attack aga
 ### BRITISH/NZ/INDIAN FORCES
 **Nation**: British/Nz/Indian
 **Points Budget**: 1350
-**Total Battle Rating**: 21
+**Total Battle Rating**: 28
 
 **Units**:
 - 21x Infantry Battalion (veteran) - 3360 pts, BR: 21 [2 battalion, 650 men (~21 platoons)]
+- 22x Valentine/Grant (veteran) - 1100 pts, BR: 7 [Informal range]
 
 ### AXIS FORCES
 **Nation**: Axis
 **Points Budget**: 1350
-**Total Battle Rating**: 4
+**Total Battle Rating**: 20
 
 **Units**:
+- 13x German Infantry Battalion (veteran) - 2080 pts, BR: 13 [1 battalion, ~400 men (assumed, ~13 platoons)]
+- 11x tanks (veteran) - 550 pts, BR: 3 [Informal range]
 - 8x PAK 40 75mm AT guns 8-12 guns (veteran) - 400 pts, BR: 2 [2 battery (4 guns per battery assumed)]
 - 4x 88mm FlaK 36 4-6 guns (veteran) - 200 pts, BR: 1 [1 battery (4 guns per battery assumed)]
 - 4x 105mm leFH 18 artillery 6 guns (veteran) - 200 pts, BR: 1 [1 battery (4 guns per battery assumed)]

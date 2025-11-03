@@ -57,18 +57,20 @@ German forces begin siege of British 150th Brigade Box - fortified position bloc
 ### BRITISH FORCES
 **Nation**: British
 **Points Budget**: 1100
-**Total Battle Rating**: 2
+**Total Battle Rating**: 218
 
 **Units**:
+- 650x men (veteran) - 32500 pts, BR: 216 [Informal range]
 - 4x 25-pdr 12 guns (veteran) - 200 pts, BR: 1 [1 battery (4 guns per battery assumed)]
 - 4x 2-pdr AT guns 8 guns (veteran) - 200 pts, BR: 1 [1 battery (4 guns per battery assumed)]
 
 ### GERMAN FORCES
 **Nation**: German
 **Points Budget**: 1100
-**Total Battle Rating**: 1
+**Total Battle Rating**: 4
 
 **Units**:
+- 11x tanks (veteran) - 550 pts, BR: 3 [Informal range]
 - 4x 105mm artillery (veteran) - 200 pts, BR: 1 [1 battery (4 guns per battery assumed)]
 
 ## ALTERNATIVE FORCES

@@ -64,9 +64,11 @@ Part of First Alamein operation.
 ### AXIS FORCES
 **Nation**: Axis
 **Points Budget**: 1100
-**Total Battle Rating**: 3
+**Total Battle Rating**: 15
 
 **Units**:
+- 6x German Infantry Company (veteran) - 960 pts, BR: 6 [2 companies, ~180 men (assumed)]
+- 6x Italian Infantry Company (veteran) - 960 pts, BR: 6 [2 companies, ~180 men (assumed)]
 - 4x PAK 40 75mm AT guns 6-8 guns (veteran) - 200 pts, BR: 1 [1 battery (4 guns per battery assumed)]
 - 4x 88mm FlaK 36 4 guns (veteran) - 200 pts, BR: 1 [1 battery (4 guns per battery assumed)]
 - 4x mixed 75mm/105mm artillery 6 guns (veteran) - 200 pts, BR: 1 [1 battery (4 guns per battery assumed)]

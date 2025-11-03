@@ -63,11 +63,12 @@ British 23rd Armoured Brigade attacks into El Mreir Depression. Walked into kill
 ### AXIS FORCES
 **Nation**: Axis
 **Points Budget**: 1100
-**Total Battle Rating**: 3
+**Total Battle Rating**: 6
 
 **Units**:
 - 4x 88mm 4-6 guns (veteran) - 200 pts, BR: 1 [1 battery (4 guns per battery assumed)]
 - 8x PAK 40 75mm 8-12 guns (veteran) - 400 pts, BR: 2 [2 battery (4 guns per battery assumed)]
+- 11x tanks (veteran) - 550 pts, BR: 3 [Informal range]
 
 ## ALTERNATIVE FORCES
 This scenario can be adapted for other battles or periods.

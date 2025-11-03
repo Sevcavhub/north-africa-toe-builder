@@ -58,18 +58,19 @@ Generic patrol action representing stalemate phase as First Alamein battle winds
 ### BRITISH FORCES
 **Nation**: British
 **Points Budget**: 500
-**Total Battle Rating**: 25
+**Total Battle Rating**: 11
 
 **Units**:
-- 1x Mixed Force (veteran) - 500 pts, BR: 25 [Patrol (1 platoon infantry 30-35 men, 1 section carriers 3 Bren carriers, 1 section mortars)...]
+- 32x men (veteran) - 1600 pts, BR: 10 [Informal range]
+- 3x Bren Carriers (veteran) - 150 pts, BR: 1 [Carrier section]
 
 ### AXIS FORCES
 **Nation**: Axis
 **Points Budget**: 500
-**Total Battle Rating**: 25
+**Total Battle Rating**: 10
 
 **Units**:
-- 1x Mixed Force (veteran) - 500 pts, BR: 25 [Patrol (1 platoon German or Italian infantry 30-35 men, 1 section support weapons)...]
+- 32x men (veteran) - 1600 pts, BR: 10 [Informal range]
 
 ## ALTERNATIVE FORCES
 This scenario can be adapted for other battles or periods.

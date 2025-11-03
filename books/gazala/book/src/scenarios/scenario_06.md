@@ -65,9 +65,11 @@ Free French ordered to evacuate Bir Hacheim after 14-day siege. Night breakout t
 ### AXIS FORCES
 **Nation**: Axis
 **Points Budget**: 900
-**Total Battle Rating**: 4
+**Total Battle Rating**: 64
 
 **Units**:
+- 90x men (veteran) - 4500 pts, BR: 30 [Informal range]
+- 90x men (veteran) - 4500 pts, BR: 30 [Informal range]
 - 6x Panzer III tanks (veteran) - 300 pts, BR: 2
 - 2x 50mm PAK 38 (veteran) - 100 pts, BR: 1
 - 2x Italian 47mm AT guns (veteran) - 100 pts, BR: 1

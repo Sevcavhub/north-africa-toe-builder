@@ -62,10 +62,11 @@ New Zealand forces advancing from south finally link with Tobruk garrison forces
 ### BRITISH (TOBRUK) FORCES
 **Nation**: British (Tobruk)
 **Points Budget**: 700
-**Total Battle Rating**: 3
+**Total Battle Rating**: 4
 
 **Units**:
 - 3x Infantry Company (veteran) - 480 pts, BR: 3 [1 companies, 90 men]
+- 4x Matilda II (veteran) - 200 pts, BR: 1 [Informal range]
 
 ## ALTERNATIVE FORCES
 This scenario can be adapted for other battles or periods.

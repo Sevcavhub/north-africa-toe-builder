@@ -65,9 +65,12 @@ British 7th Armoured Brigade attacks Axis-held Sidi Rezegh airfield in first att
 ### AXIS FORCES
 **Nation**: Axis
 **Points Budget**: 1100
-**Total Battle Rating**: 3
+**Total Battle Rating**: 12
 
 **Units**:
+- 9x tanks (veteran) - 450 pts, BR: 3 [Informal range]
+- 3x German Infantry Company (veteran) - 480 pts, BR: 3 [1 companies, ~90 men (assumed)]
+- 3x Italian Infantry Company (veteran) - 480 pts, BR: 3 [1 companies, ~90 men (assumed)]
 - 4x 50mm PAK 38 (veteran) - 200 pts, BR: 1
 - 2x 88mm FlaK 18 (veteran) - 100 pts, BR: 1
 - 4x 75mm Italian field guns) (veteran) - 200 pts, BR: 1 [1 battery (4 guns per battery assumed)]

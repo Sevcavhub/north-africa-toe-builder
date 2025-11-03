@@ -54,17 +54,19 @@ British attempt to hold Mersa Matruh defensive line. German forces probe defense
 ### BRITISH FORCES
 **Nation**: British
 **Points Budget**: 1100
-**Total Battle Rating**: 1
+**Total Battle Rating**: 5
 
 **Units**:
+- 12x tanks (veteran) - 600 pts, BR: 4 [1 squadron (~12/squadron assumed)]
 - 4x 25-pdr (veteran) - 200 pts, BR: 1 [1 battery (4 guns per battery assumed)]
 
 ### GERMAN FORCES
 **Nation**: German
 **Points Budget**: 1100
-**Total Battle Rating**: 2
+**Total Battle Rating**: 9
 
 **Units**:
+- 22x tanks (veteran) - 1100 pts, BR: 7 [Informal range]
 - 4x 50mm PAK 38 AT guns 6 guns (veteran) - 200 pts, BR: 1 [1 battery (4 guns per battery assumed)]
 - 4x 105mm leFH 18 artillery 4 guns (veteran) - 200 pts, BR: 1 [1 battery (4 guns per battery assumed)]
 

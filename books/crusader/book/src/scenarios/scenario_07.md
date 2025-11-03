@@ -57,9 +57,10 @@ Rommel's famous "dash to the wire" - personal leading of mobile kampfgruppe deep
 ### GERMAN FORCES
 **Nation**: German
 **Points Budget**: 900
-**Total Battle Rating**: 6
+**Total Battle Rating**: 12
 
 **Units**:
+- 19x tanks (veteran) - 950 pts, BR: 6 [Informal range]
 - 3x Motorized Infantry Company (veteran) - 930 pts, BR: 3 [1 companies, ~90 men (assumed)]
 - 4x 105mm leFH 18 artillery 4 guns (veteran) - 200 pts, BR: 1 [1 battery (4 guns per battery assumed)]
 - 2x 50mm PAK 38 (veteran) - 100 pts, BR: 1
@@ -68,10 +69,10 @@ Rommel's famous "dash to the wire" - personal leading of mobile kampfgruppe deep
 ### BRITISH FORCES
 **Nation**: British
 **Points Budget**: 900
-**Total Battle Rating**: 45
+**Total Battle Rating**: 1
 
 **Units**:
-- 1x Mixed Force (veteran) - 900 pts, BR: 45 [Scattered rear-area units (1 company infantry, 2-3 tanks, supply column, artillery battery), unprepa...]
+- 2x tanks (veteran) - 100 pts, BR: 1 [Informal range]
 
 ## ALTERNATIVE FORCES
 This scenario can be adapted for other battles or periods.

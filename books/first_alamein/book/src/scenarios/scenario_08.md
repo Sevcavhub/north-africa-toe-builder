@@ -53,18 +53,22 @@ British reconnaissance in force toward Kidney Ridge. Probing Axis defenses in pr
 ### BRITISH FORCES
 **Nation**: British
 **Points Budget**: 700
-**Total Battle Rating**: 3
+**Total Battle Rating**: 7
 
 **Units**:
 - 3x Motorized Infantry Company (veteran) - 480 pts, BR: 3 [1 companies, ~90 men (assumed)]
+- 12x armored cars (veteran) - 600 pts, BR: 4 [1 squadron (~12/squadron assumed)]
 
 ### AXIS FORCES
 **Nation**: Axis
 **Points Budget**: 700
-**Total Battle Rating**: 35
+**Total Battle Rating**: 4
 
 **Units**:
-- 1x Mixed Force (veteran) - 700 pts, BR: 35 [Screening force (1 platoon German infantry, 1 platoon Italian infantry, 2-3 AT guns, 2-3 tanks)...]
+- 1x German Infantry Platoon (veteran) - 160 pts, BR: 1 [1 platoon, ~30 men/platoon (assumed)]
+- 1x Italian Infantry Platoon (veteran) - 160 pts, BR: 1 [1 platoon, ~30 men/platoon (assumed)]
+- 2x AT guns (veteran) - 100 pts, BR: 1 [Informal range]
+- 2x tanks (veteran) - 100 pts, BR: 1 [Informal range]
 
 ## ALTERNATIVE FORCES
 This scenario can be adapted for other battles or periods.

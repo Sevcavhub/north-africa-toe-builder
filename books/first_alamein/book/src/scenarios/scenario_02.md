@@ -63,9 +63,12 @@ New Zealand and Indian forces attack Axis-held Ruweisat Ridge - key terrain domi
 ### AXIS FORCES
 **Nation**: Axis
 **Points Budget**: 1350
-**Total Battle Rating**: 4
+**Total Battle Rating**: 33
 
 **Units**:
+- 13x German Infantry Battalion (veteran) - 2080 pts, BR: 13 [1 battalion, ~400 men (assumed, ~13 platoons)]
+- 13x Italian Infantry Battalion (veteran) - 2080 pts, BR: 13 [1 battalion, ~400 men (assumed, ~13 platoons)]
+- 11x tanks (veteran) - 550 pts, BR: 3 [Informal range]
 - 4x PAK 40 75mm AT guns 6-8 guns (veteran) - 200 pts, BR: 1 [1 battery (4 guns per battery assumed)]
 - 4x 47mm Italian AT guns 6 guns (veteran) - 200 pts, BR: 1 [1 battery (4 guns per battery assumed)]
 - 4x 105mm leFH 18 artillery 4-6 guns (veteran) - 200 pts, BR: 1 [1 battery (4 guns per battery assumed)]

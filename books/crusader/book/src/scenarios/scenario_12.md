@@ -55,9 +55,11 @@ British attempt to capture Benghazi before year end. Axis forces conduct delayin
 ### BRITISH FORCES
 **Nation**: British
 **Points Budget**: 1100
-**Total Battle Rating**: 1
+**Total Battle Rating**: 26
 
 **Units**:
+- 36x tanks 28-32 mixed (veteran) - 1800 pts, BR: 12 [3 squadron (~12/squadron assumed)]
+- 13x Infantry Battalion (veteran) - 2080 pts, BR: 13 [1 battalion, ~400 men (assumed, ~13 platoons)]
 - 4x artillery) (veteran) - 200 pts, BR: 1 [1 battery (4 guns per battery assumed)]
 
 ### ITALIAN FORCES

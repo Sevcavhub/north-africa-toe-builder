@@ -57,17 +57,19 @@ German/Italian forces launch first assault on Free French garrison at Bir Hachei
 ### FREE FRENCH FORCES
 **Nation**: Free French
 **Points Budget**: 1100
-**Total Battle Rating**: 4
+**Total Battle Rating**: 112
 
 **Units**:
+- 325x Foreign Legion (veteran) - 16250 pts, BR: 108 [Informal range]
 - 12x 75mm guns (veteran) - 600 pts, BR: 4 [2 battery/section]
 
 ### AXIS FORCES
 **Nation**: Axis
 **Points Budget**: 1100
-**Total Battle Rating**: 3
+**Total Battle Rating**: 186
 
 **Units**:
+- 550x men (veteran) - 27500 pts, BR: 183 [Informal range]
 - 4x 47mm AT guns 4-6 guns (veteran) - 200 pts, BR: 1 [1 battery (4 guns per battery assumed)]
 - 8x 75mm artillery) (veteran) - 400 pts, BR: 2 [2 battery (4 guns per battery assumed)]
 

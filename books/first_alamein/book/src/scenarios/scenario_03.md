@@ -54,17 +54,19 @@ Part of First Alamein operation.
 ### AUSTRALIAN FORCES
 **Nation**: Australian
 **Points Budget**: 900
-**Total Battle Rating**: 45
+**Total Battle Rating**: 66
 
 **Units**:
-- 1x Mixed Force (veteran) - 900 pts, BR: 45 [2 companies 9th Australian Division (180-220 men), 1 squadron Valentine tanks (8-10), artillery barr...]
+- 200x men (veteran) - 10000 pts, BR: 66 [Informal range]
 
 ### AXIS FORCES
 **Nation**: Axis
 **Points Budget**: 900
-**Total Battle Rating**: 2
+**Total Battle Rating**: 8
 
 **Units**:
+- 3x German Infantry Company (veteran) - 480 pts, BR: 3 [1 companies, ~90 men (assumed)]
+- 3x Italian Infantry Company (veteran) - 480 pts, BR: 3 [1 companies, ~90 men (assumed)]
 - 4x 47mm AT guns 4-6 guns (veteran) - 200 pts, BR: 1 [1 battery (4 guns per battery assumed)]
 - 4x 75mm field artillery 4 guns (veteran) - 200 pts, BR: 1 [1 battery (4 guns per battery assumed)]
 

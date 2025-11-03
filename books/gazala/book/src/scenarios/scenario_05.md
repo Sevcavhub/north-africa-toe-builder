@@ -65,10 +65,10 @@ Continued siege of Bir Hacheim. Daily Luftwaffe bombing, artillery bombardments,
 ### AXIS FORCES
 **Nation**: Axis
 **Points Budget**: 900
-**Total Battle Rating**: 45
+**Total Battle Rating**: 3
 
 **Units**:
-- 1x Mixed Force (veteran) - 900 pts, BR: 45 [German assault force (1 battalion Panzergrenadiers, 1 company Panzer III 8-10 tanks, heavy artillery...]
+- 9x tanks (veteran) - 450 pts, BR: 3 [Informal range]
 
 ## ALTERNATIVE FORCES
 This scenario can be adapted for other battles or periods.

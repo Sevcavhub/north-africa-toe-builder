@@ -65,10 +65,11 @@ New Zealand infantry attempts to create corridor linking British forces at Sidi 
 ### BRITISH (TOBRUK) FORCES
 **Nation**: British (Tobruk)
 **Points Budget**: 900
-**Total Battle Rating**: 45
+**Total Battle Rating**: 31
 
 **Units**:
-- 1x Mixed Force (veteran) - 900 pts, BR: 45 [1 company infantry (breakout force, 80-100 men), 3-4 Matilda II tanks...]
+- 90x men (veteran) - 4500 pts, BR: 30 [Informal range]
+- 3x Matilda II (veteran) - 150 pts, BR: 1 [Informal range]
 
 ## ALTERNATIVE FORCES
 This scenario can be adapted for other battles or periods.

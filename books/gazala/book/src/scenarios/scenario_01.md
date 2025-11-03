@@ -55,18 +55,20 @@ Rommel's Afrika Korps begins famous "left hook" around southern end of Gazala li
 ### GERMAN FORCES
 **Nation**: German
 **Points Budget**: 1100
-**Total Battle Rating**: 55
+**Total Battle Rating**: 20
 
 **Units**:
-- 1x Mixed Force (veteran) - 1100 pts, BR: 55 [Lead elements 21st Panzer (2 companies Panzer III/IV 20-24 tanks, 1 battalion motorized Panzergrenad...]
+- 22x tanks (veteran) - 1100 pts, BR: 7 [Informal range]
+- 13x German Infantry Battalion (veteran) - 4030 pts, BR: 13 [1 battalion, ~400 men (assumed, ~13 platoons)]
 
 ### BRITISH FORCES
 **Nation**: British
 **Points Budget**: 1100
-**Total Battle Rating**: 4
+**Total Battle Rating**: 8
 
 **Units**:
 - 3x Motorized Infantry Company (veteran) - 480 pts, BR: 3 [1 companies, ~90 men (assumed)]
+- 12x armored cars (veteran) - 600 pts, BR: 4 [1 squadron (~12/squadron assumed)]
 - 4x 25-pdr) (veteran) - 200 pts, BR: 1 [1 battery (4 guns per battery assumed)]
 
 ## ALTERNATIVE FORCES

@@ -66,12 +66,13 @@ British 4th Armoured Brigade assaults Italian-held Fort Capuzzo at dawn. Initial
 ### AXIS FORCES
 **Nation**: Axis
 **Points Budget**: 700
-**Total Battle Rating**: 6
+**Total Battle Rating**: 7
 
 **Units**:
 - 3x Italian Infantry Company (veteran) - 480 pts, BR: 3 [1 companies, 90 men]
 - 2x 47mm Cannone da 47/32 AT guns (veteran) - 100 pts, BR: 1
 - 2x Breda M37 heavy MG (veteran) - 100 pts, BR: 1
+- 1x German Infantry Platoon (veteran) - 160 pts, BR: 1 [1 platoon, ~30 men/platoon (assumed)]
 - 1x 50mm PaK 38 (veteran) - 50 pts, BR: 1
 
 ## ALTERNATIVE FORCES

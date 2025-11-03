@@ -63,10 +63,12 @@ British 7th Armoured Division's 4th Armoured Brigade encounters Italian Ariete D
 ### ITALIAN FORCES
 **Nation**: Italian
 **Points Budget**: 1100
-**Total Battle Rating**: 7
+**Total Battle Rating**: 16
 
 **Units**:
 - 18x M13/40 (veteran) - 900 pts, BR: 6 [2 companies]
+- 9x guns (veteran) - 450 pts, BR: 3 [Informal range]
+- 6x Italian Infantry Company (veteran) - 720 pts, BR: 6 [2 companies, ~180 men (assumed)]
 - 2x 47mm AT guns (veteran) - 100 pts, BR: 1 [1 battery/section]
 
 ## ALTERNATIVE FORCES

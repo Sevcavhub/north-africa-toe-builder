@@ -53,20 +53,24 @@ New Zealand night attack on Miteirya Ridge. Difficult night assault with mixed r
 ### NEW ZEALAND FORCES
 **Nation**: New Zealand
 **Points Budget**: 1100
-**Total Battle Rating**: 21
+**Total Battle Rating**: 25
 
 **Units**:
 - 21x Infantry Battalion (veteran) - 3360 pts, BR: 21 [2 battalion, 650 men (~21 platoons)]
+- 12x 10-12 tanks) (veteran) - 600 pts, BR: 4 [1 squadron (~12/squadron assumed)]
 
 ### AXIS FORCES
 **Nation**: Axis
 **Points Budget**: 1100
-**Total Battle Rating**: 3
+**Total Battle Rating**: 22
 
 **Units**:
+- 13x German Infantry Battalion (veteran) - 2080 pts, BR: 13 [1 battalion, ~400 men (assumed, ~13 platoons)]
 - 4x PAK 40 75mm AT guns 6-8 guns (veteran) - 200 pts, BR: 1 [1 battery (4 guns per battery assumed)]
 - 4x 88mm FlaK 36 4 guns (veteran) - 200 pts, BR: 1 [1 battery (4 guns per battery assumed)]
 - 4x 105mm leFH 18 artillery 4-6 guns (veteran) - 200 pts, BR: 1 [1 battery (4 guns per battery assumed)]
+- 3x Italian Infantry Company (veteran) - 480 pts, BR: 3 [1 companies, ~90 men (assumed)]
+- 11x tanks (veteran) - 550 pts, BR: 3 [Informal range]
 
 ## ALTERNATIVE FORCES
 This scenario can be adapted for other battles or periods.

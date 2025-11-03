@@ -56,9 +56,10 @@ British 22nd Armoured Brigade attacks Italian Ariete Division holding Bir el Gub
 ### BRITISH FORCES
 **Nation**: British
 **Points Budget**: 1350
-**Total Battle Rating**: 1
+**Total Battle Rating**: 15
 
 **Units**:
+- 42x Crusader (veteran) - 2100 pts, BR: 14 [4 squadron]
 - 4x 25-pdr (veteran) - 200 pts, BR: 1 [1 battery (4 guns per battery assumed)]
 
 ### ITALIAN FORCES

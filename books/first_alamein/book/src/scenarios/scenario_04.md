@@ -62,12 +62,13 @@ Part of First Alamein operation.
 ### ITALIAN FORCES
 **Nation**: Italian
 **Points Budget**: 1100
-**Total Battle Rating**: 21
+**Total Battle Rating**: 31
 
 **Units**:
 - 18x Infantry Battalion (veteran) - 2160 pts, BR: 18 [2 battalion, 550 men (~18 platoons)]
 - 4x 47mm AT guns 6-8 guns (veteran) - 200 pts, BR: 1 [1 battery (4 guns per battery assumed)]
 - 4x 75mm field artillery 4 guns (veteran) - 200 pts, BR: 1 [1 battery (4 guns per battery assumed)]
+- 32x men (veteran) - 1600 pts, BR: 10 [Informal range]
 - 2x PAK 40 75mm AT guns) (veteran) - 100 pts, BR: 1
 
 ## ALTERNATIVE FORCES

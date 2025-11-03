@@ -56,9 +56,10 @@ British forces return to Sidi Rezegh after Rommel's dash to the wire ends. Must 
 ### BRITISH FORCES
 **Nation**: British
 **Points Budget**: 1100
-**Total Battle Rating**: 1
+**Total Battle Rating**: 8
 
 **Units**:
+- 22x Crusader/Honey (veteran) - 1100 pts, BR: 7 [Informal range]
 - 4x 25-pdr (veteran) - 200 pts, BR: 1 [1 battery (4 guns per battery assumed)]
 
 ### GERMAN FORCES

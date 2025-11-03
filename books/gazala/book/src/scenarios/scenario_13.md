@@ -53,18 +53,21 @@ Rommel pursues defeated British into Egypt. British attempt to establish defensi
 ### BRITISH FORCES
 **Nation**: British
 **Points Budget**: 1100
-**Total Battle Rating**: 1
+**Total Battle Rating**: 22
 
 **Units**:
+- 24x tanks (veteran) - 1200 pts, BR: 8 [2 squadron (~12/squadron assumed)]
+- 13x Infantry Battalion (veteran) - 2080 pts, BR: 13 [1 battalion, ~400 men (assumed, ~13 platoons)]
 - 4x artillery (veteran) - 200 pts, BR: 1 [1 battery (4 guns per battery assumed)]
 
 ### GERMAN FORCES
 **Nation**: German
 **Points Budget**: 1100
-**Total Battle Rating**: 55
+**Total Battle Rating**: 20
 
 **Units**:
-- 1x Mixed Force (veteran) - 1100 pts, BR: 55 [Pursuit force (2 companies Panzer III/IV 20-24 tanks, 1 battalion motorized infantry, 1 section 50mm...]
+- 22x tanks (veteran) - 1100 pts, BR: 7 [Informal range]
+- 13x Infantry Battalion (veteran) - 4030 pts, BR: 13 [1 battalion, ~400 men (assumed, ~13 platoons)]
 
 ## ALTERNATIVE FORCES
 This scenario can be adapted for other battles or periods.
