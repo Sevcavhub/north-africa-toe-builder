@@ -30,6 +30,8 @@ sys.path.insert(0, str(project_root))
 
 # Import penetration converter for on-the-fly AP calculation
 from scripts.battlegroup.conversion.penetration_converter import convert_penetration
+from scripts.battlegroup.conversion.he_weight_classifier import classify_he_weight, get_he_weight_and_effectiveness
+from scripts.battlegroup.conversion.he_calculator import calculate_he_effect
 
 DATABASE_PATH = project_root / "database" / "master_database.db"
 UNITS_DIR = project_root / "data" / "output" / "units"
@@ -622,6 +624,20 @@ class BookDatacardGenerator:
                 val = row[col]
                 ap_vals.append(str(val) if val is not None else '-')
 
+        # Calculate HE weight and effectiveness if gun has caliber data
+        he_weight = '-'
+        he_effectiveness = '-'
+        if gun_data and gun_data[0]:  # caliber_mm exists
+            caliber_mm = gun_data[0]
+            gun_name = gun_data[1]
+
+            # Get shell weight classification
+            he_weight = classify_he_weight(caliber_mm)
+
+            # Get HE effectiveness notation
+            he_result = calculate_he_effect(caliber_mm=caliber_mm, gun_name=gun_name)
+            he_effectiveness = he_result.get('format', '-')
+
         # Determine equipment type label
         eq_type = equipment.get('equipment_type', '')
         if eq_type:
@@ -629,30 +645,98 @@ class BookDatacardGenerator:
         else:
             type_label = "Vehicle"
 
-        # Generate markdown using template
-        template = f"""## {equipment['name'].upper()}
+        # Generate V4 datacard format
+        # Build weapon performance table (only if main gun exists)
+        weapon_table = ''
+        if main_gun and main_gun not in ['-', 'None', '']:
+            weapon_table = f"""
+<table>
+<tr>
+<th class="main-header">WEAPON</th>
+<th class="main-header">AMMO</th>
+<th class="main-header">HE</th>
+<th class="main-header" colspan="6">RANGE</th>
+</tr>
+<tr>
+<th></th>
+<th></th>
+<th>{he_weight}</th>
+<th>0-10"</th>
+<th>10-20"</th>
+<th>20-30"</th>
+<th>30-40"</th>
+<th>40-50"</th>
+<th>50-70"</th>
+</tr>
+<tr>
+<td>{main_gun}</td>
+<td>HE</td>
+<td>{he_effectiveness}</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>{main_gun}</td>
+<td>AP</td>
+<td>-</td>
+<td>{ap_vals[0]}</td>
+<td>{ap_vals[1]}</td>
+<td>{ap_vals[2]}</td>
+<td>{ap_vals[3]}</td>
+<td>{ap_vals[4]}</td>
+<td>{ap_vals[5]}</td>
+</tr>
+</table>"""
 
-**{production_period}** | **Standard production version**
+        template = f"""<div class="datacard">
+<div class="datacard-header">
+<div class="datacard-silhouette">
+<span style="color: white; font-size: 10px;">🔲</span>
+</div>
+<div class="datacard-title-block">
+<p class="datacard-title">{equipment['name'].upper()}</p>
+<p class="datacard-subtitle">{production_period} | {type_label}</p>
+</div>
+</div>
 
-| TYPE | MOVEMENT | | | ARMOUR | | | |
-|------|----------|----------|----------|--------|---|---|---|
-| | **Off-Road** | **Road** | **Special** | **F** | **S** | **R** | **Weapon** |
-| {type_label} | {off_road} | {road} | - | {armor_front} | {armor_side} | {armor_rear} | {main_gun} |
-
-### ARMAMENT
-
-| Weapon | Mount | Ammo |
-|--------|-------|------|
-{armament_table}
-
-### WEAPON PERFORMANCE
-
-| WEAPON | AMMO | HE | RANGE | | | | | |
-|--------|------|----|----|----|----|----|----|----|
-| | | | **0-10"** | **10-20"** | **20-30"** | **30-40"** | **40-50"** | **50-70"** |
-| {main_gun} | HE/AP | {he_format} | {ap_vals[0]} | {ap_vals[1]} | {ap_vals[2]} | {ap_vals[3]} | {ap_vals[4]} | {ap_vals[5]} |
-
-**Points:** {points} | **Battle Rating:** {br} | **Crew:** {crew_count}{special_rules_section}
+<table>
+<tr>
+<th class="main-header">VEHICLE</th>
+<th class="main-header" colspan="3">MOVEMENT</th>
+<th class="main-header" colspan="3">ARMOUR</th>
+<th class="main-header" colspan="3">ARMAMENT</th>
+</tr>
+<tr>
+<th></th>
+<th>Off-Road</th>
+<th>Road</th>
+<th>Special</th>
+<th>F</th>
+<th>S</th>
+<th>R</th>
+<th>Weapon</th>
+<th>Mount</th>
+<th>Ammo</th>
+</tr>
+<tr>
+<td>{type_label}</td>
+<td>{off_road}</td>
+<td>{road}</td>
+<td>-</td>
+<td>{armor_front}</td>
+<td>{armor_side}</td>
+<td>{armor_rear}</td>
+<td>{main_gun}</td>
+<td>Turret</td>
+<td>-</td>
+</tr>
+</table>
+{weapon_table}
+</div>
 
 ---
 """
