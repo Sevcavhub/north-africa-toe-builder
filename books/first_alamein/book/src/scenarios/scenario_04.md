@@ -54,18 +54,21 @@ Part of First Alamein operation.
 ### SOUTH AFRICAN FORCES
 **Nation**: South African
 **Points Budget**: 1100
-**Total Battle Rating**: 55
+**Total Battle Rating**: 21
 
 **Units**:
-- 1x Mixed Force (veteran) - 1100 pts, BR: 55 [2 battalions infantry (600-700 men), 1 squadron Valentine tanks (10-12), artillery support...]
+- 21x Infantry Battalion (veteran) - 3360 pts, BR: 21 [2 battalion, 650 men (~21 platoons)]
 
 ### ITALIAN FORCES
 **Nation**: Italian
 **Points Budget**: 1100
-**Total Battle Rating**: 55
+**Total Battle Rating**: 21
 
 **Units**:
-- 1x Mixed Force (veteran) - 1100 pts, BR: 55 [2 battalions Sabratha Division (500-600 men), 1 battery 47mm AT guns, some German support...]
+- 18x Infantry Battalion (veteran) - 2160 pts, BR: 18 [2 battalion, 550 men (~18 platoons)]
+- 4x 47mm AT guns 6-8 guns (veteran) - 200 pts, BR: 1 [1 battery (4 guns per battery assumed)]
+- 4x 75mm field artillery 4 guns (veteran) - 200 pts, BR: 1 [1 battery (4 guns per battery assumed)]
+- 2x PAK 40 75mm AT guns) (veteran) - 100 pts, BR: 1
 
 ## ALTERNATIVE FORCES
 This scenario can be adapted for other battles or periods.

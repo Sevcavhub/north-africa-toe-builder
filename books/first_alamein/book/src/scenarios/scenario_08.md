@@ -53,10 +53,10 @@ British reconnaissance in force toward Kidney Ridge. Probing Axis defenses in pr
 ### BRITISH FORCES
 **Nation**: British
 **Points Budget**: 700
-**Total Battle Rating**: 35
+**Total Battle Rating**: 3
 
 **Units**:
-- 1x Mixed Force (veteran) - 700 pts, BR: 35 [Reconnaissance force (1 company motorized infantry, 1 squadron armored cars, 1 troop tanks 4-5)...]
+- 3x Motorized Infantry Company (veteran) - 480 pts, BR: 3 [1 companies, ~90 men (assumed)]
 
 ### AXIS FORCES
 **Nation**: Axis

@@ -57,23 +57,23 @@ British 4th Indian Division attacks Halfaya Pass ("Hellfire Pass") held by Germa
 ### BRITISH FORCES
 **Nation**: British
 **Points Budget**: 900
-**Total Battle Rating**: 54
+**Total Battle Rating**: 12
 
 **Units**:
-- 15x Matilda II (veteran) - 2175 pts, BR: 45 [2 squadron]
-- 5x British Infantry Platoons (veteran) - 800 pts, BR: 5 [5 platoons (180 men total)]
-- 4x 25-pdr (veteran) - 240 pts, BR: 4 [1 battery/section]
+- 15x Matilda II (veteran) - 750 pts, BR: 5 [2 squadron]
+- 6x British Infantry Company (veteran) - 960 pts, BR: 6 [2 companies, 180 men]
+- 4x 25-pdr (veteran) - 200 pts, BR: 1 [1 battery/section]
 
 ### GERMAN FORCES
 **Nation**: German
 **Points Budget**: 900
-**Total Battle Rating**: 17
+**Total Battle Rating**: 5
 
 **Units**:
-- 4x 88mm FlaK 18/36 (veteran) - 380 pts, BR: 8 [hull-down]
-- 1x Infantry Platoon (veteran) - 310 pts, BR: 1 [1 platoons (60 men total)]
-- 2x PAK 38 50mm AT guns (veteran) - 90 pts, BR: 2
-- 3x Panzer III (veteran) - 330 pts, BR: 6
+- 4x 88mm FlaK 18/36 (veteran) - 200 pts, BR: 1
+- 2x Infantry Platoon (veteran) - 620 pts, BR: 2 [2 platoon, 60 men]
+- 2x PAK 38 50mm AT guns (veteran) - 100 pts, BR: 1
+- 3x Panzer III (veteran) - 150 pts, BR: 1
 
 ## ALTERNATIVE FORCES
 This scenario can be adapted for other battles or periods.

@@ -56,18 +56,20 @@ British 22nd Armoured Brigade attacks Italian Ariete Division holding Bir el Gub
 ### BRITISH FORCES
 **Nation**: British
 **Points Budget**: 1350
-**Total Battle Rating**: 67
+**Total Battle Rating**: 1
 
 **Units**:
-- 1x Mixed Force (veteran) - 1350 pts, BR: 67 [4 squadrons (40-45 Crusader tanks), 1 battalion motorized infantry (400 men), 1 battery 25-pdr...]
+- 4x 25-pdr (veteran) - 200 pts, BR: 1 [1 battery (4 guns per battery assumed)]
 
 ### ITALIAN FORCES
 **Nation**: Italian
 **Points Budget**: 1350
-**Total Battle Rating**: 67
+**Total Battle Rating**: 20
 
 **Units**:
-- 1x Mixed Force (veteran) - 1350 pts, BR: 67 [2 companies M13/40 (18-22 tanks), 1 battalion Bersaglieri (300-350 men), 2 batteries 47mm AT guns (1...]
+- 20x M13/40 (veteran) - 1000 pts, BR: 6 [2 companies]
+- 10x Italian Infantry Battalion (veteran) - 1200 pts, BR: 10 [1 battalion, 325 men (~10 platoons)]
+- 12x 47mm AT guns (veteran) - 600 pts, BR: 4 [2 battery/section]
 
 ## ALTERNATIVE FORCES
 This scenario can be adapted for other battles or periods.

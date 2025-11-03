@@ -56,18 +56,21 @@ British 7th Armoured Brigade attacks Axis-held Sidi Rezegh airfield in first att
 ### BRITISH FORCES
 **Nation**: British
 **Points Budget**: 1100
-**Total Battle Rating**: 44
+**Total Battle Rating**: 8
 
 **Units**:
-- 22x Crusader/Honey (veteran) - 2090 pts, BR: 44 [2 squadron]
+- 22x Crusader/Honey (veteran) - 1100 pts, BR: 7 [2 squadron]
+- 4x 25-pdr (veteran) - 200 pts, BR: 1 [1 battery (4 guns per battery assumed)]
 
 ### AXIS FORCES
 **Nation**: Axis
 **Points Budget**: 1100
-**Total Battle Rating**: 55
+**Total Battle Rating**: 3
 
 **Units**:
-- 1x Mixed Force (veteran) - 1100 pts, BR: 55 [Mixed German/Italian defenders (1 company Panzer III 8-10 tanks, 1 company German infantry, 1 compan...]
+- 4x 50mm PAK 38 (veteran) - 200 pts, BR: 1
+- 2x 88mm FlaK 18 (veteran) - 100 pts, BR: 1
+- 4x 75mm Italian field guns) (veteran) - 200 pts, BR: 1 [1 battery (4 guns per battery assumed)]
 
 ## ALTERNATIVE FORCES
 This scenario can be adapted for other battles or periods.

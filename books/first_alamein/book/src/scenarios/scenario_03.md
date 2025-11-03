@@ -62,10 +62,11 @@ Part of First Alamein operation.
 ### AXIS FORCES
 **Nation**: Axis
 **Points Budget**: 900
-**Total Battle Rating**: 45
+**Total Battle Rating**: 2
 
 **Units**:
-- 1x Mixed Force (veteran) - 900 pts, BR: 45 [Mixed defenders (1 company German infantry, 1 company Italian infantry, defensive positions)...]
+- 4x 47mm AT guns 4-6 guns (veteran) - 200 pts, BR: 1 [1 battery (4 guns per battery assumed)]
+- 4x 75mm field artillery 4 guns (veteran) - 200 pts, BR: 1 [1 battery (4 guns per battery assumed)]
 
 ## ALTERNATIVE FORCES
 This scenario can be adapted for other battles or periods.

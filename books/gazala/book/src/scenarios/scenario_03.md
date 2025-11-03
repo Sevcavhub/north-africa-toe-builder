@@ -57,18 +57,19 @@ German forces begin siege of British 150th Brigade Box - fortified position bloc
 ### BRITISH FORCES
 **Nation**: British
 **Points Budget**: 1100
-**Total Battle Rating**: 55
+**Total Battle Rating**: 2
 
 **Units**:
-- 1x Mixed Force (veteran) - 1100 pts, BR: 55 [150th Brigade garrison (2 battalions infantry 600-700 men, 1 battery 25-pdr 12 guns, 1 battery 2-pdr...]
+- 4x 25-pdr 12 guns (veteran) - 200 pts, BR: 1 [1 battery (4 guns per battery assumed)]
+- 4x 2-pdr AT guns 8 guns (veteran) - 200 pts, BR: 1 [1 battery (4 guns per battery assumed)]
 
 ### GERMAN FORCES
 **Nation**: German
 **Points Budget**: 1100
-**Total Battle Rating**: 55
+**Total Battle Rating**: 1
 
 **Units**:
-- 1x Mixed Force (veteran) - 1100 pts, BR: 55 [Assault force (1 battalion Panzergrenadiers, 1 company Panzer III/IV 10-12 tanks, 1 battery 105mm ar...]
+- 4x 105mm artillery (veteran) - 200 pts, BR: 1 [1 battery (4 guns per battery assumed)]
 
 ## ALTERNATIVE FORCES
 This scenario can be adapted for other battles or periods.

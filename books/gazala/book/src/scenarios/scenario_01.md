@@ -63,10 +63,11 @@ Rommel's Afrika Korps begins famous "left hook" around southern end of Gazala li
 ### BRITISH FORCES
 **Nation**: British
 **Points Budget**: 1100
-**Total Battle Rating**: 55
+**Total Battle Rating**: 4
 
 **Units**:
-- 1x Mixed Force (veteran) - 1100 pts, BR: 55 [3rd Indian Motor Brigade screening force (1 company motorized infantry, 1 squadron armored cars, 1 b...]
+- 3x Motorized Infantry Company (veteran) - 480 pts, BR: 3 [1 companies, ~90 men (assumed)]
+- 4x 25-pdr) (veteran) - 200 pts, BR: 1 [1 battery (4 guns per battery assumed)]
 
 ## ALTERNATIVE FORCES
 This scenario can be adapted for other battles or periods.

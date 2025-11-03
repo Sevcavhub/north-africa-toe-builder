@@ -56,18 +56,21 @@ British forces return to Sidi Rezegh after Rommel's dash to the wire ends. Must 
 ### BRITISH FORCES
 **Nation**: British
 **Points Budget**: 1100
-**Total Battle Rating**: 55
+**Total Battle Rating**: 1
 
 **Units**:
-- 1x Mixed Force (veteran) - 1100 pts, BR: 55 [2 squadrons fresh tanks (20-25 Crusader/Honey), 1 battalion New Zealand infantry (400 men), 1 batter...]
+- 4x 25-pdr (veteran) - 200 pts, BR: 1 [1 battery (4 guns per battery assumed)]
 
 ### GERMAN FORCES
 **Nation**: German
 **Points Budget**: 1100
-**Total Battle Rating**: 55
+**Total Battle Rating**: 10
 
 **Units**:
-- 1x Mixed Force (veteran) - 1100 pts, BR: 55 [1 company Panzer III/IV (10-12 tanks), 2 companies Panzergrenadiers (150-180 men), defensive positio...]
+- 11x Panzer III/IV (veteran) - 550 pts, BR: 3 [1 companies]
+- 5x German Panzergrenadier Company (veteran) - 1550 pts, BR: 5 [2 companies, 165 men]
+- 4x 50mm PAK 38 (veteran) - 200 pts, BR: 1
+- 4x 105mm leFH 18 (veteran) - 200 pts, BR: 1 [1 battery/section]
 
 ## ALTERNATIVE FORCES
 This scenario can be adapted for other battles or periods.

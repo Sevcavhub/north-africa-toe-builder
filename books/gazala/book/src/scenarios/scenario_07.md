@@ -56,10 +56,10 @@ Major tank battle around Knightsbridge supply box. British Grant tanks with 75mm
 ### BRITISH FORCES
 **Nation**: British
 **Points Budget**: 1350
-**Total Battle Rating**: 67
+**Total Battle Rating**: 3
 
 **Units**:
-- 1x Mixed Force (veteran) - 1350 pts, BR: 67 [3 squadrons (30-35 tanks: Grant, Crusader, some Honey Stuart), 1 company motorized infantry...]
+- 3x Motorized Infantry Company (veteran) - 480 pts, BR: 3 [1 companies, ~90 men (assumed)]
 
 ### GERMAN FORCES
 **Nation**: German

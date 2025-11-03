@@ -54,18 +54,19 @@ British attempt to hold Mersa Matruh defensive line. German forces probe defense
 ### BRITISH FORCES
 **Nation**: British
 **Points Budget**: 1100
-**Total Battle Rating**: 55
+**Total Battle Rating**: 1
 
 **Units**:
-- 1x Mixed Force (veteran) - 1100 pts, BR: 55 [Defensive force (1 battalion infantry, 1 squadron tanks, 1 battery 25-pdr, hasty defenses)...]
+- 4x 25-pdr (veteran) - 200 pts, BR: 1 [1 battery (4 guns per battery assumed)]
 
 ### GERMAN FORCES
 **Nation**: German
 **Points Budget**: 1100
-**Total Battle Rating**: 55
+**Total Battle Rating**: 2
 
 **Units**:
-- 1x Mixed Force (veteran) - 1100 pts, BR: 55 [Probing attack (1+ companies Panzer III/IV, 1 battalion Panzergrenadiers, testing British line)...]
+- 4x 50mm PAK 38 AT guns 6 guns (veteran) - 200 pts, BR: 1 [1 battery (4 guns per battery assumed)]
+- 4x 105mm leFH 18 artillery 4 guns (veteran) - 200 pts, BR: 1 [1 battery (4 guns per battery assumed)]
 
 ## ALTERNATIVE FORCES
 This scenario can be adapted for other battles or periods.

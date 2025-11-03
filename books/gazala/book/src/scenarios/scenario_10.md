@@ -54,10 +54,11 @@ British forces stream eastward in retreat. German forces pursue, conducting runn
 ### BRITISH FORCES
 **Nation**: British
 **Points Budget**: 900
-**Total Battle Rating**: 45
+**Total Battle Rating**: 4
 
 **Units**:
-- 1x Mixed Force (veteran) - 900 pts, BR: 45 [Rearguard (1 squadron tanks, 1 company motorized infantry, 1 battery RHA 25-pdr, withdrawing)...]
+- 3x Motorized Infantry Company (veteran) - 480 pts, BR: 3 [1 companies, ~90 men (assumed)]
+- 4x RHA 25-pdr (veteran) - 200 pts, BR: 1 [1 battery (4 guns per battery assumed)]
 
 ### GERMAN FORCES
 **Nation**: German
@@ -65,7 +66,7 @@ British forces stream eastward in retreat. German forces pursue, conducting runn
 **Total Battle Rating**: 45
 
 **Units**:
-- 1x Mixed Force (veteran) - 900 pts, BR: 45 [Pursuit force (1+ companies Panzer III/IV, 1 company motorcycle troops, aggressive pursuit)...]
+- 1x Mixed Force (veteran) - 900 pts, BR: 45 [Pursuit force (1+ companies Panzer III/IV 16-20 tanks, 1 company motorcycle troops, 1 section 50mm P...]
 
 ## ALTERNATIVE FORCES
 This scenario can be adapted for other battles or periods.

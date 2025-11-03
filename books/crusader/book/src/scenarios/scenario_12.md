@@ -55,18 +55,18 @@ British attempt to capture Benghazi before year end. Axis forces conduct delayin
 ### BRITISH FORCES
 **Nation**: British
 **Points Budget**: 1100
-**Total Battle Rating**: 55
+**Total Battle Rating**: 1
 
 **Units**:
-- 1x Mixed Force (veteran) - 1100 pts, BR: 55 [Assault force (3 squadrons tanks 28-32 mixed, 1 battalion motorized infantry, 1 battery artillery)...]
+- 4x artillery) (veteran) - 200 pts, BR: 1 [1 battery (4 guns per battery assumed)]
 
 ### ITALIAN FORCES
 **Nation**: Italian
 **Points Budget**: 1100
-**Total Battle Rating**: 55
+**Total Battle Rating**: 1
 
 **Units**:
-- 1x Mixed Force (veteran) - 1100 pts, BR: 55 [Rearguard (1 battalion Bersaglieri, 1 company M13/40 tanks 8-10, 1 battery 75mm guns), covering Germ...]
+- 4x 75mm guns) (veteran) - 200 pts, BR: 1 [1 battery (4 guns per battery assumed)]
 
 ## ALTERNATIVE FORCES
 This scenario can be adapted for other battles or periods.

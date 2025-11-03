@@ -64,7 +64,7 @@ British Gazala line collapses. 50th Division begins breakout from Gazala boxes b
 **Total Battle Rating**: 45
 
 **Units**:
-- 1x Mixed Force (veteran) - 900 pts, BR: 45 [Pursuit/blocking force (1 company Panzer III/IV, 1 platoon motorized infantry, attempting to cut off...]
+- 1x Mixed Force (veteran) - 900 pts, BR: 45 [Pursuit/blocking force (1 company Panzer III/IV 10-12 tanks, 1 platoon motorized infantry, 1 section...]
 
 ## ALTERNATIVE FORCES
 This scenario can be adapted for other battles or periods.

@@ -65,10 +65,10 @@ German assault on Tobruk outer perimeter. Unlike 1941 siege, Tobruk falls in sin
 ### BRITISH/SA FORCES
 **Nation**: British/Sa
 **Points Budget**: 1100
-**Total Battle Rating**: 55
+**Total Battle Rating**: 1
 
 **Units**:
-- 1x Mixed Force (veteran) - 1100 pts, BR: 55 [Defense force (2 battalions South African infantry, 1 battery 25-pdr, prepared defenses but weak gar...]
+- 4x 25-pdr (veteran) - 200 pts, BR: 1 [1 battery (4 guns per battery assumed)]
 
 ## ALTERNATIVE FORCES
 This scenario can be adapted for other battles or periods.

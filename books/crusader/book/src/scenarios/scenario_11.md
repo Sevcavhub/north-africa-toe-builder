@@ -56,18 +56,18 @@ British probe Axis defensive line at El Agheila bottleneck. Rommel established s
 ### BRITISH FORCES
 **Nation**: British
 **Points Budget**: 1100
-**Total Battle Rating**: 55
+**Total Battle Rating**: 1
 
 **Units**:
-- 1x Mixed Force (veteran) - 1100 pts, BR: 55 [Probing force (2 squadrons tanks 18-22 Crusader, 1 battalion infantry, 1 battery 25-pdr)...]
+- 4x 25-pdr) (veteran) - 200 pts, BR: 1 [1 battery (4 guns per battery assumed)]
 
 ### AXIS FORCES
 **Nation**: Axis
 **Points Budget**: 1100
-**Total Battle Rating**: 55
+**Total Battle Rating**: 2
 
 **Units**:
-- 1x Mixed Force (veteran) - 1100 pts, BR: 55 [Defensive line (1 company Panzer III/IV 10-12 tanks, Italian infantry battalion with AT guns, 2 batt...]
+- 8x 105mm artillery (veteran) - 400 pts, BR: 2 [2 battery (4 guns per battery assumed)]
 
 ## ALTERNATIVE FORCES
 This scenario can be adapted for other battles or periods.

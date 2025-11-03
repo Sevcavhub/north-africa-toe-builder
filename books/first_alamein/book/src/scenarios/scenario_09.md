@@ -56,18 +56,20 @@ Part of First Alamein operation.
 ### AUSTRALIAN FORCES
 **Nation**: Australian
 **Points Budget**: 1100
-**Total Battle Rating**: 55
+**Total Battle Rating**: 21
 
 **Units**:
-- 1x Mixed Force (veteran) - 1100 pts, BR: 55 [2 battalions 9th Australian Division (600-700 men), engineer support, artillery preparation...]
+- 21x British Infantry Battalion (veteran) - 3360 pts, BR: 21 [2 battalion, 650 men (~21 platoons)]
 
 ### AXIS FORCES
 **Nation**: Axis
 **Points Budget**: 1100
-**Total Battle Rating**: 55
+**Total Battle Rating**: 3
 
 **Units**:
-- 1x Mixed Force (veteran) - 1100 pts, BR: 55 [Mixed German/Italian defenders (1 battalion combined, defensive positions, minefields)...]
+- 4x PAK 40 75mm AT guns 6-8 guns (veteran) - 200 pts, BR: 1 [1 battery (4 guns per battery assumed)]
+- 4x 88mm FlaK 36 4 guns (veteran) - 200 pts, BR: 1 [1 battery (4 guns per battery assumed)]
+- 4x mixed 75mm/105mm artillery 6 guns (veteran) - 200 pts, BR: 1 [1 battery (4 guns per battery assumed)]
 
 ## ALTERNATIVE FORCES
 This scenario can be adapted for other battles or periods.

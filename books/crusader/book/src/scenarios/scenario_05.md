@@ -57,18 +57,21 @@ Largest tank battle in North Africa to date. German 15th and 21st Panzer Divisio
 ### BRITISH/SA FORCES
 **Nation**: British/Sa
 **Points Budget**: 1750
-**Total Battle Rating**: 87
+**Total Battle Rating**: 25
 
 **Units**:
-- 1x Mixed Force (veteran) - 1750 pts, BR: 87 [3-4 squadrons mixed tanks (35-45 tanks: Crusader, Honey Stuart, some Matilda), 2 battalions SA infan...]
+- 21x Infantry Battalion (veteran) - 3360 pts, BR: 21 [2 battalion, 650 men (~21 platoons)]
+- 12x 25-pdr (veteran) - 600 pts, BR: 4 [2 battery/section]
 
 ### GERMAN FORCES
 **Nation**: German
 **Points Budget**: 1750
-**Total Battle Rating**: 87
+**Total Battle Rating**: 35
 
 **Units**:
-- 1x Mixed Force (veteran) - 1750 pts, BR: 87 [4-5 companies Panzer III/IV (40-50 tanks), 2 battalions Panzergrenadiers (500-600 men), 2 batteries ...]
+- 45x Panzer III/IV (veteran) - 2250 pts, BR: 15 [5 companies]
+- 18x German Infantry Battalion (veteran) - 5580 pts, BR: 18 [2 battalion, 550 men (~18 platoons)]
+- 8x 105mm artillery (veteran) - 400 pts, BR: 2 [2 battery/section]
 
 ## ALTERNATIVE FORCES
 This scenario can be adapted for other battles or periods.

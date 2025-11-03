@@ -56,18 +56,21 @@ Rommel's forces trapped in "Cauldron" east of British minefields after left-hook
 ### BRITISH FORCES
 **Nation**: British
 **Points Budget**: 1650
-**Total Battle Rating**: 82
+**Total Battle Rating**: 2
 
 **Units**:
-- 1x Mixed Force (veteran) - 1650 pts, BR: 82 [Converging forces (4 squadrons tanks 40-45 Grant/Crusader, 2 battalions motorized infantry, 2 batter...]
+- 8x 25-pdr) (veteran) - 400 pts, BR: 2 [2 battery (4 guns per battery assumed)]
 
 ### AXIS FORCES
 **Nation**: Axis
 **Points Budget**: 1650
-**Total Battle Rating**: 82
+**Total Battle Rating**: 7
 
 **Units**:
-- 1x Mixed Force (veteran) - 1650 pts, BR: 82 [Trapped forces (3 companies Panzer III/IV 30-35 tanks, Italian Ariete 2 companies M13/40 16-18 tanks...]
+- 6x 50mm PAK 38 (veteran) - 300 pts, BR: 2
+- 3x 88mm FlaK 18 (veteran) - 150 pts, BR: 1
+- 8x Italian 47mm AT guns (veteran) - 400 pts, BR: 2 [2 battery (4 guns per battery assumed)]
+- 8x 105mm leFH 18 artillery) (veteran) - 400 pts, BR: 2 [2 battery (4 guns per battery assumed)]
 
 ## ALTERNATIVE FORCES
 This scenario can be adapted for other battles or periods.

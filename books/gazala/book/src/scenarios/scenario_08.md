@@ -62,11 +62,11 @@ Continued armored battles around Knightsbridge. British 22nd Armoured Brigade su
 ### GERMAN FORCES
 **Nation**: German
 **Points Budget**: 1350
-**Total Battle Rating**: 14
+**Total Battle Rating**: 3
 
 **Units**:
-- 4x 88mm FlaK (veteran) - 380 pts, BR: 8 [1 battery/section]
-- 6x PAK 38 (veteran) - 270 pts, BR: 6 [1 battery/section]
+- 4x 88mm FlaK (veteran) - 200 pts, BR: 1 [1 battery/section]
+- 6x PAK 38 (veteran) - 300 pts, BR: 2 [1 battery/section]
 
 ## ALTERNATIVE FORCES
 This scenario can be adapted for other battles or periods.

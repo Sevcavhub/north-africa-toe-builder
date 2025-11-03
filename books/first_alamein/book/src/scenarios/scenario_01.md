@@ -56,18 +56,21 @@ German 90th Light Division attacks Indian 18th Brigade box at Deir el Shein. Fir
 ### INDIAN FORCES
 **Nation**: Indian
 **Points Budget**: 1100
-**Total Battle Rating**: 55
+**Total Battle Rating**: 16
 
 **Units**:
-- 1x Mixed Force (veteran) - 1100 pts, BR: 55 [1 battalion infantry (400-450 men), 1 battery 25-pdr (8-12 guns), 1 battery 2-pdr AT (6-8 guns), for...]
+- 14x Infantry Battalion (veteran) - 2240 pts, BR: 14 [1 battalion, 425 men (~14 platoons)]
+- 4x 25-pdr (8-12 guns) (veteran) - 200 pts, BR: 1 [1 battery (4 guns per battery assumed)]
+- 4x 2-pdr AT (6-8 guns) (veteran) - 200 pts, BR: 1 [1 battery (4 guns per battery assumed)]
 
 ### GERMAN FORCES
 **Nation**: German
 **Points Budget**: 1100
-**Total Battle Rating**: 8
+**Total Battle Rating**: 19
 
 **Units**:
-- 4x 88mm (veteran) - 380 pts, BR: 8 [1 battery/section]
+- 18x Infantry Battalion (veteran) - 5580 pts, BR: 18 [2 battalion, 550 men (~18 platoons)]
+- 4x 88mm (veteran) - 200 pts, BR: 1 [1 battery/section]
 
 ## ALTERNATIVE FORCES
 This scenario can be adapted for other battles or periods.

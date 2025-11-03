@@ -53,10 +53,11 @@ British forces pursue withdrawing Axis forces westward. Germans conduct fighting
 ### BRITISH FORCES
 **Nation**: British
 **Points Budget**: 900
-**Total Battle Rating**: 45
+**Total Battle Rating**: 4
 
 **Units**:
-- 1x Mixed Force (veteran) - 900 pts, BR: 45 [Pursuit force (2 squadrons tanks 20-24 Crusader/Honey, 1 company motorized infantry, 1 battery RHA 2...]
+- 3x Motorized Infantry Company (veteran) - 480 pts, BR: 3 [1 companies, ~90 men (assumed)]
+- 4x RHA 25-pdr) (veteran) - 200 pts, BR: 1 [1 battery (4 guns per battery assumed)]
 
 ### AXIS FORCES
 **Nation**: Axis
@@ -64,7 +65,8 @@ British forces pursue withdrawing Axis forces westward. Germans conduct fighting
 **Total Battle Rating**: 4
 
 **Units**:
-- 2x 88mm) (veteran) - 190 pts, BR: 4
+- 3x Motorized Infantry Company (veteran) - 480 pts, BR: 3 [1 companies, ~90 men (assumed)]
+- 2x 88mm) (veteran) - 100 pts, BR: 1
 
 ## ALTERNATIVE FORCES
 This scenario can be adapted for other battles or periods.

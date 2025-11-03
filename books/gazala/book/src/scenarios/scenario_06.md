@@ -65,10 +65,12 @@ Free French ordered to evacuate Bir Hacheim after 14-day siege. Night breakout t
 ### AXIS FORCES
 **Nation**: Axis
 **Points Budget**: 900
-**Total Battle Rating**: 45
+**Total Battle Rating**: 4
 
 **Units**:
-- 1x Mixed Force (veteran) - 900 pts, BR: 45 [Encirclement force (German/Italian mixed units attempting to block escape routes)...]
+- 6x Panzer III tanks (veteran) - 300 pts, BR: 2
+- 2x 50mm PAK 38 (veteran) - 100 pts, BR: 1
+- 2x Italian 47mm AT guns (veteran) - 100 pts, BR: 1
 
 ## ALTERNATIVE FORCES
 This scenario can be adapted for other battles or periods.

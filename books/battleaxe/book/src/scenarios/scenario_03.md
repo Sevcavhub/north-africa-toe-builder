@@ -55,18 +55,18 @@ British 7th Armoured Division's Crusader and Honey Stuart tanks engage German 5t
 ### BRITISH FORCES
 **Nation**: British
 **Points Budget**: 1100
-**Total Battle Rating**: 55
+**Total Battle Rating**: 3
 
 **Units**:
-- 1x Mixed Force (veteran) - 1100 pts, BR: 55 [3 squadrons (30-35 tanks: Crusader I, Honey Stuart, some Cruiser A9/A10), 1 company motorized infant...]
+- 3x Motorized Infantry Company (veteran) - 480 pts, BR: 3 [1 companies, ~90 men (assumed)]
 
 ### GERMAN FORCES
 **Nation**: German
 **Points Budget**: 1100
-**Total Battle Rating**: 4
+**Total Battle Rating**: 1
 
 **Units**:
-- 4x 50mm PAK 38 (veteran) - 180 pts, BR: 4 [1 battery/section]
+- 4x 50mm PAK 38 (veteran) - 200 pts, BR: 1 [1 battery/section]
 
 ## ALTERNATIVE FORCES
 This scenario can be adapted for other battles or periods.

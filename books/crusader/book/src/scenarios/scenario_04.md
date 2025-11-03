@@ -55,12 +55,12 @@ New Zealand infantry attempts to create corridor linking British forces at Sidi 
 ### NEW ZEALAND FORCES
 **Nation**: New Zealand
 **Points Budget**: 900
-**Total Battle Rating**: 117
+**Total Battle Rating**: 7
 
 **Units**:
-- 110x Infantry Company (veteran) - 17600 pts, BR: 110 [1 companies, 110 men]
+- 3x Infantry Company (veteran) - 480 pts, BR: 3 [1 companies, 110 men]
 - 9x Valentine tanks (veteran) - 450 pts, BR: 3 [1 squadron]
-- 4x 25-pdr (veteran) - 240 pts, BR: 4 [1 battery/section]
+- 4x 25-pdr (veteran) - 200 pts, BR: 1 [1 battery/section]
 
 ### BRITISH (TOBRUK) FORCES
 **Nation**: British (Tobruk)

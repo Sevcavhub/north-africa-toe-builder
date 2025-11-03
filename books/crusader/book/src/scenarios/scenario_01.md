@@ -54,18 +54,20 @@ British 7th Armoured Division's 4th Armoured Brigade encounters Italian Ariete D
 ### BRITISH FORCES
 **Nation**: British
 **Points Budget**: 1100
-**Total Battle Rating**: 55
+**Total Battle Rating**: 4
 
 **Units**:
-- 1x Mixed Force (veteran) - 1100 pts, BR: 55 [3 squadrons (30-35 tanks: Crusader, Honey Stuart), 1 company motorized infantry, 1 battery 25-pdr...]
+- 3x Motorized Infantry Company (veteran) - 480 pts, BR: 3 [1 companies, ~90 men (assumed)]
+- 4x 25-pdr (veteran) - 200 pts, BR: 1 [1 battery (4 guns per battery assumed)]
 
 ### ITALIAN FORCES
 **Nation**: Italian
 **Points Budget**: 1100
-**Total Battle Rating**: 55
+**Total Battle Rating**: 7
 
 **Units**:
-- 1x Mixed Force (veteran) - 1100 pts, BR: 55 [2 companies M13/40 (16-20 tanks), 1 company Semovente 75mm (8-10 guns), 2 companies Bersaglieri moto...]
+- 18x M13/40 (veteran) - 900 pts, BR: 6 [2 companies]
+- 2x 47mm AT guns (veteran) - 100 pts, BR: 1 [1 battery/section]
 
 ## ALTERNATIVE FORCES
 This scenario can be adapted for other battles or periods.

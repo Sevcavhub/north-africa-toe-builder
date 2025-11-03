@@ -55,19 +55,20 @@ British rearguard platoon holds vital crossroads at Sidi Omar to allow main forc
 ### BRITISH FORCES
 **Nation**: British
 **Points Budget**: 500
-**Total Battle Rating**: 3
+**Total Battle Rating**: 2
 
 **Units**:
-- 1x Infantry Platoon (veteran) - 160 pts, BR: 1 [1 platoons (32 men total)]
-- 2x 2-pdr AT guns (veteran) - 80 pts, BR: 2
+- 1x Infantry Platoon (veteran) - 160 pts, BR: 1 [1 platoon, 32 men]
+- 2x 2-pdr AT guns (veteran) - 100 pts, BR: 1
 
 ### GERMAN FORCES
 **Nation**: German
 **Points Budget**: 500
-**Total Battle Rating**: 25
+**Total Battle Rating**: 3
 
 **Units**:
-- 1x Mixed Force (veteran) - 500 pts, BR: 25 [2 platoons Panzergrenadiers (60-70 men), 1 platoon Panzer III (4-5 tanks), 1 section 81mm mortars...]
+- 2x Infantry Platoon (veteran) - 620 pts, BR: 2 [2 platoon, 65 men]
+- 4x Panzer III (veteran) - 200 pts, BR: 1 [1 platoon]
 
 ## ALTERNATIVE FORCES
 This scenario can be adapted for other battles or periods.

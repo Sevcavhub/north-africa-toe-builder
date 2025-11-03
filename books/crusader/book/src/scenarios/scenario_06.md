@@ -56,18 +56,22 @@ Part of Crusader operation.
 ### BRITISH FORCES
 **Nation**: British
 **Points Budget**: 1100
-**Total Battle Rating**: 33
+**Total Battle Rating**: 28
 
 **Units**:
-- 11x Matilda II/Valentine (veteran) - 1595 pts, BR: 33 [1 squadron]
+- 21x Infantry Battalion (veteran) - 3360 pts, BR: 21 [2 battalion, 650 men (~21 platoons)]
+- 11x Matilda II/Valentine (veteran) - 550 pts, BR: 3 [1 squadron]
+- 12x 25-pdr (veteran) - 600 pts, BR: 4 [2 battery/section]
 
 ### GERMAN FORCES
 **Nation**: German
 **Points Budget**: 1100
-**Total Battle Rating**: 55
+**Total Battle Rating**: 15
 
 **Units**:
-- 1x Mixed Force (veteran) - 1100 pts, BR: 55 [1 battalion 361st Afrika Regiment (300-350 men), defensive positions, minefields, 2 batteries 105mm ...]
+- 10x Infantry Battalion (veteran) - 3100 pts, BR: 10 [1 battalion, 325 men (~10 platoons)]
+- 8x 105mm (veteran) - 400 pts, BR: 2 [2 battery/section]
+- 9x Panzer III (veteran) - 450 pts, BR: 3 [1 companies]
 
 ## ALTERNATIVE FORCES
 This scenario can be adapted for other battles or periods.
