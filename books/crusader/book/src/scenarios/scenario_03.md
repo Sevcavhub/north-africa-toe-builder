@@ -56,10 +56,10 @@ British 7th Armoured Brigade attacks Axis-held Sidi Rezegh airfield in first att
 ### BRITISH FORCES
 **Nation**: British
 **Points Budget**: 1100
-**Total Battle Rating**: 55
+**Total Battle Rating**: 44
 
 **Units**:
-- 1x Mixed Force (veteran) - 1100 pts, BR: 55 [2 squadrons Crusader/Honey (20-25 tanks), 1 battalion King's Royal Rifles (motorized infantry), 1 ba...]
+- 22x Crusader/Honey (veteran) - 2090 pts, BR: 44 [2 squadron]
 
 ### AXIS FORCES
 **Nation**: Axis

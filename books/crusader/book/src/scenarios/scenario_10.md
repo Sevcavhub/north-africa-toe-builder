@@ -61,10 +61,10 @@ British forces pursue withdrawing Axis forces westward. Germans conduct fighting
 ### AXIS FORCES
 **Nation**: Axis
 **Points Budget**: 900
-**Total Battle Rating**: 2
+**Total Battle Rating**: 4
 
 **Units**:
-- 2x 88mm) (veteran) - 190 pts, BR: 2
+- 2x 88mm) (veteran) - 190 pts, BR: 4
 
 ## ALTERNATIVE FORCES
 This scenario can be adapted for other battles or periods.

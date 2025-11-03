@@ -56,10 +56,10 @@ Part of Crusader operation.
 ### BRITISH FORCES
 **Nation**: British
 **Points Budget**: 1100
-**Total Battle Rating**: 9
+**Total Battle Rating**: 33
 
 **Units**:
-- 11x Matilda II/Valentine (veteran) - 1595 pts, BR: 9 [1 squadron]
+- 11x Matilda II/Valentine (veteran) - 1595 pts, BR: 33 [1 squadron]
 
 ### GERMAN FORCES
 **Nation**: German

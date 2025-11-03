@@ -64,11 +64,11 @@ German 15th Panzer Division launches dawn counterattack to retake Fort Capuzzo f
 ### BRITISH FORCES
 **Nation**: British
 **Points Budget**: 1100
-**Total Battle Rating**: 65
+**Total Battle Rating**: 31
 
 **Units**:
-- 9x Matilda II (veteran) - 1305 pts, BR: 9 [1 squadron]
-- 170x Infantry Company (veteran) - 2040 pts, BR: 56 [2 companies, 170 men]
+- 9x Matilda II (veteran) - 1305 pts, BR: 27 [1 squadron]
+- 4x Infantry Platoons (veteran) - 640 pts, BR: 4 [4 platoons (170 men total)]
 
 ## ALTERNATIVE FORCES
 This scenario can be adapted for other battles or periods.

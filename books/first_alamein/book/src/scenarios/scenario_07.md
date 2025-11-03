@@ -55,10 +55,10 @@ British 23rd Armoured Brigade attacks into El Mreir Depression. Walked into kill
 ### BRITISH FORCES
 **Nation**: British
 **Points Budget**: 1100
-**Total Battle Rating**: 55
+**Total Battle Rating**: 9
 
 **Units**:
-- 1x Mixed Force (veteran) - 1100 pts, BR: 55 [2-3 squadrons Valentine tanks (24-30 tanks), 1 company motorized infantry (limited support)...]
+- 27x Valentine tanks (veteran) - 1350 pts, BR: 9 [3 squadron]
 
 ### AXIS FORCES
 **Nation**: Axis

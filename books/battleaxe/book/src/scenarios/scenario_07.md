@@ -53,18 +53,18 @@ British 7th Armoured Division conducts fighting withdrawal as Operation Battleax
 ### BRITISH FORCES
 **Nation**: British
 **Points Budget**: 700
-**Total Battle Rating**: 1
+**Total Battle Rating**: 2
 
 **Units**:
-- 2x 25-pdr) (veteran) - 130 pts, BR: 1
+- 2x 25-pdr) (veteran) - 120 pts, BR: 2
 
 ### GERMAN FORCES
 **Nation**: German
 **Points Budget**: 700
-**Total Battle Rating**: 1
+**Total Battle Rating**: 2
 
 **Units**:
-- 2x PAK 38) (veteran) - 90 pts, BR: 1
+- 2x PAK 38) (veteran) - 90 pts, BR: 2
 
 ## ALTERNATIVE FORCES
 This scenario can be adapted for other battles or periods.

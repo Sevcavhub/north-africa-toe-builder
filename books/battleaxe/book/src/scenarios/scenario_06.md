@@ -53,19 +53,19 @@ British armored company finds itself surrounded by converging German forces. Mus
 ### BRITISH FORCES
 **Nation**: British
 **Points Budget**: 900
-**Total Battle Rating**: 13
+**Total Battle Rating**: 4
 
 **Units**:
 - 11x Cruiser tanks (veteran) - 550 pts, BR: 3 [1 squadron]
-- 30x Infantry Platoon (veteran) - 360 pts, BR: 10 [1 platoon, 30 men]
+- 1x Infantry Platoon (veteran) - 160 pts, BR: 1 [1 platoons (30 men total)]
 
 ### GERMAN FORCES
 **Nation**: German
 **Points Budget**: 900
-**Total Battle Rating**: 30
+**Total Battle Rating**: 2
 
 **Units**:
-- 90x Infantry Company (veteran) - 1080 pts, BR: 30 [1 companies, 90 men]
+- 2x Infantry Platoons (veteran) - 620 pts, BR: 2 [2 platoons (90 men total)]
 
 ## ALTERNATIVE FORCES
 This scenario can be adapted for other battles or periods.

@@ -56,21 +56,21 @@ British 4th Armoured Brigade assaults Italian-held Fort Capuzzo at dawn. Initial
 ### BRITISH FORCES
 **Nation**: British
 **Points Budget**: 700
-**Total Battle Rating**: 16
+**Total Battle Rating**: 27
 
 **Units**:
-- 8x Matilda II (veteran) - 1160 pts, BR: 6 [1 squadron]
-- 27x Infantry Platoon (veteran) - 324 pts, BR: 9 [1 platoon, 27 men]
-- 2x 25-pdr (veteran) - 130 pts, BR: 1 [1 battery/section]
+- 8x Matilda II (veteran) - 1160 pts, BR: 24 [1 squadron]
+- 1x Infantry Platoon (veteran) - 160 pts, BR: 1 [1 platoons (27 men total)]
+- 2x 25-pdr (veteran) - 120 pts, BR: 2 [1 battery/section]
 
 ### AXIS FORCES
 **Nation**: Axis
 **Points Budget**: 700
-**Total Battle Rating**: 40
+**Total Battle Rating**: 120
 
 **Units**:
-- 90x Italian Infantry Company (veteran) - 1080 pts, BR: 30 [1 companies, 90 men]
-- 30x German Infantry Platoon (Reinforcement) (veteran) - 360 pts, BR: 10 [1 platoon, 30 men]
+- 90x Italian Infantry Company (veteran) - 14400 pts, BR: 90 [1 companies, 90 men]
+- 30x German Infantry Platoon (Reinforcement) (veteran) - 4800 pts, BR: 30 [1 platoon, 30 men]
 
 ## ALTERNATIVE FORCES
 This scenario can be adapted for other battles or periods.
