@@ -49,6 +49,9 @@ from historical_scenario_generator import (
 )
 from phase6_unit_parser import Phase6UnitParser
 
+# Import enhanced parser v2
+from scenario_force_parser_v2 import ScenarioForceParserV2, ParsedUnit
+
 # Import BattleGroup point system and organization templates
 from generate_platoon_templates import TACTICAL_TEMPLATES
 from generate_company_templates import COMPANY_SUPPORT
@@ -325,68 +328,27 @@ class ForceRosterBuilder:
         total_points = 0
         total_br = 0
 
-        # Parse force description for units
-        # Pattern: "1 squadron Matilda II (7-9 tanks)"
-        # Pattern: "2 companies 4th Indian infantry (160-200 men)"
-        # Pattern: "4x 88mm FlaK 18/36 (hull-down)"
-        # Pattern: "1 battery 25-pdr (4 guns)"
+        # Parse force description for units using parser v2
+        # Parser v2 returns ParsedUnit objects with proper platoon conversion
+        unit_entries = self._parse_force_description(force_description, nation)
 
-        # Try to extract unit entries
-        unit_entries = self._parse_force_description(force_description)
-
-        for entry in unit_entries:
-            unit_name, count, equipment_type, notes = entry
+        for parsed_unit in unit_entries:
+            # ParsedUnit already has proper organization (men converted to platoons)
+            # For infantry_platoon type, count is already in platoons not men
 
             # Get points and BR using BattleGroupPoints system
-            # For infantry, we need to convert from soldier count to platoon count
-            if equipment_type == "infantry":
-                # Convert soldiers to platoons based on nation
-                template = TACTICAL_TEMPLATES.get(nation)
-                if template:
-                    platoon_size = template.platoon_size
-                    platoon_count = max(1, count // platoon_size)
+            unit_points = self._get_points(parsed_unit.equipment_type, parsed_unit.count, nation)
+            unit_br = self._get_br(parsed_unit.equipment_type, parsed_unit.count)
 
-                    # Recalculate for proper platoon organization
-                    unit_points = self._get_points(equipment_type, platoon_count, nation)
-                    unit_br = self._get_br(equipment_type, platoon_count)
-
-                    # Update unit entry to show platoons
-                    unit_dict = {
-                        "name": f"{unit_name.replace('Company', 'Platoons')}",
-                        "type": "infantry_platoon",
-                        "count": platoon_count,
-                        "experience": experience,
-                        "points": unit_points,
-                        "br": unit_br,
-                        "notes": f"{platoon_count} platoons ({count} men total)"
-                    }
-                else:
-                    # Fallback if template not found
-                    unit_points = self._get_points(equipment_type, 1, nation) * count
-                    unit_br = self._get_br(equipment_type, count)
-                    unit_dict = {
-                        "name": unit_name,
-                        "type": equipment_type,
-                        "count": count,
-                        "experience": experience,
-                        "points": unit_points,
-                        "br": unit_br,
-                        "notes": notes
-                    }
-            else:
-                # For non-infantry (tanks, guns, etc.)
-                unit_points = self._get_points(equipment_type, count, nation)
-                unit_br = self._get_br(equipment_type, count)
-
-                unit_dict = {
-                    "name": unit_name,
-                    "type": equipment_type,
-                    "count": count,
-                    "experience": experience,
-                    "points": unit_points,
-                    "br": unit_br,
-                    "notes": notes
-                }
+            unit_dict = {
+                "name": parsed_unit.unit_name,
+                "type": parsed_unit.unit_type,
+                "count": parsed_unit.count,
+                "experience": experience,
+                "points": unit_points,
+                "br": unit_br,
+                "notes": parsed_unit.notes
+            }
 
             total_points += unit_points
             total_br += unit_br
@@ -416,170 +378,21 @@ class ForceRosterBuilder:
 
         return roster
 
-    def _parse_force_description(self, description: str) -> List[Tuple[str, int, str, str]]:
+    def _parse_force_description(self, description: str, nation: str = "unknown") -> List[ParsedUnit]:
         """
-        Parse force description to extract unit entries
+        Parse force description using enhanced parser v2
 
         Returns:
-            List of (unit_name, count, equipment_type, notes) tuples
+            List of ParsedUnit objects
         """
-        print(f"\n[PARSING] Force description: {description[:150]}...")
+        parser = ScenarioForceParserV2()
+        parsed_units = parser.parse_force_description(description, nation)
 
-        entries = []
-        unparsed_parts = []
+        # Print validation report if issues found
+        if parser.issues:
+            print(parser.generate_validation_report())
 
-        # Clean up description - remove modifiers like "+ fortifications"
-        description = re.sub(r'\s*\+\s*fortifications?\s*', '', description, flags=re.IGNORECASE)
-
-        # Split by commas or semicolons
-        parts = re.split(r'[,;]\s*', description)
-
-        for part in parts:
-            part = part.strip()
-            if not part:
-                continue
-
-            parsed = False
-
-            # Try various patterns (order matters - most specific first!)
-
-            # Pattern 1: "1 squadron Matilda II (7-9 tanks)" or "2 squadrons Matilda II (14-16 tanks)"
-            match = re.search(r'(\d+)\s*squadrons?\s+([^(]+)\((\d+)-(\d+)\s+tanks?\)', part, re.IGNORECASE)
-            if match:
-                squadron_count = int(match.group(1))
-                tank_name = match.group(2).strip()
-                tank_min = int(match.group(3))
-                tank_max = int(match.group(4))
-                tank_count = (tank_min + tank_max) // 2  # Average
-
-                equipment_type = self._identify_equipment_type(tank_name)
-                entries.append((tank_name, tank_count, equipment_type, f"{squadron_count} squadron"))
-                print(f"[PARSE OK] Pattern 1 (Squadron): {tank_count}x {tank_name}")
-                parsed = True
-                continue
-
-            # Pattern 2: "2 companies 4th Indian infantry (160-200 men)" or "1 company Italian infantry (80-100 men)"
-            match = re.search(r'(\d+)\s*compan(?:y|ies)\s+([^(]*?)infantry\s*\((\d+)-(\d+)\s+men\)', part, re.IGNORECASE)
-            if match:
-                company_count = int(match.group(1))
-                descriptor = match.group(2).strip()  # e.g., "4th Indian", "Italian", etc.
-                men_min = int(match.group(3))
-                men_max = int(match.group(4))
-                men_count = (men_min + men_max) // 2
-
-                # Extract nationality/description
-                nationality = self._extract_nationality(descriptor)
-                unit_name = f"{nationality}Infantry Company" if nationality else "Infantry Company"
-                notes = f"{company_count} companies, {men_count} men"
-
-                entries.append((unit_name, men_count, "infantry", notes))
-                print(f"[PARSE OK] Pattern 2 (Infantry Company): {men_count} men ({company_count} companies)")
-                parsed = True
-                continue
-
-            # Pattern 3: "1 platoon infantry (25-30 men)" or "1 platoon German infantry reinforcement (30 men)"
-            match = re.search(r'(\d+)\s*platoon(?:s)?\s+([^(]*?)infantry(?:\s+([^(]+?))?\s*\((\d+)(?:-(\d+))?\s+men\)', part, re.IGNORECASE)
-            if match:
-                platoon_count = int(match.group(1))
-                descriptor = match.group(2).strip() if match.group(2) else ""
-                modifier = match.group(3).strip() if match.group(3) else ""  # e.g., "reinforcement"
-                men_min = int(match.group(4))
-                men_max = int(match.group(5)) if match.group(5) else men_min  # Handle single number like (30 men)
-                men_count = (men_min + men_max) // 2
-
-                # Extract nationality and reinforcement status
-                nationality = self._extract_nationality(descriptor + " " + modifier)
-                is_reinforcement = "reinforcement" in modifier.lower()
-
-                unit_name = f"{nationality}Infantry Platoon" if nationality else "Infantry Platoon"
-                if is_reinforcement:
-                    unit_name += " (Reinforcement)"
-
-                notes = f"{platoon_count} platoon, {men_count} men"
-
-                entries.append((unit_name, men_count, "infantry", notes))
-                print(f"[PARSE OK] Pattern 3 (Infantry Platoon): {men_count} men ({platoon_count} platoon)")
-                parsed = True
-                continue
-
-            # Pattern 4: "1 battery 25-pdr (4 guns)" or "1 section 25-pdr (2 guns)"
-            match = re.search(r'(\d+)\s*(?:battery|section)\s+([^(]+)\((\d+)\s+guns?\)', part, re.IGNORECASE)
-            if match:
-                battery_count = int(match.group(1))
-                gun_name = match.group(2).strip()
-                gun_count = int(match.group(3))
-
-                equipment_type = self._identify_equipment_type(gun_name)
-                entries.append((gun_name, gun_count, equipment_type, f"{battery_count} battery/section"))
-                print(f"[PARSE OK] Pattern 4 (Artillery): {gun_count}x {gun_name}")
-                parsed = True
-                continue
-
-            # Pattern 5: "4x 88mm FlaK 18/36" or "3x Panzer III" (generic equipment with explicit 'x')
-            match = re.search(r'(\d+)x\s+([^(]+?)(?:\(|$)', part)
-            if match:
-                count = int(match.group(1))
-                equipment_name = match.group(2).strip()
-                equipment_type = self._identify_equipment_type(equipment_name)
-
-                notes = ""
-                if '(' in part:
-                    notes_match = re.search(r'\(([^)]+)\)', part)
-                    if notes_match:
-                        notes = notes_match.group(1)
-
-                entries.append((equipment_name, count, equipment_type, notes))
-                print(f"[PARSE OK] Pattern 5 (Generic Equipment): {count}x {equipment_name}")
-                parsed = True
-                continue
-
-            # Pattern 6: "2 companies (20-25 Panzer III, 6-8 Panzer II)" - complex multi-tank companies
-            match = re.search(r'(\d+)\s*compan(?:y|ies)\s*\(([^)]+)\)', part, re.IGNORECASE)
-            if match:
-                company_count = int(match.group(1))
-                tank_list = match.group(2)
-
-                # Parse comma-separated tank entries
-                tank_entries = tank_list.split(',')
-                for tank_entry in tank_entries:
-                    tank_entry = tank_entry.strip()
-
-                    # Try to extract "20-25 Panzer III" pattern
-                    tank_match = re.search(r'(\d+)-(\d+)\s+([^,]+)', tank_entry)
-                    if tank_match:
-                        min_count = int(tank_match.group(1))
-                        max_count = int(tank_match.group(2))
-                        tank_name = tank_match.group(3).strip()
-                        avg_count = (min_count + max_count) // 2
-
-                        equipment_type = self._identify_equipment_type(tank_name)
-                        entries.append((
-                            tank_name,
-                            avg_count,
-                            equipment_type,
-                            f"{company_count} companies"
-                        ))
-
-                # If we successfully parsed tanks from company description, continue
-                if any(tank_match for tank_entry in tank_entries
-                       if re.search(r'(\d+)-(\d+)\s+([^,]+)', tank_entry.strip())):
-                    print(f"[PARSE OK] Pattern 6 (Complex Company): {len(tank_entries)} tank types")
-                    parsed = True
-                    continue
-
-            # Track unparsed parts
-            if not parsed:
-                unparsed_parts.append(part)
-
-        # Log unparsed parts if any
-        if unparsed_parts:
-            print(f"[WARNING] Failed to parse {len(unparsed_parts)} part(s):")
-            for unparsed in unparsed_parts:
-                print(f"  - {unparsed}")
-
-        print(f"[PARSING] Successfully parsed {len(entries)} unit entries\n")
-
-        return entries
+        return parsed_units
 
     def _extract_nationality(self, text: str) -> str:
         """Extract nationality from text descriptor"""
