@@ -231,6 +231,21 @@ npm run orchestrate         # API-based orchestration (uses tokens)
 ### Yolo Mode
     claude --dangerously-skip-permissions
     OCR Successfully Tested: Tesseract extracted
+
+What's Ready to Use
+
+  ✅ Platoon templates - 5 nations (British, German, Italian, American, French)✅ Company templates - Complete with support weapons✅ BattleGroup points -        
+  Calculated and balanced✅ Army lists - 400/500/600 point forces with special rules✅ Production scripts - Instant regeneration for new battalions
+
+  Future Use
+
+  When more battalions are extracted in Phase 6:
+  # Just run the scripts - instant generation!
+  python scripts/battlegroup/generate_platoon_templates.py
+  python scripts/battlegroup/generate_company_templates.py
+  python scripts/battlegroup/generate_battlegroup_army_lists.py
+
+
 ### Session Management:
 ```bash
   Pre-configured automated modes:
