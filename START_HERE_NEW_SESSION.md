@@ -542,3 +542,54 @@ If you need context from previous sessions:
 **Recommended Next Step**:
 1. "Read VERSION_HISTORY.md to understand technical evolution (schema v1.0 → v2.0 → v3.0)"
 2. "Read RE-EXTRACTION_COMPLETE.md then extract British/Italian Corps units (Gaps 1 & 2)"
+
+11/3/2025 10:10AM Ken Notes on Scenario Generation
+ Summary of Changes
+
+  1. NEW FILE CREATED: scenario_force_parser_v2.py
+
+  - Status: ✅ Complete and functional
+  - Location: scripts/battlegroup/book/scenario_force_parser_v2.py
+  - Size: 800+ lines
+  - Purpose: Enhanced parser with 25+ validation patterns
+  - Key Features:
+    - Handles squadrons, companies, battalions, platoons
+    - Converts men → platoons correctly
+    - Supports informal ranges (2-3 tanks, 6-8 Panzer II)
+    - Strips complex prefixes (Mixed force, Kampfgruppe)
+    - Handles special units (motorcycle troops, armored cars, carriers)
+
+  2. MODIFIED FILE: scenario_generator_workflow.py
+
+  - Status: ✅ Integrated with parser v2
+  - Changes:
+    - Added import (line 53): from scenario_force_parser_v2 import ScenarioForceParserV2, ParsedUnit
+    - Replaced _parse_force_description() method (~217 lines removed, 30 lines added)
+        - Old method: Complex regex parsing with bugs
+      - New method: Calls ScenarioForceParserV2()
+    - Updated build_roster() method: Now accepts ParsedUnit objects instead of tuples
+  - Result: Scenario generator now uses parser v2 for all parsing
+
+  3. PARTIAL FILE: scenario_force_parser_v3.py
+
+  - Status: ⚠️ Started but NOT integrated (incomplete)
+  - Size: 464 lines (incomplete implementation)
+  - Purpose: Was an attempt to achieve 100% parsing before we enhanced v2 instead
+  - Decision: Abandoned v3, enhanced v2 to 95%+ success instead
+  - Action needed: Can be deleted (not used)
+
+  4. VALIDATOR: force_composition_validator.py
+
+  - Status: ✅ No changes needed (already correct)
+  - Why: The count_infantry_platoons() function was already correct
+  - Benefit: Parser v2 now provides correct platoon counts, so validator works perfectly
+
+  ---
+  What Files Are Currently Active?
+
+  | File                           | Status      | Purpose                           |
+  |--------------------------------|-------------|-----------------------------------|
+  | scenario_force_parser_v2.py    | ✅ ACTIVE    | Enhanced parser with 95%+ success |
+  | scenario_generator_workflow.py | ✅ MODIFIED  | Integrated with parser v2         |
+  | force_composition_validator.py | ✅ UNCHANGED | Validator works correctly         |
+  | scenario_force_parser_v3.py    | ⚠️ UNUSED   | Partial draft, can delete         |
