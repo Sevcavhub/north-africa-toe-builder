@@ -43,7 +43,7 @@ User Decision: C - Too ambiguous, NULL all
 
 **Recommendation**: Option D (research WITW database), fallback to Option A if unavailable
 
-**User Decision**: _________________
+**User Decision**: A - Retain SdKfz 251/1 (ID numerically matches model 251, halftrack category)
 
 ---
 
@@ -69,7 +69,7 @@ User Decision: C - Too ambiguous, NULL all
 
 **Recommendation**: Option A (FIAT 626 all Variants), assuming ID 626 = model 626
 
-**User Decision**: _________________
+**User Decision**: A - Retain FIAT 626 (all Variants) (ID matches model number, umbrella term)
 
 ---
 
@@ -101,7 +101,7 @@ WITW ID 100049 could refer to ANY of these. This is the most ambiguous collision
 
 **Recommendation**: Option C (NULL all), "M3" too ambiguous without WITW reference
 
-**User Decision**: _________________
+**User Decision**: C - Set all to NULL (M3 designation too ambiguous: Scout/Stuart/Lee are different vehicles)
 
 ---
 
@@ -130,7 +130,7 @@ Flak 38 is 20mm, Flak 18/36 are 88mm - clear model AND caliber mismatch.
 
 **Recommendation**: Option A (Flak 36), most common 88mm in North Africa (1941-1943)
 
-**User Decision**: _________________
+**User Decision**: A - Retain Flak 36 8.8cm (most common 88mm variant in North Africa, dual-role AA/AT)
 
 ---
 
@@ -158,7 +158,7 @@ Flak 38 is 20mm, Flak 18/36 are 88mm - clear model AND caliber mismatch.
 
 **Recommendation**: Option A (Bedford MW), NULL Bofors 40mm (category mismatch)
 
-**User Decision**: _________________
+**User Decision**: A - Retain Bedford MW (most generic truck), NULL Bofors (category mismatch: AA gun vs trucks)
 
 ---
 
@@ -186,7 +186,7 @@ Flak 38 is 20mm, Flak 18/36 are 88mm - clear model AND caliber mismatch.
 
 **Recommendation**: Option A (Dodge WC Series), covers all variants generically
 
-**User Decision**: _________________
+**User Decision**: A - Retain Dodge WC Series (umbrella term covering all WC-51/53/54/56 variants)
 
 ---
 
@@ -211,7 +211,7 @@ Flak 38 is 20mm, Flak 18/36 are 88mm - clear model AND caliber mismatch.
 
 **Recommendation**: Option A (M3 Halftrack), primary North Africa variant
 
-**User Decision**: _________________
+**User Decision**: A - Retain M3 Halftrack (primary North Africa variant, most common APC)
 
 ---
 
@@ -237,7 +237,7 @@ Flak 38 is 20mm, Flak 18/36 are 88mm - clear model AND caliber mismatch.
 
 **Recommendation**: Option B (NULL all), multi-category collision
 
-**User Decision**: _________________
+**User Decision**: B - Set all to NULL (multi-category collision: armored cars vs bombers)
 
 ---
 
@@ -264,7 +264,7 @@ Flak 38 is 20mm, Flak 18/36 are 88mm - clear model AND caliber mismatch.
 
 **Recommendation**: Option A (generic Panzer I), unless Ausf variants need to be distinct
 
-**User Decision**: _________________
+**User Decision**: A - Retain generic Panzer I (umbrella term, Ausf A/B differences minor for wargaming)
 
 ---
 
@@ -288,7 +288,7 @@ Flak 38 is 20mm, Flak 18/36 are 88mm - clear model AND caliber mismatch.
 
 **Recommendation**: Option A (generic Panzer II), consistent with Escalation 9 decision
 
-**User Decision**: _________________
+**User Decision**: A - Retain generic Panzer II (umbrella term, consistent with Panzer I decision)
 
 ---
 
@@ -313,7 +313,7 @@ Flak 38 is 20mm, Flak 18/36 are 88mm - clear model AND caliber mismatch.
 
 **Recommendation**: Option D (keep separate), armament differences are significant for wargaming
 
-**User Decision**: _________________
+**User Decision**: D - Keep all separate (F/G/H have different armament: 37mm vs 50mm, critical for combat modeling)
 
 ---
 
@@ -337,7 +337,7 @@ Flak 38 is 20mm, Flak 18/36 are 88mm - clear model AND caliber mismatch.
 
 **Recommendation**: Option A (generic Panzer IV), D/E differences minor
 
-**User Decision**: _________________
+**User Decision**: A - Retain generic Panzer IV (D/E both have short 75mm gun, differences minor)
 
 ---
 
@@ -361,7 +361,7 @@ Flak 38 is 20mm, Flak 18/36 are 88mm - clear model AND caliber mismatch.
 
 **Recommendation**: Option A (generic StuG III), unless armor differences critical
 
-**User Decision**: _________________
+**User Decision**: A - Retain generic StuG III (umbrella term, armor differences not critical for wargaming)
 
 ---
 
@@ -385,7 +385,7 @@ Flak 38 is 20mm, Flak 18/36 are 88mm - clear model AND caliber mismatch.
 
 **Recommendation**: Option D (keep separate), armament varies (Vickers .303 vs .50 cal)
 
-**User Decision**: _________________
+**User Decision**: D - Keep all separate (Mk VI/VIb/VIc have different armament configurations)
 
 ---
 
@@ -408,7 +408,7 @@ Flak 38 is 20mm, Flak 18/36 are 88mm - clear model AND caliber mismatch.
 
 **Recommendation**: Option A (A9 Cruiser Mk I), full designation more precise
 
-**User Decision**: _________________
+**User Decision**: A - Retain A9 Cruiser Mk I (full official designation, more precise than generic "A9")
 
 ---
 
@@ -431,7 +431,7 @@ Flak 38 is 20mm, Flak 18/36 are 88mm - clear model AND caliber mismatch.
 
 **Recommendation**: Option A (A10 Cruiser Mk II), consistent with Escalation 15
 
-**User Decision**: _________________
+**User Decision**: A - Retain A10 Cruiser Mk II (full official designation, consistent with A9 decision)
 
 ---
 
@@ -460,7 +460,7 @@ A13 Mk II and Cruiser Mk IV are the SAME tank (official name: Cruiser Tank Mk IV
 
 **Recommendation**: Option A (A13 Mk II Cruiser Mk IV), most precise designation
 
-**User Decision**: _________________
+**User Decision**: A - Retain A13 Mk II Cruiser Mk IV (most precise official designation)
 
 ---
 
@@ -485,7 +485,7 @@ A13 Mk II and Cruiser Mk IV are the SAME tank (official name: Cruiser Tank Mk IV
 
 **Recommendation**: Option B (A12 Matilda II), consistent with A9/A10/A13 pattern
 
-**User Decision**: _________________
+**User Decision**: B - Retain A12 Matilda II (official A-number designation, consistent with A9/A10/A13 pattern)
 
 ---
 
@@ -513,7 +513,7 @@ A13 Mk II and Cruiser Mk IV are the SAME tank (official name: Cruiser Tank Mk IV
 
 **Recommendation**: Option D (keep separate), Mk IX has different gun (6pdr vs 2pdr)
 
-**User Decision**: _________________
+**User Decision**: D - Keep all separate (Mk I/II/IX have different armament: 2pdr vs 6pdr is major difference)
 
 ---
 
@@ -540,7 +540,7 @@ A13 Mk II and Cruiser Mk IV are the SAME tank (official name: Cruiser Tank Mk IV
 
 **Recommendation**: Option B (keep separate), Mk III has different gun (6pdr)
 
-**User Decision**: _________________
+**User Decision**: B - Keep all separate (Mk I/II/III have different armament: 2pdr vs 6pdr is major upgrade)
 
 ---
 
@@ -569,7 +569,7 @@ M3 and M5 are different tank models (M5 has improved armor, different hull).
 
 **Recommendation**: Option B (keep separate), M3 and M5 are different vehicles
 
-**User Decision**: _________________
+**User Decision**: B - Keep all separate (M3 Stuart vs M5 Stuart are different tank models with different hulls)
 
 ---
 
@@ -598,7 +598,7 @@ Different hull types and engines, but same 75mm gun.
 
 **Recommendation**: Option B (keep separate), hull and engine differences matter for maintenance/reliability
 
-**User Decision**: _________________
+**User Decision**: B - Keep all separate (Sherman I/II/III have different hull types and engines, relevant for logistics)
 
 ---
 
@@ -623,7 +623,7 @@ Different hull types and engines, but same 75mm gun.
 
 **Recommendation**: Option A (Churchill Mk IV), consistent with Valentine Mk X, Crusader Mk III, etc.
 
-**User Decision**: _________________
+**User Decision**: A - Retain Churchill Mk IV (with "Mk", consistent with other British tank naming conventions)
 
 ---
 
