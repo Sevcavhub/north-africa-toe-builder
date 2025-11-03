@@ -19,6 +19,7 @@ Usage:
 import sqlite3
 import json
 import sys
+import re
 from pathlib import Path
 from typing import Dict, List, Set, Optional
 from collections import defaultdict
@@ -26,6 +27,9 @@ from collections import defaultdict
 # Add project root to path
 project_root = Path(__file__).resolve().parents[3]
 sys.path.insert(0, str(project_root))
+
+# Import penetration converter for on-the-fly AP calculation
+from scripts.battlegroup.conversion.penetration_converter import convert_penetration
 
 DATABASE_PATH = project_root / "database" / "master_database.db"
 UNITS_DIR = project_root / "data" / "output" / "units"
@@ -562,28 +566,58 @@ class BookDatacardGenerator:
         else:
             production_period = "1940-1945"
 
-        # Get penetration values (FIXED: use reference_gun_id if available)
+        # Get penetration values - CALCULATE ON-THE-FLY using penetration_converter
         ap_vals = []
 
-        # Try to get penetration from bg_reference_guns if reference_gun_id is set
-        if row['reference_gun_id']:
-            cursor.execute("""
-                SELECT ap_0_10, ap_10_20, ap_20_30, ap_30_40, ap_40_50, ap_50_70
-                FROM bg_reference_guns
-                WHERE id = ?
-            """, (row['reference_gun_id'],))
-            gun_pen = cursor.fetchone()
-            if gun_pen:
-                for col in ['ap_0_10', 'ap_10_20', 'ap_20_30', 'ap_30_40', 'ap_40_50', 'ap_50_70']:
-                    val = gun_pen[col]
-                    ap_vals.append(str(val) if val is not None else '-')
+        # Strategy: Query equipment_guns table to get main gun caliber/barrel, then calculate
+        cursor.execute("""
+            SELECT g.caliber_mm, g.name, g.barrel_length
+            FROM equipment_guns eg
+            JOIN guns g ON eg.gun_id = g.gun_id
+            WHERE eg.equipment_id = ?
+              AND eg.mount_type IN ('main', 'turret')
+            ORDER BY CASE
+                WHEN eg.mount_type = 'main' THEN 1
+                WHEN eg.mount_type = 'turret' THEN 2
+                ELSE 3
+            END
+            LIMIT 1
+        """, (equipment.get('canonical_id'),))
+
+        gun_data = cursor.fetchone()
+
+        if gun_data:
+            caliber_mm, gun_name, barrel_length = gun_data
+
+            # Extract barrel length from gun name if not in database
+            if not barrel_length and gun_name:
+                # Look for patterns like "L/50", "L50", "L-50"
+                barrel_match = re.search(r'L[/-]?(\d+)', gun_name, re.IGNORECASE)
+                if barrel_match:
+                    barrel_length = f"L/{barrel_match.group(1)}"
+
+            # Calculate penetration using validated converter
+            if caliber_mm:
+                pen_result = convert_penetration(
+                    caliber_mm=caliber_mm,
+                    barrel_length=barrel_length,
+                    gun_name=gun_name
+                )
+
+                # Extract AP values from result
+                ap_vals = [
+                    str(pen_result.get('ap_0_10')) if pen_result.get('ap_0_10') is not None else '-',
+                    str(pen_result.get('ap_10_20')) if pen_result.get('ap_10_20') is not None else '-',
+                    str(pen_result.get('ap_20_30')) if pen_result.get('ap_20_30') is not None else '-',
+                    str(pen_result.get('ap_30_40')) if pen_result.get('ap_30_40') is not None else '-',
+                    str(pen_result.get('ap_40_50')) if pen_result.get('ap_40_50') is not None else '-',
+                    str(pen_result.get('ap_50_70')) if pen_result.get('ap_50_70') is not None else '-'
+                ]
             else:
-                # Fallback to equipment_battlegroup values
-                for col in ['ap_0_10', 'ap_10_20', 'ap_20_30', 'ap_30_40', 'ap_40_50', 'ap_50_70']:
-                    val = row[col]
-                    ap_vals.append(str(val) if val is not None else '-')
+                # No caliber data, use blanks
+                ap_vals = ['-', '-', '-', '-', '-', '-']
         else:
-            # Use equipment_battlegroup values
+            # No gun data found, fall back to database columns
             for col in ['ap_0_10', 'ap_10_20', 'ap_20_30', 'ap_30_40', 'ap_40_50', 'ap_50_70']:
                 val = row[col]
                 ap_vals.append(str(val) if val is not None else '-')

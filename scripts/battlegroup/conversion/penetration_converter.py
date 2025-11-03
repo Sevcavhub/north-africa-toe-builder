@@ -104,10 +104,73 @@ def convert_penetration(
         if not barrel_length.startswith('L'):
             barrel_length = 'L' + barrel_length
 
-    # Try exact match first
+    # STEP 1: Try bg_penetration_scale table lookup (highest confidence)
     base_pen = None
     confidence = 'medium'
 
+    try:
+        conn = sqlite3.connect(DB_PATH)
+        conn.row_factory = sqlite3.Row
+        cursor = conn.cursor()
+
+        # Try exact caliber + barrel match first
+        if barrel_length:
+            cursor.execute("""
+                SELECT value_0_10, value_10_20, value_20_30,
+                       value_30_40, value_40_50, value_50_70
+                FROM bg_penetration_scale
+                WHERE caliber_mm = ? AND barrel_length = ?
+            """, (caliber_mm, barrel_length))
+            row = cursor.fetchone()
+
+            if row and row['value_0_10'] is not None:
+                # Found exact match in scale table - return immediately
+                conn.close()
+                return {
+                    'ap_0_10': row['value_0_10'],
+                    'ap_10_20': row['value_10_20'],
+                    'ap_20_30': row['value_20_30'],
+                    'ap_30_40': row['value_30_40'],
+                    'ap_40_50': row['value_40_50'],
+                    'ap_50_70': row['value_50_70'],
+                    'base_penetration': row['value_0_10'],
+                    'confidence': 'very_high',
+                    'caliber_mm': caliber_mm,
+                    'barrel_length': barrel_length
+                }
+
+        # Try caliber-only match (ignoring barrel length)
+        cursor.execute("""
+            SELECT value_0_10, value_10_20, value_20_30,
+                   value_30_40, value_40_50, value_50_70
+            FROM bg_penetration_scale
+            WHERE caliber_mm = ?
+            LIMIT 1
+        """, (caliber_mm,))
+        row = cursor.fetchone()
+
+        if row and row['value_0_10'] is not None:
+            # Found caliber match - return with adjusted confidence
+            conn.close()
+            return {
+                'ap_0_10': row['value_0_10'],
+                'ap_10_20': row['value_10_20'],
+                'ap_20_30': row['value_20_30'],
+                'ap_30_40': row['value_30_40'],
+                'ap_40_50': row['value_40_50'],
+                'ap_50_70': row['value_50_70'],
+                'base_penetration': row['value_0_10'],
+                'confidence': 'high',
+                'caliber_mm': caliber_mm,
+                'barrel_length': barrel_length
+            }
+
+        conn.close()
+    except Exception as e:
+        # Database lookup failed, continue to fallback methods
+        pass
+
+    # STEP 2: Try hardcoded gun_penetration_map
     if (caliber_mm, barrel_length) in gun_penetration_map:
         base_pen = gun_penetration_map[(caliber_mm, barrel_length)]
         confidence = 'high'
