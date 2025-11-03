@@ -39,6 +39,7 @@ from dataclasses import dataclass
 project_root = Path(__file__).resolve().parents[3]
 sys.path.insert(0, str(project_root))
 sys.path.insert(0, str(project_root / "scripts" / "battlegroup" / "generators"))
+sys.path.insert(0, str(project_root / "scripts" / "battlegroup"))
 
 # Import from generators
 from historical_scenario_generator import (
@@ -47,6 +48,14 @@ from historical_scenario_generator import (
     ScenarioType, TableSize, VictoryType
 )
 from phase6_unit_parser import Phase6UnitParser
+
+# Import BattleGroup point system and organization templates
+from generate_platoon_templates import TACTICAL_TEMPLATES
+from generate_company_templates import COMPANY_SUPPORT
+from generate_battlegroup_army_lists import BattleGroupPoints
+
+# Import force composition validator
+from force_composition_validator import validate_force_composition, print_validation_report
 
 # Paths
 DATABASE_PATH = project_root / "database" / "master_database.db"
@@ -285,52 +294,11 @@ class ForceRosterBuilder:
         self.db_path = db_path
         self.parser = Phase6UnitParser()
 
-        # BattleGroup point values by equipment type (approximate)
-        self.POINTS = {
-            # Tanks
-            "matilda": 145,  # Heavy armor
-            "crusader": 95,  # Medium cruiser
-            "panzer iii": 100,  # Medium tank
-            "panzer iv": 120,  # Medium tank with better gun
-            "panzer ii": 65,  # Light tank
-            "m13/40": 85,  # Italian medium
-            "m3 stuart": 70,  # Light tank
-            "a9": 75,  # Early cruiser
-            "a10": 80,  # Early cruiser
-            "a13": 85,  # Cruiser
+        # Use official BattleGroup Points system (consistent with army lists)
+        self.bg_points = BattleGroupPoints()
 
-            # Artillery
-            "25-pdr": 65,  # British field gun
-            "88mm": 95,  # German dual-purpose
-            "pak 38": 45,  # 50mm AT gun
-            "2-pounder": 35,  # British AT gun
-            "bofors": 45,  # AA gun
-
-            # Infantry
-            "infantry": 12,  # Per soldier (25-man platoon = 300pts)
-            "engineer": 15,  # Per soldier
-        }
-
-        # BR values by equipment type (approximate)
-        self.BR = {
-            "matilda": 3,
-            "crusader": 2,
-            "panzer iii": 2,
-            "panzer iv": 2,
-            "panzer ii": 1,
-            "m13/40": 2,
-            "m3 stuart": 1,
-            "a9": 2,
-            "a10": 2,
-            "a13": 2,
-            "25-pdr": 1,
-            "88mm": 2,
-            "pak 38": 1,
-            "2-pounder": 1,
-            "bofors": 1,
-            "infantry": 1,  # Per platoon
-            "engineer": 1,
-        }
+        # Note: Old hardcoded lookup tables removed - now using BattleGroupPoints
+        # which provides consistent values across scenarios and army lists
 
     def build_roster(
         self,
@@ -369,26 +337,59 @@ class ForceRosterBuilder:
         for entry in unit_entries:
             unit_name, count, equipment_type, notes = entry
 
-            # Get points and BR
-            points_per_unit = self._get_points(equipment_type)
-            br_per_unit = self._get_br(equipment_type)
+            # Get points and BR using BattleGroupPoints system
+            # For infantry, we need to convert from soldier count to platoon count
+            if equipment_type == "infantry":
+                # Convert soldiers to platoons based on nation
+                template = TACTICAL_TEMPLATES.get(nation)
+                if template:
+                    platoon_size = template.platoon_size
+                    platoon_count = max(1, count // platoon_size)
 
-            unit_points = points_per_unit * count
-            unit_br = br_per_unit * max(1, count // 3)  # Group BR
+                    # Recalculate for proper platoon organization
+                    unit_points = self._get_points(equipment_type, platoon_count, nation)
+                    unit_br = self._get_br(equipment_type, platoon_count)
+
+                    # Update unit entry to show platoons
+                    unit_dict = {
+                        "name": f"{unit_name.replace('Company', 'Platoons')}",
+                        "type": "infantry_platoon",
+                        "count": platoon_count,
+                        "experience": experience,
+                        "points": unit_points,
+                        "br": unit_br,
+                        "notes": f"{platoon_count} platoons ({count} men total)"
+                    }
+                else:
+                    # Fallback if template not found
+                    unit_points = self._get_points(equipment_type, 1, nation) * count
+                    unit_br = self._get_br(equipment_type, count)
+                    unit_dict = {
+                        "name": unit_name,
+                        "type": equipment_type,
+                        "count": count,
+                        "experience": experience,
+                        "points": unit_points,
+                        "br": unit_br,
+                        "notes": notes
+                    }
+            else:
+                # For non-infantry (tanks, guns, etc.)
+                unit_points = self._get_points(equipment_type, count, nation)
+                unit_br = self._get_br(equipment_type, count)
+
+                unit_dict = {
+                    "name": unit_name,
+                    "type": equipment_type,
+                    "count": count,
+                    "experience": experience,
+                    "points": unit_points,
+                    "br": unit_br,
+                    "notes": notes
+                }
 
             total_points += unit_points
             total_br += unit_br
-
-            # Create unit entry
-            unit_dict = {
-                "name": unit_name,
-                "type": equipment_type,
-                "count": count,
-                "experience": experience,
-                "points": unit_points,
-                "br": unit_br,
-                "notes": notes
-            }
             units.append(unit_dict)
 
         # If no units parsed, create placeholder
@@ -422,7 +423,10 @@ class ForceRosterBuilder:
         Returns:
             List of (unit_name, count, equipment_type, notes) tuples
         """
+        print(f"\n[PARSING] Force description: {description[:150]}...")
+
         entries = []
+        unparsed_parts = []
 
         # Clean up description - remove modifiers like "+ fortifications"
         description = re.sub(r'\s*\+\s*fortifications?\s*', '', description, flags=re.IGNORECASE)
@@ -435,10 +439,12 @@ class ForceRosterBuilder:
             if not part:
                 continue
 
+            parsed = False
+
             # Try various patterns (order matters - most specific first!)
 
-            # Pattern 1: "1 squadron Matilda II (7-9 tanks)"
-            match = re.search(r'(\d+)\s*squadron\s+([^(]+)\((\d+)-(\d+)\s+tanks?\)', part, re.IGNORECASE)
+            # Pattern 1: "1 squadron Matilda II (7-9 tanks)" or "2 squadrons Matilda II (14-16 tanks)"
+            match = re.search(r'(\d+)\s*squadrons?\s+([^(]+)\((\d+)-(\d+)\s+tanks?\)', part, re.IGNORECASE)
             if match:
                 squadron_count = int(match.group(1))
                 tank_name = match.group(2).strip()
@@ -448,6 +454,8 @@ class ForceRosterBuilder:
 
                 equipment_type = self._identify_equipment_type(tank_name)
                 entries.append((tank_name, tank_count, equipment_type, f"{squadron_count} squadron"))
+                print(f"[PARSE OK] Pattern 1 (Squadron): {tank_count}x {tank_name}")
+                parsed = True
                 continue
 
             # Pattern 2: "2 companies 4th Indian infantry (160-200 men)" or "1 company Italian infantry (80-100 men)"
@@ -465,6 +473,8 @@ class ForceRosterBuilder:
                 notes = f"{company_count} companies, {men_count} men"
 
                 entries.append((unit_name, men_count, "infantry", notes))
+                print(f"[PARSE OK] Pattern 2 (Infantry Company): {men_count} men ({company_count} companies)")
+                parsed = True
                 continue
 
             # Pattern 3: "1 platoon infantry (25-30 men)" or "1 platoon German infantry reinforcement (30 men)"
@@ -488,6 +498,8 @@ class ForceRosterBuilder:
                 notes = f"{platoon_count} platoon, {men_count} men"
 
                 entries.append((unit_name, men_count, "infantry", notes))
+                print(f"[PARSE OK] Pattern 3 (Infantry Platoon): {men_count} men ({platoon_count} platoon)")
+                parsed = True
                 continue
 
             # Pattern 4: "1 battery 25-pdr (4 guns)" or "1 section 25-pdr (2 guns)"
@@ -499,6 +511,8 @@ class ForceRosterBuilder:
 
                 equipment_type = self._identify_equipment_type(gun_name)
                 entries.append((gun_name, gun_count, equipment_type, f"{battery_count} battery/section"))
+                print(f"[PARSE OK] Pattern 4 (Artillery): {gun_count}x {gun_name}")
+                parsed = True
                 continue
 
             # Pattern 5: "4x 88mm FlaK 18/36" or "3x Panzer III" (generic equipment with explicit 'x')
@@ -515,7 +529,55 @@ class ForceRosterBuilder:
                         notes = notes_match.group(1)
 
                 entries.append((equipment_name, count, equipment_type, notes))
+                print(f"[PARSE OK] Pattern 5 (Generic Equipment): {count}x {equipment_name}")
+                parsed = True
                 continue
+
+            # Pattern 6: "2 companies (20-25 Panzer III, 6-8 Panzer II)" - complex multi-tank companies
+            match = re.search(r'(\d+)\s*compan(?:y|ies)\s*\(([^)]+)\)', part, re.IGNORECASE)
+            if match:
+                company_count = int(match.group(1))
+                tank_list = match.group(2)
+
+                # Parse comma-separated tank entries
+                tank_entries = tank_list.split(',')
+                for tank_entry in tank_entries:
+                    tank_entry = tank_entry.strip()
+
+                    # Try to extract "20-25 Panzer III" pattern
+                    tank_match = re.search(r'(\d+)-(\d+)\s+([^,]+)', tank_entry)
+                    if tank_match:
+                        min_count = int(tank_match.group(1))
+                        max_count = int(tank_match.group(2))
+                        tank_name = tank_match.group(3).strip()
+                        avg_count = (min_count + max_count) // 2
+
+                        equipment_type = self._identify_equipment_type(tank_name)
+                        entries.append((
+                            tank_name,
+                            avg_count,
+                            equipment_type,
+                            f"{company_count} companies"
+                        ))
+
+                # If we successfully parsed tanks from company description, continue
+                if any(tank_match for tank_entry in tank_entries
+                       if re.search(r'(\d+)-(\d+)\s+([^,]+)', tank_entry.strip())):
+                    print(f"[PARSE OK] Pattern 6 (Complex Company): {len(tank_entries)} tank types")
+                    parsed = True
+                    continue
+
+            # Track unparsed parts
+            if not parsed:
+                unparsed_parts.append(part)
+
+        # Log unparsed parts if any
+        if unparsed_parts:
+            print(f"[WARNING] Failed to parse {len(unparsed_parts)} part(s):")
+            for unparsed in unparsed_parts:
+                print(f"  - {unparsed}")
+
+        print(f"[PARSING] Successfully parsed {len(entries)} unit entries\n")
 
         return entries
 
@@ -541,28 +603,134 @@ class ForceRosterBuilder:
         """Identify equipment type from name"""
         name_lower = name.lower()
 
-        # Check against known equipment
-        for equipment, _ in self.POINTS.items():
-            if equipment in name_lower:
-                return equipment
+        # Tanks
+        if "matilda" in name_lower:
+            return "matilda"
+        elif "crusader" in name_lower:
+            return "crusader"
+        elif "panzer iii" in name_lower or "panzer 3" in name_lower or "pz iii" in name_lower or "pzkpfw iii" in name_lower:
+            return "panzer_iii"
+        elif "panzer iv" in name_lower or "panzer 4" in name_lower or "pz iv" in name_lower or "pzkpfw iv" in name_lower:
+            return "panzer_iv"
+        elif "panzer ii" in name_lower or "panzer 2" in name_lower or "pz ii" in name_lower:
+            return "panzer_ii"
+        elif "m13/40" in name_lower or "m13" in name_lower:
+            return "m13_40"
+        elif "stuart" in name_lower or "m3" in name_lower:
+            return "m3_stuart"
+        elif "grant" in name_lower or "m3 medium" in name_lower:
+            return "m3_grant"
+        elif "a9" in name_lower:
+            return "a9"
+        elif "a10" in name_lower:
+            return "a10"
+        elif "a13" in name_lower:
+            return "a13"
+
+        # Artillery
+        elif "25" in name_lower and ("pdr" in name_lower or "pounder" in name_lower):
+            return "25pdr"
+        elif "88" in name_lower and "mm" in name_lower:
+            return "88mm"
+        elif "pak 38" in name_lower or "pak38" in name_lower:
+            return "pak_38"
+        elif "2" in name_lower and ("pdr" in name_lower or "pounder" in name_lower):
+            return "2pdr"
+        elif "6" in name_lower and ("pdr" in name_lower or "pounder" in name_lower):
+            return "6pdr"
+        elif "bofors" in name_lower:
+            return "bofors"
+
+        # Infantry
+        elif any(word in name_lower for word in ["infantry", "soldier", "men", "platoon"]):
+            return "infantry"
+        elif "engineer" in name_lower:
+            return "engineer"
 
         # Fallback based on keywords
-        if any(word in name_lower for word in ["tank", "panzer", "matilda", "crusader", "stuart"]):
+        elif any(word in name_lower for word in ["tank", "panzer"]):
             return "tank_medium"
-        elif any(word in name_lower for word in ["infantry", "soldier", "men"]):
-            return "infantry"
         elif any(word in name_lower for word in ["gun", "pdr", "mm", "artillery"]):
             return "artillery"
         else:
             return "unknown"
 
-    def _get_points(self, equipment_type: str) -> int:
-        """Get points value for equipment type"""
-        return self.POINTS.get(equipment_type, 50)  # Default 50pts
+    def _get_points(self, equipment_type: str, count: int = 1, nation: str = "british") -> int:
+        """
+        Get points value for equipment type using BattleGroupPoints system
 
-    def _get_br(self, equipment_type: str) -> int:
-        """Get BR value for equipment type"""
-        return self.BR.get(equipment_type, 1)  # Default 1 BR
+        Args:
+            equipment_type: Equipment type identifier
+            count: Number of units (for platoons/sections)
+            nation: Nation code for infantry/company calculations
+        """
+        # Map equipment types to BattleGroupPoints attributes
+        if equipment_type == "matilda":
+            return self.bg_points.matilda_ii * count
+        elif equipment_type == "crusader":
+            return self.bg_points.crusader_ii * count
+        elif equipment_type == "panzer_iii":
+            return self.bg_points.panzer_iii_short * count
+        elif equipment_type == "panzer_iv":
+            return self.bg_points.panzer_iv_short * count
+        elif equipment_type == "panzer_ii":
+            return 65 * count  # Estimate for Panzer II
+        elif equipment_type == "m13_40":
+            return self.bg_points.m13_40 * count
+        elif equipment_type == "m3_stuart":
+            return self.bg_points.m3_stuart * count
+        elif equipment_type == "m3_grant":
+            return self.bg_points.m3_grant * count
+        elif equipment_type == "25pdr":
+            return self.bg_points.artillery_25pdr * count
+        elif equipment_type == "88mm":
+            return 95 * count  # 88mm FlaK (estimate, not in BattleGroupPoints)
+        elif equipment_type == "pak_38":
+            return self.bg_points.pak38_5cm * count
+        elif equipment_type == "2pdr":
+            return self.bg_points.at_gun_2pdr * count
+        elif equipment_type == "6pdr":
+            return self.bg_points.at_gun_6pdr * count
+        elif equipment_type == "infantry":
+            # Use platoon-level points based on nation
+            if nation == "british":
+                return self.bg_points.platoon_british * count
+            elif nation == "german":
+                return self.bg_points.platoon_german * count
+            elif nation == "italian":
+                return self.bg_points.platoon_italian * count
+            elif nation == "american":
+                return self.bg_points.platoon_american * count
+            else:
+                return 160 * count  # Default to British
+        else:
+            return 50 * count  # Default fallback
+
+    def _get_br(self, equipment_type: str, count: int = 1) -> int:
+        """
+        Get BR value for equipment type
+
+        BR calculation:
+        - Tanks: 1-3 BR per vehicle (heavy = 3, medium = 2, light = 1)
+        - Infantry: 1 BR per platoon
+        - Artillery: 0-1 BR per gun
+        """
+        if equipment_type in ["matilda"]:
+            return 3 * count  # Heavy tank
+        elif equipment_type in ["crusader", "panzer_iii", "panzer_iv", "m13_40"]:
+            return 2 * count  # Medium tank
+        elif equipment_type in ["panzer_ii", "m3_stuart", "a9", "a10", "a13"]:
+            return 1 * count  # Light tank
+        elif equipment_type in ["88mm"]:
+            return 2 * count  # Powerful AT gun
+        elif equipment_type in ["25pdr", "pak_38", "2pdr", "6pdr", "bofors"]:
+            return 1 * count  # Artillery piece
+        elif equipment_type == "infantry":
+            return 1 * count  # Per platoon
+        elif equipment_type == "engineer":
+            return 1 * count  # Per platoon
+        else:
+            return max(1, count // 3)  # Default: 1 BR per 3 units
 
 
 class ScenarioWorkflow:
@@ -686,6 +854,17 @@ class ScenarioWorkflow:
             experience="veteran"  # Most North Africa units were experienced
         )
 
+        # Validate attacker force composition
+        attacker_year = int(attacker_quarter.split('q')[0])  # Extract year from "1941q2"
+        attacker_validation = validate_force_composition(
+            units=attacker_roster.units,
+            points_budget=points_budget,
+            year=attacker_year,
+            historical_description=attacker_force_desc
+        )
+        if not attacker_validation.is_valid or attacker_validation.warnings:
+            print_validation_report(attacker_validation, f"{attacker_side} Forces")
+
         defender_roster = self.roster_builder.build_roster(
             nation=defender_nation,
             quarter=defender_quarter,
@@ -693,6 +872,17 @@ class ScenarioWorkflow:
             points_budget=points_budget,
             experience="veteran"
         )
+
+        # Validate defender force composition
+        defender_year = int(defender_quarter.split('q')[0])  # Extract year from "1941q2"
+        defender_validation = validate_force_composition(
+            units=defender_roster.units,
+            points_budget=points_budget,
+            year=defender_year,
+            historical_description=defender_force_desc
+        )
+        if not defender_validation.is_valid or defender_validation.warnings:
+            print_validation_report(defender_validation, f"{defender_side} Forces")
 
         # Create deployment
         deployment = Deployment(
