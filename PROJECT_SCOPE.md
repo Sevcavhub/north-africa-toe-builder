@@ -1,13 +1,13 @@
 # North Africa TO&E Builder - Complete Project Scope
 
-**Version**: 1.4.0
-**Last Updated**: 2025-10-31 (Phase 9B Scope Added - BattleGroup book generation system)
+**Version**: 1.5.0
+**Last Updated**: 2025-11-02 (Phase 9B Step 7 Progress - Historical chapters, tactical templates, equipment rules)
 **Status**: 🟢 LIVING DOCUMENT - Subject to updates
 
 <!-- AUTO-UPDATED: START - Progress Stats -->
-**Current Phase**: Phase 9B (BattleGroup Implementation) D:\north-africa-toe-builder\PHASE_9B_SESSION_SUMMARY.md 🔄 IN PROGRESS - Step 4 COMPLETE ✅
-**Completed Phases**: Phase 1-8 (100%) ✅ | Phase 9A (WITW) ✅ 369 scenarios | Phase 9B Steps 1-4 ✅
-**Overall Progress**: Extraction complete, WITW scenarios complete, BattleGroup conversion formulas complete (100%/100%/100%/97%)
+**Current Phase**: Phase 9B (BattleGroup Implementation) 🔄 IN PROGRESS - ~70% COMPLETE ✅
+**Completed Phases**: Phase 1-8 (100%) ✅ | Phase 9A (WITW) ✅ 369 scenarios | Phase 9B Steps 1-4 ✅ + Step 7 Parts 1-4 (70%) ✅
+**Overall Progress**: Extraction complete, WITW scenarios complete, BattleGroup books 70% complete (historical chapters, equipment rules, tactical templates)
 <!-- AUTO-UPDATED: END - Progress Stats -->
 
 **Architecture**: v4.0 (Canonical Output Locations)
@@ -528,13 +528,13 @@ Due to the **Phase 7 design pivot** (quarterly theater summaries instead of per-
 
 ---
 
-#### **Phase 9B: BattleGroup Book Generation** 🔄 **IN PROGRESS - Step 4 COMPLETE**
+#### **Phase 9B: BattleGroup Book Generation** 🔄 **IN PROGRESS - ~70% COMPLETE**
 
 **Goal**: Generate complete BattleGroup-format books for North Africa battles (matching Battlegroup-Kursk style)
 
 **Approach**: Hybrid historical accuracy + game balance adjustments
 
-**Status**: Steps 1-4 complete ✅ (57% of Phase 9B done), Step 5 next (Generator Enhancement)
+**Status**: Steps 1-4 complete ✅, Step 7 Parts 1-4 ~70% complete (Historical chapters, Equipment rules, Tactical templates)
 
 **Completed**:
 - ✅ **Step 1**: Reference database (500 vehicles, 57 guns from BattleGroup PDFs)
@@ -554,8 +554,23 @@ Due to the **Phase 7 design pivot** (quarterly theater summaries instead of per-
   - 77 lookup entries (armor, penetration, movement, HE, special rules)
   - 4 generator tools (datacard, army list, roster, campaign tracker)
   - Comprehensive validation suite (all tests pass)
+- ✅ **Step 7 Part 1**: Equipment Datacards (182 items, 24 files, A- quality 90%)
+- ✅ **Step 7 Part 2**: Force Availability References (72 divisions, 12 files, B+ quality 85%)
+- ✅ **Step 7 Part 3**: Historical Chapters (12 files, ~24,000 words, 100% complete)
+  - Strategic situation chapters (4 battles × 3 chapters)
+  - Historical overview narratives
+  - Orders of battle documentation
+- ✅ **Step 7 Part 4**: Equipment Special Rules (1,543 lines, 100% complete) + Appendices (25% complete)
+  - 4 equipment.md files (Battleaxe, Crusader, Gazala, First Alamein)
+  - BattleGroup special rules for all equipment types (1941-1942)
+  - Battleaxe Appendix A complete (403 lines with real weapon data)
+- ✅ **Tactical Templates**: 12 tank/artillery templates + 32 platoon/company files
+  - 6 tank platoons (Matilda II, Crusader I, Stuart, Panzer III/IV, M13/40)
+  - 5 artillery batteries (25-pdr, 105mm, 150mm, 88mm FlaK, 75mm Italian)
+  - All extracted from Phase 6 armored division data (zero guessing)
+  - Production scripts: 3 generators (1,520+ lines)
 
-**Next**: Step 5 - Generator Enhancement (5-7 hours estimated)
+**Next**: Step 7 Part 4 completion (11 appendix files), then Part 6 (PDF generation)
 
 **Deliverables**:
 
