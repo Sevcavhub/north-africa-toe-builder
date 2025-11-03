@@ -668,19 +668,19 @@ class ForceRosterBuilder:
         if equipment_type == "matilda":
             return self.bg_points.matilda_ii * count
         elif equipment_type == "crusader":
-            return self.bg_points.crusader_ii * count
+            return self.bg_points.crusader * count
         elif equipment_type == "panzer_iii":
-            return self.bg_points.panzer_iii_short * count
+            return self.bg_points.panzer_iii * count
         elif equipment_type == "panzer_iv":
-            return self.bg_points.panzer_iv_short * count
+            return self.bg_points.panzer_iv * count
         elif equipment_type == "panzer_ii":
             return 65 * count  # Estimate for Panzer II
         elif equipment_type == "m13_40":
             return self.bg_points.m13_40 * count
         elif equipment_type == "m3_stuart":
-            return self.bg_points.m3_stuart * count
+            return self.bg_points.stuart_m3 * count
         elif equipment_type == "m3_grant":
-            return self.bg_points.m3_grant * count
+            return 120 * count  # M3 Grant estimate (BattleGroupPoints doesn't have this yet)
         elif equipment_type == "25pdr":
             return self.bg_points.artillery_25pdr * count
         elif equipment_type == "88mm":

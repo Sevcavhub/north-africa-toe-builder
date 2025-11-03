@@ -300,9 +300,9 @@ def print_validation_report(report: ForceCompositionReport, force_name: str = "F
     print(f"{'='*60}")
 
     if report.is_valid:
-        print("✅ VALID - Force meets BattleGroup requirements")
+        print("[VALID] Force meets BattleGroup requirements")
     else:
-        print("❌ INVALID - Force violates BattleGroup rules")
+        print("[INVALID] Force violates BattleGroup rules")
 
     print(f"\nInfantry: {report.infantry_count} platoons (min: {report.infantry_min}, max: {report.infantry_max})")
     print(f"AFV: {report.afv_percent:.1f}% of points")
@@ -311,12 +311,12 @@ def print_validation_report(report: ForceCompositionReport, force_name: str = "F
     print(f"Force Diversity: {report.force_diversity} different unit types")
 
     if report.errors:
-        print(f"\n❌ ERRORS ({len(report.errors)}):")
+        print(f"\n[ERRORS] ({len(report.errors)}):")
         for error in report.errors:
             print(f"  - {error}")
 
     if report.warnings:
-        print(f"\n⚠️  WARNINGS ({len(report.warnings)}):")
+        print(f"\n[WARNINGS] ({len(report.warnings)}):")
         for warning in report.warnings:
             print(f"  - {warning}")
 
