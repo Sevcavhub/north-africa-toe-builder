@@ -20,6 +20,7 @@ from dataclasses import dataclass
 # ============================================================================
 
 VALIDATION_RULES = {
+    # ==== SQUADRONS ====
     'squadron_with_count': {
         'pattern': r'(\d+)\s*squadrons?\s+([^(]+?)\s*\((\d+)-(\d+)\s+tanks?\)',
         'examples': ['1 squadron Matilda II (7-9 tanks)', '2 squadrons Crusader (14-16 tanks)'],
@@ -29,6 +30,21 @@ VALIDATION_RULES = {
         'pattern': r'(\d+)\s*squadrons?\s+\((\d+)-(\d+)\s+tanks?:\s*([^)]+)\)',
         'examples': ['3 squadrons (30-35 tanks: Crusader, Honey Stuart)', '2 squadrons (20-25 tanks: Crusader I, A9/A10)'],
         'description': 'Squadron with mixed tank types listed'
+    },
+    'squadron_range': {
+        'pattern': r'(\d+)-(\d+)\s*squadrons?\s+(?:tanks?\s+)?\((\d+)-(\d+)\s+([^)]+)\)',
+        'examples': ['2-3 squadrons (24-30 tanks: Grant, Crusader)', '3-4 squadrons mixed tanks (35-45 tanks: Crusader, Honey Stuart)'],
+        'description': 'Squadron with range count (2-3 squadrons) and tank types'
+    },
+    'squadron_simple_tanks': {
+        'pattern': r'(\d+)\s*squadrons?\s+\((\d+)-(\d+)\s+([^)]+?)\s+tanks?\)',
+        'examples': ['4 squadrons (40-45 Crusader tanks)', '2 squadrons (20-24 Valentine/Grant)'],
+        'description': 'Squadron with tank range and type (tanks keyword)'
+    },
+    'squadron_no_detail': {
+        'pattern': r'(\d+)\s*squadrons?\s+([^(,;]+?)(?:\s+tanks?)?(?=,|;|$)',
+        'examples': ['1 squadron Valentine tanks', '2 squadrons tanks', '1 squadron armored cars'],
+        'description': 'Squadron without parenthetical details (default 12 vehicles)'
     },
     'company_infantry': {
         'pattern': r'(\d+)\s*compan(?:y|ies)\s+([^(]*?)(?:infantry|motorized infantry)\s*\((\d+)-(\d+)\s+men\)',
@@ -60,6 +76,11 @@ VALIDATION_RULES = {
         'examples': ['1 battalion Bersaglieri (300-350 men)', '2 battalions New Zealand infantry (600-700 men)'],
         'description': 'Infantry battalion with manpower range'
     },
+    'battalion_no_count': {
+        'pattern': r'(\d+)\s*battalions?\s+([\w\s]+?(?:infantry|Bersaglieri|Panzergrenadiers?|motorized))(?!\s*\()',
+        'examples': ['1 battalion motorized infantry', '2 battalions infantry', '1 battalion King\'s Royal Rifles (motorized infantry)'],
+        'description': 'Battalion without explicit men count (default 400 men/13 platoons)'
+    },
     'battery_with_count': {
         'pattern': r'(\d+)\s*(?:battery|batteries|section)\s+([^(]+?)\s*\((\d+)\s+guns?\)',
         'examples': ['1 battery 25-pdr (4 guns)', '2 batteries 47mm AT guns (12 guns)'],
@@ -79,6 +100,51 @@ VALIDATION_RULES = {
         'pattern': r'(\d+)\s*platoons?\s+([^(]+?)\s*\((\d+)-(\d+)\s+tanks?\)',
         'examples': ['1 platoon Panzer III (4-5 tanks)'],
         'description': 'Tank platoon with vehicle count'
+    },
+    'company_tanks_no_paren': {
+        'pattern': r'(\d+)\s*compan(?:y|ies)\s+([A-Z][\w/]+?)\s+(\d+)-(\d+)(?:\s+tanks?)?',
+        'examples': ['1 company Panzer III/IV 10-12 tanks', '2 companies M13/40 16-18'],
+        'description': 'Tank company without parentheses'
+    },
+    'company_infantry_no_count': {
+        'pattern': r'(\d+)\s*compan(?:y|ies)\s+(German|Italian|British|[\w\s]+?)\s+infantry(?!\s*\()',
+        'examples': ['1 company German infantry', '1 company Italian infantry'],
+        'description': 'Infantry company without men count (default 90 men/3 platoons)'
+    },
+    'informal_tank_range_named': {
+        'pattern': r'(\d+)-(\d+)\s+([A-Z][\w\s/]+?)\s*(?:tanks?)?(?=,|;|$|\))',
+        'examples': ['4-5 Matilda II tanks', '6-8 Panzer II', '2-3 Crusader'],
+        'description': 'Informal tank range with specific tank name'
+    },
+    'informal_tank_range_generic': {
+        'pattern': r'(\d+)-(\d+)\s+tanks?(?=,|;|$|\))',
+        'examples': ['2-3 tanks', '6-8 tanks'],
+        'description': 'Informal tank range without specific type (generic tanks)'
+    },
+    'informal_gun_range': {
+        'pattern': r'(\d+)-(\d+)\s+(AT\s+guns?)',
+        'examples': ['2-3 AT guns'],
+        'description': 'Informal AT gun range'
+    },
+    'platoon_infantry_no_count': {
+        'pattern': r'(\d+)\s*platoons?\s+([\w\s]*?)infantry(?!\s*\()',
+        'examples': ['2 platoons infantry', '1 platoon German infantry'],
+        'description': 'Infantry platoon without men count (default 30 men)'
+    },
+    'platoon_special': {
+        'pattern': r'(\d+)\s*platoons?\s+(motorcycle troops|motorized infantry)(?!\s*\()',
+        'examples': ['1 platoon motorcycle troops', '1 platoon motorized infantry'],
+        'description': 'Special platoon without men count (default 30 men)'
+    },
+    'armored_cars': {
+        'pattern': r'(\d+)\s*squadrons?\s+armored\s+cars',
+        'examples': ['1 squadron armored cars'],
+        'description': 'Armored car squadron (default 12 vehicles)'
+    },
+    'carriers': {
+        'pattern': r'(\d+(?:-\d+)?)\s+(?:Bren\s+)?carriers?',
+        'examples': ['3 Bren carriers', '2-3 carriers'],
+        'description': 'Carrier vehicles (Bren carriers)'
     }
 }
 
@@ -203,8 +269,29 @@ class ScenarioForceParserV2:
 
     def _preprocess_description(self, description: str) -> str:
         """Clean and standardize description text"""
-        # Remove modifiers that break parsing
-        cleaned = re.sub(r'\s*\+\s*fortifications?\s*', '', description, flags=re.IGNORECASE)
+        cleaned = description
+
+        # Strip complex prefixes (Mixed force, Kampfgruppe, etc.) but keep the content
+        prefix_patterns = [
+            r'^\s*(Mixed|Pursuit|Rearguard|Screening|Defensive|Assault|Exploitation|Converging|Trapped|Encirclement|Breakout|Final|Lead elements?|Probing|Defensive?|Withdrawing|Patrol|Garrison)\s+(force|forces?|elements?|units?|line|attack|screen|garrison)\s*\(',
+            r'^\s*Kampfgruppe\s*\(',
+        ]
+        for pattern in prefix_patterns:
+            match = re.match(pattern, cleaned, re.IGNORECASE)
+            if match:
+                # Remove prefix including the opening paren, then re-add it
+                cleaned = cleaned[match.end():]
+                break
+
+        # Remove trailing contextual modifiers
+        trailing_modifiers = [
+            r',?\s*(withdrawing|limited ammunition|hasty defenses|fortifications?|defensive positions?|hull-down|concealed|minefields?|artillery support|prepared assault|coordinated attack|unprepared for attack|attacking from \w+|covering [\w\s]+|reduced strength|various support units|desperate defense|integrated defense|advancing rapidly|conducting withdrawal|attempting to [\w\s]+|testing [\w\s]+|supply trucks?|heavy artillery|Stuka [\w\s]+|engineer support|supply column|artillery barrage support|artillery preparation)$'
+        ]
+        for pattern in trailing_modifiers:
+            cleaned = re.sub(pattern, '', cleaned, flags=re.IGNORECASE)
+
+        # Remove explicit "+fortifications" style modifiers
+        cleaned = re.sub(r'\s*\+\s*fortifications?\s*', '', cleaned, flags=re.IGNORECASE)
         cleaned = re.sub(r'\s*\+\s*defensive\s+positions?\s*', '', cleaned, flags=re.IGNORECASE)
 
         # Standardize spacing
@@ -468,6 +555,242 @@ class ScenarioForceParserV2:
                 notes=f"{platoon_count} platoon",
                 raw_description=raw,
                 confidence=1.0
+            )
+
+        elif rule_name == 'squadron_range':
+            squadron_min = int(match.group(1))
+            squadron_max = int(match.group(2))
+            tank_min = int(match.group(3))
+            tank_max = int(match.group(4))
+            tank_types = match.group(5).strip()
+
+            squadron_count = (squadron_min + squadron_max) // 2
+            tank_count = (tank_min + tank_max) // 2
+
+            primary_type = tank_types.split(',')[0].strip()
+            equipment_type = self._identify_equipment_type(primary_type)
+
+            return ParsedUnit(
+                unit_name=f"Mixed Squadron ({tank_types})",
+                count=tank_count,
+                unit_type='tank',
+                equipment_type=equipment_type,
+                notes=f"{squadron_count} squadrons, mixed types",
+                raw_description=raw,
+                confidence=0.9
+            )
+
+        elif rule_name == 'squadron_simple_tanks':
+            squadron_count = int(match.group(1))
+            tank_min = int(match.group(2))
+            tank_max = int(match.group(3))
+            tank_types = match.group(4).strip()
+
+            tank_count = (tank_min + tank_max) // 2
+            equipment_type = self._identify_equipment_type(tank_types)
+
+            return ParsedUnit(
+                unit_name=tank_types,
+                count=tank_count,
+                unit_type='tank',
+                equipment_type=equipment_type,
+                notes=f"{squadron_count} squadron",
+                raw_description=raw,
+                confidence=1.0
+            )
+
+        elif rule_name == 'squadron_no_detail':
+            squadron_count = int(match.group(1))
+            vehicle_type = match.group(2).strip()
+
+            # Default 12 vehicles per squadron
+            vehicle_count = squadron_count * 12
+
+            equipment_type = self._identify_equipment_type(vehicle_type)
+
+            return ParsedUnit(
+                unit_name=vehicle_type,
+                count=vehicle_count,
+                unit_type='tank' if 'tank' in vehicle_type.lower() else 'support',
+                equipment_type=equipment_type,
+                notes=f"{squadron_count} squadron (~12/squadron assumed)",
+                raw_description=raw,
+                confidence=0.7
+            )
+
+        elif rule_name == 'battalion_no_count':
+            battalion_count = int(match.group(1))
+            descriptor = match.group(2).strip()
+
+            # Default: 400 men per battalion = ~13 platoons
+            men_count = battalion_count * 400
+            men_per_platoon = INFANTRY_STANDARDS['men_per_platoon'].get(nation, 30)
+            platoon_count = men_count // men_per_platoon
+
+            nationality = self._extract_nationality(descriptor)
+
+            return ParsedUnit(
+                unit_name=f"{nationality}Infantry Battalion",
+                count=platoon_count,
+                unit_type='infantry_platoon',
+                equipment_type='infantry',
+                notes=f"{battalion_count} battalion, ~{men_count} men (assumed, ~{platoon_count} platoons)",
+                raw_description=raw,
+                confidence=0.7
+            )
+
+        elif rule_name == 'company_tanks_no_paren':
+            company_count = int(match.group(1))
+            tank_name = match.group(2).strip()
+            tank_min = int(match.group(3))
+            tank_max = int(match.group(4))
+            tank_count = (tank_min + tank_max) // 2
+
+            equipment_type = self._identify_equipment_type(tank_name)
+
+            return ParsedUnit(
+                unit_name=tank_name,
+                count=tank_count,
+                unit_type='tank',
+                equipment_type=equipment_type,
+                notes=f"{company_count} companies",
+                raw_description=raw,
+                confidence=1.0
+            )
+
+        elif rule_name == 'company_infantry_no_count':
+            company_count = int(match.group(1))
+            descriptor = match.group(2).strip()
+
+            # Default: 90 men per company = 3 platoons
+            men_count = company_count * 90
+            men_per_platoon = INFANTRY_STANDARDS['men_per_platoon'].get(nation, 30)
+            platoon_count = men_count // men_per_platoon
+
+            nationality = self._extract_nationality(descriptor)
+
+            return ParsedUnit(
+                unit_name=f"{nationality}Infantry Company",
+                count=platoon_count,
+                unit_type='infantry_platoon',
+                equipment_type='infantry',
+                notes=f"{company_count} companies, ~{men_count} men (assumed)",
+                raw_description=raw,
+                confidence=0.7
+            )
+
+        elif rule_name == 'informal_tank_range_named':
+            tank_min = int(match.group(1))
+            tank_max = int(match.group(2))
+            tank_name = match.group(3).strip()
+            tank_count = (tank_min + tank_max) // 2
+
+            equipment_type = self._identify_equipment_type(tank_name)
+
+            return ParsedUnit(
+                unit_name=tank_name,
+                count=tank_count,
+                unit_type='tank',
+                equipment_type=equipment_type,
+                notes="Informal range",
+                raw_description=raw,
+                confidence=0.8
+            )
+
+        elif rule_name == 'informal_tank_range_generic':
+            tank_min = int(match.group(1))
+            tank_max = int(match.group(2))
+            tank_count = (tank_min + tank_max) // 2
+
+            return ParsedUnit(
+                unit_name="Tanks (mixed types)",
+                count=tank_count,
+                unit_type='tank',
+                equipment_type='tank',
+                notes="Informal range, type unspecified",
+                raw_description=raw,
+                confidence=0.6  # Lower confidence for generic tanks
+            )
+
+        elif rule_name == 'informal_gun_range':
+            gun_min = int(match.group(1))
+            gun_max = int(match.group(2))
+            gun_type = match.group(3).strip()
+            gun_count = (gun_min + gun_max) // 2
+
+            return ParsedUnit(
+                unit_name=gun_type,
+                count=gun_count,
+                unit_type='artillery',
+                equipment_type='at_gun',
+                notes="Informal range",
+                raw_description=raw,
+                confidence=0.8
+            )
+
+        elif rule_name == 'platoon_infantry_no_count':
+            platoon_count = int(match.group(1))
+            descriptor = match.group(2).strip()
+
+            nationality = self._extract_nationality(descriptor)
+
+            return ParsedUnit(
+                unit_name=f"{nationality}Infantry Platoon",
+                count=platoon_count,
+                unit_type='infantry_platoon',
+                equipment_type='infantry',
+                notes=f"{platoon_count} platoon, ~30 men/platoon (assumed)",
+                raw_description=raw,
+                confidence=0.7
+            )
+
+        elif rule_name == 'platoon_special':
+            platoon_count = int(match.group(1))
+            unit_type_desc = match.group(2).strip()
+
+            # Default 30 men per platoon = 1 platoon
+            return ParsedUnit(
+                unit_name=unit_type_desc.title(),
+                count=platoon_count,
+                unit_type='infantry_platoon',
+                equipment_type='infantry',
+                notes=f"{platoon_count} platoon, ~30 men (assumed)",
+                raw_description=raw,
+                confidence=0.7
+            )
+
+        elif rule_name == 'armored_cars':
+            squadron_count = int(match.group(1))
+            vehicle_count = squadron_count * 12  # Default 12 per squadron
+
+            return ParsedUnit(
+                unit_name="Armored Cars",
+                count=vehicle_count,
+                unit_type='support',
+                equipment_type='support_weapon',
+                notes=f"{squadron_count} squadron",
+                raw_description=raw,
+                confidence=0.7
+            )
+
+        elif rule_name == 'carriers':
+            carrier_str = match.group(1)
+
+            # Handle range or single number
+            if '-' in carrier_str:
+                parts = carrier_str.split('-')
+                carrier_count = (int(parts[0]) + int(parts[1])) // 2
+            else:
+                carrier_count = int(carrier_str)
+
+            return ParsedUnit(
+                unit_name="Bren Carriers",
+                count=carrier_count,
+                unit_type='support',
+                equipment_type='support_weapon',
+                notes="Carrier section",
+                raw_description=raw,
+                confidence=0.9
             )
 
         # Shouldn't reach here if pattern matched
