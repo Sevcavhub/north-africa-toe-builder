@@ -142,29 +142,49 @@
 
 ---
 
-### Priority 3: Scenario Regeneration (CRITICAL)
-**Estimated Time**: 2-3 hours
-**Status**: Bug fixes complete, ready to regenerate
+### Priority 3: Fix Scenario Research Data (CRITICAL - ROOT CAUSE)
+**Estimated Time**: 4-6 hours
+**Status**: Critical issue discovered - research data incomplete
+**ROOT CAUSE**: Scenario research document missing Axis defensive equipment
 
-**Why Critical**:
-- Current scenarios have bugs (missing tanks, wrong force compositions)
-- Fixes committed but content not regenerated
-- Affects all 4 books (~40 scenarios total)
+**Critical Finding (November 3, 2025)**:
+The scenario generator bug fixes only addressed British forces. Axis forces still violate combined arms rules because **the research document itself is incomplete**.
+
+**Example - Scenario 1 "Dawn at Fort Capuzzo"**:
+- Research says: "1 company Italian infantry (80-100 men) + fortifications, 1 platoon German infantry reinforcement (30 men)"
+- ❌ Missing: Anti-tank guns (Italian 47mm, German 50mm PAK 38)
+- ❌ Missing: Artillery support
+- ❌ Missing: Machine gun positions
+- ❌ Result: Pure infantry force cannot counter Matilda II tanks (78mm armor!)
+
+**Historical Reality**:
+Fort Capuzzo was a fortified position that would have had:
+1. Italian 47mm anti-tank guns (standard divisional AT weapons)
+2. Heavy machine guns in defensive positions
+3. Mortar support (81mm Italian mortars)
+4. Artillery support from nearby batteries
+5. German reinforcements would bring 50mm PAK 38 or 88mm FlaK guns
 
 **Tasks**:
-1. Regenerate Battleaxe scenarios (8 scenarios) - Verify fixes work
-2. Regenerate Crusader scenarios (~8 scenarios)
-3. Regenerate Gazala scenarios (~8 scenarios)
-4. Regenerate First Alamein scenarios (~8 scenarios)
-5. Run validation suite on all regenerated scenarios
-6. Verify parsing logs show correct equipment extraction
+1. Review ALL 45 scenarios in `books/scenario_research.md`
+2. For defensive scenarios: Add appropriate AT guns, artillery, support weapons
+3. For attacking scenarios: Verify combined arms (infantry + tanks + artillery)
+4. Cross-reference with Phase 6 unit JSONs for historical accuracy:
+   - Italian divisions: 47mm AT guns, 75mm artillery, 81mm mortars
+   - German divisions: 50mm PAK 38, 88mm FlaK, 105mm artillery
+   - British divisions: 2-pdr/6-pdr AT guns, 25-pdr artillery, Boys AT rifles
+5. Update force descriptions to include ALL equipment types
+6. Regenerate all 45 scenarios with corrected research data
+7. Validate all scenarios pass combined arms requirements (both sides!)
 
 **Success Criteria**:
-- All scenarios include historically accurate units
+- All scenarios include historically accurate units (BOTH SIDES)
 - Infantry organized as platoons (not individuals)
-- Forces comply with official Infantry Requirement Tables
-- Combined arms balance maintained
+- Forces comply with official Infantry Requirement Tables (BOTH SIDES)
+- Combined arms balance maintained (infantry + armor + artillery + AT for both sides)
+- Defensive forces include appropriate AT guns for period
 - Parsing logs show 0 errors
+- Validation reports show 0 combined arms violations
 
 ---
 
@@ -332,21 +352,25 @@ git commit -m "docs(phase9b): Phase 9B COMPLETE - All 4 books production-ready"
 
 ---
 
-## 📊 Estimated Total Remaining Effort (REVISED)
+## 📊 Estimated Total Remaining Effort (REVISED - November 3, 2025)
 
 | Task | Duration | Priority | Blocker? | Status |
 |------|----------|----------|----------|--------|
 | **Fix equipment datacards** | 2-3 hours | P1 CRITICAL | YES | Major gap |
 | **Create Forces/TO&E tables** | 3-4 hours | P2 CRITICAL | YES | Major gap |
-| **Scenario regeneration** | 2-3 hours | P3 CRITICAL | NO | Ready |
+| **Fix scenario research data** | 4-6 hours | P3 CRITICAL | YES | ROOT CAUSE |
+| **Regenerate all 45 scenarios** | 2-3 hours | P3B CRITICAL | NO | After P3 |
 | **Adapt OOB style** | 1-2 hours | P4 HIGH | NO | Enhancement |
 | **Remove attribution** | 15 min | P5 LOW | NO | Quick fix |
 | **PDF generation** | 2-3 hours | P6 REQUIRED | NO | Ready |
 | **Final validation & docs** | 1 hour | - | NO | Final step |
-| **CORE MVP** | **11-16 hours** | - | - | **Essential** |
+| **CORE MVP** | **16-23 hours** | - | - | **Essential** |
 | Appendices review (polish) | 2-3 hours | P7 OPTIONAL | NO | Enhancement |
 | Visual content (optional) | 4-6 hours | P8 OPTIONAL | NO | Deferred |
-| **TOTAL WITH POLISH** | **17-25 hours** | - | - | **Complete** |
+| **TOTAL WITH POLISH** | **22-32 hours** | - | - | **Complete** |
+
+**Key Change**: Scenario research data is incomplete (missing Axis AT guns/artillery). Must fix source data before regeneration.
+**Impact**: +4-6 hours to review and correct all 45 scenarios in research document.
 
 ---
 
@@ -436,13 +460,26 @@ cd books/battleaxe/book && mdbook build
 
 ## 📝 Known Issues (UPDATED November 3, 2025)
 
-### Issues Fixed (Scenario Generation)
+### Issues Fixed (Scenario Generation - British Forces Only)
 - ✅ Regex parsing for plural 'squadrons' (Line 439 fix)
-- ✅ Infantry organization (platoons not individuals)
-- ✅ Combined arms validation
-- ✅ Official rule compliance checking
+- ✅ Infantry organization (platoons not individuals) - British side only
+- ✅ Combined arms validation framework created
+- ✅ Official rule compliance checking implemented
 
 ### Critical Issues Discovered During Review
+
+- ❌ **SCENARIO RESEARCH DATA INCOMPLETE** (Priority 3 - ROOT CAUSE)
+  - **Severity**: CRITICAL - Affects all 45 scenarios
+  - **Issue**: Research document missing Axis defensive equipment
+  - **Example**: Scenario 1 "Fort Capuzzo" - Axis has only infantry, no AT guns to counter Matilda IIs
+  - **Impact**: Axis forces violate combined arms rules in most scenarios
+  - **Required**: Review and correct all 45 scenarios before regeneration
+  - **Missing Equipment Types**:
+    - Italian: 47mm anti-tank guns, 75mm artillery, 81mm mortars, heavy MGs
+    - German: 50mm PAK 38, 88mm FlaK 18/36, 105mm artillery, 150mm artillery
+  - **Estimated Fix**: 4-6 hours to review and correct research data
+  - **Discovery Date**: November 3, 2025 (user reported Axis force composition failure)
+
 - ❌ **Equipment datacards section BLANK in MDBook** (Priority 1)
   - Scripts exist but not integrated
   - Major content gap affecting all 4 books
@@ -452,10 +489,6 @@ cd books/battleaxe/book && mdbook build
   - No Phase 6 unit data in books
   - Script needs to be created
   - Major content gap affecting all 4 books
-
-- ⚠️ **Scenario bugs not fixed in content** (Priority 3)
-  - Fixes committed but scenarios not regenerated
-  - All 40 scenarios affected
 
 - ⚠️ **OOB sections don't match BattleGroup style** (Priority 4)
   - Need minimalist three-column format
