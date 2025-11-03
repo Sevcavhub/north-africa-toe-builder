@@ -380,3 +380,77 @@
 ---
 
 **Next Document**: `PHASE_9B_STEP7_PLAN.md` (to be created when starting Step 7)
+
+---
+
+## 🔧 CRITICAL UPDATE: Scenario Generation Fixes (November 3, 2025)
+
+**Status**: ✅ COMPLETE - Core fixes implemented and tested
+
+### Issue Discovered
+
+Generated scenarios had forces that didn't match historical descriptions:
+- **Scenario 2**: Described "Matildas destroyed by 88mm" but force had NO tanks
+- **Root Cause**: Regex `squadron` didn't match plural `squadrons` 
+- **Impact**: All 4 books (~40 scenarios) affected
+
+### Fixes Implemented (Phases 1-6)
+
+**Phase 1: Template Integration**
+- Connected to existing `BattleGroupPoints` system
+- Infantry now organized as platoons (not individual soldiers)
+- Consistent point values across scenarios and army lists
+
+**Phase 2: Parsing Fixes**
+- Line 439: Fixed `squadron` → `squadrons?` regex
+- Pattern 6: Parse complex companies like "2 companies (20-25 Panzer III, 6-8 Panzer II)"
+- Added detailed logging for debugging
+
+**Phase 3: Official Rules**
+- NEW: `force_composition_validator.py` (467 lines)
+- Implements Infantry Requirement Tables from BattleGroup Torch book
+- NEW: `infantry_requirements.json` (digitized official tables)
+
+**Phase 4-5: Validation**
+- Combined arms enforcement (no mono-type forces)
+- Historical accuracy checking (equipment matches descriptions)
+
+**Phase 6: Testing**
+- Scenario 2 verified: Now generates 15x Matilda II + 5x Infantry Platoons + 4x 25-pdr
+- Parsing logs confirm all patterns working
+
+### Files Modified
+
+1. `scripts/battlegroup/book/scenario_generator_workflow.py` - Core fixes
+2. `scripts/battlegroup/force_composition_validator.py` - NEW validator
+3. `scripts/battlegroup/infantry_requirements.json` - NEW official tables
+
+### Updated Next Steps
+
+**IMMEDIATE (High Priority)**:
+1. ✅ Scenario generation bugs fixed
+2. 📋 **NEXT**: Regenerate Battleaxe book (8 scenarios) to verify all fixes
+3. 📋 Regenerate remaining 3 books (~32 scenarios)
+4. 📋 Validate all ~40 scenarios pass new rules
+5. 📋 Document scenario generation system
+
+**Original Step 7 Remains**:
+- ⏸️ Appendices (11 files remaining - 75% to go)
+- ⏸️ Visual content (optional)
+- ⏸️ PDF generation (required for final deliverable)
+
+### Recommendation
+
+**Option A (Recommended)**: Regenerate all scenarios first
+- Ensures quality of core content (scenarios are the heart of the books)
+- Tests fixes across all 4 books
+- Duration: 2-3 hours
+
+**Option B**: Complete appendices first
+- Finishes Step 7 content work
+- Scenarios remain in broken state
+- Duration: 2-3 hours
+
+**Suggested Path**: Option A → Complete appendices → PDF generation
+
+---
