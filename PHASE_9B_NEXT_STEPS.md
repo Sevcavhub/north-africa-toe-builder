@@ -217,6 +217,63 @@
    - Script: `generate_book_datacards.py` lines 507-544
    - Coverage: 16 linked artillery items
 
+   **MOVEMENT CALCULATOR ENHANCEMENT** (November 4, 2025):
+   - **Status**: ✅ COMPLETE and validated, ❌ BLOCKED by database linkage
+   - **Time Spent**: 3 hours
+   - **Git Commit**: `b1d3e210` feat(movement): Enhance movement calculator with BattleGroup gun/artillery rules
+
+   **What Was Done**:
+   1. ✅ Enhanced `movement_calculator.py` with official BattleGroup gun/artillery rules (p.17, p.29)
+      - Gun weight classification by caliber (very_light <50mm, light 50-75mm, medium 75-105mm, heavy >105mm)
+      - Mortar special rules (medium mortars 3", heavy mortars 1")
+      - Horse-towed gun support (4" off-road / 6" on-road)
+      - Manhandled movement by weight category (3"/2"/1"/0")
+
+   2. ✅ Validated against 57 bg_reference_guns
+      - 55/57 guns validated successfully (96.5%)
+      - 4/4 mortars validated with special rules (100%)
+      - 6/6 boundary cases validated (100%)
+      - 458/472 vehicles within tolerance (97.0% PASS)
+      - **Overall validation: 95.0% PASS rate**
+
+   3. ✅ Created `update_artillery_movement.py` script (375 lines)
+      - Multi-tier caliber extraction (BG reference → WWIITANKS → name parsing)
+      - Dry-run tested: 101/118 artillery items (85.6% extraction success)
+      - Ready to run but BLOCKED by database linkage issue
+
+   **CRITICAL BLOCKER DISCOVERED**:
+   - `equipment_battlegroup` table has custom IDs ("FRA_75MM_M1897", "GER_88MM_FLAK_36")
+   - `equipment` table has `witw_id` column with ALL NULL values
+   - Tables cannot link → UPDATE statements find 0 rows to update
+   - **Root Cause**: Phase 9B created custom ID system before Phase 1-5 equipment schema was populated
+   - **Impact**: Cannot update 118 artillery items until Phase 5.5 fixes database linkage
+
+   **Test Results Summary**:
+   - BG Reference Guns: 55/57 PASS (96.5%)
+   - Mortar Rules: 4/4 PASS (100%)
+   - Boundary Tests: 6/6 PASS (100%)
+   - Vehicle Movement: 458/472 PASS (97.0%)
+   - Artillery Caliber Extraction: 101/118 success (85.6%)
+   - **OVERALL: 624/657 PASS (95.0%)**
+   - See `docs/MOVEMENT_CALCULATOR_TEST_FAILURES.md` for complete failure analysis
+
+   **Failures Breakdown**:
+   - 2 BG reference guns with NULL caliber (missing data)
+   - 14 vehicles with type mismatches (halftracks marked as "tank", etc.)
+   - 17 artillery items failed caliber extraction:
+     - 5 items: cm notation not supported (10.5cm, 8.8cm)
+     - 2 items: Pounder abbreviation variants ("Pdr" vs "pounder")
+     - 4 items: Standard names not matching WWIITANKS (PAK 38, PAK 40, FlaK guns)
+     - 3 items: Italian gun variants not in reference databases
+     - 2 items: No caliber in name (HMGs, light mortars)
+     - 1 item: Missing 18-pounder conversion (need 18-pdr = 84mm)
+
+   **Fix Required** (Phase 5.5 Normalization):
+   - Phase 5.5 Phases 0-4: ✅ COMPLETE (equipment_master_new table created)
+   - Phase 5.5 Phases 5-6: ⏸️ PENDING (this linkage issue is exactly what Phase 5.5 addresses)
+   - Movement calculator and update script ready to run once Phase 5.5 fixes database linkage
+   - Estimated: 58.5 hours remaining in Phase 5.5
+
 6. ⏸️ **Infantry Weapon Cards Format** - **PENDING**
    - Issue: Still using tank/vehicle template for rifles/LMGs
    - Required: Separate template showing ROF, Range, not armor/movement
