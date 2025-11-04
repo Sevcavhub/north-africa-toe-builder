@@ -815,8 +815,8 @@ class BookDatacardGenerator:
     background-color: #d4c5a0;
     box-shadow: 2px 2px 4px rgba(0,0,0,0.3);
     font-family: Arial, sans-serif;
-    min-height: 280px;
-    max-height: 280px;
+    width: 380px;
+    height: 280px;
     overflow: hidden;
 }
 
