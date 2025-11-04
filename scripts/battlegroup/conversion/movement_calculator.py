@@ -2,9 +2,11 @@
 """
 Movement Calculator for BattleGroup
 
-Converts vehicle type/weight to BattleGroup movement (inches).
+Converts vehicle type/weight/caliber to BattleGroup movement (inches).
 
-Based on reference database analysis showing type-based patterns:
+Based on reference database analysis and BattleGroup official rules:
+
+VEHICLES:
 - Heavy tanks: 6" off-road / 10" road
 - Medium tanks: 8-9" off-road / 12-16" road
 - Light tanks: 9-12" off-road / 13-18" road
@@ -13,11 +15,34 @@ Based on reference database analysis showing type-based patterns:
 - Armored cars: 8-18" off-road / 12-26" road (varies widely)
 - Trucks: 6-8" off-road / 16-24" road
 
+GUNS & ARTILLERY (Manhandled - BattleGroup rules p. 17):
+- Very light guns (<50mm): 3" manhandled
+- Light guns (50-75mm): 2" manhandled
+- Medium guns (75-105mm): 1" manhandled
+- Heavy guns (>105mm): 0" (cannot manhandle, must be towed)
+
+MORTARS (BattleGroup rules p. 29):
+- Medium mortars (50-82mm): Count as very light guns = 3" manhandled
+- Heavy mortars (120mm+): Count as medium guns = 1" manhandled
+
+TOWED:
+- Horse-towed guns: 4" off-road / 6" on-road
+- Vehicle-towed: Use vehicle's movement when limbered
+
 Usage:
     from movement_calculator import calculate_movement
 
+    # Vehicles
     mv = calculate_movement(vehicle_type="Medium Tank")
     # Returns {"off_road": 8, "road": 12, "format": "8\"/12\"", "confidence": "high"}
+
+    # Guns/Artillery
+    mv = calculate_movement(caliber_mm=75, equipment_category="Anti-Tank Gun")
+    # Returns {"off_road": 2, "road": 2, "format": "2\"/2\"", "confidence": "high", "note": "Light gun manhandled"}
+
+    # Mortars
+    mv = calculate_movement(caliber_mm=81, equipment_category="Mortar")
+    # Returns {"off_road": 3, "road": 3, "format": "3\"/3\"", "confidence": "high", "note": "Medium mortar (very light gun)"}
 """
 
 import json
@@ -78,16 +103,146 @@ def lookup_movement_by_name(vehicle_name: str) -> Optional[Tuple[int, int, str]]
     return None
 
 
+def classify_gun_weight(caliber_mm: float) -> str:
+    """
+    Classify gun weight category based on caliber (BattleGroup rules p. 17).
+
+    Args:
+        caliber_mm: Gun caliber in millimeters
+
+    Returns:
+        str: Gun weight category ("very_light", "light", "medium", "heavy")
+    """
+    if caliber_mm < 50:
+        return "very_light"  # <50mm: 37mm, 45mm, 47mm AT guns
+    elif caliber_mm < 75:
+        return "light"  # 50-74mm: 50mm PAK, 6-pdr (57mm), 2-pdr
+    elif caliber_mm <= 105:
+        return "medium"  # 75-105mm: 75mm, 76mm, 88mm, 105mm howitzers
+    else:
+        return "heavy"  # >105mm: 150mm, 155mm field guns
+
+
+def calculate_mortar_movement(caliber_mm: float) -> Dict:
+    """
+    Calculate mortar movement using BattleGroup rules (p. 29).
+
+    Medium mortars (80-82mm, 3") = very light guns = 3" manhandled
+    Heavy mortars (120mm, 4.2") = medium guns = 1" manhandled
+
+    Args:
+        caliber_mm: Mortar caliber in millimeters
+
+    Returns:
+        dict: Movement specification with note
+    """
+    if caliber_mm >= 120:
+        # Heavy mortar (120mm, 4.2" / 107mm)
+        return {
+            'off_road': 1,
+            'road': 1,
+            'format': '1"/1"',
+            'confidence': 'high',
+            'method': 'mortar_rules',
+            'note': 'Heavy mortar (medium gun for movement)',
+            'gun_category': 'medium'
+        }
+    else:
+        # Medium mortar (50-82mm range: 50mm, 81mm, 82mm, 3"/76mm)
+        return {
+            'off_road': 3,
+            'road': 3,
+            'format': '3"/3"',
+            'confidence': 'high',
+            'method': 'mortar_rules',
+            'note': 'Medium mortar (very light gun for movement)',
+            'gun_category': 'very_light'
+        }
+
+
+def calculate_gun_movement(
+    caliber_mm: float,
+    equipment_category: Optional[str] = None,
+    is_horse_towed: bool = False
+) -> Dict:
+    """
+    Calculate gun/artillery movement using BattleGroup rules (p. 17).
+
+    Manhandled guns:
+    - Very light (<50mm): 3"
+    - Light (50-75mm): 2"
+    - Medium (75-105mm): 1"
+    - Heavy (>105mm): 0" (cannot manhandle)
+
+    Horse-towed: 4" off-road / 6" on-road
+
+    Args:
+        caliber_mm: Gun caliber in millimeters
+        equipment_category: Category (e.g., "Anti-Tank Gun", "Field Gun", "Howitzer")
+        is_horse_towed: Whether gun is horse-towed
+
+    Returns:
+        dict: Movement specification with gun category
+    """
+    # Horse-towed guns use special movement (BattleGroup rules p. 17)
+    if is_horse_towed:
+        return {
+            'off_road': 4,
+            'road': 6,
+            'format': '4"/6"',
+            'confidence': 'high',
+            'method': 'gun_rules_horse_towed',
+            'note': 'Horse-towed gun'
+        }
+
+    # Manhandled guns - classify by caliber
+    gun_category = classify_gun_weight(caliber_mm)
+
+    movement_by_category = {
+        "very_light": 3,  # <50mm
+        "light": 2,       # 50-75mm
+        "medium": 1,      # 75-105mm
+        "heavy": 0        # >105mm (cannot manhandle)
+    }
+
+    movement = movement_by_category.get(gun_category, 1)
+
+    note_by_category = {
+        "very_light": f"Very light gun ({caliber_mm}mm) manhandled",
+        "light": f"Light gun ({caliber_mm}mm) manhandled",
+        "medium": f"Medium gun ({caliber_mm}mm) manhandled",
+        "heavy": f"Heavy gun ({caliber_mm}mm) - cannot manhandle, requires tow vehicle"
+    }
+
+    return {
+        'off_road': movement,
+        'road': movement,  # Manhandled guns same speed on/off road
+        'format': f'{movement}"/{movement}"',
+        'confidence': 'high',
+        'method': 'gun_rules_manhandled',
+        'note': note_by_category.get(gun_category, f"Gun ({caliber_mm}mm) manhandled"),
+        'gun_category': gun_category
+    }
+
+
 def calculate_movement(
     vehicle_name: Optional[str] = None,
     vehicle_type: Optional[str] = None,
     weight_tonnes: Optional[float] = None,
-    power_hp: Optional[int] = None
+    power_hp: Optional[int] = None,
+    caliber_mm: Optional[float] = None,
+    equipment_category: Optional[str] = None,
+    is_horse_towed: bool = False
 ) -> Dict:
     """
-    Calculate BattleGroup movement from vehicle characteristics.
+    Calculate BattleGroup movement from vehicle/gun/artillery characteristics.
 
-    Uses a lookup-first approach:
+    ROUTING LOGIC:
+    1. If caliber_mm provided + "Mortar" category → Use mortar rules
+    2. If caliber_mm provided → Use gun/artillery rules
+    3. Otherwise → Use vehicle movement logic
+
+    VEHICLE LOGIC:
     1. Try vehicle name lookup in reference table (most accurate)
     2. Fall back to vehicle type formula
     3. Fall back to weight-based estimation
@@ -97,9 +252,12 @@ def calculate_movement(
         vehicle_type: Vehicle type/class (e.g., "Heavy Tank", "Halftrack", "Armored Car")
         weight_tonnes: Optional vehicle weight in tonnes (for refinement)
         power_hp: Optional engine power in horsepower (for refinement)
+        caliber_mm: Gun/mortar caliber in millimeters (for guns/artillery/mortars)
+        equipment_category: Equipment category (e.g., "Anti-Tank Gun", "Mortar", "Field Gun")
+        is_horse_towed: Whether gun is horse-towed (default False = manhandled)
 
     Returns:
-        dict: {"off_road": int, "road": int, "format": str, "confidence": str}
+        dict: {"off_road": int, "road": int, "format": str, "confidence": str, "note": str}
 
     Examples:
         >>> calculate_movement(vehicle_name="Tiger")
@@ -107,8 +265,27 @@ def calculate_movement(
 
         >>> calculate_movement(vehicle_type="Halftrack")
         {'off_road': 12, 'road': 16, 'format': '12"/16"', 'confidence': 'high'}
+
+        >>> calculate_movement(caliber_mm=81, equipment_category="Mortar")
+        {'off_road': 3, 'road': 3, 'format': '3"/3"', 'confidence': 'high', 'note': 'Medium mortar (very light gun)'}
+
+        >>> calculate_movement(caliber_mm=75, equipment_category="Anti-Tank Gun")
+        {'off_road': 1, 'road': 1, 'format': '1"/1"', 'confidence': 'high', 'note': 'Medium gun (75mm) manhandled'}
+
+        >>> calculate_movement(caliber_mm=88, is_horse_towed=True)
+        {'off_road': 4, 'road': 6, 'format': '4"/6"', 'confidence': 'high', 'note': 'Horse-towed gun'}
     """
 
+    # ROUTING: Check if this is gun/artillery/mortar equipment
+    if caliber_mm is not None and caliber_mm > 0:
+        # Route to mortar rules if category indicates mortar
+        if equipment_category and "mortar" in equipment_category.lower():
+            return calculate_mortar_movement(caliber_mm)
+
+        # Route to gun/artillery rules
+        return calculate_gun_movement(caliber_mm, equipment_category, is_horse_towed)
+
+    # VEHICLE MOVEMENT LOGIC BELOW
     # METHOD 1: Try vehicle name lookup first (MOST ACCURATE)
     if vehicle_name:
         lookup_result = lookup_movement_by_name(vehicle_name)
