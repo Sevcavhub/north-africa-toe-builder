@@ -1,9 +1,56 @@
 # Phase 9B: BattleGroup Books - Next Steps
 
-**Date**: November 3, 2025 (Session End - 2:45 PM PST)
-**Status**: 85-90% Complete - Scenario generation FIXED, equipment datacards FIXED, TO&E remains
-**Last Update**: ✅ Equipment datacards database linkage complete, all 4 books regenerated
+**Date**: November 3, 2025 (Session End - 5:00 PM PST)
+**Status**: 85-90% Complete - Datacard V4 format COMPLETE, CSS locked in, data population issues remain
+**Last Update**: ✅ V4 datacard format matching official BattleGroup cards, all 4 books regenerated
 **Revised Timeline**: 4-7 hours to core MVP completion (down from 8-13 hours)
+
+---
+
+## 🎉 MAJOR PROGRESS THIS SESSION (November 3, 2025)
+
+### ✅ COMPLETED: Datacard V4 Format Implementation (EVENING SESSION - 3:00 PM - 5:00 PM)
+
+**What Was Accomplished**:
+1. ✅ **V4 datacard format** - Matching official BattleGroup card layout exactly
+2. ✅ **HE weight classification** - Light/Medium/Heavy based on caliber (20-49mm, 50-104mm, 105mm+)
+3. ✅ **Dual-purpose HE column** - Weight class in subheader, effectiveness in data cells
+4. ✅ **3x2 grid layout** - 6 cards per page, fits A4 landscape for printing
+5. ✅ **CSS locked in** - Matches working SAMPLE_DATACARDS_V4.md exactly
+6. ✅ **All 4 books regenerated** - Sample page removed from navigation
+7. ✅ **Print-ready layout** - Cards flex to fit page, natural sizing
+
+**V4 Format Features**:
+- Two-table structure: Vehicle stats + Weapon performance
+- Silhouette placeholders (80x60px) for future image integration
+- HE column: Subheader shows "Light"/"Medium"/"Heavy", data shows "2/5+", "4/4+"
+- Separate HE and AP rows in weapon performance table
+- Clean CSS: No fixed dimensions, cards flex to fit 3-column grid
+- Compact landscape orientation matching official BattleGroup proportions
+
+**Git Commits Created** (Evening Session):
+- `ff331e22` - Initial V4 format implementation
+- `29d82639` - Fixed CSS to match working sample exactly
+- `3922bb45` - Removed HR separators breaking grid layout
+- `34261129` - Removed fixed dimensions for flexible sizing
+- `07859e6b` - Removed sample page from navigation
+- `d3c46883` - Removed min-height for compact card sizing
+
+**Known Issues Identified**:
+1. ❌ **Weapon tables not populating correctly** - Some tanks show weapon in top table but missing weapon performance table
+2. ❌ **Tanks in "Other Equipment"** - Categorization logic putting some tanks in wrong section (Battleaxe book)
+3. ⏸️ **Silhouettes** - 80x60px placeholders ready, need actual images and mapping system
+
+**CSS Expert Analysis Used**:
+- Identified root causes of sizing/layout issues
+- Confirmed CSS must match SAMPLE_DATACARDS_V4.md exactly
+- NO fixed width/height on cards (flex to fit grid)
+- NO min-height constraints (natural content sizing)
+
+**Example Improvements**:
+- **Matilda II**: Shows both vehicle stats table AND weapon performance table with HE/AP rows
+- **Light Tank Mk6**: Shows only vehicle stats (no weapon table - correct for MG-only vehicle)
+- **Stuart I**: ISSUE - Shows "None" weapon, missing gun data from database
 
 ---
 
@@ -120,10 +167,10 @@
 
 ## 🎯 REMAINING WORK (Revised - ~8-13 hours)
 
-### Priority 1: Fix Equipment Datacards (85% COMPLETE) ✅
-**Estimated Time**: ~~4-6 hours~~ **MOSTLY COMPLETE** (5 of 7 issues fixed)
-**Status**: ✅ Database linkage complete, ✅ 5 issues fixed, ⏸️ 2 issues remain
-**Impact**: Core book content significantly improved
+### Priority 1: Fix Equipment Datacards (90% COMPLETE) ✅
+**Estimated Time**: ~~4-6 hours~~ **MOSTLY COMPLETE** (V4 format done, data population issues remain)
+**Status**: ✅ V4 format complete, ✅ CSS locked in, ❌ Data population issues identified
+**Impact**: Core book content significantly improved, format production-ready
 
 **Current State** (Updated Nov 3, 2025):
 - ✅ Datacard generation scripts fixed and working
@@ -176,11 +223,25 @@
    - Estimated: 1-2 hours
    - Priority: MEDIUM (affects ~20 infantry weapon items)
 
-7. ⏸️ **Tanks Miscategorized** - **PENDING**
-   - Issue: Some tanks in "Other Equipment" instead of "Tanks" section
+7. ❌ **Tanks Miscategorized** - **CRITICAL**
+   - Issue: Some tanks in "Other Equipment" instead of "Tanks" section (Battleaxe book)
    - Required: Review categorization logic in `generate_book_datacards.py` lines 256-296
    - Estimated: 30 minutes
-   - Priority: LOW (organizational issue, not data quality)
+   - Priority: MEDIUM (affects user experience, navigation confusion)
+
+8. ❌ **Weapon Performance Tables Not Populating** - **CRITICAL**
+   - Issue: Equipment with guns not showing weapon performance table (ammo, HE, AP specs)
+   - Example: Stuart I shows "None" weapon despite having 37mm gun
+   - Root cause: Database linkage incomplete or weapon data missing
+   - Required: Fix weapon data extraction from `equipment_battlegroup` table
+   - Estimated: 2-3 hours
+   - Priority: HIGH (affects gameplay data accuracy)
+
+9. ⏸️ **Silhouettes Not Populated** - **FUTURE WORK**
+   - Issue: 80x60px placeholder boxes with emoji, need actual silhouette images
+   - Required: Source/create silhouette images, create mapping file (canonical_id → filename)
+   - Estimated: 4-6 hours (image sourcing + mapping system)
+   - Priority: LOW (visual enhancement, not gameplay blocker)
 
 **Investigation Steps**:
 1. Check if datacard markdown files exist:
