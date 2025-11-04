@@ -144,8 +144,8 @@
 </tr>
 <tr>
 <td>Vehicle</td>
-<td>6</td>
-<td>24</td>
+<td>6"</td>
+<td>24"</td>
 <td>-</td>
 <td>Soft-Skinned</td>
 <td>-</td>
@@ -190,8 +190,8 @@
 </tr>
 <tr>
 <td>Vehicle</td>
-<td>6</td>
-<td>24</td>
+<td>6"</td>
+<td>24"</td>
 <td>-</td>
 <td>Soft-Skinned</td>
 <td>-</td>
@@ -236,8 +236,8 @@
 </tr>
 <tr>
 <td>Vehicle</td>
-<td>8</td>
-<td>12</td>
+<td>8"</td>
+<td>12"</td>
 <td>-</td>
 <td>N</td>
 <td>O</td>
@@ -282,8 +282,8 @@
 </tr>
 <tr>
 <td>Vehicle</td>
-<td>6</td>
-<td>24</td>
+<td>6"</td>
+<td>24"</td>
 <td>-</td>
 <td>Soft-Skinned</td>
 <td>-</td>
@@ -328,8 +328,8 @@
 </tr>
 <tr>
 <td>Vehicle</td>
-<td>8</td>
-<td>12</td>
+<td>8"</td>
+<td>12"</td>
 <td>-</td>
 <td>N</td>
 <td>O</td>
@@ -374,8 +374,8 @@
 </tr>
 <tr>
 <td>Vehicle</td>
-<td>8</td>
-<td>12</td>
+<td>8"</td>
+<td>12"</td>
 <td>-</td>
 <td>N</td>
 <td>O</td>
@@ -420,8 +420,8 @@
 </tr>
 <tr>
 <td>Vehicle</td>
-<td>8</td>
-<td>12</td>
+<td>8"</td>
+<td>12"</td>
 <td>-</td>
 <td>N</td>
 <td>O</td>
@@ -466,8 +466,8 @@
 </tr>
 <tr>
 <td>Armored Car</td>
-<td>8</td>
-<td>12</td>
+<td>8"</td>
+<td>12"</td>
 <td>-</td>
 <td>N</td>
 <td>O</td>
@@ -512,8 +512,8 @@
 </tr>
 <tr>
 <td>Armored Car</td>
-<td>10</td>
-<td>24</td>
+<td>10"</td>
+<td>24"</td>
 <td>-</td>
 <td>N</td>
 <td>O</td>
@@ -558,8 +558,8 @@
 </tr>
 <tr>
 <td>Armored Car</td>
-<td>8</td>
-<td>12</td>
+<td>8"</td>
+<td>12"</td>
 <td>-</td>
 <td>N</td>
 <td>O</td>
@@ -604,8 +604,8 @@
 </tr>
 <tr>
 <td>Vehicle</td>
-<td>8</td>
-<td>12</td>
+<td>8"</td>
+<td>12"</td>
 <td>-</td>
 <td>N</td>
 <td>O</td>
@@ -650,8 +650,8 @@
 </tr>
 <tr>
 <td>Armored Car</td>
-<td>8</td>
-<td>12</td>
+<td>8"</td>
+<td>12"</td>
 <td>-</td>
 <td>N</td>
 <td>O</td>
@@ -696,8 +696,8 @@
 </tr>
 <tr>
 <td>Armored Car</td>
-<td>8</td>
-<td>12</td>
+<td>8"</td>
+<td>12"</td>
 <td>-</td>
 <td>N</td>
 <td>O</td>
@@ -742,8 +742,8 @@
 </tr>
 <tr>
 <td>Vehicle</td>
-<td>8</td>
-<td>12</td>
+<td>8"</td>
+<td>12"</td>
 <td>-</td>
 <td>N</td>
 <td>O</td>
@@ -788,8 +788,8 @@
 </tr>
 <tr>
 <td>Vehicle</td>
-<td>8</td>
-<td>12</td>
+<td>8"</td>
+<td>12"</td>
 <td>-</td>
 <td>N</td>
 <td>O</td>
@@ -834,8 +834,8 @@
 </tr>
 <tr>
 <td>Vehicle</td>
-<td>8</td>
-<td>12</td>
+<td>8"</td>
+<td>12"</td>
 <td>-</td>
 <td>N</td>
 <td>O</td>
@@ -880,8 +880,8 @@
 </tr>
 <tr>
 <td>Vehicle</td>
-<td>8</td>
-<td>12</td>
+<td>8"</td>
+<td>12"</td>
 <td>-</td>
 <td>N</td>
 <td>O</td>
@@ -926,8 +926,8 @@
 </tr>
 <tr>
 <td>Armored Car</td>
-<td>8</td>
-<td>12</td>
+<td>8"</td>
+<td>12"</td>
 <td>-</td>
 <td>N</td>
 <td>O</td>
@@ -972,8 +972,8 @@
 </tr>
 <tr>
 <td>Armored Car</td>
-<td>8</td>
-<td>12</td>
+<td>8"</td>
+<td>12"</td>
 <td>-</td>
 <td>N</td>
 <td>O</td>
@@ -1018,8 +1018,8 @@
 </tr>
 <tr>
 <td>Vehicle</td>
-<td>8</td>
-<td>12</td>
+<td>8"</td>
+<td>12"</td>
 <td>-</td>
 <td>N</td>
 <td>O</td>
@@ -1064,8 +1064,8 @@
 </tr>
 <tr>
 <td>Vehicle</td>
-<td>8</td>
-<td>12</td>
+<td>8"</td>
+<td>12"</td>
 <td>-</td>
 <td>N</td>
 <td>O</td>
@@ -1110,8 +1110,8 @@
 </tr>
 <tr>
 <td>Vehicle</td>
-<td>8</td>
-<td>12</td>
+<td>8"</td>
+<td>12"</td>
 <td>-</td>
 <td>N</td>
 <td>O</td>
@@ -1156,8 +1156,8 @@
 </tr>
 <tr>
 <td>Vehicle</td>
-<td>8</td>
-<td>12</td>
+<td>8"</td>
+<td>12"</td>
 <td>-</td>
 <td>N</td>
 <td>O</td>
@@ -1202,8 +1202,8 @@
 </tr>
 <tr>
 <td>Vehicle</td>
-<td>8</td>
-<td>12</td>
+<td>8"</td>
+<td>12"</td>
 <td>-</td>
 <td>N</td>
 <td>O</td>

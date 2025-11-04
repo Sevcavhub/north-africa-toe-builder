@@ -1,9 +1,65 @@
 # Phase 9B BattleGroup System - Session Summary
 
-**Date**: October 31 - November 4, 2025 (Updated Nov 4 - Phase 5.5 Complete)
-**Duration**: ~30 hours total (Steps 1-5 complete, Step 7 ~70% complete, Phase 5.5 complete)
-**Phase**: 9B - BattleGroup Book Generation (paused Nov 3-4 for Phase 5.5 normalization)
-**Status**: Phase 5.5 ✅ COMPLETE - Database normalization done, Phase 9B ready to resume
+**Date**: October 31 - November 4, 2025 (Updated Nov 4 - Movement Calculator 100% Complete)
+**Duration**: ~33 hours total (Steps 1-5 complete, Step 7 ~75% complete, Phase 5.5 complete, Movement 100%)
+**Phase**: 9B - BattleGroup Book Generation
+**Status**: Movement Calculator ✅ 100% COMPLETE - All equipment movement values validated and correct
+
+---
+
+## 🎯 Movement Calculator 100% Complete (November 4, 2025)
+
+**Achievement**: All 469 equipment items now have correct movement values with 100% accuracy
+
+**Status**: ✅ **COMPLETE** (3 hours) - Up from 97% (458/472) to 100% (469/469)
+
+**Issues Fixed**:
+1. **Artillery Movement Rules** (125 items):
+   - ❌ Artillery using vehicle formulas (8"/12") instead of caliber-based manhandling
+   - ✅ Fixed 108 items via automated `update_artillery_movement.py` script
+   - ✅ Fixed 6 items manually (Italian DA notation, German reversed names, British Boys rifle)
+   - ✅ Fixed 11 duplicate items (Pak 38/40, Flak 36, 18-pdr variants)
+
+2. **105mm Classification Bug** (2 items):
+   - ❌ 105mm guns classified as "medium" (1"/1") should be "heavy" (0"/0")
+   - ✅ Fixed `movement_calculator.py`: Changed `<= 105` to `< 105`
+   - ✅ Fixed American M2A1 105mm howitzers
+
+3. **Placeholder Data Bug** (4 items):
+   - ❌ SdKfz 251, 10, 232 variants had 222" movement placeholder
+   - ✅ Fixed to correct 8"/12" for halftracks and armored cars
+
+4. **Aircraft Movement Display** (74 items):
+   - ❌ Aircraft showing "8/12" placeholder values
+   - ✅ Set to NULL in database, displays as "*" in datacards
+   - ✅ Updated `generate_book_datacards.py` to handle aircraft category
+
+**Movement Distribution**:
+- Heavy Guns (0"/0", cannot manhandle): 25 items (105mm+ howitzers, 150mm guns)
+- Medium Guns (1"/1" manhandled): ~40 items (75-104mm: 88mm FlaK, 100mm howitzers)
+- Light Guns (2"/2" manhandled): ~35 items (50-74mm: PAK 38/40, 6-pdr, 17-pdr)
+- Very Light Guns (3"/3" manhandled): ~25 items (<50mm: PAK 36, 2-pdr, 20mm AA, Boys rifle)
+- Vehicles (6-14" powered): 270 items (tanks, trucks, halftracks, armored cars)
+- Aircraft ("*" no ground movement): 74 items (fighters, bombers, reconnaissance)
+
+**Scripts Updated**:
+- `movement_calculator.py` - Fixed 105mm cutoff (line 120)
+- `update_artillery_movement.py` - Fixed JOIN + WHERE clause
+- `generate_book_datacards.py` - Added aircraft handling (lines 516-577)
+
+**SQL Scripts Created**:
+- `manual_artillery_update.sql` - 6 items with tricky names
+- `update_duplicate_artillery.sql` - 11 duplicate items
+- `fix_105mm_guns.sql` - 2 American howitzers
+- `fix_222_movement_bug.sql` - 4 placeholder bugs
+- `set_aircraft_movement_null.sql` - 74 aircraft
+
+**Duplication Analysis**:
+- Root cause: Phase 5.5 treated "5.0cm" vs "50mm" vs "Pak 38 5.0cm" as different items
+- Example: Pak 38 has 4 separate master_id entries (should be 1 with 4 variants)
+- Merge strategy deferred to future Phase 5.6 to avoid breaking 402 Phase 6 unit JSON references
+
+**Validation**: Zero NULL values (except aircraft by design), zero placeholder bugs, zero incorrect formulas, 100% coverage
 
 ---
 

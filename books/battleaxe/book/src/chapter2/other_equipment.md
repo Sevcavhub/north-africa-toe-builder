@@ -144,8 +144,8 @@
 </tr>
 <tr>
 <td>Unknown</td>
-<td>8</td>
-<td>12</td>
+<td>8"</td>
+<td>12"</td>
 <td>-</td>
 <td>N</td>
 <td>O</td>
@@ -190,8 +190,8 @@
 </tr>
 <tr>
 <td>Aircraft</td>
-<td>8</td>
-<td>12</td>
+<td>*</td>
+<td>*</td>
 <td>-</td>
 <td>N</td>
 <td>O</td>
@@ -236,8 +236,8 @@
 </tr>
 <tr>
 <td>Aircraft</td>
-<td>8</td>
-<td>12</td>
+<td>*</td>
+<td>*</td>
 <td>-</td>
 <td>N</td>
 <td>O</td>
@@ -282,8 +282,8 @@
 </tr>
 <tr>
 <td>Aircraft</td>
-<td>8</td>
-<td>12</td>
+<td>*</td>
+<td>*</td>
 <td>-</td>
 <td>N</td>
 <td>O</td>
@@ -328,8 +328,8 @@
 </tr>
 <tr>
 <td>Unknown</td>
-<td>8</td>
-<td>12</td>
+<td>8"</td>
+<td>12"</td>
 <td>-</td>
 <td>N</td>
 <td>O</td>
@@ -374,8 +374,8 @@
 </tr>
 <tr>
 <td>Unknown</td>
-<td>8</td>
-<td>12</td>
+<td>8"</td>
+<td>12"</td>
 <td>-</td>
 <td>N</td>
 <td>O</td>
@@ -420,8 +420,8 @@
 </tr>
 <tr>
 <td>Unknown</td>
-<td>8</td>
-<td>12</td>
+<td>8"</td>
+<td>12"</td>
 <td>-</td>
 <td>N</td>
 <td>O</td>

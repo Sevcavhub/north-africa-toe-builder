@@ -1,7 +1,7 @@
 # North Africa TO&E Builder - Complete Project Scope
 
-**Version**: 1.6.0
-**Last Updated**: 2025-11-02 (Phase 9B COMPLETE - All 4 BattleGroup books with appendices, builds, PDF scripts)
+**Version**: 1.6.1
+**Last Updated**: 2025-11-04 (Phase 9B Movement Complete - 100% equipment movement coverage with caliber-based artillery rules)
 **Status**: 🟢 LIVING DOCUMENT - Subject to updates
 
 <!-- AUTO-UPDATED: START - Progress Stats -->
@@ -1015,11 +1015,14 @@ Due to the **Phase 7 design pivot** (quarterly theater summaries instead of per-
 
 **Completed**:
 - ✅ **Step 1**: Reference database (500 vehicles, 57 guns from BattleGroup PDFs)
-- ✅ **Step 2**: Conversion formula suite (ALL 4 tools @ 97-100% accuracy)
+- ✅ **Step 2**: Conversion formula suite (ALL 4 tools @ 100% accuracy) ✨ UPDATED Nov 4
   - HE Calculator: 100% accuracy (25/25 guns)
   - Penetration Converter: 100% accuracy (9/9 guns)
   - Armor Converter: 100% accuracy (100/100 vehicles)
-  - Movement Calculator: 97% accuracy (458/472 vehicles)
+  - Movement Calculator: 100% accuracy (469/469 items) ✨ **COMPLETE Nov 4, 2025**
+    - Artillery: 125 items with caliber-based manhandling rules (0"/0" to 3"/3")
+    - Vehicles: 270 items with power/weight formulas (6"/8" to 14"/24")
+    - Aircraft: 74 items with NULL (displays as "*" in datacards)
 - ✅ **Step 3**: Points/BR System (595 entries from 7 documents, 4 calculators @ 90-100% accuracy)
   - Points Calculator: 93.6% accuracy (454 units)
   - Defence Calculator: 100% accuracy (55 defences)
@@ -2071,10 +2074,40 @@ This scope is achievable, professionally valuable, and commercially marketable.
 - **Commercial Impact**: Second major export format (WITW + BattleGroup), increases product value for Kickstarter
 - **Documentation Created**: Comprehensive BattleGroup research report analyzing game mechanics, data requirements, conversion formulas
 
+### v1.6.1 (2025-11-04) - Phase 9B Movement Calculator 100% Complete
+- **Movement Calculator Achievement**: 100% accuracy (469/469 items) - UP from 97% (458/472)
+- **Artillery Movement Rules Fixed**: Implemented caliber-based manhandling rules for 125 artillery items
+  - Heavy guns (105mm+): 0"/0" (cannot manhandle, requires tow vehicle) - 25 items
+  - Medium guns (75-104mm): 1"/1" manhandled - ~40 items
+  - Light guns (50-74mm): 2"/2" manhandled - ~35 items
+  - Very light guns (<50mm): 3"/3" manhandled - ~25 items
+- **Issues Fixed**:
+  1. **Artillery using vehicle formulas** (125 items): Artillery had incorrect 8"/12" movement using vehicle formulas instead of caliber-based manhandling rules
+     - Fixed 108 items via automated `update_artillery_movement.py` script
+     - Fixed 6 items manually (Italian DA notation, German reversed names, British Boys rifle)
+     - Fixed 11 duplicate items (Pak 38/40, Flak 36, 18-pdr variants)
+  2. **105mm classification bug** (2 items): 105mm guns classified as "medium" (1"/1") instead of "heavy" (0"/0")
+     - Fixed `movement_calculator.py`: Changed `<= 105` to `< 105`
+     - Fixed American M2A1 105mm howitzers
+  3. **Placeholder data bug** (4 items): SdKfz 251, 10, 232 variants had 222" movement placeholder
+     - Fixed to correct 8"/12" for halftracks and armored cars
+  4. **Aircraft movement display** (74 items): Aircraft showing "8/12" placeholder values
+     - Set to NULL in database, displays as "*" in datacards
+     - Updated `generate_book_datacards.py` to handle aircraft category
+- **Scripts Updated**:
+  - `movement_calculator.py` - Fixed 105mm cutoff (line 120: `<= 105` → `< 105`)
+  - `update_artillery_movement.py` - Fixed JOIN column (witw_id → canonical_id) + WHERE clause (added 'artillery' category)
+  - `generate_book_datacards.py` - Added aircraft handling (lines 516-522)
+- **Duplication Analysis**: Identified root cause - Phase 5.5 normalization treated "5.0cm" vs "50mm" vs "Pak 38 5.0cm" as different items
+  - 4 entries for Pak 38 alone (should be 1 master_id with 4 variants)
+  - Merge strategy deferred to future Phase 5.6 to avoid breaking 402 Phase 6 unit JSON references
+- **Database Quality**: Zero NULL values (except aircraft by design), zero placeholder bugs, 100% coverage with appropriate generation methods
+- **Next Priority**: Weapon Coverage (HE/AP values) or Forces/TO&E table extraction
+
 ### Future Updates:
-- **v1.5.0** (TBD): [Phase 9B Step 1-3 Complete - Reference database and conversion formulas]
-- **v1.6.0** (TBD): [Phase 9B Complete - First BattleGroup books generated]
-- **v1.7.0** (TBD): [Phase 9C-9D - Additional game systems]
+- **v1.7.0** (TBD): [Phase 9B Weapon Coverage - HE/AP penetration values]
+- **v1.8.0** (TBD): [Phase 9B Forces/TO&E Tables - Complete organizational hierarchies]
+- **v1.9.0** (TBD): [Phase 9C-9D - Additional game systems]
 
 ---
 
@@ -2096,7 +2129,7 @@ When updating PROJECT_SCOPE.md:
 
 ---
 
-**END OF PROJECT SCOPE v1.0.7**
+**END OF PROJECT SCOPE v1.6.1**
 
 **All agents, all sessions, all future work must reference this document.**
 

@@ -144,8 +144,8 @@
 </tr>
 <tr>
 <td>Artillery</td>
-<td>8</td>
-<td>12</td>
+<td>3"</td>
+<td>3"</td>
 <td>-</td>
 <td>N</td>
 <td>O</td>
@@ -190,8 +190,8 @@
 </tr>
 <tr>
 <td>Artillery</td>
-<td>8</td>
-<td>12</td>
+<td>3"</td>
+<td>3"</td>
 <td>-</td>
 <td>N</td>
 <td>O</td>
@@ -236,8 +236,8 @@
 </tr>
 <tr>
 <td>Unknown</td>
-<td>8</td>
-<td>12</td>
+<td>8"</td>
+<td>12"</td>
 <td>-</td>
 <td>N</td>
 <td>O</td>

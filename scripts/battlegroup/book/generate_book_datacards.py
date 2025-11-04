@@ -513,44 +513,68 @@ class BookDatacardGenerator:
         armor_side = row['armor_side'] or '-'
         armor_rear = row['armor_rear'] or '-'
 
+        # Check if aircraft (no ground movement)
+        is_aircraft = row['category'] in ('aircraft', 'fighters', 'bombers', 'dive_bombers', 'reconnaissance')
+
+        if is_aircraft:
+            # Aircraft have no ground movement - display as *
+            off_road = '*'
+            road = '*'
         # Fix gun movement speeds (BattleGroup rules for manhandled guns)
         # If this is a towed gun/mortar, apply correct manhandled speeds
-        is_towed_gun = row['reference_gun_id'] is not None or any(x in row['name'].lower() for x in ['pak', 'pounder', 'howitzer', 'flak', 'mortar'])
+        elif row['reference_gun_id'] is not None or any(x in row['name'].lower() for x in ['pak', 'pounder', 'howitzer', 'flak', 'mortar']):
+            is_towed_gun = True
 
-        if is_towed_gun and row['reference_gun_id']:
-            # Get caliber from bg_reference_guns
-            cursor.execute("""
-                SELECT caliber_mm
-                FROM bg_reference_guns
-                WHERE id = ?
-            """, (row['reference_gun_id'],))
-            gun_cal = cursor.fetchone()
-            caliber_mm = None
-            if gun_cal and gun_cal['caliber_mm']:
-                caliber_mm = gun_cal['caliber_mm']
+            if row['reference_gun_id']:
+                # Get caliber from bg_reference_guns
+                cursor.execute("""
+                    SELECT caliber_mm
+                    FROM bg_reference_guns
+                    WHERE id = ?
+                """, (row['reference_gun_id'],))
+                gun_cal = cursor.fetchone()
+                caliber_mm = None
+                if gun_cal and gun_cal['caliber_mm']:
+                    caliber_mm = gun_cal['caliber_mm']
 
-            # Apply BattleGroup manhandled gun movement rules
-            if caliber_mm:
-                if caliber_mm < 50:  # Very Light (mortars, <50mm)
-                    off_road = '3"'
-                    road = '3"'
-                elif 50 <= caliber_mm < 75:  # Light (50-57mm AT)
-                    off_road = '2"'
-                    road = '2"'
-                elif 75 <= caliber_mm < 100:  # Medium (75-88mm)
-                    off_road = '1"'
-                    road = '1"'
-                else:  # Heavy (105mm+)
-                    off_road = '0"'
-                    road = '0" (must be towed)'
+                # Apply BattleGroup manhandled gun movement rules
+                if caliber_mm:
+                    if caliber_mm < 50:  # Very Light (mortars, <50mm)
+                        off_road = '3"'
+                        road = '3"'
+                    elif 50 <= caliber_mm < 75:  # Light (50-57mm AT)
+                        off_road = '2"'
+                        road = '2"'
+                    elif 75 <= caliber_mm < 105:  # Medium (75-104mm)
+                        off_road = '1"'
+                        road = '1"'
+                    else:  # Heavy (105mm+)
+                        off_road = '0"'
+                        road = '0" (must be towed)'
+                else:
+                    # Fallback: use existing values or default
+                    off_road = row['off_road_movement'] or '1"'
+                    road = row['road_movement'] or '1"'
             else:
-                # Fallback: use existing values or default
-                off_road = row['off_road_movement'] or '1"'
-                road = row['road_movement'] or '1"'
+                # Towed gun without reference - use database values
+                if row['off_road_movement'] is not None:
+                    off_road = f"{row['off_road_movement']}\""
+                else:
+                    off_road = '1"'
+                if row['road_movement'] is not None:
+                    road = f"{row['road_movement']}\""
+                else:
+                    road = '1"'
         else:
             # Not a towed gun, use vehicle speeds
-            off_road = row['off_road_movement'] or '-'
-            road = row['road_movement'] or '-'
+            if row['off_road_movement'] is not None:
+                off_road = f"{row['off_road_movement']}\""
+            else:
+                off_road = '-'
+            if row['road_movement'] is not None:
+                road = f"{row['road_movement']}\""
+            else:
+                road = '-'
 
         he_format = row['he_format'] or '-'
 

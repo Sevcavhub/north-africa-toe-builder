@@ -117,10 +117,10 @@ def classify_gun_weight(caliber_mm: float) -> str:
         return "very_light"  # <50mm: 37mm, 45mm, 47mm AT guns
     elif caliber_mm < 75:
         return "light"  # 50-74mm: 50mm PAK, 6-pdr (57mm), 2-pdr
-    elif caliber_mm <= 105:
-        return "medium"  # 75-105mm: 75mm, 76mm, 88mm, 105mm howitzers
+    elif caliber_mm < 105:
+        return "medium"  # 75-104mm: 75mm, 76mm, 88mm, 100mm howitzers
     else:
-        return "heavy"  # >105mm: 150mm, 155mm field guns
+        return "heavy"  # 105mm+: 105mm, 150mm, 155mm field guns/howitzers
 
 
 def calculate_mortar_movement(caliber_mm: float) -> Dict:
@@ -171,8 +171,8 @@ def calculate_gun_movement(
     Manhandled guns:
     - Very light (<50mm): 3"
     - Light (50-75mm): 2"
-    - Medium (75-105mm): 1"
-    - Heavy (>105mm): 0" (cannot manhandle)
+    - Medium (75-104mm): 1"
+    - Heavy (105mm+): 0" (cannot manhandle)
 
     Horse-towed: 4" off-road / 6" on-road
 

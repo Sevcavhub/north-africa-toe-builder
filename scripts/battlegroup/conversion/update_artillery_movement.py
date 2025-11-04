@@ -136,7 +136,7 @@ def get_caliber_from_wwiitanks(conn: sqlite3.Connection, equipment_id: str, equi
         SELECT g.caliber_mm, g.name
         FROM equipment e
         JOIN guns g ON e.wwiitanks_id = g.wwiitanks_id
-        WHERE e.witw_id = ?
+        WHERE e.canonical_id = ?
         AND g.caliber_mm IS NOT NULL
     """, (equipment_id,))
 
@@ -205,17 +205,16 @@ def update_artillery_movement(dry_run: bool = False):
     # Get artillery items needing movement updates
     cursor.execute("""
         SELECT
-            e.witw_id,
+            e.canonical_id,
             e.name,
             e.category,
             e.equipment_type,
             eb.off_road_movement,
             eb.road_movement
         FROM equipment e
-        LEFT JOIN equipment_battlegroup eb ON e.witw_id = eb.equipment_id
+        LEFT JOIN equipment_battlegroup eb ON e.canonical_id = eb.equipment_id
         WHERE (e.equipment_type = 'artillery'
-               OR e.category IN ('anti_tank_guns', 'anti_aircraft_guns', 'field_artillery', 'anti_tank', 'anti_aircraft'))
-          AND (eb.off_road_movement IS NULL OR eb.road_movement IS NULL)
+               OR e.category IN ('artillery', 'anti_tank_guns', 'anti_aircraft_guns', 'field_artillery', 'anti_tank', 'anti_aircraft', 'towed_artillery'))
         ORDER BY e.name
     """)
 

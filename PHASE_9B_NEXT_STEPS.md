@@ -1,10 +1,33 @@
 # Phase 9B: BattleGroup Books - Next Steps
 
 **Date**: November 4, 2025
-**Status**: Phase 5.5 Database Normalization ✅ COMPLETE - Phase 9B can resume
-**Last Update**: ✅ Phase 5.5 COMPLETE (Phases A-D) - QA validation passed (14/14 tests)
+**Status**: Movement Calculator ✅ 100% COMPLETE - Weapon coverage next priority
+**Last Update**: ✅ Movement Calculator COMPLETE (469/469 items, 100% accuracy)
 **Database Status**: 1,129 unique items in master table, 2,234 name variants, 100% coverage
-**Phase 9B Timeline**: Ready to resume equipment linkage expansion (20% → 100%)
+**Phase 9B Timeline**: Equipment linkage at 20.5% (96/469) - weapon coverage or Forces/TO&E tables next
+
+---
+
+## 🎉 MOVEMENT CALCULATOR 100% COMPLETE (November 4, 2025)
+
+### ✅ COMPLETED: All Equipment Movement Values (469/469)
+
+**Status**: ✅ **COMPLETE** - Up from 97% (458/472) to 100% (469/469)
+
+**Achievement**: All equipment items now have correct movement values with proper BattleGroup rules
+
+**Issues Fixed**:
+1. **Artillery Movement Rules** (125 items) - Caliber-based manhandling rules implemented
+2. **105mm Classification Bug** (2 items) - Fixed heavy gun threshold (>= 105mm)
+3. **Placeholder Data Bug** (4 items) - Fixed 222" placeholder to correct 8"/12"
+4. **Aircraft Movement Display** (74 items) - Set to NULL, displays as "*" in datacards
+
+**Scripts Updated**:
+- `movement_calculator.py` - Fixed 105mm cutoff
+- `update_artillery_movement.py` - Fixed JOIN and WHERE clause
+- `generate_book_datacards.py` - Added aircraft category handling
+
+**Database State**: Zero NULL values (except aircraft by design), zero placeholders, 100% coverage with appropriate generation methods
 
 ---
 
