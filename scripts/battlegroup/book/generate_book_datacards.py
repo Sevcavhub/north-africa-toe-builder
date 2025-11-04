@@ -787,7 +787,7 @@ class BookDatacardGenerator:
                 # Write title
                 f.write(f"# {category}\n\n")
 
-                # Write CSS
+                # Write CSS (EXACT copy from working SAMPLE_DATACARDS_V4.md)
                 css = """<style>
 @media print {
     @page {
@@ -807,10 +807,8 @@ class BookDatacardGenerator:
 .datacard-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-auto-rows: minmax(280px, auto);
     gap: 15px;
     margin: 20px 0;
-    align-items: start;
 }
 
 .datacard {
@@ -819,10 +817,6 @@ class BookDatacardGenerator:
     background-color: #d4c5a0;
     box-shadow: 2px 2px 4px rgba(0,0,0,0.3);
     font-family: Arial, sans-serif;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    min-height: 280px;
 }
 
 .datacard-header {
@@ -874,7 +868,6 @@ class BookDatacardGenerator:
     border-collapse: collapse;
     margin: 4px 0;
     font-size: 8px;
-    flex-shrink: 0;
 }
 
 .datacard th {
