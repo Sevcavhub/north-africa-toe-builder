@@ -274,13 +274,13 @@ class BookDatacardGenerator:
             if any(x in name for x in ['rifle', 'bren', 'boys', 'thompson', 'mp40', 'mp38', 'sten', 'carcano', 'enfield']):
                 category = 'Infantry Weapons'
             # 2. Tanks (actual armored fighting vehicles with "tank" in name)
-            elif any(x in name for x in [' tank', 'panzer', 'sherman', 'matilda', 'valentine', 'crusader', 'grant', 'stuart', 'tiger']):
+            elif any(x in name for x in [' tank', 'panzer', 'sherman', 'matilda', 'valentine', 'crusader', 'grant', 'stuart', 'tiger', 'cruiser', 'churchill']):
                 # But exclude "fuel tankers" and metadata
                 if 'tanker' not in name and 'total' not in name:
                     category = 'Tanks'
                 else:
                     category = 'Support Equipment'
-            elif 'tank' in eq_type and 'tank' not in eq_category and 'tanker' not in name:
+            elif 'tank' in eq_type and 'tanker' not in name:
                 category = 'Tanks'
             # 3. Guns & Artillery (towed/self-propelled guns, howitzers, mortars)
             elif any(x in name for x in ['pounder', 'howitzer', 'mortar', 'pak', 'flak', 'gun', 'artillery']):
