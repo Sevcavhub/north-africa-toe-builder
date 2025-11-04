@@ -28,7 +28,6 @@
 
 # Equipment Datacards
 
-- [SAMPLE FORMAT V4 (FINAL)](./chapter2/SAMPLE_DATACARDS_V4.md)
 - [Tanks](./chapter2/tanks.md)
 - [Vehicles](./chapter2/vehicles.md)
 - [Guns & Artillery](./chapter2/guns_and_artillery.md)

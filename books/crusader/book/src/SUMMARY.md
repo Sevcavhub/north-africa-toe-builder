@@ -1,4 +1,4 @@
-# Operation Crusader
+# Operation Battleaxe
 
 [Introduction](./intro.md)
 
@@ -19,10 +19,6 @@
   - [Scenario 6](./scenarios/scenario_06.md)
   - [Scenario 7](./scenarios/scenario_07.md)
   - [Scenario 8](./scenarios/scenario_08.md)
-  - [Scenario 9](./scenarios/scenario_09.md)
-  - [Scenario 10](./scenarios/scenario_10.md)
-  - [Scenario 11](./scenarios/scenario_11.md)
-  - [Scenario 12](./scenarios/scenario_12.md)
 
 # Forces
 

@@ -1,4 +1,4 @@
-# First Battle of El Alamein
+# Operation Battleaxe
 
 [Introduction](./intro.md)
 
@@ -19,8 +19,6 @@
   - [Scenario 6](./scenarios/scenario_06.md)
   - [Scenario 7](./scenarios/scenario_07.md)
   - [Scenario 8](./scenarios/scenario_08.md)
-  - [Scenario 9](./scenarios/scenario_09.md)
-  - [Scenario 10](./scenarios/scenario_10.md)
 
 # Forces
 

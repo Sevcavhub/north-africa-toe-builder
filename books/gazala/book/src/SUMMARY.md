@@ -1,4 +1,4 @@
-# The Battle of Gazala
+# Operation Battleaxe
 
 [Introduction](./intro.md)
 
@@ -19,20 +19,12 @@
   - [Scenario 6](./scenarios/scenario_06.md)
   - [Scenario 7](./scenarios/scenario_07.md)
   - [Scenario 8](./scenarios/scenario_08.md)
-  - [Scenario 9](./scenarios/scenario_09.md)
-  - [Scenario 10](./scenarios/scenario_10.md)
-  - [Scenario 11](./scenarios/scenario_11.md)
-  - [Scenario 12](./scenarios/scenario_12.md)
-  - [Scenario 13](./scenarios/scenario_13.md)
-  - [Scenario 14](./scenarios/scenario_14.md)
-  - [Scenario 15](./scenarios/scenario_15.md)
 
 # Forces
 
 - [British Forces](./army_lists/british.md)
 - [German Forces](./army_lists/german.md)
 - [Italian Forces](./army_lists/italian.md)
-- [Free French Forces](./army_lists/french.md)
 
 # Equipment Datacards
 
