@@ -784,19 +784,151 @@ class BookDatacardGenerator:
             output_file = output_dir / category_file
 
             with open(output_file, 'w', encoding='utf-8') as f:
+                # Write title
                 f.write(f"# {category}\n\n")
 
+                # Write CSS
+                css = """<style>
+@media print {
+    @page {
+        size: A4 landscape;
+        margin: 10mm;
+    }
+
+    .datacard-grid {
+        page-break-after: always;
+    }
+
+    .datacard {
+        page-break-inside: avoid;
+    }
+}
+
+.datacard-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.datacard {
+    border: 3px solid #2c2416;
+    padding: 8px;
+    background-color: #d4c5a0;
+    box-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    font-family: Arial, sans-serif;
+}
+
+.datacard-header {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 8px;
+    align-items: center;
+}
+
+.datacard-silhouette {
+    width: 80px;
+    height: 60px;
+    background-color: #1a1a1a;
+    border: 1px solid #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.datacard-silhouette img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+}
+
+.datacard-title-block {
+    flex: 1;
+    text-align: right;
+}
+
+.datacard-title {
+    font-weight: bold;
+    font-size: 14px;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.datacard-subtitle {
+    font-size: 9px;
+    font-style: italic;
+    margin: 2px 0 0 0;
+    line-height: 1.2;
+}
+
+.datacard table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 4px 0;
+    font-size: 8px;
+}
+
+.datacard th {
+    background-color: #8b7355;
+    color: white;
+    font-weight: bold;
+    padding: 2px 3px;
+    border: 1px solid #2c2416;
+    text-align: center;
+    font-size: 7px;
+    line-height: 1.1;
+}
+
+.datacard td {
+    background-color: #f5f5dc;
+    border: 1px solid #2c2416;
+    padding: 2px 3px;
+    text-align: center;
+    font-size: 8px;
+    line-height: 1.1;
+}
+
+.datacard .main-header {
+    font-size: 8px;
+    font-weight: bold;
+}
+</style>
+
+---
+
+"""
+                f.write(css)
+
+                # Group equipment by nation
                 current_nation = None
-                for equipment in unique_equipment:
-                    # Add nation header
+                grid_open = False
+
+                for i, equipment in enumerate(unique_equipment):
+                    # Check if we're starting a new nation
                     if equipment['nation'] != current_nation:
+                        # Close previous grid if open
+                        if grid_open:
+                            f.write("</div>\n\n")
+                            grid_open = False
+
+                        # Write nation header
                         current_nation = equipment['nation']
-                        f.write(f"\n## {current_nation.title()}\n\n")
+                        f.write(f"## {current_nation.title()}\n\n")
+
+                        # Open new grid
+                        f.write('<div class="datacard-grid">\n\n')
+                        grid_open = True
 
                     # Generate datacard
                     datacard = self.generate_datacard_markdown(equipment, 'r')
                     f.write(datacard)
                     f.write('\n')
+
+                # Close final grid if open
+                if grid_open:
+                    f.write("</div>\n")
 
             print(f"  -> {output_file.name}")
 
