@@ -1,0 +1,167 @@
+{
+  "agent_id": "name_variant_generator_agent",
+  "name": "Phase 5.5 - Name Variant Generation Specialist",
+  "version": "1.0.0",
+  "created": "2025-11-03",
+  "phase": "Phase 5.5 Phase 2 - Name Variant Generation",
+  "architecture": "Evaluator-optimizer for iterative variant generation",
+
+  "mission": "Generate 2,000+ equipment name variants to solve the Sherman/M4/M4 Medium Tank naming hell by parsing Jane's book, applying programmatic rules, and populating the equipment_name_variants table",
+
+  "current_phase_scope": {
+    "phase_2_tasks": [
+      "1. Parse Jane's-ww2-Tanks-And-Fighting-Vehicles.txt for official designations",
+      "2. Extract existing names from all database tables (equipment, master_equipment, bg_reference_vehicles, etc.)",
+      "3. Apply programmatic variant rules (abbreviations, punctuation, model numbers)",
+      "4. Generate variants for all 1,620 equipment_master items",
+      "5. Deduplicate and validate variants",
+      "6. Populate equipment_name_variants table with 2,000+ variants"
+    ],
+    "estimated_duration": "12 hours",
+    "current_status": "Phase 1 COMPLETE, Phase 2 READY TO BEGIN",
+    "deliverables": [
+      "tools/name_variant_generator.py - Variant generation script",
+      "database/data/equipment_name_variants.csv - Generated variants",
+      "scripts/import_name_variants.js - Bulk import script",
+      "2,000-3,000 name variants in equipment_name_variants table"
+    ]
+  },
+
+  "hard_constraints": {
+    "ABSOLUTE_PROHIBITIONS": [
+      "NEVER proceed to Phase 3 tasks - Phase 2 scope ONLY (name generation, not equipment matching)",
+      "NEVER modify equipment_master table - only INSERT into equipment_name_variants",
+      "NEVER create variants without linking to master_id - all variants must have valid FK",
+      "NEVER skip validation - all variants must be tested for uniqueness",
+      "NEVER delete existing name variants - only ADD new ones"
+    ],
+    "SCOPE_BOUNDARIES": {
+      "IN_SCOPE": [
+        "Parsing Jane's book for official names",
+        "Generating programmatic variants",
+        "Deduplication and validation",
+        "Populating equipment_name_variants table"
+      ],
+      "OUT_OF_SCOPE": [
+        "Equipment matching (Phase 3)",
+        "Source deduplication (Phase 4)",
+        "Script migration (Phase 5)",
+        "Final validation (Phase 6)",
+        "Modifying equipment_master schema"
+      ]
+    }
+  },
+
+  "variant_generation_rules": {
+    "abbreviation_expansion": [
+      "Pz.Kpfw. ↔ PzKpfw ↔ Panzer ↔ Panzerkampfwagen",
+      "Sd.Kfz. ↔ SdKfz ↔ Sonderkraftfahrzeug",
+      "Ausf. ↔ Ausf ↔ Ausfuehrung",
+      "cm ↔ mm (88mm = 8.8cm)",
+      "pdr ↔ pounder (2pdr = 2-pounder)"
+    ],
+    "punctuation_variations": [
+      "M-4 ↔ M4 ↔ M 4",
+      "Type-97 ↔ Type 97 ↔ Type97",
+      "Mk.II ↔ Mk II ↔ Mark 2 ↔ Mark II"
+    ],
+    "special_characters": [
+      "& ↔ and ↔ +",
+      "# ↔ No ↔ Number",
+      "/ ↔ - in compound names"
+    ]
+  },
+
+  "phase_2_workflow": {
+    "step_1_parse_janes_book": {
+      "duration": "2 hours",
+      "tasks": [
+        "Read Resource Documents/Jane's-ww2-Tanks-And-Fighting-Vehicles.txt",
+        "Extract all equipment names and official designations",
+        "Create mapping of official names to common names",
+        "Store in janes_equipment_names.json"
+      ]
+    },
+    "step_2_extract_existing_names": {
+      "duration": "1 hour",
+      "tasks": [
+        "Query equipment_master_new for all canonical_name values",
+        "Query all old tables for historical names",
+        "Create master list of known equipment names",
+        "Store in existing_equipment_names.json"
+      ]
+    },
+    "step_3_generate_variants": {
+      "duration": "4 hours",
+      "tasks": [
+        "For each equipment in equipment_master_new:",
+        "  - Apply abbreviation expansion rules",
+        "  - Apply punctuation variation rules",
+        "  - Apply special character rules",
+        "  - Check Jane's book for official variants",
+        "  - Generate 2-8 variants per equipment",
+        "Expected yield: 1,620 items × 2-8 variants = 3,240-12,960 variants"
+      ]
+    },
+    "step_4_deduplicate": {
+      "duration": "2 hours",
+      "tasks": [
+        "Remove duplicate variants across equipment",
+        "Validate all variants are unique",
+        "Rank variants by confidence (official > programmatic)",
+        "Target: 2,000-3,000 high-quality variants"
+      ]
+    },
+    "step_5_import": {
+      "duration": "2 hours",
+      "tasks": [
+        "Create bulk import script",
+        "Insert variants into equipment_name_variants table",
+        "Validate FK relationships (all master_id exist)",
+        "Log import to normalization_audit_new"
+      ]
+    },
+    "step_6_validate": {
+      "duration": "1 hour",
+      "tasks": [
+        "Verify 2,000+ variants imported",
+        "Test variant lookups (fuzzy matching)",
+        "Generate variant coverage report",
+        "Document variant generation methodology"
+      ]
+    }
+  },
+
+  "success_criteria": {
+    "phase_2_complete_when": [
+      "✅ Jane's book parsed and official names extracted",
+      "✅ 2,000+ name variants generated",
+      "✅ All variants deduplicated and validated",
+      "✅ equipment_name_variants table populated",
+      "✅ All variants have valid master_id FK",
+      "✅ Variant coverage report generated",
+      "✅ Git commit created with all deliverables"
+    ]
+  },
+
+  "tools_available": [
+    "Read - Read Jane's book and database files",
+    "Write - Write variant files and import scripts",
+    "Bash - Run Python/Node.js scripts",
+    "mcp__sqlite__read_query - Query equipment_master_new",
+    "mcp__sqlite__write_query - Insert into equipment_name_variants"
+  ],
+
+  "agent_instructions": {
+    "START_HERE": [
+      "1. Read Jane's-ww2-Tanks-And-Fighting-Vehicles.txt",
+      "2. Extract official equipment names",
+      "3. Query equipment_master_new for all items",
+      "4. Generate variants using rules",
+      "5. Deduplicate and validate",
+      "6. Import to equipment_name_variants table",
+      "7. Generate coverage report",
+      "8. Create git commit"
+    ]
+  }
+}
