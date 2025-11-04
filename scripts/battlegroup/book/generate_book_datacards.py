@@ -901,34 +901,17 @@ class BookDatacardGenerator:
 """
                 f.write(css)
 
-                # Group equipment by nation
-                current_nation = None
-                grid_open = False
+                # Open single grid for all datacards (no nation headers - flags in silhouettes will distinguish)
+                f.write('<div class="datacard-grid">\n\n')
 
-                for i, equipment in enumerate(unique_equipment):
-                    # Check if we're starting a new nation
-                    if equipment['nation'] != current_nation:
-                        # Close previous grid if open
-                        if grid_open:
-                            f.write("</div>\n\n")
-                            grid_open = False
-
-                        # Write nation header
-                        current_nation = equipment['nation']
-                        f.write(f"## {current_nation.title()}\n\n")
-
-                        # Open new grid
-                        f.write('<div class="datacard-grid">\n\n')
-                        grid_open = True
-
-                    # Generate datacard
+                # Generate all datacards in one continuous grid
+                for equipment in unique_equipment:
                     datacard = self.generate_datacard_markdown(equipment, 'r')
                     f.write(datacard)
                     f.write('\n')
 
-                # Close final grid if open
-                if grid_open:
-                    f.write("</div>\n")
+                # Close grid
+                f.write("</div>\n")
 
             print(f"  -> {output_file.name}")
 

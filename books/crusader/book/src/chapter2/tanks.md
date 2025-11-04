@@ -110,8 +110,6 @@
 
 ---
 
-## British
-
 <div class="datacard-grid">
 
 <div class="datacard">
@@ -305,12 +303,6 @@
 </div>
 
 ---
-
-</div>
-
-## Italian
-
-<div class="datacard-grid">
 
 <div class="datacard">
 <div class="datacard-header">

@@ -110,8 +110,6 @@
 
 ---
 
-## British
-
 <div class="datacard-grid">
 
 <div class="datacard">
