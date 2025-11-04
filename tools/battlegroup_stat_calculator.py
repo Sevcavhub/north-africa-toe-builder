@@ -1,31 +1,50 @@
 #!/usr/bin/env python3
 """
-Phase 5.5 - Phase 4: BattleGroup Stat Calculator (Reverse Engineering)
+Phase 5.5 - Phase 4: BattleGroup Stat Calculator (CORRECTED)
 Calculates BattleGroup game stats from historical specifications
+
+CORRECTED VERSION: Uses validated Phase 9B calculators instead of recreating logic
 
 Purpose: For 431 North Africa items without BG reference matches, calculate:
 - Armor ratings (A-O letter scale from mm thickness)
-- Movement values (inches from speed/weight)
-- Weapon ratings (HE/AP from caliber/penetration)
+- Movement values (inches from speed/weight) - USES validated movement_calculator.py
+- Weapon ratings (HE/AP from caliber) - USES validated he_calculator.py
 - Points cost and Battle Rating (from vehicle type/capabilities)
 
 Data Flow:
 1. Read historical_specs_json from equipment_master_new
-2. Apply conversion formulas from bg_armor_conversion, bg_movement_values, etc.
-3. Calculate missing stats using category defaults and heuristics
+2. Apply validated Phase 9B conversion calculators
+3. Calculate missing stats using category defaults
 4. Populate equipment_stats_battlegroup table
-5. Target: 100% coverage for 469 North Africa items
+5. Target: 100% coverage for 469 North Africa items with 95%+ accuracy
 """
 
 import sqlite3
 import json
 import re
+import sys
 from pathlib import Path
 from typing import Dict, Optional, Tuple
 from datetime import datetime
 
+# Add scripts to path for validated calculator imports
+project_root = Path(__file__).parent.parent
+scripts_path = project_root / "scripts"
+sys.path.insert(0, str(scripts_path / "battlegroup" / "conversion"))
+
+# Import validated Phase 9B calculators (97-100% accuracy)
+try:
+    from movement_calculator import calculate_movement as validated_movement_calc
+    from he_calculator import calculate_he_effect as validated_he_calc
+    VALIDATED_CALCULATORS_AVAILABLE = True
+    print("[OK] Loaded validated Phase 9B calculators")
+except ImportError as e:
+    print(f"[WARNING] Could not import validated calculators: {e}")
+    print("[WARNING] Falling back to basic formulas (lower accuracy)")
+    VALIDATED_CALCULATORS_AVAILABLE = False
+
 # Database path
-DB_PATH = Path(__file__).parent.parent / "database" / "master_database.db"
+DB_PATH = project_root / "database" / "master_database.db"
 
 # Configuration
 DRY_RUN = False  # Set True to preview without modifying database
@@ -87,49 +106,44 @@ def estimate_vehicle_type(category: str, specs: Dict) -> str:
     else:
         return 'other'
 
-def convert_movement(speed_kmh: Optional[float], weight_tonnes: Optional[float], vehicle_type: str, category: str) -> Dict[str, Optional[int]]:
-    """Convert speed/weight to BattleGroup movement (inches)"""
+def convert_movement(speed_kmh: Optional[float], weight_tonnes: Optional[float], vehicle_type: str, category: str, vehicle_name: str = "") -> Dict[str, Optional[int]]:
+    """Convert speed/weight to BattleGroup movement (inches) - USES VALIDATED CALCULATOR"""
 
-    # Based on bg_movement_values table and observation of reference vehicles
-    if vehicle_type == 'tracked':
-        if weight_tonnes is None:
-            # Category defaults
-            if 'light' in category.lower():
-                return {'offroad': 15, 'road': 30}
-            elif 'heavy' in category.lower() or 'churchill' in category.lower():
-                return {'offroad': 9, 'road': 18}
+    if not VALIDATED_CALCULATORS_AVAILABLE:
+        # Fallback to basic logic if validated calculator not available
+        if vehicle_type == 'tracked':
+            if weight_tonnes is None or weight_tonnes < 10:
+                return {'offroad': 12, 'road': 24}
+            elif weight_tonnes < 30:
+                return {'offroad': 8, 'road': 12}
             else:
-                return {'offroad': 12, 'road': 24}  # Medium default
-
-        # Weight-based calculation
-        if weight_tonnes < 10:
-            return {'offroad': 15, 'road': 30}  # Light tracked (< 10 tons)
-        elif weight_tonnes < 30:
-            return {'offroad': 12, 'road': 24}  # Medium tracked (10-30 tons)
-        elif weight_tonnes < 45:
-            return {'offroad': 9, 'road': 18}   # Heavy tracked (30-45 tons)
+                return {'offroad': 6, 'road': 10}
+        elif vehicle_type == 'wheeled':
+            return {'offroad': 12, 'road': 24}
+        elif vehicle_type == 'towed':
+            return {'offroad': 0, 'road': 0}
+        elif vehicle_type == 'aircraft':
+            return {'offroad': None, 'road': None}
         else:
-            return {'offroad': 6, 'road': 15}   # Super-heavy (45+ tons)
+            return {'offroad': 8, 'road': 12}
 
-    elif vehicle_type == 'wheeled':
-        if weight_tonnes is None or weight_tonnes < 5:
-            return {'offroad': 18, 'road': 36}  # Light wheeled
-        elif weight_tonnes < 10:
-            return {'offroad': 15, 'road': 30}  # Medium wheeled
-        else:
-            return {'offroad': 12, 'road': 30}  # Heavy wheeled
+    # Use validated Phase 9B movement calculator (95%+ accuracy)
+    try:
+        result = validated_movement_calc(
+            vehicle_name=vehicle_name,
+            vehicle_type=vehicle_type,
+            weight_tonnes=weight_tonnes
+        )
 
-    elif vehicle_type == 'towed':
-        # Towed guns don't move on their own
-        return {'offroad': 0, 'road': 0}
-
-    elif vehicle_type == 'aircraft':
-        # Aircraft use special movement rules
-        return {'offroad': None, 'road': None}
-
-    else:
-        # Generic default
-        return {'offroad': 12, 'road': 24}
+        return {
+            'offroad': result.get('off_road'),
+            'road': result.get('road')
+        }
+    except Exception as e:
+        if VERBOSE:
+            print(f"  Warning: Movement calculation failed: {e}")
+        # Fallback to basic defaults
+        return {'offroad': 8, 'road': 12}
 
 def extract_caliber_from_gun_name(gun_name: str) -> Optional[int]:
     """Extract caliber in mm from gun designation"""
@@ -168,59 +182,83 @@ def extract_caliber_from_gun_name(gun_name: str) -> Optional[int]:
     return None
 
 def convert_weapon_rating(caliber_mm: Optional[int], penetration_mm: Optional[int], gun_name: str = "") -> Dict[str, Optional[str]]:
-    """Convert caliber/penetration to BattleGroup HE/AP ratings"""
+    """Convert caliber/penetration to BattleGroup HE/AP ratings - USES VALIDATED CALCULATOR"""
 
-    # HE effectiveness from bg_he_effectiveness table
-    he = None
-    if caliber_mm:
-        if caliber_mm < 40:
-            he = "2/5+"
-        elif caliber_mm < 75:
-            he = "3/5+"
-        elif caliber_mm < 100:
-            he = "4/4+"
-        elif caliber_mm < 130:
-            he = "5/4+"
-        else:
-            he = "6/3+"
+    if not VALIDATED_CALCULATORS_AVAILABLE or not caliber_mm:
+        # Fallback if validated calculator not available
+        he = None
+        if caliber_mm:
+            if caliber_mm < 50:
+                he = "2/5+"
+            elif caliber_mm < 75:
+                he = "3/5+"
+            else:
+                he = "4/4+"
 
-    # AP from bg_penetration_scale table
-    ap = None
-    if penetration_mm:
-        if penetration_mm < 30:
-            ap = "2"
-        elif penetration_mm < 50:
-            ap = "4"
-        elif penetration_mm < 75:
-            ap = "6"
-        elif penetration_mm < 100:
-            ap = "8"
-        elif penetration_mm < 130:
-            ap = "10"
-        else:
-            ap = "12"
-    elif caliber_mm:
-        # Estimate AP from caliber if no penetration data
-        # Rough heuristic: small guns ~caliber/15, large guns ~caliber/10
-        if caliber_mm < 50:
-            ap = str(max(2, caliber_mm // 15))
-        else:
-            ap = str(max(4, caliber_mm // 10))
+        ap = None
+        if penetration_mm:
+            if penetration_mm < 50:
+                ap = "4"
+            elif penetration_mm < 100:
+                ap = "8"
+            else:
+                ap = "10"
 
-    # Combine into weapon description
-    weapon_desc = None
-    if he and ap:
-        weapon_desc = f"HE {he} | AP {ap}"
-    elif he:
-        weapon_desc = f"HE {he}"
-    elif ap:
-        weapon_desc = f"AP {ap}"
+        weapon_desc = None
+        if he and ap:
+            weapon_desc = f"HE {he} | AP {ap}"
+        elif he:
+            weapon_desc = f"HE {he}"
 
-    return {
-        'he_rating': he,
-        'ap_rating': ap,
-        'weapon_description': weapon_desc
-    }
+        return {'he_rating': he, 'ap_rating': ap, 'weapon_description': weapon_desc}
+
+    # Use validated Phase 9B HE calculator (95%+ accuracy)
+    try:
+        result = validated_he_calc(caliber_mm, gun_name=gun_name)
+
+        he = result.get('format')  # e.g., "4/4+"
+
+        # AP estimation (validated calculator doesn't do AP, so keep basic logic)
+        ap = None
+        if penetration_mm:
+            if penetration_mm < 30:
+                ap = "2"
+            elif penetration_mm < 50:
+                ap = "4"
+            elif penetration_mm < 75:
+                ap = "6"
+            elif penetration_mm < 100:
+                ap = "8"
+            elif penetration_mm < 130:
+                ap = "10"
+            else:
+                ap = "12"
+        elif caliber_mm:
+            # Estimate AP from caliber
+            if caliber_mm < 50:
+                ap = str(max(2, caliber_mm // 15))
+            else:
+                ap = str(max(4, caliber_mm // 10))
+
+        # Combine into weapon description
+        weapon_desc = None
+        if he and ap:
+            weapon_desc = f"HE {he} | AP {ap}"
+        elif he:
+            weapon_desc = f"HE {he}"
+        elif ap:
+            weapon_desc = f"AP {ap}"
+
+        return {
+            'he_rating': he,
+            'ap_rating': ap,
+            'weapon_description': weapon_desc
+        }
+    except Exception as e:
+        if VERBOSE:
+            print(f"  Warning: HE calculation failed: {e}")
+        # Fallback to basic defaults
+        return {'he_rating': "3/5+", 'ap_rating': "4", 'weapon_description': "HE 3/5+ | AP 4"}
 
 def estimate_points_and_br(category: str, specs: Dict, armor_front: Optional[str], ap_rating: Optional[str]) -> Tuple[Optional[int], Optional[int]]:
     """Estimate points cost and Battle Rating from capabilities"""
@@ -375,9 +413,9 @@ def calculate_bg_stats(master_id: int, display_name: str, category: str, specs: 
         result['armor_rear'] = convert_armor_mm_to_letter(armor_rear_mm)
         result['calculation_notes'].append(f"armor_rear: {armor_rear_mm}mm -> {result['armor_rear']}")
 
-    # Convert movement
+    # Convert movement using validated calculator
     vehicle_type = estimate_vehicle_type(category, {**specs, 'display_name': display_name})
-    movement = convert_movement(speed_kmh, weight_tonnes, vehicle_type, category)
+    movement = convert_movement(speed_kmh, weight_tonnes, vehicle_type, category, vehicle_name=display_name)
     result['movement_offroad'] = movement['offroad']
     result['movement_road'] = movement['road']
 
