@@ -45,6 +45,15 @@ This file provides guidance to Claude Code when working with this repository.
 - Every piece of equipment needs complete data
 - Multiple data sources available - need to connect them all
 
+**⚠️ DATABASE NORMALIZATION REQUIRED** (November 3, 2025):
+- Root cause analysis revealed fundamental database architecture issues
+- 8x data duplication across 6 equipment tables (~4,669 rows for ~500-600 items)
+- Name variation hell (Sherman: ~50 entries, Panzer IV: ~95 entries)
+- **Phase 5.5 Database Normalization Plan** proposed (66 hours, 6 phases)
+- **See PROJECT_SCOPE.md Phase 5.5** for complete normalization plan
+- Multi-game architecture for BattleGroup/Achtung Panzer/Flames of War
+- Zero data loss, preserves future theater equipment (1,400-1,700 total items)
+
 ---
 
 ## 🎯 Quick Orientation

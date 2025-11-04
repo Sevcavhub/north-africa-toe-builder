@@ -288,52 +288,459 @@ Historical sources (Tessin, Army Lists, Field Manuals) provide equipment **QUANT
 
 ---
 
-### **Phase 5.5: Database Backfill & Name Normalization** ⏳ **PENDING**
+### **Phase 5.5: Database Normalization & Multi-Game Architecture** 📋 **PLANNED (November 3, 2025)**
 
-**Goal**: Populate SQLite database with all extracted units and normalize naming variations
+**Status**: **PLANNED** - Comprehensive database normalization to replace ad-hoc equipment linkage
 
-**Status**: **NOT STARTED** - Blocking Phase 8-9
+**Date Proposed**: November 3, 2025
+**Context**: Phase 9B revealed equipment linkage at 20% is unacceptable (need 100% for publication). Root cause analysis identified fundamental database architecture issues requiring normalization rather than continued band-aid fixes.
 
-**Current Database State** (as of Oct 29, 2025):
-- **144 units in database** (Phase 1-4 WITW baseline only)
-- **402 ground units extracted** but not in database (64% missing)
-- **23 air summaries extracted** but not in database
-- **Total gap**: 281 records missing from master_database.db
+**Problem Statement**:
 
-**Database Tables Status**:
-- ✅ `equipment` (469 rows) - WITW baseline complete
-- ✅ `guns` (348 rows) - Specifications complete
-- ✅ `aircraft` (1,010 rows) - Specifications complete
-- ✅ `match_reviews` (959 rows) - Phase 5 matching complete
-- ⚠️ `units` (144 rows) - **INCOMPLETE** (should be 425)
-- ⚠️ `unit_equipment` - Not populated with extracted units
+The current database has **8x data duplication** across 6 overlapping equipment tables:
+- `equipment` (469 rows, WITW baseline - currently active)
+- `master_equipment` (1,230 rows - abandoned attempt at consolidation)
+- `afv_data` (213 rows, OnWar source)
+- `wwiitanks_afv_data` (612 rows, WWIItanks source)
+- `bg_reference_vehicles` (500 rows, BattleGroup scraped data)
+- Plus additional gun tables (343 + 57 rows)
 
-**Name Normalization Challenge**:
+**Total**: ~4,669 rows representing ~500-600 unique equipment items
 
-Historical sources use inconsistent naming:
-- **Units**: "Deutsches Afrikakorps" vs "Deutsches Afrika-Korps" vs "DAK"
-- **Equipment**: "Panzer III Ausf. F" vs "PzKpfw III Ausf F" vs "Pz.Kpfw. III Ausf. F"
-- **Aircraft**: "Bf 109E-7/Trop" vs "Messerschmitt Bf 109E-7" vs "Me 109E-7"
+**Name Variation Hell**:
+- Sherman tank: ~50 entries across tables for maybe 10 actual variants
+- Panzer IV: ~95 entries across tables for maybe 15 actual variants
+- Historical sources use inconsistent naming:
+  - "Panzer III Ausf. F" vs "PzKpfw III Ausf F" vs "Pz.Kpfw. III Ausf. F"
+  - "Sherman M4" vs "M4 Sherman" vs "M4 Medium Tank"
 
-**Required Solution**:
-1. **Canonical Names Table**: Official standardized names for each entity
-2. **Alias Mapping Table**: Links variations → canonical names
-3. **Fuzzy Matching Algorithm**: Handles minor spelling/formatting differences
-4. **Backfill Script Enhancement**: Use alias resolution during import
+**Multi-Game Requirements** (Phase 9C-9D):
+
+Achtung Panzer requires fields NOT in BattleGroup:
+- Turret armor (front/side) - separate from hull
+- Engine armor - separate rating
+- Track armor - separate rating
+- Burning (flammability rating)
+- Crew calibre subdivisions
+- Different penetration system (short/long with parenthetical values)
+
+Each game system needs separate stat tables while sharing core equipment identity.
+
+---
+
+#### **Database Normalization Plan v2.0**
+
+**Total Timeline**: 66 hours across 6 phases
+
+---
+
+##### **Phase 0: Comprehensive Backups & Script Audit** (2 hours)
+
+**Goal**: Ensure zero data loss and identify active vs obsolete scripts
+
+**Tasks**:
+1. Full database backup with timestamp
+2. Backup all source JSON files
+3. Audit all scripts in `/scripts/` directory
+4. Identify active vs obsolete scripts (test each)
+5. Document script dependencies
 
 **Deliverables**:
-- ✅ `scripts/check_database_status.js` - Database status checker (created)
-- ⏸️ `database/schema/canonical_names.sql` - Canonical names + aliases tables
-- ⏸️ `scripts/lib/name_normalizer.js` - Name resolution library
-- ⏸️ `scripts/backfill_ground_units.js` - Import 402 ground units with normalization
-- ⏸️ `scripts/backfill_air_summaries.js` - Import 23 air summaries
-- ⏸️ `scripts/validate_database_completeness.js` - Verify all units imported
+- `database/backups/master_database_pre_normalization_[timestamp].db`
+- `database/backups/source_data_backup_[timestamp].zip`
+- `docs/SCRIPT_AUDIT.md` - Active vs obsolete classification
+- `docs/SCRIPT_DEPENDENCIES.md` - Dependency map
 
-**Timeline**: ~8-12 hours (name mapping design + backfill scripts + testing)
+---
 
-**Prerequisites**: Phase 5 and Phase 6 complete ✅
+##### **Phase 1: Multi-Game Schema Design & Implementation** (8 hours)
 
-**Blocks**: Phase 8 (cross-linking), Phase 9 (scenario enrichment)
+**Goal**: Create game-agnostic core with game-specific stat tables
+
+**New Schema**:
+
+```sql
+-- Game-agnostic core (master authority)
+CREATE TABLE equipment_master (
+    master_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    canonical_name TEXT NOT NULL UNIQUE,
+    display_name TEXT NOT NULL,
+    short_name TEXT,
+    equipment_category TEXT NOT NULL,  -- tank, gun, vehicle, aircraft, infantry_weapon
+    equipment_subcategory TEXT,        -- medium_tank, light_tank, howitzer, etc.
+    original_nation TEXT,              -- british, german, italian, american, french
+    historical_specs_json TEXT,        -- Real-world specs only (JSON)
+    primary_source TEXT,               -- Which source provided base data
+    confidence_score REAL DEFAULT 0.0, -- Overall data confidence
+    created_at TEXT DEFAULT CURRENT_TIMESTAMP,
+    updated_at TEXT DEFAULT CURRENT_TIMESTAMP,
+    notes TEXT
+);
+
+-- Name variations (handles Sherman/M4/M4 Medium Tank problem)
+CREATE TABLE equipment_name_variants (
+    variant_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    master_id INTEGER NOT NULL,
+    variant_name TEXT NOT NULL,
+    variant_source TEXT,  -- onwar, wwiitanks, bg_pdf, tessin, etc.
+    is_official BOOLEAN DEFAULT 0,
+    FOREIGN KEY (master_id) REFERENCES equipment_master(master_id),
+    UNIQUE(variant_name)
+);
+
+-- Many-to-many theater usage
+CREATE TABLE equipment_theater_usage (
+    usage_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    master_id INTEGER NOT NULL,
+    theater TEXT NOT NULL,  -- north_africa, eastern_front, western_europe, italy, pacific
+    date_from TEXT,  -- ISO 8601 date
+    date_to TEXT,
+    usage_notes TEXT,
+    FOREIGN KEY (master_id) REFERENCES equipment_master(master_id),
+    UNIQUE(master_id, theater)
+);
+
+-- Many-to-many nation usage (handles lend-lease, captured equipment)
+CREATE TABLE equipment_nation_usage (
+    usage_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    master_id INTEGER NOT NULL,
+    nation TEXT NOT NULL,  -- british, german, italian, american, french, etc.
+    usage_type TEXT NOT NULL,  -- "original", "lend_lease", "captured"
+    theater TEXT,  -- Where this nation used it
+    date_from TEXT,
+    date_to TEXT,
+    source_nation TEXT,  -- For lend-lease/captured: original owner
+    usage_notes TEXT,
+    FOREIGN KEY (master_id) REFERENCES equipment_master(master_id)
+);
+
+-- BattleGroup game-specific stats (Phase 9B)
+CREATE TABLE equipment_stats_battlegroup (
+    stat_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    master_id INTEGER NOT NULL,
+    armor_front TEXT,  -- Letter scale (A-O)
+    armor_side TEXT,
+    armor_rear TEXT,
+    movement_offroad INTEGER,  -- Inches
+    movement_road INTEGER,
+    he_rating TEXT,  -- e.g., "4/4+"
+    ap_rating TEXT,  -- e.g., "6"
+    points INTEGER,  -- Points cost
+    battle_rating INTEGER,  -- BR value
+    special_rules TEXT,  -- Comma-separated
+    conversion_confidence REAL,  -- How confident are we in these stats
+    conversion_method TEXT,  -- "scraped_from_pdf", "formula_derived", "interpolated"
+    FOREIGN KEY (master_id) REFERENCES equipment_master(master_id),
+    UNIQUE(master_id)
+);
+
+-- Achtung Panzer game-specific stats (Phase 9C)
+CREATE TABLE equipment_stats_achtung_panzer (
+    stat_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    master_id INTEGER NOT NULL,
+    hull_armor_thick INTEGER,
+    hull_armor_assault INTEGER,
+    hull_armor_front INTEGER,
+    hull_armor_side INTEGER,
+    turret_armor_front INTEGER,  -- NEW for Achtung Panzer
+    turret_armor_side INTEGER,   -- NEW for Achtung Panzer
+    engine_armor INTEGER,        -- NEW for Achtung Panzer
+    track_armor INTEGER,         -- NEW for Achtung Panzer
+    burning INTEGER,             -- NEW - flammability rating
+    crew_calibre_high INTEGER,
+    crew_calibre_medium INTEGER,
+    crew_calibre_low INTEGER,
+    crew_calibre_main_gun TEXT,
+    speed INTEGER,
+    vehicle_class TEXT,
+    date TEXT,
+    conversion_confidence REAL,
+    FOREIGN KEY (master_id) REFERENCES equipment_master(master_id),
+    UNIQUE(master_id)
+);
+
+-- Flames of War game-specific stats (Phase 9D - future)
+CREATE TABLE equipment_stats_flames_of_war (
+    stat_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    master_id INTEGER NOT NULL,
+    -- Fields TBD based on FoW rulebook analysis
+    FOREIGN KEY (master_id) REFERENCES equipment_master(master_id),
+    UNIQUE(master_id)
+);
+```
+
+**Migration Strategy** (Zero Data Loss):
+
+1. **Import Phase**:
+   - Import all 469 North Africa items from `equipment` table
+   - Import all 761 future theater items from `master_equipment` table
+   - Import unique items from OnWar, WWIItanks, BG reference tables
+   - Expected total: 1,400-1,700 items in `equipment_master`
+
+2. **Deduplication via Name Matching**:
+   - Merge duplicates using `ON CONFLICT(canonical_name) DO UPDATE`
+   - Preserve all unique specs in `historical_specs_json` via JSON patching
+   - Mark duplicates in audit table (never delete)
+
+3. **Backward Compatibility Layer**:
+   - Create SQL VIEWs mimicking old table structure
+   - Old scripts continue working during migration
+   - Phase out views after script migration complete
+
+**Deliverables**:
+- `database/schema/equipment_master_schema.sql` - New schema DDL
+- `database/schema/migration_views.sql` - Backward compatibility views
+- `scripts/migration/create_equipment_master.js` - Migration script
+- `docs/SCHEMA_MIGRATION_GUIDE.md` - Documentation
+
+---
+
+##### **Phase 2: Name Variant Generation** (12 hours)
+
+**Goal**: Generate 2,000+ name variants using Jane's book + programmatic rules
+
+**Approach**: Hybrid automated + manual curation
+
+**Data Sources**:
+1. **Jane's-ww2-Tanks-And-Fighting-Vehicles.txt** - Official designations and common names
+2. **Existing database entries** - Extract all unique names
+3. **Programmatic rules**:
+   - Abbreviation expansion: "Pz.Kpfw." ↔ "Panzer" ↔ "Panzerkampfwagen"
+   - Model variations: "M4" ↔ "M-4" ↔ "M 4"
+   - Ausf variations: "Ausf. F" ↔ "Ausf F" ↔ "F"
+   - Nation prefixes: "German Panzer III" ↔ "Panzer III"
+
+**Interactive CLI Tool**:
+```python
+# tools/name_variant_generator.py
+# 1. Load equipment_master canonical names
+# 2. For each item, generate programmatic variants
+# 3. Search Jane's book for official variants
+# 4. Present to user for review/addition
+# 5. Insert into equipment_name_variants table
+```
+
+**Expected Yield**:
+- ~1,500 equipment items × ~2-8 variants each = ~3,000-12,000 variants
+- Curate down to most common ~2,000-3,000 variants
+- Focus on tanks/guns first (most critical for Phase 9B)
+
+**Deliverables**:
+- `tools/name_variant_generator.py` - Interactive variant generator
+- `database/data/equipment_name_variants.csv` - Generated variants
+- `scripts/import_name_variants.js` - Bulk import script
+- 2,000-3,000 name variants in `equipment_name_variants` table
+
+---
+
+##### **Phase 3: Complete Phase 5 Equipment Matching** (16 hours)
+
+**Goal**: Achieve 85%+ OnWar/WWIItanks linkage using new name variant system
+
+**Current State** (Phase 5):
+- French: 20/20 (100%) ✅
+- American: 81/81 (100%) ✅
+- British: 196/196 (99%) ✅
+- German: 98/98 (96%) ✅
+- Italian: 74/74 (97%) ✅
+
+**But**: These matches link WITW → OnWar/WWIItanks. Need to enrich `equipment_master` with ALL source data.
+
+**Approach**:
+1. **Re-run Equipment Matcher v2.1** using `equipment_name_variants` for fuzzy matching
+2. **Enrich `historical_specs_json`** with OnWar production data
+3. **Enrich `historical_specs_json`** with WWIItanks armor/penetration data
+4. **Link to BattleGroup reference** via name variants
+5. **Confidence scoring**: Document match quality per field
+
+**Target**: 85%+ of equipment items have enriched specs from 2+ sources
+
+**Deliverables**:
+- Enhanced `equipment_master` with `historical_specs_json` populated
+- Updated `equipment_matcher_v2.py` to use name variants table
+- `docs/PHASE_5_COMPLETION_REPORT.md` - Final matching statistics
+
+---
+
+##### **Phase 4: Source Table Deduplication** (8 hours)
+
+**Goal**: Deduplicate internal duplicates in bg_reference_vehicles and merge gun tables
+
+**Tasks**:
+
+1. **Deduplicate bg_reference_vehicles**:
+   - Current: 500 vehicles (likely 50-100 duplicates from multiple PDF scrapes)
+   - Approach: Fuzzy match on name, compare specs, mark duplicates
+   - Result: ~400-450 unique vehicles
+
+2. **Merge gun tables**:
+   - `guns` (343 WWIItanks) + `bg_reference_guns` (57 BG scraped)
+   - Total: ~400 guns
+   - Link to `equipment_master` via name variants
+   - Populate `equipment_stats_battlegroup` for guns
+
+3. **Audit trail**:
+   - Document which source entries merged into which `equipment_master` items
+   - Preserve original source data in `historical_specs_json`
+
+**Deliverables**:
+- Deduplicated `bg_reference_vehicles` (400-450 unique)
+- Merged gun specifications in `equipment_master`
+- `database/audit/deduplication_report.csv` - Audit trail
+- `scripts/deduplication/deduplicate_bg_vehicles.js`
+
+---
+
+##### **Phase 5: Script Migration & Testing** (16 hours)
+
+**Goal**: Migrate all active scripts to use new schema with backward compatibility
+
+**Approach**:
+
+1. **Identify Active Scripts** (from Phase 0 audit)
+2. **Create Migration Priority List**:
+   - Priority 1: Phase 9B datacard generators (blocking publication)
+   - Priority 2: Phase 6 unit extraction scripts
+   - Priority 3: Phase 9A scenario exports
+   - Priority 4: Utility scripts
+
+3. **Migration Pattern**:
+   ```javascript
+   // OLD (accessing equipment table directly)
+   const equipment = db.prepare("SELECT * FROM equipment WHERE canonical_id = ?").get(id);
+
+   // NEW (accessing equipment_master + game-specific stats)
+   const equipment = db.prepare(`
+     SELECT em.*, eb.*
+     FROM equipment_master em
+     LEFT JOIN equipment_stats_battlegroup eb ON em.master_id = eb.master_id
+     WHERE em.canonical_name = ?
+   `).get(name);
+   ```
+
+4. **Backward Compatibility Views**:
+   ```sql
+   -- Allow old scripts to continue working
+   CREATE VIEW equipment AS
+   SELECT
+     master_id as canonical_id,
+     canonical_name as name,
+     equipment_category as category,
+     original_nation as nation
+   FROM equipment_master;
+   ```
+
+5. **Testing**:
+   - Run QA suite against migrated scripts
+   - Validate output matches old output
+   - Performance benchmarking
+
+**Deliverables**:
+- Migrated scripts in `scripts/` (all active scripts updated)
+- Backward compatibility views in `database/schema/migration_views.sql`
+- `docs/SCRIPT_MIGRATION_LOG.md` - Migration progress tracking
+- Full QA suite passing
+
+---
+
+##### **Phase 6: Final Validation & Documentation** (4 hours)
+
+**Goal**: Validate 100% equipment linkage and document new architecture
+
+**Tasks**:
+
+1. **Equipment Linkage Validation**:
+   ```sql
+   -- All 469 North Africa items have BattleGroup stats
+   SELECT COUNT(*) FROM equipment_master em
+   JOIN equipment_theater_usage etu ON em.master_id = etu.master_id
+   LEFT JOIN equipment_stats_battlegroup eb ON em.master_id = eb.master_id
+   WHERE etu.theater = 'north_africa' AND eb.stat_id IS NULL;
+   -- Expected: 0 (all linked)
+   ```
+
+2. **Phase 9B Validation**:
+   - Regenerate all 4 book datacards
+   - Verify 100% equipment items show complete data
+   - No "None" weapons, no "???" armor values
+
+3. **Documentation**:
+   - Update `CLAUDE.md` with new architecture
+   - Update `PROJECT_SCOPE.md` Phase 5.5 status
+   - Create `docs/DATABASE_ARCHITECTURE.md` - Comprehensive guide
+   - Update `VERSION_HISTORY.md`
+
+**Success Criteria**:
+- ✅ 469/469 North Africa items have complete BattleGroup stats
+- ✅ 1,400-1,700 total items in `equipment_master` (future theaters preserved)
+- ✅ 2,000+ name variants for fuzzy matching
+- ✅ All active scripts migrated and tested
+- ✅ Phase 9B books regenerate with 100% equipment data
+- ✅ Multi-game architecture ready for Phase 9C (Achtung Panzer)
+
+**Deliverables**:
+- `docs/DATABASE_ARCHITECTURE.md` - Complete architecture guide
+- `docs/PHASE_5_5_COMPLETION_REPORT.md` - Final validation report
+- Updated PROJECT_SCOPE.md and CLAUDE.md
+- Git commit: "feat(database): Complete Phase 5.5 normalization"
+
+---
+
+#### **Timeline Summary**
+
+| Phase | Task | Hours |
+|-------|------|-------|
+| 0 | Backups & script audit | 2 |
+| 1 | Multi-game schema design | 8 |
+| 2 | Name variant generation | 12 |
+| 3 | Complete Phase 5 matching | 16 |
+| 4 | Source deduplication | 8 |
+| 5 | Script migration | 16 |
+| 6 | Final validation | 4 |
+| **TOTAL** | | **66 hours** |
+
+---
+
+#### **Risk Mitigation**
+
+**Zero Data Loss Guarantee**:
+- Comprehensive backups before any changes
+- Mark duplicates, never delete
+- Preserve all source data in JSON fields
+- Backward compatibility views during migration
+
+**Aggressive Approach**:
+- Can break and remake database multiple times if needed
+- All source data preserved in backups
+- Scripts can be re-tested against new schema
+
+**Long-Term Thinking**:
+- Multi-game architecture supports Phase 9C-9D without schema changes
+- Future theater expansion (Eastern Front, Italy) trivial to add
+- Name variant system scales to thousands of equipment items
+- Confidence scoring enables quality tracking
+
+---
+
+#### **Prerequisites**
+
+- ✅ Phase 5 Equipment Matching complete (469/469 items)
+- ✅ Phase 6 Ground Forces complete (402 units)
+- ✅ Jane's-ww2-Tanks-And-Fighting-Vehicles.txt available
+- ✅ Database backup procedures documented
+
+---
+
+#### **Blocks**
+
+- **Phase 9B Equipment Linkage**: Currently 20%, blocks publication
+- **Phase 9C Achtung Panzer**: Requires multi-game schema
+- **Phase 9D Flames of War**: Requires multi-game schema
+- **Future Theater Expansion**: Requires normalized equipment_master
+
+---
+
+**Next Action**: User approval to begin Phase 0 (backups and script audit)
 
 ---
 
