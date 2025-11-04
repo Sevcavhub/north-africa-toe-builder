@@ -21,7 +21,6 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 15px;
     margin: 20px 0;
-    align-items: start;
 }
 
 .datacard {
@@ -200,8 +199,6 @@
 </table>
 </div>
 
----
-
 <div class="datacard">
 <div class="datacard-header">
 <div class="datacard-silhouette">
@@ -289,8 +286,6 @@
 </table>
 </div>
 
----
-
 <div class="datacard">
 <div class="datacard-header">
 <div class="datacard-silhouette">
@@ -336,8 +331,6 @@
 </table>
 
 </div>
-
----
 
 <div class="datacard">
 <div class="datacard-header">
@@ -385,8 +378,6 @@
 
 </div>
 
----
-
 <div class="datacard">
 <div class="datacard-header">
 <div class="datacard-silhouette">
@@ -432,8 +423,6 @@
 </table>
 
 </div>
-
----
 
 <div class="datacard">
 <div class="datacard-header">
@@ -481,8 +470,6 @@
 
 </div>
 
----
-
 <div class="datacard">
 <div class="datacard-header">
 <div class="datacard-silhouette">
@@ -528,8 +515,6 @@
 </table>
 
 </div>
-
----
 
 <div class="datacard">
 <div class="datacard-header">
@@ -577,8 +562,6 @@
 
 </div>
 
----
-
 <div class="datacard">
 <div class="datacard-header">
 <div class="datacard-silhouette">
@@ -624,8 +607,6 @@
 </table>
 
 </div>
-
----
 
 <div class="datacard">
 <div class="datacard-header">
@@ -673,8 +654,6 @@
 
 </div>
 
----
-
 <div class="datacard">
 <div class="datacard-header">
 <div class="datacard-silhouette">
@@ -720,7 +699,5 @@
 </table>
 
 </div>
-
----
 
 </div>
