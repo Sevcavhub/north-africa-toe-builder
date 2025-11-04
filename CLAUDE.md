@@ -2,100 +2,236 @@
 
 This file provides guidance to Claude Code when working with this repository.
 
+---
+
+## 🌟 What Is This Project? (Simple Explanation)
+
+**Imagine building a collection of books about World War 2 tank battles in North Africa...**
+
+**What We're Building**: Professional wargaming scenario books (like official Battlegroup-Kursk.pdf)
+- 4 beautiful books: Operation Battleaxe, Operation Crusader, Battle of Gazala, First El Alamein
+- Each book has equipment cards showing tanks/guns with pictures and stats
+- Historical scenarios you can play out on a tabletop
+- Maps, timelines, and stories about what really happened
+- Quality good enough to print and sell in stores
+
+**How We Built It** (The 10-Phase Journey):
+1. **Phases 1-4**: Built a giant database of WW2 equipment (469 tanks, guns, trucks)
+2. **Phase 5**: Matched our equipment to detailed specs (armor thickness, gun power, speed)
+3. **Phase 6**: Extracted data on 117 military units (who had what tanks, where they fought)
+4. **Phase 7**: Added air force data (planes supporting ground troops)
+5. **Phase 8**: Connected everything together (which planes helped which tanks)
+6. **Phase 9A**: Created computer game scenarios (WITW format)
+7. **Phase 9B** ← **WE ARE HERE**: Creating beautiful printed books (BattleGroup format)
+8. **Phases 9C-E**: Will create books for other game systems (Achtung Panzer, Flames of War)
+9. **Phase 10**: Campaign system (link multiple battles together)
+
+**Phase 9B - What We're Doing Right Now**:
+- Making equipment datacards (like baseball cards but for tanks!)
+- Each card shows: picture, armor values, weapon stats, movement speed
+- Writing historical scenarios (12 tanks vs 8 tanks with AT guns at Halfaya Pass)
+- Creating organization charts (who commanded which units)
+- Building 4 complete books ready to print as PDFs
+
+**Quality Standard**: Publication-ready professional books
+- Looks like official Battlegroup-Kursk.pdf (see Resource Documents folder)
+- Equipment cards match Datacard Examples.png exactly
+- Organization charts match OOB Example.png format
+- Could actually sell these in a game store
+
+**Current Challenge**: Equipment linkage at 20% (need 100%)
+- Can't publish a book with "None" for tank weapons
+- Can't show "???" for armor thickness
+- Every piece of equipment needs complete data
+- Multiple data sources available - need to connect them all
+
+---
+
 ## 🎯 Quick Orientation
 
 **Project**: North Africa TO&E Builder (Table of Organization & Equipment)
-**Current Phase**: Ground Forces Extraction (Phase 6 of 10)
-**Progress**: 252/419 unit-quarters complete (60.1%)
+**Current Phase**: BattleGroup Book Generation (Phase 9B of 10)
+**Progress**: 85-90% complete (MVP near ready, polish remaining)
 **Schema**: v3.1.0 (tiered extraction, supply/logistics, weather/environment)
 **Primary Purpose**: Generate wargaming scenarios with realistic historical data
 
 **Key Documents** (read these for complete context):
 - `PROJECT_SCOPE.md` - Complete project vision and phased approach (**LIVING DOCUMENT**)
+- `PHASE_9B_NEXT_STEPS.md` - Current phase work breakdown and remaining tasks
+- `PHASE_9B_SESSION_SUMMARY.md` - Detailed session history and accomplishments
 - `START_HERE_NEW_SESSION.md` - Session workflow and management protocol
 - `schemas/unified_toe_schema.json` - Data structure requirements
-- `RESTORATION_PLAN.md` - Current restoration work (if mid-restoration)
 
 ---
 
-## 📋 Current Work (Phase 6: Ground Forces)
+## 📋 Project Progress (All 10 Phases)
 
-**Scope**: 420 unit-quarters (117 unique units, 1940-1943, North Africa only)
+### **Completed Phases** ✅
 
-**Progress by Phase**:
-- Phase 1-4: Database Infrastructure ✅ COMPLETE
-- Phase 5: Equipment Matching (20/469 items, 4.3%) ⏸️ Paused
-- **Phase 6: Ground Forces** (252/419, 60.1%) ← **YOU ARE HERE**
-- Phase 7-10: Air forces, scenarios, campaign (future)
+- **Phase 1-4: Database Infrastructure** ✅ **COMPLETE (100%)**
+  - SQLite master database (11 tables)
+  - WITW baseline (469 equipment items)
+  - OnWar AFV data (213 vehicles)
+  - WWIITANKS data (612 AFVs + 343 guns + 1,296 penetration values)
 
-**Work Queue**: Uses `WORK_QUEUE.md` generated from `north_africa_seed_units_COMPLETE.json`
-- Sorted echelon-first globally (divisions before corps before armies)
-- Then chronological within each echelon
-- Enforces strict bottom-up aggregation
+- **Phase 5: Equipment Matching** ✅ **COMPLETE (100%)**
+  - 469/469 equipment items matched (99% success rate)
+  - Three-source integration (WITW + OnWar + WWIITANKS)
+  - All nations complete: French (100%), American (100%), British (99%), German (96%), Italian (97%)
+
+- **Phase 6: Ground Forces Extraction** ✅ **COMPLETE (100%)**
+  - 402/402 unit-quarters extracted
+  - 117 unique units with complete TO&E data
+  - All nations complete: British/Commonwealth (154), Italian (147), German (59), American (23), French (19)
+
+- **Phase 7: Air Forces Extraction** ✅ **COMPLETE (100%)**
+  - 23 quarterly theater-wide summaries
+  - 9 quarters (1941-Q1 through 1943-Q1)
+  - 4 nations (German, British, Italian, American)
+
+- **Phase 8: Cross-Linking & Integration** ✅ **COMPLETE (OBE)**
+  - Integration accomplished during Phase 7
+  - 18 army-level units include air support references
+  - Theater air strength integrated at appropriate command echelon
+
+- **Phase 9A: WITW Enhancement** ✅ **COMPLETE (100%)**
+  - 369 WITW scenarios exported (91.8% of 402 units)
+  - Pluggable scenario generation architecture
+  - Supply/weather/air support integration
+
+### **Current Phase** 🎯
+
+- **Phase 9B: BattleGroup Book Generation** 🎯 **85-90% COMPLETE** ← **YOU ARE HERE**
+  - Foundation & Tools (Steps 1-5): **100% COMPLETE** ✅
+  - Book Content (Step 7): **85-90% COMPLETE**
+    - ✅ Equipment datacards: V4 format complete, database linkage started (20%)
+    - ✅ Historical chapters: 100% (12 files, ~24,000 words)
+    - ✅ Equipment special rules: 100% (4 files, 1,543 lines)
+    - ✅ Appendices: 100% (12 files, 7,797 lines, zero placeholders)
+    - ✅ Tactical templates: 100% (12 templates + 32 files)
+    - ✅ Scenarios: 100% (45 scenarios with 95%+ parsing success)
+    - ❌ Forces/TO&E tables: 0% (CRITICAL BLOCKER - needs script)
+  - **Remaining**: 4-7 hours to core MVP
+
+### **Future Phases** 📋
+
+- **Phase 9C: Achtung Panzer** 📋 PLANNED (pending rulebook PDFs)
+- **Phase 9D: Flames of War** 📋 PLANNED (pending rulebook PDFs)
+- **Phase 9E: Documentation & QA** 📋 PLANNED
+- **Phase 10: Campaign System** 📋 PLANNED (30-40 hours estimated)
 
 ---
 
-## 🔄 Session Workflow
+## 📊 Phase 9B Current Work (BattleGroup Books)
 
-**For complete session management, see:** `START_HERE_NEW_SESSION.md` → "Session Management Protocol"
+**Scope**: Generate 4 professional-quality books for BattleGroup wargame system
+- Operation Battleaxe (1941-Q2)
+- Operation Crusader (1941-Q4)
+- Battle of Gazala (1942-Q2)
+- First El Alamein (1942-Q3)
 
-**Quick commands**:
-```bash
-npm run session:start    # Load progress, show next 3 units
-npm run checkpoint       # Validate + commit (auto after 3 units)
-npm run session:end      # Save stats, create summary
-```
+**Quality Standard**: **Publication-ready** (match Battlegroup-Kursk.pdf quality)
+- Equipment datacards match `Resource Documents/Battlegroup Game/Datacard Examples.png`
+- OOB sections match `Resource Documents/Battlegroup Game/OOB Example.png`
+- Professional layout, zero placeholders, comprehensive citations
+- Print-ready PDFs (2-5 MB each, A4 landscape)
 
-**Work pattern**:
-- 3-unit batches (processed in parallel via Task tool)
-- Automatic checkpoint after each batch
-- NO artificial session limits (user directive Oct 23, 2025)
-- ~20-30 minutes per batch with orchestration
+**Current Status** (as of November 3, 2025):
+- **Content Created**: 171+ files, 28,983+ lines
+- **Equipment Database Linkage**: 96/469 items (20.5% coverage) - **NEEDS 100%**
+- **Conversion Formula Accuracy**: 97-100% (exceptional validation)
+- **Books Generated**: All 4 MDBook HTML builds complete (134 HTML files)
+- **Scenarios**: 45 historical scenarios with combined arms validation
+
+**CRITICAL BOTTLENECK**: Equipment Linkage at 20%
+- **Current**: 96/469 items have complete data (armor, weapons, penetration)
+- **Required**: 469/469 items (100% coverage) for publication quality
+- **Why It Matters**: Can't publish with "None" weapons or "???" armor values
+- **Available Sources**: bg_reference_vehicles (500), bg_reference_guns (57), WWIITANKS (612 AFVs + 343 guns)
+- **Strategy**: Reverse-engineer from multiple complementary data sources
+
+**Database Linkage System** (Created Nov 3, 2025):
+- **Tier 1 (Exact)**: 19 items - Direct name matches, confidence 100
+- **Tier 2 (Normalized)**: 2 items - Name variations, confidence 85-90
+- **Tier 3 (Base Model)**: 10 items - Variant stripping, confidence 80
+- **Tier 4 (Artillery)**: 16 items - Artillery-specific matching, confidence 85-90
+- **Session Additions**: +47 new tank linkages (Stuart, Sherman, Crusader, etc.)
+- **Total**: 96 items linked (vehicles 80, guns 16)
+
+**Remaining Work to MVP** (4-7 hours):
+1. **Equipment Linkage Completion** (HIGH PRIORITY)
+   - Expand from 20% to 100% coverage (373 items remaining)
+   - Fix weapon performance table population
+   - Fix tank categorization logic
+   - Create infantry weapon template
+
+2. **Forces/TO&E Tables** (CRITICAL BLOCKER - 3-4 hours)
+   - Extract from Phase 6 unit JSONs (402 units)
+   - Organizational hierarchy: Corps → Division → Regiment → Battalion → Company
+   - Currently BLANK - needs script creation
+
+3. **Production Polish** (1-2 hours)
+   - Adapt OOB sections to BattleGroup style
+   - Remove attribution text
+   - Generate production PDFs (2-5 MB each)
+
+4. **Final Validation** (1 hour)
+   - QA suite execution
+   - Schema compliance validation
+   - Update PROJECT_SCOPE.md
 
 ---
 
 ## ⚠️ Critical Rules (MUST FOLLOW)
 
-### 1. Seed Authority
-- **Only extract units in `north_africa_seed_units_COMPLETE.json`**
-- Seed file is authoritative (117 units, 420 unit-quarters)
-- discovered_units feature requires combat_evidence (NO garrison/reserve units)
+### 1. Publication Quality Standard
+- **Every equipment item** must have complete data (armor, weapons, penetration, movement)
+- **Zero placeholders** allowed (no "None", "???", "TBD")
+- **Professional formatting** matching official BattleGroup books
+- **Comprehensive citations** (181 Phase 6 citations, 71 archive references already in appendices)
 
-### 2. Combat Participation Validation
-- discovered_units MUST have documented North Africa combat participation
-- MUST include: battle names, dates, operational roles
-- MUST EXCLUDE: garrison units, reserves never committed, rear-area units, units stationed elsewhere
+### 2. Equipment Linkage Requirement
+- **100% coverage required** for publication (not 90%, not 95%)
+- Use ALL available data sources:
+  - `bg_reference_vehicles` (500 vehicles with armor/weapons/movement)
+  - `bg_reference_guns` (57 guns with HE/AP penetration)
+  - `wwiitanks_afv_data` (612 AFVs with detailed specs)
+  - `wwiitanks_gun_data` (343 guns with penetration tables)
+  - `penetration_data` (1,296 penetration values)
+  - `equipment_battlegroup` (469 items with BattleGroup stats)
+- Reverse-engineer missing data from complementary sources
+- Confidence scoring: Document match quality (100, 90, 85, 80, 75)
 
-### 3. Task Tool Orchestration (MANDATORY)
-- You are an **orchestrator**, not an extractor
-- Launch 3 specialized sub-agents in parallel using Task tool
-- Sub-agents do the extraction work using MCP tools
-- Proof required: Show 3 Task tool calls in single message
+### 3. Data Integrity
+- **Seed Authority**: Phase 6 unit JSONs are authoritative for equipment lists
+- **Nation Values**: Use canonical values (german, italian, british, american, french)
+- **Quarter Format**: Lowercase, no hyphen (1941q2, NOT 1941-Q2)
+- **Combat Participation**: Only units with documented North Africa combat
 
-### 4. Canonical Output Locations (Architecture v4.0)
-**ALWAYS use these paths** (NOT session/autonomous folders):
-- Units: `data/output/units/[nation]_[quarter]_[unit]_toe.json`
-- Chapters: `data/output/chapters/chapter_[nation]_[quarter]_[unit].md`
-- Use `scripts/lib/canonical_paths.js` for path operations
+### 4. File Organization (Architecture v4.0)
+**Equipment Datacards**:
+- Location: `books/[battle]/book/src/chapter2/[category].md`
+- Categories: tanks.md, guns_and_artillery.md, vehicles.md, infantry_weapons.md, other_equipment.md
+- Format: V4 datacard format (3x2 grid, A4 landscape, locked CSS)
 
-### 5. Nation Values (CANONICAL)
-**Use exactly these values** (NOT "germany", "italy", "britain", "usa"):
-- `german` - German Wehrmacht
-- `italian` - Italian Regio Esercito
-- `british` - British & Commonwealth (includes Australia, NZ, India, South Africa, Canada, Colonial)
-- `american` - US Army
-- `french` - Free French forces
+**Forces/TO&E Tables**:
+- Location: `books/[battle]/book/src/forces/[unit_type].md`
+- Source: Phase 6 unit JSONs (`data/output/units/*.json`)
+- Structure: Hierarchical (Corps → Division → Regiment → Battalion)
 
-### 6. Quarter Format
-**Lowercase, no hyphen**: `1941q2` (NOT "1941-Q2", NOT "1941Q2")
+**OOB Sections**:
+- Location: `books/[battle]/book/src/oob/oob_[nation].md`
+- Format: Three-column layout matching OOB Example.png
+- Content: Army → Corps → Division hierarchy
 
-### 7. Validation Requirements
-**Unit is complete ONLY when ALL 3 pass**:
-1. ✅ JSON file exists in canonical location
-2. ✅ Chapter file exists in canonical location
-3. ✅ Passes schema validation (no critical errors)
-
-Checkpoint automatically validates - failed units not counted.
+### 5. Validation Requirements
+**Book is complete ONLY when ALL pass**:
+1. ✅ Equipment datacards: 100% items linked with complete data
+2. ✅ Forces/TO&E tables: All relevant Phase 6 units included
+3. ✅ OOB sections: All nations formatted correctly
+4. ✅ Scenarios: 45 scenarios validated (combined arms compliance)
+5. ✅ Appendices: Zero placeholders, comprehensive citations
+6. ✅ Production PDFs: 2-5 MB each, A4 landscape, print-ready
 
 ---
 
@@ -120,9 +256,9 @@ Checkpoint automatically validates - failed units not counted.
 
 ---
 
-## 🗄️ Equipment Database Architecture (Phase 5)
+## 🗄️ Equipment Database Architecture
 
-**As of October 2025**, the project uses a **three-source equipment database** to provide comprehensive specifications beyond what historical documents contain.
+**As of November 2025**, the project uses a **three-source equipment database** to provide comprehensive specifications beyond what historical documents contain.
 
 ### Strategic Rationale
 
@@ -137,6 +273,7 @@ Checkpoint automatically validates - failed units not counted.
 
 **The Solution**:
 - **Phase 5 (Equipment Matching)** links WITW baseline to detailed specifications
+- **Phase 9B (Database Linkage)** connects equipment to BattleGroup reference data
 - Agents extract counts from historical sources
 - Database provides specifications for enrichment
 - Result: Both historical accuracy (counts) AND detailed specs (combat modeling)
@@ -168,15 +305,33 @@ Checkpoint automatically validates - failed units not counted.
 - **Quality**: 90-95% confidence (specialist tank/gun database)
 - **Use Case**: Technical specs for MDBook chapters, penetration modeling
 
+**Source 4: BattleGroup Reference Data** (Phase 9B addition)
+- **Purpose**: Game-specific stat conversion for BattleGroup format
+- **Tables**:
+  - `bg_reference_vehicles` - 500 vehicles from official PDFs (armor, movement, weapons, points, BR)
+  - `bg_reference_guns` - 57 guns (HE/AP values, penetration scale, range bands)
+  - `equipment_battlegroup` - 469 North Africa items enriched with BattleGroup stats
+- **Use Case**: Equipment datacards, points/BR calculation, conversion formulas
+
 ### Database Schema (master_database.db)
 
-**11 tables in SQLite database**:
+**18 tables in SQLite database** (expanded from Phase 5's 11 tables):
 
 **Core Equipment Tables**:
 - `equipment` - WITW baseline (469 items) with match links to OnWar/WWIITANKS
 - `guns` - 343 guns with full specifications (caliber, penetration, ammunition)
 - `ammunition` - 162 ammunition types with characteristics
 - `penetration_data` - 1,296 penetration values (gun vs armor at various distances)
+
+**BattleGroup Tables** (Phase 9B additions):
+- `equipment_battlegroup` - 469 items with BattleGroup stats (armor, movement, points, BR)
+- `bg_reference_vehicles` - 500 reference vehicles from official PDFs
+- `bg_reference_guns` - 57 reference guns with HE/AP values
+- `bg_armor_conversion` - 16 armor thickness ranges (A-O letter scale)
+- `bg_penetration_scale` - 24 gun/caliber penetration mappings
+- `bg_movement_values` - 20 vehicle type/weight movement ranges
+- `bg_he_effectiveness` - 9 caliber HE effectiveness ranges
+- `bg_special_rules` - 57 special rules (1,599 equipment linkages)
 
 **Unit Assignment Tables**:
 - `units` - 144 WITW units (divisions, corps, armies)
@@ -185,24 +340,41 @@ Checkpoint automatically validates - failed units not counted.
 **Metadata & Provenance Tables**:
 - `match_reviews` - Equipment matching decisions with confidence scores
 - `import_log` - Data provenance tracking (when imported, by whom, from what source)
+- `normalization_audit` - Database linkage audit trail (Tier 1-4 matches)
 
 **Source Data Tables**:
 - `afv_data` - OnWar AFV data (213 vehicles)
 - `wwiitanks_afv_data` - WWIITANKS AFV data (612 vehicles)
 - `wwiitanks_gun_data` - WWIITANKS gun data (343 guns)
 
-### Equipment Matching Progress
+### Equipment Linkage Status
 
-**As of October 23, 2025**:
-- [x] French: 20/20 items → **COMPLETE** (100%)
-- [ ] American: 81 items → Next
-- [ ] German: 98 items → Pending
-- [ ] British: 196 items → Pending (largest)
-- [ ] Italian: 74 items → Pending
+**Phase 5 Equipment Matching** (COMPLETE):
+- French: 20/20 items → **COMPLETE** (100%)
+- American: 81/81 items → **COMPLETE** (100%)
+- German: 98/98 items → **COMPLETE** (96%)
+- British: 196/196 items → **COMPLETE** (99%)
+- Italian: 74/74 items → **COMPLETE** (97%)
+- **Total**: 469/469 items matched to OnWar/WWIITANKS (99% success)
 
-**Total**: 20/469 items matched (4.3% complete)
+**Phase 9B Database Linkage** (IN PROGRESS):
+- **Current**: 96/469 items linked to BattleGroup reference data (20.5%)
+- **Target**: 469/469 items (100% required for publication)
+- **Vehicles**: 80 items linked via `reference_vehicle_id`
+- **Guns**: 16 items linked via `reference_gun_id`
+- **Confidence Distribution**:
+  - Tier 1 (100): 19 items - Exact matches
+  - Tier 2 (85-90): 20 items - Normalized matches
+  - Tier 3 (80): 41 items - Base model matches
+  - Tier 4 (85-90): 16 items - Artillery matches
 
-**Workflow**: Interactive CLI matching (`tools/equipment_matcher_v2.py`) with type detection, name normalization, cross-nation matching for captured/lend-lease equipment, confidence scoring, and automated research for unmatched items.
+**Linkage Scripts** (Created Nov 3, 2025):
+- `scripts/linkage/tier2_normalization.py` - Name variation matching
+- `scripts/linkage/tier3_base_model.py` - Variant stripping logic
+- `scripts/linkage/tier4_artillery_linkage.py` - Artillery cross-reference
+- `scripts/linkage/tier3_5_stuart_linkage.sql` - Stuart tank variants (10 items)
+- `scripts/linkage/tier3_6_common_tanks_linkage.sql` - Common tanks (37 items)
+- `scripts/linkage/execute_all_tiers.sql` - Comprehensive 4-tier linkage
 
 ---
 
@@ -217,6 +389,27 @@ Checkpoint automatically validates - failed units not counted.
 | `npm run qa:v3` | Full QA validation pipeline |
 | `npm run validate:v3` | Schema v3.1.0 compliance check |
 
+**Phase 9B Specific Commands**:
+```bash
+# Generate equipment datacards for all 4 books
+python scripts/battlegroup/book/generate_book_datacards.py --all
+
+# Generate datacards for specific battle
+python scripts/battlegroup/book/generate_book_datacards.py --battle battleaxe
+
+# Validate scenarios
+python scripts/battlegroup/book/validate_all_scenarios.py
+
+# QA final books
+python scripts/battlegroup/book/qa_final_books.py
+
+# Build MDBook HTML
+cd books/battleaxe/book && mdbook build
+cd books/crusader/book && mdbook build
+cd books/gazala/book && mdbook build
+cd books/first_alamein/book && mdbook build
+```
+
 **See START_HERE_NEW_SESSION.md for complete command reference.**
 
 ---
@@ -226,18 +419,18 @@ Checkpoint automatically validates - failed units not counted.
 | Need | Location |
 |------|----------|
 | Project scope & phases | `PROJECT_SCOPE.md` |
+| Phase 9B next steps | `PHASE_9B_NEXT_STEPS.md` |
+| Phase 9B session summary | `PHASE_9B_SESSION_SUMMARY.md` |
 | Session management | `START_HERE_NEW_SESSION.md` |
 | Schema v3.1.0 spec | `schemas/unified_toe_schema.json` |
 | Technical history | `VERSION_HISTORY.md` |
-| Restoration work | `RESTORATION_PLAN.md` |
 | Agent definitions | `agents/agent_catalog.json` |
-| Work queue | `WORK_QUEUE.md` |
-| Workflow state | `WORKFLOW_STATE.json` |
+| BattleGroup reference | `Resource Documents/Battlegroup Game/` |
 
 ---
 
-**Ready to start? Run:** `npm run session:start`
+**Current Priority**: Complete equipment linkage to 100% for publication-ready quality
 
-**For detailed workflow:** Read `START_HERE_NEW_SESSION.md`
+**Ready to work?** Read `PHASE_9B_NEXT_STEPS.md` for detailed remaining tasks
 
-**For restoration context:** Read `RESTORATION_PLAN.md` (if mid-restoration)
+**For reference**: Official BattleGroup-Kursk.pdf in `Resource Documents/Battlegroup Game/` (use parser agent to read)
