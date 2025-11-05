@@ -121,7 +121,7 @@ If you need to review ground forces data, see `data/output/units/` directory.
 
 6. **Workflow Enforcement** ✅
    - Added CRITICAL RULES to `session_start.js` (seed authority, combat criteria, canonical paths, validation)
-   - Created `scripts/validate_session_readiness.js` for pre-flight checks
+   - Created `scripts/phase_6_ground_forces/session_management/validate_session_readiness.js` for pre-flight checks
    - Added `npm run session:ready` command
 
 7. **Version History Updates** ✅

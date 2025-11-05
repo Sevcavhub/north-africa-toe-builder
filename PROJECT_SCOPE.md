@@ -161,9 +161,9 @@ This is NOT just a static historical database - it's a **game-ready scenario gen
 
 **Files Created**:
 - `database/master_database.db` - SQLite database
-- `scripts/import_witw_baseline.js` - WITW import
-- `scripts/import_guns.js` - Guns import
-- `scripts/import_units.js` - Units import
+- `scripts/phase_1_4_database/scrape_wwiitanks.js` - WWIITANKS scraper
+- `scripts/phase_1_4_database/scrape_onwar_enhanced.js` - OnWar scraper
+- `scripts/phase_1_4_database/import_name_variants.js` - Equipment name variants
 
 **Time Spent**: ~4 hours
 
@@ -273,9 +273,9 @@ Historical sources (Tessin, Army Lists, Field Manuals) provide equipment **QUANT
 - `tools/equipment_matcher_auto.py` - Enhanced automated matcher
 - `tools/apply_research_findings.py` - Apply research to database
 - `tools/show_french_results.py` - Query matching results
-- `scripts/enrich_units_with_database.py` - Add database specs to units
-- `scripts/generate_scenario_exports.py` - Export WITW scenarios
-- `scripts/add_missing_guns.py` - Add missing guns to database
+- `scripts/phase_6_ground_forces/unit_management/enrich_units_with_database.js` - Add database specs to units
+- `scripts/scenario_generation/` - Export WITW scenarios
+- `scripts/add_missing_guns.py` - Add missing guns to database (Python, root)
 - `EQUIPMENT_MATCHING_COMPLETE_ALL_NATIONS.md` - Comprehensive summary (469 items)
 - `FRENCH_MATCHING_COMPLETE.md` - French session summary (20 items)
 - `BRITISH_MATCHING_COMPLETE.md` - British session summary (196 items)
@@ -610,7 +610,7 @@ All 469 North Africa items inherited historical specs from Phase 1 migration. Th
 
 **Deliverables**:
 - ✅ `tools/equipment_matcher_v3_variants.py` - Name variant matcher
-- ✅ `scripts/analyze_unmatched_equipment.js` - Category analysis
+- ✅ `scripts/diagnostic/analysis/analyze_unmatched_equipment.js` - Category analysis
 - ✅ `docs/PHASE_5_5_PHASE_3_ANALYSIS.md` - Detailed findings and reverse engineering strategy
 
 ---
@@ -1919,7 +1919,7 @@ This scope is achievable, professionally valuable, and commercially marketable.
 - **Impact**: Progress aligns with user's week of 12-hour days! ✅
 - **Fixed Files**:
   - `src/autonomous_orchestrator.js` - Uses fuzzy matching for skip-completed
-  - `scripts/debug_unit_matching.js` - Detects naming mismatches
+  - `scripts/diagnostic/investigation/debug_unit_matching.js` - Detects naming mismatches
 - **Lesson Learned**: Always use fuzzy matching for unit names (historical designations vary)
 
 ### v1.0.5 (2025-10-14) - SCOPE CLARIFICATION - Modified Hybrid Approach
@@ -1942,8 +1942,8 @@ This scope is achievable, professionally valuable, and commercially marketable.
   - Orphaned (not in seed): 56 units (legitimate garrison divisions that fought in battles)
 - **Overall Progress**: ~45-48% complete (151 of ~311-346 total units)
 - **Analysis Tools Created**:
-  - `scripts/filter_battle_units.js` - Battle participation analysis
-  - `scripts/analyze_remaining_seed_units.js` - Seed completion tracking
+  - `scripts/phase_6_ground_forces/unit_management/filter_battle_units.js` - Battle participation analysis
+  - `scripts/diagnostic/analysis/analyze_remaining_seed_units.js` - Seed completion tracking
   - `data/output/BATTLE_PARTICIPATION_ANALYSIS.json` - Detailed categorization
   - `data/output/REMAINING_SEED_ANALYSIS.json` - Gap analysis
 - **Decision**: Modified Hybrid = Units physically in Africa + participated in battles (offensive or defensive)

@@ -22,16 +22,52 @@ This document maps the complete data flow through all 10 project phases, showing
 ## 🎯 Quick Reference: Script Inventory
 
 **Total Scripts**: 327 files
-- **Phase 1-6 (root .js)**: 152 scripts
+- **Phase 1-7 (.js organized)**: 152 scripts (reorganized November 5, 2025)
 - **Phase 9B (battlegroup/ .py)**: 93 scripts
 - **Phase 9A (scenario_generation/ .py)**: 12 scripts
 - **Phase 5.5 (normalization/ .sql)**: ~40 scripts
 - **Phase 5.5 (linkage/ .sql)**: ~30 scripts
 
-**Directory Structure**:
+**Directory Structure** (updated November 5, 2025):
 ```
 scripts/
-├── [152 .js files] ────────────── Phase 1-6 (Node.js)
+├── phase_1_4_database/ ────────── Phase 1-4 setup (8 scripts)
+│   ├── scrape_onwar_enhanced.js
+│   ├── scrape_wwiitanks.js
+│   ├── scrape_wwiitanks_enhanced_guns.js
+│   ├── scrape_wwiitanks_enhanced_guns_v2.js
+│   ├── import_name_variants.js
+│   ├── parse_onwar_references.js
+│   ├── parse_production_dates.js
+│   └── research_production_dates.js
+├── phase_6_ground_forces/ ─────── Phase 6 extraction (37 scripts)
+│   ├── session_management/ ────── Session workflow (12 scripts)
+│   ├── queue/ ─────────────────── Work queue (5 scripts)
+│   ├── validation/ ────────────── Schema/source validation (9 scripts)
+│   ├── content_generation/ ────── Chapters/TOE (9 scripts)
+│   └── unit_management/ ───────── Unit filtering/enrichment (6 scripts)
+├── phase_7_air_forces/ ────────── Phase 7 air forces (15 scripts)
+│   ├── add_air_sections_to_chapters.js
+│   ├── add_air_support_to_armies.js
+│   ├── create_focused_air_seed.js
+│   ├── generate_american_air_summaries.js
+│   └── [11 more air forces scripts]
+├── diagnostic/ ────────────────── Analysis tools (38 scripts)
+│   ├── analysis/ ──────────────── Data analysis (15 scripts)
+│   ├── checks/ ────────────────── Status checks (6 scripts)
+│   ├── find/ ──────────────────── Discovery tools (12 scripts)
+│   ├── investigation/ ─────────── Deep debugging (6 scripts)
+│   └── lists/ ─────────────────── Listing utilities (4 scripts)
+├── legacy/ ────────────────────── Migration/testing (19 scripts)
+│   ├── migration/ ─────────────── Schema fixes (12 scripts)
+│   ├── testing/ ───────────────── Test scripts (7 scripts)
+│   └── database_setup/ ────────── Backfill scripts (5 scripts)
+├── shared/ ────────────────────── Common utilities (20 scripts)
+│   ├── lib/ ───────────────────── Shared libraries (10 modules)
+│   ├── git_auto_commit.js
+│   ├── memory_mcp_helpers.js
+│   ├── search_sources.js
+│   └── [17 more shared scripts]
 ├── battlegroup/ ───────────────── Phase 9B (Python)
 │   ├── analysis/
 │   ├── book/
@@ -48,12 +84,20 @@ scripts/
 │   ├── converters/
 │   ├── game_exporters/
 │   └── templates/
-├── database/ ─────────────────── Phase 1-4 (database setup)
-├── lib/ ──────────────────────── Shared utilities
+├── database/ ─────────────────── Database files
 ├── linkage/ ──────────────────── Phase 5.5 (equipment linkage)
 ├── migration/ ────────────────── Phase 5 (data migration)
 └── normalization/ ────────────── Phase 5.5 (database normalization)
 ```
+
+**Reorganization Details** (November 5, 2025):
+- Moved 152 .js scripts from flat root to phase-specific folders
+- Preserved Git history with `git mv` commands
+- Updated 50+ npm commands in package.json
+- Fixed 27 PROJECT_ROOT path references
+- Updated 14 lib/ require paths
+- Deleted 62 empty folders in data/output/
+- Commit: 3532a3af
 
 ---
 
@@ -70,15 +114,18 @@ scripts/
 
 ### **Scripts**:
 ```
-scripts/
-├── import_witw_baseline.js ──── Import WITW 469 equipment items
-├── import_onwar_afv_data.js ─── Import OnWar AFV data
-├── import_guns.js ───────────── Import gun specifications
-├── import_ammunition.js ─────── Import ammunition types
-├── import_penetration_data.js ─ Import penetration tables
-├── import_units.js ──────────── Import WITW units
-└── database/
-    └── master_database.db ──────── SQLite database created
+scripts/phase_1_4_database/
+├── scrape_onwar_enhanced.js ───────── Scrape OnWar AFV data
+├── scrape_wwiitanks.js ────────────── Scrape WWIITANKS data
+├── scrape_wwiitanks_enhanced_guns.js ─ Scrape gun data
+├── scrape_wwiitanks_enhanced_guns_v2.js ─ Enhanced gun scraping
+├── import_name_variants.js ────────── Import equipment name variations
+├── parse_onwar_references.js ──────── Parse OnWar source references
+├── parse_production_dates.js ──────── Parse production date data
+└── research_production_dates.js ───── Research production dates
+
+scripts/database/
+└── master_database.db ───────────────── SQLite database (18 tables)
 ```
 
 ### **Agents**: None (direct import scripts)
@@ -206,12 +253,12 @@ scripts/linkage/
 
 ### **Scripts** (Session Management System):
 ```
-scripts/
+scripts/phase_6_ground_forces/
+
+session_management/ (12 scripts)
 ├── session_start.js ─────────────────── Initialize extraction session
 ├── session_end.js ───────────────────── End session with summary
 ├── validate_session_readiness.js ───── Pre-flight validation
-├── generate_work_queue.js ───────────── Create unit queue
-├── validate_work_queue.js ───────────── Validate queue structure
 ├── process_queue_auto.js ────────────── Automated extraction
 │   ├── --quick ─────────────────────── Fast mode
 │   ├── --standard ──────────────────── Standard mode
@@ -221,9 +268,48 @@ scripts/
 ├── resume_paused_unit.js ────────────── Resume interrupted units
 ├── create_checkpoint.js ─────────────── Save progress checkpoint
 ├── checkpoint_safe.js ───────────────── Safe checkpoint with validation
+├── recover_from_crash.js ────────────── Crash recovery
+├── archive_old_sessions.js ──────────── Archive completed sessions
+├── rebuild_workflow_state.js ────────── Rebuild workflow state
+├── reconcile_workflow_state.js ──────── Reconcile workflow state
+└── update_restoration_progress.js ───── Update restoration progress
+
+queue/ (5 scripts)
+├── generate_work_queue.js ───────────── Create unit queue
+├── validate_work_queue.js ───────────── Validate queue structure
+├── add_discovered_to_queue.js ───────── Add discovered units
+├── collect_discoveries.js ───────────── Collect discovered units
+└── create_extraction_plan.js ────────── Create extraction plan
+
+validation/ (9 scripts)
 ├── validate-schema.js ──────────────── Schema v3.0.0/v3.1.0 validation
 ├── validate-no-wikipedia.js ─────────── Wikipedia blocking (4 layers)
-└── recover_from_crash.js ────────────── Crash recovery
+├── validate_no_wikipedia.js ─────────── Wikipedia validation
+├── qa_audit.js ──────────────────────── QA audit validation
+├── validate_4_units.js ──────────────── Validate 4 units
+├── validate_army_aggregation.js ─────── Validate army aggregation
+├── validate_seed_against_authoritative.js ─ Validate seed against authoritative
+├── validate_seed_phase1.js ──────────── Validate seed phase 1
+└── final_status_check.js ────────────── Final status check
+
+content_generation/ (9 scripts)
+├── generate_mdbook_chapters.js ──────── Generate MDBook chapters
+├── generate_single_chapter.js ───────── Generate single chapter
+├── generate_missing_chapters.js ─────── Generate missing chapters
+├── generate_31_missing_chapters.js ──── Generate 31 missing chapters
+├── generate_toe_diagram.js ──────────── Generate TOE diagram
+├── generate_reextraction_batch.js ───── Generate reextraction batch
+├── generate_complete_seed.js ────────── Generate complete seed
+├── consolidate_canonical.js ─────────── Consolidate canonical data
+└── generate_final_expansion_summaries.js ─ Generate final expansion summaries
+
+unit_management/ (6 scripts)
+├── filter_battle_units.js ───────────── Filter battle units
+├── enrich_units_with_database.js ────── Enrich units with database
+├── backup_all_units.js ──────────────── Backup all units
+├── cross_reference_seed.js ──────────── Cross reference seed
+├── update_seed_with_aliases.js ──────── Update seed with aliases
+└── canonical_master_matcher.js ──────── Canonical master matcher
 ```
 
 ### **Agents** (7 specialized agents):
@@ -300,10 +386,25 @@ data/output/units/
 
 ### **Scripts** (Air Forces Session Management):
 ```
-scripts/
-├── session_start.js --air-forces ──── Initialize air forces session
-├── generate_work_queue.js --air-forces ─ Create air force queue
-└── session_end.js ─────────────────── End session
+scripts/phase_7_air_forces/ (15 scripts)
+├── add_air_sections_to_chapters.js ──── Add air sections to MDBook chapters
+├── add_air_support_to_armies.js ─────── Add air support to army units
+├── add_american_air_support_sections.js ─ American air support integration
+├── add_final_air_support_sections.js ─── Final air support integration
+├── add_new_air_support_sections.js ──── New air support sections
+├── create_focused_air_seed.js ───────── Create focused air seed
+├── create_hybrid_air_summaries.js ───── Create hybrid air summaries
+├── create_ultra_focused_air_seed.js ─── Create ultra focused air seed
+├── extract_nafziger_air_pdf.js ──────── Extract Nafziger air force PDFs
+├── generate_american_air_summaries.js ─ Generate American air summaries
+├── generate_expansion_air_summaries.js ─ Generate expansion air summaries
+├── generate_quarterly_air_overviews.js ─ Generate quarterly air overviews
+├── generate_work_queue_air.js ───────── Generate air force work queue
+├── regenerate_air_summaries_with_wikipedia.js ─ Regenerate with Wikipedia
+└── search_nafziger_air_1941.js ──────── Search Nafziger 1941 air data
+
+Note: Uses scripts/phase_6_ground_forces/session_management/session_start.js --air-forces
+Note: Uses scripts/phase_6_ground_forces/session_management/session_end.js
 ```
 
 ### **Agents**:
