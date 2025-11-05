@@ -1,48 +1,54 @@
 # 🚀 NEW SESSION - START HERE
 
 <!-- AUTO-UPDATED: START - Session Metadata -->
-**Project**: North Africa TO&E Builder - **v3.1.0 (Multi-Game Export)**
-**Last Updated**: 2025-11-05 09:00
-**Status**: Phases 1-8 Complete ✅ | Phase 9A Complete ✅ | Phase 9B ⏸️ ON HOLD (Reference data quality recovery)
+**Project**: North Africa TO&E Builder - **v3.0.0 (Ground Forces)**
+**Last Updated**: 2025-10-27 21:35
+**Status**: Schema v3.0 Complete, 402/411 units (97.8%)
 <!-- AUTO-UPDATED: END - Session Metadata -->
 
 ---
 
 ## Quick Start Commands
 
-### **CURRENT STATUS: Phase 9B ON HOLD** ⏸️
+### **PHASE 7: Air Forces Extraction** (NEW - Ready to Start!)
 
-**What's Happening**:
-Phase 9B (BattleGroup Book Generation) discovered reference data quality issues. User is manually re-extracting clean data from BattleGroup supplements.
+**Option 1: Manual Mode** (3 squadrons at a time, with approval):
+```
+/air-start
+```
 
-**Current User Focus**:
-- ✅ Canada's Crucible extraction complete (clean baseline data)
-- ⏳ British DataCards CSV filling in progress (user manually entering data)
-- 📋 ~15 more extraction tasks planned (reduced scope - samples for validation, not comprehensive)
+**Option 2: Continuous Mode** (run until queue empty):
+```
+/air-continuous
+```
 
-**Agent Guidelines**:
-- ❌ **DO NOT** work on Phase 9B book generation (equipment datacards blocked until clean data available)
-- ❌ **DO NOT** run conversion formula scripts (need validation against clean data first)
-- ✅ **CAN** work on Project Books (non-BattleGroup) if requested: summary chapters, appendices, TO&E tables
-- ✅ **CAN** work on documentation updates, infrastructure improvements, non-Phase 9B tasks
+**End Air Forces Session**:
+```
+/air-end
+```
+
+**Alternative NPM Commands**:
+```bash
+npm run air:start     # Start air forces session
+npm run air:end       # End air forces session
+```
+
+**Read Full Documentation**:
+```
+"Read PHASE_7_INFRASTRUCTURE_COMPLETE.md for air forces setup details"
+```
 
 ---
 
-### **PHASE 7: Air Forces Extraction** ✅ **COMPLETE**
+### **PHASE 6: Ground Forces** (411/411 units - 100% Complete ✅)
 
-**Status**: 23 quarterly theater-wide summaries complete (9 quarters × 4 nations)
+Ground forces extraction is complete! If you need to work on ground units:
 
-If you need to review air forces data, see `data/output/air_forces/` directory.
-
----
-
-### **PHASE 6: Ground Forces** ✅ **COMPLETE**
-
-**Status**: 402/402 unit-quarters complete (100%)
-- 117 unique units across 5 nations
-- All units validated against schema v3.1.0
-
-If you need to review ground forces data, see `data/output/units/` directory.
+```
+/kstart              # Start ground forces session
+/auto-continuous     # Run continuous ground extraction
+/kend                # End ground forces session
+```
 
 ---
 

@@ -4,71 +4,6 @@ This file provides guidance to Claude Code when working with this repository.
 
 ---
 
-## 🔄 NEW THREAD PROTOCOL (READ THIS FIRST!)
-
-**⚠️ MANDATORY FOR ALL NEW SESSIONS**: Before doing ANY work, you MUST:
-
-### **Step 1: Read These 4 Documents** (in this order)
-1. `PROJECT_SCOPE.md` - Complete project vision, phased approach, current status
-2. `START_HERE_NEW_SESSION.md` - Session workflow, current phase status
-3. `PHASE_9B_SESSION_SUMMARY.md` - Detailed session history, what's been accomplished
-4. `PHASE_9B_NEXT_STEPS.md` - Current remaining tasks, reduced scope clarification
-
-**Why This Matters**: These documents are **living documents** updated during sessions. They contain:
-- Current project status (what's complete, what's on hold)
-- Known issues and blockers
-- What agents should and shouldn't work on
-- File/folder structure patterns established
-- Database schema state
-
-**Reading these first prevents**:
-- Creating duplicate databases/folders
-- Working on wrong tasks or blocked areas
-- Breaking established patterns
-- Wasting tokens on incorrect assumptions
-
-### **Step 2: Update Documents During Your Session**
-As you work, update relevant files with:
-- Progress made
-- Issues discovered
-- Decisions made
-- **Timestamps** on all updates (format: YYYY-MM-DD or November 5, 2025)
-
-**Files to update**:
-- `PHASE_9B_SESSION_SUMMARY.md` - Add session notes, accomplishments
-- `PHASE_9B_NEXT_STEPS.md` - Update remaining tasks, mark completed items
-- `PROJECT_SCOPE.md` - Update status if major milestones reached
-
-### **Step 3: Current Reality (as of November 5, 2025)**
-
-**Phase 9B Status**: ⏸️ **ON HOLD** - Reference data quality recovery in progress
-
-**What Happened**:
-- Infrastructure built: Database schema, conversion tools, book generation ✅
-- Content created: Historical chapters (24,000 words), scenarios, templates, appendices ✅
-- **Problem discovered**: Scraped reference data contained errors → conversion formulas assumed incorrect
-- **Current focus**: User manually extracting clean reference data (Canada's Crucible ✅, British DataCards ⏳)
-- **Scope reduced**: Sample-based validation (not comprehensive extraction)
-
-**Agent Guidelines**:
-- ❌ **DO NOT** work on Phase 9B book generation (equipment datacards blocked)
-- ❌ **DO NOT** run conversion formula scripts (need validation first)
-- ❌ **DO NOT** create new databases or duplicate folder structures
-- ✅ **CAN** work on documentation updates, infrastructure improvements
-- ✅ **CAN** work on Project Books (non-BattleGroup) if requested
-- ✅ **MUST** verify patterns before creating new files (check existing structure first)
-
-**Database Status**:
-- Location: `D:\north-africa-toe-builder\database\master_database.db`
-- Schema evolving: User discovering schema changes needed during manual extraction
-- Tables: 18 tables (equipment, BattleGroup reference data, Phase 6 units, etc.)
-
-**Two Book Types**:
-1. **Project Books**: General historical books (summary chapters, appendices, TO&E tables) - separate workstream
-2. **BattleGroup Books**: Phase 9B specific (4 battle books on hold pending clean data)
-
----
-
 ## 🌟 What Is This Project? (Simple Explanation)
 
 **Imagine building a collection of books about World War 2 tank battles in North Africa...**
@@ -124,16 +59,16 @@ As you work, update relevant files with:
 ## 🎯 Quick Orientation
 
 **Project**: North Africa TO&E Builder (Table of Organization & Equipment)
-**Current Phase**: Phase 9B ⏸️ ON HOLD (Reference Data Quality Recovery)
-**Status**: Infrastructure complete, content created, equipment stats need validation with clean data
+**Current Phase**: BattleGroup Book Generation (Phase 9B of 10)
+**Progress**: 85-90% complete (MVP near ready, polish remaining)
 **Schema**: v3.1.0 (tiered extraction, supply/logistics, weather/environment)
 **Primary Purpose**: Generate wargaming scenarios with realistic historical data
 
-**Key Documents** (⚠️ READ THESE FIRST - See New Thread Protocol above):
+**Key Documents** (read these for complete context):
 - `PROJECT_SCOPE.md` - Complete project vision and phased approach (**LIVING DOCUMENT**)
-- `START_HERE_NEW_SESSION.md` - Session workflow and current status (**UPDATED 2025-11-05**)
-- `PHASE_9B_SESSION_SUMMARY.md` - Detailed session history and on-hold explanation (**UPDATED 2025-11-05**)
-- `PHASE_9B_NEXT_STEPS.md` - Current tasks and reduced scope approach (**UPDATED 2025-11-05**)
+- `PHASE_9B_NEXT_STEPS.md` - Current phase work breakdown and remaining tasks
+- `PHASE_9B_SESSION_SUMMARY.md` - Detailed session history and accomplishments
+- `START_HERE_NEW_SESSION.md` - Session workflow and management protocol
 - `schemas/unified_toe_schema.json` - Data structure requirements
 
 ---
@@ -173,20 +108,19 @@ As you work, update relevant files with:
   - Pluggable scenario generation architecture
   - Supply/weather/air support integration
 
-### **Current Phase** ⏸️
+### **Current Phase** 🎯
 
-- **Phase 9B: BattleGroup Book Generation** ⏸️ **ON HOLD** ← **YOU ARE HERE**
-  - **Status**: Reference data quality recovery in progress
+- **Phase 9B: BattleGroup Book Generation** 🎯 **85-90% COMPLETE** ← **YOU ARE HERE**
   - Foundation & Tools (Steps 1-5): **100% COMPLETE** ✅
-  - Book Content (Step 7): Infrastructure complete, equipment stats need validation
+  - Book Content (Step 7): **85-90% COMPLETE**
+    - ✅ Equipment datacards: V4 format complete, database linkage started (20%)
     - ✅ Historical chapters: 100% (12 files, ~24,000 words)
     - ✅ Equipment special rules: 100% (4 files, 1,543 lines)
     - ✅ Appendices: 100% (12 files, 7,797 lines, zero placeholders)
     - ✅ Tactical templates: 100% (12 templates + 32 files)
     - ✅ Scenarios: 100% (45 scenarios with 95%+ parsing success)
-    - ⏸️ Equipment datacards: ON HOLD (need clean reference data to validate formulas)
-    - ❌ Forces/TO&E tables: 0% (deferred - needs script)
-  - **Current Work**: User manually extracting clean reference data (Canada's Crucible ✅, British DataCards ⏳)
+    - ❌ Forces/TO&E tables: 0% (CRITICAL BLOCKER - needs script)
+  - **Remaining**: 4-7 hours to core MVP
 
 ### **Future Phases** 📋
 
@@ -211,18 +145,16 @@ As you work, update relevant files with:
 - Professional layout, zero placeholders, comprehensive citations
 - Print-ready PDFs (2-5 MB each, A4 landscape)
 
-**Current Status** (as of November 5, 2025): ⏸️ **ON HOLD**
-- **Content Created**: 171+ files, 28,983+ lines ✅
-- **Infrastructure**: Database schema, conversion tools, book generation framework ✅
-- **Books Generated**: All 4 MDBook HTML builds complete (134 HTML files) ✅
-- **Scenarios**: 45 historical scenarios with combined arms validation ✅
-- **Equipment Stats**: ⏸️ ON HOLD - Conversion formulas need validation against clean reference data
+**Current Status** (as of November 3, 2025):
+- **Content Created**: 171+ files, 28,983+ lines
+- **Equipment Database Linkage**: 96/469 items (20.5% coverage) - **NEEDS 100%**
+- **Conversion Formula Accuracy**: 97-100% (exceptional validation)
+- **Books Generated**: All 4 MDBook HTML builds complete (134 HTML files)
+- **Scenarios**: 45 historical scenarios with combined arms validation
 
-**CRITICAL ISSUE DISCOVERED**: Reference Data Quality
-- **Problem**: Scraped reference data from BattleGroup supplements contained errors/inconsistencies
-- **Impact**: Conversion formulas reverse-engineered from flawed data → equipment stats assumed incorrect
-- **Current Work**: Manual extraction of clean reference data (Canada's Crucible ✅, British DataCards ⏳)
-- **Next Steps**: Validate formulas with clean data, regenerate equipment stats, complete books
+**CRITICAL BOTTLENECK**: Equipment Linkage at 20%
+- **Current**: 96/469 items have complete data (armor, weapons, penetration)
+- **Required**: 469/469 items (100% coverage) for publication quality
 - **Why It Matters**: Can't publish with "None" weapons or "???" armor values
 - **Available Sources**: bg_reference_vehicles (500), bg_reference_guns (57), WWIITANKS (612 AFVs + 343 guns)
 - **Strategy**: Reverse-engineer from multiple complementary data sources
