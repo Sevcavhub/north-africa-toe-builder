@@ -1,0 +1,797 @@
+# Phase Architecture Map
+
+**Date Created**: November 5, 2025
+**Purpose**: Comprehensive mapping of tools, scripts, agents, schemas, and workflows by phase
+**Status**: 🚧 IN PROGRESS - Initial mapping complete, detailed documentation ongoing
+
+---
+
+## 📋 Overview
+
+This document maps the complete data flow through all 10 project phases, showing:
+- **Inputs**: What each phase consumes
+- **Agents**: Which agents process the data
+- **Scripts**: Automation tools used
+- **Schemas**: Data validation structures
+- **NPM Commands**: Session management and workflow commands
+- **Database Tables**: What gets created/populated
+- **Outputs**: What each phase produces
+
+---
+
+## 🎯 Quick Reference: Script Inventory
+
+**Total Scripts**: 327 files
+- **Phase 1-6 (root .js)**: 152 scripts
+- **Phase 9B (battlegroup/ .py)**: 93 scripts
+- **Phase 9A (scenario_generation/ .py)**: 12 scripts
+- **Phase 5.5 (normalization/ .sql)**: ~40 scripts
+- **Phase 5.5 (linkage/ .sql)**: ~30 scripts
+
+**Directory Structure**:
+```
+scripts/
+├── [152 .js files] ────────────── Phase 1-6 (Node.js)
+├── battlegroup/ ───────────────── Phase 9B (Python)
+│   ├── analysis/
+│   ├── book/
+│   ├── conversion/
+│   ├── database/
+│   ├── generators/
+│   ├── manual_extraction/
+│   ├── points/
+│   ├── scrapers/
+│   ├── templates/
+│   └── validation/
+├── scenario_generation/ ──────── Phase 9A (Python)
+│   ├── base/
+│   ├── converters/
+│   ├── game_exporters/
+│   └── templates/
+├── database/ ─────────────────── Phase 1-4 (database setup)
+├── lib/ ──────────────────────── Shared utilities
+├── linkage/ ──────────────────── Phase 5.5 (equipment linkage)
+├── migration/ ────────────────── Phase 5 (data migration)
+└── normalization/ ────────────── Phase 5.5 (database normalization)
+```
+
+---
+
+## 📊 PHASE 1-4: Database Infrastructure
+
+**Status**: ✅ COMPLETE (October 14-18, 2025)
+**Duration**: ~4 hours
+**Purpose**: Establish foundational database and import baseline data
+
+### **Inputs**:
+- `sources/WITW_EQUIPMENT_BASELINE.json` - 469 equipment items from War in the West game
+- `sources/afv_data_onwar_*.json` - OnWar AFV data (213 vehicles)
+- `sources/wwiitanks_*.json` - WWIITANKS data (612 AFVs, 343 guns, 162 ammo types, 1,296 penetration values)
+
+### **Scripts**:
+```
+scripts/
+├── import_witw_baseline.js ──── Import WITW 469 equipment items
+├── import_onwar_afv_data.js ─── Import OnWar AFV data
+├── import_guns.js ───────────── Import gun specifications
+├── import_ammunition.js ─────── Import ammunition types
+├── import_penetration_data.js ─ Import penetration tables
+├── import_units.js ──────────── Import WITW units
+└── database/
+    └── master_database.db ──────── SQLite database created
+```
+
+### **Agents**: None (direct import scripts)
+
+### **Database Tables Created** (11 tables):
+1. `equipment` - WITW baseline (469 items)
+2. `afv_data` - OnWar AFV data (213 vehicles)
+3. `wwiitanks_afv_data` - WWIITANKS AFVs (612 vehicles)
+4. `wwiitanks_gun_data` - WWIITANKS guns (343 guns)
+5. `guns` - Gun specifications
+6. `ammunition` - Ammunition types (162 types)
+7. `penetration_data` - Penetration values (1,296 data points)
+8. `units` - WITW units (144 units)
+9. `unit_equipment` - Equipment assignments
+10. `match_reviews` - Equipment matching metadata
+11. `import_log` - Import provenance tracking
+
+### **NPM Commands**: None (manual script execution during setup)
+
+### **Outputs**:
+- `database/master_database.db` - Populated SQLite database with 11 tables
+- Foundation for all subsequent phases
+
+---
+
+## 🔗 PHASE 5: Equipment Matching & Database Integration
+
+**Status**: ✅ COMPLETE (469/469 items matched, 99% success rate)
+**Purpose**: Link WITW baseline to detailed specifications from OnWar and WWIITANKS
+
+### **Inputs**:
+- `database/master_database.db` - Equipment, AFV, gun tables from Phase 1-4
+- User knowledge (interactive matching decisions)
+
+### **Scripts/Tools**:
+```
+tools/equipment_matcher_v2.py (v2.1)
+├── Interactive CLI matching workflow
+├── Type detection (GUN, AFV, SOFT_SKIN, AIRCRAFT)
+├── Cross-nation matching (captured/lend-lease)
+├── Research agent integration
+├── Name normalization
+└── Match confidence scoring (100%, 85%, 70%)
+```
+
+### **Agents**:
+- Research agent (automated web search for missing data) - integrated into matcher tool
+
+### **Database Tables Updated**:
+- `equipment` - Added `onwar_id` and `wwiitanks_id` foreign keys
+- `match_reviews` - Match decisions with confidence scores
+
+### **Matching Progress by Nation**:
+- French: 20/20 (100%)
+- American: 81/81 (100%)
+- British: 196/196 (99%)
+- German: 98/98 (96%)
+- Italian: 74/74 (97%)
+
+### **NPM Commands**: None (manual tool execution with user interaction)
+
+### **Outputs**:
+- 469/469 equipment items linked to OnWar/WWIITANKS specifications
+- Complete three-source integration (WITW + OnWar + WWIITANKS)
+
+---
+
+## 🔄 PHASE 5.5: Database Normalization
+
+**Status**: ✅ COMPLETE (November 3-4, 2025)
+**Purpose**: Eliminate duplication, establish master naming table, support multi-game/multi-theater architecture
+
+### **Inputs**:
+- `database/master_database.db` - 4,669 equipment entries with massive duplication
+
+### **Scripts** (11 normalization scripts, 3,051 lines):
+```
+scripts/normalization/
+├── phase_a_master_consolidation.sql ───── De-duplication, name simplification
+├── phase_b_data_quality_cleanup.sql ───── Extract org units, remove duplicates
+├── phase_c_name_variant_population.sql ─ Generate name variants (2,234 variants)
+├── phase_d_foreign_key_integration.sql ─ Update all foreign keys
+└── qa_validation_suite.sql ────────────── 14 comprehensive QA tests
+
+scripts/linkage/
+├── tier1_exact_matches.sql ────────────── Exact name matches (19 items, confidence 100)
+├── tier2_normalization.py ─────────────── Name variations (20 items, confidence 85-90)
+├── tier3_base_model.py ────────────────── Variant stripping (41 items, confidence 80)
+├── tier4_artillery_linkage.py ─────────── Artillery cross-reference (16 items, confidence 85-90)
+└── execute_all_tiers.sql ──────────────── Comprehensive 4-tier linkage
+```
+
+### **Agents**:
+- `agents/database_normalization_agent.json` - Guided normalization process
+- `agents/name_variant_generator_agent.json` - Generated name variants
+
+### **Database Changes**:
+- **Before**: 4,669 rows, massive duplication
+- **After**: 1,129 unique items in `equipment_master_new`
+- **New Tables**:
+  - `equipment_master_new` - 1,129 unique canonical items
+  - `equipment_name_variants` - 2,234 name variants with 100% master coverage
+  - `normalization_audit` - Audit trail for Tier 1-4 linkages
+
+### **NPM Commands**: None (SQL script execution)
+
+### **Outputs**:
+- 8x data duplication eliminated
+- Multi-game architecture ready (BattleGroup, Achtung Panzer, Flames of War)
+- Multi-theater support (all theaters, not just North Africa)
+- Zero data loss (QA validated)
+
+---
+
+## 📦 PHASE 6: Ground Forces Extraction
+
+**Status**: ✅ COMPLETE (402/402 unit-quarters, 100%)
+**Duration**: October 2025
+**Purpose**: Extract complete TO&E data for 117 unique units across 402 unit-quarters
+
+### **Inputs**:
+- `projects/north_africa_seed_units_COMPLETE.json` - 117 units, 402 unit-quarters
+- Historical sources (Tessin, Army Lists, Field Manuals, etc.)
+- `database/master_database.db` - Equipment specifications
+
+### **Scripts** (Session Management System):
+```
+scripts/
+├── session_start.js ─────────────────── Initialize extraction session
+├── session_end.js ───────────────────── End session with summary
+├── validate_session_readiness.js ───── Pre-flight validation
+├── generate_work_queue.js ───────────── Create unit queue
+├── validate_work_queue.js ───────────── Validate queue structure
+├── process_queue_auto.js ────────────── Automated extraction
+│   ├── --quick ─────────────────────── Fast mode
+│   ├── --standard ──────────────────── Standard mode
+│   ├── --extended ──────────────────── Extended mode
+│   ├── --marathon ──────────────────── Marathon mode
+│   └── --continuous ────────────────── Continuous mode
+├── resume_paused_unit.js ────────────── Resume interrupted units
+├── create_checkpoint.js ─────────────── Save progress checkpoint
+├── checkpoint_safe.js ───────────────── Safe checkpoint with validation
+├── validate-schema.js ──────────────── Schema v3.0.0/v3.1.0 validation
+├── validate-no-wikipedia.js ─────────── Wikipedia blocking (4 layers)
+└── recover_from_crash.js ────────────── Crash recovery
+```
+
+### **Agents** (7 specialized agents):
+```
+agents/agent_catalog.json:
+├── ground_unit_extractor ───────────── Extract unit TO&E data
+├── research_specialist ─────────────── Web research for missing data
+├── qa_auditor ──────────────────────── Quality assurance validation
+├── chapter_summarizer ──────────────── Generate summary chapters
+├── publisher ───────────────────────── Publish units/chapters
+├── scenario_generator ──────────────── Generate battle scenarios
+└── discovery_validator ─────────────── Validate discovered units
+```
+
+### **Schema**:
+- `schemas/unified_toe_schema.json` (v3.0.0 → v3.1.0)
+  - Required: unit metadata, organizational structure, equipment lists
+  - Optional: supply/logistics (5 fields), weather/environment (5 fields)
+  - Tiered extraction: Tier 1-4 (75-100% → <50% complete)
+  - Validation: `combat_evidence` required for discovered units
+
+### **NPM Commands** (Phase 6 Workflow):
+```bash
+npm run session:start          # Initialize session
+npm run queue:generate         # Generate work queue
+npm run auto:continuous        # Run continuous extraction
+npm run checkpoint             # Save progress
+npm run validate:v3            # Validate schema v3.0.0/v3.1.0
+npm run validate:sources       # Validate no Wikipedia usage
+npm run qa:v3                  # Full QA validation
+npm run session:end            # End session with summary
+```
+
+**Slash Commands** (Phase 6):
+```
+/kstart                        # Start ground forces session (calls session:start)
+/auto-continuous               # Run continuous ground extraction (calls auto:continuous)
+/kend                          # End ground forces session (calls session:end)
+```
+
+### **Database Tables Updated**:
+- `units` - 117 unique units
+- Equipment assignments tracked via unit JSONs (not in database)
+
+### **Outputs**:
+- `data/output/units/*.json` - 402 unit JSONs with complete TO&E data
+- `data/output/chapters/*.md` - MDBook summary chapters
+- `data/output/scenarios/witw/*.csv` - WITW scenario CSVs (optional)
+
+**Output Structure** (per unit):
+```
+data/output/units/
+└── {nation}_{quarter}_{unit_name}.json
+    ├── unit_metadata (name, nation, quarter, echelon, etc.)
+    ├── organizational_structure (corps → division → regiment → battalion → company → platoon → squad)
+    ├── equipment_list (tanks, guns, vehicles with quantities)
+    ├── supply_logistics (fuel, ammo, water, operational radius, supply status)
+    ├── weather_environment (terrain, temperature, seasonal impacts, environmental challenges)
+    ├── combat_history (battles, engagements)
+    └── validation (completeness tier, required_field_gaps)
+```
+
+---
+
+## ✈️ PHASE 7: Air Forces Extraction
+
+**Status**: ✅ COMPLETE (23 quarterly theater summaries, 100%)
+**Duration**: October 2025
+**Purpose**: Theater-wide air force summaries (not squadron-level detail)
+
+### **Inputs**:
+- Historical sources (Luftwaffe, RAF, USAAF, Regia Aeronautica records)
+- Quarterly time slices (1941-Q1 through 1943-Q1, 9 quarters)
+
+### **Scripts** (Air Forces Session Management):
+```
+scripts/
+├── session_start.js --air-forces ──── Initialize air forces session
+├── generate_work_queue.js --air-forces ─ Create air force queue
+└── session_end.js ─────────────────── End session
+```
+
+### **Agents**:
+```
+agents/air_forces_agent_catalog.json:
+├── air_unit_extractor ──────────────── Extract theater-wide summaries
+├── research_specialist ─────────────── Web research
+├── publisher ───────────────────────── Publish summaries
+└── discovery_validator ─────────────── Validate discovered units
+```
+
+### **Schema**:
+- `schemas/air_force_schema.json`
+  - Theater-wide summaries (not squadron-level)
+  - Aircraft types, quantities, operational status
+  - Command structure (Geschwader/Gruppe level)
+
+### **NPM Commands** (Phase 7 Workflow):
+```bash
+npm run air:start              # Start air forces session
+npm run queue:generate:air     # Generate air force queue
+npm run air:end                # End air forces session
+```
+
+**Slash Commands** (Phase 7):
+```
+/air-start                     # Start Air Forces extraction session (Phase 7)
+/air-continuous                # Run continuous AIR FORCES extraction until queue is empty
+/air-end                       # End Air Forces session and save progress to git
+```
+
+### **Database Tables**: None created (summaries stored as JSON/MD files)
+
+### **Outputs**:
+- `data/output/air_summaries/*.json` - 23 quarterly theater summaries
+  - 9 quarters (1941-Q1 → 1943-Q1)
+  - 4 nations (German, British, Italian, American)
+- `data/output/air_chapters/*.md` - MDBook air force chapters
+
+**Output Structure** (per quarter/nation):
+```
+data/output/air_summaries/
+└── {nation}_{quarter}_air_summary.json
+    ├── quarter
+    ├── nation
+    ├── theater_strength (total aircraft, operational aircraft)
+    ├── command_structure (Geschwader/Group level)
+    ├── aircraft_types (fighters, bombers, reconnaissance)
+    └── operational_context
+```
+
+---
+
+## 🔗 PHASE 8: Cross-Linking & Integration
+
+**Status**: ✅ COMPLETE (OBE - Overtaken By Events, integrated during Phase 7)
+**Purpose**: Link ground forces with available air support
+
+### **Implementation**:
+Integrated during Phase 7 extraction. 18 army-level units include air support references in their unit JSONs.
+
+### **Scripts**: None (handled within Phase 7 workflow)
+
+### **Agents**: None (integrated into Phase 7 agents)
+
+### **Database Tables**: None
+
+### **Outputs**: Air support references embedded in army-level unit JSONs
+
+---
+
+## 🎮 PHASE 9A: WITW Enhancement (Scenario Generation)
+
+**Status**: ✅ COMPLETE (369 WITW scenarios, 91.8% of 402 units)
+**Purpose**: Generate War in the West (WITW) game scenarios with pluggable architecture
+
+### **Inputs**:
+- `data/output/units/*.json` - 402 unit JSONs from Phase 6
+- `database/master_database.db` - Equipment specifications with WITW IDs
+
+### **Scripts** (Python, Pluggable Architecture):
+```
+scripts/scenario_generation/
+├── base/
+│   ├── scenario_base.py ──────────────── Base scenario class
+│   └── unit_processor.py ─────────────── Process unit JSONs
+├── converters/
+│   ├── witw_converter.py ─────────────── WITW-specific conversion
+│   └── equipment_mapper.py ───────────── Map to WITW equipment IDs
+├── game_exporters/
+│   ├── witw_exporter.py ──────────────── Export WITW CSV format
+│   └── base_exporter.py ──────────────── Base exporter class
+└── templates/
+    └── witw_scenario_template.csv ───── WITW CSV template
+
+Main scripts:
+├── generate_witw_scenarios.py ────────── Generate all WITW scenarios
+├── validate_witw_scenarios.py ────────── Validate scenario outputs
+└── export_to_witw.py ─────────────────── Export to WITW game format
+```
+
+### **Agents**: None (direct script execution)
+
+### **Database Tables**: None created (reads equipment table)
+
+### **NPM Commands**: None (Python script execution)
+
+### **Outputs**:
+- `data/output/scenarios/witw/*.csv` - 369 WITW scenario CSVs
+- Supply/weather/air support integration
+- Pluggable architecture ready for future game systems
+
+**WITW CSV Format**:
+```
+data/output/scenarios/witw/
+└── {nation}_{quarter}_{unit_name}_witw.csv
+    ├── Unit metadata (name, nation, date)
+    ├── Equipment list (WITW IDs, quantities)
+    ├── Supply status (fuel, ammo)
+    ├── Weather conditions
+    └── Air support available
+```
+
+---
+
+## 📚 PHASE 9B: BattleGroup Book Generation
+
+**Status**: ⏸️ ON HOLD (Reference data quality recovery)
+**Purpose**: Generate 4 professional-quality BattleGroup wargame books
+
+**Target Books**:
+1. Operation Battleaxe (1941-Q2)
+2. Operation Crusader (1941-Q4)
+3. Battle of Gazala (1942-Q2)
+4. First El Alamein (1942-Q3)
+
+### **Inputs**:
+- `data/output/units/*.json` - 402 unit JSONs from Phase 6
+- `database/master_database.db` - Equipment specifications
+- `Resource Documents/Battlegroup Game/` - Reference materials (PDFs, datacards)
+- BattleGroup supplements (Canada's Crucible, British DataCards, etc.)
+
+### **Scripts** (93 Python scripts):
+```
+scripts/battlegroup/
+├── analysis/
+│   └── battlegroup_research.py ────────────── Analyze BattleGroup mechanics
+├── book/
+│   ├── generate_book_datacards.py ─────────── Generate equipment datacards
+│   ├── generate_historical_chapters.py ───── Generate historical narratives
+│   ├── generate_scenarios.py ──────────────── Generate battle scenarios
+│   ├── generate_appendices.py ─────────────── Generate appendices
+│   ├── validate_all_scenarios.py ──────────── Validate scenarios
+│   └── qa_final_books.py ──────────────────── QA final book output
+├── conversion/
+│   ├── armor_converter.py ─────────────────── mm thickness → letter (A-O)
+│   ├── penetration_converter.py ───────────── mm penetration → value (1-15)
+│   ├── movement_calculator.py ─────────────── weight/type → inches
+│   ├── he_calculator.py ───────────────────── caliber → HE effect (dice/target)
+│   └── lookup_tables/ ─────────────────────── Conversion lookup tables
+├── database/
+│   ├── populate_bg_tables.py ──────────────── Populate BattleGroup tables
+│   ├── update_equipment_battlegroup.py ────── Update equipment_battlegroup table
+│   └── equipment_linkage_*.sql ────────────── Equipment linkage scripts
+├── generators/
+│   ├── datacard_generator.py ──────────────── Generate vehicle/gun datacards
+│   ├── force_list_compiler.py ─────────────── Generate army lists
+│   ├── oob_formatter.py ───────────────────── Generate OOB sections
+│   └── scenario_generator.py ──────────────── Generate playable scenarios
+├── manual_extraction/
+│   ├── canada_*.py (41 scripts) ───────────── Manual extraction from Canada's Crucible
+│   └── create_all_british_csv_templates.py ─ British DataCards OCR/CSV
+├── points/
+│   ├── points_calculator.py ───────────────── Calculate points cost
+│   ├── battle_rating_assigner.py ──────────── Assign BR values
+│   ├── defence_calculator.py ──────────────── Calculate defence points
+│   └── fire_support_calculator.py ─────────── Calculate fire support costs
+├── scrapers/
+│   └── scrape_battlegroup_pdfs.py ─────────── Scrape reference data from PDFs
+├── templates/
+│   └── datacard_template_v4.md ────────────── V4 datacard format template
+└── validation/
+    └── validate_generators.py ─────────────── Validate generator output
+```
+
+### **Agents**: None (direct script execution, OCR-based extraction)
+
+### **Database Tables Created** (8 new tables, 18 total):
+```
+Phase 9B Tables:
+├── equipment_battlegroup ──────────────────── 469 items with BattleGroup stats
+├── bg_reference_vehicles ──────────────────── 500 reference vehicles (being rebuilt)
+├── bg_reference_guns ──────────────────────── 57 reference guns (being rebuilt)
+├── bg_reference_aircraft ──────────────────── Aircraft reference data
+├── bg_armor_conversion ────────────────────── 16 armor thickness ranges (A-O)
+├── bg_penetration_scale ───────────────────── 24 gun/caliber penetration mappings
+├── bg_movement_values ─────────────────────── 20 vehicle type/weight movement ranges
+├── bg_he_effectiveness ────────────────────── 9 caliber HE effectiveness ranges
+└── bg_special_rules ───────────────────────── 57 special rules (1,599 equipment linkages)
+
+Reference Data Tables (Canada's Crucible extraction):
+├── BG_Reference_ArmyList_Examples ─────────── 105 army list units
+├── BG_Reference_Defences ──────────────────── 22 defensive structures
+├── BG_Scenario_Army_Lists ─────────────────── 4 scenarios
+├── BG_Scenario_Forces ─────────────────────── 8 forces
+├── BG_Scenario_Units ──────────────────────── 54 units with deployment
+└── BG_Sample_maps ─────────────────────────── 4 sample maps
+```
+
+### **NPM Commands**: None (Python script execution, MDBook builds)
+
+### **Book Build Commands**:
+```bash
+# Generate equipment datacards for all 4 books
+python scripts/battlegroup/book/generate_book_datacards.py --all
+
+# Generate datacards for specific battle
+python scripts/battlegroup/book/generate_book_datacards.py --battle battleaxe
+
+# Validate scenarios
+python scripts/battlegroup/book/validate_all_scenarios.py
+
+# QA final books
+python scripts/battlegroup/book/qa_final_books.py
+
+# Build MDBook HTML
+cd books/battleaxe/book && mdbook build
+cd books/crusader/book && mdbook build
+cd books/gazala/book && mdbook build
+cd books/first_alamein/book && mdbook build
+```
+
+### **Outputs** (4 books, 171+ files, 28,983+ lines):
+```
+books/{battle}/book/src/
+├── chapter1/ ──────────────────────────────── Historical overview
+│   ├── strategic_situation.md
+│   ├── forces_engaged.md
+│   └── battle_timeline.md
+├── chapter2/ ──────────────────────────────── Equipment datacards
+│   ├── tanks.md
+│   ├── guns_and_artillery.md
+│   ├── vehicles.md
+│   ├── infantry_weapons.md
+│   └── other_equipment.md
+├── chapter3/ ──────────────────────────────── Historical scenarios
+│   ├── scenario_01_*.md (45 scenarios total across 4 books)
+│   └── [...]
+├── forces/ ────────────────────────────────── Forces/TO&E tables (0% - needs script)
+├── oob/ ───────────────────────────────────── Order of Battle sections
+│   ├── oob_british.md
+│   ├── oob_german.md
+│   └── oob_italian.md
+├── appendices/ ────────────────────────────── Reference appendices (100% complete)
+│   ├── appendix_a_weapon_penetration.md (2,006 lines)
+│   ├── appendix_b_special_rules.md (3,556 lines)
+│   ├── appendix_c_citations.md (2,235 lines)
+│   └── [9 more appendices]
+└── tactical_templates/ ────────────────────── Tank/artillery templates (100% complete)
+    ├── tank_platoons/ (6 templates)
+    └── artillery_batteries/ (5 templates)
+```
+
+**Content Status**:
+- ✅ Infrastructure: Database schema, conversion tools, book generation framework
+- ✅ Historical chapters: 12 files, ~24,000 words
+- ✅ Equipment special rules: 4 files, 1,543 lines
+- ✅ Appendices: 12 files, 7,797 lines (zero placeholders, 181 citations)
+- ✅ Tactical templates: 12 templates + 32 platoon/company files
+- ✅ Scenarios: 45 scenarios with 95%+ parsing success
+- ⏸️ Equipment datacards: ON HOLD (need clean reference data)
+- ❌ Forces/TO&E tables: 0% (deferred - needs script)
+
+**Critical Issue**: Reference data quality
+- Scraped BattleGroup data contained errors
+- Conversion formulas reverse-engineered from flawed data
+- Equipment stats assumed incorrect
+- **Recovery**: Manual extraction of clean data (Canada's Crucible ✅, British DataCards ⏳)
+
+---
+
+## 🔄 PHASE 9C-E: Future Game Systems (PLANNED)
+
+**Status**: 📋 PLANNED (pending Phase 9B completion and rulebook PDFs)
+
+### **Phase 9C: Achtung Panzer**
+- Pluggable scenario generation architecture ready
+- Awaiting Achtung Panzer rulebook PDFs
+- Will use scenario_generation/ framework pattern
+
+### **Phase 9D: Flames of War**
+- Pluggable scenario generation architecture ready
+- Awaiting Flames of War rulebook PDFs
+- Will use scenario_generation/ framework pattern
+
+### **Phase 9E: Documentation & QA**
+- Comprehensive documentation pass
+- Final QA validation across all outputs
+- Publication preparation
+
+---
+
+## 🎯 PHASE 10: Campaign System (PLANNED)
+
+**Status**: 📋 PLANNED (30-40 hours estimated)
+**Purpose**: Link multiple battles into campaign sequences
+
+**Planned Features**:
+- Sequential battle progression
+- Unit persistence across battles
+- Victory conditions
+- Historical campaign paths
+
+---
+
+## 📊 Database Architecture (18 Tables)
+
+### **Core Equipment Tables** (Phase 1-5):
+```
+equipment ──────────────────────────────────── 469 WITW baseline items
+guns ──────────────────────────────────────── 343 gun specifications
+ammunition ────────────────────────────────── 162 ammunition types
+penetration_data ──────────────────────────── 1,296 penetration values
+```
+
+### **Normalization Tables** (Phase 5.5):
+```
+equipment_master_new ──────────────────────── 1,129 unique canonical items
+equipment_name_variants ───────────────────── 2,234 name variants
+normalization_audit ───────────────────────── Tier 1-4 linkage audit trail
+```
+
+### **Source Data Tables** (Phase 1-4):
+```
+afv_data ──────────────────────────────────── OnWar AFV data (213 vehicles)
+wwiitanks_afv_data ────────────────────────── WWIITANKS AFVs (612 vehicles)
+wwiitanks_gun_data ────────────────────────── WWIITANKS guns (343 guns)
+```
+
+### **Unit Assignment Tables** (Phase 6):
+```
+units ─────────────────────────────────────── 117 unique units
+unit_equipment ────────────────────────────── Equipment assignments (from unit JSONs)
+```
+
+### **BattleGroup Tables** (Phase 9B):
+```
+equipment_battlegroup ─────────────────────── 469 items with BattleGroup stats
+bg_reference_vehicles ─────────────────────── 500 reference vehicles
+bg_reference_guns ─────────────────────────── 57 reference guns
+bg_reference_aircraft ─────────────────────── Aircraft reference data
+bg_armor_conversion ───────────────────────── 16 armor ranges
+bg_penetration_scale ──────────────────────── 24 penetration mappings
+bg_movement_values ────────────────────────── 20 movement ranges
+bg_he_effectiveness ───────────────────────── 9 HE effectiveness ranges
+bg_special_rules ──────────────────────────── 57 special rules
+```
+
+### **Metadata Tables**:
+```
+match_reviews ─────────────────────────────── Equipment matching decisions
+import_log ────────────────────────────────── Data provenance tracking
+```
+
+---
+
+## 🗂️ Data Output Structure
+
+### **Phase 6 Outputs** (Ground Forces):
+```
+data/output/
+├── units/ ────────────────────────────────── 402 unit JSONs
+├── chapters/ ─────────────────────────────── MDBook summary chapters
+└── scenarios/ ────────────────────────────── Optional WITW CSVs
+```
+
+### **Phase 7 Outputs** (Air Forces):
+```
+data/output/
+├── air_summaries/ ────────────────────────── 23 quarterly theater summaries
+└── air_chapters/ ─────────────────────────── MDBook air force chapters
+```
+
+### **Phase 9A Outputs** (WITW Scenarios):
+```
+data/output/scenarios/witw/ ──────────────── 369 WITW scenario CSVs
+```
+
+### **Phase 9B Outputs** (BattleGroup Books):
+```
+books/
+├── battleaxe/
+│   └── book/src/ ─────────────────────────── MDBook source
+├── crusader/
+│   └── book/src/
+├── gazala/
+│   └── book/src/
+└── first_alamein/
+    └── book/src/
+```
+
+### **Session Tracking**:
+```
+data/output/sessions/ ─────────────────────── Autonomous session logs (100+ sessions)
+```
+
+### **Archived/Temporary**:
+```
+data/output/
+├── _archived/ ────────────────────────────── Archived data from previous iterations
+├── battle_scenarios/ ─────────────────────── Generated battle scenarios (legacy?)
+├── companies/ ────────────────────────────── Company-level extractions
+├── platoons/ ─────────────────────────────── Platoon-level extractions
+├── diagrams/ ─────────────────────────────── Silhouettes and diagrams
+└── [various session folders] ─────────────── Session-specific outputs
+```
+
+---
+
+## 🧹 Cleanup Candidates (TO BE REVIEWED)
+
+### **Potentially Obsolete Scripts** (needs user review):
+```
+scripts/
+├── [152 .js root files] ──────────────────── Some may be Phase 1-6 legacy, needs audit
+├── scrape_wwiitanks*.js ─────────────────── Phase 1-4 scrapers (one-time use?)
+└── [various session management scripts] ──── Active or obsolete?
+```
+
+### **Potentially Empty/Obsolete Folders** (needs user review):
+```
+data/output/
+├── autonomous_$(date +%Y%m%d_%H%M%S)/ ────── Template folder? (never used)
+├── companies/ ────────────────────────────── Empty or used?
+├── platoons/ ─────────────────────────────── Empty or used?
+├── diagrams/ ─────────────────────────────── Empty or used?
+├── battle_scenarios/ ─────────────────────── Legacy or active?
+└── [100+ session folders] ────────────────── Can be archived?
+```
+
+---
+
+## 📋 Next Steps for Architecture Cleanup
+
+### **1. Audit Script Usage** (User Decision):
+- Review 152 root .js files - which are active Phase 6 tools vs obsolete?
+- Categorize by phase
+- Move to phase-specific folders or archive
+
+### **2. Clean Data Outputs** (User Decision):
+- Archive old session folders (100+ sessions in data/output/sessions/)
+- Remove empty folders
+- Consolidate legacy outputs
+
+### **3. Reorganize into Phase Folders** (Proposed Structure):
+```
+scripts/
+├── phase_1_4_database/
+│   └── [database setup scripts]
+├── phase_5_equipment_matching/
+│   └── [equipment matcher tools]
+├── phase_5_5_normalization/
+│   └── [normalization + linkage scripts]
+├── phase_6_ground_forces/
+│   └── [session management + extraction]
+├── phase_7_air_forces/
+│   └── [air force extraction]
+├── phase_9a_witw/
+│   └── [WITW scenario generation]
+├── phase_9b_battlegroup/
+│   └── [current battlegroup/ folder]
+└── shared/
+    └── [lib/, common utilities]
+```
+
+### **4. Document Active vs Obsolete** (This Document):
+- Mark each script as ACTIVE, LEGACY, or OBSOLETE
+- Create migration plan for phase-specific reorganization
+- User approval before major restructuring
+
+---
+
+**Status**: 🚧 Initial mapping complete. Ready for user review and cleanup planning.
+
+**Next Actions**:
+1. User reviews script audit findings
+2. User identifies empty folders for deletion
+3. User approves phase-specific reorganization plan
+4. Execute cleanup and reorganization
+
+**Updated**: November 5, 2025
