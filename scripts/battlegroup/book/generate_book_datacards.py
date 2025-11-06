@@ -318,11 +318,12 @@ class BookDatacardGenerator:
         """
         cursor = self.conn.cursor()
 
-        # Get BattleGroup stats + crew + production info + LINKED DATA
+        # Get BattleGroup stats + crew + production info + ARMOR MODIFIERS (self-contained)
         cursor.execute("""
             SELECT
                 eb.armor_front, eb.armor_side, eb.armor_rear,
                 eb.armor_turret_front,
+                eb.armor_modifier, eb.armor_side_schurzen,
                 eb.off_road_movement, eb.road_movement,
                 eb.he_dice, eb.he_target, eb.he_format,
                 eb.ap_0_10, eb.ap_10_20, eb.ap_20_30,
@@ -358,21 +359,34 @@ class BookDatacardGenerator:
         # Get main gun - try multiple sources (FIXED: use linked reference_vehicle_id/reference_gun_id)
         main_gun = None
         main_gun_ammo = None
+        main_gun_id = None  # Track gun_id to exclude from secondary weapons
         weapon_data = None  # Store full weapon data for penetration lookup
 
         # Source 1: equipment_guns table (if populated)
+        # Try 'main' first, then 'turret' (which is also main gun)
         cursor.execute("""
-            SELECT g.name, g.caliber_mm
+            SELECT g.name, g.caliber_mm, g.gun_id, eg.ammunition_count
             FROM equipment_guns eg
             JOIN guns g ON eg.gun_id = g.gun_id
-            WHERE eg.equipment_id = ? AND eg.mount_type = 'main'
+            WHERE eg.equipment_id = ? AND eg.mount_type IN ('main', 'turret')
+            ORDER BY CASE
+                WHEN eg.mount_type = 'main' THEN 1
+                WHEN eg.mount_type = 'turret' THEN 2
+                ELSE 3
+            END
             LIMIT 1
         """, (equipment['canonical_id'],))
         gun_row = cursor.fetchone()
         if gun_row:
             main_gun = gun_row['name']
+            main_gun_id = gun_row['gun_id']
+            main_gun_ammo = gun_row['ammunition_count']
 
-        # Source 2: bg_reference_vehicles (via reference_vehicle_id - FIXED!)
+        # Get armor modifiers directly from equipment_battlegroup (self-contained)
+        armor_modifier = row['armor_modifier'] if 'armor_modifier' in row.keys() else None
+        armor_side_schurzen = row['armor_side_schurzen'] if 'armor_side_schurzen' in row.keys() else None
+
+        # Source 2: bg_reference_vehicles (via reference_vehicle_id - for weapons only)
         if not main_gun and row['reference_vehicle_id']:
             cursor.execute("""
                 SELECT weapons, name
@@ -380,23 +394,24 @@ class BookDatacardGenerator:
                 WHERE id = ?
             """, (row['reference_vehicle_id'],))
             ref_row = cursor.fetchone()
-            if ref_row and ref_row['weapons']:
-                try:
-                    import json
-                    weapons = json.loads(ref_row['weapons'])
-                    # Find main gun (usually turret-mounted, not MG)
-                    for weapon in weapons:
-                        mount = weapon.get('mount', '').lower()
-                        weapon_name = weapon.get('weapon', '')
-                        ammo = weapon.get('ammo', None)
-                        # Look for turret-mounted weapon that's not just "MG"
-                        if 'turret' in mount and weapon_name.upper() != 'MG':
-                            main_gun = weapon_name
-                            main_gun_ammo = ammo
-                            weapon_data = weapon
-                            break
-                except (json.JSONDecodeError, TypeError):
-                    pass
+            if ref_row:
+                # Get weapons
+                if ref_row['weapons']:
+                    try:
+                        weapons = json.loads(ref_row['weapons'])
+                        # Find main gun (usually turret-mounted, not MG)
+                        for weapon in weapons:
+                            mount = weapon.get('mount', '').lower()
+                            weapon_name = weapon.get('weapon', '')
+                            ammo = weapon.get('ammo', None)
+                            # Look for turret-mounted weapon that's not just "MG"
+                            if 'turret' in mount and weapon_name.upper() != 'MG':
+                                main_gun = weapon_name
+                                main_gun_ammo = ammo
+                                weapon_data = weapon
+                                break
+                    except (json.JSONDecodeError, TypeError):
+                        pass
 
         # Source 3: For towed guns, use reference_gun_id (NEW!)
         if not main_gun and row['reference_gun_id']:
@@ -413,7 +428,6 @@ class BookDatacardGenerator:
         # Source 4: For towed guns without reference_gun_id, extract from name
         if not main_gun and any(x in equipment['name'].lower() for x in ['pak', 'pounder', 'howitzer', 'flak', 'mortar']):
             # Extract caliber from name if present
-            import re
             caliber_match = re.search(r'(\d+(?:\.\d+)?)\s*(?:mm|cm|inch|pounder|pdr)', equipment['name'], re.IGNORECASE)
             if caliber_match:
                 main_gun = f"{caliber_match.group(1)} gun"
@@ -424,14 +438,24 @@ class BookDatacardGenerator:
         if not main_gun:
             main_gun = 'None'
 
-        # Get secondary weapons (FIXED: use reference_vehicle_id)
-        cursor.execute("""
-            SELECT g.name, eg.mount_type
-            FROM equipment_guns eg
-            JOIN guns g ON eg.gun_id = g.gun_id
-            WHERE eg.equipment_id = ? AND eg.mount_type != 'main'
-            ORDER BY eg.mount_type
-        """, (equipment['canonical_id'],))
+        # Get secondary weapons (FIXED: exclude main gun by gun_id, include ammunition_count)
+        if main_gun_id:
+            cursor.execute("""
+                SELECT g.name, eg.mount_type, eg.ammunition_count
+                FROM equipment_guns eg
+                JOIN guns g ON eg.gun_id = g.gun_id
+                WHERE eg.equipment_id = ? AND g.gun_id != ?
+                ORDER BY eg.mount_type
+            """, (equipment['canonical_id'], main_gun_id))
+        else:
+            # No main gun found, get all weapons except 'main' mount type
+            cursor.execute("""
+                SELECT g.name, eg.mount_type, eg.ammunition_count
+                FROM equipment_guns eg
+                JOIN guns g ON eg.gun_id = g.gun_id
+                WHERE eg.equipment_id = ? AND eg.mount_type != 'main'
+                ORDER BY eg.mount_type
+            """, (equipment['canonical_id'],))
 
         secondary = cursor.fetchall()
 
@@ -445,7 +469,6 @@ class BookDatacardGenerator:
             ref_row = cursor.fetchone()
             if ref_row and ref_row['weapons']:
                 try:
-                    import json
                     weapons = json.loads(ref_row['weapons'])
                     # Get secondary weapons (MGs, etc.)
                     secondary = []
@@ -464,35 +487,9 @@ class BookDatacardGenerator:
                 except (json.JSONDecodeError, TypeError):
                     pass
 
-        # Build armament table rows (FIXED: include ammo counts)
-        # Check if this is a soft-skinned/unarmed vehicle (no weapons)
-        has_weapons = main_gun and main_gun != 'None' and main_gun != '-'
-
-        if has_weapons:
-            main_gun_mount = 'Turret' if main_gun != 'None' and main_gun != 'Self (towed gun)' else '-'
-            main_gun_ammo_display = main_gun_ammo if main_gun_ammo else '-'
-            armament_rows = [f"| {main_gun} | {main_gun_mount} | {main_gun_ammo_display} |"]
-
-            for sec in secondary:
-                if isinstance(sec, dict):
-                    sec_name = sec.get('name', 'Unknown')
-                    sec_mount = sec.get('mount', 'Unknown')
-                    sec_ammo = sec.get('ammo', '-')
-                else:
-                    sec_name = sec['name']
-                    sec_mount = sec[1] if len(sec) > 1 else 'Unknown'
-                    sec_ammo = '-'
-                sec_ammo_display = sec_ammo if sec_ammo else '-'
-                armament_rows.append(f"| {sec_name} | {sec_mount.title()} | {sec_ammo_display} |")
-
-            armament_table = '\n'.join(armament_rows)
-        else:
-            # Soft-skinned/unarmed vehicle - show minimal armament info
-            armament_table = "| None | - | - |"
-
-        # Get special rules
+        # Get special rules (names only for header display)
         cursor.execute("""
-            SELECT sr.name, sr.description
+            SELECT sr.name
             FROM equipment_special_rules esr
             JOIN bg_special_rules sr ON esr.rule_id = sr.rule_id
             WHERE esr.equipment_id = ?
@@ -500,18 +497,16 @@ class BookDatacardGenerator:
         """, (equipment['canonical_id'],))
 
         rules = cursor.fetchall()
-        special_rules = []
-        if rules:
-            special_rules.append("\n**Special Rules:**")
-            for rule in rules:
-                special_rules.append(f"- **{rule['name']}**: {rule['description']}")
-
-        special_rules_section = '\n'.join(special_rules) if special_rules else ''
+        special_rules_line = ', '.join([rule['name'] for rule in rules]) if rules else ''
 
         # Format values
         armor_front = row['armor_front'] or '-'
         armor_side = row['armor_side'] or '-'
         armor_rear = row['armor_rear'] or '-'
+
+        # Handle Schürzen format: N(M) when armor_side_schurzen exists
+        if armor_side_schurzen:
+            armor_side = f"{armor_side}({armor_side_schurzen})"
 
         # Check if aircraft (no ground movement)
         is_aircraft = row['category'] in ('aircraft', 'fighters', 'bombers', 'dive_bombers', 'reconnaissance')
@@ -651,6 +646,8 @@ class BookDatacardGenerator:
         # Calculate HE weight and effectiveness if gun has caliber data
         he_weight = '-'
         he_effectiveness = '-'
+        he_range_vals = ['-', '-', '-', '-', '-', '-']  # Default: no HE range
+
         if gun_data and gun_data[0]:  # caliber_mm exists
             caliber_mm = gun_data[0]
             gun_name = gun_data[1]
@@ -662,12 +659,92 @@ class BookDatacardGenerator:
             he_result = calculate_he_effect(caliber_mm=caliber_mm, gun_name=gun_name)
             he_effectiveness = he_result.get('format', '-')
 
-        # Determine equipment type label
+            # Calculate HE range bands based on caliber and weapon type
+            # BattleGroup rules: HE has fixed effectiveness within max range, then "-" beyond
+            # Most direct-fire weapons: 50" effective range
+            # Howitzers (>100mm): 70" effective range
+            # Small caliber (<50mm): 40" effective range
+            if caliber_mm:
+                if caliber_mm >= 100:
+                    # Large howitzers - full range (70")
+                    he_range_vals = ['2', '2', '2', '2', '2', '2']
+                elif caliber_mm >= 50:
+                    # Medium/large AT guns and tank guns - 50" range
+                    he_range_vals = ['2', '2', '2', '2', '2', '-']
+                else:
+                    # Small caliber - 40" range
+                    he_range_vals = ['2', '2', '2', '2', '-', '-']
+
+        # Determine equipment type label (for armament table)
         eq_type = equipment.get('equipment_type', '')
         if eq_type:
             type_label = eq_type.replace('_', ' ').title()
         else:
             type_label = "Vehicle"
+
+        # Build armament table rows for HTML (main gun + secondary weapons)
+        # Now that we have all the data: off_road, road, armor values, type_label
+        has_weapons = main_gun and main_gun != 'None' and main_gun != '-'
+
+        armament_rows_html = []
+        if has_weapons:
+            main_gun_mount = 'Turret' if main_gun != 'None' and main_gun != 'Self (towed gun)' else '-'
+            main_gun_ammo_display = str(main_gun_ammo) if main_gun_ammo is not None else '-'
+
+            # First row: vehicle + movement + armor + main gun
+            armament_rows_html.append(f"""<tr>
+<td>{type_label}</td>
+<td>{off_road}</td>
+<td>{road}</td>
+<td>-</td>
+<td>{{armor_front}}</td>
+<td>{{armor_side}}</td>
+<td>{{armor_rear}}</td>
+<td>{main_gun}</td>
+<td>{main_gun_mount}</td>
+<td>{main_gun_ammo_display}</td>
+</tr>""")
+
+            # Additional rows: only weapon columns (empty vehicle/movement/armor cells)
+            for sec in secondary:
+                if isinstance(sec, dict):
+                    # From bg_reference_vehicles JSON
+                    sec_name = sec.get('name', 'Unknown')
+                    sec_mount = sec.get('mount', 'Unknown')
+                    sec_ammo = sec.get('ammo', None)
+                else:
+                    # From equipment_guns database query (Row object)
+                    sec_name = sec['name']
+                    sec_mount = sec['mount_type']
+                    sec_ammo = sec['ammunition_count']
+                sec_ammo_display = str(sec_ammo) if sec_ammo is not None else '-'
+
+                armament_rows_html.append(f"""<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>{sec_name}</td>
+<td>{sec_mount.title()}</td>
+<td>{sec_ammo_display}</td>
+</tr>""")
+        else:
+            # Soft-skinned/unarmed vehicle - single row
+            armament_rows_html.append(f"""<tr>
+<td>{type_label}</td>
+<td>{off_road}</td>
+<td>{road}</td>
+<td>-</td>
+<td>{{armor_front}}</td>
+<td>{{armor_side}}</td>
+<td>{{armor_rear}}</td>
+<td>None</td>
+<td>-</td>
+<td>-</td>
+</tr>""")
 
         # Generate V4 datacard format
         # Build weapon performance table (only if main gun exists)
@@ -696,12 +773,12 @@ class BookDatacardGenerator:
 <td>{main_gun}</td>
 <td>HE</td>
 <td>{he_effectiveness}</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
+<td>{he_range_vals[0]}</td>
+<td>{he_range_vals[1]}</td>
+<td>{he_range_vals[2]}</td>
+<td>{he_range_vals[3]}</td>
+<td>{he_range_vals[4]}</td>
+<td>{he_range_vals[5]}</td>
 </tr>
 <tr>
 <td>{main_gun}</td>
@@ -716,14 +793,24 @@ class BookDatacardGenerator:
 </tr>
 </table>"""
 
-        template = f"""<div class="datacard">
+        # Get nation for color theming
+        nation = equipment.get('nation', 'british').lower()
+
+        template = f"""<div class="datacard datacard-{nation}">
 <div class="datacard-header">
 <div class="datacard-silhouette">
 <span style="color: white; font-size: 10px;">🔲</span>
 </div>
 <div class="datacard-title-block">
 <p class="datacard-title">{equipment['name'].upper()}</p>
-<p class="datacard-subtitle">{production_period} | {type_label}</p>
+<p class="datacard-subtitle">{production_period} | {type_label}</p>"""
+
+        # Add special rules line if exists
+        if special_rules_line:
+            template += f"""
+<p class="datacard-special-rules">{special_rules_line}</p>"""
+
+        template += """
 </div>
 </div>
 
@@ -746,18 +833,18 @@ class BookDatacardGenerator:
 <th>Mount</th>
 <th>Ammo</th>
 </tr>
-<tr>
-<td>{type_label}</td>
-<td>{off_road}</td>
-<td>{road}</td>
-<td>-</td>
-<td>{armor_front}</td>
-<td>{armor_side}</td>
-<td>{armor_rear}</td>
-<td>{main_gun}</td>
-<td>Turret</td>
-<td>-</td>
-</tr>
+""" + '\n'.join([row.format(armor_front=armor_front, armor_side=armor_side, armor_rear=armor_rear) for row in armament_rows_html]) + """
+"""
+
+        # V5: Add conditional armor modifier row (only if armor_modifier exists)
+        if armor_modifier:
+            template += f"""<tr class="armor-modifier-row">
+<td colspan="4"></td>
+<td colspan="3">{armor_modifier}</td>
+<td colspan="3"></td>
+</tr>"""
+
+        template += f"""
 </table>
 {weapon_table}
 </div>
@@ -841,6 +928,94 @@ class BookDatacardGenerator:
     font-family: Arial, sans-serif;
 }
 
+/* Nation-Specific Color Themes */
+.datacard.datacard-german {
+    background-color: #797768;
+    border-color: #1a1a1a;
+}
+
+.datacard.datacard-german .datacard-title {
+    color: white;
+}
+
+.datacard.datacard-german .datacard-subtitle {
+    color: white;
+}
+
+.datacard.datacard-german .datacard-special-rules {
+    color: white;
+}
+
+.datacard.datacard-german th {
+    background-color: #ECD1A2;
+    color: #1a1a1a;
+}
+
+.datacard.datacard-german td {
+    background-color: #e8dcc8;
+    color: #1a1a1a;
+}
+
+.datacard.datacard-british {
+    background-color: #d4c5a0;
+    border-color: #2c2416;
+}
+
+.datacard.datacard-british th {
+    background-color: #8b7355;
+    color: white;
+}
+
+.datacard.datacard-british td {
+    background-color: #f5f5dc;
+    color: #1a1a1a;
+}
+
+.datacard.datacard-italian {
+    background-color: #c8b88a;
+    border-color: #5a4a2a;
+}
+
+.datacard.datacard-italian th {
+    background-color: #6b5d3f;
+    color: white;
+}
+
+.datacard.datacard-italian td {
+    background-color: #e8dcc0;
+    color: #1a1a1a;
+}
+
+.datacard.datacard-american {
+    background-color: #b8c5a0;
+    border-color: #3a4a2a;
+}
+
+.datacard.datacard-american th {
+    background-color: #5a6d45;
+    color: white;
+}
+
+.datacard.datacard-american td {
+    background-color: #dce8cf;
+    color: #1a1a1a;
+}
+
+.datacard.datacard-french {
+    background-color: #b8c4d4;
+    border-color: #2a3a4a;
+}
+
+.datacard.datacard-french th {
+    background-color: #4a5a6d;
+    color: white;
+}
+
+.datacard.datacard-french td {
+    background-color: #d8e4f4;
+    color: #1a1a1a;
+}
+
 .datacard-header {
     display: flex;
     gap: 10px;
@@ -885,10 +1060,18 @@ class BookDatacardGenerator:
     line-height: 1.2;
 }
 
+.datacard-special-rules {
+    font-size: 7px;
+    font-style: italic;
+    margin: 2px 0 0 0;
+    line-height: 1.2;
+    color: #5a4a3a;
+}
+
 .datacard table {
     width: 100%;
     border-collapse: collapse;
-    margin: 4px 0;
+    margin: 2px 0;
     font-size: 8px;
 }
 
@@ -896,25 +1079,31 @@ class BookDatacardGenerator:
     background-color: #8b7355;
     color: white;
     font-weight: bold;
-    padding: 2px 3px;
+    padding: 1px 2px;
     border: 1px solid #2c2416;
     text-align: center;
     font-size: 7px;
-    line-height: 1.1;
+    line-height: 1.0;
 }
 
 .datacard td {
     background-color: #f5f5dc;
     border: 1px solid #2c2416;
-    padding: 2px 3px;
+    padding: 1px 2px;
     text-align: center;
     font-size: 8px;
-    line-height: 1.1;
+    line-height: 1.0;
 }
 
 .datacard .main-header {
     font-size: 8px;
     font-weight: bold;
+}
+
+.armor-modifier-row td {
+    font-style: italic;
+    font-size: 7px;
+    padding: 1px 3px;
 }
 </style>
 
