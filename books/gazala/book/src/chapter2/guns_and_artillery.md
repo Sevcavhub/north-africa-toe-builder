@@ -31,6 +31,94 @@
     font-family: Arial, sans-serif;
 }
 
+/* Nation-Specific Color Themes */
+.datacard.datacard-german {
+    background-color: #797768;
+    border-color: #1a1a1a;
+}
+
+.datacard.datacard-german .datacard-title {
+    color: white;
+}
+
+.datacard.datacard-german .datacard-subtitle {
+    color: white;
+}
+
+.datacard.datacard-german .datacard-special-rules {
+    color: white;
+}
+
+.datacard.datacard-german th {
+    background-color: #ECD1A2;
+    color: #1a1a1a;
+}
+
+.datacard.datacard-german td {
+    background-color: #e8dcc8;
+    color: #1a1a1a;
+}
+
+.datacard.datacard-british {
+    background-color: #d4c5a0;
+    border-color: #2c2416;
+}
+
+.datacard.datacard-british th {
+    background-color: #8b7355;
+    color: white;
+}
+
+.datacard.datacard-british td {
+    background-color: #f5f5dc;
+    color: #1a1a1a;
+}
+
+.datacard.datacard-italian {
+    background-color: #c8b88a;
+    border-color: #5a4a2a;
+}
+
+.datacard.datacard-italian th {
+    background-color: #6b5d3f;
+    color: white;
+}
+
+.datacard.datacard-italian td {
+    background-color: #e8dcc0;
+    color: #1a1a1a;
+}
+
+.datacard.datacard-american {
+    background-color: #b8c5a0;
+    border-color: #3a4a2a;
+}
+
+.datacard.datacard-american th {
+    background-color: #5a6d45;
+    color: white;
+}
+
+.datacard.datacard-american td {
+    background-color: #dce8cf;
+    color: #1a1a1a;
+}
+
+.datacard.datacard-french {
+    background-color: #b8c4d4;
+    border-color: #2a3a4a;
+}
+
+.datacard.datacard-french th {
+    background-color: #4a5a6d;
+    color: white;
+}
+
+.datacard.datacard-french td {
+    background-color: #d8e4f4;
+    color: #1a1a1a;
+}
+
 .datacard-header {
     display: flex;
     gap: 10px;
@@ -75,10 +163,18 @@
     line-height: 1.2;
 }
 
+.datacard-special-rules {
+    font-size: 7px;
+    font-style: italic;
+    margin: 2px 0 0 0;
+    line-height: 1.2;
+    color: #5a4a3a;
+}
+
 .datacard table {
     width: 100%;
     border-collapse: collapse;
-    margin: 4px 0;
+    margin: 2px 0;
     font-size: 8px;
 }
 
@@ -86,25 +182,31 @@
     background-color: #8b7355;
     color: white;
     font-weight: bold;
-    padding: 2px 3px;
+    padding: 1px 2px;
     border: 1px solid #2c2416;
     text-align: center;
     font-size: 7px;
-    line-height: 1.1;
+    line-height: 1.0;
 }
 
 .datacard td {
     background-color: #f5f5dc;
     border: 1px solid #2c2416;
-    padding: 2px 3px;
+    padding: 1px 2px;
     text-align: center;
     font-size: 8px;
-    line-height: 1.1;
+    line-height: 1.0;
 }
 
 .datacard .main-header {
     font-size: 8px;
     font-weight: bold;
+}
+
+.armor-modifier-row td {
+    font-style: italic;
+    font-size: 7px;
+    padding: 1px 3px;
 }
 </style>
 
@@ -112,7 +214,7 @@
 
 <div class="datacard-grid">
 
-<div class="datacard">
+<div class="datacard datacard-american">
 <div class="datacard-header">
 <div class="datacard-silhouette">
 <span style="color: white; font-size: 10px;">🔲</span>
@@ -120,6 +222,7 @@
 <div class="datacard-title-block">
 <p class="datacard-title">M1 81MM MORTAR</p>
 <p class="datacard-subtitle">1940-1945 | Unknown</p>
+<p class="datacard-special-rules">American Firepower Doctrine, Desert Adapted, HE Only, Thin Armor</p>
 </div>
 </div>
 
@@ -144,16 +247,17 @@
 </tr>
 <tr>
 <td>Unknown</td>
-<td>1"</td>
-<td>1"</td>
+<td>3</td>
+<td>3</td>
 <td>-</td>
 <td>N</td>
 <td>O</td>
 <td>O</td>
-<td>81mm mortar</td>
+<td>81 gun</td>
 <td>Turret</td>
 <td>-</td>
 </tr>
+
 </table>
 
 <table>
@@ -175,7 +279,7 @@
 <th>50-70"</th>
 </tr>
 <tr>
-<td>81mm mortar</td>
+<td>81 gun</td>
 <td>HE</td>
 <td>-</td>
 <td>-</td>
@@ -186,7 +290,7 @@
 <td>-</td>
 </tr>
 <tr>
-<td>81mm mortar</td>
+<td>81 gun</td>
 <td>AP</td>
 <td>-</td>
 <td>-</td>
@@ -199,7 +303,7 @@
 </table>
 </div>
 
-<div class="datacard">
+<div class="datacard datacard-british">
 <div class="datacard-header">
 <div class="datacard-silhouette">
 <span style="color: white; font-size: 10px;">🔲</span>
@@ -207,6 +311,7 @@
 <div class="datacard-title-block">
 <p class="datacard-title">25 POUNDER</p>
 <p class="datacard-subtitle">1940-1945 | Artillery</p>
+<p class="datacard-special-rules">British Resolve, Desert Adapted, Thin Armor</p>
 </div>
 </div>
 
@@ -231,8 +336,8 @@
 </tr>
 <tr>
 <td>Artillery</td>
-<td>8</td>
-<td>12</td>
+<td>1"</td>
+<td>1"</td>
 <td>-</td>
 <td>N</td>
 <td>O</td>
@@ -241,6 +346,7 @@
 <td>Turret</td>
 <td>-</td>
 </tr>
+
 </table>
 
 <table>
@@ -286,7 +392,7 @@
 </table>
 </div>
 
-<div class="datacard">
+<div class="datacard datacard-british">
 <div class="datacard-header">
 <div class="datacard-silhouette">
 <span style="color: white; font-size: 10px;">🔲</span>
@@ -294,6 +400,7 @@
 <div class="datacard-title-block">
 <p class="datacard-title">4 5 INCH HOWITZER</p>
 <p class="datacard-subtitle">1940-1945 | Artillery</p>
+<p class="datacard-special-rules">British Resolve, Desert Adapted, HE Only, Thin Armor</p>
 </div>
 </div>
 
@@ -318,8 +425,8 @@
 </tr>
 <tr>
 <td>Artillery</td>
-<td>8</td>
-<td>12</td>
+<td>0"</td>
+<td>0"</td>
 <td>-</td>
 <td>N</td>
 <td>O</td>
@@ -328,6 +435,7 @@
 <td>Turret</td>
 <td>-</td>
 </tr>
+
 </table>
 
 <table>
@@ -373,7 +481,7 @@
 </table>
 </div>
 
-<div class="datacard">
+<div class="datacard datacard-british">
 <div class="datacard-header">
 <div class="datacard-silhouette">
 <span style="color: white; font-size: 10px;">🔲</span>
@@ -381,6 +489,7 @@
 <div class="datacard-title-block">
 <p class="datacard-title">60-POUNDER HEAVY GUN</p>
 <p class="datacard-subtitle">1940-1945 | Artillery</p>
+<p class="datacard-special-rules">British Resolve, Desert Adapted, Thin Armor</p>
 </div>
 </div>
 
@@ -405,16 +514,17 @@
 </tr>
 <tr>
 <td>Artillery</td>
-<td>8</td>
-<td>12</td>
+<td>0"</td>
+<td>0"</td>
 <td>-</td>
 <td>N</td>
 <td>O</td>
 <td>O</td>
 <td>Self (towed gun)</td>
-<td>Turret</td>
+<td>-</td>
 <td>-</td>
 </tr>
+
 </table>
 
 <table>
@@ -460,7 +570,7 @@
 </table>
 </div>
 
-<div class="datacard">
+<div class="datacard datacard-british">
 <div class="datacard-header">
 <div class="datacard-silhouette">
 <span style="color: white; font-size: 10px;">🔲</span>
@@ -468,6 +578,7 @@
 <div class="datacard-title-block">
 <p class="datacard-title">BOFORS 40MM</p>
 <p class="datacard-subtitle">1940-1945 | Artillery</p>
+<p class="datacard-special-rules">British Resolve, Desert Adapted, Thin Armor</p>
 </div>
 </div>
 
@@ -492,21 +603,22 @@
 </tr>
 <tr>
 <td>Artillery</td>
-<td>8</td>
-<td>12</td>
+<td>3"</td>
+<td>3"</td>
 <td>-</td>
 <td>N</td>
 <td>O</td>
 <td>O</td>
 <td>None</td>
-<td>Turret</td>
+<td>-</td>
 <td>-</td>
 </tr>
+
 </table>
 
 </div>
 
-<div class="datacard">
+<div class="datacard datacard-british">
 <div class="datacard-header">
 <div class="datacard-silhouette">
 <span style="color: white; font-size: 10px;">🔲</span>
@@ -514,6 +626,7 @@
 <div class="datacard-title-block">
 <p class="datacard-title">LEWIS GUN AA</p>
 <p class="datacard-subtitle">1940-1945 | Unknown</p>
+<p class="datacard-special-rules">British Resolve, Desert Adapted, Dual-Purpose Gun, Thin Armor</p>
 </div>
 </div>
 
@@ -538,21 +651,22 @@
 </tr>
 <tr>
 <td>Unknown</td>
-<td>8</td>
-<td>12</td>
+<td>3"</td>
+<td>3"</td>
 <td>-</td>
 <td>N</td>
 <td>O</td>
 <td>O</td>
 <td>None</td>
-<td>Turret</td>
+<td>-</td>
 <td>-</td>
 </tr>
+
 </table>
 
 </div>
 
-<div class="datacard">
+<div class="datacard datacard-british">
 <div class="datacard-header">
 <div class="datacard-silhouette">
 <span style="color: white; font-size: 10px;">🔲</span>
@@ -560,6 +674,7 @@
 <div class="datacard-title-block">
 <p class="datacard-title">ORDNANCE QF 25-POUNDER MK II</p>
 <p class="datacard-subtitle">1940-1945 | Artillery</p>
+<p class="datacard-special-rules">British Resolve, Desert Adapted, Thin Armor</p>
 </div>
 </div>
 
@@ -584,16 +699,17 @@
 </tr>
 <tr>
 <td>Artillery</td>
-<td>8</td>
-<td>12</td>
+<td>1"</td>
+<td>1"</td>
 <td>-</td>
 <td>N</td>
 <td>O</td>
 <td>O</td>
 <td>Self (towed gun)</td>
-<td>Turret</td>
+<td>-</td>
 <td>-</td>
 </tr>
+
 </table>
 
 <table>
@@ -639,7 +755,7 @@
 </table>
 </div>
 
-<div class="datacard">
+<div class="datacard datacard-british">
 <div class="datacard-header">
 <div class="datacard-silhouette">
 <span style="color: white; font-size: 10px;">🔲</span>
@@ -647,6 +763,7 @@
 <div class="datacard-title-block">
 <p class="datacard-title">QF 17-POUNDER</p>
 <p class="datacard-subtitle">1940-1945 | Artillery</p>
+<p class="datacard-special-rules">British Resolve, Desert Adapted, Thin Armor</p>
 </div>
 </div>
 
@@ -671,16 +788,17 @@
 </tr>
 <tr>
 <td>Artillery</td>
-<td>1"</td>
-<td>1"</td>
+<td>1</td>
+<td>1</td>
 <td>-</td>
 <td>N</td>
 <td>O</td>
 <td>O</td>
-<td>3" mortar</td>
-<td>Turret</td>
+<td>Self (towed gun)</td>
+<td>-</td>
 <td>-</td>
 </tr>
+
 </table>
 
 <table>
@@ -702,7 +820,7 @@
 <th>50-70"</th>
 </tr>
 <tr>
-<td>3" mortar</td>
+<td>Self (towed gun)</td>
 <td>HE</td>
 <td>-</td>
 <td>-</td>
@@ -713,7 +831,7 @@
 <td>-</td>
 </tr>
 <tr>
-<td>3" mortar</td>
+<td>Self (towed gun)</td>
 <td>AP</td>
 <td>-</td>
 <td>-</td>
@@ -726,7 +844,7 @@
 </table>
 </div>
 
-<div class="datacard">
+<div class="datacard datacard-german">
 <div class="datacard-header">
 <div class="datacard-silhouette">
 <span style="color: white; font-size: 10px;">🔲</span>
@@ -734,6 +852,7 @@
 <div class="datacard-title-block">
 <p class="datacard-title">50MM PAK 38</p>
 <p class="datacard-subtitle">1940-1945 | Artillery</p>
+<p class="datacard-special-rules">AP Only, Desert Adapted, German Tactical Doctrine, Thin Armor</p>
 </div>
 </div>
 
@@ -758,16 +877,17 @@
 </tr>
 <tr>
 <td>Artillery</td>
-<td>2"</td>
-<td>2"</td>
+<td>3"</td>
+<td>3"</td>
 <td>-</td>
 <td>N</td>
 <td>O</td>
 <td>O</td>
-<td>50mm</td>
+<td>2 pounder</td>
 <td>Turret</td>
 <td>-</td>
 </tr>
+
 </table>
 
 <table>
@@ -789,7 +909,7 @@
 <th>50-70"</th>
 </tr>
 <tr>
-<td>50mm</td>
+<td>2 pounder</td>
 <td>HE</td>
 <td>-</td>
 <td>-</td>
@@ -800,7 +920,7 @@
 <td>-</td>
 </tr>
 <tr>
-<td>50mm</td>
+<td>2 pounder</td>
 <td>AP</td>
 <td>-</td>
 <td>-</td>
@@ -813,7 +933,7 @@
 </table>
 </div>
 
-<div class="datacard">
+<div class="datacard datacard-italian">
 <div class="datacard-header">
 <div class="datacard-silhouette">
 <span style="color: white; font-size: 10px;">🔲</span>
@@ -821,6 +941,7 @@
 <div class="datacard-title-block">
 <p class="datacard-title">20MM BREDA</p>
 <p class="datacard-subtitle">1940-1945 | Artillery</p>
+<p class="datacard-special-rules">Desert Adapted, Reluctant Warriors, Thin Armor</p>
 </div>
 </div>
 
@@ -845,21 +966,22 @@
 </tr>
 <tr>
 <td>Artillery</td>
-<td>8</td>
-<td>12</td>
+<td>3"</td>
+<td>3"</td>
 <td>-</td>
 <td>N</td>
 <td>O</td>
 <td>O</td>
 <td>None</td>
-<td>Turret</td>
+<td>-</td>
 <td>-</td>
 </tr>
+
 </table>
 
 </div>
 
-<div class="datacard">
+<div class="datacard datacard-italian">
 <div class="datacard-header">
 <div class="datacard-silhouette">
 <span style="color: white; font-size: 10px;">🔲</span>
@@ -867,6 +989,7 @@
 <div class="datacard-title-block">
 <p class="datacard-title">47MM CANNONE DA 47/32 M35</p>
 <p class="datacard-subtitle">1940-1945 | Artillery</p>
+<p class="datacard-special-rules">Desert Adapted, Half-Tracked, Reluctant Warriors, Thin Armor</p>
 </div>
 </div>
 
@@ -891,21 +1014,22 @@
 </tr>
 <tr>
 <td>Artillery</td>
-<td>8</td>
-<td>12</td>
+<td>3"</td>
+<td>3"</td>
 <td>-</td>
 <td>N</td>
 <td>O</td>
 <td>O</td>
 <td>None</td>
-<td>Turret</td>
+<td>-</td>
 <td>-</td>
 </tr>
+
 </table>
 
 </div>
 
-<div class="datacard">
+<div class="datacard datacard-italian">
 <div class="datacard-header">
 <div class="datacard-silhouette">
 <span style="color: white; font-size: 10px;">🔲</span>
@@ -913,6 +1037,7 @@
 <div class="datacard-title-block">
 <p class="datacard-title">75MM CANNONE DA 75/27 MODELLO 11</p>
 <p class="datacard-subtitle">1940-1945 | Artillery</p>
+<p class="datacard-special-rules">Desert Adapted, Reluctant Warriors, Thin Armor</p>
 </div>
 </div>
 
@@ -937,16 +1062,17 @@
 </tr>
 <tr>
 <td>Artillery</td>
-<td>8</td>
-<td>12</td>
+<td>1"</td>
+<td>1"</td>
 <td>-</td>
 <td>N</td>
 <td>O</td>
 <td>O</td>
 <td>None</td>
-<td>Turret</td>
+<td>-</td>
 <td>-</td>
 </tr>
+
 </table>
 
 </div>
