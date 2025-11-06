@@ -216,6 +216,7 @@ As you work, update relevant files with:
 - **Infrastructure**: Database schema, conversion tools, book generation framework ✅
 - **Books Generated**: All 4 MDBook HTML builds complete (134 HTML files) ✅
 - **Scenarios**: 45 historical scenarios with combined arms validation ✅
+- **V5 Datacard Format**: ✅ **LOCKED** - Nation colors, multi-row armament, special rules (November 5, 2025)
 - **Equipment Stats**: ⏸️ ON HOLD - Conversion formulas need validation against clean reference data
 
 **CRITICAL ISSUE DISCOVERED**: Reference Data Quality
@@ -285,11 +286,18 @@ As you work, update relevant files with:
 - **Quarter Format**: Lowercase, no hyphen (1941q2, NOT 1941-Q2)
 - **Combat Participation**: Only units with documented North Africa combat
 
-### 4. File Organization (Architecture v4.0)
+### 4. File Organization (Architecture v5.0)
 **Equipment Datacards**:
 - Location: `books/[battle]/book/src/chapter2/[category].md`
 - Categories: tanks.md, guns_and_artillery.md, vehicles.md, infantry_weapons.md, other_equipment.md
-- Format: V4 datacard format (3x2 grid, A4 landscape, locked CSS)
+- Format: **V5 datacard format** (3x2 grid, A4 landscape, locked CSS) ✅ **LOCKED November 5, 2025**
+- **V5 Features**:
+  - Nation-specific color themes (German, British, Italian, American, French)
+  - Multi-row armament tables (main gun + secondary weapons)
+  - Special rules as single italicized header line (database-driven)
+  - HE range value population (caliber-based calculation)
+  - Compact spacing matching official BattleGroup cards
+  - Documentation: `docs/DATACARD_FORMAT_STANDARD.md`
 
 **Forces/TO&E Tables**:
 - Location: `books/[battle]/book/src/forces/[unit_type].md`

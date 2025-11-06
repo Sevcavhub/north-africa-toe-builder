@@ -553,7 +553,8 @@ scripts/battlegroup/
 ├── analysis/
 │   └── battlegroup_research.py ────────────── Analyze BattleGroup mechanics
 ├── book/
-│   ├── generate_book_datacards.py ─────────── Generate equipment datacards
+│   ├── generate_book_datacards.py ─────────── Generate equipment datacards (V5 format)
+│   ├── generate_sample_datacards.py ───────── Test datacard generation (V5 format)
 │   ├── generate_historical_chapters.py ───── Generate historical narratives
 │   ├── generate_scenarios.py ──────────────── Generate battle scenarios
 │   ├── generate_appendices.py ─────────────── Generate appendices
@@ -675,14 +676,24 @@ books/{battle}/book/src/
 - ✅ Appendices: 12 files, 7,797 lines (zero placeholders, 181 citations)
 - ✅ Tactical templates: 12 templates + 32 platoon/company files
 - ✅ Scenarios: 45 scenarios with 95%+ parsing success
-- ⏸️ Equipment datacards: ON HOLD (need clean reference data)
+- ✅ V5 Datacard Format: LOCKED - Nation-specific colors, multi-row armament, special rules integration
+- ⏸️ Equipment datacards: ON HOLD (format ready, need clean reference data for stats)
 - ❌ Forces/TO&E tables: 0% (deferred - needs script)
+
+**V5 Datacard Format Features** (November 5, 2025):
+- Nation-specific color themes (German, British, Italian, American, French)
+- Multi-row armament tables (main gun + secondary weapons)
+- Special rules as single italicized header line
+- HE range value population (caliber-based)
+- Compact spacing matching official BattleGroup cards
+- Documentation: `docs/DATACARD_FORMAT_STANDARD.md`
 
 **Critical Issue**: Reference data quality
 - Scraped BattleGroup data contained errors
 - Conversion formulas reverse-engineered from flawed data
 - Equipment stats assumed incorrect
 - **Recovery**: Manual extraction of clean data (Canada's Crucible ✅, British DataCards ⏳)
+- **Format Ready**: V5 datacard generator complete, awaiting validated equipment stats
 
 ---
 
