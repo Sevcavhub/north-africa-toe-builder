@@ -1,10 +1,10 @@
 # Phase 9B: BattleGroup Books - Next Steps
 
-**Date**: November 5, 2025
+**Date**: November 8, 2025
 **Status**: 🎯 BG Reference Data Quality Recovery - **REDUCED SCOPE APPROACH**
-**Last Update**: ✅ British DataCards: OCR + CSV templates created (77 vehicles, 15 guns, 6 aircraft) - ⏳ USER MANUALLY FILLING
-**Database Status**: Canada's Crucible 100% (clean baseline) | British DataCards ⏳ user filling | Schema changes ongoing
-**Current Task**: User fills British DataCards CSVs → Import to DB → Extract additional samples as needed
+**Last Update**: ✅ **Database Schema v3.2 Migration COMPLETE** + Tobruk Import (50 vehicles) - Database at 191 vehicles
+**Database Status**: Schema v3.2 ✅ | Canada's Crucible 100% | British DataCards 80 imported ✅ | Tobruk 50 imported ✅ | Ammo coverage 52.4%
+**Current Task**: Continue manual data entry (ammo fields) → Additional extractions as needed for formula validation
 
 ---
 
@@ -29,6 +29,38 @@
 - 📦 Comprehensive extraction (17 full sources): "Nice to have later" for personal use, NOT required for MVP
 
 **Decision Driver**: Focus on **book publication** (validate formulas, regenerate equipment stats, complete 4 battle books) rather than building comprehensive reference database.
+
+---
+
+## 🔄 DATABASE SCHEMA v3.2 MIGRATION COMPLETE (November 8, 2025)
+
+### ✅ COMPLETED: Excel Template Compliance + Multi-Weapon Ammo Support
+
+**What Was Accomplished**:
+- ✅ **Schema Restructured**: bg_reference_vehicles modernized (34 columns)
+  - ID moved to position 1 (far left) for Excel compatibility
+  - Ammo expanded from single field to ammo_1-4 (supports Churchill Crocodile flamethrower edge case)
+  - Mount data parsed from weapon fields (22 records, 26 combinations cleaned)
+- ✅ **Data Quality**: 86 weapon name corrections (German caliber/length notation)
+- ✅ **Tobruk Import**: 50 new vehicles (24 German, 26 Italian)
+  - Panzer I/II/III/IV early variants
+  - SdKfz armored cars, Panzerjäger I, Flak trucks
+  - CV-33/35 tankettes, M11/39, M13/40, M14/41, Autoblinda 40/41
+- ✅ **Nation Normalization**: All nation values lowercase canonical (british, german, italian, canadian)
+- ✅ **V5 Generator Updated**: Datacard generator ready for multi-weapon ammo support
+
+**Database Status After Migration**:
+- **Total vehicles**: 191 (british: 78, german: 63, italian: 26, canadian: 12, canadian/british: 12)
+- **Schema version**: v3.2 (Excel template compliance)
+- **Key fields**: weapon_1-4, mount_1-4, ammo_1-4
+- **Ammo coverage**: 100/191 (52.4%)
+- **Sources**: Legacy (41), Canada's Crucible (20), British DataCards (80), Tobruk (50)
+
+**Scripts Created**: 15 Python files for migration, import, export, verification
+
+**Git Commits**: (Pending) Database schema v3.2 migration + documentation updates
+
+**Impact**: Database infrastructure now ready for continued manual data entry and eventual book generation
 
 ---
 

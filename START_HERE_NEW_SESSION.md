@@ -1,22 +1,33 @@
 # 🚀 NEW SESSION - START HERE
 
 <!-- AUTO-UPDATED: START - Session Metadata -->
-**Project**: North Africa TO&E Builder - **v3.1.0 (Multi-Game Export)**
-**Last Updated**: 2025-11-05 09:00
-**Status**: Phases 1-8 Complete ✅ | Phase 9A Complete ✅ | Phase 9B ⏸️ ON HOLD (Reference data quality recovery)
+**Project**: North Africa TO&E Builder - **v3.2.0 (Database Schema Modernization)**
+**Last Updated**: 2025-11-08 23:00
+**Status**: Phases 1-8 Complete ✅ | Phase 9A Complete ✅ | Phase 9B ⏸️ Database modernization complete, reference data collection ongoing
 <!-- AUTO-UPDATED: END - Session Metadata -->
 
 ---
 
 ## Quick Start Commands
 
-### **CURRENT STATUS: Phase 9B ON HOLD** ⏸️
+### **CURRENT STATUS: Phase 9B ON HOLD** ⏸️ (**Database Modernization COMPLETE** ✅)
 
 **What's Happening**:
 Phase 9B (BattleGroup Book Generation) discovered reference data quality issues. User is manually re-extracting clean data from BattleGroup supplements.
 
+**Recent Progress (November 8, 2025)**:
+- ✅ **Database Schema v3.2 Migration Complete**: bg_reference_vehicles modernized to Excel template compliance
+  - ID column moved to position 1 (far left)
+  - Ammo expanded to ammo_1-4 (supports multi-weapon ammo like Churchill Crocodile)
+  - Mount data parsed from weapon fields (22 records, 26 combinations)
+  - German weapon names corrected (86 updates with proper caliber/length notation)
+- ✅ **Tobruk Import Complete**: 50 new vehicles (24 German, 26 Italian) - total now 191 vehicles
+- ✅ **Nation Normalization**: All nation values lowercase canonical format
+- ✅ **V5 Datacard Generator Updated**: Ready for multi-weapon ammo support
+
 **Current User Focus**:
 - ✅ Canada's Crucible extraction complete (clean baseline data)
+- ✅ Database schema modernization complete (v3.2)
 - ⏳ British DataCards CSV filling in progress (user manually entering data)
 - 📋 ~15 more extraction tasks planned (reduced scope - samples for validation, not comprehensive)
 
@@ -25,6 +36,7 @@ Phase 9B (BattleGroup Book Generation) discovered reference data quality issues.
 - ❌ **DO NOT** run conversion formula scripts (need validation against clean data first)
 - ✅ **CAN** work on Project Books (non-BattleGroup) if requested: summary chapters, appendices, TO&E tables
 - ✅ **CAN** work on documentation updates, infrastructure improvements, non-Phase 9B tasks
+- ✅ **CAN** continue manual data entry for bg_reference_vehicles table (ammo, weapons, etc.)
 
 ---
 
@@ -166,9 +178,17 @@ If you need to review ground forces data, see `data/output/units/` directory.
 - `CLAUDE.md` - Project instructions for Claude Code
 
 ### Schema & Templates:
-- `schemas/unified_toe_schema.json` - **v3.0.0** (Ground Forces)
+- `schemas/unified_toe_schema.json` - **v3.1.0** (Ground Forces + Tiered Extraction)
+- `database/master_database.db` - **bg_reference_vehicles v3.2** (191 vehicles, 34 columns)
 - `docs/MDBOOK_CHAPTER_TEMPLATE.md` - **v3.0** (18 sections)
 - `agents/agent_catalog.json` - **v2.0.0** (Anthropic patterns)
+
+### Database Status (November 8, 2025):
+- **Total vehicles**: 191 (british: 78, german: 63, italian: 26, canadian: 12, canadian/british: 12)
+- **Schema version**: v3.2 (Excel template compliance + multi-weapon ammo)
+- **Key fields**: weapon_1-4, mount_1-4, ammo_1-4 (34 columns total)
+- **Ammo coverage**: 100/191 (52.4%)
+- **Sources**: Legacy (41), Canada's Crucible (20), British DataCards (80), Tobruk (50)
 
 ### Showcase Analysis:
 - `data/output/1941-q2-showcase/SHOWCASE_GAPS.md` - 9 gaps identified

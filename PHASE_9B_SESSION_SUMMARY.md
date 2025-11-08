@@ -1649,3 +1649,228 @@ From PROJECT_SCOPE.md Phase 9B Step 4 requirements:
 **Phase 9B Status**: Core scenario generation fixes complete, ready for regeneration phase
 
 ---
+
+
+
+## Session: November 8, 2025 - Database Schema v3.2 Migration ✅
+
+**Focus**: Modernize bg_reference_vehicles schema to Excel template compliance + Tobruk import
+
+**Duration**: ~3 hours
+
+### Overview
+
+Database schema migration from previous format to Excel-template-compliant structure. This session focused entirely on infrastructure modernization to support easier manual data entry and multi-weapon ammo tracking (Churchill Crocodile edge case with flamethrower on weapon_3).
+
+### Accomplishments
+
+#### 1. Schema Migration to Excel Template ✅
+
+**Problem**: Previous schema had ID at position 31 (end), single `ammo` field, and mount data embedded in weapon fields
+
+**Solution**: Comprehensive schema restructuring
+
+**Changes**:
+- **ID Column**: Moved from position 31 to position 1 (far left) for Excel export compatibility
+- **Ammo Expansion**: Single `ammo` field → `ammo_1, ammo_2, ammo_3, ammo_4` fields
+  - Supports multi-weapon ammo (e.g., Churchill Crocodile: weapon_3=F'thrower, ammo_3=4)
+  - Each weapon can now have individual ammo count
+- **Mount Data Parsing**: Extracted mount info from weapon fields
+  - Pattern: `"MG (Pintle)"` → weapon=`"MG"`, mount=`"Pintle"`
+  - 22 records parsed (26 weapon-mount combinations)
+  - Examples: "75mm L/70 (Turret)", "MG (Coaxial)", "20mm&20 (Turret)"
+
+**Final Schema**: 34 columns
+- Position 1: `id` (PRIMARY KEY)
+- Positions 2-26: Excel template fields (name, movement, armor, weapons, mounts, ammo, special rules, metadata)
+- Positions 27-34: Additional tracking fields (source_file, source_document, source_battle, extraction_method, screenshot_file)
+
+**Scripts Created**:
+- `fix_id_position_and_check_ammo_v2.py` - ID repositioning + ammo data validation
+- `parse_weapon_mounts.py` - Mount extraction from weapon fields
+- `apply_csv_updates_and_deletions.py` - Schema expansion + CSV import
+
+#### 2. Data Quality Improvements ✅
+
+**Record Deletions** (3 records):
+- ID 5: M3 Medium AFV (user requested deletion)
+- ID 30: SdKfz 251/16 (user requested deletion)
+- ID 31: SdKfz 251/17 (user requested deletion)
+
+**German Weapon Corrections** (86 updates):
+- User corrected weapon_1 names in CSV with proper caliber/length notation
+- Examples: `75mmL24`, `75mmL48`, `75mmL70`, `20mmL55`, `37mmL43`, `50mm L60`
+- Examples: `105mmL130`, `150mmL130`, `Quad 20mmL15`, `Multiple-15mm`
+
+**Ammo Data Import** (74 records):
+- Imported ammo values from user-edited CSV
+- Coverage: 74/191 vehicles (38.7% initially, now 52.4% after Tobruk)
+- Special case handled: Churchill Crocodile ammo_3=4 (flamethrower)
+
+**Nation Normalization**:
+- All nation values converted to lowercase canonical format
+- Before: "British", "German", "Italian", "german" (mixed case)
+- After: "british", "german", "italian", "canadian" (consistent lowercase)
+- Multi-nation format: "canadian, british" (lowercase, comma-separated)
+
+#### 3. Tobruk Import ✅
+
+**Source**: `Resource Documents/Battlegroup Game/Vehicles Tobruk Input form for OCR.xlsx`
+
+**Duplicate Detection**:
+- 53 records in Excel file
+- 7 potential duplicates found
+- 3 exact duplicates skipped (same name + same nation):
+  - SdKfz 222 (German) - already ID 38
+  - SdKfz 251/1 (German) - already ID 25
+  - SdKfz 251/3 (German) - already ID 87
+- 4 same-name different-nation vehicles imported correctly:
+  - Motorcycle: german, italian, canadian (different vehicles)
+  - Heavy Truck: german, italian
+  - Staff car: german, italian
+
+**Successfully Imported**: 50 new vehicles
+
+**German Vehicles Added** (24):
+- Panzer I (2 variants)
+- Sdkfz 265 Pz. Bef. Wg
+- Flammpanzer I
+- Panzer II C, Panzer II F
+- Panzer III F, G, H, J (early variants)
+- Panzer III E Pz. Bef. Wg, Panzer III H Pz. Bef. Wg (command variants)
+- Panzer IV D, Panzer IV E (early variants)
+- Panzerjäger I
+- SdKfz 221, SdKfz 223, SdKfz 231, SdKfz 232 (light armored cars)
+- SdKfz 233, SdKfz 263 (radio/command vehicles)
+- 20mm Flak Truck, 37mm Flak Truck
+
+**Italian Vehicles Added** (26):
+- CV-33, CV-35, CV-35cc, CV-351f, CV-35cr (tankette variants)
+- M11/39, M13/40, M14/41 (medium tanks)
+- Autoblinda 40, Autoblinda 41 (armored cars)
+- Ansaldo 1ZM
+- Transport vehicles: Motorcycle, Motorcycle and sidecar, Motortrike, Staff car, Heavy Truck
+- Plus additional support vehicles
+
+**Import Script**: `import_tobruk_vehicles.py`
+- Checks for exact duplicates (name + nation match)
+- Allows same name with different nation (different vehicles)
+- Assigns new sequential IDs (172-221)
+- Tags with source metadata (source_file, source_document, source_battle, extraction_method)
+
+#### 4. V5 Datacard Generator Updates ✅
+
+**Updated Script**: `scripts/battlegroup/book/generate_book_datacards.py`
+
+**Changes**:
+- Main gun query: Added `ammo_1, ammo_2, ammo_3, ammo_4` to SELECT clause (replaced single `ammo`)
+- Weapons list builder: Changed from `ref_row['ammo']` to `ref_row[f'ammo_{i}']` in loop
+- Secondary weapons query: Added `ammo_1-4` fields
+- Secondary weapons builder: Uses individual `ammo_{i}` for each weapon
+
+**Backup**: `generate_book_datacards_backup_ammo_fields.py`
+
+**Result**: Generator now properly handles multi-weapon ammo (Churchill Crocodile flamethrower, future edge cases)
+
+### Database Status After Migration
+
+**Before**: 141 vehicles, 31 columns, single ammo field
+**After**: 191 vehicles, 34 columns, ammo_1-4 fields
+
+**Nation Breakdown**:
+- british: 78
+- german: 63 (39 legacy + 24 Tobruk)
+- italian: 26 (all from Tobruk)
+- canadian, british: 12
+- canadian: 12
+
+**Ammo Coverage**: 100/191 (52.4%)
+
+**Source Distribution**:
+- Legacy: 41 vehicles
+- Canada's Crucible: 20 vehicles
+- British DataCards: 80 vehicles
+- Tobruk: 50 vehicles
+
+### Scripts & Tools Created
+
+**Schema Migration**:
+1. `check_tables_clarity.py` - Verified which tables contained manual entries
+2. `cleanup_bg_reference_vehicles.py` - Attempted cleanup (all were manual)
+3. `fix_id_position_and_check_ammo_v2.py` - ID repositioning + ammo validation
+4. `parse_weapon_mounts.py` - Mount extraction from weapon fields (22 records, 26 combinations)
+5. `migrate_to_excel_schema.py` - Full schema migration (created earlier)
+6. `apply_csv_updates_and_deletions.py` - Ammo expansion + deletions + CSV import
+
+**Data Import/Export**:
+7. `export_vehicles_for_ammo_entry.py` - CSV export for manual ammo entry (89 vehicles)
+8. `import_vehicles_ammo.py` - CSV import script (not used directly, replaced by apply_csv)
+9. `vehicles_ammo_entry.csv` - User-edited CSV with weapon corrections + ammo values
+
+**Tobruk Import**:
+10. `check_tobruk_duplicates.py` - Duplicate detection (7 found, 3 exact)
+11. `import_tobruk_vehicles.py` - Tobruk Excel import with duplicate skipping (50 imported)
+
+**Verification**:
+12. `verify_german_updates.py` - Verified German weapon corrections applied
+13. `check_ammo_in_backup.py` - Validated no ammo data loss during migration
+14. `normalize_nation_values.py` - Lowercase nation canonicalization
+
+**Generator Updates**:
+15. `update_datacard_generator_ammo_fields.py` - V5 generator ammo_1-4 support
+
+### Backups Created
+
+All destructive operations backed up table before changes:
+- `bg_reference_vehicles_backup_20251107_231256` - ID position fix
+- `bg_reference_vehicles_backup_20251107_232047` - Mount parsing
+- `bg_reference_vehicles_backup_20251108_001527` - Ammo expansion + CSV import
+- `bg_reference_vehicles_backup_20251108_002152` - Tobruk import
+- `bg_reference_vehicles_backup_20251108_002300` - Nation normalization
+
+### Technical Lessons
+
+**SQLite Column Deletion**:
+- Can't use `ALTER TABLE DROP COLUMN` (not supported in SQLite)
+- Must create new table, copy data, drop old, rename new
+- Preserved through 5 major schema changes successfully
+
+**Data Quality Validation**:
+- Always check backups for data loss (ammo field: only 1 vehicle ever had data)
+- User CSV corrections are authoritative (86 weapon name fixes)
+- Duplicate detection must consider nation (same name ≠ same vehicle across nations)
+
+**Multi-Weapon Ammo Edge Case**:
+- Churchill Crocodile: weapon_1=75mmL40, weapon_2=MG, weapon_3=F'thrower
+- Ammo: ammo_1=8, ammo_2=None, ammo_3=4
+- Schema must support ammo for any weapon position, not just weapon_1
+
+### Git Commits
+
+(To be committed):
+- Schema migration scripts (15 Python files)
+- Updated documentation (PROJECT_SCOPE.md, START_HERE_NEW_SESSION.md)
+- V5 datacard generator updates
+- Database: 191 vehicles, schema v3.2
+
+### Phase 9B Status
+
+**Infrastructure**: ✅ COMPLETE
+- Database schema modernized (v3.2)
+- Excel template compliance achieved
+- Multi-weapon ammo support implemented
+- Generator updated for new schema
+
+**Data Collection**: ⏳ IN PROGRESS
+- 191/??? vehicles (52.4% with ammo data)
+- Tobruk baseline complete
+- User continuing manual data entry
+
+**Content Generation**: ⏸️ ON HOLD
+- Equipment datacards blocked (need clean reference data)
+- Conversion formulas need validation
+- Books cannot be published until stats validated
+
+**Next Session**: Continue with PHASE_9B_NEXT_STEPS.md tasks or user-directed data entry
+
+---

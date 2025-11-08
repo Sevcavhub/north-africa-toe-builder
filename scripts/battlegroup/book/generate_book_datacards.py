@@ -389,29 +389,37 @@ class BookDatacardGenerator:
         # Source 2: bg_reference_vehicles (via reference_vehicle_id - for weapons only)
         if not main_gun and row['reference_vehicle_id']:
             cursor.execute("""
-                SELECT weapons, name
+                SELECT weapon_1, weapon_2, weapon_3, weapon_4,
+                       mount_1, mount_2, mount_3, mount_4,
+                       ammo_1, ammo_2, ammo_3, ammo_4, name
                 FROM bg_reference_vehicles
                 WHERE id = ?
             """, (row['reference_vehicle_id'],))
             ref_row = cursor.fetchone()
             if ref_row:
-                # Get weapons
-                if ref_row['weapons']:
-                    try:
-                        weapons = json.loads(ref_row['weapons'])
-                        # Find main gun (usually turret-mounted, not MG)
-                        for weapon in weapons:
-                            mount = weapon.get('mount', '').lower()
-                            weapon_name = weapon.get('weapon', '')
-                            ammo = weapon.get('ammo', None)
-                            # Look for turret-mounted weapon that's not just "MG"
-                            if 'turret' in mount and weapon_name.upper() != 'MG':
-                                main_gun = weapon_name
-                                main_gun_ammo = ammo
-                                weapon_data = weapon
-                                break
-                    except (json.JSONDecodeError, TypeError):
-                        pass
+                # Build weapons list from weapon_1-4 fields
+                weapons_list = []
+                for i in range(1, 5):
+                    weapon = ref_row[f'weapon_{i}']
+                    mount = ref_row[f'mount_{i}']
+                    ammo = ref_row[f'ammo_{i}']
+                    if weapon:
+                        weapons_list.append({
+                            'weapon': weapon,
+                            'mount': mount or 'Unknown',
+                            'ammo': ammo
+                        })
+
+                # Find main gun (usually turret-mounted, not MG)
+                for weapon_data in weapons_list:
+                    mount = weapon_data.get('mount', '').lower()
+                    weapon_name = weapon_data.get('weapon', '')
+                    ammo = weapon_data.get('ammo', None)
+                    # Look for turret-mounted weapon that's not just "MG"
+                    if 'turret' in mount and weapon_name.upper() != 'MG':
+                        main_gun = weapon_name
+                        main_gun_ammo = ammo
+                        break
 
         # Source 3: For towed guns, use reference_gun_id (NEW!)
         if not main_gun and row['reference_gun_id']:
@@ -462,30 +470,29 @@ class BookDatacardGenerator:
         # If no secondary weapons, try bg_reference_vehicles via reference_vehicle_id (FIXED!)
         if not secondary and row['reference_vehicle_id']:
             cursor.execute("""
-                SELECT weapons
+                SELECT weapon_1, weapon_2, weapon_3, weapon_4,
+                       mount_1, mount_2, mount_3, mount_4,
+                       ammo_1, ammo_2, ammo_3, ammo_4
                 FROM bg_reference_vehicles
                 WHERE id = ?
             """, (row['reference_vehicle_id'],))
             ref_row = cursor.fetchone()
-            if ref_row and ref_row['weapons']:
-                try:
-                    weapons = json.loads(ref_row['weapons'])
-                    # Get secondary weapons (MGs, etc.)
-                    secondary = []
-                    for weapon in weapons:
-                        mount = weapon.get('mount', 'Unknown')
-                        weapon_name = weapon.get('weapon', 'Unknown')
-                        weapon_ammo = weapon.get('ammo', None)
+            if ref_row:
+                # Build weapons list from weapon_1-4 fields
+                secondary = []
+                for i in range(1, 5):
+                    weapon_name = ref_row[f'weapon_{i}']
+                    mount = ref_row[f'mount_{i}']
+                    ammo = ref_row[f'ammo_{i}']
+                    if weapon_name:
                         # Get all weapons except the main gun we already extracted
                         # Include co-axial/bow MGs and other secondary armament
                         if weapon_name != main_gun and weapon_name.upper() != 'NONE':
                             secondary.append({
                                 'name': weapon_name,
-                                'mount': mount,
-                                'ammo': weapon_ammo
+                                'mount_type': mount or 'Unknown',
+                                'ammunition_count': ammo
                             })
-                except (json.JSONDecodeError, TypeError):
-                    pass
 
         # Get special rules (names only for header display)
         cursor.execute("""

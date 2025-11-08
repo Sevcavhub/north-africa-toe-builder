@@ -1,16 +1,17 @@
 # North Africa TO&E Builder - Complete Project Scope
 
-**Version**: 1.6.2
-**Last Updated**: 2025-11-05 (Phase 9B ON HOLD - Reference data quality recovery in progress)
+**Version**: 1.6.3
+**Last Updated**: 2025-11-08 (Database Schema v3.2 - Excel template migration + Tobruk import complete)
 **Status**: 🟢 LIVING DOCUMENT - Subject to updates
 
 <!-- AUTO-UPDATED: START - Progress Stats -->
-**Current Phase**: Phase 9B ⏸️ ON HOLD | Reference Data Quality Recovery
-**Completed Phases**: Phase 1-8 (100%) ✅ | Phase 9A (WITW) ✅ 369 scenarios | Phase 9B (BattleGroup) ⏸️ ON HOLD
-**Overall Progress**: Extraction complete (402 unit-quarters), WITW scenarios complete (369), BattleGroup reference data re-collection in progress
+**Current Phase**: Phase 9B ⏸️ ON HOLD | Reference Data Quality Recovery - Database Modernization Complete
+**Completed Phases**: Phase 1-8 (100%) ✅ | Phase 9A (WITW) ✅ 369 scenarios | Phase 9B (BattleGroup) ⏸️ Infrastructure + Data Quality
+**Overall Progress**: Extraction complete (402 unit-quarters), WITW scenarios complete (369), Database at 191 vehicles (schema v3.2), Reference data collection ongoing
 <!-- AUTO-UPDATED: END - Progress Stats -->
 
 **Architecture**: v4.0 (Canonical Output Locations)
+**Database Schema**: v3.2 (Excel template compliance + multi-weapon ammo support)
 **Scope**: COMPLETE - ALL 117 units that fought in North Africa battles (1940-1943)
 
 ---
@@ -55,6 +56,71 @@
 - `ff5b333` - Phase 2 complete
 - `bc465c0` - Phases 3-5 complete (workflow enforcement, version history, testing)
 - `fb31013` - Documentation synchronization (unit counts)
+
+---
+
+## 🔄 Database Schema Migration v3.2 (November 8, 2025)
+
+**Status**: ✅ COMPLETE - Schema modernized to Excel template compliance
+**Duration**: 1 session
+**Root Cause**: Previous schema had single `ammo` field and mount data embedded in weapon fields
+
+### What Was Fixed:
+
+**Schema Changes** (bg_reference_vehicles table):
+- ✅ **ID Column Position**: Moved from position 31 to position 1 (far left) for Excel export compatibility
+- ✅ **Ammo Field Expansion**: `ammo` → `ammo_1, ammo_2, ammo_3, ammo_4` (supports multi-weapon ammo like Churchill Crocodile flamethrower)
+- ✅ **Weapon Fields**: weapon_1, weapon_2, weapon_3, weapon_4 (already existed, maintained)
+- ✅ **Mount Fields**: mount_1, mount_2, mount_3, mount_4 (already existed, maintained)
+- ✅ **Mount Data Parsing**: Extracted mount info from weapon fields (e.g., "MG (Pintle)" → weapon="MG", mount="Pintle")
+  - 22 records parsed
+  - 26 weapon-mount combinations cleaned
+
+**Data Quality Improvements**:
+- ✅ **Record Deletions**: Removed 3 duplicate/invalid records (M3 Medium AFV, SdKfz 251/16, SdKfz 251/17)
+- ✅ **German Weapon Corrections**: Updated 86 weapon_1 names with proper caliber/length notation
+  - Examples: 75mmL24, 75mmL48, 75mmL70, 20mmL55, 37mmL43, 50mm L60
+- ✅ **Ammo Data Import**: 74 ammo_1 values imported from CSV (52.4% coverage)
+- ✅ **Special Cases**: Churchill Crocodile ammo_3=4 (flamethrower on weapon_3)
+- ✅ **Nation Normalization**: All nation values converted to lowercase canonical format (german, italian, british, canadian)
+
+**Tobruk Import**:
+- ✅ **New Vehicles**: 50 vehicles imported from "Vehicles Tobruk Input form for OCR.xlsx"
+  - 24 German vehicles (Panzer I/II/III/IV variants, SdKfz armored cars, Panzerjäger I, 20mm/37mm Flak trucks)
+  - 26 Italian vehicles (CV-33/35 variants, M11/39, M13/40, M14/41, Autoblinda 40/41, Ansaldo 1ZM)
+- ✅ **Duplicate Handling**: 3 exact duplicates skipped (SdKfz 222, SdKfz 251/1, SdKfz 251/3)
+- ✅ **Multi-Nation Vehicles**: Correctly imported same-name vehicles with different nations
+  - Motorcycle: german, italian, canadian (different vehicles)
+  - Heavy Truck: german, italian
+  - Staff car: german, italian
+
+**Generator Updates**:
+- ✅ **V5 Datacard Generator**: Updated to use ammo_1-4 fields instead of single ammo field
+  - Main gun query updated
+  - Secondary weapons query updated
+  - Weapons list builder uses individual ammo_{i} values
+  - Ready for multi-weapon ammo support
+
+**Final Database Status**:
+- **Total vehicles**: 191 (up from 141)
+- **Schema columns**: 34 (added ammo_2, ammo_3, ammo_4)
+- **Nation breakdown**:
+  - british: 78
+  - german: 63
+  - italian: 26
+  - canadian, british: 12
+  - canadian: 12
+- **Ammo coverage**: 100/191 vehicles (52.4%)
+- **Source diversity**: 4 sources (legacy, Canada's Crucible, British DataCards, Tobruk)
+
+**Impact**: Database schema now matches Excel template format, supports multi-weapon ammo, ready for continued manual data entry and eventual V5 datacard generation.
+
+**Backups Created**:
+- bg_reference_vehicles_backup_20251107_231256 (ID position fix)
+- bg_reference_vehicles_backup_20251107_232047 (mount parsing)
+- bg_reference_vehicles_backup_20251108_001527 (ammo expansion + CSV import)
+- bg_reference_vehicles_backup_20251108_002152 (Tobruk import)
+- bg_reference_vehicles_backup_20251108_002300 (nation normalization)
 
 ---
 

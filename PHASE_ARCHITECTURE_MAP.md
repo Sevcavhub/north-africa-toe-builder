@@ -597,8 +597,9 @@ scripts/battlegroup/
 ```
 Phase 9B Tables:
 ├── equipment_battlegroup ──────────────────── 469 items with BattleGroup stats
-├── bg_reference_vehicles ──────────────────── 500 reference vehicles (being rebuilt)
-├── bg_reference_guns ──────────────────────── 57 reference guns (being rebuilt)
+├── bg_reference_vehicles ──────────────────── 191 vehicles (schema v3.2 - Nov 8, 2025)
+│   └── Schema v3.2: 34 columns (weapon_1-4, mount_1-4, ammo_1-4, Excel template compliant)
+├── bg_reference_guns ──────────────────────── 57 reference guns
 ├── bg_reference_aircraft ──────────────────── Aircraft reference data
 ├── bg_armor_conversion ────────────────────── 16 armor thickness ranges (A-O)
 ├── bg_penetration_scale ───────────────────── 24 gun/caliber penetration mappings
@@ -764,7 +765,11 @@ unit_equipment ─────────────────────�
 ### **BattleGroup Tables** (Phase 9B):
 ```
 equipment_battlegroup ─────────────────────── 469 items with BattleGroup stats
-bg_reference_vehicles ─────────────────────── 500 reference vehicles
+bg_reference_vehicles ─────────────────────── 191 vehicles (schema v3.2 as of Nov 8, 2025)
+  ├── 34 columns: weapon_1-4, mount_1-4, ammo_1-4
+  ├── Nations: british (78), german (63), italian (26), canadian (12), canadian/british (12)
+  ├── Sources: Legacy (41), Canada's Crucible (20), British DataCards (80), Tobruk (50)
+  └── Ammo coverage: 100/191 (52.4%)
 bg_reference_guns ─────────────────────────── 57 reference guns
 bg_reference_aircraft ─────────────────────── Aircraft reference data
 bg_armor_conversion ───────────────────────── 16 armor ranges
