@@ -21,10 +21,22 @@
 
 ### **Immediate Actions Required**
 
-**Priority 1: Maximize Clean Data Usage**
-1. ✅ Run comprehensive_linkage.py - Auto-link equipment to 205 clean BG vehicles (~140 items expected)
-2. ✅ Sync ammo data from linked vehicles to equipment_guns table
-3. ✅ Regenerate datacards with official BG data where available
+**Priority 1: Maximize Clean Data Usage** ❌ **BLOCKED - AUTOMATED LINKAGE FAILED**
+1. ❌ comprehensive_linkage.py created BAD LINKAGES (November 8, 2025):
+   - **Critical Issue**: 143 automated linkages contain wrong cross-nation matches
+   - Examples: USA_M4_SHERMAN → Panzer II F (German!), USA_LEE_M3 → Bren Carrier (British!)
+   - 71/101 vehicle linkages are 80-94% confidence (many appear incorrect)
+   - **Root Cause**: Matching algorithm doesn't enforce nation consistency
+   - **Action Required**: Clear all automated linkages, fix script, re-run
+2. ⏸️ Sync ammo data - BLOCKED until linkages fixed
+3. ⏸️ Regenerate datacards - BLOCKED until linkages fixed
+
+**Automated Linkage Audit Results** (November 8, 2025):
+- Total linkages: 143 (101 vehicles, 42 guns)
+- High confidence (95-100%): 29 items (likely correct)
+- Medium confidence (80-94%): 71 items (MANY WRONG - cross-nation matches)
+- Missing reference IDs: Multiple (e.g., 244, 242 don't exist)
+- **Conclusion**: Automated matching is unreliable - needs nation filtering + manual review
 
 **Priority 2: Fill Ammunition Capacity Gap** 🔴 **CRITICAL**
 - **Problem**: WWIITANKS/OnWar lack shells/ammo count per vehicle
