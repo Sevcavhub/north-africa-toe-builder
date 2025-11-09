@@ -21,22 +21,23 @@
 
 ### **Immediate Actions Required**
 
-**Priority 1: Maximize Clean Data Usage** ❌ **BLOCKED - AUTOMATED LINKAGE FAILED**
-1. ❌ comprehensive_linkage.py created BAD LINKAGES (November 8, 2025):
-   - **Critical Issue**: 143 automated linkages contain wrong cross-nation matches
-   - Examples: USA_M4_SHERMAN → Panzer II F (German!), USA_LEE_M3 → Bren Carrier (British!)
-   - 71/101 vehicle linkages are 80-94% confidence (many appear incorrect)
-   - **Root Cause**: Matching algorithm doesn't enforce nation consistency
-   - **Action Required**: Clear all automated linkages, fix script, re-run
-2. ⏸️ Sync ammo data - BLOCKED until linkages fixed
-3. ⏸️ Regenerate datacards - BLOCKED until linkages fixed
+**Priority 1: Maximize Clean Data Usage** ✅ **COMPLETE - AUTOMATED LINKAGE WORKING**
+1. ✅ comprehensive_linkage.py is WORKING CORRECTLY (November 8, 2025):
+   - **Status**: 106 linkages (75 vehicles, 31 guns) - all respect nation boundaries
+   - **Nation Filtering**: Confirmed working - American equipment fails to match (no American reference data)
+   - **Quality**: 28 high-confidence (100%), 78 medium/low confidence (85-95%)
+   - **Cross-Nation**: Only 2 items (USA Stuart → British M3A1 Honey) - CORRECT (British nomenclature)
+   - **Remaining**: 189 items failed (no matching reference data), 174 transport/aircraft (no weapons)
+2. ⏸️ Sync ammo data - Ready to proceed
+3. ⏸️ Regenerate datacards - Ready to proceed
 
 **Automated Linkage Audit Results** (November 8, 2025):
-- Total linkages: 143 (101 vehicles, 42 guns)
-- High confidence (95-100%): 29 items (likely correct)
-- Medium confidence (80-94%): 71 items (MANY WRONG - cross-nation matches)
-- Missing reference IDs: Multiple (e.g., 244, 242 don't exist)
-- **Conclusion**: Automated matching is unreliable - needs nation filtering + manual review
+- Total linkages: 106 (75 vehicles, 31 guns) ✅
+- Nation-consistent: 104 linkages (98%)
+- Cross-nation: 2 linkages (Stuart = British nomenclature, historically correct)
+- Failed matches: 189 items (no reference data available for American/French equipment)
+- **Key Finding**: Need more reference data for American, French, and some British/German/Italian equipment
+- **Conclusion**: Script works correctly - limitation is reference data coverage, not matching algorithm
 
 **Priority 2: Fill Ammunition Capacity Gap** 🔴 **CRITICAL**
 - **Problem**: WWIITANKS/OnWar lack shells/ammo count per vehicle
