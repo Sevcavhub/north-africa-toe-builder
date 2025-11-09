@@ -17,7 +17,7 @@ Successfully imported **599 vehicles** and **239 weapons** from BattleGroup Buil
 - ✅ **117 force lists** imported (foundation for points/BR extraction)
 - ✅ **80% linkage rate** (172/215 manual vehicles linked to BG Builder)
 - ✅ **Unified view created** (v_vehicles_unified) merging BG Builder + manual data
-- ✅ **Optimized manual entry template** exported (60% reduction in manual effort)
+- ✅ **Pre-populated Excel template** exported for Tobruk/Torch manual entry (60% reduction in manual effort)
 
 ### Impact on Phase 9B
 
@@ -51,7 +51,7 @@ Successfully imported **599 vehicles** and **239 weapons** from BattleGroup Buil
 
 ### Force Lists (117 entries)
 - **Source**: BattleGroup Builder forces.js
-- **Coverage**: All force lists from 18 books
+- **Coverage**: All force lists from 18 books (22 are Tobruk/Torch specific)
 - **Fields**: Force group/name, infantry tiers, sections (JSON)
 - **Future use**: Points/BR extraction, force composition analysis
 - **Database table**: `bg_builder_forces`
@@ -92,6 +92,12 @@ Successfully imported **599 vehicles** and **239 weapons** from BattleGroup Buil
 2. **v_weapons_unified**
    - Exposes all BG Builder weapon data
    - Ready for datacard generation
+
+### Schema Modifications
+
+- Added `bg_builder_id` column to `bg_reference_vehicles` table
+- Links manual vehicles to BG Builder via fuzzy name matching
+- 80% linkage rate (172/215 manual vehicles)
 
 ---
 
@@ -136,12 +142,19 @@ Successfully imported **599 vehicles** and **239 weapons** from BattleGroup Buil
   - **80% linkage rate** (172/215 manual vehicles)
   - Adds bg_builder_id column to bg_reference_vehicles
 
-### Phase 5: Optimized Workflow
-- `scripts/battlegroup/import/export_manual_entry_template.py`
-  - Exports CSV with 599 vehicles
-  - **READ-ONLY columns**: movement, armor, weapons (from BG Builder)
-  - **FILL columns**: ammo counts, mounts, year/type/nation (missing data)
+### Phase 5: Excel Template Pre-population
+- `scripts/battlegroup/import/prepopulate_excel_template.py`
+  - Uses user's existing Excel template structure
+  - Pre-fills: name, movement, armor, weapons (from BG Builder)
+  - Leaves blank: ammo counts, mounts, metadata (for manual entry)
+  - Output: Vehicles_Manual_Entry_TOBRUK_TORCH_PrePopulated.xlsx
   - **60% reduction** in manual entry effort
+
+### Verification
+- `verify_bg_builder_import.py`
+  - Shows sample queries and statistics
+  - Validates import success
+  - Demonstrates unified view usage
 
 ---
 
@@ -157,7 +170,7 @@ Successfully imported **599 vehicles** and **239 weapons** from BattleGroup Buil
 - `database/bg_builder_schema.sql` (new)
 - `database/create_unified_view.sql` (new)
 
-### Python Scripts (8 new)
+### Python Scripts (9 new)
 - `create_bg_tables.py` (temporary helper)
 - `scripts/battlegroup/import/convert_bg_builder_to_json.js`
 - `scripts/battlegroup/import/execute_bg_builder_schema.py`
@@ -165,10 +178,11 @@ Successfully imported **599 vehicles** and **239 weapons** from BattleGroup Buil
 - `scripts/battlegroup/import/import_bg_builder_weapons.py`
 - `scripts/battlegroup/import/import_bg_builder_forces.py`
 - `scripts/battlegroup/import/link_manual_to_bg_builder.py`
-- `scripts/battlegroup/import/export_manual_entry_template.py`
+- `scripts/battlegroup/import/prepopulate_excel_template.py`
+- `verify_bg_builder_import.py`
 
 ### Output Files
-- `manual_entry_MISSING_FIELDS_ONLY.csv` (599 vehicles, optimized template)
+- `Vehicles_Manual_Entry_TOBRUK_TORCH_PrePopulated.xlsx` (599 vehicles, pre-populated template)
 
 ---
 
@@ -214,8 +228,8 @@ Successfully imported **599 vehicles** and **239 weapons** from BattleGroup Buil
    - Manually link if BG Builder has different name
    - Or accept that some manual-only vehicles won't have BG Builder linkage
 
-2. **Use optimized manual entry template**
-   - Open `manual_entry_MISSING_FIELDS_ONLY.csv`
+2. **Use pre-populated Excel template**
+   - Open `Vehicles_Manual_Entry_TOBRUK_TORCH_PrePopulated.xlsx`
    - Only fill: ammo counts, mounts, year/type/nation (~10 fields)
    - Armor/movement/weapons already filled from BG Builder
 
@@ -253,7 +267,7 @@ Successfully imported **599 vehicles** and **239 weapons** from BattleGroup Buil
 ### Quantitative
 
 | **Metric** | **Before** | **After** | **Improvement** |
-|------------|------------|-----------|-----------------|
+|------------|------------|-----------|--------------------|
 | Vehicles with armor/movement data | 205 | 599 | +192% |
 | Weapons with penetration data | 57 | 239 | +319% |
 | Equipment linkage potential | 20% | 80%+ | +300% |
@@ -278,7 +292,7 @@ Successfully imported **599 vehicles** and **239 weapons** from BattleGroup Buil
 2. **Fuzzy name matching**: 80% linkage rate with simple normalization + similarity scoring
 3. **Graceful handling of edge cases**: Integer vs. array weapons, empty strength values
 4. **Unified view strategy**: BG Builder primary + manual supplementary = best of both worlds
-5. **Optimized manual entry**: Showing reference data reduces user effort by 60%
+5. **User-centric Excel approach**: Pre-populating existing template vs. creating new CSV
 
 ### Challenges Overcome
 
@@ -286,6 +300,7 @@ Successfully imported **599 vehicles** and **239 weapons** from BattleGroup Buil
 2. **Data structure variations**: Some vehicles had integer weapons instead of arrays
 3. **Name variations**: Fuzzy matching caught "Kubelwagen" → "Kübelwagen", "Panzer IV H" → "Panzer IV H/J"
 4. **Unicode encoding**: Removed emojis from Python scripts to avoid Windows encoding errors
+5. **User workflow preferences**: Adapted to use existing Excel template rather than creating new CSV format
 
 ### Future Improvements
 
@@ -308,8 +323,8 @@ Successfully imported **599 vehicles** and **239 weapons** from BattleGroup Buil
 - Has Ammo: Yes
 
 **Weapon 8: 50mmL42**:
-- HE [VL]: 3/5+ effect, strength [2,2,2,2,2]
-- AP: strength [4,4,3,2,1] (decreases with range)
+- HE [VL]: 3/5+ effect, strength [2,2,2,2,2,2]
+- AP: strength [4,4,3,2,1,0] (decreases with range)
 
 **Unified View Query**:
 ```sql
@@ -338,7 +353,7 @@ feat(bg-builder): Import official BattleGroup data (599 vehicles, 239 weapons)
 - Import data with 100% success rate
 - Link 80% of manual vehicles to BG Builder (172/215)
 - Create unified view (v_vehicles_unified) merging BG Builder + manual
-- Export optimized manual entry template (60% effort reduction)
+- Pre-populate Excel template for Tobruk/Torch manual entry (60% effort reduction)
 
 Impact:
 - Equipment linkage potential: 20% → 80%+
