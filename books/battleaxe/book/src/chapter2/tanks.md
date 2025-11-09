@@ -548,7 +548,7 @@
 <td>L</td>
 <td>Ordnance Q.F. 2pdr</td>
 <td>Turret</td>
-<td>-</td>
+<td>9</td>
 </tr>
 <tr>
 <td></td>

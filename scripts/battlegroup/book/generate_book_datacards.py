@@ -411,6 +411,7 @@ class BookDatacardGenerator:
                         })
 
                 # Find main gun (usually turret-mounted, not MG)
+                # First pass: look for turret-mounted weapons
                 for weapon_data in weapons_list:
                     mount = weapon_data.get('mount', '').lower()
                     weapon_name = weapon_data.get('weapon', '')
@@ -420,6 +421,17 @@ class BookDatacardGenerator:
                         main_gun = weapon_name
                         main_gun_ammo = ammo
                         break
+
+                # Second pass: if no turret weapon found, take first non-MG weapon
+                # (handles cases where mount data is missing/None)
+                if not main_gun:
+                    for weapon_data in weapons_list:
+                        weapon_name = weapon_data.get('weapon', '')
+                        ammo = weapon_data.get('ammo', None)
+                        if weapon_name and weapon_name.upper() != 'MG':
+                            main_gun = weapon_name
+                            main_gun_ammo = ammo
+                            break
 
         # Source 3: For towed guns, use reference_gun_id (NEW!)
         if not main_gun and row['reference_gun_id']:

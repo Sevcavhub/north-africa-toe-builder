@@ -253,7 +253,7 @@
 <td>N</td>
 <td>O</td>
 <td>O</td>
-<td>81 gun</td>
+<td>Medium bomb</td>
 <td>Turret</td>
 <td>-</td>
 </tr>
@@ -279,7 +279,7 @@
 <th>50-70"</th>
 </tr>
 <tr>
-<td>81 gun</td>
+<td>Medium bomb</td>
 <td>HE</td>
 <td>-</td>
 <td>-</td>
@@ -290,7 +290,7 @@
 <td>-</td>
 </tr>
 <tr>
-<td>81 gun</td>
+<td>Medium bomb</td>
 <td>AP</td>
 <td>-</td>
 <td>-</td>
@@ -610,14 +610,14 @@
 </tr>
 <tr>
 <td>Artillery</td>
-<td>1</td>
-<td>1</td>
+<td>0"</td>
+<td>0" (must be towed)</td>
 <td>-</td>
 <td>N</td>
 <td>O</td>
 <td>O</td>
-<td>Self (towed gun)</td>
-<td>-</td>
+<td>105mmL22</td>
+<td>Turret</td>
 <td>-</td>
 </tr>
 
@@ -642,7 +642,7 @@
 <th>50-70"</th>
 </tr>
 <tr>
-<td>Self (towed gun)</td>
+<td>105mmL22</td>
 <td>HE</td>
 <td>-</td>
 <td>-</td>
@@ -653,7 +653,7 @@
 <td>-</td>
 </tr>
 <tr>
-<td>Self (towed gun)</td>
+<td>105mmL22</td>
 <td>AP</td>
 <td>-</td>
 <td>-</td>
@@ -788,13 +788,13 @@
 </tr>
 <tr>
 <td>Artillery</td>
-<td>3"</td>
-<td>3"</td>
+<td>2</td>
+<td>2</td>
 <td>-</td>
 <td>N</td>
 <td>O</td>
 <td>O</td>
-<td>2 pounder</td>
+<td>50 gun</td>
 <td>Turret</td>
 <td>-</td>
 </tr>
@@ -820,7 +820,7 @@
 <th>50-70"</th>
 </tr>
 <tr>
-<td>2 pounder</td>
+<td>50 gun</td>
 <td>HE</td>
 <td>-</td>
 <td>-</td>
@@ -831,7 +831,7 @@
 <td>-</td>
 </tr>
 <tr>
-<td>2 pounder</td>
+<td>50 gun</td>
 <td>AP</td>
 <td>-</td>
 <td>-</td>
