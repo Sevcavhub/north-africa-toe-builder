@@ -253,13 +253,78 @@
 <td>N</td>
 <td>O</td>
 <td>O</td>
-<td>None</td>
+<td>2 pdr</td>
+<td>Turret</td>
+<td>10</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>MG</td>
+<td>Unknown</td>
 <td>-</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>MG</td>
+<td>Unknown</td>
 <td>-</td>
 </tr>
 
 </table>
 
+<table>
+<tr>
+<th class="main-header">WEAPON</th>
+<th class="main-header">AMMO</th>
+<th class="main-header">HE</th>
+<th class="main-header" colspan="6">RANGE</th>
+</tr>
+<tr>
+<th></th>
+<th></th>
+<th>-</th>
+<th>0-10"</th>
+<th>10-20"</th>
+<th>20-30"</th>
+<th>30-40"</th>
+<th>40-50"</th>
+<th>50-70"</th>
+</tr>
+<tr>
+<td>2 pdr</td>
+<td>HE</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>2 pdr</td>
+<td>AP</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</table>
 </div>
 
 <div class="datacard datacard-british">
@@ -301,13 +366,66 @@
 <td>N</td>
 <td>O</td>
 <td>O</td>
-<td>None</td>
-<td>-</td>
+<td>2 pdr</td>
+<td>Turret</td>
+<td>10</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>MG</td>
+<td>Unknown</td>
 <td>-</td>
 </tr>
 
 </table>
 
+<table>
+<tr>
+<th class="main-header">WEAPON</th>
+<th class="main-header">AMMO</th>
+<th class="main-header">HE</th>
+<th class="main-header" colspan="6">RANGE</th>
+</tr>
+<tr>
+<th></th>
+<th></th>
+<th>-</th>
+<th>0-10"</th>
+<th>10-20"</th>
+<th>20-30"</th>
+<th>30-40"</th>
+<th>40-50"</th>
+<th>50-70"</th>
+</tr>
+<tr>
+<td>2 pdr</td>
+<td>HE</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>2 pdr</td>
+<td>AP</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</table>
 </div>
 
 <div class="datacard datacard-british">
@@ -349,13 +467,66 @@
 <td>N</td>
 <td>O</td>
 <td>O</td>
-<td>None</td>
-<td>-</td>
+<td>2 pdr</td>
+<td>Turret</td>
+<td>10</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>MG</td>
+<td>Unknown</td>
 <td>-</td>
 </tr>
 
 </table>
 
+<table>
+<tr>
+<th class="main-header">WEAPON</th>
+<th class="main-header">AMMO</th>
+<th class="main-header">HE</th>
+<th class="main-header" colspan="6">RANGE</th>
+</tr>
+<tr>
+<th></th>
+<th></th>
+<th>-</th>
+<th>0-10"</th>
+<th>10-20"</th>
+<th>20-30"</th>
+<th>30-40"</th>
+<th>40-50"</th>
+<th>50-70"</th>
+</tr>
+<tr>
+<td>2 pdr</td>
+<td>HE</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>2 pdr</td>
+<td>AP</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</table>
 </div>
 
 <div class="datacard datacard-british">
@@ -647,13 +818,78 @@
 <td>N</td>
 <td>O</td>
 <td>O</td>
-<td>None</td>
+<td>37mmL53</td>
+<td>Turret</td>
+<td>10</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>MG</td>
+<td>Unknown</td>
 <td>-</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>MG</td>
+<td>Unknown</td>
 <td>-</td>
 </tr>
 
 </table>
 
+<table>
+<tr>
+<th class="main-header">WEAPON</th>
+<th class="main-header">AMMO</th>
+<th class="main-header">HE</th>
+<th class="main-header" colspan="6">RANGE</th>
+</tr>
+<tr>
+<th></th>
+<th></th>
+<th>-</th>
+<th>0-10"</th>
+<th>10-20"</th>
+<th>20-30"</th>
+<th>30-40"</th>
+<th>40-50"</th>
+<th>50-70"</th>
+</tr>
+<tr>
+<td>37mmL53</td>
+<td>HE</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>37mmL53</td>
+<td>AP</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</table>
 </div>
 
 <div class="datacard datacard-british">
@@ -695,13 +931,66 @@
 <td>K</td>
 <td>K</td>
 <td>L</td>
-<td>None</td>
-<td>-</td>
+<td>2 pdr</td>
+<td>Turret</td>
+<td>8.0</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>7.92mm MG 13</td>
+<td>Co-Axial</td>
 <td>-</td>
 </tr>
 
 </table>
 
+<table>
+<tr>
+<th class="main-header">WEAPON</th>
+<th class="main-header">AMMO</th>
+<th class="main-header">HE</th>
+<th class="main-header" colspan="6">RANGE</th>
+</tr>
+<tr>
+<th></th>
+<th></th>
+<th>-</th>
+<th>0-10"</th>
+<th>10-20"</th>
+<th>20-30"</th>
+<th>30-40"</th>
+<th>40-50"</th>
+<th>50-70"</th>
+</tr>
+<tr>
+<td>2 pdr</td>
+<td>HE</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>2 pdr</td>
+<td>AP</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</table>
 </div>
 
 <div class="datacard datacard-british">
@@ -743,13 +1032,66 @@
 <td>N</td>
 <td>O</td>
 <td>O</td>
-<td>None</td>
-<td>-</td>
+<td>15mm Besa</td>
+<td>Turret</td>
+<td>20</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>MG</td>
+<td>Unknown</td>
 <td>-</td>
 </tr>
 
 </table>
 
+<table>
+<tr>
+<th class="main-header">WEAPON</th>
+<th class="main-header">AMMO</th>
+<th class="main-header">HE</th>
+<th class="main-header" colspan="6">RANGE</th>
+</tr>
+<tr>
+<th></th>
+<th></th>
+<th>-</th>
+<th>0-10"</th>
+<th>10-20"</th>
+<th>20-30"</th>
+<th>30-40"</th>
+<th>40-50"</th>
+<th>50-70"</th>
+</tr>
+<tr>
+<td>15mm Besa</td>
+<td>HE</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>15mm Besa</td>
+<td>AP</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</table>
 </div>
 
 <div class="datacard datacard-german">
@@ -839,13 +1181,54 @@
 <td>N</td>
 <td>O</td>
 <td>O</td>
-<td>None</td>
-<td>-</td>
+<td>2 x MGs</td>
+<td>Turret</td>
 <td>-</td>
 </tr>
 
 </table>
 
+<table>
+<tr>
+<th class="main-header">WEAPON</th>
+<th class="main-header">AMMO</th>
+<th class="main-header">HE</th>
+<th class="main-header" colspan="6">RANGE</th>
+</tr>
+<tr>
+<th></th>
+<th></th>
+<th>-</th>
+<th>0-10"</th>
+<th>10-20"</th>
+<th>20-30"</th>
+<th>30-40"</th>
+<th>40-50"</th>
+<th>50-70"</th>
+</tr>
+<tr>
+<td>2 x MGs</td>
+<td>HE</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>2 x MGs</td>
+<td>AP</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</table>
 </div>
 
 <div class="datacard datacard-italian">
@@ -887,13 +1270,78 @@
 <td>N</td>
 <td>O</td>
 <td>O</td>
-<td>None</td>
+<td>47mmL32</td>
+<td>Turret</td>
+<td>10.0</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>MG</td>
+<td>Unknown</td>
 <td>-</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>2x MGs</td>
+<td>Unknown</td>
 <td>-</td>
 </tr>
 
 </table>
 
+<table>
+<tr>
+<th class="main-header">WEAPON</th>
+<th class="main-header">AMMO</th>
+<th class="main-header">HE</th>
+<th class="main-header" colspan="6">RANGE</th>
+</tr>
+<tr>
+<th></th>
+<th></th>
+<th>-</th>
+<th>0-10"</th>
+<th>10-20"</th>
+<th>20-30"</th>
+<th>30-40"</th>
+<th>40-50"</th>
+<th>50-70"</th>
+</tr>
+<tr>
+<td>47mmL32</td>
+<td>HE</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>47mmL32</td>
+<td>AP</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</table>
 </div>
 
 </div>
