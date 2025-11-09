@@ -39,33 +39,165 @@ As you work, update relevant files with:
 - `PHASE_9B_NEXT_STEPS.md` - Update remaining tasks, mark completed items
 - `PROJECT_SCOPE.md` - Update status if major milestones reached
 
-### **Step 3: Current Reality (as of November 5, 2025)**
+### **Step 3: Current Reality (as of November 8, 2025)**
 
 **Phase 9B Status**: ⏸️ **ON HOLD** - Reference data quality recovery in progress
 
 **What Happened**:
 - Infrastructure built: Database schema, conversion tools, book generation ✅
 - Content created: Historical chapters (24,000 words), scenarios, templates, appendices ✅
-- **Problem discovered**: Scraped reference data contained errors → conversion formulas assumed incorrect
-- **Current focus**: User manually extracting clean reference data (Canada's Crucible ✅, British DataCards ⏳)
-- **Scope reduced**: Sample-based validation (not comprehensive extraction)
+- **Problem discovered**: Original BG reference data was OCR-scraped with errors → ALL conversion formulas are suspect
+- **Current focus**: User manually extracting clean reference data (205 vehicles ✅, target 300-350)
+- **Data quality recovery**: Rebuilding conversion formulas with clean manual extraction data
 
 **Agent Guidelines**:
-- ❌ **DO NOT** work on Phase 9B book generation (equipment datacards blocked)
-- ❌ **DO NOT** run conversion formula scripts (need validation first)
+- ❌ **DO NOT** trust equipment_battlegroup conversion data (armor, movement, points, BR) - built from bad OCR
+- ❌ **DO NOT** run old conversion formula scripts (need validation/rebuild with clean data first)
 - ❌ **DO NOT** create new databases or duplicate folder structures
 - ✅ **CAN** work on documentation updates, infrastructure improvements
-- ✅ **CAN** work on Project Books (non-BattleGroup) if requested
+- ✅ **CAN** work on automated linkage (comprehensive_linkage.py)
+- ✅ **CAN** work on ammo data research (Jane's guide, online sources)
 - ✅ **MUST** verify patterns before creating new files (check existing structure first)
+- ✅ **READ Data Quality section below** - critical for understanding data source hierarchy
 
 **Database Status**:
 - Location: `D:\north-africa-toe-builder\database\master_database.db`
-- Schema evolving: User discovering schema changes needed during manual extraction
-- Tables: 18 tables (equipment, BattleGroup reference data, Phase 6 units, etc.)
+- Clean data: 205 manually-entered BG vehicles (bg_reference_vehicles), 57 guns (bg_reference_guns)
+- Suspect data: equipment_battlegroup conversions (469 items with bad OCR-derived stats)
+- Good technical specs: WWIITANKS (612 AFVs), OnWar (213 AFVs), guns table (350 guns)
+- Tables: 18 tables (see PHASE_ARCHITECTURE_MAP.md)
 
 **Two Book Types**:
 1. **Project Books**: General historical books (summary chapters, appendices, TO&E tables) - separate workstream
 2. **BattleGroup Books**: Phase 9B specific (4 battle books on hold pending clean data)
+
+---
+
+## 📊 Data Quality & Source Truth (CRITICAL - READ BEFORE ANY EQUIPMENT WORK)
+
+**⚠️ MANDATORY READING**: Understanding data source hierarchy prevents using suspect data
+
+### **Data Source Hierarchy** (most trusted → least trusted)
+
+**1. Manual BG Extraction** (205 vehicles, 57 guns) - **100% TRUSTED**
+- **Location**: `bg_reference_vehicles`, `bg_reference_guns` tables
+- **Source**: Canada's Crucible, British DataCards, Tobruk, Manual Entry Form PDFs
+- **Quality**: Hand-entered from official BattleGroup supplements, verified accurate
+- **Coverage**: 44% of equipment (205/469 vehicles)
+- **Use**: ALWAYS prefer this data - it's official BattleGroup game stats
+
+**2. WWIITANKS/OnWar** (612 AFVs, 350 guns) - **95% TRUSTED for technical specs**
+- **Location**: `wwiitanks_afv_data`, `guns`, `penetration_data`, `afv_data` tables
+- **Source**: Clean web scrapes from wwiitanks.co.uk, onwar.com
+- **Quality**: Good for technical specifications (armor mm, gun caliber, penetration values)
+- **Coverage**: Comprehensive (612 AFVs, 350 guns, 1,296 penetration data points)
+- **Use**: Source data for reverse-engineering BattleGroup stats
+- **Gap**: Missing ammunition capacity (shells/rounds carried)
+
+**3. Original BG Scraped Data** - **DEPRECATED, DO NOT USE**
+- **Problem**: OCR errors from PDF scraping, agents pulled garbage data
+- **Impact**: All conversion formulas built from this data are SUSPECT
+- **Status**: Being replaced by manual extraction (option #1 above)
+
+### **Conversion Formula Status** (CRITICAL)
+
+**ALL reverse-engineering formulas are SUSPECT until rebuilt with clean data:**
+
+1. **Armor conversion** (mm → BG letter scale A-O) - **NEEDS REBUILD**
+   - Current: equipment_battlegroup armor ratings (suspect)
+   - Target: Use 205 manual vehicles × 3 facings = 615 clean data points
+   - Formula: armor_hull_front_mm (WWIITANKS) → armor_front letter (BG)
+
+2. **Penetration conversion** (mm → BG penetration scale) - **NEEDS REBUILD**
+   - Current: bg_penetration_scale table (16 entries, suspect)
+   - Target: Validate against 57 manually-entered BG guns
+   - Formula: Gun caliber + penetration_data (mm at range) → BG penetration rating
+
+3. **Movement conversion** (speed/weight → BG inches) - **NEEDS REBUILD**
+   - Current: equipment_battlegroup movement values (suspect)
+   - Target: Use 205 manual vehicles with known BG movement
+   - Formula: Vehicle type + weight + max speed → off_road/road inches
+
+4. **HE effectiveness** (caliber → BG HE dice) - **NEEDS REBUILD**
+   - Current: bg_he_effectiveness table (9 caliber ranges, suspect)
+   - Target: Validate against 57 manually-entered BG guns
+   - Formula: Gun caliber_mm → HE dice count
+
+5. **Points cost calculation** - **NEEDS REBUILD**
+   - Current: equipment_battlegroup points values (suspect)
+   - Target: May require manual assignment or very complex formula
+   - Complexity: Based on armor, weapons, mobility, special rules
+
+6. **Battle rating calculation** - **NEEDS REBUILD**
+   - Current: equipment_battlegroup BR values (suspect)
+   - Target: Similar to points, may need manual assignment
+   - Complexity: Unit value calculation based on multiple factors
+
+### **Formula Rebuild Process**
+
+**Phase A: Continue Manual BG Extraction** (ongoing)
+- **Current**: 205 vehicles manually entered
+- **Target**: 300-350 vehicles (all North Africa BG supplements)
+- **Status**: ~100-150 vehicles remaining
+
+**Phase B: Formula Validation** (when 300+ vehicles available)
+- Analyze vehicles with BOTH BG stats AND WWIITANKS specs
+- Build statistical regression models for each conversion
+- Validate formula accuracy (target: 90%+ match to official BG data)
+- Document confidence intervals and edge cases
+
+**Phase C: Apply Formulas** (after validation)
+- Clear suspect data from equipment_battlegroup
+- Repopulate using validated formulas + WWIITANKS source data
+- Mark as `generation_method = 'formula_v2_validated'`
+- Preserve `generation_method = 'manual_extraction'` for official data
+
+**Phase D: Incremental Updates** (ongoing)
+- Each new manual BG extraction replaces calculated data
+- Re-run comprehensive_linkage.py to auto-link new extractions
+- Calculated data shrinks, official data grows over time
+
+### **Ammunition Capacity Data Gap** 🔴 CRITICAL
+
+**Problem**: WWIITANKS/OnWar lack ammunition capacity (shells/rounds carried per vehicle)
+
+**Impact**:
+- Datacards show "-" for ammo counts on 264+ equipment items
+- bg_reference_vehicles.ammo_1-4 fields populated for manual extractions only
+- Remaining equipment has no ammo data
+
+**Priority**: HIGH - critical for complete datacard generation
+
+**Potential Sources to Investigate**:
+1. **Jane's WWII Tanks Guide** - Text PDF available
+   - Location: `D:\north-africa-toe-builder\Resource Documents\Janes-WorldWarIiTanksAndFightingVehicles-TheCompleteGuide-text-pdf.txt`
+   - Action: Parse for ammunition/shell capacity patterns
+   - Keywords: "rounds", "shells", "ammunition", "carried", "stowed"
+
+2. **Online Military Databases**:
+   - tanks-encyclopedia.com (comprehensive, often includes ammo capacity)
+   - militaryfactory.com (detailed specifications)
+   - Wikipedia tank articles (variable quality, often has ammo in specs table)
+
+3. **Manual Entry**: Last resort if automated sources insufficient
+
+**Action Required**: Parse Jane's guide and identify online sources with ammo capacity data
+
+### **Current equipment_battlegroup Data Status**
+
+**469 Equipment Items** with following suspect conversions:
+- ❌ Armor ratings (letters A-O): Built from bad OCR data - **DO NOT TRUST**
+- ❌ Movement values (off_road, road inches): Built from bad OCR data - **DO NOT TRUST**
+- ❌ Points cost (regular, veteran, elite): Built from bad OCR data - **DO NOT TRUST**
+- ❌ Battle rating values: Built from bad OCR data - **DO NOT TRUST**
+- ✅ Equipment IDs and names: OK (from Phase 1-4 WITW baseline)
+- ✅ reference_vehicle_id linkages: OK where present (73 currently linked)
+- ✅ reference_gun_id linkages: OK where present (16 currently linked)
+
+**Until formulas rebuilt**:
+- Use comprehensive_linkage.py to maximize official BG reference data usage
+- Minimize reliance on calculated stats
+- Mark any generated data clearly for transparency
 
 ---
 

@@ -1,10 +1,121 @@
 # Phase 9B: BattleGroup Books - Next Steps
 
 **Date**: November 8, 2025
-**Status**: 🎯 BG Reference Data Quality Recovery - **REDUCED SCOPE APPROACH**
-**Last Update**: ✅ **Database Schema v3.2 Migration COMPLETE** + Tobruk Import (50 vehicles) - Database at 191 vehicles
-**Database Status**: Schema v3.2 ✅ | Canada's Crucible 100% | British DataCards 80 imported ✅ | Tobruk 50 imported ✅ | Ammo coverage 52.4%
-**Current Task**: Continue manual data entry (ammo fields) → Additional extractions as needed for formula validation
+**Status**: 🚨 **DATA QUALITY RECOVERY** - All conversion formulas need rebuilding
+**Last Update**: ✅ Automated equipment linkage fixes + Data quality issue documented
+**Database Status**: Schema v3.2 ✅ | 205 clean manual vehicles ✅ | 469 equipment with suspect conversions ⚠️
+**Current Tasks**:
+1. Run comprehensive_linkage.py (auto-link 140+ items)
+2. Parse Jane's guide for ammo capacity data
+3. Continue manual BG extraction (target: 300-350 vehicles)
+4. Rebuild conversion formulas when 300+ vehicles available
+
+---
+
+## 🚨 DATA QUALITY RECOVERY - CRITICAL BLOCKERS (November 8, 2025)
+
+**Issue Discovered**: Original BG reference data was OCR-scraped with errors
+- All conversion formulas (armor, penetration, movement, HE, points, BR) are **SUSPECT**
+- Built from flawed OCR data where agents pulled garbage
+- 205 manually-entered BG vehicles are clean - use as "Rosetta Stone" for rebuilding
+
+### **Immediate Actions Required**
+
+**Priority 1: Maximize Clean Data Usage**
+1. ✅ Run comprehensive_linkage.py - Auto-link equipment to 205 clean BG vehicles (~140 items expected)
+2. ✅ Sync ammo data from linked vehicles to equipment_guns table
+3. ✅ Regenerate datacards with official BG data where available
+
+**Priority 2: Fill Ammunition Capacity Gap** 🔴 **CRITICAL**
+- **Problem**: WWIITANKS/OnWar lack shells/ammo count per vehicle
+- **Impact**: Datacards show "-" for 264+ items without ammo data
+- **Actions**:
+  1. Parse Jane's WWII Tanks guide: `D:\north-africa-toe-builder\Resource Documents\Janes-WorldWarIiTanksAndFightingVehicles-TheCompleteGuide-text-pdf.txt`
+     - Search keywords: "rounds", "shells", "ammunition", "carried", "stowed"
+     - Extract: Vehicle name + ammo capacity
+     - Import to bg_reference_vehicles or create ammo_capacity table
+  2. Identify online sources:
+     - tanks-encyclopedia.com (comprehensive)
+     - militaryfactory.com (detailed specs)
+     - Wikipedia (variable quality, check specs tables)
+  3. Create scraping/manual extraction plan for ammo data
+
+**Priority 3: Continue Manual BG Extraction**
+- **Current**: 205 vehicles ✅
+- **Target**: 300-350 vehicles (all North Africa BG supplements)
+- **Remaining**: ~100-150 vehicles (~50-100 hours of work)
+- **Why**: Need 300+ data points to validate conversion formulas with statistical confidence
+
+**Priority 4: Formula Validation** (when 300+ vehicles available)
+- Analyze vehicles with BOTH BG stats AND WWIITANKS specs
+- Build statistical regression models for each conversion type
+- Validate accuracy (target: 90%+ match to official BG data)
+- Document which formulas work, which need more data
+
+**Priority 5: Equipment Rebuild** (after validation)
+- Clear suspect data from equipment_battlegroup
+- Repopulate with validated formulas + WWIITANKS source data
+- Mark generation method for transparency
+- Regenerate all 4 battle books
+
+### **Formula Rebuild Scope**
+
+**1. Armor Conversion** (mm → BG letter scale A-O) - **NEEDS REBUILD**
+- Current: equipment_battlegroup armor ratings (suspect)
+- Data points: 205 vehicles × 3 facings = 615 clean values
+- Formula: armor_hull_front_mm (WWIITANKS) → armor_front letter (BG)
+- Validation: Map to bg_armor_conversion table (16 mm ranges)
+
+**2. Penetration Conversion** (mm → BG penetration scale) - **NEEDS REBUILD**
+- Current: bg_penetration_scale table (suspect)
+- Data points: 57 manually-entered BG guns
+- Formula: Gun caliber + penetration_data (mm at range) → BG penetration rating
+- Validation: Against known BG gun penetration scales
+
+**3. Movement Conversion** (speed/weight → BG inches) - **NEEDS REBUILD**
+- Current: equipment_battlegroup movement values (suspect)
+- Data points: 205 vehicles with known BG movement
+- Formula: Vehicle type + weight + max speed → off_road/road inches
+- Variables: Tank/halftrack/armored car, tonnage, max_speed_kmh
+
+**4. HE Effectiveness** (caliber → BG HE dice) - **NEEDS REBUILD**
+- Current: bg_he_effectiveness table (suspect)
+- Data points: 57 BG guns with known HE values
+- Formula: Gun caliber_mm → HE dice count (e.g., 75mm = 6 dice)
+- Lookup: Caliber ranges to HE dice mapping
+
+**5. Points Cost Calculation** - **NEEDS REBUILD**
+- Current: equipment_battlegroup points values (suspect)
+- Complexity: Based on armor, weapons, mobility, special rules
+- May require: Manual assignment or very complex multi-variable formula
+- Target: Validate if formula possible or manual-only
+
+**6. Battle Rating Calculation** - **NEEDS REBUILD**
+- Current: equipment_battlegroup BR values (suspect)
+- Complexity: Unit value based on multiple factors
+- Similar to points: May need manual assignment
+- Target: Validate formula feasibility
+
+### **Estimated Timeline**
+
+**Immediate (8-15 hours)**:
+- Documentation updates: 30 minutes ✅
+- Jane's guide parsing: 2-4 hours
+- Online ammo source research: 4-6 hours
+- Run comprehensive_linkage.py: 5 minutes
+- Ammo data integration: 4-8 hours
+
+**Short-term (4-6 weeks)**:
+- Manual BG extraction: ~50-100 hours (100-150 vehicles)
+- Reach 300-350 vehicle target for formula validation
+
+**Medium-term (after 300+ vehicles)**:
+- Formula validation: 8-12 hours (statistical analysis)
+- Equipment rebuild: 4-6 hours (scripted)
+- Book regeneration: 2-4 hours
+- QA validation: 4-8 hours
+
+**Total to publication-ready**: ~60-120 hours work remaining
 
 ---
 
