@@ -16,54 +16,80 @@ OUTPUT_PATH = Path(__file__).parent.parent.parent.parent / "Vehicles_Manual_Entr
 
 def get_tobruk_torch_vehicles():
     """Get vehicles from Tobruk and Torch force lists only"""
+    import json
+
     conn = sqlite3.connect(DB_PATH, timeout=60)
     conn.row_factory = sqlite3.Row
     cursor = conn.cursor()
 
     # Get force IDs for Tobruk and Torch
     cursor.execute("""
-        SELECT DISTINCT force_id, force_group, force_name
+        SELECT DISTINCT force_id, force_group, force_name, sections
         FROM bg_builder_forces
         WHERE force_group LIKE '%Tobruk%' OR force_group LIKE '%Torch%'
         ORDER BY force_id
     """)
     forces = cursor.fetchall()
 
-    print(f"Found {len(forces)} Tobruk/Torch force lists:")
+    print(f"\nFound {len(forces)} Tobruk/Torch force lists:")
     for force in forces:
         print(f"   [{force['force_id']:3d}] {force['force_group']} - {force['force_name']}")
 
-    # Get all vehicles with their stats
-    cursor.execute("""
-        SELECT DISTINCT
-            bgb.id,
-            bgb.name,
-            bgb.movement_off_road,
-            bgb.movement_road,
-            bgb.movement_special,
-            bgb.armor_front,
-            bgb.armor_side,
-            bgb.armor_rear,
-            w1.weapon_name as weapon_1,
-            w2.weapon_name as weapon_2,
-            w3.weapon_name as weapon_3,
-            w4.weapon_name as weapon_4,
-            bgb.special_rules,
-            bgb.hits,
-            bgb.capacity,
-            bgb.has_mg
-        FROM bg_builder_vehicles bgb
-        LEFT JOIN bg_builder_weapons w1 ON bgb.weapon_1_id = w1.weapon_id
-        LEFT JOIN bg_builder_weapons w2 ON bgb.weapon_2_id = w2.weapon_id
-        LEFT JOIN bg_builder_weapons w3 ON bgb.weapon_3_id = w3.weapon_id
-        LEFT JOIN bg_builder_weapons w4 ON bgb.weapon_4_id = w4.weapon_id
-        ORDER BY bgb.name
-    """)
+    # Extract vehicle IDs from force list sections
+    tobruk_torch_vehicle_ids = set()
 
-    all_vehicles = cursor.fetchall()
+    for force in forces:
+        try:
+            sections = json.loads(force['sections'])
+            # Parse sections to extract vehicle IDs
+            for section in sections:
+                if 'units' in section:
+                    for unit in section['units']:
+                        if 'unitId' in unit:
+                            tobruk_torch_vehicle_ids.add(unit['unitId'])
+        except (json.JSONDecodeError, KeyError) as e:
+            print(f"   Warning: Could not parse sections for force {force['force_id']}: {e}")
+
+    print(f"\nExtracted {len(tobruk_torch_vehicle_ids)} unique vehicle IDs from Tobruk/Torch forces")
+
+    # Get vehicles matching those IDs
+    if tobruk_torch_vehicle_ids:
+        placeholders = ','.join('?' * len(tobruk_torch_vehicle_ids))
+        cursor.execute(f"""
+            SELECT DISTINCT
+                bgb.id,
+                bgb.name,
+                bgb.movement_off_road,
+                bgb.movement_road,
+                bgb.movement_special,
+                bgb.armor_front,
+                bgb.armor_side,
+                bgb.armor_rear,
+                w1.weapon_name as weapon_1,
+                w2.weapon_name as weapon_2,
+                w3.weapon_name as weapon_3,
+                w4.weapon_name as weapon_4,
+                bgb.special_rules,
+                bgb.hits,
+                bgb.capacity,
+                bgb.has_mg
+            FROM bg_builder_vehicles bgb
+            LEFT JOIN bg_builder_weapons w1 ON bgb.weapon_1_id = w1.weapon_id
+            LEFT JOIN bg_builder_weapons w2 ON bgb.weapon_2_id = w2.weapon_id
+            LEFT JOIN bg_builder_weapons w3 ON bgb.weapon_3_id = w3.weapon_id
+            LEFT JOIN bg_builder_weapons w4 ON bgb.weapon_4_id = w4.weapon_id
+            WHERE bgb.id IN ({placeholders})
+            ORDER BY bgb.name
+        """, tuple(tobruk_torch_vehicle_ids))
+
+        tobruk_torch_vehicles = cursor.fetchall()
+    else:
+        print("WARNING: No vehicle IDs found in force lists, falling back to all vehicles")
+        tobruk_torch_vehicles = []
+
     conn.close()
 
-    return all_vehicles
+    return tobruk_torch_vehicles
 
 def prepopulate_template():
     print("Pre-populating Excel Template with BG Builder Data")
