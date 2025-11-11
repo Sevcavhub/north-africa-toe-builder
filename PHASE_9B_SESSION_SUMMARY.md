@@ -89,17 +89,40 @@
 
 ---
 
-## 🎨 V5 Datacard Format Standard - COMPLETE (November 5, 2025)
+## 🎨 V5.5 Datacard Format Standard - COMPLETE (November 10, 2025)
 
-**Status**: ✅ LOCKED - All production datacards use this format
+**Status**: ✅ LOCKED - V5.5 is latest production version with silhouettes
 **Duration**: ~4 hours (iterative refinement)
 **Documentation**: `docs/DATACARD_FORMAT_STANDARD.md`
+**Latest Generator**: `scripts/battlegroup/book/generate_book_datacards_v5_5.py`
 
 ### Overview
 
-Established V5 as the permanent datacard format standard with nation-specific color themes, multi-row armament tables, and professional layout matching official BattleGroup supplements.
+Established V5.5 as the permanent datacard format standard with nation-specific color themes, multi-row armament tables, armor modifiers, silhouette images, and professional layout matching official BattleGroup supplements.
 
-**Key Achievement**: All datacards now match official BattleGroup quality with consistent formatting across 5 nations
+**Key Achievement**: All datacards now match official BattleGroup quality with consistent formatting across 5 nations, armor modifiers, and vehicle silhouettes
+
+### V5.5 Updates (November 10, 2025)
+
+**V5.4 Changes**:
+- Added armor_modifier display (e.g., "Open-topped") below armor values
+- Queries bg_reference_vehicles.armor_modifier field
+- Display format: italic, 7px font, centered across 3 columns in armament table
+- Matches official datacard format (sdkfz 250/1 reference)
+
+**V5.5 Changes**:
+- **Silhouette Images**: Embedded from `data/assets/tank_silhouettes/{nation}/Side/{name}.png`
+- **Base64 Encoding**: Images embedded as data URIs for HTML portability
+- **Transparent Integration**: mix-blend-mode multiply makes white backgrounds transparent
+- **Silhouette Box**: 100px × 70px, transparent background, no border, 5px padding
+- **Title Enhancement**: Font size increased from 14px to 18px
+- **Centered Layout**: Title and subtitle centered in header (previously right-aligned)
+- **Nation Color Match**: Silhouette box inherits nation-specific header colors
+
+**Sample Files**:
+- `SAMPLE_DATACARDS_V5.4.py` / `SAMPLE_DATACARDS_V5.4.html` - Armor modifier testing
+- `SAMPLE_DATACARDS_V5.5.py` / `SAMPLE_DATACARDS_V5.5.html` - Silhouette integration testing
+- Test vehicles: M3 Grant, SdKfz 251/1, Semovente 75/18, Matilda II, Crusader III, Churchill IV, Panzer III H
 
 ### Major Features Implemented
 

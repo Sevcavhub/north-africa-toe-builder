@@ -1189,7 +1189,9 @@ After building conversion tools and generating initial book content, quality rev
    - `equipment_battlegroup` (generated stats for all 469 equipment items)
 
 5. **Generator Tools** (Step 5):
-   - `datacard_generator.py`: Vehicle/gun stat cards (text format)
+   - `generate_book_datacards_v5_5.py`: ✅ LATEST - Vehicle/gun datacards with silhouettes (HTML format, Nov 10 2025)
+   - `generate_book_datacards_v5_4.py`: V5.4 - Armor modifiers added (Nov 10 2025)
+   - `generate_book_datacards_v5_3.py`: V5.3 - Multi-row armament tables
    - `force_list_compiler.py`: Army lists with historical restrictions
    - `oob_formatter.py`: Historical order of battle timelines
    - `scenario_generator.py`: Playable scenarios with victory conditions
