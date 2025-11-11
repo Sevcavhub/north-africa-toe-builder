@@ -95,10 +95,12 @@
   - Staff car: german, italian
 
 **Generator Updates**:
-- ✅ **V5 Datacard Generator**: Updated to use ammo_1-4 fields instead of single ammo field
-  - Main gun query updated
-  - Secondary weapons query updated
+- ✅ **V5.5 Datacard Generator** (LOCKED November 11, 2025): `generate_book_datacards_v5_5.py`
+  - Uses ammo_1-4 fields instead of single ammo field
+  - Main gun and secondary weapons query updated
   - Weapons list builder uses individual ammo_{i} values
+  - Armor modifier display (e.g., "Open-topped") below armor values
+  - Silhouette images from `data/assets/tank_silhouettes/` directory
   - Ready for multi-weapon ammo support
 
 **Final Database Status**:
@@ -1294,9 +1296,10 @@ scripts/battlegroup/
 - [x] Conversion formulas: 97-100% accuracy vs official BattleGroup stats ✅
 - [x] Points calculator: 93.6% accuracy (within ±10% target) ✅
 - [x] All 469 equipment items have BattleGroup stats generated ✅
-- [ ] 12 complete battle books (84+ scenarios total) - Step 6 pending
-- [x] Datacards match official format layout ✅
+- [x] Datacards match official format layout ✅ **V5.5 LOCKED (Nov 10, 2025)**
+- [x] V5.5 datacard format deployed to production (255 datacards across 4 books) ✅
 - [x] Force lists enforce historical restrictions ✅ (generator created)
+- [ ] 12 complete battle books (84+ scenarios total) - Step 6 pending (4 of 12 complete)
 - [ ] Scenarios playtested and balanced - Step 7 pending
 
 **Prerequisites**:

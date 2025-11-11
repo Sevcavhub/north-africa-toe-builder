@@ -89,18 +89,27 @@
 
 ---
 
-## 🎨 V5.5 Datacard Format Standard - COMPLETE (November 10, 2025)
+## 🎨 V5.5 Datacard Format Standard - COMPLETE & LOCKED (November 10, 2025)
 
-**Status**: ✅ LOCKED - V5.5 is latest production version with silhouettes
-**Duration**: ~4 hours (iterative refinement)
+**Status**: ✅ **LOCKED & IN PRODUCTION** - V5.5 is the official standard for all Phase 9B book generation
+**Duration**: ~6 hours (development + integration + production deployment)
 **Documentation**: `docs/DATACARD_FORMAT_STANDARD.md`
-**Latest Generator**: `scripts/battlegroup/book/generate_book_datacards_v5_5.py`
+**Production Generator**: `scripts/battlegroup/book/generate_book_datacards.py` (uses V5.5)
+**V5.5 Module**: `scripts/battlegroup/book/generate_book_datacards_v5_5.py`
 
 ### Overview
 
-Established V5.5 as the permanent datacard format standard with nation-specific color themes, multi-row armament tables, armor modifiers, silhouette images, and professional layout matching official BattleGroup supplements.
+Established V5.5 as the **permanent locked standard** for all BattleGroup datacard generation. All 4 battle books (255 datacards total) now use V5.5 format with nation-specific color themes, multi-row armament tables, armor modifiers, silhouette images, and professional layout matching official BattleGroup supplements.
 
 **Key Achievement**: All datacards now match official BattleGroup quality with consistent formatting across 5 nations, armor modifiers, and vehicle silhouettes
+
+**Production Deployment** (November 10, 2025):
+- ✅ `generate_book_datacards.py` updated to import and use V5.5 generator
+- ✅ All 4 battle books regenerated with V5.5 format (255 total datacards)
+- ✅ Operation Battleaxe: 57 datacards
+- ✅ Operation Crusader: 78 datacards
+- ✅ Battle of Gazala: 57 datacards
+- ✅ First El Alamein: 63 datacards
 
 ### V5.5 Updates (November 10, 2025)
 
@@ -115,9 +124,10 @@ Established V5.5 as the permanent datacard format standard with nation-specific 
 - **Base64 Encoding**: Images embedded as data URIs for HTML portability
 - **Transparent Integration**: mix-blend-mode multiply makes white backgrounds transparent
 - **Silhouette Box**: 100px × 70px, transparent background, no border, 5px padding
-- **Title Enhancement**: Font size increased from 14px to 18px
-- **Centered Layout**: Title and subtitle centered in header (previously right-aligned)
+- **Title Enhancement**: Font size 16px (adjusted for long names, max 29 chars)
+- **Centered Layout**: Title and subtitle centered in header with nowrap/ellipsis
 - **Nation Color Match**: Silhouette box inherits nation-specific header colors
+- **Fixed Import Issues**: Removed redundant local `import re` statements causing UnboundLocalError
 
 **Sample Files**:
 - `SAMPLE_DATACARDS_V5.4.py` / `SAMPLE_DATACARDS_V5.4.html` - Armor modifier testing

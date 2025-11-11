@@ -1,6 +1,13 @@
 #!/usr/bin/env python3
 """
-Generate sample datacards for testing V5 format.
+Generate sample datacards for testing V5.5 format.
+
+V5.5 features:
+- Armor modifiers (Open-topped, etc.)
+- Silhouette images
+- Nation-specific color themes
+- Multi-row armament tables
+- 16px centered titles
 
 6 items in 3x2 grid:
 - Open-topped vehicle
@@ -17,6 +24,7 @@ from pathlib import Path
 project_root = Path(__file__).resolve().parents[3]
 sys.path.insert(0, str(project_root))
 
+# Import V5.5 generator (generate_book_datacards.py now uses V5.5)
 from scripts.battlegroup.book.generate_book_datacards import BookDatacardGenerator
 
 # Test items

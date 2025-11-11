@@ -553,11 +553,11 @@ scripts/battlegroup/
 ├── analysis/
 │   └── battlegroup_research.py ────────────── Analyze BattleGroup mechanics
 ├── book/
-│   ├── generate_book_datacards.py ─────────── Generate equipment datacards (V5 format, deprecated)
-│   ├── generate_book_datacards_v5_3.py ────── V5.3 format (multi-row armament)
-│   ├── generate_book_datacards_v5_4.py ────── V5.4 format (+ armor modifiers)
-│   ├── generate_book_datacards_v5_5.py ────── ✅ LATEST: V5.5 format (+ silhouettes, Nov 10 2025)
-│   ├── generate_sample_datacards.py ───────── Test datacard generation (V5 format)
+│   ├── generate_book_datacards.py ─────────── ✅ PRODUCTION: Uses V5.5 generator (Nov 10 2025)
+│   ├── generate_book_datacards_v5_3.py ────── V5.3 format (multi-row armament) [archived]
+│   ├── generate_book_datacards_v5_4.py ────── V5.4 format (+ armor modifiers) [archived]
+│   ├── generate_book_datacards_v5_5.py ────── ✅ V5.5 MODULE: Silhouettes + armor modifiers (LOCKED)
+│   ├── generate_sample_datacards.py ───────── Test datacard generation (uses V5.5)
 │   ├── generate_historical_chapters.py ───── Generate historical narratives
 │   ├── generate_scenarios.py ──────────────── Generate battle scenarios
 │   ├── generate_appendices.py ─────────────── Generate appendices
