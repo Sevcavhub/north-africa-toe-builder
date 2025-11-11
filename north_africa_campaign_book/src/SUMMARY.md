@@ -2,7 +2,7 @@
 
 [Introduction](./intro.md)
 
-# Strategic Overview by Quarter
+# Strategic Overview
 
 - [1940-Q2: Italy Enters War](./quarter_overviews/1940q2.md)
 - [1940-Q3: Italian Offensive](./quarter_overviews/1940q3.md)
@@ -17,19 +17,6 @@
 - [1942-Q4: Operation Torch](./quarter_overviews/1942q4.md)
 - [1943-Q1: Tunisia Campaign](./quarter_overviews/1943q1.md)
 - [1943-Q2: Final Victory](./quarter_overviews/1943q2.md)
-
-# Complete Unit Chapters
-
-All 689 ground forces unit chapters and 23 air forces summaries are located in:
-`data/output/chapters/` directory
-
-Coverage by nation:
-- British/Commonwealth: 214 unit-quarters
-- Italian: 287 unit-quarters
-- German: 108 unit-quarters
-- American: 24 unit-quarters
-- French: 35 unit-quarters
-- Air Forces: 9 quarterly summaries
 
 ---
 
