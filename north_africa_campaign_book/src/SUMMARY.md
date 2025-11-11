@@ -18,23 +18,22 @@
 - [1943-Q1: Tunisia Campaign](./quarter_overviews/1943q1.md)
 - [1943-Q2: Final Victory](./quarter_overviews/1943q2.md)
 
-# Reference Materials
+# Complete Unit Chapters
 
-- [Methodology](./appendices/methodology.md)
-- [Bibliography](./appendices/bibliography.md)
-- [Glossary](./appendices/glossary.md)
-- [Abbreviations](./appendices/abbreviations.md)
+All 689 ground forces unit chapters and 23 air forces summaries are located in:
+`data/output/chapters/` directory
 
-# Complete Unit Index
-
-**Note**: All 689 ground forces chapters and 23 air summaries are available in the `data/output/chapters/` directory.
-
-Navigate to chapters by nation and quarter:
+Coverage by nation:
 - British/Commonwealth: 214 unit-quarters
-- German: 108 unit-quarters  
 - Italian: 287 unit-quarters
+- German: 108 unit-quarters
 - American: 24 unit-quarters
 - French: 35 unit-quarters
 - Air Forces: 9 quarterly summaries
 
-**To access chapters**: Browse the `data/output/chapters/` folder directly or use the search function.
+---
+
+[Methodology](./appendices/methodology.md)
+[Bibliography](./appendices/bibliography.md)
+[Glossary](./appendices/glossary.md)
+[Abbreviations](./appendices/abbreviations.md)
