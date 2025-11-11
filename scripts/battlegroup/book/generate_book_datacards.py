@@ -41,8 +41,23 @@ DATABASE_PATH = project_root / "database" / "master_database.db"
 UNITS_DIR = project_root / "data" / "output" / "units"
 OUTPUT_BASE = project_root / "books"
 
-# Battle definitions with quarters
+# Battle definitions with quarters (12 total North Africa battles)
 BATTLES = {
+    'compass': {
+        'name': 'Operation Compass',
+        'quarters': ['1940q4', '1941q1'],
+        'output_dir': 'compass'
+    },
+    'sonnenblume': {
+        'name': 'Operation Sonnenblume',
+        'quarters': ['1941q1'],
+        'output_dir': 'sonnenblume'
+    },
+    'tobruk': {
+        'name': 'Siege of Tobruk',
+        'quarters': ['1941q2', '1941q3'],
+        'output_dir': 'tobruk'
+    },
     'battleaxe': {
         'name': 'Operation Battleaxe',
         'quarters': ['1941q2'],
@@ -58,10 +73,35 @@ BATTLES = {
         'quarters': ['1942q2'],
         'output_dir': 'gazala'
     },
-    'alamein': {
-        'name': 'First El Alamein',
+    'first_alamein': {
+        'name': 'First Battle of El Alamein',
         'quarters': ['1942q3'],
         'output_dir': 'first_alamein'
+    },
+    'alam_halfa': {
+        'name': 'Battle of Alam Halfa',
+        'quarters': ['1942q3'],
+        'output_dir': 'alam_halfa'
+    },
+    'second_alamein': {
+        'name': 'Second Battle of El Alamein',
+        'quarters': ['1942q4'],
+        'output_dir': 'second_alamein'
+    },
+    'torch': {
+        'name': 'Operation Torch',
+        'quarters': ['1942q4'],
+        'output_dir': 'torch'
+    },
+    'tunisia': {
+        'name': 'Tunisia Campaign',
+        'quarters': ['1943q1'],
+        'output_dir': 'tunisia'
+    },
+    'mareth': {
+        'name': 'Battle of Mareth Line',
+        'quarters': ['1943q1'],
+        'output_dir': 'mareth'
     }
 }
 
@@ -1242,13 +1282,15 @@ def main():
     )
     parser.add_argument(
         "--battle",
-        choices=['battleaxe', 'crusader', 'gazala', 'alamein'],
+        choices=['compass', 'sonnenblume', 'tobruk', 'battleaxe', 'crusader',
+                 'gazala', 'first_alamein', 'alam_halfa', 'second_alamein',
+                 'torch', 'tunisia', 'mareth'],
         help="Generate datacards for specific battle"
     )
     parser.add_argument(
         "--all",
         action="store_true",
-        help="Generate datacards for all 4 battles"
+        help="Generate datacards for all 12 battles"
     )
 
     args = parser.parse_args()
