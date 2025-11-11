@@ -1,0 +1,308 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>132A Divisione Corazzata Ariete - North Africa Campaign 1940-1943: Complete Order of Battle</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">North Africa Campaign 1940-1943: Complete Order of Battle</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/yourusername/north-africa-toe-builder" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="132a-divisione-corazzata-ariete-1942q2"><a class="header" href="#132a-divisione-corazzata-ariete-1942q2">132a Divisione Corazzata Ariete (1942Q2)</a></h1>
+<h2 id="command-structure"><a class="header" href="#command-structure">Command Structure</a></h2>
+<p><strong>Commander</strong>: Generale di Divisione Gen. Div. Francesco Arena  <strong>Parent Formation</strong>: XXI Corpo d'Armata, Panzerarmee Afrika  <strong>Type</strong>: Armored Division (Divisione Corazzata)</p>
+<h2 id="personnel"><a class="header" href="#personnel">Personnel</a></h2>
+<ul>
+<li><strong>Total</strong>: 7,850 (395 officers, 1,285 NCOs, 6,170 enlisted)</li>
+</ul>
+<h2 id="subordinate-units"><a class="header" href="#subordinate-units">Subordinate Units</a></h2>
+<h3 id="unknown"><a class="header" href="#unknown">Unknown</a></h3>
+<ul>
+<li><strong>Tank Strength</strong>: 85 tanks</li>
+<li><strong>Composition</strong>: Two tank battalions with M13/40 and M14/41 medium tanks. Regimental HQ: 38 personnel, 3 command tanks. I Battalion: 438 personnel, 41 medium tanks (20× M14/41, 21× M13/40). II Battalion: 439 personnel, 41 medium tanks (17× M14/41, 24× M13/40). M14/41 proportion increased from 29% (Q1) to 44% (Q2) as replacements arrived. Operational strength typically 65-75 tanks due to maintenance. Tank establishment 146 never reached. Combat effective during Gazala offensive but losses mounted against British armor superiority (M3 Grants).</li>
+</ul>
+<h3 id="unknown-1"><a class="header" href="#unknown-1">Unknown</a></h3>
+<ul>
+<li><strong>Tank Strength</strong>: 75 tanks</li>
+<li><strong>Composition</strong>: Two light tank battalions with L6/40 light tanks. Regimental HQ: 30 personnel, 3 command tanks. I Battalion: 328 personnel, 36 L6/40. II Battalion: 327 personnel, 36 L6/40. Reconnaissance and flank security role. L6/40 inadequate for tank combat but fast and useful for scouting. Suffered losses during Gazala southern flank fighting but L6/40 production allowed relatively quick replacement.</li>
+</ul>
+<h3 id="unknown-2"><a class="header" href="#unknown-2">Unknown</a></h3>
+<ul>
+<li><strong>Composition</strong>: Elite Italian motorized infantry. Three Bersaglieri battalions (715 personnel each) plus Motorcycle Company (152 personnel, 58 motorcycles). Each battalion: 545 rifles, 95 Beretta M38 SMGs, 26 Breda M30 LMGs, 9 Fiat-Revelli M35 MMGs, 6× 45mm mortars, 4× 81mm mortars, 12× 20mm Solothurn AT rifles. Motorized in unarmored trucks (48 per battalion). Distinguished by plumed hats, aggressive tactics, high morale. Fought with distinction at Bir Hakeim vs Free French Brigade (26 May - 11 June 1942), suffering heavy casualties in assault operations. Personnel strength increased from Q1 with replacements.</li>
+</ul>
+<h3 id="unknown-3"><a class="header" href="#unknown-3">Unknown</a></h3>
+<ul>
+<li><strong>Composition</strong>: Semovente strength increased from 8 (Q1) to 12 (Q2) with third battery delivered April-May 1942. Group HQ: 20 personnel. I Battery: 75 personnel, 4 Semovente 75/18. II Battery: 75 personnel, 4 Semovente 75/18. III Battery: 75 personnel, 4 Semovente 75/18. Assault gun and anti-tank role. 75mm gun with HE and HEAT ammunition. HEAT rounds could defeat British heavy armor including new M3 Grant at close range (under 800m). Valuable during Gazala defensive positions and assault operations. Low-profile vehicle well-suited for defensive ambush tactics.</li>
+</ul>
+<h3 id="unknown-4"><a class="header" href="#unknown-4">Unknown</a></h3>
+<ul>
+<li><strong>Composition</strong>: Three artillery battalions. Regimental HQ: 42 personnel. I Battalion (75mm): 502 personnel, 12× 75/27 mod. 1911 field guns. II Battalion (75mm): 502 personnel, 12× 75/27 mod. 1911 field guns. III Battalion (100mm): 539 personnel, 12× 100/17 mod. 1914 howitzers. WWI-era guns comprehensively outranged by British 25-pdr (13,400m vs 10,300m/9,800m). Ammunition supply improved during static period but still limited vs British fire volumes. Provided support during Gazala offensive but ineffective in counter-battery duels.</li>
+</ul>
+<h3 id="unknown-5"><a class="header" href="#unknown-5">Unknown</a></h3>
+<ul>
+<li><strong>Composition</strong>: Three 47mm anti-tank batteries. Battalion HQ: 25 personnel. Each battery: 120 personnel, 8× 47/32 mod. 1935 AT guns. Effective vs light tanks but completely inadequate vs new M3 Grant medium tanks arriving British Eighth Army May-June 1942. Italian crews increasingly relied on Semovente 75/18 HEAT rounds for anti-armor capability. 47mm guns used in defensive positions attempting ambush tactics (flank/rear shots only viable option).</li>
+</ul>
+<h3 id="unknown-6"><a class="header" href="#unknown-6">Unknown</a></h3>
+<ul>
+<li><strong>Composition</strong>: Mixed AA defense. 12× 20mm Breda mod. 35 (light AA, also ground role), 8× 75/46 mod. 1934 (medium AA). Growing Allied air supremacy made AA defense critical. RAF attacks increased during Gazala offensive - Western Desert Air Force flew 10,000+ sorties May-June 1942. AA guns forced aircraft to higher altitudes reducing bombing accuracy but could not prevent attacks. British air superiority major factor in Axis logistics difficulties.</li>
+</ul>
+<h3 id="unknown-7"><a class="header" href="#unknown-7">Unknown</a></h3>
+<ul>
+<li><strong>Composition</strong>: Motorized engineer company. 20 trucks, standard engineer tools, ~650 mines. Minefield breaching critical during Gazala offensive - British laid extensive minefields in defensive boxes. Mine clearing under fire costly and time-consuming. Construction of defensive positions during static April-May period. Skilled at fortification (Gazala positions well-engineered) but lacked heavy equipment for rapid breaching operations.</li>
+</ul>
+<h3 id="unknown-8"><a class="header" href="#unknown-8">Unknown</a></h3>
+<ul>
+<li><strong>Composition</strong>: Communications. 46 radios, 72 field telephones, 17 trucks, 14 motorcycles. Italian radios reliable but shorter range than German sets. Maintained division net and coordination with XXI Corps, DAK units, and Panzerarmee Afrika HQ. Mobile operations June 1942 stretched communications - radio discipline critical to avoid British intercept (British Y-Service intercepting Italian transmissions).</li>
+</ul>
+<h3 id="unknown-9"><a class="header" href="#unknown-9">Unknown</a></h3>
+<ul>
+<li><strong>Composition</strong>: 20 ambulances, 10 trucks. Battalion aid stations and divisional clearing station. Serious casualties evacuated to Italian field hospitals. Gazala offensive casualties heavy - 450+ battle casualties May-June. Capture of Tobruk (21 June) yielded British medical supplies. Desert conditions (extreme heat, flies, limited water, no refrigeration) increased infection rates. Heat casualties significant June 1942 (temperatures to 45°C). Malaria, dysentery, respiratory infections chronic. Disease attrition ~12-18% of strength.</li>
+</ul>
+<h3 id="unknown-10"><a class="header" href="#unknown-10">Unknown</a></h3>
+<ul>
+<li><strong>Composition</strong>: 185 trucks, 28 fuel trailers, 22 water trailers. Transport strength improved from Q1 (165 trucks) with new deliveries and captured British vehicles. Static period April-May allowed maintenance improving operational percentage. Italian trucks (Lancia 3Ro, Fiat 626) still less reliable than German - breakdown rates 18-22% on long runs during June pursuit operations. Water columns critical as Q2 summer heat drove consumption from 12.5L to 15-20L per man per day. Fuel consumption increased with combat tempo during Gazala and pursuit phases.</li>
+</ul>
+<h3 id="unknown-11"><a class="header" href="#unknown-11">Unknown</a></h3>
+<ul>
+<li><strong>Composition</strong>: 14 workshop trucks, 5 recovery vehicles (increased from 4 in Q1). Intensive maintenance April-May during static period improved tank operational readiness to 75-80%. Could perform field repairs (tracks, minor engine work, gun maintenance). Tank transmission failures still required evacuation to Tripoli - usually cannibalized for spares rather than repaired due to parts shortage. Captured Tobruk workshops (21 June) provided some tools and spares. Mobile operations June stretched maintenance capacity - recovery and repair teams fell behind advancing units.</li>
+</ul>
+<h3 id="unknown-12"><a class="header" href="#unknown-12">Unknown</a></h3>
+<ul>
+<li><strong>Composition</strong>: 10 motorcycles, 5 cars. Traffic control, security, prisoner handling. Processed Free French prisoners from Bir Hakeim (June 11), British/Commonwealth prisoners from Tobruk (June 21) and frontier battles.</li>
+</ul>
+<h2 id="division-equipment"><a class="header" href="#division-equipment">Division Equipment</a></h2>
+<h3 id="tanks-160-total-122-operational-76-readiness"><a class="header" href="#tanks-160-total-122-operational-76-readiness">Tanks (160 total, 122 operational, 76% readiness)</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>Category</th><th>Variant</th><th>Total</th><th>Operational</th><th>Notes</th></tr></thead><tbody>
+<tr><td>Medium</td><td>M13/40 Medium Tank</td><td>48</td><td>36</td><td>Main battle tank declining in numbers as M14/41 replacements arrive...</td></tr>
+<tr><td>Medium</td><td>M14/41 Medium Tank</td><td>37</td><td>32</td><td>Improved M13/40 with 145 hp diesel engine and better air filters fo...</td></tr>
+<tr><td>Light</td><td>L6/40 Light Tank</td><td>75</td><td>54</td><td>Light reconnaissance tank. 6.8 tons, crew 2. 70 hp engine. 42 km/h ...</td></tr>
+</tbody></table>
+</div>
+<h2 id="supply--logistics"><a class="header" href="#supply--logistics">Supply &amp; Logistics</a></h2>
+<p><strong>Supply Status</strong>: STRAINED BUT IMPROVING - Static defensive period (April-May 1942) allowed supply build-up for planned Gazala offensive. British Mediterranean interdiction remained severe - convoy losses averaged 18-25% Q2 1942. Supply line Tripoli-Benghazi-Gazala line stretched 1,200-1,400 km. Italian trucks still consumed 30-40% of fuel cargo making delivery runs. German units continued receiving priority - DAK at 90% supply vs Ariete at 70-75%. Pre-offensive stockpiling (May 1942) raised fuel reserves to 7-8 days, ammunition to 9-10 days (vs 5/7 in Q1). Spare parts situation slightly improved with focused workshop efforts during static period. Tank operational readiness improved to 75-80% (vs 65% Q1). Capture of Tobruk (21 June 1942) yielded massive British supply dumps: 2,000 tons food, 1,400 tons fuel, 5,000 tons ammunition - temporarily eased crisis. However, renewed mobile operations June 1942 consumption rates quickly depleted stocks. By end Q2 (30 June 1942) advancing toward Egypt, division again operating on logistical knife-edge.</p>
+<hr />
+<p><strong>Confidence</strong>: 0% (Tier unknown)<br />
+<strong>Generated from</strong>: <code>italian_1942q2_ariete_division_toe.json</code></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../forces/italian/divisions/1942q2_102nd_trento_division.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../forces/italian/divisions/1942q2_133rd_littorio_armored_division.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../forces/italian/divisions/1942q2_102nd_trento_division.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../forces/italian/divisions/1942q2_133rd_littorio_armored_division.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

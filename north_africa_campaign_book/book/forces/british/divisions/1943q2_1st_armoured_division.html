@@ -1,0 +1,387 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>1St Armoured Division - North Africa Campaign 1940-1943: Complete Order of Battle</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">North Africa Campaign 1940-1943: Complete Order of Battle</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/yourusername/north-africa-toe-builder" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="1st-armoured-division-1943q2"><a class="header" href="#1st-armoured-division-1943q2">1st Armoured Division (1943Q2)</a></h1>
+<h2 id="command-structure"><a class="header" href="#command-structure">Command Structure</a></h2>
+<p><strong>Commander</strong>: Major-General Major-General Raymond Briggs  <strong>Parent Formation</strong>: IX Corps, First Army (April 15 - May 8, 1943)  <strong>Type</strong>: Armoured Division</p>
+<h2 id="personnel"><a class="header" href="#personnel">Personnel</a></h2>
+<ul>
+<li><strong>Total</strong>: 14,964 (920 officers, 2,750 NCOs, 11,294 enlisted)</li>
+</ul>
+<h2 id="subordinate-units"><a class="header" href="#subordinate-units">Subordinate Units</a></h2>
+<h3 id="2nd-armoured-brigade"><a class="header" href="#2nd-armoured-brigade">2nd Armoured Brigade</a></h3>
+<ul>
+<li><strong>Commander</strong>: Unknown</li>
+<li><strong>Strength</strong>: 4,200 personnel</li>
+<li><strong>Composition</strong>: Three armoured regiments plus one motor battalion (9th Bn KOYLI). Primary striking force of division. Equipped predominantly with Sherman tanks by Tunisia Campaign.</li>
+</ul>
+<h3 id="2nd-dragoon-guards-queens-bays"><a class="header" href="#2nd-dragoon-guards-queens-bays">2nd Dragoon Guards (Queen's Bays)</a></h3>
+<ul>
+<li><strong>Commander</strong>: Unknown</li>
+<li><strong>Strength</strong>: 650 personnel</li>
+<li><strong>Composition</strong>: Part of 2nd Armoured Brigade. Sherman-equipped regiment.</li>
+</ul>
+<h3 id="9th-queens-royal-lancers"><a class="header" href="#9th-queens-royal-lancers">9th Queen's Royal Lancers</a></h3>
+<ul>
+<li><strong>Commander</strong>: Unknown</li>
+<li><strong>Strength</strong>: 650 personnel</li>
+<li><strong>Composition</strong>: Part of 2nd Armoured Brigade. Sherman-equipped regiment.</li>
+</ul>
+<h3 id="10th-royal-hussars"><a class="header" href="#10th-royal-hussars">10th Royal Hussars</a></h3>
+<ul>
+<li><strong>Commander</strong>: Unknown</li>
+<li><strong>Strength</strong>: 650 personnel</li>
+<li><strong>Composition</strong>: Part of 2nd Armoured Brigade. Sherman-equipped regiment.</li>
+</ul>
+<h3 id="9th-battalion-kings-own-yorkshire-light-infantry"><a class="header" href="#9th-battalion-kings-own-yorkshire-light-infantry">9th Battalion, King's Own Yorkshire Light Infantry</a></h3>
+<ul>
+<li><strong>Commander</strong>: Unknown</li>
+<li><strong>Strength</strong>: 780 personnel</li>
+<li><strong>Composition</strong>: Joined 2nd Armoured Brigade 19 December 1942, replacing Queen's Own Yorkshire Dragoons. Motorized infantry support for armoured brigade.</li>
+</ul>
+<h3 id="7th-motor-brigade"><a class="header" href="#7th-motor-brigade">7th Motor Brigade</a></h3>
+<ul>
+<li><strong>Commander</strong>: Unknown</li>
+<li><strong>Strength</strong>: 3,850 personnel</li>
+<li><strong>Composition</strong>: Three motor battalions. Provided infantry component of armoured division under April 1943 reorganization.</li>
+</ul>
+<h3 id="1st-battalion-kings-royal-rifle-corps"><a class="header" href="#1st-battalion-kings-royal-rifle-corps">1st Battalion, King's Royal Rifle Corps</a></h3>
+<ul>
+<li><strong>Commander</strong>: Unknown</li>
+<li><strong>Strength</strong>: 780 personnel</li>
+<li><strong>Composition</strong>: Part of 7th Motor Brigade. Joined 15 January 1943.</li>
+</ul>
+<h3 id="2nd-battalion-rifle-brigade"><a class="header" href="#2nd-battalion-rifle-brigade">2nd Battalion, Rifle Brigade</a></h3>
+<ul>
+<li><strong>Commander</strong>: Unknown</li>
+<li><strong>Strength</strong>: 780 personnel</li>
+<li><strong>Composition</strong>: Part of 7th Motor Brigade.</li>
+</ul>
+<h3 id="7th-battalion-rifle-brigade"><a class="header" href="#7th-battalion-rifle-brigade">7th Battalion, Rifle Brigade</a></h3>
+<ul>
+<li><strong>Commander</strong>: Unknown</li>
+<li><strong>Strength</strong>: 780 personnel</li>
+<li><strong>Composition</strong>: Part of 7th Motor Brigade.</li>
+</ul>
+<h3 id="12th-royal-lancers"><a class="header" href="#12th-royal-lancers">12th Royal Lancers</a></h3>
+<ul>
+<li><strong>Commander</strong>: Unknown</li>
+<li><strong>Strength</strong>: 580 personnel</li>
+<li><strong>Composition</strong>: Divisional reconnaissance regiment. Equipped with Stuart light tanks and armoured cars. April 1943 reorganization replaced armoured car regiment with armoured reconnaissance regiment.</li>
+</ul>
+<h3 id="2nd-regiment-royal-horse-artillery"><a class="header" href="#2nd-regiment-royal-horse-artillery">2nd Regiment, Royal Horse Artillery</a></h3>
+<ul>
+<li><strong>Commander</strong>: Unknown</li>
+<li><strong>Strength</strong>: 620 personnel</li>
+<li><strong>Composition</strong>: 24x Ordnance QF 25-pounder guns. Self-propelled and towed variants.</li>
+</ul>
+<h3 id="4th-regiment-royal-horse-artillery"><a class="header" href="#4th-regiment-royal-horse-artillery">4th Regiment, Royal Horse Artillery</a></h3>
+<ul>
+<li><strong>Commander</strong>: Unknown</li>
+<li><strong>Strength</strong>: 620 personnel</li>
+<li><strong>Composition</strong>: 24x Ordnance QF 25-pounder guns. Self-propelled and towed variants.</li>
+</ul>
+<h3 id="11th-honourable-artillery-company-regiment-rha"><a class="header" href="#11th-honourable-artillery-company-regiment-rha">11th (Honourable Artillery Company) Regiment, RHA</a></h3>
+<ul>
+<li><strong>Commander</strong>: Unknown</li>
+<li><strong>Strength</strong>: 580 personnel</li>
+<li><strong>Composition</strong>: Self-propelled 25-pounder regiment (Priest or Bishop SP guns). Note: April 1943 reorganization reduced field regiments from 3 to 2, but division retained 3 regiments during Tunisia.</li>
+</ul>
+<h3 id="76th-anti-tank-regiment-ra"><a class="header" href="#76th-anti-tank-regiment-ra">76th Anti-Tank Regiment, RA</a></h3>
+<ul>
+<li><strong>Commander</strong>: Unknown</li>
+<li><strong>Strength</strong>: 490 personnel</li>
+<li><strong>Composition</strong>: 48x 6-pounder AT guns, with limited numbers of new 17-pounder guns appearing</li>
+</ul>
+<h3 id="42nd-light-anti-aircraft-regiment-ra"><a class="header" href="#42nd-light-anti-aircraft-regiment-ra">42nd Light Anti-Aircraft Regiment, RA</a></h3>
+<ul>
+<li><strong>Commander</strong>: Unknown</li>
+<li><strong>Strength</strong>: 425 personnel</li>
+<li><strong>Composition</strong>: 18x Bofors 40mm, 6x Oerlikon 20mm AA guns</li>
+</ul>
+<h3 id="1st-field-squadron-re"><a class="header" href="#1st-field-squadron-re">1st Field Squadron, RE</a></h3>
+<ul>
+<li><strong>Commander</strong>: Unknown</li>
+<li><strong>Strength</strong>: 230 personnel</li>
+<li><strong>Composition</strong>: Divisional engineers - mine clearance, bridging, obstacle construction</li>
+</ul>
+<h3 id="7th-field-squadron-re"><a class="header" href="#7th-field-squadron-re">7th Field Squadron, RE</a></h3>
+<ul>
+<li><strong>Commander</strong>: Unknown</li>
+<li><strong>Strength</strong>: 230 personnel</li>
+<li><strong>Composition</strong>: Divisional engineers</li>
+</ul>
+<h3 id="1st-field-park-squadron-re"><a class="header" href="#1st-field-park-squadron-re">1st Field Park Squadron, RE</a></h3>
+<ul>
+<li><strong>Commander</strong>: Unknown</li>
+<li><strong>Strength</strong>: 180 personnel</li>
+<li><strong>Composition</strong>: Engineering stores and heavy equipment support</li>
+</ul>
+<h3 id="1st-armoured-divisional-signals"><a class="header" href="#1st-armoured-divisional-signals">1st Armoured Divisional Signals</a></h3>
+<ul>
+<li><strong>Commander</strong>: Unknown</li>
+<li><strong>Strength</strong>: 480 personnel</li>
+<li><strong>Composition</strong>: Division-level communications. Royal Corps of Signals.</li>
+</ul>
+<h2 id="division-equipment"><a class="header" href="#division-equipment">Division Equipment</a></h2>
+<h3 id="tanks-186-total-175-operational-94-readiness"><a class="header" href="#tanks-186-total-175-operational-94-readiness">Tanks (186 total, 175 operational, 94% readiness)</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>Category</th><th>Variant</th><th>Total</th><th>Operational</th><th>Notes</th></tr></thead><tbody>
+<tr><td>Medium</td><td>M4 Sherman II/III</td><td>108</td><td>0</td><td>Primary battle tank - 2nd Armoured Brigade equipped predominantly w...</td></tr>
+<tr><td>Medium</td><td>M3 Grant</td><td>20</td><td>0</td><td>Largely replaced by Shermans, small numbers retained for support roles</td></tr>
+<tr><td>Medium</td><td>Crusader III</td><td>22</td><td>0</td><td>Remaining in reconnaissance and close support roles</td></tr>
+<tr><td>Light</td><td>M3 Stuart 'Honey'</td><td>36</td><td>0</td><td>Reconnaissance role with 12th Royal Lancers (Armoured Reconnaissanc...</td></tr>
+</tbody></table>
+</div>
+<h3 id="artillery"><a class="header" href="#artillery">Artillery</a></h3>
+<h4 id="field-artillery"><a class="header" href="#field-artillery">Field Artillery</a></h4>
+<div class="table-wrapper"><table><thead><tr><th>Gun Type</th><th>Caliber</th><th>Count</th><th>Operational</th><th>Notes</th></tr></thead><tbody>
+<tr><td>Ordnance QF 25-pounder</td><td>87.6mm</td><td>48</td><td>48</td><td>Two field regiments RHA: 2nd Regiment RHA (24 guns), 4th Reg...</td></tr>
+</tbody></table>
+</div>
+<h4 id="anti-tank-guns"><a class="header" href="#anti-tank-guns">Anti-Tank Guns</a></h4>
+<div class="table-wrapper"><table><thead><tr><th>Gun Type</th><th>Caliber</th><th>Count</th><th>Operational</th><th>Notes</th></tr></thead><tbody>
+<tr><td>Ordnance QF 6-pounder</td><td>57mm</td><td>48</td><td>48</td><td>76th Anti-Tank Regiment RA - standard divisional AT establis...</td></tr>
+<tr><td>Ordnance QF 17-pounder</td><td>76.2mm</td><td>6</td><td>6</td><td>Limited numbers of new 17-pdr beginning to appear in Tunisia...</td></tr>
+</tbody></table>
+</div>
+<h4 id="anti-aircraft-guns"><a class="header" href="#anti-aircraft-guns">Anti-Aircraft Guns</a></h4>
+<div class="table-wrapper"><table><thead><tr><th>Gun Type</th><th>Caliber</th><th>Count</th><th>Operational</th><th>Notes</th></tr></thead><tbody>
+<tr><td>Bofors 40mm</td><td>40mm</td><td>18</td><td>18</td><td>42nd Light Anti-Aircraft Regiment RA</td></tr>
+<tr><td>Oerlikon 20mm</td><td>20mm</td><td>6</td><td>6</td><td></td></tr>
+</tbody></table>
+</div>
+<h2 id="supply--logistics"><a class="header" href="#supply--logistics">Supply &amp; Logistics</a></h2>
+<p><strong>Supply Status</strong>: GOOD - First Army supply lines from Algerian ports (Algiers, Bone) well established by April 1943. Division advanced from Libya through southern Tunisia, supplied via First Army logistics network after joining IX Corps on April 15. Final offensive (May 1-13) well supplied despite increasing Axis supply collapse. Post-battle (May 13 onward) excellent supply situation.</p>
+<hr />
+<p><strong>Confidence</strong>: 0% (Tier unknown)<br />
+<strong>Generated from</strong>: <code>british_1943q2_1st_armoured_division_toe.json</code></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../forces/british/divisions/1943q1_xxx_corps.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../forces/british/divisions/1943q2_1st_infantry_division.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../forces/british/divisions/1943q1_xxx_corps.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../forces/british/divisions/1943q2_1st_infantry_division.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

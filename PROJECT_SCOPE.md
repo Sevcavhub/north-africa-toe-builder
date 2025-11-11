@@ -1,7 +1,7 @@
 # North Africa TO&E Builder - Complete Project Scope
 
-**Version**: 1.6.3
-**Last Updated**: 2025-11-08 (Database Schema v3.2 - Excel template migration + Tobruk import complete)
+**Version**: 1.6.4
+**Last Updated**: 2025-11-11 (Phase 12 Professional Military History Book added - comprehensive narrative rewrite)
 **Status**: 🟢 LIVING DOCUMENT - Subject to updates
 
 <!-- AUTO-UPDATED: START - Progress Stats -->
@@ -1320,6 +1320,210 @@ scripts/battlegroup/
 **Timeline**: ~30-40 hours (research + implementation)
 
 ---
+
+### **Phase 12: Professional Military History Book** 📋 **PLANNED**
+
+**Goal**: Transform North Africa Campaign Book into publication-quality professional military history narrative
+
+**Purpose**: Standalone historical reference book - NOT tied to wargaming systems (distinct from Phase 9A-9E game scenarios)
+
+**Scope**: Comprehensive rewrite of 13 quarter overview chapters (1940-Q2 through 1943-Q2)
+
+---
+
+#### Approach: Hybrid Narrative + Reference Structure
+
+**Part 1: Historical Narrative with Integrated Equipment**
+- Professional military history prose (matching official Army histories style - Playfair, Barnett)
+- Equipment woven naturally into battle descriptions
+  - Example: "Rommel's 570 tanks, including 43 deadly Panzer IV F2s with long 75mm guns, swept around Bir Hakeim..."
+- Forces mentioned organically within operational context
+- Flowing narrative structure prioritizing readability
+
+**Part 2: Detailed Order of Battle Reference Sections**
+- Comprehensive organizational hierarchies
+- Equipment tables by unit
+- Commander rosters
+- Strength breakdowns
+
+**Part 3: Battle Chronology with Unit-Level Actions**
+- Tactical narratives showing specific unit movements
+- Regiment/battalion-level detail for key engagements
+- Combined arms integration (ground + air support)
+
+---
+
+#### Organizational Hierarchy Depth
+
+**Data Foundation** (from completed phases):
+- **Phase 5**: 469 equipment items matched (WITW + OnWar + WWIITANKS)
+- **Phase 6**: 434 complete division-level JSONs with full TO&E data
+- **Phase 7**: 23 quarterly air force summaries (theater-level air support)
+
+**Achievable Organizational Depth**:
+- ✅ **Theater Level**: Complete overview (Mediterranean, North Africa)
+- ✅ **Army Level**: Comprehensive (Eighth Army, Panzerarmee Afrika, etc.)
+- ✅ **Corps Level**: Comprehensive (XIII Corps, XXX Corps, DAK, XX Mobile Corps, etc.)
+- ✅ **Division Level**: COMPREHENSIVE with full TO&E (434 complete divisions)
+  - Equipment inventories (tanks, artillery, vehicles by type/variant)
+  - Personnel strength (officers, NCOs, enlisted)
+  - Subordinate units array (regiment/brigade commanders, strengths, compositions)
+- ✅ **Regiment/Brigade Level**: Summary data from subordinate_units arrays
+  - Unit designation and type
+  - Commander name and rank
+  - Personnel strength
+  - Composition notes (battalion count, equipment highlights)
+- ⚠️ **Battalion Level**: Contextual mentions only (from composition notes)
+- ❌ **Company/Platoon/Squad Level**: Not extracted in Phase 6 (except specific historical actions documented in narratives)
+
+---
+
+#### Target Book Structure (Per Quarter Chapter)
+
+**Current State**: 13 chapters, 5,000-27,000 characters each (data-heavy integration from previous session)
+
+**Phase 12 Target**: 40,000-80,000 characters per quarter (comprehensive narrative + detailed reference)
+
+**Enhanced Structure**:
+
+1. **Strategic Overview** (5,000-8,000 chars)
+   - Theater-wide situation
+   - Command changes and strategic objectives
+   - Logistical context (supply lines, port capacities)
+   - Weather and environmental factors
+
+2. **Forces Engaged** (15,000-25,000 chars)
+   - Narrative introduction of opposing forces
+   - Order of Battle hierarchies (Army → Corps → Division)
+   - Regiment-level breakdowns with commanders
+   - Equipment integration (naturally woven into force descriptions)
+   - Air support available (RAF Desert Air Force, Fliegerführer Afrika)
+
+3. **Battle Narrative** (15,000-30,000 chars)
+   - Chronological flow of operations
+   - Unit-level actions (division and regiment movements)
+   - Equipment performance in combat context
+   - Combined arms integration examples
+   - Tactical innovations and lessons
+
+4. **Analysis & Aftermath** (5,000-12,000 chars)
+   - Operational analysis (what worked, what failed)
+   - Equipment performance assessment
+   - Organizational effectiveness
+   - Strategic consequences
+   - Transition to next quarter
+
+5. **Reference Tables** (within narrative sections)
+   - Equipment inventories by division
+   - Organizational charts (hierarchical)
+   - Commander rosters
+   - Casualty and loss figures
+
+---
+
+#### Implementation Steps
+
+**Step 1**: Research Enhancement (per quarter)
+- Review Phase 6 division JSONs for regiment-level subordinate_units data
+- Extract regiment commanders, strengths, compositions
+- Cross-reference battle narratives with specific unit actions
+
+**Step 2**: Narrative Expansion
+- Rewrite strategic overview with enhanced context
+- Expand battle narratives with unit-level detail
+- Integrate equipment naturally into prose
+- Add regiment-level command structures
+
+**Step 3**: Reference Section Enhancement
+- Build comprehensive OOB hierarchies (Army → Corps → Division → Regiment)
+- Create equipment tables by division
+- Add commander rosters with biographical notes
+- Integrate air support assignments
+
+**Step 4**: Quality Control
+- Verify all equipment mentions match Phase 5 database
+- Confirm organizational hierarchies against Phase 6 JSONs
+- Check air support references against Phase 7 summaries
+- Professional copyediting pass
+
+---
+
+#### Deliverables
+
+**13 Rewritten Quarter Chapters**:
+- 1940-Q2 through 1943-Q2
+- 40,000-80,000 characters each
+- Regiment-level organizational detail for all 434 divisions
+- Equipment naturally integrated into narrative
+- Comprehensive reference sections
+
+**Enhanced MDBook HTML Build**:
+- Professional typography and layout
+- Organizational chart visualizations
+- Equipment tables with technical specs
+- Hyperlinked cross-references
+
+**Publication-Ready PDF Export**:
+- A4 format suitable for print
+- Professional design matching military history market standards
+- Complete index and bibliography
+- Appendices with data tables
+
+---
+
+#### Quality Standard
+
+**Target**: Publication-ready for commercial military history market
+
+**Style Models**:
+- Official British military histories (Playfair's "The Mediterranean and Middle East")
+- U.S. Army official histories (Green Books series)
+- Academic military history (Barnett, Carver, Jentz)
+
+**Requirements**:
+- Comprehensive citations (Phase 6 has 181 citations, archive references)
+- Professional prose (no placeholder text, no gaming jargon)
+- Accurate organizational hierarchies
+- Equipment data verified against multiple sources
+- Readable narrative flow with technical detail in context
+
+---
+
+#### Timeline Estimate
+
+**Total**: 18-22 hours for all 13 quarters
+
+**Breakdown**:
+- Research/data extraction per quarter: 0.5-1 hour × 13 = 6.5-13 hours
+- Narrative writing per quarter: 1-1.5 hours × 13 = 13-19.5 hours
+- Quality control and editing: 2-3 hours
+
+**Phased Approach**:
+- Phase 12A: Quarters 1-4 (1940-1941) - 6-8 hours
+- Phase 12B: Quarters 5-8 (1942) - 6-8 hours
+- Phase 12C: Quarters 9-13 (1943) - 6-8 hours
+
+---
+
+#### Distinction from Phase 9 Wargaming Phases
+
+**Phase 9A-9E** = Game-specific scenario generation
+- Phase 9A: War in the West (WITW) scenarios ✅ COMPLETE
+- Phase 9B: BattleGroup scenarios ⏸️ ON HOLD
+- Phase 9C: Achtung Panzer scenarios 📋 PLANNED
+- Phase 9D: Flames of War scenarios 📋 PLANNED
+- Phase 9E: Documentation & QA 📋 PLANNED
+
+**Phase 12** = Standalone professional military history book
+- NOT tied to any game system
+- Pure historical publication goal
+- Comprehensive narrative style
+- Academic/commercial publication standard
+
+**Both use same data foundation (Phases 5-7), different presentation formats**
+
+---
+
 
 #### **Phase 9D: Flames of War Implementation** 📋 **PLANNED**
 

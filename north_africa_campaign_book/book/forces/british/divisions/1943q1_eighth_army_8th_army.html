@@ -1,0 +1,305 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Eighth Army 8Th Army - North Africa Campaign 1940-1943: Complete Order of Battle</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">North Africa Campaign 1940-1943: Complete Order of Battle</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/yourusername/north-africa-toe-builder" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="eighth-army-8th-army-1943q1"><a class="header" href="#eighth-army-8th-army-1943q1">Eighth Army (8th Army) (1943Q1)</a></h1>
+<h2 id="command-structure"><a class="header" href="#command-structure">Command Structure</a></h2>
+<p><strong>Commander</strong>: General General Sir Bernard Law Montgomery  <strong>Parent Formation</strong>: None  <strong>Type</strong>: Field Army</p>
+<h2 id="personnel"><a class="header" href="#personnel">Personnel</a></h2>
+<ul>
+<li><strong>Total</strong>: 85,077 (4,493 officers, 15,565 NCOs, 65,019 enlisted)</li>
+</ul>
+<h2 id="subordinate-units"><a class="header" href="#subordinate-units">Subordinate Units</a></h2>
+<h3 id="xxx-corps"><a class="header" href="#xxx-corps">XXX Corps</a></h3>
+<ul>
+<li><strong>Commander</strong>: Lieutenant-General Oliver Leese</li>
+<li><strong>Strength</strong>: 53,200 personnel</li>
+<li><strong>Tank Strength</strong>: 0 tanks</li>
+</ul>
+<h3 id="x-corps"><a class="header" href="#x-corps">X Corps</a></h3>
+<ul>
+<li><strong>Commander</strong>: Lieutenant-General Brian Horrocks</li>
+<li><strong>Strength</strong>: 31,877 personnel</li>
+<li><strong>Tank Strength</strong>: 350 tanks</li>
+</ul>
+<h3 id="new-zealand-corps-2nd-new-zealand-division"><a class="header" href="#new-zealand-corps-2nd-new-zealand-division">New Zealand Corps (2nd New Zealand Division)</a></h3>
+<ul>
+<li><strong>Commander</strong>: Lieutenant-General Bernard Freyberg VC</li>
+<li><strong>Strength</strong>: 0 personnel</li>
+<li><strong>Tank Strength</strong>: 0 tanks</li>
+</ul>
+<h3 id="xiii-corps"><a class="header" href="#xiii-corps">XIII Corps</a></h3>
+<ul>
+<li><strong>Commander</strong>: Lieutenant-General Miles Dempsey</li>
+<li><strong>Strength</strong>: 0 personnel</li>
+<li><strong>Tank Strength</strong>: 0 tanks</li>
+</ul>
+<h3 id="eighth-army-troops-engineers-signals-services-army-hq"><a class="header" href="#eighth-army-troops-engineers-signals-services-army-hq">Eighth Army Troops (Engineers, Signals, Services, Army HQ)</a></h3>
+<ul>
+<li><strong>Commander</strong>: Various</li>
+<li><strong>Strength</strong>: 2,850 personnel</li>
+</ul>
+<h2 id="division-equipment"><a class="header" href="#division-equipment">Division Equipment</a></h2>
+<h3 id="tanks-350-total-320-operational-91-readiness"><a class="header" href="#tanks-350-total-320-operational-91-readiness">Tanks (350 total, 320 operational, 91% readiness)</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>Category</th><th>Variant</th><th>Total</th><th>Operational</th><th>Notes</th></tr></thead><tbody>
+<tr><td>Medium</td><td>Sherman M4</td><td>160</td><td>149</td><td>Main battle tank. X Corps armoured divisions (1st and 7th Armoured)...</td></tr>
+<tr><td>Medium</td><td>Sherman M4A2</td><td>24</td><td>22</td><td>7th Armoured Division. Diesel engine variant.</td></tr>
+<tr><td>Medium</td><td>Crusader III</td><td>72</td><td>61</td><td>X Corps armoured divisions. 6-pounder gun, being supplemented by Sh...</td></tr>
+<tr><td>Medium</td><td>Grant M3</td><td>16</td><td>14</td><td>1st Armoured Division. 75mm sponson gun, being phased out.</td></tr>
+<tr><td>Light</td><td>Stuart M3 'Honey'</td><td>66</td><td>59</td><td>X Corps reconnaissance squadrons (1st and 7th Armoured).</td></tr>
+<tr><td>Light</td><td>Stuart M5</td><td>20</td><td>18</td><td>X Corps. Improved Stuart variant.</td></tr>
+</tbody></table>
+</div>
+<h3 id="artillery"><a class="header" href="#artillery">Artillery</a></h3>
+<h4 id="field-artillery"><a class="header" href="#field-artillery">Field Artillery</a></h4>
+<div class="table-wrapper"><table><thead><tr><th>Gun Type</th><th>Caliber</th><th>Count</th><th>Operational</th><th>Notes</th></tr></thead><tbody>
+<tr><td>Ordnance QF 25-pounder Gun-Howitzer</td><td>87.6mm (3.45-inch)</td><td>336</td><td>336</td><td>Standard British field gun. X Corps: 96 guns (1st Armoured 4...</td></tr>
+</tbody></table>
+</div>
+<h4 id="anti-tank-guns"><a class="header" href="#anti-tank-guns">Anti-Tank Guns</a></h4>
+<div class="table-wrapper"><table><thead><tr><th>Gun Type</th><th>Caliber</th><th>Count</th><th>Operational</th><th>Notes</th></tr></thead><tbody>
+<tr><td>Ordnance QF 6-pounder (57mm)</td><td>57mm</td><td>164</td><td>164</td><td>Primary British AT gun 1943. X Corps: 32 guns. XXX Corps: 13...</td></tr>
+<tr><td>Ordnance QF 17-pounder</td><td>76mm</td><td>12</td><td>12</td><td>XXX Corps - 50th Division only. New heavy AT gun - first ope...</td></tr>
+<tr><td>Ordnance QF 2-pounder (40mm)</td><td>40mm</td><td>8</td><td>8</td><td>Being phased out. X Corps: 2 guns (7th Armoured). XXX Corps:...</td></tr>
+</tbody></table>
+</div>
+<h4 id="anti-aircraft-guns"><a class="header" href="#anti-aircraft-guns">Anti-Aircraft Guns</a></h4>
+<div class="table-wrapper"><table><thead><tr><th>Gun Type</th><th>Caliber</th><th>Count</th><th>Operational</th><th>Notes</th></tr></thead><tbody>
+<tr><td>Bofors 40mm</td><td>40mm</td><td>38</td><td>38</td><td>Mobile AA defense. X Corps: 14 guns (1st Armoured 8, 7th Arm...</td></tr>
+<tr><td>Oerlikon 20mm</td><td>20mm</td><td>4</td><td>4</td><td>XXX Corps - 51st Highland Division only. Light AA defense.</td></tr>
+</tbody></table>
+</div>
+<h2 id="supply--logistics"><a class="header" href="#supply--logistics">Supply &amp; Logistics</a></h2>
+<p><strong>Supply Status</strong>: DRAMATICALLY IMPROVED but extended lines remain challenge. Eighth Army supply situation Q1 1943 transformed by capture of Tripoli port (23 January 1943). Supply lines reduced from 1,800km (El Alamein-Libya pursuit) to 600-800km (Tripoli-Mareth Line). Montgomery refused to assault Mareth until adequate stockpiling complete - delayed offensive from early March to 20 March for logistics buildup. X Corps (armoured reserve) well-supplied with fuel, ammunition, water for mobile operations. XXX Corps (infantry assault) required massive ammunition stocks for artillery bombardment. Main constraints: 600-800km still extended distance, intensive combat expected against prepared German defenses, coordination with First Army advancing from west (supply competition). Tripoli port critical - activated quickly despite German demolitions, capacity gradually increased through Q1. Forward supply dumps established near Mareth Line. Water supply adequate in coastal Tunisia (better than Western Desert). Montgomery's 'build-up then attack' doctrine ensured Eighth Army never advanced beyond logistics capacity.</p>
+<hr />
+<p><strong>Confidence</strong>: 0% (Tier unknown)<br />
+<strong>Generated from</strong>: <code>british_1943q1_eighth_army_8th_army_toe.json</code></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../forces/british/divisions/1943q1_78th_infantry_division_battleaxe.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../forces/british/divisions/1943q1_v_corps.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../forces/british/divisions/1943q1_78th_infantry_division_battleaxe.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../forces/british/divisions/1943q1_v_corps.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

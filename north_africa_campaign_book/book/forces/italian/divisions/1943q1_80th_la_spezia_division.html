@@ -1,0 +1,313 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>80Th La Spezia Division - North Africa Campaign 1940-1943: Complete Order of Battle</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">North Africa Campaign 1940-1943: Complete Order of Battle</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/yourusername/north-africa-toe-builder" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="80th-la-spezia-division-1943q1"><a class="header" href="#80th-la-spezia-division-1943q1">80th LA SPEZIA Division (1943Q1)</a></h1>
+<h2 id="command-structure"><a class="header" href="#command-structure">Command Structure</a></h2>
+<p><strong>Commander</strong>: Major General Unknown  <strong>Parent Formation</strong>: First Italian Army  <strong>Type</strong>: Air-Borne Infantry Division</p>
+<h2 id="personnel"><a class="header" href="#personnel">Personnel</a></h2>
+<ul>
+<li><strong>Total</strong>: 8,200 (320 officers, 1,180 NCOs, 6,700 enlisted)</li>
+</ul>
+<h2 id="subordinate-units"><a class="header" href="#subordinate-units">Subordinate Units</a></h2>
+<h3 id="125th-la-spezia-infantry-regiment"><a class="header" href="#125th-la-spezia-infantry-regiment">125th LA SPEZIA Infantry Regiment</a></h3>
+<ul>
+<li><strong>Commander</strong>: Unknown</li>
+<li><strong>Strength</strong>: 2,400 personnel</li>
+</ul>
+<h3 id="126th-la-spezia-infantry-regiment"><a class="header" href="#126th-la-spezia-infantry-regiment">126th LA SPEZIA Infantry Regiment</a></h3>
+<ul>
+<li><strong>Commander</strong>: Unknown</li>
+<li><strong>Strength</strong>: 2,350 personnel</li>
+</ul>
+<h3 id="39th-bersaglieri-battalion"><a class="header" href="#39th-bersaglieri-battalion">39th Bersaglieri Battalion</a></h3>
+<ul>
+<li><strong>Commander</strong>: Unknown</li>
+<li><strong>Strength</strong>: 580 personnel</li>
+</ul>
+<h3 id="80th-artillery-regiment"><a class="header" href="#80th-artillery-regiment">80th Artillery Regiment</a></h3>
+<ul>
+<li><strong>Commander</strong>: Unknown</li>
+<li><strong>Strength</strong>: 980 personnel</li>
+</ul>
+<h3 id="80th-anti-tank-battalion"><a class="header" href="#80th-anti-tank-battalion">80th Anti-Tank Battalion</a></h3>
+<ul>
+<li><strong>Commander</strong>: Unknown</li>
+<li><strong>Strength</strong>: 280 personnel</li>
+</ul>
+<h3 id="70th-machine-gun-battalion"><a class="header" href="#70th-machine-gun-battalion">70th Machine Gun Battalion</a></h3>
+<ul>
+<li><strong>Commander</strong>: Unknown</li>
+<li><strong>Strength</strong>: 390 personnel</li>
+</ul>
+<h3 id="80th-engineer-battalion-guastatori"><a class="header" href="#80th-engineer-battalion-guastatori">80th Engineer Battalion (Guastatori)</a></h3>
+<ul>
+<li><strong>Commander</strong>: Unknown</li>
+<li><strong>Strength</strong>: 340 personnel</li>
+</ul>
+<h3 id="102nd-pioneer-company"><a class="header" href="#102nd-pioneer-company">102nd Pioneer Company</a></h3>
+<ul>
+<li><strong>Commander</strong>: Unknown</li>
+<li><strong>Strength</strong>: 160 personnel</li>
+</ul>
+<h3 id="80th-medical-section"><a class="header" href="#80th-medical-section">80th Medical Section</a></h3>
+<ul>
+<li><strong>Commander</strong>: Unknown</li>
+<li><strong>Strength</strong>: 195 personnel</li>
+</ul>
+<h3 id="180th-supply-section"><a class="header" href="#180th-supply-section">180th Supply Section</a></h3>
+<ul>
+<li><strong>Commander</strong>: Unknown</li>
+<li><strong>Strength</strong>: 265 personnel</li>
+</ul>
+<h3 id="artillery"><a class="header" href="#artillery">Artillery</a></h3>
+<h4 id="field-artillery"><a class="header" href="#field-artillery">Field Artillery</a></h4>
+<div class="table-wrapper"><table><thead><tr><th>Gun Type</th><th>Caliber</th><th>Count</th><th>Operational</th><th>Notes</th></tr></thead><tbody>
+<tr><td>Cannone da 75/27</td><td>75mm</td><td>21</td><td>21</td><td></td></tr>
+<tr><td>Obice da 100/17</td><td>100mm</td><td>21</td><td>21</td><td></td></tr>
+</tbody></table>
+</div>
+<h4 id="anti-tank-guns"><a class="header" href="#anti-tank-guns">Anti-Tank Guns</a></h4>
+<div class="table-wrapper"><table><thead><tr><th>Gun Type</th><th>Caliber</th><th>Count</th><th>Operational</th><th>Notes</th></tr></thead><tbody>
+<tr><td>Cannone da 47/32</td><td>47mm</td><td>16</td><td>16</td><td></td></tr>
+</tbody></table>
+</div>
+<h4 id="anti-aircraft-guns"><a class="header" href="#anti-aircraft-guns">Anti-Aircraft Guns</a></h4>
+<div class="table-wrapper"><table><thead><tr><th>Gun Type</th><th>Caliber</th><th>Count</th><th>Operational</th><th>Notes</th></tr></thead><tbody>
+<tr><td>Breda 20mm</td><td>20mm</td><td>8</td><td>8</td><td></td></tr>
+</tbody></table>
+</div>
+<h2 id="supply--logistics"><a class="header" href="#supply--logistics">Supply &amp; Logistics</a></h2>
+<p><strong>Supply Status</strong>: Severe crisis during 1943-Q1. Allied interdiction of sea lanes from Sicily intensified January-March 1943. Fuel rationing extreme - motor vehicles immobilized except for emergencies. Ammunition strictly rationed to defensive fire only. Water supply critical with distribution priority to frontline infantry. Division largely static due to fuel shortages.</p>
+<hr />
+<p><strong>Confidence</strong>: 0% (Tier unknown)<br />
+<strong>Generated from</strong>: <code>italian_1943q1_la_spezia_division_toe.json</code></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../forces/italian/divisions/1943q1_16th_infantry_division_pistoia.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../forces/italian/divisions/1943q1_101st_trieste_division.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../forces/italian/divisions/1943q1_16th_infantry_division_pistoia.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../forces/italian/divisions/1943q1_101st_trieste_division.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

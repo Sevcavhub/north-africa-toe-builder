@@ -1,0 +1,305 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Xx Corpo Darmata Motocorazzato - North Africa Campaign 1940-1943: Complete Order of Battle</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../../";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">North Africa Campaign 1940-1943: Complete Order of Battle</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/yourusername/north-africa-toe-builder" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="xx-corpo-darmata-motocorazzato-1942q4"><a class="header" href="#xx-corpo-darmata-motocorazzato-1942q4">XX Corpo d'Armata Motocorazzato (1942Q4)</a></h1>
+<h2 id="command-structure"><a class="header" href="#command-structure">Command Structure</a></h2>
+<p><strong>Commander</strong>: Generale di Corpo d'Armata (Corps General) Generale di Corpo d'Armata Giuseppe De Stefanis  <strong>Parent Formation</strong>: Panzerarmee Afrika  <strong>Type</strong>: Motorized-Armored Corps</p>
+<h2 id="personnel"><a class="header" href="#personnel">Personnel</a></h2>
+<ul>
+<li><strong>Total</strong>: 25,250 (1,285 officers, 3,825 NCOs, 20,140 enlisted)</li>
+</ul>
+<h2 id="subordinate-units"><a class="header" href="#subordinate-units">Subordinate Units</a></h2>
+<h3 id="132ª-divisione-corazzata-ariete"><a class="header" href="#132ª-divisione-corazzata-ariete">132ª Divisione corazzata Ariete</a></h3>
+<ul>
+<li><strong>Commander</strong>: Generale di Brigata Francesco Antonio Arena</li>
+<li><strong>Strength</strong>: 7,200 personnel</li>
+<li><strong>Composition</strong>: Destroyed 4 November 1942 at Tel el Aqqaqir. Only XIII Tank Battalion and ~200 Bersaglieri with 6 Semoventi escaped initial encirclement. Division declared lost 8 December 1942.</li>
+</ul>
+<h3 id="133ª-divisione-corazzata-littorio"><a class="header" href="#133ª-divisione-corazzata-littorio">133ª Divisione Corazzata Littorio</a></h3>
+<ul>
+<li><strong>Commander</strong>: Generale di Divisione Gervasio Bitossi</li>
+<li><strong>Strength</strong>: 6,800 personnel</li>
+<li><strong>Composition</strong>: Destroyed in North Africa, December 1942. Heavy losses at El Alamein, further attrition during retreat across Libya.</li>
+</ul>
+<h3 id="101ª-divisione-motorizzata-trieste"><a class="header" href="#101ª-divisione-motorizzata-trieste">101ª Divisione Motorizzata Trieste</a></h3>
+<ul>
+<li><strong>Commander</strong>: Generale di Divisione Arnaldo Azzi</li>
+<li><strong>Strength</strong>: 11,200 personnel</li>
+<li><strong>Composition</strong>: Mostly annihilated 2-4 November 1942 at El Alamein during Operation Supercharge. Survivors reorganized at El Agheila 26 November with remnants of other destroyed divisions.</li>
+</ul>
+<h3 id="xx-corpo-staff-and-support-units"><a class="header" href="#xx-corpo-staff-and-support-units">XX Corpo Staff and Support Units</a></h3>
+<ul>
+<li><strong>Commander</strong>: Generale Giuseppe De Stefanis</li>
+<li><strong>Strength</strong>: 550 personnel</li>
+<li><strong>Composition</strong>: Corps HQ, signals, military police, rear services. Minimal compared to German corps staffs.</li>
+</ul>
+<h2 id="division-equipment"><a class="header" href="#division-equipment">Division Equipment</a></h2>
+<h3 id="tanks-211-total-146-operational-69-readiness"><a class="header" href="#tanks-211-total-146-operational-69-readiness">Tanks (211 total, 146 operational, 69% readiness)</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>Category</th><th>Variant</th><th>Total</th><th>Operational</th><th>Notes</th></tr></thead><tbody>
+<tr><td>Medium</td><td>M13/40</td><td>106</td><td>64</td><td>Ariete: 32 (28 op), Littorio: 42 (18 op), Trieste: 32 (18 op) - old...</td></tr>
+<tr><td>Medium</td><td>M14/41</td><td>81</td><td>71</td><td>Ariete: 65 (56 op), Littorio: 16 (9 op) - improved diesel engine mo...</td></tr>
+<tr><td>Light</td><td>L6/40</td><td>30</td><td>19</td><td>Ariete: 12 (11 op), Littorio: 18 (8 op) - light reconnaissance tanks</td></tr>
+<tr><td>Light</td><td>L3/35</td><td>6</td><td>3</td><td>Littorio only, obsolete tankettes</td></tr>
+</tbody></table>
+</div>
+<h3 id="artillery"><a class="header" href="#artillery">Artillery</a></h3>
+<h4 id="field-artillery"><a class="header" href="#field-artillery">Field Artillery</a></h4>
+<div class="table-wrapper"><table><thead><tr><th>Gun Type</th><th>Caliber</th><th>Count</th><th>Operational</th><th>Notes</th></tr></thead><tbody>
+<tr><td>75mm/27 Mod 06</td><td>75mm</td><td>72</td><td>72</td><td>Ariete: 24 (1st &amp; 2nd Btns), Littorio: 24 (two btns), Triest...</td></tr>
+<tr><td>105mm/28</td><td>105mm</td><td>36</td><td>36</td><td>Ariete: 24 (3rd Btn + 15th Btn attached), Littorio: 12 (one ...</td></tr>
+<tr><td>Obice da 100/17 modello 1916</td><td>100mm</td><td>12</td><td>12</td><td>Trieste only - I Group, howitzers for indirect fire</td></tr>
+<tr><td>Semovente 75/18 SP</td><td>75mm</td><td>16</td><td>16</td><td>Ariete only - 5th Semoventi SP Battalion</td></tr>
+<tr><td>75/18 Semovente on M13/40 chassis</td><td>75mm</td><td>16</td><td>10</td><td>Littorio - two self-propelled battalions</td></tr>
+<tr><td>75/18 Semovente on M14/41 chassis</td><td>75mm</td><td>8</td><td>6</td><td>Littorio - newer chassis variant</td></tr>
+</tbody></table>
+</div>
+<h4 id="anti-tank-guns"><a class="header" href="#anti-tank-guns">Anti-Tank Guns</a></h4>
+<div class="table-wrapper"><table><thead><tr><th>Gun Type</th><th>Caliber</th><th>Count</th><th>Operational</th><th>Notes</th></tr></thead><tbody>
+<tr><td>47mm/32</td><td>47mm</td><td>48</td><td>48</td><td>Ariete: 18, Littorio: 12, Trieste: 18 - inadequate penetrati...</td></tr>
+<tr><td>90/53 Mod 1939</td><td>90mm</td><td>6</td><td>6</td><td>Littorio only - dual-purpose AA/AT, reduced strength</td></tr>
+<tr><td>65/17 modello 1908-1913</td><td>65mm</td><td>6</td><td>6</td><td>Trieste only - infantry support guns repurposed for AT role</td></tr>
+</tbody></table>
+</div>
+<h4 id="anti-aircraft-guns"><a class="header" href="#anti-aircraft-guns">Anti-Aircraft Guns</a></h4>
+<div class="table-wrapper"><table><thead><tr><th>Gun Type</th><th>Caliber</th><th>Count</th><th>Operational</th><th>Notes</th></tr></thead><tbody>
+<tr><td>88mm/55</td><td>88mm</td><td>9</td><td>9</td><td>Ariete only - 31st Artillery Battalion, dual AA/AT role, 3 b...</td></tr>
+<tr><td>20mm Breda Mod 35</td><td>20mm</td><td>32</td><td>32</td><td>Ariete: 24, Littorio: 8</td></tr>
+<tr><td>Cannone da 75/27 C.K.</td><td>75mm</td><td>12</td><td>12</td><td>Trieste only - XXI Mixed Anti-Aircraft Group, mounted on Lan...</td></tr>
+<tr><td>Cannone-Mitragliera da 20/65 modello 35</td><td>20mm</td><td>24</td><td>24</td><td>Trieste only - Breda 20mm AA guns, high rate of fire</td></tr>
+</tbody></table>
+</div>
+<h2 id="supply--logistics"><a class="header" href="#supply--logistics">Supply &amp; Logistics</a></h2>
+<p><strong>Supply Status</strong>: Catastrophic shortage throughout Q4 1942. Corps positioned at extreme end of 1800km supply line from Tripoli, continuously interdicted by British air and naval forces. Fuel reserves exhausted during Second Battle of El Alamein, forcing tanks to fight in static positions. Ammunition sufficient for only 2-3 days sustained combat. Water rationing severe (3.5L/person/day). Food supplies critically low. Ariete Division immobilized by fuel exhaustion during final encirclement at Tel el Aqqaqir (4 Nov). Littorio barely operational during retreat. Trieste fuel/ammo/food all critically short. Supply crisis was primary factor in corps destruction at El Alamein.</p>
+<hr />
+<p><strong>Confidence</strong>: 0% (Tier unknown)<br />
+<strong>Generated from</strong>: <code>italian_1942q4_xx_mobile_corps_toe.json</code></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../forces/italian/divisions/1942q4_185a_divisione_paracadutisti_folgore.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../../forces/italian/divisions/1942q4_xxi_corpo_darmata.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../forces/italian/divisions/1942q4_185a_divisione_paracadutisti_folgore.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../../forces/italian/divisions/1942q4_xxi_corpo_darmata.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
+
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

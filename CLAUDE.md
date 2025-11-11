@@ -326,6 +326,14 @@ As you work, update relevant files with:
 - **Phase 9D: Flames of War** 📋 PLANNED (pending rulebook PDFs)
 - **Phase 9E: Documentation & QA** 📋 PLANNED
 - **Phase 10: Campaign System** 📋 PLANNED (30-40 hours estimated)
+- **Phase 12: Professional Military History Book** 📋 PLANNED (18-22 hours estimated)
+  - Standalone historical reference book (separate from wargaming phases 9A-9E)
+  - Transform 13 quarter overviews into publication-quality narrative
+  - Organizational depth: Theater → Army → Corps → Division (comprehensive) → Regiment/Battalion (summaries)
+  - Hybrid approach: Flowing narratives + detailed OOB reference sections
+  - 40,000-80,000 chars per quarter (comprehensive over brevity)
+  - Quality standard: Commercial military history market (Playfair, Barnett style)
+  - See PROJECT_SCOPE.md Phase 12 for complete details
 
 ---
 
