@@ -533,6 +533,18 @@ class BookDatacardGenerator:
                                 'ammo': ammo
                             })
 
+        # Fallback: If no reference_vehicle_id, try Jane's ammunition data
+        if not row['reference_vehicle_id'] and not main_gun_ammo:
+            cursor.execute("""
+                SELECT ammunition_capacity, confidence
+                FROM ammunition_capacity_janes
+                WHERE equipment_id = ?
+            """, (equipment['canonical_id'],))
+            janes_row = cursor.fetchone()
+            if janes_row:
+                main_gun_ammo = janes_row['ammunition_capacity']
+                # Note: Jane's data is for main gun ammunition capacity
+
         # Get special rules (names only for header display)
         cursor.execute("""
             SELECT sr.name
