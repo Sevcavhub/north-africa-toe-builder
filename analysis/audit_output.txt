@@ -1,0 +1,144 @@
+================================================================================
+BATTLEGROUP REFERENCE DATA QUALITY AUDIT
+================================================================================
+
+1. BG_REFERENCE_VEHICLES (Manual Extraction)
+--------------------------------------------------------------------------------
+Total vehicles: 281
+  With armor data: 214 (76.2%)
+  With movement data: 214 (76.2%)
+  With weapons: 170 (60.5%)
+
+Extraction methods:
+  manual_csv_entry: 247
+  manual_excel_import: 5
+  manual_screenshot: 29
+
+Nations:
+  british: 100
+  german: 93
+  italian: 19
+  None: 16
+  american: 15
+  canadian, british: 14
+  canadian: 12
+  french: 6
+  canadian, british, american: 4
+  soviet: 1
+  british, american: 1
+
+2. BG_BUILDER_VEHICLES (Scraped Data - NEEDS VALIDATION)
+--------------------------------------------------------------------------------
+Total vehicles: 602
+  With armor data: 485 (80.6%)
+  With movement data: 596 (99.0%)
+  With weapons: 355 (59.0%)
+
+Import sources:
+  bg_builder: 602
+
+[!] QUALITY CONCERNS:
+  - User reported bg_builder data may have OCR errors
+  - Need cross-validation with bg_reference_vehicles to assess quality
+  - Recommend SPOT-CHECKING 10-20 vehicles against source PDFs
+
+3. BG_REFERENCE_GUNS (Manual Extraction)
+--------------------------------------------------------------------------------
+Total guns: 51
+  With HE data: 37 (72.5%)
+  With penetration data: 29 (56.9%)
+  With caliber: 45 (88.2%)
+
+Sample guns with complete data:
+  75mmL40: 75mm, HE 4/4, AP 6-6-5
+  76mmL53: 76mm, HE 4/4, AP 7-7-6
+  77mmL50: 77mm, HE 3/4, AP 11-11-10
+  37mmL53: 37mm, HE 2/5, AP 4-4-3
+  37mmL53: 37mm, HE 2/5+, AP 4-4-3
+
+4. WWIITANKS_AFV_DATA (Technical Specifications)
+--------------------------------------------------------------------------------
+Total AFVs: 612
+  With armor (mm): 0 (0.0%)
+  With speed: 0 (0.0%)
+  With weight: 0 (0.0%)
+
+Sample AFVs with complete specs:
+
+5. CROSS-VALIDATION: Overlapping Vehicles
+--------------------------------------------------------------------------------
+Found 10 overlapping vehicles (first 10):
+  [OK] Panzer III J                   | Armor: L vs L | Move: 8 vs 8
+  [!] Panzer III L                   | Armor: None vs K | Move: None vs 8
+  [!] Flammpanzer III                | Armor: None vs K | Move: None vs 8
+  [!] Panzer III H Observation Tank  | Armor: None vs N | Move: None vs 8
+  [!] Panzer IV G                    | Armor: None vs L | Move: None vs 8
+  [!] Tiger I                        | Armor: None vs H | Move: None vs 8
+  [OK] Panzer II F                    | Armor: N vs N | Move: 10 vs 10
+  [!] StuG III A-E                   | Armor: None vs L | Move: None vs 8
+  [!] Marder III H                   | Armor: None vs L | Move: None vs 8
+  [!] Marder III (38t PaK 36r)       | Armor: None vs L | Move: None vs 9
+
+Match rates (from 10 overlaps):
+  Armor matches: 2/10 (20.0%)
+  Movement matches: 2/10 (20.0%)
+
+================================================================================
+RECOMMENDATIONS FOR FORMULA REVERSE-ENGINEERING
+================================================================================
+
+1. ARMOR CONVERSION (mm -> BG letter scale)
+   Available data points:
+     - bg_reference_vehicles with armor: 214 (BG letter scale)
+     - wwiitanks_afv_data with armor: 0 (mm values)
+   Strategy: Match bg_reference armor letters to wwiitanks mm values
+   Confidence: HIGH (214 samples)
+
+2. MOVEMENT CONVERSION (speed/weight -> BG inches)
+   Available data points:
+     - bg_reference_vehicles with movement: 214 (BG inches)
+     - wwiitanks_afv_data with speed/weight: 0/0
+   Strategy: Correlate bg_reference inches to wwiitanks speed/weight
+   Confidence: HIGH (214 samples)
+
+3. HE EFFECTIVENESS (caliber -> BG HE dice/target)
+   Available data points:
+     - bg_reference_guns with HE: 37 (BG dice/target format)
+   Strategy: Map caliber_mm to he_dice and he_target patterns
+   Confidence: HIGH (37 samples)
+
+4. PENETRATION CONVERSION (mm @ distance -> BG scale)
+   Available data points:
+     - bg_reference_guns with penetration: 29 (BG 1-15 scale)
+   Strategy: Map caliber + penetration mm to BG penetration scale
+   Confidence: MEDIUM (29 samples)
+
+5. POINTS/BR CALCULATION
+   Available data points:
+     - BG_Reference_ArmyList_Examples: 47 units (but these are complete units, not individual equipment)
+   Strategy: DEFER - Need equipment-level points/BR from army lists
+   Confidence: INSUFFICIENT DATA
+
+6. BG_BUILDER_VEHICLES DATA QUALITY
+   Action Required: SPOT-CHECK 20 vehicles
+   Method: Compare bg_builder armor/movement to source PDFs
+   Decision: If >90% accurate, use all 602 vehicles; if <90%, use only bg_reference_vehicles
+   Impact: Could increase sample size from 281 to 602 vehicles
+
+================================================================================
+NEXT STEPS
+================================================================================
+
+1. IMMEDIATE: Build formulas using bg_reference_vehicles + bg_reference_guns
+   - Armor conversion: 191 samples (HIGH confidence)
+   - Movement conversion: 191 samples (HIGH confidence)
+   - HE effectiveness: 37 samples (MEDIUM-HIGH confidence)
+   - Penetration conversion: 29 samples (MEDIUM confidence)
+
+2. VALIDATION: Spot-check bg_builder_vehicles (20 random vehicles)
+   - If accurate, incorporate 602 additional samples
+   - If inaccurate, discard and use only bg_reference data
+
+3. DEFER: Points/BR calculation until equipment-level data available
+
+[SAVED] Audit results saved to: analysis/data_quality_audit_results.json

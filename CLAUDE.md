@@ -348,7 +348,7 @@ As you work, update relevant files with:
 - **Infrastructure**: Database schema, conversion tools, book generation framework ✅
 - **Books Generated**: All 4 MDBook HTML builds complete (134 HTML files) ✅
 - **Scenarios**: 45 historical scenarios with combined arms validation ✅
-- **V5 Datacard Format**: ✅ **LOCKED** - Nation colors, multi-row armament, special rules (November 5, 2025)
+- **V5.5 Datacard Format**: ✅ **LOCKED** - Nation colors, multi-row armament, special rules, silhouette images (November 11, 2025)
 - **Equipment Stats**: ⏸️ ON HOLD - Conversion formulas need validation against clean reference data
 
 **CRITICAL ISSUE DISCOVERED**: Reference Data Quality
@@ -422,14 +422,16 @@ As you work, update relevant files with:
 **Equipment Datacards**:
 - Location: `books/[battle]/book/src/chapter2/[category].md`
 - Categories: tanks.md, guns_and_artillery.md, vehicles.md, infantry_weapons.md, other_equipment.md
-- Format: **V5 datacard format** (3x2 grid, A4 landscape, locked CSS) ✅ **LOCKED November 5, 2025**
-- **V5 Features**:
+- Format: **V5.5 datacard format** (3x2 grid, A4 landscape, locked CSS) ✅ **LOCKED November 11, 2025**
+- **V5.5 Features**:
   - Nation-specific color themes (German, British, Italian, American, French)
   - Multi-row armament tables (main gun + secondary weapons)
   - Special rules as single italicized header line (database-driven)
   - HE range value population (caliber-based calculation)
+  - Armor modifier display (e.g., "Open-topped") below armor values
+  - Silhouette images from `data/assets/tank_silhouettes/` directory
   - Compact spacing matching official BattleGroup cards
-  - Documentation: `docs/DATACARD_FORMAT_STANDARD.md`
+  - Generator: `scripts/battlegroup/book/generate_book_datacards_v5_5.py`
 
 **Forces/TO&E Tables**:
 - Location: `books/[battle]/book/src/forces/[unit_type].md`

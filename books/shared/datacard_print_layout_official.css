@@ -1,0 +1,351 @@
+/**
+ * BattleGroup Datacard Print Layout - OFFICIAL DIMENSIONS
+ *
+ * Measured from: Battlegroup-DataCards-Early-German.pdf
+ *
+ * Official Layout:
+ * - Card size: 67.8mm (width) × 62mm (height) - slightly wider than tall
+ * - Grid: 4 columns × 3 rows = 12 cards per page
+ * - Gap between cards: 2mm
+ * - Page size: A4 landscape (297mm × 210mm)
+ * - Margins: 10mm all sides
+ *
+ * Total grid: 277mm × 190mm (fits perfectly on A4 landscape)
+ *
+ * Created: 2025-11-10
+ */
+
+/* ========================================
+   PRINT MEDIA QUERIES
+   ======================================== */
+
+@media print {
+    /* Page setup - A4 landscape with 10mm margins */
+    @page {
+        size: A4 landscape;
+        margin: 10mm;
+    }
+
+    /* Force page breaks between grid pages */
+    .datacard-grid {
+        page-break-after: always;
+        page-break-inside: avoid;
+    }
+
+    /* Prevent cards from breaking across pages */
+    .datacard {
+        page-break-inside: avoid;
+        page-break-after: auto;
+    }
+
+    /* Hide navigation elements */
+    nav, .sidebar, .page-wrapper, .menu-bar {
+        display: none !important;
+    }
+
+    /* Full width content area */
+    main, .content {
+        margin: 0 !important;
+        padding: 0 !important;
+        max-width: 100% !important;
+    }
+}
+
+/* ========================================
+   SCREEN PREVIEW (matches print layout)
+   ======================================== */
+
+@media screen {
+    /* Show print preview on screen */
+    .datacard-page-container {
+        width: 297mm;
+        height: 210mm;
+        background: white;
+        margin: 20px auto;
+        padding: 10mm;
+        box-shadow: 0 0 10px rgba(0,0,0,0.3);
+        position: relative;
+    }
+
+    /* Optional: Show page boundaries */
+    .datacard-page-container::before {
+        content: "A4 Landscape (297mm × 210mm) - 4×3 Grid (12 cards)";
+        position: absolute;
+        top: 3mm;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 10px;
+        color: #999;
+    }
+}
+
+/* ========================================
+   4×3 GRID LAYOUT (12 cards per page)
+   ======================================== */
+
+.datacard-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 67.8mm);  /* 4 columns of 67.8mm each */
+    grid-template-rows: repeat(3, 62mm);       /* 3 rows of 62mm each */
+    gap: 2mm;                                  /* 2mm padding between cards */
+    width: 277mm;                              /* Total: (67.8mm × 4) + (2mm × 3) = 277.2mm */
+    height: 190mm;                             /* Total: (62mm × 3) + (2mm × 2) = 190mm */
+    margin: 0;
+    padding: 0;
+}
+
+/* ========================================
+   DATACARD DIMENSIONS
+   ======================================== */
+
+.datacard {
+    width: 67.8mm;
+    height: 62mm;
+    box-sizing: border-box;
+
+    /* Border styling */
+    border: 2px solid #2c2416;
+
+    /* Content padding */
+    padding: 2mm;
+
+    /* Default styling */
+    background-color: #d4c5a0;
+    font-family: Arial, sans-serif;
+    font-size: 7pt;
+    line-height: 1.1;
+
+    /* Prevent overflow */
+    overflow: hidden;
+
+    /* Smooth printing */
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+}
+
+/* ========================================
+   DATACARD INTERNAL STRUCTURE
+   ======================================== */
+
+/* Header section */
+.datacard-header {
+    display: flex;
+    gap: 2mm;
+    margin-bottom: 1mm;
+    min-height: 10mm;
+}
+
+.datacard-silhouette {
+    width: 10mm;
+    height: 10mm;
+    background-color: #1a1a1a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.datacard-title-block {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.datacard-title {
+    font-size: 8pt;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+    line-height: 1.1;
+    text-align: right;  /* Right-aligned title */
+}
+
+.datacard-subtitle {
+    font-size: 5.5pt;
+    margin: 0.5mm 0 0 0;
+    padding: 0;
+    line-height: 1.1;
+    opacity: 0.8;
+    text-align: right;  /* Right-aligned subtitle */
+}
+
+.datacard-special-rules {
+    font-size: 5.5pt;
+    font-style: italic;
+    margin: 0.5mm 0 0 0;
+    padding: 0;
+    line-height: 1.1;
+    text-align: right;  /* Right-aligned special rules */
+}
+
+/* Tables */
+.datacard table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0.5mm 0;
+    font-size: 6pt;
+}
+
+.datacard table th {
+    padding: 0.3mm 0.5mm;
+    font-weight: bold;
+    text-align: center;
+    border: 0.5px solid #000;
+}
+
+.datacard table td {
+    padding: 0.3mm 0.5mm;
+    text-align: center;
+    border: 0.5px solid #000;
+}
+
+/* Main header row */
+.datacard table th.main-header {
+    font-size: 6pt;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 0.5mm;
+}
+
+/* Armor modifier row */
+.datacard .armor-modifier-row td {
+    font-size: 5pt;
+    font-style: italic;
+    padding: 0.3mm;
+}
+
+/* ========================================
+   NATION-SPECIFIC COLOR THEMES
+   ======================================== */
+
+/* German */
+.datacard.datacard-german {
+    background-color: #797768;
+    border-color: #1a1a1a;
+}
+
+.datacard.datacard-german .datacard-title,
+.datacard.datacard-german .datacard-subtitle,
+.datacard.datacard-german .datacard-special-rules {
+    color: white;
+}
+
+.datacard.datacard-german th {
+    background-color: #ECD1A2;
+    color: #1a1a1a;
+}
+
+.datacard.datacard-german td {
+    background-color: #e8dcc8;
+    color: #1a1a1a;
+}
+
+/* British */
+.datacard.datacard-british {
+    background-color: #d4c5a0;
+    border-color: #2c2416;
+}
+
+.datacard.datacard-british th {
+    background-color: #8b7355;
+    color: white;
+}
+
+.datacard.datacard-british td {
+    background-color: #f5f5dc;
+    color: #1a1a1a;
+}
+
+/* Italian */
+.datacard.datacard-italian {
+    background-color: #c8b88a;
+    border-color: #5a4a2a;
+}
+
+.datacard.datacard-italian th {
+    background-color: #6b5d3f;
+    color: white;
+}
+
+.datacard.datacard-italian td {
+    background-color: #e8dcc0;
+    color: #1a1a1a;
+}
+
+/* American */
+.datacard.datacard-american {
+    background-color: #b8c5a0;
+    border-color: #3a4a2a;
+}
+
+.datacard.datacard-american th {
+    background-color: #5a6d45;
+    color: white;
+}
+
+.datacard.datacard-american td {
+    background-color: #e3e8d8;
+    color: #1a1a1a;
+}
+
+/* French */
+.datacard.datacard-french {
+    background-color: #a8b5c8;
+    border-color: #2a3a4a;
+}
+
+.datacard.datacard-french th {
+    background-color: #4a5a6d;
+    color: white;
+}
+
+.datacard.datacard-french td {
+    background-color: #d8e0e8;
+    color: #1a1a1a;
+}
+
+/* ========================================
+   PRINT OPTIMIZATION
+   ======================================== */
+
+@media print {
+    /* Force color printing */
+    .datacard,
+    .datacard * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    /* Remove shadows for cleaner printing */
+    .datacard {
+        box-shadow: none !important;
+    }
+
+    /* Ensure crisp borders */
+    .datacard,
+    .datacard table,
+    .datacard th,
+    .datacard td {
+        border-collapse: collapse;
+    }
+}
+
+/* ========================================
+   UTILITY CLASSES
+   ======================================== */
+
+/* Force new page for specific card groups */
+.datacard-page-break {
+    page-break-before: always;
+}
+
+/* Keep card group together on same page */
+.datacard-keep-together {
+    page-break-inside: avoid;
+}
+
+/* Full page of 12 cards wrapper */
+.datacard-page {
+    page-break-after: always;
+}

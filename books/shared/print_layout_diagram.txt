@@ -1,0 +1,156 @@
+BattleGroup Datacard Print Layout - Visual Diagram
+==================================================
+
+A4 LANDSCAPE PAGE (297mm × 210mm)
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                                                                             │
+│  ← 49.5mm margin →                                      ← 49.5mm margin →  │
+│                                                                             │
+│                    ┌─────────────────────────────┐                         │
+│                    │  4×2 GRID (198mm × 170mm)   │                         │
+│  ↑                 │                             │                    ↑    │
+│  20mm              │  ┌────┐  ┌────┐  ┌────┐  ┌────┐              20mm  │
+│  margin            │  │ 1  │  │ 2  │  │ 3  │  │ 4  │              margin │
+│  ↓                 │  │    │  │    │  │    │  │    │                 ↓    │
+│                    │  │48mm│  │48mm│  │48mm│  │48mm│                     │
+│                    │  │ ×  │  │ ×  │  │ ×  │  │ ×  │                     │
+│                    │  │84mm│  │84mm│  │84mm│  │84mm│                     │
+│                    │  └────┘  └────┘  └────┘  └────┘                     │
+│                    │    ↕ 2mm gap                                          │
+│                    │  ┌────┐  ┌────┐  ┌────┐  ┌────┐                     │
+│                    │  │ 5  │  │ 6  │  │ 7  │  │ 8  │                     │
+│                    │  │    │  │    │  │    │  │    │                     │
+│                    │  │48mm│  │48mm│  │48mm│  │48mm│                     │
+│                    │  │ ×  │  │ ×  │  │ ×  │  │ ×  │                     │
+│                    │  │84mm│  │84mm│  │84mm│  │84mm│                     │
+│                    │  └────┘  └────┘  └────┘  └────┘                     │
+│                    │                             │                         │
+│                    └─────────────────────────────┘                         │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+INDIVIDUAL CARD DETAIL (48mm × 84mm)
+┌──────────────────────────────────────────────┐
+│  ← 1mm white border →                        │
+│  ┌────────────────────────────────────────┐  │
+│  │ ┌──┐ CARD TITLE                        │  │
+│  │ │🔲│ 1942 | Tank Type                  │  │
+│  │ └──┘ Special Rules                     │  │
+│  │                                         │  │
+│  │ ╔════════╦═══════════╦═══════════╗     │  │
+│  │ ║VEHICLE ║ MOVEMENT  ║  ARMOUR   ║     │  │
+│  │ ╠════════╬═══════════╬═══════════╣     │  │
+│  │ ║  Name  ║ Off | Rd  ║  F│ S│ R  ║     │  │
+│  │ ╚════════╩═══════════╩═══════════╝     │  │
+│  │                                         │  │
+│  │ ╔═══════╦═════╦═════════════════╗      │  │
+│  │ ║WEAPON ║ HE  ║     RANGE       ║      │  │
+│  │ ╠═══════╬═════╬═════════════════╣      │  │
+│  │ ║ Gun   ║ 3D6 ║ 10│20│30│40│50 ║      │  │
+│  │ ╚═══════╩═════╩═════════════════╝      │  │
+│  │                                         │  │
+│  │ ← 46mm usable width →                  │  │
+│  │ ↑                                       │  │
+│  │ 82mm usable height                      │  │
+│  │ ↓                                       │  │
+│  └────────────────────────────────────────┘  │
+│                                               │
+└──────────────────────────────────────────────┘
+    ↑                                     ↑
+    2mm padding to next card              2mm padding
+
+GRID SPACING CALCULATION
+═════════════════════════════════════════
+
+Horizontal (4 cards):
+  (48mm × 4) + (2mm × 3 gaps) = 192mm + 6mm = 198mm
+
+Vertical (2 rows):
+  (84mm × 2) + (2mm × 1 gap)  = 168mm + 2mm = 170mm
+
+Page centering:
+  Horizontal margins: (297mm - 198mm) / 2 = 49.5mm per side
+  Vertical margins:   (210mm - 170mm) / 2 = 20mm per side
+
+Total page usage:
+  Grid: 198mm × 170mm
+  Page: 297mm × 210mm
+  Efficiency: 66.7% × 81.0% = 54% (good utilization)
+
+CARD INTERNAL STRUCTURE
+════════════════════════
+
+┌─────────────────────────────────────────┐  ↑
+│ Header Section (12mm height)            │  │
+│ ┌──┐ ┌──────────────────────────────┐   │  │ 2mm
+│ │🔲│ │ TITLE (9pt bold)             │   │  │ padding
+│ └──┘ │ Subtitle (6pt)               │   │  ↓
+│      │ Special rules (6pt italic)   │   │
+│      └──────────────────────────────┘   │
+├─────────────────────────────────────────┤
+│ Vehicle Stats Table                     │  ↑
+│ ┌───────────────────────────────────┐   │  │
+│ │ Headers (7pt bold uppercase)      │   │  │ ~30mm
+│ │ Data cells (7pt center aligned)   │   │  │
+│ └───────────────────────────────────┘   │  ↓
+├─────────────────────────────────────────┤
+│ Weapon Performance Table                │  ↑
+│ ┌───────────────────────────────────┐   │  │
+│ │ WEAPON │ HE │ Range bands        │   │  │ ~35mm
+│ │ Gun HE │ 3D6│ 10 20 30 40 50 70 │   │  │
+│ │ Gun AP │  - │  8  7  6  5  4  3 │   │  │
+│ └───────────────────────────────────┘   │  ↓
+└─────────────────────────────────────────┘
+
+Total usable height: ~12mm + 30mm + 35mm + 5mm spacing = 82mm ✓
+
+PRINTING REFERENCE
+══════════════════════════════════════════
+
+Critical Settings:
+  • Page size: A4 (210mm × 297mm)
+  • Orientation: LANDSCAPE (critical!)
+  • Scale: 100% (do not adjust)
+  • Margins: Top/Bottom 20mm, Left/Right 49.5mm
+  • Background graphics: ON (for colors)
+  • Headers/footers: OFF
+
+Quality Checks After Printing:
+  1. Measure card: Should be 48mm × 84mm (±0.5mm)
+  2. Count cards: Should be exactly 8 per page
+  3. Check gaps: Should be ~2mm between cards
+  4. Verify border: 1mm white border visible
+  5. Text readable: All text clear at printed size
+  6. Colors correct: Nation themes display properly
+
+CUTTING GUIDE
+═════════════════════════════════════════
+
+For Physical Cards:
+  1. Print on 200-300gsm cardstock
+  2. Use rotary cutter or guillotine for straight edges
+  3. Cut columns first (4 vertical cuts)
+  4. Then cut rows (3 horizontal cuts per column)
+  5. Result: 8 cards per sheet, 48mm × 84mm each
+
+Batch Cutting:
+  • Stack 5-10 sheets
+  • Align edges carefully
+  • Cut all sheets at once for consistency
+  • Cards should be identical size
+
+COMPARISON TO PREVIOUS LAYOUT
+══════════════════════════════════════════
+
+Old Layout (3×2 grid):
+  • 6 cards per page
+  • Variable sizing
+  • Not to official spec
+
+New Layout (4×2 grid):
+  • 8 cards per page (+33% more)
+  • Exact 48mm × 84mm
+  • Official BattleGroup dimensions
+  • Ready for physical use
+
+═══════════════════════════════════════════

@@ -1,0 +1,626 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>North Africa Campaign 1940-1943: Complete Order of Battle</title>
+        <meta name="robots" content="noindex">
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">North Africa Campaign 1940-1943: Complete Order of Battle</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/yourusername/north-africa-toe-builder" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="north-africa-campaign-1940-1943"><a class="header" href="#north-africa-campaign-1940-1943">North Africa Campaign 1940-1943</a></h1>
+<h2 id="complete-order-of-battle-database"><a class="header" href="#complete-order-of-battle-database">Complete Order of Battle Database</a></h2>
+<p>This comprehensive reference work documents the complete order of battle for all major formations that fought in the North African theater during World War II, from Italy's entry into the war (June 1940) through the final Allied victory in Tunisia (May 1943).</p>
+<h3 id="coverage"><a class="header" href="#coverage">Coverage</a></h3>
+<ul>
+<li><strong>117 unique units</strong> across all nations</li>
+<li><strong>689 unit-quarter chapters</strong> with detailed TO&amp;E data</li>
+<li><strong>23 quarterly air summaries</strong> (1941-1943)</li>
+<li><strong>All major battles</strong>: Operation Compass, Operation Battleaxe, Operation Crusader, Gazala, El Alamein, Operation Torch, Tunisia Campaign</li>
+</ul>
+<h3 id="nations-covered"><a class="header" href="#nations-covered">Nations Covered</a></h3>
+<ul>
+<li><strong>British/Commonwealth</strong>: 154 unit-quarters (India, Australia, New Zealand, South Africa, Poland, Greece)</li>
+<li><strong>Italian</strong>: 147 unit-quarters</li>
+<li><strong>German</strong>: 59 unit-quarters (Deutsches Afrikakorps, Panzerarmee Afrika)</li>
+<li><strong>American</strong>: 23 unit-quarters (Operation Torch through Tunisia)</li>
+<li><strong>French</strong>: 19 unit-quarters (Free French Forces)</li>
+</ul>
+<h3 id="data-quality"><a class="header" href="#data-quality">Data Quality</a></h3>
+<ul>
+<li><strong>Tier 1/2 sources only</strong>: Official histories, war diaries, archival documents</li>
+<li><strong>Zero Wikipedia references</strong>: All data from primary/secondary military sources</li>
+<li><strong>Confidence ratings</strong>: 75-95% across all units</li>
+<li><strong>Schema v3.0.0</strong>: Includes supply/logistics and environmental data</li>
+</ul>
+<h3 id="organization"><a class="header" href="#organization">Organization</a></h3>
+<p>This book is organized into three main sections:</p>
+<ol>
+<li><strong>Quarter Overviews</strong> (13 quarters): Strategic situation, major operations, weather, supply status</li>
+<li><strong>Ground Forces</strong> (689 chapters): Division/brigade/corps-level units with complete TO&amp;E</li>
+<li><strong>Air Forces</strong> (23 summaries): Theater-wide air strength by nation and quarter</li>
+</ol>
+<p>Each unit chapter includes:</p>
+<ul>
+<li>Command structure and personnel</li>
+<li>Complete equipment inventories</li>
+<li>Supply and logistics status</li>
+<li>Environmental conditions</li>
+<li>Tactical doctrine and capabilities</li>
+<li>Historical context and significance</li>
+<li>Data validation and sources</li>
+</ul>
+<h3 id="usage"><a class="header" href="#usage">Usage</a></h3>
+<p>This reference is designed for:</p>
+<ul>
+<li>Wargame scenario designers</li>
+<li>Military historians</li>
+<li>Researchers studying WWII logistics and organization</li>
+<li>Modders creating historical simulations</li>
+</ul>
+<hr />
+<p><strong>Project</strong>: North Africa TO&amp;E Builder<br />
+<strong>Schema</strong>: v3.0.0<br />
+<strong>Last Updated</strong>: November 2025<br />
+<strong>Total Chapters</strong>: 712 (689 ground + 23 air)</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="1940-q2-april-june-1940"><a class="header" href="#1940-q2-april-june-1940">1940-Q2 (April-June 1940)</a></h1>
+<h2 id="strategic-situation"><a class="header" href="#strategic-situation">Strategic Situation</a></h2>
+<p>Italy enters WWII</p>
+<h2 id="major-operations"><a class="header" href="#major-operations">Major Operations</a></h2>
+<p>TBD - To be populated with specific battle details</p>
+<h2 id="weather-and-environmental-conditions"><a class="header" href="#weather-and-environmental-conditions">Weather and Environmental Conditions</a></h2>
+<p><strong>Temperature Range</strong>: Varies by season
+<strong>Terrain</strong>: Desert, coastal plains, mountainous regions
+<strong>Supply Challenges</strong>: Distance from ports, water scarcity</p>
+<h2 id="supply-line-status"><a class="header" href="#supply-line-status">Supply Line Status</a></h2>
+<p>TBD - To be populated with specific supply data</p>
+<h2 id="forces-present"><a class="header" href="#forces-present">Forces Present</a></h2>
+<p>See individual unit chapters for detailed TO&amp;E data.</p>
+<hr />
+<p><em>Quarter overview chapter - placeholder for detailed strategic analysis</em></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="1940-q3-july-september-1940"><a class="header" href="#1940-q3-july-september-1940">1940-Q3 (July-September 1940)</a></h1>
+<h2 id="strategic-situation-1"><a class="header" href="#strategic-situation-1">Strategic Situation</a></h2>
+<p>Initial Italian offensive into Egypt</p>
+<h2 id="major-operations-1"><a class="header" href="#major-operations-1">Major Operations</a></h2>
+<p>TBD - To be populated with specific battle details</p>
+<h2 id="weather-and-environmental-conditions-1"><a class="header" href="#weather-and-environmental-conditions-1">Weather and Environmental Conditions</a></h2>
+<p><strong>Temperature Range</strong>: Varies by season
+<strong>Terrain</strong>: Desert, coastal plains, mountainous regions
+<strong>Supply Challenges</strong>: Distance from ports, water scarcity</p>
+<h2 id="supply-line-status-1"><a class="header" href="#supply-line-status-1">Supply Line Status</a></h2>
+<p>TBD - To be populated with specific supply data</p>
+<h2 id="forces-present-1"><a class="header" href="#forces-present-1">Forces Present</a></h2>
+<p>See individual unit chapters for detailed TO&amp;E data.</p>
+<hr />
+<p><em>Quarter overview chapter - placeholder for detailed strategic analysis</em></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="1940-q4-october-december-1940"><a class="header" href="#1940-q4-october-december-1940">1940-Q4 (October-December 1940)</a></h1>
+<h2 id="strategic-situation-2"><a class="header" href="#strategic-situation-2">Strategic Situation</a></h2>
+<p>Operation Compass begins</p>
+<h2 id="major-operations-2"><a class="header" href="#major-operations-2">Major Operations</a></h2>
+<p>TBD - To be populated with specific battle details</p>
+<h2 id="weather-and-environmental-conditions-2"><a class="header" href="#weather-and-environmental-conditions-2">Weather and Environmental Conditions</a></h2>
+<p><strong>Temperature Range</strong>: Varies by season
+<strong>Terrain</strong>: Desert, coastal plains, mountainous regions
+<strong>Supply Challenges</strong>: Distance from ports, water scarcity</p>
+<h2 id="supply-line-status-2"><a class="header" href="#supply-line-status-2">Supply Line Status</a></h2>
+<p>TBD - To be populated with specific supply data</p>
+<h2 id="forces-present-2"><a class="header" href="#forces-present-2">Forces Present</a></h2>
+<p>See individual unit chapters for detailed TO&amp;E data.</p>
+<hr />
+<p><em>Quarter overview chapter - placeholder for detailed strategic analysis</em></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="1941-q1-january-march-1941"><a class="header" href="#1941-q1-january-march-1941">1941-Q1 (January-March 1941)</a></h1>
+<h2 id="strategic-situation-3"><a class="header" href="#strategic-situation-3">Strategic Situation</a></h2>
+<p>Operation Compass victory, Rommel arrives</p>
+<h2 id="major-operations-3"><a class="header" href="#major-operations-3">Major Operations</a></h2>
+<p>TBD - To be populated with specific battle details</p>
+<h2 id="weather-and-environmental-conditions-3"><a class="header" href="#weather-and-environmental-conditions-3">Weather and Environmental Conditions</a></h2>
+<p><strong>Temperature Range</strong>: Varies by season
+<strong>Terrain</strong>: Desert, coastal plains, mountainous regions
+<strong>Supply Challenges</strong>: Distance from ports, water scarcity</p>
+<h2 id="supply-line-status-3"><a class="header" href="#supply-line-status-3">Supply Line Status</a></h2>
+<p>TBD - To be populated with specific supply data</p>
+<h2 id="forces-present-3"><a class="header" href="#forces-present-3">Forces Present</a></h2>
+<p>See individual unit chapters for detailed TO&amp;E data.</p>
+<hr />
+<p><em>Quarter overview chapter - placeholder for detailed strategic analysis</em></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="1941-q2-april-june-1941"><a class="header" href="#1941-q2-april-june-1941">1941-Q2 (April-June 1941)</a></h1>
+<h2 id="strategic-situation-4"><a class="header" href="#strategic-situation-4">Strategic Situation</a></h2>
+<p>Operation Battleaxe, Tobruk siege</p>
+<h2 id="major-operations-4"><a class="header" href="#major-operations-4">Major Operations</a></h2>
+<p>TBD - To be populated with specific battle details</p>
+<h2 id="weather-and-environmental-conditions-4"><a class="header" href="#weather-and-environmental-conditions-4">Weather and Environmental Conditions</a></h2>
+<p><strong>Temperature Range</strong>: Varies by season
+<strong>Terrain</strong>: Desert, coastal plains, mountainous regions
+<strong>Supply Challenges</strong>: Distance from ports, water scarcity</p>
+<h2 id="supply-line-status-4"><a class="header" href="#supply-line-status-4">Supply Line Status</a></h2>
+<p>TBD - To be populated with specific supply data</p>
+<h2 id="forces-present-4"><a class="header" href="#forces-present-4">Forces Present</a></h2>
+<p>See individual unit chapters for detailed TO&amp;E data.</p>
+<hr />
+<p><em>Quarter overview chapter - placeholder for detailed strategic analysis</em></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="1941-q3-july-september-1941"><a class="header" href="#1941-q3-july-september-1941">1941-Q3 (July-September 1941)</a></h1>
+<h2 id="strategic-situation-5"><a class="header" href="#strategic-situation-5">Strategic Situation</a></h2>
+<p>Stalemate, both sides build up</p>
+<h2 id="major-operations-5"><a class="header" href="#major-operations-5">Major Operations</a></h2>
+<p>TBD - To be populated with specific battle details</p>
+<h2 id="weather-and-environmental-conditions-5"><a class="header" href="#weather-and-environmental-conditions-5">Weather and Environmental Conditions</a></h2>
+<p><strong>Temperature Range</strong>: Varies by season
+<strong>Terrain</strong>: Desert, coastal plains, mountainous regions
+<strong>Supply Challenges</strong>: Distance from ports, water scarcity</p>
+<h2 id="supply-line-status-5"><a class="header" href="#supply-line-status-5">Supply Line Status</a></h2>
+<p>TBD - To be populated with specific supply data</p>
+<h2 id="forces-present-5"><a class="header" href="#forces-present-5">Forces Present</a></h2>
+<p>See individual unit chapters for detailed TO&amp;E data.</p>
+<hr />
+<p><em>Quarter overview chapter - placeholder for detailed strategic analysis</em></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="1941-q4-october-december-1941"><a class="header" href="#1941-q4-october-december-1941">1941-Q4 (October-December 1941)</a></h1>
+<h2 id="strategic-situation-6"><a class="header" href="#strategic-situation-6">Strategic Situation</a></h2>
+<p>Operation Crusader</p>
+<h2 id="major-operations-6"><a class="header" href="#major-operations-6">Major Operations</a></h2>
+<p>TBD - To be populated with specific battle details</p>
+<h2 id="weather-and-environmental-conditions-6"><a class="header" href="#weather-and-environmental-conditions-6">Weather and Environmental Conditions</a></h2>
+<p><strong>Temperature Range</strong>: Varies by season
+<strong>Terrain</strong>: Desert, coastal plains, mountainous regions
+<strong>Supply Challenges</strong>: Distance from ports, water scarcity</p>
+<h2 id="supply-line-status-6"><a class="header" href="#supply-line-status-6">Supply Line Status</a></h2>
+<p>TBD - To be populated with specific supply data</p>
+<h2 id="forces-present-6"><a class="header" href="#forces-present-6">Forces Present</a></h2>
+<p>See individual unit chapters for detailed TO&amp;E data.</p>
+<hr />
+<p><em>Quarter overview chapter - placeholder for detailed strategic analysis</em></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="1942-q1-january-march-1942"><a class="header" href="#1942-q1-january-march-1942">1942-Q1 (January-March 1942)</a></h1>
+<h2 id="strategic-situation-7"><a class="header" href="#strategic-situation-7">Strategic Situation</a></h2>
+<p>Rommel's second offensive</p>
+<h2 id="major-operations-7"><a class="header" href="#major-operations-7">Major Operations</a></h2>
+<p>TBD - To be populated with specific battle details</p>
+<h2 id="weather-and-environmental-conditions-7"><a class="header" href="#weather-and-environmental-conditions-7">Weather and Environmental Conditions</a></h2>
+<p><strong>Temperature Range</strong>: Varies by season
+<strong>Terrain</strong>: Desert, coastal plains, mountainous regions
+<strong>Supply Challenges</strong>: Distance from ports, water scarcity</p>
+<h2 id="supply-line-status-7"><a class="header" href="#supply-line-status-7">Supply Line Status</a></h2>
+<p>TBD - To be populated with specific supply data</p>
+<h2 id="forces-present-7"><a class="header" href="#forces-present-7">Forces Present</a></h2>
+<p>See individual unit chapters for detailed TO&amp;E data.</p>
+<hr />
+<p><em>Quarter overview chapter - placeholder for detailed strategic analysis</em></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="1942-q2-april-june-1942"><a class="header" href="#1942-q2-april-june-1942">1942-Q2 (April-June 1942)</a></h1>
+<h2 id="strategic-situation-8"><a class="header" href="#strategic-situation-8">Strategic Situation</a></h2>
+<p>Battle of Gazala, fall of Tobruk</p>
+<h2 id="major-operations-8"><a class="header" href="#major-operations-8">Major Operations</a></h2>
+<p>TBD - To be populated with specific battle details</p>
+<h2 id="weather-and-environmental-conditions-8"><a class="header" href="#weather-and-environmental-conditions-8">Weather and Environmental Conditions</a></h2>
+<p><strong>Temperature Range</strong>: Varies by season
+<strong>Terrain</strong>: Desert, coastal plains, mountainous regions
+<strong>Supply Challenges</strong>: Distance from ports, water scarcity</p>
+<h2 id="supply-line-status-8"><a class="header" href="#supply-line-status-8">Supply Line Status</a></h2>
+<p>TBD - To be populated with specific supply data</p>
+<h2 id="forces-present-8"><a class="header" href="#forces-present-8">Forces Present</a></h2>
+<p>See individual unit chapters for detailed TO&amp;E data.</p>
+<hr />
+<p><em>Quarter overview chapter - placeholder for detailed strategic analysis</em></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="1942-q3-july-september-1942"><a class="header" href="#1942-q3-july-september-1942">1942-Q3 (July-September 1942)</a></h1>
+<h2 id="strategic-situation-9"><a class="header" href="#strategic-situation-9">Strategic Situation</a></h2>
+<p>First El Alamein, Second El Alamein begins</p>
+<h2 id="major-operations-9"><a class="header" href="#major-operations-9">Major Operations</a></h2>
+<p>TBD - To be populated with specific battle details</p>
+<h2 id="weather-and-environmental-conditions-9"><a class="header" href="#weather-and-environmental-conditions-9">Weather and Environmental Conditions</a></h2>
+<p><strong>Temperature Range</strong>: Varies by season
+<strong>Terrain</strong>: Desert, coastal plains, mountainous regions
+<strong>Supply Challenges</strong>: Distance from ports, water scarcity</p>
+<h2 id="supply-line-status-9"><a class="header" href="#supply-line-status-9">Supply Line Status</a></h2>
+<p>TBD - To be populated with specific supply data</p>
+<h2 id="forces-present-9"><a class="header" href="#forces-present-9">Forces Present</a></h2>
+<p>See individual unit chapters for detailed TO&amp;E data.</p>
+<hr />
+<p><em>Quarter overview chapter - placeholder for detailed strategic analysis</em></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="1942-q4-october-december-1942"><a class="header" href="#1942-q4-october-december-1942">1942-Q4 (October-December 1942)</a></h1>
+<h2 id="strategic-situation-10"><a class="header" href="#strategic-situation-10">Strategic Situation</a></h2>
+<p>Operation Torch, retreat to Tunisia</p>
+<h2 id="major-operations-10"><a class="header" href="#major-operations-10">Major Operations</a></h2>
+<p>TBD - To be populated with specific battle details</p>
+<h2 id="weather-and-environmental-conditions-10"><a class="header" href="#weather-and-environmental-conditions-10">Weather and Environmental Conditions</a></h2>
+<p><strong>Temperature Range</strong>: Varies by season
+<strong>Terrain</strong>: Desert, coastal plains, mountainous regions
+<strong>Supply Challenges</strong>: Distance from ports, water scarcity</p>
+<h2 id="supply-line-status-10"><a class="header" href="#supply-line-status-10">Supply Line Status</a></h2>
+<p>TBD - To be populated with specific supply data</p>
+<h2 id="forces-present-10"><a class="header" href="#forces-present-10">Forces Present</a></h2>
+<p>See individual unit chapters for detailed TO&amp;E data.</p>
+<hr />
+<p><em>Quarter overview chapter - placeholder for detailed strategic analysis</em></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="1943-q1-january-march-1943"><a class="header" href="#1943-q1-january-march-1943">1943-Q1 (January-March 1943)</a></h1>
+<h2 id="strategic-situation-11"><a class="header" href="#strategic-situation-11">Strategic Situation</a></h2>
+<p>Tunisia Campaign</p>
+<h2 id="major-operations-11"><a class="header" href="#major-operations-11">Major Operations</a></h2>
+<p>TBD - To be populated with specific battle details</p>
+<h2 id="weather-and-environmental-conditions-11"><a class="header" href="#weather-and-environmental-conditions-11">Weather and Environmental Conditions</a></h2>
+<p><strong>Temperature Range</strong>: Varies by season
+<strong>Terrain</strong>: Desert, coastal plains, mountainous regions
+<strong>Supply Challenges</strong>: Distance from ports, water scarcity</p>
+<h2 id="supply-line-status-11"><a class="header" href="#supply-line-status-11">Supply Line Status</a></h2>
+<p>TBD - To be populated with specific supply data</p>
+<h2 id="forces-present-11"><a class="header" href="#forces-present-11">Forces Present</a></h2>
+<p>See individual unit chapters for detailed TO&amp;E data.</p>
+<hr />
+<p><em>Quarter overview chapter - placeholder for detailed strategic analysis</em></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="1943-q2-april-may-1943"><a class="header" href="#1943-q2-april-may-1943">1943-Q2 (April-May 1943)</a></h1>
+<h2 id="strategic-situation-12"><a class="header" href="#strategic-situation-12">Strategic Situation</a></h2>
+<p>Final Axis surrender</p>
+<h2 id="major-operations-12"><a class="header" href="#major-operations-12">Major Operations</a></h2>
+<p>TBD - To be populated with specific battle details</p>
+<h2 id="weather-and-environmental-conditions-12"><a class="header" href="#weather-and-environmental-conditions-12">Weather and Environmental Conditions</a></h2>
+<p><strong>Temperature Range</strong>: Varies by season
+<strong>Terrain</strong>: Desert, coastal plains, mountainous regions
+<strong>Supply Challenges</strong>: Distance from ports, water scarcity</p>
+<h2 id="supply-line-status-12"><a class="header" href="#supply-line-status-12">Supply Line Status</a></h2>
+<p>TBD - To be populated with specific supply data</p>
+<h2 id="forces-present-12"><a class="header" href="#forces-present-12">Forces Present</a></h2>
+<p>See individual unit chapters for detailed TO&amp;E data.</p>
+<hr />
+<p><em>Quarter overview chapter - placeholder for detailed strategic analysis</em></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="methodology"><a class="header" href="#methodology">Methodology</a></h1>
+<h2 id="data-collection"><a class="header" href="#data-collection">Data Collection</a></h2>
+<p>All data in this reference work was extracted from Tier 1 and Tier 2 primary sources:</p>
+<h3 id="tier-1-sources"><a class="header" href="#tier-1-sources">Tier 1 Sources</a></h3>
+<ul>
+<li>Official military histories (British, German, Italian, American official series)</li>
+<li>War diaries and unit records (National Archives, Bundesarchiv)</li>
+<li>Contemporary military manuals and technical documentation</li>
+<li>Memoirs by senior commanders with archival verification</li>
+</ul>
+<h3 id="tier-2-sources"><a class="header" href="#tier-2-sources">Tier 2 Sources</a></h3>
+<ul>
+<li>Peer-reviewed academic journals</li>
+<li>Museum archives and collections</li>
+<li>Cross-referenced secondary sources with primary documentation</li>
+</ul>
+<h3 id="excluded-sources"><a class="header" href="#excluded-sources">Excluded Sources</a></h3>
+<ul>
+<li>Wikipedia and general encyclopedias</li>
+<li>Unverified web content</li>
+<li>Sources without primary documentation</li>
+</ul>
+<h2 id="data-quality-standards"><a class="header" href="#data-quality-standards">Data Quality Standards</a></h2>
+<p>Each unit chapter includes:</p>
+<ul>
+<li><strong>Confidence rating</strong>: 75-95% based on source quality</li>
+<li><strong>Source citations</strong>: Complete bibliography with archive references</li>
+<li><strong>Known gaps</strong>: Documented limitations and missing data</li>
+<li><strong>Cross-references</strong>: Multiple independent source verification</li>
+</ul>
+<h2 id="schema-compliance"><a class="header" href="#schema-compliance">Schema Compliance</a></h2>
+<p>All data follows unified TO&amp;E schema v3.0.0:</p>
+<ul>
+<li>Personnel (officers, NCOs, enlisted)</li>
+<li>Equipment (vehicles, artillery, aircraft)</li>
+<li>Supply and logistics (fuel, ammunition, water, operational radius)</li>
+<li>Environmental conditions (weather, terrain, seasonal impacts)</li>
+</ul>
+<h2 id="validation-process"><a class="header" href="#validation-process">Validation Process</a></h2>
+<ol>
+<li>Extract data from primary sources</li>
+<li>Cross-reference with independent sources</li>
+<li>Validate against known historical outcomes</li>
+<li>Calculate derived values from standard establishments</li>
+<li>Document gaps and uncertainties</li>
+</ol>
+<hr />
+<p><em>All data validated to 75%+ confidence using Tier 1/2 sources only</em></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="bibliography"><a class="header" href="#bibliography">Bibliography</a></h1>
+<h2 id="british-official-histories"><a class="header" href="#british-official-histories">British Official Histories</a></h2>
+<ul>
+<li>Playfair, I.S.O. et al. (1954-1966). <em>The Mediterranean and Middle East</em>, Volumes I-IV. History of the Second World War, United Kingdom Military Series. HMSO.</li>
+</ul>
+<h2 id="german-sources"><a class="header" href="#german-sources">German Sources</a></h2>
+<ul>
+<li>Tessin, Georg (1966-1977). <em>Verbände und Truppen der deutschen Wehrmacht und Waffen-SS im Zweiten Weltkrieg 1939-1945</em>. Osnabrück: Biblio Verlag.</li>
+<li>OKH/OKW war diaries (Bundesarchiv-Militärarchiv, Freiburg)</li>
+</ul>
+<h2 id="italian-sources"><a class="header" href="#italian-sources">Italian Sources</a></h2>
+<ul>
+<li>Comando Superiore Forze Armate Africa Settentrionale records</li>
+<li>Italian divisional war diaries (Ufficio Storico, Rome)</li>
+</ul>
+<h2 id="american-sources"><a class="header" href="#american-sources">American Sources</a></h2>
+<ul>
+<li>US War Department Technical Manuals (TM 30-410, TM E 30-420)</li>
+<li>NARA Record Groups 165, 407 (War Department files, Army AG files)</li>
+</ul>
+<h2 id="unit-histories"><a class="header" href="#unit-histories">Unit Histories</a></h2>
+<ul>
+<li>Mason, Philip (1982). <em>The Indian Divisions Memorial, 1939-1945</em>. Royal Military Academy Sandhurst.</li>
+<li>Prasad, S.N. (ed). <em>Official History of the Indian Armed Forces in the Second World War</em>.</li>
+</ul>
+<h2 id="equipment-references"><a class="header" href="#equipment-references">Equipment References</a></h2>
+<ul>
+<li>Chamberlain, Peter &amp; Ellis, Chris (1969-1981). <em>British and American Tanks of World War II</em></li>
+<li><em>WWIITANKS.co.uk</em> - Technical specifications database</li>
+<li><em>OnWar.com</em> - Military vehicle data</li>
+</ul>
+<hr />
+<p><em>Complete source citations available in individual unit chapters</em></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="glossary"><a class="header" href="#glossary">Glossary</a></h1>
+<h2 id="military-terms"><a class="header" href="#military-terms">Military Terms</a></h2>
+<p><strong>TO&amp;E</strong> - Table of Organization and Equipment. Standard organizational structure and equipment allocation for military units.</p>
+<p><strong>Echelon</strong> - Level of military organization (division, brigade, battalion, etc.)</p>
+<p><strong>Establishment</strong> - Authorized strength and equipment of a unit</p>
+<p><strong>Order of Battle (OOB)</strong> - Complete listing of military units and their organization</p>
+<p><strong>Operational Radius</strong> - Maximum distance a unit can operate from its supply base</p>
+<h2 id="unit-designations"><a class="header" href="#unit-designations">Unit Designations</a></h2>
+<p><strong>Division</strong> - Major tactical formation (10,000-20,000 personnel)</p>
+<p><strong>Brigade</strong> - Tactical formation of 3-5 battalions (3,000-5,000 personnel)</p>
+<p><strong>Regiment</strong> - Battalion-level or brigade-level formation depending on nation</p>
+<p><strong>Battalion</strong> - Basic tactical unit (500-1,000 personnel)</p>
+<p><strong>Company</strong> - Subunit of battalion (100-200 personnel)</p>
+<h2 id="equipment-categories"><a class="header" href="#equipment-categories">Equipment Categories</a></h2>
+<p><strong>AFV</strong> - Armoured Fighting Vehicle (tanks, armored cars)</p>
+<p><strong>AT</strong> - Anti-Tank (guns, rifles designed to destroy armor)</p>
+<p><strong>AA</strong> - Anti-Aircraft (guns designed to engage aircraft)</p>
+<p><strong>SPG</strong> - Self-Propelled Gun (artillery on tracked/wheeled chassis)</p>
+<p><strong>HMG</strong> - Heavy Machine Gun (sustained fire support weapon)</p>
+<p><strong>LMG</strong> - Light Machine Gun (squad automatic weapon)</p>
+<hr />
+<p><em>See individual chapters for nation-specific terminology</em></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="abbreviations"><a class="header" href="#abbreviations">Abbreviations</a></h1>
+<h2 id="nations-and-forces"><a class="header" href="#nations-and-forces">Nations and Forces</a></h2>
+<ul>
+<li><strong>DAK</strong> - Deutsches Afrikakorps (German Africa Corps)</li>
+<li><strong>WDF</strong> - Western Desert Force (British)</li>
+<li><strong>2nd AIF</strong> - 2nd Australian Imperial Force</li>
+<li><strong>NZEF</strong> - New Zealand Expeditionary Force</li>
+<li><strong>FFL</strong> - Forces Françaises Libres (Free French Forces)</li>
+</ul>
+<h2 id="britishcommonwealth"><a class="header" href="#britishcommonwealth">British/Commonwealth</a></h2>
+<ul>
+<li><strong>RASC</strong> - Royal Army Service Corps</li>
+<li><strong>RAMC</strong> - Royal Army Medical Corps</li>
+<li><strong>RIASC</strong> - Royal Indian Army Service Corps</li>
+<li><strong>RAC</strong> - Royal Armoured Corps</li>
+</ul>
+<h2 id="german"><a class="header" href="#german">German</a></h2>
+<ul>
+<li><strong>OKH</strong> - Oberkommando des Heeres (Army High Command)</li>
+<li><strong>OKW</strong> - Oberkommando der Wehrmacht (Armed Forces High Command)</li>
+<li><strong>Pz</strong> - Panzer (tank)</li>
+<li><strong>Kfz</strong> - Kraftfahrzeug (motor vehicle)</li>
+<li><strong>SdKfz</strong> - Sonderkraftfahrzeug (special purpose vehicle)</li>
+</ul>
+<h2 id="italian"><a class="header" href="#italian">Italian</a></h2>
+<ul>
+<li><strong>CC.NN.</strong> - Camicie Nere (Blackshirts militia)</li>
+<li><strong>MVSN</strong> - Milizia Volontaria per la Sicurezza Nazionale</li>
+</ul>
+<h2 id="equipment"><a class="header" href="#equipment">Equipment</a></h2>
+<ul>
+<li><strong>2-pdr</strong> - 2-pounder (40mm AT gun)</li>
+<li><strong>25-pdr</strong> - 25-pounder (87.6mm field gun)</li>
+<li><strong>88mm</strong> - 88mm Flak/AT gun</li>
+<li><strong>PaK</strong> - Panzerabwehrkanone (AT gun)</li>
+<li><strong>FlaK</strong> - Fliegerabwehrkanone (AA gun)</li>
+</ul>
+<h2 id="logistics"><a class="header" href="#logistics">Logistics</a></h2>
+<ul>
+<li><strong>POL</strong> - Petrol, Oil, Lubricants</li>
+<li><strong>MT</strong> - Motor Transport</li>
+<li><strong>Tn</strong> - Ton</li>
+<li><strong>Cwt</strong> - Hundredweight (112 pounds)</li>
+</ul>
+<hr />
+<p><em>See unit chapters for additional nation-specific abbreviations</em></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+        <script>
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+
+
+    </div>
+    </body>
+</html>

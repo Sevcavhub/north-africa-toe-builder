@@ -1,0 +1,104 @@
+{
+  "timestamp": "2025-11-10T16:52:15.144329",
+  "tables": {
+    "bg_reference_vehicles": {
+      "total": 281,
+      "with_armor": 214,
+      "with_movement": 214,
+      "with_weapons": 170,
+      "extraction_methods": {
+        "manual_csv_entry": 247,
+        "manual_excel_import": 5,
+        "manual_screenshot": 29
+      },
+      "nations": {
+        "british": 100,
+        "german": 93,
+        "italian": 19,
+        "null": 16,
+        "american": 15,
+        "canadian, british": 14,
+        "canadian": 12,
+        "french": 6,
+        "canadian, british, american": 4,
+        "soviet": 1,
+        "british, american": 1
+      },
+      "quality": "HIGH - Manually entered from official BattleGroup supplements"
+    },
+    "bg_builder_vehicles": {
+      "total": 602,
+      "with_armor": 485,
+      "with_movement": 596,
+      "with_weapons": 355,
+      "import_sources": {
+        "bg_builder": 602
+      },
+      "quality": "UNKNOWN - Scraped data, OCR errors reported, NEEDS VALIDATION"
+    },
+    "bg_reference_guns": {
+      "total": 51,
+      "with_he": 37,
+      "with_penetration": 29,
+      "with_caliber": 45,
+      "quality": "HIGH - Manually entered from official BattleGroup supplements"
+    },
+    "wwiitanks_afv_data": {
+      "total": 612,
+      "with_armor": 0,
+      "with_speed": 0,
+      "with_weight": 0,
+      "quality": "HIGH - Curated military database, no BG stats (used for formula input)"
+    }
+  },
+  "data_quality_summary": {
+    "high_quality_sources": [
+      "bg_reference_vehicles (191 vehicles, manually entered)",
+      "bg_reference_guns (51 guns, manually entered)",
+      "wwiitanks_afv_data (612 AFVs, technical specs)"
+    ],
+    "unknown_quality": [
+      "bg_builder_vehicles (602 vehicles, OCR scraped - NEEDS VALIDATION)"
+    ],
+    "insufficient_data": [
+      "Points/BR calculation (no equipment-level data)"
+    ]
+  },
+  "recommended_sources": [
+    {
+      "formula": "armor_conversion",
+      "primary_source": "bg_reference_vehicles",
+      "cross_reference": "wwiitanks_afv_data",
+      "sample_count": 214,
+      "confidence": "HIGH"
+    },
+    {
+      "formula": "movement_conversion",
+      "primary_source": "bg_reference_vehicles",
+      "cross_reference": "wwiitanks_afv_data",
+      "sample_count": 214,
+      "confidence": "HIGH"
+    },
+    {
+      "formula": "he_effectiveness",
+      "primary_source": "bg_reference_guns",
+      "cross_reference": null,
+      "sample_count": 37,
+      "confidence": "HIGH"
+    },
+    {
+      "formula": "penetration_conversion",
+      "primary_source": "bg_reference_guns",
+      "cross_reference": "wwiitanks_gun_data or penetration_data",
+      "sample_count": 29,
+      "confidence": "MEDIUM"
+    },
+    {
+      "formula": "points_br_calculation",
+      "primary_source": "INSUFFICIENT - need equipment-level data",
+      "cross_reference": null,
+      "sample_count": 0,
+      "confidence": "INSUFFICIENT"
+    }
+  ]
+}

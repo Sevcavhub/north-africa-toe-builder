@@ -1,0 +1,65 @@
+================================================================================
+BG_BUILDER DATA QUALITY VALIDATION
+================================================================================
+
+Found 205 overlapping vehicles between tables
+
+MATCH RATES (bg_reference vs bg_builder)
+--------------------------------------------------------------------------------
+Armor Front:      113/115 (98.3%)
+Armor Side:       114/115 (99.1%)
+Armor Rear:       112/115 (97.4%)
+Movement Off-Road: 131/136 (96.3%)
+Movement Road:    133/136 (97.8%)
+
+OVERALL MATCH RATES:
+  Armor (all facings): 98.3%
+  Movement (both types): 97.1%
+
+================================================================================
+SAMPLE MISMATCHES (First 10 of each type)
+================================================================================
+
+ARMOR_FRONT MISMATCHES (2 total):
+  1. M4 Sherman BARV                          | REF: L      | BUILDER: K     
+  2. Wirbelwind                               | REF: N      | BUILDER: L     
+
+ARMOR_SIDE MISMATCHES (1 total):
+  1. Wirbelwind                               | REF: O      | BUILDER: N     
+
+ARMOR_REAR MISMATCHES (3 total):
+  1. Crusader III                             | REF: L      | BUILDER: O     
+  2. Valentine III                            | REF: N      | BUILDER: L     
+  3. Valentine VIII                           | REF: N      | BUILDER: L     
+
+MOVEMENT_OFF_ROAD MISMATCHES (5 total):
+  1. Bren Carrier                             | REF:     10 | BUILDER:     16
+  2. Jeep                                     | REF:      9 | BUILDER:      6
+  3. Motorcycle                               | REF:     10 | BUILDER:      6
+  4. Motorcycle                               | REF:     10 | BUILDER:      6
+  5. Motorcycle and sidecar                   | REF:     10 | BUILDER:      6
+
+MOVEMENT_ROAD MISMATCHES (3 total):
+  1. Bren Carrier                             | REF:     15 | BUILDER:     24
+  2. Flakpanzer 38(t)                         | REF:     15 | BUILDER:     13
+  3. M4A4 Sherman                             | REF:     14 | BUILDER:     12
+
+================================================================================
+QUALITY ASSESSMENT
+================================================================================
+
+Average match rate across all fields: 97.7%
+
+QUALITY: HIGH
+RECOMMENDATION: USE bg_builder data (602 vehicles) for formula building
+  - bg_builder data is sufficiently accurate
+  - Increases sample size from 281 to 602 vehicles (+114%)
+  - Recommend using bg_builder as primary source with bg_reference as validation
+
+================================================================================
+COVERAGE ANALYSIS
+================================================================================
+
+Vehicles only in bg_builder: 404 (potential new data if quality is high)
+Vehicles only in bg_reference: 82 (manually-entered but not in builder)
+Overlapping vehicles: 205
