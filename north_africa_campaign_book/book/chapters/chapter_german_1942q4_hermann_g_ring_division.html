@@ -1,0 +1,540 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Hermann G Ring Division - North Africa Campaign 1940-1943: Complete Order of Battle</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">North Africa Campaign 1940-1943: Complete Order of Battle</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/yourusername/north-africa-toe-builder" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="hermann-göring-division---1942-q4"><a class="header" href="#hermann-göring-division---1942-q4">Hermann Göring Division - 1942-Q4</a></h1>
+<p><strong>RESEARCH BRIEF - TIER 4 EXTRACTION</strong></p>
+<h2 id="metadata"><a class="header" href="#metadata">Metadata</a></h2>
+<ul>
+<li><strong>Nation</strong>: German (Luftwaffe)</li>
+<li><strong>Quarter</strong>: 1942-Q4 (October - December 1942)</li>
+<li><strong>Unit Type</strong>: Panzer Division (Luftwaffe)</li>
+<li><strong>Parent Formation</strong>: 5th Panzer Army</li>
+<li><strong>Theater</strong>: Tunisia, North Africa</li>
+<li><strong>Confidence</strong>: 20% (Tier 4 - Research Brief Created)</li>
+<li><strong>Status</strong>: INSUFFICIENT DATA FOR FULL EXTRACTION</li>
+</ul>
+<hr />
+<h2 id="executive-summary"><a class="header" href="#executive-summary">Executive Summary</a></h2>
+<p>The Hermann Göring Division arrived in Tunisia during late 1942 (November-December) as part of the German response to Operation Torch. However, <strong>no organizational or strength data is available in current sources for the 1942-Q4 period</strong>. The only available Nafziger document (943gcmc.pdf) covers March-April 1943, leaving a critical 3-4 month gap in the division's early North African deployment.</p>
+<p><strong>This extraction has been classified as Tier 4</strong> per schema v3.1.0 guidelines, indicating insufficient data (&lt;50% confidence) for production-ready extraction. A research brief has been created instead of a full TO&amp;E.</p>
+<hr />
+<h2 id="1-command-structure"><a class="header" href="#1-command-structure">1. Command Structure</a></h2>
+<h3 id="division-commander"><a class="header" href="#division-commander">Division Commander</a></h3>
+<ul>
+<li><strong>Name</strong>: Unknown</li>
+<li><strong>Rank</strong>: Unknown</li>
+<li><strong>Appointment Date</strong>: Unknown</li>
+<li><strong>Headquarters</strong>: Tunisia (location unspecified)</li>
+</ul>
+<p><strong>Gap Documentation</strong>: No command personnel identified for 1942-Q4 in available sources. The division was a Luftwaffe formation, so commander likely held Luftwaffe rank rather than Wehrmacht.</p>
+<hr />
+<h2 id="2-personnel-strength"><a class="header" href="#2-personnel-strength">2. Personnel Strength</a></h2>
+<p><strong>Total Strength</strong>: Unknown</p>
+<p><strong>Breakdown</strong>:</p>
+<ul>
+<li>Officers: Unknown</li>
+<li>NCOs: Unknown</li>
+<li>Enlisted: Unknown</li>
+</ul>
+<p><strong>Gap Documentation</strong>: No personnel returns available for November-December 1942. The division was likely still forming or arrived as a reinforced brigade/kampfgruppe rather than full divisional strength.</p>
+<hr />
+<h2 id="3-combat-arms"><a class="header" href="#3-combat-arms">3. Combat Arms</a></h2>
+<h3 id="infantry-weapons"><a class="header" href="#infantry-weapons">Infantry Weapons</a></h3>
+<p>Unknown - no data available for 1942-Q4.</p>
+<h3 id="tanks"><a class="header" href="#tanks">Tanks</a></h3>
+<p>Unknown - no data available for 1942-Q4.</p>
+<p><strong>Note</strong>: March 1943 data shows "1/Hermann Göring Panzer Regiment" suggesting at least one panzer battalion operational by Q1 1943, but initial 1942-Q4 tank strength unknown.</p>
+<h3 id="artillery"><a class="header" href="#artillery">Artillery</a></h3>
+<p>Unknown - no data available for 1942-Q4.</p>
+<p><strong>Note</strong>: March 1943 data shows "2/190th Artillery Regiment" and "Hermann Göring Flak Regiment" suggesting both field artillery and anti-aircraft assets, but 1942-Q4 deployment unknown.</p>
+<hr />
+<h2 id="4-support-elements"><a class="header" href="#4-support-elements">4. Support Elements</a></h2>
+<h3 id="reconnaissance"><a class="header" href="#reconnaissance">Reconnaissance</a></h3>
+<p>Unknown for 1942-Q4.</p>
+<p><strong>Note</strong>: By April 1943, division had "Hermann Göring Reconnaissance Battalion (1st, 5th &amp; 6th Cos &amp; Armored Reconnaissance company)".</p>
+<h3 id="engineers"><a class="header" href="#engineers">Engineers</a></h3>
+<p>Unknown for 1942-Q4.</p>
+<h3 id="signals"><a class="header" href="#signals">Signals</a></h3>
+<p>Unknown for 1942-Q4.</p>
+<p><strong>Note</strong>: April 1943 shows "Hermann Göring Armored Signal Battalion".</p>
+<h3 id="supply"><a class="header" href="#supply">Supply</a></h3>
+<p>Unknown for 1942-Q4.</p>
+<p><strong>Note</strong>: April 1943 shows "Hermann Göring Supply Battalion".</p>
+<hr />
+<h2 id="5-order-of-battle"><a class="header" href="#5-order-of-battle">5. Order of Battle</a></h2>
+<h3 id="subordinate-units-1942-q4"><a class="header" href="#subordinate-units-1942-q4">Subordinate Units (1942-Q4)</a></h3>
+<p><strong>UNKNOWN</strong> - No organizational documents available for October-December 1942.</p>
+<h3 id="subordinate-units-march-1943---for-reference"><a class="header" href="#subordinate-units-march-1943---for-reference">Subordinate Units (March 1943 - For Reference)</a></h3>
+<p><strong>Kampfgruppe Schmidt</strong> (13 March 1943):</p>
+<ul>
+<li>Staff/Kampfgruppe Schmidt</li>
+<li>1/,3/Hermann Göring Grenadier Regiment</li>
+<li>1/,3/Hermann Göring Jäger Regiment</li>
+<li>9th Co., 59th Panzer Grenadier Regiment</li>
+<li>14th Co., 104th Panzer Grenadier Regiment</li>
+<li>2nd &amp; 4th Cos., 90th Panzerjäger Battalion</li>
+<li>T4 Afrika Battalion</li>
+<li>2/190th Artillery Regiment</li>
+<li>Hermann Göring Flak Regiment</li>
+<li>von Bülow Nebelwerfer Battalion</li>
+<li>Hermann Göring Panzer Signal Battalion</li>
+<li>Hermann Göring Supply Battalion</li>
+<li>1st Parachute Medical Company</li>
+</ul>
+<h3 id="full-division-april-1943---for-reference"><a class="header" href="#full-division-april-1943---for-reference">Full Division (April 1943 - For Reference)</a></h3>
+<ul>
+<li>1/Hermann Göring Panzer Regiment</li>
+<li>2/,3/Hermann Göring Grenadier Regiment</li>
+<li>1/,3/Hermann Göring Jäger Regiment</li>
+<li>9th Co., 69th Panzer Grenadier Regiment</li>
+<li>14th (Panzerjäger) Co., 104th Panzer Grenadier Regiment</li>
+<li>T4 Afrika Battalion</li>
+<li>5th "Tunisia" Battalion</li>
+<li>1/90th Artillery Regiment</li>
+<li>2nd Btry/190th Artillery Regiment</li>
+<li>1/,2/Hermann Göring Flak Regiment</li>
+<li>2nd Co., 1st Werfer Battalion</li>
+<li>Hermann Göring Reconnaissance Battalion</li>
+<li>Hermann Göring Armored Signal Battalion</li>
+<li>Hermann Göring Supply Battalion</li>
+<li>1st Parachute Medical Company</li>
+</ul>
+<hr />
+<h2 id="6-supply--logistics"><a class="header" href="#6-supply--logistics">6. Supply &amp; Logistics</a></h2>
+<p><strong>Supply Status</strong>: Unknown for 1942-Q4</p>
+<p><strong>Operational Context</strong>: The division arrived in Tunisia during Operation Torch (November 1942), likely via air and sea transport from Italy/Sicily. Initial supply lines would have been extremely tenuous given Allied naval/air superiority in the Mediterranean.</p>
+<p><strong>Known Constraints</strong>:</p>
+<ul>
+<li>Tunisia became isolated "fortress" following Allied landings</li>
+<li>Sea supply from Sicily increasingly dangerous</li>
+<li>Air supply insufficient for sustained operations</li>
+<li>Distance from Tripoli (main Axis supply depot) approximately 800-1000km</li>
+</ul>
+<p><strong>Gaps</strong>: No specific data on fuel reserves, ammunition stocks, operational radius, or water capacity for 1942-Q4.</p>
+<hr />
+<h2 id="7-weather--environment"><a class="header" href="#7-weather--environment">7. Weather &amp; Environment</a></h2>
+<p><strong>Season</strong>: 1942-Q4 (October-December) - Autumn to Early Winter</p>
+<p><strong>Temperature Range</strong>: 10-20°C (estimated based on Tunisian coastal climate)</p>
+<p><strong>Terrain</strong>: Tunisian coastal plains and hills - different from Libyan desert terrain. More vegetation, better road network, but mountainous interior.</p>
+<p><strong>Storm Frequency</strong>: Approximately 5 days/month (Mediterranean winter storms)</p>
+<p><strong>Daylight Hours</strong>: ~10.5 hours (decreasing toward winter solstice)</p>
+<p><strong>Operational Impact</strong>:</p>
+<ul>
+<li>Rainy season begins Q4 (mud, flooding in wadis)</li>
+<li>Better trafficability than Libyan desert</li>
+<li>Mountain warfare in interior Tunisia</li>
+<li>Shorter days limit operational tempo</li>
+</ul>
+<hr />
+<h2 id="8-combat-history"><a class="header" href="#8-combat-history">8. Combat History</a></h2>
+<h3 id="1942-q4-operations"><a class="header" href="#1942-q4-operations">1942-Q4 Operations</a></h3>
+<p><strong>Arrival</strong>: November-December 1942 (exact date unknown)</p>
+<p><strong>Deployment</strong>: Tunisia, under 5th Panzer Army command</p>
+<p><strong>Battles</strong>: Unknown specific engagements for 1942-Q4</p>
+<p><strong>Status</strong>: Division likely still organizing/forming during Q4 1942. Full divisional strength not achieved until early 1943.</p>
+<hr />
+<h2 id="9-tactical-assessment"><a class="header" href="#9-tactical-assessment">9. Tactical Assessment</a></h2>
+<h3 id="strengths-estimated"><a class="header" href="#strengths-estimated">Strengths (Estimated)</a></h3>
+<ul>
+<li>Elite Luftwaffe personnel</li>
+<li>Modern equipment (likely priority allocations)</li>
+<li>High morale (untested in North Africa)</li>
+<li>Combined arms capability (panzer, grenadier, jäger, flak elements)</li>
+</ul>
+<h3 id="weaknesses-estimated"><a class="header" href="#weaknesses-estimated">Weaknesses (Estimated)</a></h3>
+<ul>
+<li>Unfamiliar with desert/North African warfare</li>
+<li>Long supply lines from Europe</li>
+<li>Isolated theater (Tunisia cut off from Tripoli)</li>
+<li>Arrival late in campaign (Allied forces well-established)</li>
+</ul>
+<h3 id="doctrine"><a class="header" href="#doctrine">Doctrine</a></h3>
+<p>Luftwaffe ground division trained in combined arms warfare, likely emphasized anti-aircraft defense given Luftwaffe origin. Unit would have been accustomed to operating with air support - a significant handicap in Tunisia where Luftwaffe had limited capability.</p>
+<hr />
+<h2 id="10-sources--validation"><a class="header" href="#10-sources--validation">10. Sources &amp; Validation</a></h2>
+<h3 id="sources-consulted"><a class="header" href="#sources-consulted">Sources Consulted</a></h3>
+<ol>
+<li>
+<p><strong>Nafziger Collection 943gcmc.pdf</strong> - "Herman Göring Division In Africa March-April 1943"</p>
+<ul>
+<li>Coverage: March-April 1943 (Q2 1943) ONLY</li>
+<li>Source: Bender, R.J., &amp; Law, R.D., <em>Uniforms, Organization and History of the Afrikakorps</em>, 1973</li>
+</ul>
+</li>
+<li>
+<p><strong>Seed File</strong> - north_africa_seed_units_COMPLETE.json</p>
+<ul>
+<li>Confirms: Hermann Göring Division present 1942-Q4, 1943-Q1, 1943-Q2</li>
+<li>Battles: Tunisia Campaign</li>
+<li>Confidence: 90%</li>
+</ul>
+</li>
+<li>
+<p><strong>The Rommel Papers</strong> - No references to Hermann Göring Division found</p>
+</li>
+<li>
+<p><strong>Nafziger 1943-1945 Index</strong> - No documents covering 1942-Q4 period</p>
+</li>
+</ol>
+<h3 id="validation-status"><a class="header" href="#validation-status">Validation Status</a></h3>
+<ul>
+<li><strong>Confidence</strong>: 20%</li>
+<li><strong>Tier</strong>: 4 (Research Brief Created)</li>
+<li><strong>Status</strong>: research_brief_created</li>
+<li><strong>Aggregation Status</strong>: research_required</li>
+</ul>
+<h3 id="required-field-gaps-per-schema-v310"><a class="header" href="#required-field-gaps-per-schema-v310">Required Field Gaps (Per Schema v3.1.0)</a></h3>
+<ul>
+<li>command.commander.name</li>
+<li>command.commander.rank</li>
+<li>total_personnel</li>
+<li>officers, ncos, enlisted</li>
+<li>top_3_infantry_weapons (all)</li>
+<li>ground_vehicles_total</li>
+<li>tanks (all categories)</li>
+<li>artillery_total</li>
+<li>field_artillery, anti_tank, anti_aircraft</li>
+<li>supply_logistics (all numeric fields)</li>
+<li>subordinate_units</li>
+</ul>
+<h3 id="gap-documentation"><a class="header" href="#gap-documentation">Gap Documentation</a></h3>
+<p><strong>Formation Date Gap</strong>:</p>
+<ul>
+<li><strong>Status</strong>: Partial</li>
+<li><strong>Reason</strong>: Division arrived Tunisia Nov-Dec 1942, but organizational structure not documented</li>
+<li><strong>Sources Checked</strong>: Nafziger collection, The Rommel Papers, CARL Luftwaffe PDF</li>
+<li><strong>Confidence Impact</strong>: -80%</li>
+<li><strong>Mitigation</strong>: Requires Tessin Wehrmacht Encyclopedia (Luftwaffe volumes), Bundesarchiv war diaries, 5th Panzer Army OOBs</li>
+</ul>
+<p><strong>Initial Strength Gap</strong>:</p>
+<ul>
+<li><strong>Status</strong>: Unknown</li>
+<li><strong>Reason</strong>: No personnel/equipment data for 1942-Q4 arrival</li>
+<li><strong>Confidence Impact</strong>: -80%</li>
+<li><strong>Mitigation</strong>: March 1943 organization available as baseline - likely arrived as smaller kampfgruppe, grew to full division by Q1 1943</li>
+</ul>
+<p><strong>Commander Gap</strong>:</p>
+<ul>
+<li><strong>Status</strong>: Unknown</li>
+<li><strong>Reason</strong>: No command records accessed</li>
+<li><strong>Confidence Impact</strong>: -20%</li>
+<li><strong>Mitigation</strong>: Research Luftwaffe command records, 5th Panzer Army staff documents</li>
+</ul>
+<hr />
+<h2 id="11-research-recommendations"><a class="header" href="#11-research-recommendations">11. Research Recommendations</a></h2>
+<h3 id="priority-1---formation-records"><a class="header" href="#priority-1---formation-records">Priority 1 - Formation Records</a></h3>
+<ul>
+<li><strong>Tessin Wehrmacht Encyclopedia</strong> - Luftwaffe division volumes</li>
+<li><strong>Bundesarchiv</strong> - Hermann Göring Division war diaries Nov-Dec 1942</li>
+<li><strong>5th Panzer Army</strong> - Organizational documents Operation Torch period</li>
+</ul>
+<h3 id="priority-2---secondary-sources"><a class="header" href="#priority-2---secondary-sources">Priority 2 - Secondary Sources</a></h3>
+<ul>
+<li>Bender &amp; Law <em>Uniforms, Organization and History of the Afrikakorps</em> (1973) - full text</li>
+<li>German Luftwaffe Field Division formation records 1942</li>
+<li>Axis Forces Sicily documents (division later deployed to Sicily)</li>
+</ul>
+<h3 id="priority-3---allied-intelligence"><a class="header" href="#priority-3---allied-intelligence">Priority 3 - Allied Intelligence</a></h3>
+<ul>
+<li>Allied intelligence reports on German forces Tunisia Nov-Dec 1942</li>
+<li>Ultra/Enigma decrypt summaries for Tunisia arrival</li>
+<li>US/UK order of battle assessments early Tunisia campaign</li>
+</ul>
+<hr />
+<h2 id="12-available-data-summary"><a class="header" href="#12-available-data-summary">12. Available Data Summary</a></h2>
+<h3 id="what-we-know"><a class="header" href="#what-we-know">What We Know</a></h3>
+<ol>
+<li><strong>Arrival</strong>: 1942-Q4 (November-December)</li>
+<li><strong>Theater</strong>: Tunisia</li>
+<li><strong>Parent Formation</strong>: 5th Panzer Army</li>
+<li><strong>Type</strong>: Luftwaffe Panzer Division (elite)</li>
+<li><strong>Later Organization</strong>: Full divisional structure by March-April 1943 (documented)</li>
+</ol>
+<h3 id="what-we-dont-know-1942-q4"><a class="header" href="#what-we-dont-know-1942-q4">What We Don't Know (1942-Q4)</a></h3>
+<ol>
+<li>Exact arrival date</li>
+<li>Commander and staff</li>
+<li>Personnel strength</li>
+<li>Equipment holdings (tanks, artillery, vehicles)</li>
+<li>Organizational structure (full division or kampfgruppe?)</li>
+<li>Specific battles/engagements</li>
+<li>Supply status and logistics</li>
+</ol>
+<h3 id="data-availability-timeline"><a class="header" href="#data-availability-timeline">Data Availability Timeline</a></h3>
+<ul>
+<li><strong>1942-Q4</strong>: NO DATA AVAILABLE</li>
+<li><strong>1943-Q1</strong>: Partial (likely similar to March 1943)</li>
+<li><strong>1943-Q2</strong>: FULL DATA AVAILABLE (Nafziger 943gcmc.pdf)</li>
+</ul>
+<hr />
+<h2 id="13-recommended-next-steps"><a class="header" href="#13-recommended-next-steps">13. Recommended Next Steps</a></h2>
+<h3 id="option-1-skip-1942-q4-extract-later-quarters"><a class="header" href="#option-1-skip-1942-q4-extract-later-quarters">Option 1: Skip 1942-Q4, Extract Later Quarters</a></h3>
+<p>Extract Hermann Göring Division for <strong>1943-Q1</strong> and <strong>1943-Q2</strong> using available Nafziger data (943gcmc.pdf). This provides complete organizational detail for 2 of 3 quarters the division was in North Africa.</p>
+<h3 id="option-2-pause-pending-source-acquisition"><a class="header" href="#option-2-pause-pending-source-acquisition">Option 2: Pause Pending Source Acquisition</a></h3>
+<p>Mark 1942-Q4 as "research required" and pause extraction until:</p>
+<ul>
+<li>Tessin Wehrmacht Encyclopedia obtained</li>
+<li>Bundesarchiv access secured</li>
+<li>Additional source material located</li>
+</ul>
+<h3 id="option-3-estimate-from-q2-1943-data-not-recommended"><a class="header" href="#option-3-estimate-from-q2-1943-data-not-recommended">Option 3: Estimate from Q2 1943 Data (NOT RECOMMENDED)</a></h3>
+<p>Back-project from March 1943 organization - <strong>HIGH RISK OF INACCURACY</strong>. Division was likely smaller kampfgruppe in Nov-Dec 1942, growing to full strength by early 1943. Estimation would violate project's "no guessing" principle.</p>
+<hr />
+<h2 id="14-conclusion"><a class="header" href="#14-conclusion">14. Conclusion</a></h2>
+<p>The Hermann Göring Division represents a <strong>critical gap in available source material</strong> for the Tunisia Campaign. Despite being confirmed present in 1942-Q4 with 90% confidence in the seed file, no organizational or strength data exists in current holdings for this period.</p>
+<p><strong>This unit has been classified as Tier 4</strong> per schema v3.1.0, with only 20% confidence and a "research_brief_created" status. Full extraction cannot proceed without acquiring primary source documents covering the division's arrival and initial organization in Tunisia (November-December 1942).</p>
+<p><strong>Recommended Action</strong>: Extract 1943-Q1 and 1943-Q2 quarters using available data, mark 1942-Q4 as research required pending source acquisition.</p>
+<hr />
+<h2 id="15-wargaming-notes"><a class="header" href="#15-wargaming-notes">15. Wargaming Notes</a></h2>
+<p>Despite limited data, the Hermann Göring Division offers unique scenario potential:</p>
+<h3 id="scenario-suitability"><a class="header" href="#scenario-suitability">Scenario Suitability</a></h3>
+<ul>
+<li>Tunisia Campaign opening (Operation Torch response)</li>
+<li>Allied-Axis race for Tunisia</li>
+<li>Kasserine Pass (February 1943)</li>
+<li>Final Tunisia offensive (March-May 1943)</li>
+</ul>
+<h3 id="special-characteristics"><a class="header" href="#special-characteristics">Special Characteristics</a></h3>
+<ul>
+<li>Elite Luftwaffe division (high morale, modern equipment)</li>
+<li>Combined arms capability (tanks, infantry, flak, reconnaissance)</li>
+<li>Unfamiliar with North African warfare (negative modifier for 1942-Q4)</li>
+<li>Strong anti-aircraft component (Luftwaffe heritage)</li>
+</ul>
+<h3 id="historical-importance"><a class="header" href="#historical-importance">Historical Importance</a></h3>
+<p>The Hermann Göring Division was one of Germany's elite formations, eventually expanded to panzer corps strength. Its deployment to Tunisia represented a major commitment of elite troops to a doomed theater - troops that would have been valuable on other fronts.</p>
+<hr />
+<p><strong>Document Status</strong>: Research Brief Only - Full Extraction Requires Additional Sources<br />
+<strong>Schema Version</strong>: 3.1.0<br />
+<strong>Extraction Date</strong>: 2025-10-24<br />
+<strong>Extracted By</strong>: Claude Code Agent (Tier 4 Protocol)</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../chapters/chapter_german_1942q4_fallschirmjäger-brigade_ramcke.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../chapters/chapter_german_1942q4_hermann_göring_division.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../chapters/chapter_german_1942q4_fallschirmjäger-brigade_ramcke.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../chapters/chapter_german_1942q4_hermann_göring_division.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

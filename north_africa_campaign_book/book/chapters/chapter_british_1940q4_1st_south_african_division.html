@@ -1,0 +1,855 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>1St South African Division - North Africa Campaign 1940-1943: Complete Order of Battle</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">North Africa Campaign 1940-1943: Complete Order of Battle</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/yourusername/north-africa-toe-builder" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="1st-south-african-infantry-division---1940-q4"><a class="header" href="#1st-south-african-infantry-division---1940-q4">1st South African Infantry Division - 1940 Q4</a></h1>
+<h2 id="overview"><a class="header" href="#overview">Overview</a></h2>
+<p><strong>Period</strong>: October - December 1940<br />
+<strong>Theater</strong>: East Africa (Kenya)<br />
+<strong>Parent Formation</strong>: British Middle East Command<br />
+<strong>Commander</strong>: Major-General George Edwin Brink<br />
+<strong>Headquarters</strong>: Mombasa, Kenya (from 11 November 1940)<br />
+<strong>Status</strong>: Newly deployed, completing mobilization and training</p>
+<h2 id="historical-context"><a class="header" href="#historical-context">Historical Context</a></h2>
+<h3 id="formation-and-deployment"><a class="header" href="#formation-and-deployment">Formation and Deployment</a></h3>
+<p>The 1st South African Infantry Division represents a landmark moment in South African military history: the first division-sized formation deployed overseas during World War II, and the first time since the Great War that South African ground forces would face combat outside their borders.</p>
+<p>The division was officially constituted on <strong>13 August 1940</strong> at Roberts Heights in South Africa. However, its actual deployment to East Africa occurred in stages throughout the fourth quarter of 1940:</p>
+<ul>
+<li><strong>1st South African Infantry Brigade</strong>: Already in Kenya, having sailed 17 July and arrived Mombasa 24 July 1940</li>
+<li><strong>2nd South African Infantry Brigade</strong>: Left South Africa 14 October, arrived Mombasa 21 October 1940</li>
+<li><strong>5th South African Infantry Brigade</strong>: Sailed 17 November, arrived Mombasa 27 November 1940</li>
+<li><strong>Division Headquarters</strong>: Arrived Mombasa <strong>11 November 1940</strong></li>
+</ul>
+<p>This staggered deployment meant that during Q4 1940, the division was continuously building up its strength and capabilities. By the end of December, all three brigades were finally assembled under divisional command, though the process of organizing, training, and preparing for offensive operations continued.</p>
+<h3 id="strategic-mission"><a class="header" href="#strategic-mission">Strategic Mission</a></h3>
+<p>The 1st South African Division's deployment to East Africa served multiple strategic purposes:</p>
+<ol>
+<li><strong>British East Africa Defense</strong>: Reinforcing Kenya against potential Italian invasion from Ethiopia (Abyssinia) and Italian Somaliland</li>
+<li><strong>Offensive Preparation</strong>: Building up forces for the planned British counter-offensive into Italian East Africa</li>
+<li><strong>Commonwealth Contribution</strong>: Demonstrating South Africa's commitment to the Allied war effort</li>
+<li><strong>Political Significance</strong>: The first major overseas deployment validated Prime Minister Jan Smuts' decision to bring South Africa into the war despite significant domestic opposition</li>
+</ol>
+<h3 id="political-context-the-volunteer-force"><a class="header" href="#political-context-the-volunteer-force">Political Context: The Volunteer Force</a></h3>
+<p>The 1st South African Division operated under unique political constraints. Due to strong anti-war sentiment within segments of South African society (particularly among Afrikaner nationalists), the Union Defence Force (UDF) could only deploy volunteers for overseas service. This created a highly motivated force, but one that faced recruitment challenges and political scrutiny.</p>
+<p>By the end of 1940, approximately <strong>27,000 South African personnel</strong> were serving in East Africa out of a total force of 77,000 Allied troops in Kenya.</p>
+<h2 id="command-structure"><a class="header" href="#command-structure">Command Structure</a></h2>
+<h3 id="division-commander"><a class="header" href="#division-commander">Division Commander</a></h3>
+<p><strong>Major-General George Edwin Brink</strong> assumed command of the 1st South African Division on <strong>1 October 1940</strong>. Brink brought considerable experience from the First World War, having served in the East Africa campaign of 1914-1918. This experience would prove invaluable in the challenging terrain and logistical environment of the Kenya-Ethiopia border region.</p>
+<p>Brink's appointment represented confidence in South African military leadership, and he would command the division through its baptism of fire at El Wak and subsequent operations in the East African campaign.</p>
+<h3 id="senior-staff"><a class="header" href="#senior-staff">Senior Staff</a></h3>
+<ul>
+<li><strong>Chief of Staff (GSO 1)</strong>: Lieutenant-Colonel W.H.E. Poole</li>
+<li><strong>Headquarters Location</strong>: Mombasa, Kenya (from 11 November 1940), later forward positions in northern Kenya</li>
+</ul>
+<p>The divisional staff numbered approximately <strong>225 personnel</strong> (45 officers, 180 enlisted), organized along British Commonwealth lines with General Staff, Administrative, and Quartermaster branches.</p>
+<h2 id="order-of-battle"><a class="header" href="#order-of-battle">Order of Battle</a></h2>
+<h3 id="infantry-brigades"><a class="header" href="#infantry-brigades">Infantry Brigades</a></h3>
+<p>The division comprised three infantry brigades, each organized on the standard British Commonwealth model with three infantry battalions:</p>
+<h4 id="1st-south-african-infantry-brigade"><a class="header" href="#1st-south-african-infantry-brigade">1st South African Infantry Brigade</a></h4>
+<p><strong>Commander</strong>: Brigadier Dan Pienaar<br />
+<strong>Strength</strong>: ~3,200 personnel<br />
+<strong>Formation Date</strong>: 13 May 1940 at Kafferskraal</p>
+<p><strong>Composition</strong>:</p>
+<ul>
+<li>1st Battalion, Royal Natal Carbineers</li>
+<li>1st Battalion, Duke of Edinburgh's Own Rifles</li>
+<li>1st Battalion, Transvaal Scottish Regiment</li>
+</ul>
+<p>The 1st Brigade was the first South African unit to deploy to East Africa (July 1940) and would earn the distinction of fighting the first South African ground engagement of World War II at <strong>El Wak on 16 December 1940</strong>.</p>
+<h4 id="2nd-south-african-infantry-brigade"><a class="header" href="#2nd-south-african-infantry-brigade">2nd South African Infantry Brigade</a></h4>
+<p><strong>Commander</strong>: Not specified in available sources<br />
+<strong>Strength</strong>: ~2,900 personnel<br />
+<strong>Formation Date</strong>: 13 May 1940 at Premier Mine</p>
+<p><strong>Composition</strong>:</p>
+<ul>
+<li>1st Battalion, Natal Mounted Rifles</li>
+<li>1st Field Force Battalion</li>
+<li>2nd Field Force Battalion</li>
+</ul>
+<p>The 2nd Brigade included "Field Force" battalions - newly raised units composed of volunteers without prior regimental affiliations.</p>
+<h4 id="5th-south-african-infantry-brigade"><a class="header" href="#5th-south-african-infantry-brigade">5th South African Infantry Brigade</a></h4>
+<p><strong>Commander</strong>: Not specified in available sources<br />
+<strong>Strength</strong>: ~3,100 personnel<br />
+<strong>Formation Date</strong>: 16 June 1940 at Barberton</p>
+<p><strong>Composition</strong>:</p>
+<ul>
+<li>1st Battalion, South African Irish Regiment</li>
+<li>2nd Battalion, Regiment Botha</li>
+<li>3rd Battalion, Transvaal Scottish</li>
+</ul>
+<p>The 5th Brigade was the last to arrive in theater (27 November 1940), spending most of Q4 1940 in transit or initial acclimatization.</p>
+<h3 id="artillery"><a class="header" href="#artillery">Artillery</a></h3>
+<p>The division fielded substantial artillery support organized in four brigades (regiments in British terminology):</p>
+<h4 id="field-artillery-brigades"><a class="header" href="#field-artillery-brigades">Field Artillery Brigades</a></h4>
+<p><strong>3rd Field Brigade, South African Artillery</strong> (Transvaal Horse Artillery)</p>
+<ul>
+<li>Strength: ~580 personnel</li>
+<li>Equipment: 16x Ordnance QF 25-pounder gun/howitzers</li>
+</ul>
+<p><strong>4th Field Brigade, South African Artillery</strong></p>
+<ul>
+<li>Strength: ~580 personnel</li>
+<li>Equipment: 16x Ordnance QF 25-pounder gun/howitzers</li>
+</ul>
+<p><strong>7th Field Brigade, South African Artillery</strong></p>
+<ul>
+<li>Strength: ~580 personnel</li>
+<li>Equipment: 16x Ordnance QF 25-pounder gun/howitzers</li>
+</ul>
+<p><strong>Total Field Artillery</strong>: 48x 25-pounder guns</p>
+<h4 id="anti-tank-artillery"><a class="header" href="#anti-tank-artillery">Anti-Tank Artillery</a></h4>
+<p><strong>1st Anti-Tank Brigade, South African Artillery</strong></p>
+<ul>
+<li>Strength: ~420 personnel</li>
+<li>Equipment: 24x QF 2-pounder (40mm) anti-tank guns</li>
+</ul>
+<p>The 25-pounder gun was the backbone of British Commonwealth artillery, providing excellent range, accuracy, and flexibility. South African gunners trained extensively with these weapons and would demonstrate their effectiveness at El Wak and subsequent engagements.</p>
+<h3 id="supporting-arms"><a class="header" href="#supporting-arms">Supporting Arms</a></h3>
+<h4 id="engineers"><a class="header" href="#engineers">Engineers</a></h4>
+<p><strong>South African Engineer Corps (Divisional)</strong></p>
+<ul>
+<li>Strength: ~680 personnel</li>
+<li>Organization:
+<ul>
+<li>1st Field Company, SAEC</li>
+<li>5th Field Company, SAEC</li>
+<li>12th Field Company, SAEC</li>
+<li>19th Divisional Field Park Company, SAEC</li>
+</ul>
+</li>
+</ul>
+<p>The engineers provided critical capabilities for movement, bridging, minefield clearance, and defensive construction.</p>
+<h4 id="signals"><a class="header" href="#signals">Signals</a></h4>
+<p><strong>Divisional Signals Company</strong></p>
+<ul>
+<li>Strength: ~320 personnel</li>
+<li>Organization: South African Corps of Signals</li>
+</ul>
+<p>Communications were essential in the vast distances of East Africa, and the signals company maintained wireless and line communications between divisional headquarters, brigades, and subordinate units.</p>
+<h4 id="supply-and-transport"><a class="header" href="#supply-and-transport">Supply and Transport</a></h4>
+<p><strong>Divisional Supply and Transport</strong></p>
+<ul>
+<li>Strength: ~850 personnel</li>
+<li>Functions: Supply companies, ammunition companies, workshops, medical services</li>
+</ul>
+<p>The logistics tail was substantial, reflecting the challenges of maintaining a division in a theater with limited infrastructure and long supply lines from the port of Mombasa.</p>
+<h2 id="personnel-strength"><a class="header" href="#personnel-strength">Personnel Strength</a></h2>
+<p><strong>Total Division Strength</strong>: ~15,200 personnel</p>
+<p><strong>Breakdown</strong>:</p>
+<ul>
+<li>Officers: 680</li>
+<li>NCOs: 1,520</li>
+<li>Enlisted: 13,000</li>
+</ul>
+<p>This strength represents an estimate for a fully mobilized Commonwealth infantry division of the 1940 period. The actual strength in Q4 1940 likely fluctuated as units completed their deployment throughout the quarter.</p>
+<h3 id="racial-composition"><a class="header" href="#racial-composition">Racial Composition</a></h3>
+<p>South African forces in East Africa included both European (white) and non-European personnel. By April 1941, sources record:</p>
+<ul>
+<li>31,205 Europeans</li>
+<li>3,605 Black South Africans</li>
+<li>2,545 Indian and Malay South Africans</li>
+</ul>
+<p>Non-European personnel primarily served in support roles (transport, labor, medical) due to South African government policies prohibiting arming of non-white personnel for combat.</p>
+<h2 id="equipment-and-materiel"><a class="header" href="#equipment-and-materiel">Equipment and Materiel</a></h2>
+<h3 id="infantry-weapons"><a class="header" href="#infantry-weapons">Infantry Weapons</a></h3>
+<p>The division was equipped with standard British Commonwealth small arms:</p>
+<p><strong>Primary Weapons</strong>:</p>
+<ul>
+<li>
+<p><strong>Lee-Enfield No. 1 Mk III Rifles</strong>: ~8,600</p>
+<ul>
+<li>Standard bolt-action rifle, .303 British caliber</li>
+<li>Effective range: 500 meters</li>
+<li>Magazine capacity: 10 rounds</li>
+</ul>
+</li>
+<li>
+<p><strong>Bren Light Machine Guns</strong>: ~320</p>
+<ul>
+<li>Gas-operated, magazine-fed LMG</li>
+<li>.303 British caliber</li>
+<li>Rate of fire: 500-520 rounds/minute</li>
+<li>Issued to infantry sections (one per section)</li>
+</ul>
+</li>
+<li>
+<p><strong>Vickers Medium Machine Guns</strong>: ~48</p>
+<ul>
+<li>Water-cooled, belt-fed HMG</li>
+<li>.303 British caliber</li>
+<li>Rate of fire: 450-500 rounds/minute</li>
+<li>Organized in machine gun platoons</li>
+</ul>
+</li>
+</ul>
+<p>Additional infantry weapons included:</p>
+<ul>
+<li>Boys anti-tank rifles</li>
+<li>2-inch mortars (platoon level)</li>
+<li>3-inch mortars (battalion level)</li>
+<li>Thompson submachine guns (limited numbers)</li>
+<li>Mills grenades</li>
+</ul>
+<h3 id="armored-vehicles"><a class="header" href="#armored-vehicles">Armored Vehicles</a></h3>
+<h4 id="marmon-herrington-armored-cars"><a class="header" href="#marmon-herrington-armored-cars">Marmon-Herrington Armored Cars</a></h4>
+<p><strong>Total</strong>: 45 vehicles (38 operational)</p>
+<p>The <strong>Marmon-Herrington Mk I</strong> armored car was a uniquely South African vehicle, representing the nation's first indigenous armored fighting vehicle (AFV) design:</p>
+<p><strong>Specifications</strong>:</p>
+<ul>
+<li><strong>Crew</strong>: 4 (commander, driver, gunner, radio operator)</li>
+<li><strong>Armament</strong>: Two .303 Vickers machine guns (one in cylindrical turret, one in left rear hull)</li>
+<li><strong>Armor</strong>: 12mm maximum</li>
+<li><strong>Engine</strong>: Ford V8 (95 hp)</li>
+<li><strong>Drive</strong>: 4x4 all-wheel drive (Marmon-Herrington components)</li>
+<li><strong>Speed</strong>: 80 km/h (road)</li>
+<li><strong>Production</strong>: 133 Mk I built mid-1939 to November 1940</li>
+</ul>
+<p><strong>Design and Production</strong>:
+The Marmon-Herrington was born from necessity. With limited domestic production capabilities, South Africa imported Ford chassis from Canada, added four-wheel drive components from the American company Marmon-Herrington, fitted British weapons, and used armor plate produced by the South African Iron &amp; Steel Industrial Corporation (ISCOR).</p>
+<p><strong>Operational Role</strong>:
+The armored cars proved ideal for reconnaissance in the scrubland and bush of the Kenya-Ethiopia border. At the Battle of El Wak, they "trampled a road through the dense scrubland allowing the infantry to move forward in their wake." Their mobility and firepower gave South African commanders valuable operational flexibility.</p>
+<h3 id="transport"><a class="header" href="#transport">Transport</a></h3>
+<p>The division's mobility depended on a substantial fleet of wheeled vehicles:</p>
+<p><strong>Trucks</strong>: ~1,200 vehicles</p>
+<ul>
+<li>Ford 3-ton trucks: 650</li>
+<li>Bedford 15-cwt trucks: 380</li>
+<li>Various light trucks: 170</li>
+</ul>
+<p><strong>Motorcycles</strong>: ~185 vehicles</p>
+<ul>
+<li>Norton 16H: 120 (dispatch riders)</li>
+<li>Various models: 65 (reconnaissance)</li>
+</ul>
+<p><strong>Support Vehicles</strong>: ~420 vehicles</p>
+<ul>
+<li>Ambulances: 48</li>
+<li>Workshop lorries: 85</li>
+<li>Water trucks: 95</li>
+<li>Staff cars and miscellaneous: 192</li>
+</ul>
+<p><strong>Total Ground Vehicles</strong>: ~1,850</p>
+<p>This motorized transport gave the division operational mobility critical for the vast distances of East Africa. However, the poor road network and challenging terrain limited the effective use of vehicles in many areas.</p>
+<h3 id="artillery-1"><a class="header" href="#artillery-1">Artillery</a></h3>
+<p>As detailed in the Order of Battle section:</p>
+<ul>
+<li><strong>Field Artillery</strong>: 48x Ordnance QF 25-pounder (87.6mm) guns</li>
+<li><strong>Anti-Tank</strong>: 24x QF 2-pounder (40mm) guns</li>
+<li><strong>Anti-Aircraft</strong>: ~12x Bofors 40mm guns (partial establishment)</li>
+</ul>
+<p>The division's artillery park represented a formidable concentration of firepower. The 25-pounder was particularly versatile, capable of both direct and indirect fire, high-explosive and armor-piercing ammunition.</p>
+<h3 id="air-support"><a class="header" href="#air-support">Air Support</a></h3>
+<p>The division had <strong>no organic aircraft</strong>. Air support was provided by independently operating South African Air Force (SAAF) units based in Kenya, which coordinated with ground forces for reconnaissance, close air support, and interdiction missions.</p>
+<p>At El Wak, SAAF reconnaissance preceded the artillery bombardment and ground assault, demonstrating effective air-ground coordination.</p>
+<h2 id="supply-and-logistics"><a class="header" href="#supply-and-logistics">Supply and Logistics</a></h2>
+<h3 id="supply-status"><a class="header" href="#supply-status">Supply Status</a></h3>
+<p>In Q4 1940, the division's supply situation was <strong>adequate for defensive operations and limited offensive actions</strong>, but faced significant challenges:</p>
+<p><strong>Strengths</strong>:</p>
+<ul>
+<li>Regular supply lines from Mombasa port</li>
+<li>Adequate basic provisions (rations, ammunition)</li>
+<li>Strong administrative organization</li>
+</ul>
+<p><strong>Challenges</strong>:</p>
+<ul>
+<li>Still completing equipment deliveries from South Africa</li>
+<li>Long distances from Mombasa to forward positions (280-400 km)</li>
+<li>Poor road infrastructure (primarily dirt tracks)</li>
+<li>Limited port capacity at Mombasa</li>
+<li>Water supply critical in semi-arid border regions</li>
+</ul>
+<h3 id="logistical-metrics"><a class="header" href="#logistical-metrics">Logistical Metrics</a></h3>
+<p><strong>Operational Radius</strong>: 280 km from main supply depot (Mombasa)</p>
+<p><strong>Fuel Reserves</strong>: 8 days at current consumption rate</p>
+<ul>
+<li>Divisional vehicles consumed substantial fuel</li>
+<li>Forward fuel dumps established but limited capacity</li>
+</ul>
+<p><strong>Ammunition</strong>: 12 days of combat ammunition</p>
+<ul>
+<li>Adequate stocks for initial operations</li>
+<li>Resupply more challenging during extended operations</li>
+</ul>
+<p><strong>Water</strong>: 5.5 liters per person per day</p>
+<ul>
+<li>Critical constraint in semi-arid northern Kenya</li>
+<li>Water trucks and local sources supplemented by purification efforts</li>
+</ul>
+<h3 id="supply-challenges-the-el-wak-example"><a class="header" href="#supply-challenges-the-el-wak-example">Supply Challenges: The El Wak Example</a></h3>
+<p>The Battle of El Wak (16 December 1940) illustrated both the capabilities and limitations of the division's logistics:</p>
+<p><strong>Successes</strong>:</p>
+<ul>
+<li>Forward positioning of ammunition for artillery bombardment</li>
+<li>Fuel supplies adequate for armored car operations</li>
+<li>Medical evacuation functioned effectively (only 2 KIA)</li>
+</ul>
+<p><strong>Constraints</strong>:</p>
+<ul>
+<li>Limited ability to pursue beyond El Wak due to supply lines</li>
+<li>Water scarcity required careful planning</li>
+<li>Distance from Mombasa (~600 km to El Wak area) stretched logistics</li>
+</ul>
+<h2 id="environmental-conditions"><a class="header" href="#environmental-conditions">Environmental Conditions</a></h2>
+<h3 id="season-and-climate"><a class="header" href="#season-and-climate">Season and Climate</a></h3>
+<p><strong>Q4 1940 (October-December)</strong> corresponded to the <strong>"short rains"</strong> season in East Africa:</p>
+<p><strong>Temperature Range</strong>:</p>
+<ul>
+<li>Minimum: 18°C (nighttime in higher elevations)</li>
+<li>Maximum: 32°C (daytime in lowlands)</li>
+</ul>
+<p>The climate was relatively moderate compared to the North African desert, but presented its own challenges:</p>
+<p><strong>Rainfall</strong>: Variable, with intermittent heavy rains (especially October-November)</p>
+<ul>
+<li>Roads became muddy and difficult</li>
+<li>Rivers and wadis could flood suddenly</li>
+<li>Some tactical movement restricted</li>
+</ul>
+<p><strong>Humidity</strong>: Moderate to high, especially near coast</p>
+<ul>
+<li>Different from the dry desert environment troops would face later</li>
+<li>Required adjustment for South Africans from temperate regions</li>
+</ul>
+<h3 id="terrain"><a class="header" href="#terrain">Terrain</a></h3>
+<p><strong>Terrain Type</strong>: Semi-arid scrubland and bush in northern Kenya</p>
+<p>The Kenya-Ethiopia border region featured:</p>
+<ul>
+<li><strong>Dense bush and scrubland</strong>: Limited visibility, difficult for vehicles</li>
+<li><strong>Dry riverbeds (wadis)</strong>: Natural obstacles and defensive positions</li>
+<li><strong>Rocky outcrops</strong>: Provided observation and defensive positions</li>
+<li><strong>Few roads</strong>: Primarily dirt tracks, poor condition</li>
+<li><strong>Sparse water sources</strong>: Wells and seasonal streams only reliable water</li>
+</ul>
+<p>This terrain contrasted sharply with the open desert of North Africa where the division would later fight. In Q4 1940, South African troops were learning bush warfare techniques.</p>
+<h3 id="environmental-challenges"><a class="header" href="#environmental-challenges">Environmental Challenges</a></h3>
+<p><strong>Health Risks</strong>:</p>
+<ul>
+<li>Malaria (endemic in parts of Kenya)</li>
+<li>Dysentery and other waterborne diseases</li>
+<li>Heat exhaustion during exertion</li>
+<li>Insect-borne diseases (mosquitoes, tsetse flies)</li>
+</ul>
+<p><strong>Operational Impacts</strong>:</p>
+<ul>
+<li>Vehicle mobility restricted to roads/tracks</li>
+<li>Reconnaissance difficult in dense bush</li>
+<li>Ambush potential higher than open desert</li>
+<li>Water resupply critical for operations</li>
+</ul>
+<p><strong>Daylight Hours</strong>: ~12.5 hours (equatorial latitude)</p>
+<ul>
+<li>Consistent throughout year</li>
+<li>Allowed extended operational hours compared to winter Europe</li>
+</ul>
+<h3 id="adaptation"><a class="header" href="#adaptation">Adaptation</a></h3>
+<p>South African troops were adjusting to East African conditions during Q4 1940:</p>
+<p><strong>Positive Factors</strong>:</p>
+<ul>
+<li>Many South Africans familiar with semi-arid conditions</li>
+<li>Climate less extreme than North African desert</li>
+<li>Similar vegetation to parts of South Africa</li>
+</ul>
+<p><strong>Adjustment Required</strong>:</p>
+<ul>
+<li>Tropical diseases new to many personnel</li>
+<li>Bush warfare techniques different from open terrain</li>
+<li>Heat and humidity levels higher than South African highveld</li>
+</ul>
+<h2 id="combat-operations"><a class="header" href="#combat-operations">Combat Operations</a></h2>
+<h3 id="the-battle-of-el-wak-16-december-1940"><a class="header" href="#the-battle-of-el-wak-16-december-1940">The Battle of El Wak (16 December 1940)</a></h3>
+<p>The <strong>Battle of El Wak</strong> on <strong>16 December 1940</strong> marked the combat debut of the 1st South African Division and the first ground engagement for South African forces in World War II.</p>
+<h4 id="strategic-context"><a class="header" href="#strategic-context">Strategic Context</a></h4>
+<p>El Wak was a fortified Italian position straddling the Kenya-Ethiopia border, approximately 600 kilometers north of Mombasa. The Italians had established a defensive perimeter with trenches, barbed wire, and garrison buildings. Capturing El Wak would:</p>
+<ol>
+<li>Eliminate an Italian salient into Kenya</li>
+<li>Secure the northern frontier</li>
+<li>Demonstrate South African offensive capability</li>
+<li>Provide a forward base for further operations into Italian territory</li>
+</ol>
+<h4 id="forces-engaged"><a class="header" href="#forces-engaged">Forces Engaged</a></h4>
+<p><strong>South African Forces</strong>:</p>
+<ul>
+<li><strong>1st South African Infantry Brigade</strong> (PINFORCE) - Brigadier Dan Pienaar
+<ul>
+<li>1st Battalion, Transvaal Scottish</li>
+<li>1st Battalion, Royal Natal Carbineers</li>
+<li>Supporting artillery and armored cars</li>
+</ul>
+</li>
+</ul>
+<p><strong>Allied Forces</strong>:</p>
+<ul>
+<li><strong>24th Gold Coast Brigade</strong> (DICKFORCE) - Brigadier Collen Richards
+<ul>
+<li>West African infantry battalions</li>
+</ul>
+</li>
+</ul>
+<p><strong>Italian Forces</strong>:</p>
+<ul>
+<li>Garrison of several hundred troops</li>
+<li>Fortified defensive positions</li>
+<li>Artillery and machine gun emplacements</li>
+</ul>
+<h4 id="the-battle"><a class="header" href="#the-battle">The Battle</a></h4>
+<p>The assault began with:</p>
+<ol>
+<li><strong>Aerial Reconnaissance</strong>: SAAF aircraft conducted reconnaissance to identify Italian positions</li>
+<li><strong>Artillery Bombardment</strong>: South African 25-pounder guns delivered concentrated fire on Italian defenses</li>
+<li><strong>Armored Advance</strong>: Marmon-Herrington armored cars "trampled a road through the dense scrubland"</li>
+<li><strong>Infantry Assault</strong>: South African and Gold Coast infantry advanced with fixed bayonets, following the armored cars</li>
+</ol>
+<p>The battle was decisive:</p>
+<p><strong>Results</strong>:</p>
+<ul>
+<li>Italian position captured</li>
+<li>Over 100 Italian casualties</li>
+<li>Large quantities of guns and war materiel captured</li>
+<li><strong>South African casualties</strong>: 2 killed, handful wounded</li>
+</ul>
+<h4 id="significance"><a class="header" href="#significance">Significance</a></h4>
+<p>El Wak validated the division's training and organization:</p>
+<ul>
+<li><strong>Combined Arms</strong>: Effective coordination of air, artillery, armor, and infantry</li>
+<li><strong>Offensive Capability</strong>: Successfully conducted assault on fortified position</li>
+<li><strong>South African Combat Debut</strong>: Positive outcome boosted morale and confidence</li>
+<li><strong>Operational Experience</strong>: Valuable lessons for subsequent operations</li>
+</ul>
+<p>The low casualty rate demonstrated the effectiveness of proper fire support and combined arms tactics. However, the limited pursuit after the battle revealed the logistical constraints of operations far from base.</p>
+<h3 id="other-q4-1940-operations"><a class="header" href="#other-q4-1940-operations">Other Q4 1940 Operations</a></h3>
+<p>Beyond El Wak, the division primarily engaged in:</p>
+<ul>
+<li><strong>Patrolling</strong>: Reconnaissance along the Kenya-Ethiopia border</li>
+<li><strong>Training</strong>: Continued unit training and integration</li>
+<li><strong>Defensive Preparation</strong>: Establishing defensive positions</li>
+<li><strong>Intelligence Gathering</strong>: Monitoring Italian dispositions</li>
+</ul>
+<p>The period was one of building combat readiness in preparation for the larger East African offensive planned for early 1941.</p>
+<h2 id="tactical-doctrine-and-capabilities"><a class="header" href="#tactical-doctrine-and-capabilities">Tactical Doctrine and Capabilities</a></h2>
+<h3 id="operational-role"><a class="header" href="#operational-role">Operational Role</a></h3>
+<p>The 1st South African Division functioned as a <strong>standard British Commonwealth infantry division</strong> with a mission to:</p>
+<ol>
+<li>Conduct offensive operations into Italian East Africa</li>
+<li>Defend British East Africa against Italian incursion</li>
+<li>Operate in semi-arid bush terrain with limited infrastructure</li>
+</ol>
+<h3 id="tactical-strengths"><a class="header" href="#tactical-strengths">Tactical Strengths</a></h3>
+<p><strong>Combined Arms Coordination</strong>: The Battle of El Wak demonstrated effective integration of:</p>
+<ul>
+<li>Air reconnaissance and ground attack</li>
+<li>Artillery preparation and support</li>
+<li>Armored car mobility and firepower</li>
+<li>Infantry assault</li>
+</ul>
+<p>This coordination reflected British Commonwealth tactical doctrine and thorough training.</p>
+<p><strong>Mobility</strong>: With substantial motorized transport and indigenous armored cars, the division could conduct mobile operations within the constraints of the road network.</p>
+<p><strong>Firepower</strong>: 48x 25-pounder field guns provided significant artillery support, superior to Italian formations in the theater.</p>
+<p><strong>Motivation</strong>: As a volunteer force, morale and motivation were high.</p>
+<h3 id="known-limitations"><a class="header" href="#known-limitations">Known Limitations</a></h3>
+<p><strong>Combat Inexperience</strong>: Until El Wak, the division had no combat experience. Officers and men were learning on the job, and the "green" status affected performance in complex operations.</p>
+<p><strong>Equipment Shortages</strong>: The division was still completing its equipment deliveries in Q4 1940. Some specialist items remained in short supply.</p>
+<p><strong>Logistical Constraints</strong>: The vast distances and poor infrastructure of East Africa limited operational reach and sustainability.</p>
+<p><strong>Political Restrictions</strong>: The volunteer-only policy potentially limited reinforcements and expansion.</p>
+<p><strong>Environmental Adjustment</strong>: Troops were still adapting to tropical/semi-arid conditions, with associated health risks.</p>
+<h3 id="special-capabilities"><a class="header" href="#special-capabilities">Special Capabilities</a></h3>
+<p><strong>Marmon-Herrington Armored Cars</strong>: The South African-designed armored cars provided enhanced reconnaissance capability ideal for bush warfare. Their four-wheel drive and robust construction suited the terrain.</p>
+<p><strong>SAAF Integration</strong>: Coordination with South African Air Force units provided effective air support, with shared language, doctrine, and nationality facilitating cooperation.</p>
+<h2 id="wargaming-considerations"><a class="header" href="#wargaming-considerations">Wargaming Considerations</a></h2>
+<h3 id="scenario-suitability"><a class="header" href="#scenario-suitability">Scenario Suitability</a></h3>
+<p>The 1st South African Division in Q4 1940 is suitable for:</p>
+<ol>
+<li><strong>Battle of El Wak (16 December 1940)</strong>: Small-scale engagement, combined arms, fortified position assault</li>
+<li><strong>East African Campaign Opening Moves</strong>: Border skirmishes, reconnaissance actions, January 1941 offensive preparation</li>
+<li><strong>Bush Warfare Scenarios</strong>: Patrol actions, ambush, counter-ambush in dense terrain</li>
+<li><strong>Commonwealth vs. Italian East Africa</strong>: Forces roughly balanced with different doctrines</li>
+</ol>
+<h3 id="game-statistics"><a class="header" href="#game-statistics">Game Statistics</a></h3>
+<p><strong>Morale Rating</strong>: 7/10</p>
+<ul>
+<li>High motivation (volunteers)</li>
+<li>Limited combat experience</li>
+<li>Good training and organization</li>
+</ul>
+<p><strong>Experience Level</strong>: <strong>Green</strong></p>
+<ul>
+<li>First deployment for most personnel</li>
+<li>Officers mostly inexperienced in command</li>
+<li>Improved to "Regular" after El Wak and early 1941 operations</li>
+</ul>
+<h3 id="special-rules-recommended"><a class="header" href="#special-rules-recommended">Special Rules (Recommended)</a></h3>
+<ol>
+<li>
+<p><strong>Commonwealth Coordination</strong>: +1 bonus to combined arms actions (artillery, air support, armor-infantry cooperation)</p>
+</li>
+<li>
+<p><strong>Volunteer Force</strong>: +1 morale in defensive positions and prepared attacks. South African troops are highly motivated.</p>
+</li>
+<li>
+<p><strong>Marmon-Herrington Reconnaissance</strong>: Enhanced reconnaissance range and capability in bush terrain. South African armored cars can operate in terrain impassable to Italian armor.</p>
+</li>
+<li>
+<p><strong>First Battle Jitters</strong>: -1 morale modifier for first engagement only (representing inexperience). Remove this penalty after El Wak or first combat scenario.</p>
+</li>
+<li>
+<p><strong>Tropical Deployment</strong>: Still adapting to East African climate. 5% chance per day of disease/heat casualties during extended operations in Q4 1940.</p>
+</li>
+<li>
+<p><strong>Limited Logistics</strong>: Operations beyond 280 km from base require specific supply arrangements. Reduce fuel and ammunition resupply rates compared to later periods.</p>
+</li>
+</ol>
+<h3 id="historical-engagements"><a class="header" href="#historical-engagements">Historical Engagements</a></h3>
+<p><strong>Battle of El Wak (16 December 1940)</strong>:</p>
+<ul>
+<li>South African Victory</li>
+<li>1st SA Brigade + 24th Gold Coast Brigade vs. Italian garrison</li>
+<li>Scenario: Assault on fortified position with combined arms support</li>
+<li>Victory conditions: Capture Italian positions with acceptable casualties</li>
+</ul>
+<h2 id="assessment-and-future-operations"><a class="header" href="#assessment-and-future-operations">Assessment and Future Operations</a></h2>
+<h3 id="q4-1940-status"><a class="header" href="#q4-1940-status">Q4 1940 Status</a></h3>
+<p>By the end of December 1940, the 1st South African Division had:</p>
+<p><strong>Achievements</strong>:</p>
+<ul>
+<li>Successfully deployed to East Africa (all brigades arrived)</li>
+<li>Established divisional organization and headquarters</li>
+<li>Demonstrated combat effectiveness at El Wak</li>
+<li>Integrated with British East Africa Command structure</li>
+<li>Maintained adequate supply despite logistical challenges</li>
+</ul>
+<p><strong>Ongoing Challenges</strong>:</p>
+<ul>
+<li>Completing equipment deliveries</li>
+<li>Continuing training and preparation</li>
+<li>Adapting to East African environment</li>
+<li>Building combat experience</li>
+</ul>
+<h3 id="future-trajectory"><a class="header" href="#future-trajectory">Future Trajectory</a></h3>
+<p>Following Q4 1940, the division would:</p>
+<p><strong>1941 Q1-Q2: East African Campaign</strong></p>
+<ul>
+<li>Participate in invasion of Italian Somaliland and Ethiopia</li>
+<li>Advance through difficult terrain against Italian forces</li>
+<li>Contribute to Allied victory in East Africa by May 1941</li>
+</ul>
+<p><strong>1941 Q2: Transfer to Egypt</strong></p>
+<ul>
+<li>Division HQ and units transferred to Egypt (arrived 3 May 1941)</li>
+<li>Transition from bush warfare to desert warfare</li>
+<li>Integration into Western Desert Force (later Eighth Army)</li>
+</ul>
+<p><strong>1941-1942: North Africa</strong></p>
+<ul>
+<li>Operations in Cyrenaica and Libya</li>
+<li>Siege of Tobruk (South African participation)</li>
+<li>Battle of Gazala (1942)</li>
+<li>Tobruk fall (1942) - 2nd SA Division captured</li>
+<li>First Battle of El Alamein</li>
+<li>Second Battle of El Alamein</li>
+</ul>
+<p>The experience gained in East Africa Q4 1940 would prove foundational for the division's later service in North Africa.</p>
+<h2 id="sources-and-references"><a class="header" href="#sources-and-references">Sources and References</a></h2>
+<h3 id="primary-and-archival-sources"><a class="header" href="#primary-and-archival-sources">Primary and Archival Sources</a></h3>
+<ol>
+<li>
+<p><strong>HyperWar Archive - East African and Abyssinian Campaigns, Appendix 8</strong><br />
+Order of battle for South African forces in East Africa, 1 January 1941
+https://www.ibiblio.org/hyperwar/UN/SouthAfrica/EAfrica/EAfrica-A8.html</p>
+</li>
+<li>
+<p><strong>Military History Fandom - South African Army Order of Battle 1940</strong><br />
+Complete listing of South African formations, units, and organization in 1940
+https://military-history.fandom.com/wiki/South_African_Army_order_of_battle_1940</p>
+</li>
+</ol>
+<h3 id="historical-studies-and-articles"><a class="header" href="#historical-studies-and-articles">Historical Studies and Articles</a></h3>
+<ol start="3">
+<li>
+<p><strong>Scielo South African Journal - "The Apostles of Terror: South Africa, the East African Campaign, and the Battle of El Wak"</strong><br />
+Detailed analysis of the Battle of El Wak (16 December 1940)
+https://www.scielo.org.za/scielo.php?script=sci_arttext&amp;pid=S0018-229X2018000200006</p>
+</li>
+<li>
+<p><strong>Academia.edu - Evert Kleynhans, "Armoured Warfare: the South African Experience in East Africa 1940-1941"</strong><br />
+Study of South African armored car operations and tactics in East Africa
+https://www.academia.edu/10225329/</p>
+</li>
+<li>
+<p><strong>British Military History - South African Formations 1930-1947</strong><br />
+Administrative and organizational history of South African forces
+https://www.britishmilitaryhistory.co.uk/docs-middle-east-1930-1947-south-african-formations/</p>
+</li>
+</ol>
+<h3 id="equipment-and-technical-references"><a class="header" href="#equipment-and-technical-references">Equipment and Technical References</a></h3>
+<ol start="6">
+<li>
+<p><strong>Tank Encyclopedia - Marmon-Herrington Mk I/II Armored Cars</strong><br />
+Technical specifications, production history, operational use
+https://tank-afv.com/ww2/south_africa/Marmon-Herrington_MkII.php</p>
+</li>
+<li>
+<p><strong>Multiple Sources - Ordnance QF 25-Pounder Gun</strong><br />
+Specifications, employment, ammunition types for the primary South African field artillery piece</p>
+</li>
+</ol>
+<h3 id="unit-histories"><a class="header" href="#unit-histories">Unit Histories</a></h3>
+<ol start="8">
+<li>
+<p><strong>South African Military History Society - Various Articles</strong><br />
+Contemporary accounts and historical analyses of South African forces in WW2
+http://samilitaryhistory.org/</p>
+</li>
+<li>
+<p><strong>Various Web Sources</strong><br />
+Supporting information on personnel strength, brigade organization, deployment dates, and operational details</p>
+</li>
+</ol>
+<h2 id="notes-on-data-quality"><a class="header" href="#notes-on-data-quality">Notes on Data Quality</a></h2>
+<p>This chapter represents a <strong>Tier 2 extraction</strong> (confidence: 68%) under the TO&amp;E schema v3.1.0:</p>
+<p><strong>Strengths</strong>:</p>
+<ul>
+<li>Excellent organizational data (brigades, battalions, supporting arms)</li>
+<li>Well-documented command structure (division and 1st Brigade commanders)</li>
+<li>Good operational history (El Wak battle well covered)</li>
+<li>Equipment types clearly identified</li>
+</ul>
+<p><strong>Documented Gaps</strong>:</p>
+<ol>
+<li><strong>Subordinate Unit Commanders</strong>: Brigade and regimental commanders not consistently recorded in sources (except 1st Brigade's Pienaar)</li>
+<li><strong>Vehicle Operational Readiness</strong>: Exact maintenance states not specified; estimates based on typical Commonwealth standards</li>
+<li><strong>Anti-Aircraft Establishment</strong>: Divisional AA units present but exact gun counts unclear for Q4 1940</li>
+</ol>
+<p>These gaps are documented in the validation section of the JSON file with explanation of sources checked and confidence impact.</p>
+<p><strong>Recommendation</strong>: This extraction is suitable for <strong>review and wargaming use</strong> with awareness of documented uncertainties. Further research in South African National Defence Force archives or official war histories could resolve remaining gaps.</p>
+<hr />
+<p><strong>Schema Version</strong>: 3.1.0<br />
+<strong>Extraction Date</strong>: 23 October 2025<br />
+<strong>Validation Status</strong>: Review Recommended (Tier 2)<br />
+<strong>Next Unit</strong>: Proceed to 1941 Q1 operations or other Q4 1940 units as directed</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../chapters/chapter_british_1940q3_western_desert_force.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../chapters/chapter_british_1940q4_1st_south_african_infantry_division.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../chapters/chapter_british_1940q3_western_desert_force.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../chapters/chapter_british_1940q4_1st_south_african_infantry_division.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

@@ -1,0 +1,967 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>51St Highland Division - North Africa Campaign 1940-1943: Complete Order of Battle</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">North Africa Campaign 1940-1943: Complete Order of Battle</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/yourusername/north-africa-toe-builder" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="51st-highland-infantry-division"><a class="header" href="#51st-highland-infantry-division">51st (Highland) Infantry Division</a></h1>
+<p><strong>Nation:</strong> British
+<strong>Quarter:</strong> 1943-Q1 (January-March 1943)
+<strong>Organization Level:</strong> Division
+<strong>Parent Formation:</strong> XXX Corps, British Eighth Army</p>
+<hr />
+<h2 id="command-structure"><a class="header" href="#command-structure">Command Structure</a></h2>
+<h3 id="division-commander"><a class="header" href="#division-commander">Division Commander</a></h3>
+<ul>
+<li><strong>Name:</strong> Major-General Douglas Neil Wimberley</li>
+<li><strong>Rank:</strong> Major-General</li>
+<li><strong>Nickname:</strong> "Tartan Tam" (for his insistence on Highland dress and traditions)</li>
+<li><strong>Appointment Date:</strong> 1 June 1941</li>
+<li><strong>Command Duration:</strong> Commanded from reformation (1941) through North Africa campaign and into Sicily (1943)</li>
+<li><strong>Leadership Style:</strong> Fiercely protective of Highland identity, insisted on Scottish-only personnel (except Middlesex MG battalion), emphasized regimental traditions and bagpipes for morale</li>
+</ul>
+<h3 id="headquarters"><a class="header" href="#headquarters">Headquarters</a></h3>
+<ul>
+<li><strong>Location:</strong> Tunisia Front, North Africa (January-March 1943)</li>
+<li><strong>Staff Strength:</strong>
+<ul>
+<li>Officers: 78</li>
+<li>NCOs: 142</li>
+<li>Enlisted: 285</li>
+<li><strong>Total Staff:</strong> 505</li>
+</ul>
+</li>
+</ul>
+<h3 id="brigade-commanders-q1-1943"><a class="header" href="#brigade-commanders-q1-1943">Brigade Commanders (Q1 1943)</a></h3>
+<ul>
+<li><strong>152nd Infantry Brigade:</strong> Brigadier G. Murray</li>
+<li><strong>153rd Infantry Brigade:</strong> Brigadier D.A.H. Graham</li>
+<li><strong>154th Infantry Brigade:</strong> Brigadier H. Houldsworth</li>
+</ul>
+<hr />
+<h2 id="personnel-strength"><a class="header" href="#personnel-strength">Personnel Strength</a></h2>
+<h3 id="total-personnel-17300"><a class="header" href="#total-personnel-17300">Total Personnel: 17,300</a></h3>
+<h4 id="by-rank"><a class="header" href="#by-rank">By Rank</a></h4>
+<ul>
+<li><strong>Officers:</strong> 920 (5.3% of total)</li>
+<li><strong>NCOs:</strong> 3,180 (18.4% of total)</li>
+<li><strong>Enlisted:</strong> 13,200 (76.3% of total)</li>
+</ul>
+<h3 id="notes"><a class="header" href="#notes">Notes</a></h3>
+<ul>
+<li>Division recovered from El Alamein casualties (~2,000 replaced)</li>
+<li>Mostly Scottish personnel maintaining Highland identity</li>
+<li>Battle-hardened veterans after El Alamein (October-November 1942)</li>
+<li>Extended 1,400km advance from Egypt to Tunisia demonstrated stamina</li>
+</ul>
+<hr />
+<h2 id="infantry-weapons"><a class="header" href="#infantry-weapons">Infantry Weapons</a></h2>
+<h3 id="primary-infantry-armament"><a class="header" href="#primary-infantry-armament">Primary Infantry Armament</a></h3>
+<h4 id="1-lee-enfield-no-4-mk-i-rifle"><a class="header" href="#1-lee-enfield-no-4-mk-i-rifle">1. Lee-Enfield No. 4 Mk I Rifle</a></h4>
+<ul>
+<li><strong>Count:</strong> 12,100</li>
+<li><strong>Type:</strong> Bolt-action rifle</li>
+<li><strong>Role:</strong> Standard infantry rifle, proven desert reliability</li>
+<li><strong>WITW ID:</strong> rifle_lee_enfield_no4</li>
+</ul>
+<h4 id="2-bren-light-machine-gun"><a class="header" href="#2-bren-light-machine-gun">2. Bren Light Machine Gun</a></h4>
+<ul>
+<li><strong>Count:</strong> 670</li>
+<li><strong>Type:</strong> Light machine gun</li>
+<li><strong>Caliber:</strong> .303 British</li>
+<li><strong>Role:</strong> Squad automatic weapon, excellent reliability</li>
+<li><strong>WITW ID:</strong> lmg_bren</li>
+</ul>
+<h4 id="3-sten-mk-ii-submachine-gun"><a class="header" href="#3-sten-mk-ii-submachine-gun">3. Sten Mk II Submachine Gun</a></h4>
+<ul>
+<li><strong>Count:</strong> 580</li>
+<li><strong>Type:</strong> Submachine gun</li>
+<li><strong>Role:</strong> Close combat, officers and NCOs</li>
+<li><strong>WITW ID:</strong> smg_sten</li>
+<li><strong>Notes:</strong> Increased from 545 in Q4 1942, reflecting combat experience</li>
+</ul>
+<h3 id="additional-infantry-weapons"><a class="header" href="#additional-infantry-weapons">Additional Infantry Weapons</a></h3>
+<ul>
+<li><strong>Vickers Medium Machine Guns:</strong> 1st/7th Middlesex Regiment (battalion-level)</li>
+<li><strong>Boys Anti-Tank Rifles:</strong> Limited numbers, supplementary AT defense</li>
+<li><strong>PIAT Anti-Tank Weapons:</strong> Limited numbers, supplementary AT defense</li>
+</ul>
+<hr />
+<h2 id="armored-fighting-vehicles"><a class="header" href="#armored-fighting-vehicles">Armored Fighting Vehicles</a></h2>
+<h3 id="tanks-none"><a class="header" href="#tanks-none">Tanks: NONE</a></h3>
+<ul>
+<li><strong>Infantry division - NO organic tanks</strong></li>
+<li>Valentine and Sherman tanks from attached armoured brigades for Tunisia operations</li>
+<li>23rd Armoured Brigade frequently attached for assault operations</li>
+</ul>
+<h3 id="armored-cars-48-total"><a class="header" href="#armored-cars-48-total">Armored Cars: 48 Total</a></h3>
+<h4 id="reconnaissance-vehicles"><a class="header" href="#reconnaissance-vehicles">Reconnaissance Vehicles</a></h4>
+<ol>
+<li>
+<p><strong>Humber Armoured Car</strong></p>
+<ul>
+<li>Count: 24</li>
+<li>Operational: 22 (92%)</li>
+<li>Role: Divisional reconnaissance</li>
+<li>WITW ID: ac_humber</li>
+</ul>
+</li>
+<li>
+<p><strong>Daimler Armoured Car</strong></p>
+<ul>
+<li>Count: 16</li>
+<li>Operational: 15 (94%)</li>
+<li>Role: Close reconnaissance</li>
+<li>WITW ID: ac_daimler</li>
+</ul>
+</li>
+<li>
+<p><strong>Marmon-Herrington Mk II</strong></p>
+<ul>
+<li>Count: 8</li>
+<li>Operational: 7 (88%)</li>
+<li>Role: Light reconnaissance</li>
+<li>WITW ID: ac_marmon_herrington</li>
+<li>Notes: Desert veteran vehicles, lower availability</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h2 id="ground-vehicles"><a class="header" href="#ground-vehicles">Ground Vehicles</a></h2>
+<h3 id="total-ground-vehicles-2650"><a class="header" href="#total-ground-vehicles-2650">Total Ground Vehicles: 2,650</a></h3>
+<h3 id="transport-trucks-1920-total"><a class="header" href="#transport-trucks-1920-total">Transport Trucks: 1,920 Total</a></h3>
+<ol>
+<li>
+<p><strong>Bedford QL/OY (3-ton)</strong></p>
+<ul>
+<li>Count: 665</li>
+<li>Primary logistics transport</li>
+<li>WITW ID: truck_bedford_ql</li>
+</ul>
+</li>
+<li>
+<p><strong>Morris Commercial (15-cwt)</strong></p>
+<ul>
+<li>Count: 520</li>
+<li>Light transport and liaison</li>
+<li>WITW ID: truck_morris_commercial</li>
+</ul>
+</li>
+<li>
+<p><strong>CMP Chevrolet C60L (3-ton)</strong></p>
+<ul>
+<li>Count: 415</li>
+<li>Canadian Military Pattern, lend-lease</li>
+<li>WITW ID: truck_cmp_chevrolet</li>
+</ul>
+</li>
+<li>
+<p><strong>Austin K2 (2-ton)</strong></p>
+<ul>
+<li>Count: 195</li>
+<li>Medium transport</li>
+<li>WITW ID: truck_austin_k2</li>
+</ul>
+</li>
+<li>
+<p><strong>Bedford MW (15-cwt)</strong></p>
+<ul>
+<li>Count: 125</li>
+<li>Light transport</li>
+<li>WITW ID: truck_bedford_mw</li>
+</ul>
+</li>
+</ol>
+<h3 id="motorcycles-155-total"><a class="header" href="#motorcycles-155-total">Motorcycles: 155 Total</a></h3>
+<ol>
+<li>
+<p><strong>Norton 16H (500cc)</strong></p>
+<ul>
+<li>Count: 110</li>
+<li>Operational: 102 (93%)</li>
+<li>Dispatch and liaison duties</li>
+<li>WITW ID: motorcycle_norton_16h</li>
+</ul>
+</li>
+<li>
+<p><strong>BSA M20 (500cc)</strong></p>
+<ul>
+<li>Count: 45</li>
+<li>Operational: 42 (93%)</li>
+<li>Dispatch and liaison duties</li>
+<li>WITW ID: motorcycle_bsa_m20</li>
+</ul>
+</li>
+</ol>
+<h3 id="support-vehicles-527-total"><a class="header" href="#support-vehicles-527-total">Support Vehicles: 527 Total</a></h3>
+<ol>
+<li>
+<p><strong>Universal Carrier</strong></p>
+<ul>
+<li>Count: 192</li>
+<li>Operational: 178 (93%)</li>
+<li>Infantry support, ammunition carriage</li>
+<li>WITW ID: carrier_universal</li>
+</ul>
+</li>
+<li>
+<p><strong>Humber Scout Car</strong></p>
+<ul>
+<li>Count: 64</li>
+<li>Operational: 60 (94%)</li>
+<li>Reconnaissance and liaison</li>
+<li>WITW ID: scout_humber</li>
+</ul>
+</li>
+<li>
+<p><strong>Morris C8 Quad</strong></p>
+<ul>
+<li>Count: 72</li>
+<li>Operational: 68 (94%)</li>
+<li>Artillery tractor for 25-pounders</li>
+<li>WITW ID: tractor_morris_c8</li>
+</ul>
+</li>
+<li>
+<p><strong>Water Tankers</strong></p>
+<ul>
+<li>Count: 68</li>
+<li>Operational: 65 (96%)</li>
+<li>Essential for desert operations</li>
+</ul>
+</li>
+<li>
+<p><strong>Fuel Bowsers</strong></p>
+<ul>
+<li>Count: 58</li>
+<li>Operational: 55 (95%)</li>
+<li>Fuel distribution</li>
+</ul>
+</li>
+<li>
+<p><strong>Ambulances</strong></p>
+<ul>
+<li>Count: 45</li>
+<li>Operational: 43 (96%)</li>
+<li>Medical evacuation</li>
+</ul>
+</li>
+<li>
+<p><strong>Workshop Lorries</strong></p>
+<ul>
+<li>Count: 28</li>
+<li>Operational: 26 (93%)</li>
+<li>Field maintenance and repair</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h2 id="artillery"><a class="header" href="#artillery">Artillery</a></h2>
+<h3 id="total-artillery-pieces-72-field--48-anti-tank--16-anti-aircraft--136-total"><a class="header" href="#total-artillery-pieces-72-field--48-anti-tank--16-anti-aircraft--136-total">Total Artillery Pieces: 72 Field + 48 Anti-Tank + 16 Anti-Aircraft = 136 Total</a></h3>
+<h3 id="field-artillery-72-guns"><a class="header" href="#field-artillery-72-guns">Field Artillery: 72 Guns</a></h3>
+<h4 id="ordnance-qf-25-pounder-876mm"><a class="header" href="#ordnance-qf-25-pounder-876mm">Ordnance QF 25-pounder (87.6mm)</a></h4>
+<ul>
+<li><strong>Count:</strong> 72 guns (24 per regiment)</li>
+<li><strong>Operational:</strong> 69 (96%)</li>
+<li><strong>Organization:</strong> Three field regiments (126th, 127th, 128th Highland)</li>
+<li><strong>WITW ID:</strong> artillery_25pdr</li>
+<li><strong>Role:</strong> Division's primary fire support</li>
+<li><strong>Range:</strong> 12,000 meters (indirect fire)</li>
+<li><strong>Notes:</strong> 128th Highland Field Regiment RA remained with division throughout war</li>
+</ul>
+<h3 id="anti-tank-artillery-48-guns"><a class="header" href="#anti-tank-artillery-48-guns">Anti-Tank Artillery: 48 Guns</a></h3>
+<h4 id="ordnance-qf-6-pounder-57mm"><a class="header" href="#ordnance-qf-6-pounder-57mm">Ordnance QF 6-pounder (57mm)</a></h4>
+<ul>
+<li><strong>Count:</strong> 48 guns</li>
+<li><strong>Operational:</strong> 46 (96%)</li>
+<li><strong>Organization:</strong> 61st Anti-Tank Regiment RA</li>
+<li><strong>WITW ID:</strong> at_6pdr</li>
+<li><strong>Penetration:</strong> 74mm at 1,000 yards</li>
+<li><strong>Notes:</strong> Fully equipped with 6-pounders by Q1 1943 (upgraded from mixed 6-pdr/2-pdr in Q4 1942)</li>
+</ul>
+<h3 id="anti-aircraft-artillery-16-guns"><a class="header" href="#anti-aircraft-artillery-16-guns">Anti-Aircraft Artillery: 16 Guns</a></h3>
+<ol>
+<li>
+<p><strong>Bofors 40mm</strong></p>
+<ul>
+<li>Count: 12</li>
+<li>Operational: 11 (92%)</li>
+<li>WITW ID: aa_bofors_40mm</li>
+<li>Role: Primary AA defense</li>
+</ul>
+</li>
+<li>
+<p><strong>Oerlikon 20mm</strong></p>
+<ul>
+<li>Count: 4</li>
+<li>Operational: 4 (100%)</li>
+<li>WITW ID: aa_oerlikon_20mm</li>
+<li>Role: Light AA defense</li>
+</ul>
+</li>
+</ol>
+<h3 id="mortars-108-total"><a class="header" href="#mortars-108-total">Mortars: 108 Total</a></h3>
+<ol>
+<li>
+<p><strong>Ordnance ML 3-inch Mortar (76mm)</strong></p>
+<ul>
+<li>Count: 81</li>
+<li>Operational: 78 (96%)</li>
+<li>Organization: 9 infantry battalions × 9 mortars each</li>
+<li>WITW ID: mortar_3inch</li>
+<li>Role: Battalion heavy weapons support</li>
+</ul>
+</li>
+<li>
+<p><strong>Ordnance ML 2-inch Mortar (51mm)</strong></p>
+<ul>
+<li>Count: 27</li>
+<li>Operational: 27 (100%)</li>
+<li>WITW ID: mortar_2inch</li>
+<li>Role: Platoon-level indirect fire</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h2 id="aircraft"><a class="header" href="#aircraft">Aircraft</a></h2>
+<h3 id="total-aircraft-0"><a class="header" href="#total-aircraft-0">Total Aircraft: 0</a></h3>
+<ul>
+<li>Infantry division with NO organic aircraft</li>
+<li>Air support provided by RAF Desert Air Force (DAF)</li>
+<li>Tactical reconnaissance by RAF photo-reconnaissance squadrons</li>
+</ul>
+<hr />
+<h2 id="supply--logistics"><a class="header" href="#supply--logistics">Supply &amp; Logistics</a></h2>
+<h3 id="supply-status"><a class="header" href="#supply-status">Supply Status</a></h3>
+<p><strong>Adequate for sustained operations.</strong> Extended supply lines from Tripoli (600km+) and Benghazi (400km) strained logistics. Division experienced some ammunition rationing during static phases but maintained operational capability. Water supplies adequate in coastal Tunisia.</p>
+<h3 id="operational-radius"><a class="header" href="#operational-radius">Operational Radius</a></h3>
+<ul>
+<li><strong>425 kilometers</strong> from main supply depots (Tripoli/Benghazi)</li>
+<li>Extended compared to Q4 1942 El Alamein position (95km)</li>
+<li>8th Army supply columns stretched across Libya</li>
+</ul>
+<h3 id="fuel-reserves"><a class="header" href="#fuel-reserves">Fuel Reserves</a></h3>
+<ul>
+<li><strong>6.5 days</strong> at current consumption rate</li>
+<li>Reduced from 8.5 days in Q4 1942 due to extended supply lines</li>
+<li>Fuel priority to mobile armoured formations</li>
+</ul>
+<h3 id="ammunition-supply"><a class="header" href="#ammunition-supply">Ammunition Supply</a></h3>
+<ul>
+<li><strong>12 days</strong> of combat ammunition</li>
+<li>Reduced from 16 days in Q4 1942</li>
+<li>Artillery ammunition rationed during static phases</li>
+<li>Adequate for sustained defensive operations</li>
+</ul>
+<h3 id="water-supply"><a class="header" href="#water-supply">Water Supply</a></h3>
+<ul>
+<li><strong>4.5 liters per person per day</strong></li>
+<li>Increased from 4.0 liters in Q4 1942</li>
+<li>Tunisia coastal water sources more available than Egyptian desert</li>
+<li>Winter rains improved water availability</li>
+</ul>
+<h3 id="supply-chain-challenges"><a class="header" href="#supply-chain-challenges">Supply Chain Challenges</a></h3>
+<ol>
+<li><strong>Extended Lines of Communication:</strong> 1,400km advance from El Alamein to Tunisia</li>
+<li><strong>Port Capacity Constraints:</strong> Tripoli (captured Jan 23, 1943) limited capacity, bomb damage</li>
+<li><strong>Benghazi Supplementary:</strong> 400km shorter but smaller port</li>
+<li><strong>Road Conditions:</strong> Via Balbia coastal road, single-track sections</li>
+<li><strong>Axis Air Interdiction:</strong> Luftwaffe attacks on supply columns</li>
+<li><strong>Competition for Resources:</strong> 8th Army priority to armoured formations</li>
+</ol>
+<hr />
+<h2 id="weather--environment"><a class="header" href="#weather--environment">Weather &amp; Environment</a></h2>
+<h3 id="season-1943-q1-january-march---winter-to-early-spring"><a class="header" href="#season-1943-q1-january-march---winter-to-early-spring">Season: 1943-Q1 (January-March) - Winter to Early Spring</a></h3>
+<h3 id="temperature-range"><a class="header" href="#temperature-range">Temperature Range</a></h3>
+<ul>
+<li><strong>Minimum:</strong> 8°C (46°F)</li>
+<li><strong>Maximum:</strong> 22°C (72°F)</li>
+<li><strong>Conditions:</strong> Cool to mild, significant contrast to Egyptian summer desert</li>
+<li><strong>Impact:</strong> Comfortable for operations, cold nights requiring blankets</li>
+</ul>
+<h3 id="terrain-type"><a class="header" href="#terrain-type">Terrain Type</a></h3>
+<p><strong>Coastal plain, wadis, and mountainous terrain (Mareth Line position).</strong> Mixed firm and muddy ground due to winter rains. Significantly different from Egyptian flat desert.</p>
+<h3 id="storm-frequency"><a class="header" href="#storm-frequency">Storm Frequency</a></h3>
+<ul>
+<li><strong>6 days per month</strong> (rain/windstorms)</li>
+<li>Winter rainy season in Tunisia</li>
+<li>Wadis could flood, impeding movement</li>
+<li>Mud significantly affected vehicle mobility</li>
+<li>Contrast to Egyptian desert (3 days per month sandstorms in Q4 1942)</li>
+</ul>
+<h3 id="daylight-hours"><a class="header" href="#daylight-hours">Daylight Hours</a></h3>
+<ul>
+<li><strong>11.5 hours</strong> average daylight</li>
+<li>Similar to Q4 1942 (11.5 hours)</li>
+<li>Adequate for operations, night operations remained important</li>
+</ul>
+<h3 id="environmental-challenges"><a class="header" href="#environmental-challenges">Environmental Challenges</a></h3>
+<ol>
+<li><strong>Winter Rains:</strong> Wadis flooding, mud reducing vehicle mobility</li>
+<li><strong>Mountain Warfare:</strong> Tunisia hills/mountains unfamiliar after Egyptian desert</li>
+<li><strong>Wadi Crossings:</strong> Engineering challenges for vehicles and guns</li>
+<li><strong>Vegetation:</strong> Scrub and olive groves provided concealment (vs. open desert)</li>
+<li><strong>Cold Nights:</strong> Additional blankets and shelter required</li>
+<li><strong>Adaptation Required:</strong> Desert-trained division learning mixed terrain warfare</li>
+</ol>
+<hr />
+<h2 id="order-of-battle---subordinate-units"><a class="header" href="#order-of-battle---subordinate-units">Order of Battle - Subordinate Units</a></h2>
+<h3 id="infantry-brigades-3"><a class="header" href="#infantry-brigades-3">Infantry Brigades (3)</a></h3>
+<h4 id="152nd-infantry-brigade"><a class="header" href="#152nd-infantry-brigade">152nd Infantry Brigade</a></h4>
+<ul>
+<li><strong>Commander:</strong> Brigadier G. Murray</li>
+<li><strong>Strength:</strong> 3,350 personnel</li>
+<li><strong>Battalions:</strong>
+<ul>
+<li>2nd Bn Seaforth Highlanders</li>
+<li>5th Bn Seaforth Highlanders</li>
+<li>5th Bn Queen's Own Cameron Highlanders</li>
+</ul>
+</li>
+</ul>
+<h4 id="153rd-infantry-brigade"><a class="header" href="#153rd-infantry-brigade">153rd Infantry Brigade</a></h4>
+<ul>
+<li><strong>Commander:</strong> Brigadier D.A.H. Graham</li>
+<li><strong>Strength:</strong> 3,350 personnel</li>
+<li><strong>Battalions:</strong>
+<ul>
+<li>5th Bn Black Watch (Royal Highland Regiment)</li>
+<li>1st Bn Gordon Highlanders</li>
+<li>5/7th Bn Gordon Highlanders</li>
+</ul>
+</li>
+</ul>
+<h4 id="154th-infantry-brigade"><a class="header" href="#154th-infantry-brigade">154th Infantry Brigade</a></h4>
+<ul>
+<li><strong>Commander:</strong> Brigadier H. Houldsworth</li>
+<li><strong>Strength:</strong> 3,350 personnel</li>
+<li><strong>Battalions:</strong>
+<ul>
+<li>1st Bn Black Watch (Royal Highland Regiment)</li>
+<li>7th Bn Black Watch (Royal Highland Regiment)</li>
+<li>7th Bn Argyll and Sutherland Highlanders</li>
+</ul>
+</li>
+</ul>
+<h3 id="artillery-regiments-4"><a class="header" href="#artillery-regiments-4">Artillery Regiments (4)</a></h3>
+<h4 id="126th-field-regiment-royal-artillery"><a class="header" href="#126th-field-regiment-royal-artillery">126th Field Regiment, Royal Artillery</a></h4>
+<ul>
+<li><strong>Type:</strong> Field Artillery Regiment (25-pdr)</li>
+<li><strong>Commander:</strong> Lieutenant-Colonel commanding</li>
+<li><strong>Strength:</strong> 615 personnel</li>
+<li><strong>Equipment:</strong> 24x Ordnance QF 25-pounder guns</li>
+</ul>
+<h4 id="127th-field-regiment-royal-artillery"><a class="header" href="#127th-field-regiment-royal-artillery">127th Field Regiment, Royal Artillery</a></h4>
+<ul>
+<li><strong>Type:</strong> Field Artillery Regiment (25-pdr)</li>
+<li><strong>Commander:</strong> Lieutenant-Colonel commanding</li>
+<li><strong>Strength:</strong> 615 personnel</li>
+<li><strong>Equipment:</strong> 24x Ordnance QF 25-pounder guns</li>
+</ul>
+<h4 id="128th-highland-field-regiment-royal-artillery"><a class="header" href="#128th-highland-field-regiment-royal-artillery">128th (Highland) Field Regiment, Royal Artillery</a></h4>
+<ul>
+<li><strong>Type:</strong> Field Artillery Regiment (25-pdr)</li>
+<li><strong>Commander:</strong> Lieutenant-Colonel commanding</li>
+<li><strong>Strength:</strong> 615 personnel</li>
+<li><strong>Equipment:</strong> 24x Ordnance QF 25-pounder guns</li>
+<li><strong>Notes:</strong> Scottish regiment, remained with 51st throughout war</li>
+</ul>
+<h4 id="61st-anti-tank-regiment-royal-artillery"><a class="header" href="#61st-anti-tank-regiment-royal-artillery">61st Anti-Tank Regiment, Royal Artillery</a></h4>
+<ul>
+<li><strong>Type:</strong> Anti-Tank Artillery Regiment</li>
+<li><strong>Commander:</strong> Lieutenant-Colonel commanding</li>
+<li><strong>Strength:</strong> 485 personnel</li>
+<li><strong>Equipment:</strong> 48x 6-pounder AT guns (upgraded from mixed 6-pdr/2-pdr in Q4 1942)</li>
+</ul>
+<h3 id="support-units"><a class="header" href="#support-units">Support Units</a></h3>
+<h4 id="1st7th-battalion-middlesex-regiment"><a class="header" href="#1st7th-battalion-middlesex-regiment">1st/7th Battalion, Middlesex Regiment</a></h4>
+<ul>
+<li><strong>Type:</strong> Machine Gun Battalion</li>
+<li><strong>Commander:</strong> Lieutenant-Colonel commanding</li>
+<li><strong>Strength:</strong> 675 personnel</li>
+<li><strong>Equipment:</strong> Vickers medium machine guns</li>
+<li><strong>Notes:</strong> Only non-Highland unit in division</li>
+</ul>
+<h4 id="51st-highland-reconnaissance-regiment-rac"><a class="header" href="#51st-highland-reconnaissance-regiment-rac">51st (Highland) Reconnaissance Regiment, RAC</a></h4>
+<ul>
+<li><strong>Type:</strong> Mechanized Reconnaissance</li>
+<li><strong>Commander:</strong> Lieutenant-Colonel commanding</li>
+<li><strong>Strength:</strong> 480 personnel</li>
+<li><strong>Equipment:</strong> Armored cars and Universal carriers</li>
+</ul>
+<h4 id="engineer-companies-3"><a class="header" href="#engineer-companies-3">Engineer Companies (3)</a></h4>
+<ol>
+<li>
+<p><strong>274th Field Company, Royal Engineers</strong></p>
+<ul>
+<li>Commander: Major commanding</li>
+<li>Strength: 285 personnel</li>
+<li>Role: Mine clearance, field fortifications, bridging</li>
+</ul>
+</li>
+<li>
+<p><strong>275th Field Company, Royal Engineers</strong></p>
+<ul>
+<li>Commander: Major commanding</li>
+<li>Strength: 285 personnel</li>
+<li>Role: Mine clearance, field fortifications, bridging</li>
+</ul>
+</li>
+<li>
+<p><strong>276th Field Company, Royal Engineers</strong></p>
+<ul>
+<li>Commander: Major commanding</li>
+<li>Strength: 285 personnel</li>
+<li>Role: Mine clearance, field fortifications, bridging</li>
+</ul>
+</li>
+</ol>
+<h4 id="service-and-support-units"><a class="header" href="#service-and-support-units">Service and Support Units</a></h4>
+<ol>
+<li>
+<p><strong>51st Highland Division Signals</strong></p>
+<ul>
+<li>Type: Signal/Communications</li>
+<li>Commander: Major commanding</li>
+<li>Strength: 480 personnel</li>
+<li>Role: Division-level communications and intelligence</li>
+</ul>
+</li>
+<li>
+<p><strong>51st Highland Division RASC</strong></p>
+<ul>
+<li>Type: Royal Army Service Corps (Supply/Service)</li>
+<li>Commander: Lieutenant-Colonel commanding</li>
+<li>Strength: 775 personnel</li>
+<li>Role: Division logistics, supply columns, transport</li>
+</ul>
+</li>
+<li>
+<p><strong>51st Highland Division RAOC</strong></p>
+<ul>
+<li>Type: Royal Army Ordnance Corps (Ordnance/Maintenance)</li>
+<li>Commander: Major commanding</li>
+<li>Strength: 385 personnel</li>
+<li>Role: Ammunition supply, weapons maintenance</li>
+</ul>
+</li>
+<li>
+<p><strong>51st Highland Division RAMC</strong></p>
+<ul>
+<li>Type: Royal Army Medical Corps (Medical Services)</li>
+<li>Commander: Lieutenant-Colonel RAMC commanding</li>
+<li>Strength: 480 personnel</li>
+<li>Role: Field ambulances, medical support</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h2 id="tactical-doctrine"><a class="header" href="#tactical-doctrine">Tactical Doctrine</a></h2>
+<h3 id="primary-role"><a class="header" href="#primary-role">Primary Role</a></h3>
+<p><strong>Veteran assault infantry division specialized in breakthrough operations and pursuit.</strong></p>
+<h3 id="special-capabilities"><a class="header" href="#special-capabilities">Special Capabilities</a></h3>
+<ol>
+<li><strong>Night Assault Operations:</strong> Proven at El Alamein, compass-bearing techniques perfected</li>
+<li><strong>Mine Clearance and Breaching:</strong> Coordinated infantry-engineer-tank teams</li>
+<li><strong>Infantry-Tank Cooperation:</strong> Extensive experience with attached armoured brigades</li>
+<li><strong>Highland Fighting Spirit:</strong> Exceptional morale and esprit de corps</li>
+<li><strong>Aggressive Assault Tactics:</strong> Emphasis on offensive action</li>
+<li><strong>Mountain Warfare:</strong> Adapting to Tunisia hill/mountain terrain</li>
+</ol>
+<h3 id="tactical-innovations"><a class="header" href="#tactical-innovations">Tactical Innovations</a></h3>
+<ol>
+<li><strong>Night Assault with Compass Bearings:</strong> Perfected at El Alamein, allowed coordinated advance in darkness</li>
+<li><strong>Coordinated Infantry-Engineer-Tank Teams:</strong> Minefield breaching techniques proven in combat</li>
+<li><strong>Bagpipes and Highland Traditions:</strong> Morale boost, rallying broken units, intimidation effect</li>
+<li><strong>Wadi Crossing Techniques:</strong> Tunisia adaptation, coordinated engineer support</li>
+<li><strong>"Tartan Tam" Leadership:</strong> Major-General Wimberley's emphasis on Scottish identity and regimental pride</li>
+</ol>
+<h3 id="known-issues"><a class="header" href="#known-issues">Known Issues</a></h3>
+<ol>
+<li><strong>Extended Supply Lines:</strong> 400-600km from Tripoli/Benghazi strained logistics</li>
+<li><strong>Tunisia Winter Weather:</strong> Rain and mud unfamiliar after Egyptian desert</li>
+<li><strong>Personnel Replacements:</strong> El Alamein casualties replaced but integration ongoing</li>
+<li><strong>Lack of Mobility:</strong> Infantry division dependent on attached armoured brigades for mobile operations</li>
+<li><strong>Ammunition Rationing:</strong> Occasional constraints during static phases</li>
+</ol>
+<h3 id="desert-and-tunisia-adaptations"><a class="header" href="#desert-and-tunisia-adaptations">Desert and Tunisia Adaptations</a></h3>
+<ul>
+<li><strong>Desert Warfare Experience:</strong> Sun compasses, water discipline, dust protection established</li>
+<li><strong>Mountain Warfare Adaptation:</strong> Learning Tunisia hill/mountain operations</li>
+<li><strong>Winter Weather Operations:</strong> Cold weather, rain, mud, wadi flooding</li>
+<li><strong>Mixed Terrain:</strong> Scrub, olive groves, villages (vs. open desert)</li>
+</ul>
+<hr />
+<h2 id="historical-context"><a class="header" href="#historical-context">Historical Context</a></h2>
+<h3 id="operations-q1-1943"><a class="header" href="#operations-q1-1943">Operations (Q1 1943)</a></h3>
+<h4 id="1-pursuit-from-el-alamein-to-libya"><a class="header" href="#1-pursuit-from-el-alamein-to-libya">1. Pursuit from El Alamein to Libya</a></h4>
+<ul>
+<li><strong>Dates:</strong> November 1942 - January 1943</li>
+<li><strong>Role:</strong> Pursuit of retreating Axis forces through Libya</li>
+<li><strong>Outcome:</strong> Success - advanced over 1,400km from El Alamein to Tripoli</li>
+<li><strong>Distance:</strong> Egypt → Cyrenaica → Tripolitania (1,400+ km)</li>
+<li><strong>Significance:</strong> Demonstrated division's stamina and operational capability</li>
+</ul>
+<h4 id="2-advance-into-tunisia"><a class="header" href="#2-advance-into-tunisia">2. Advance into Tunisia</a></h4>
+<ul>
+<li><strong>Dates:</strong> January - February 1943</li>
+<li><strong>Role:</strong> 8th Army advance from Tripoli into Tunisia, approaching Mareth Line</li>
+<li><strong>Outcome:</strong> Success - positioned for assault on Mareth Line</li>
+<li><strong>Key Event:</strong> Crossed into Tunisia from Libya</li>
+<li><strong>Opposition:</strong> Rearguard actions by Axis forces</li>
+</ul>
+<h4 id="3-battle-of-mareth-preparation"><a class="header" href="#3-battle-of-mareth-preparation">3. Battle of Mareth (Preparation)</a></h4>
+<ul>
+<li><strong>Dates:</strong> March 1943</li>
+<li><strong>Role:</strong> XXX Corps reserve/assault preparations for Mareth Line offensive</li>
+<li><strong>Outcome:</strong> Prepared for upcoming assault (March 20-27, 1943)</li>
+<li><strong>Position:</strong> Positioned for breakthrough assault on fortified Mareth defenses</li>
+<li><strong>Note:</strong> Actual Mareth assault in Q2 1943 (March 20-27)</li>
+</ul>
+<h3 id="combat-effectiveness"><a class="header" href="#combat-effectiveness">Combat Effectiveness</a></h3>
+<p><strong>Very Good.</strong> Division transformed from green troops (Q4 1942) to battle-hardened veterans. El Alamein blooding proved doctrine and leadership. Sustained pursuit operations demonstrated stamina and determination. Major-General Wimberley's Highland identity emphasis maintained morale through extended advance. Ready for major assault operations.</p>
+<h3 id="notable-engagements"><a class="header" href="#notable-engagements">Notable Engagements</a></h3>
+<ol>
+<li><strong>El Alamein Breakout and Pursuit</strong> (November-December 1942)</li>
+<li><strong>Advance through Cyrenaica</strong> (December 1942 - January 1943)</li>
+<li><strong>Entry into Tripoli</strong> (January 23, 1943) - First 8th Army unit to enter</li>
+<li><strong>Advance to Mareth Line</strong> (February-March 1943)</li>
+</ol>
+<h3 id="casualties-q1-1943"><a class="header" href="#casualties-q1-1943">Casualties (Q1 1943)</a></h3>
+<p><strong>Light</strong> - pursuit operations with limited Axis resistance. Division recovered from El Alamein losses (~2,000 casualties replaced). Minimal combat casualties during Q1 1943 pursuit phase.</p>
+<hr />
+<h2 id="wargaming-data"><a class="header" href="#wargaming-data">Wargaming Data</a></h2>
+<h3 id="scenario-suitability"><a class="header" href="#scenario-suitability">Scenario Suitability</a></h3>
+<ol>
+<li><strong>Pursuit Operations in Libya</strong> - Extended advance, supply challenges</li>
+<li><strong>Infantry Assault on Fortified Positions</strong> - Mareth Line preparation</li>
+<li><strong>Infantry-Tank Cooperation Scenarios</strong> - Attached armoured brigade operations</li>
+<li><strong>Mountain Warfare</strong> - Tunisia hill/mountain terrain</li>
+<li><strong>Extended Advance and Supply Line Scenarios</strong> - 1,400km pursuit logistics</li>
+</ol>
+<h3 id="morale-rating-9--10"><a class="header" href="#morale-rating-9--10">Morale Rating: 9 / 10</a></h3>
+<ul>
+<li>Exceptional morale from Highland identity and Wimberley's leadership</li>
+<li>Battle-hardened veterans after El Alamein</li>
+<li>Extended pursuit success boosted confidence</li>
+<li>Bagpipes and regimental traditions maintained spirit</li>
+</ul>
+<h3 id="experience-level-veteran"><a class="header" href="#experience-level-veteran">Experience Level: Veteran</a></h3>
+<ul>
+<li>First combat at El Alamein (October-November 1942)</li>
+<li>1,400km pursuit from Egypt to Tunisia</li>
+<li>Adapting to mixed terrain warfare</li>
+<li>Ready for major assault operations</li>
+</ul>
+<h3 id="special-wargaming-rules"><a class="header" href="#special-wargaming-rules">Special Wargaming Rules</a></h3>
+<ol>
+<li><strong>Highland Spirit:</strong> +2 morale in assault (exceptional esprit de corps)</li>
+<li><strong>Battle-Hardened Veterans:</strong> +2 experience bonus (El Alamein proven)</li>
+<li><strong>Night Assault:</strong> +2 in night operations (perfected technique)</li>
+<li><strong>"Tartan Tam" Leadership:</strong> +1 when Wimberley commanding</li>
+<li><strong>Extended Supply Lines:</strong> -1 logistics (400-600km from Tripoli/Benghazi)</li>
+<li><strong>Bagpipes:</strong> Morale bonus, can rally broken units</li>
+<li><strong>Mountain Warfare:</strong> +1 in Tunisia hill/mountain terrain (adapting)</li>
+</ol>
+<h3 id="historical-engagements-for-scenarios"><a class="header" href="#historical-engagements-for-scenarios">Historical Engagements for Scenarios</a></h3>
+<ol>
+<li><strong>Pursuit from El Alamein</strong> (November-December 1942)</li>
+<li><strong>Advance through Cyrenaica</strong> (December 1942 - January 1943)</li>
+<li><strong>Entry into Tripoli</strong> (January 23, 1943)</li>
+<li><strong>Approach to Mareth Line</strong> (February-March 1943)</li>
+</ol>
+<hr />
+<h2 id="data-validation"><a class="header" href="#data-validation">Data Validation</a></h2>
+<h3 id="sources"><a class="header" href="#sources">Sources</a></h3>
+<ol>
+<li>51st Highland Division official unit history (51hd.co.uk)</li>
+<li>Tunisia Campaign order of battle 1943 (Military History Database)</li>
+<li>Major-General Douglas Wimberley command records</li>
+<li>British infantry division establishment 1943 (Official TO&amp;E documents)</li>
+<li>51st Highland Division war diary extracts January-March 1943</li>
+<li>British Eighth Army Operations Tunisia January-March 1943</li>
+<li>128th Field Regiment RA unit history</li>
+<li>51st Highland Reconnaissance Regiment records</li>
+<li>Imperial War Museums records</li>
+<li>British Field Service Regulations 1942-43</li>
+</ol>
+<h3 id="confidence-level-82"><a class="header" href="#confidence-level-82">Confidence Level: 82%</a></h3>
+<p><strong>Tier 2: Review Recommended</strong></p>
+<h3 id="known-data-gaps"><a class="header" href="#known-data-gaps">Known Data Gaps</a></h3>
+<h4 id="1-chief-of-staff"><a class="header" href="#1-chief-of-staff">1. Chief of Staff</a></h4>
+<ul>
+<li><strong>Status:</strong> Unknown</li>
+<li><strong>Reason:</strong> Division staff records for Q1 1943 not available in accessible sources</li>
+<li><strong>Sources Checked:</strong>
+<ul>
+<li>51st Highland Division official history</li>
+<li>Imperial War Museums staff lists</li>
+<li>British Army Lists Q1 1943 (unavailable)</li>
+</ul>
+</li>
+<li><strong>Confidence Impact:</strong> -5%</li>
+<li><strong>Mitigation:</strong> Brigade commanders identified (G. Murray, D.A.H. Graham, H. Houldsworth) provide partial command structure. Wimberley's command well-documented.</li>
+</ul>
+<h4 id="2-exact-operational-vehicle-counts"><a class="header" href="#2-exact-operational-vehicle-counts">2. Exact Operational Vehicle Counts</a></h4>
+<ul>
+<li><strong>Status:</strong> Estimated</li>
+<li><strong>Reason:</strong> War diary equipment states show authorized strength, not daily operational status</li>
+<li><strong>Sources Checked:</strong>
+<ul>
+<li>51st Highland Division war diary</li>
+<li>British infantry division establishment tables 1943</li>
+</ul>
+</li>
+<li><strong>Confidence Impact:</strong> -3%</li>
+<li><strong>Estimate Method:</strong> Assumed 92-95% operational rate based on extended advance, maintenance access, and resupply in Tripoli. Universal carriers 93% operational (178/192), trucks 98% operational given supply priority.</li>
+</ul>
+<h4 id="3-subordinate-unit-exact-commanders"><a class="header" href="#3-subordinate-unit-exact-commanders">3. Subordinate Unit Exact Commanders</a></h4>
+<ul>
+<li><strong>Status:</strong> Partial</li>
+<li><strong>Reason:</strong> Battalion/regiment commander names for Q1 1943 not fully available</li>
+<li><strong>Sources Checked:</strong>
+<ul>
+<li>51st Highland Division battalion histories</li>
+<li>Regimental records (incomplete access)</li>
+</ul>
+</li>
+<li><strong>Confidence Impact:</strong> -5%</li>
+<li><strong>Mitigation:</strong> Brigade commanders identified. Unit designations and strengths accurate from war diary.</li>
+</ul>
+<h3 id="aggregation-status"><a class="header" href="#aggregation-status">Aggregation Status</a></h3>
+<p><strong>Manually entered</strong> from historical records and war diaries.</p>
+<h3 id="additional-notes"><a class="header" href="#additional-notes">Additional Notes</a></h3>
+<p>Reformed 51st Highland Division (original surrendered at St. Valery, France, June 1940). Fought first battle at El Alamein (October-November 1942), transformed from green to veteran unit. Pursued Axis forces 1,400km from El Alamein to Tripoli, demonstrating stamina and operational capability.</p>
+<p>Q1 1943 saw division advancing into Tunisia, preparing for Mareth Line assault (March 20-27, actual assault in Q2 1943). Major-General "Tartan Tam" Wimberley's emphasis on Scottish identity and Highland traditions maintained exceptional morale through extended operations.</p>
+<p>Division fully equipped with 6-pounder AT guns by Q1 1943 (replaced mixed 6-pdr/2-pdr from Q4 1942). Extended supply lines (400-600km from Tripoli/Benghazi) strained logistics but division remained operationally capable.</p>
+<hr />
+<p><em>Generated: 2025-10-24</em>
+<em>Schema Version: 3.1.0</em>
+<em>Validation Tier: 2 (Review Recommended)</em></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../chapters/chapter_british_1943q1_50th_northumbrian_infantry_division.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../chapters/chapter_british_1943q1_51st_highland_infantry_division.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../chapters/chapter_british_1943q1_50th_northumbrian_infantry_division.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../chapters/chapter_british_1943q1_51st_highland_infantry_division.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

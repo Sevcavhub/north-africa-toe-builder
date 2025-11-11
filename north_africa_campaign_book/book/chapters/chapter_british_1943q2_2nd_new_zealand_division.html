@@ -1,0 +1,625 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>2Nd New Zealand Division - North Africa Campaign 1940-1943: Complete Order of Battle</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">North Africa Campaign 1940-1943: Complete Order of Battle</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/yourusername/north-africa-toe-builder" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="2nd-new-zealand-division"><a class="header" href="#2nd-new-zealand-division">2nd New Zealand Division</a></h1>
+<p><strong>Nation:</strong> British (Commonwealth - New Zealand)
+<strong>Quarter:</strong> 1943q2 (April-June 1943)
+<strong>Type:</strong> infantry_division
+<strong>Parent Formation:</strong> British 8th Army (X Corps until 13 May, then reorganization in Egypt)</p>
+<hr />
+<h2 id="division-overview"><a class="header" href="#division-overview">Division Overview</a></h2>
+<p><strong>Role:</strong> April: Final offensive operations at Enfidaville/Takrouna (19-21 April 1943). May: Withdrawal to Egypt for refit after Tunisia victory (15 May - 1 June). June: Reorganization at Maadi Camp preparing for Italian Campaign. Division resting/refitting - did NOT participate in Sicily invasion (9 July 1943).</p>
+<p><strong>Historical Significance:</strong> The 2nd New Zealand Division fought the last major 8th Army battle of the North African Campaign at Enfidaville (19-21 April 1943), capturing Takrouna after heavy fighting. Following the Axis surrender on 13 May, Lieutenant-General Freyberg accepted the surrender of Marshal Giovanni Messe (Italian 1st Army) and Major-General Kurt von Liebenstein (German 164th Light Afrika Division) as temporary corps commander. The division then drove 3,000km back to Egypt, arriving at Maadi Camp on 1 June to begin a major reorganization that included converting the 4th Infantry Brigade into the 4th Armoured Brigade.</p>
+<h2 id="command"><a class="header" href="#command">Command</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Position</th><th>Name</th><th>Rank</th><th>Notes</th></tr></thead><tbody>
+<tr><td><strong>Commanding Officer</strong></td><td>Lieutenant-General Bernard Cyril Freyberg VC</td><td>Lieutenant-General</td><td>Commander since 16 Nov 1941. Accepted Axis surrender 13 May 1943 as temporary corps commander. Victoria Cross (WWI).</td></tr>
+</tbody></table>
+</div>
+<p><strong>Headquarters:</strong> April: Enfidaville, Tunisia. May-June: Maadi Camp, Egypt (near Cairo)</p>
+<h2 id="personnel-strength"><a class="header" href="#personnel-strength">Personnel Strength</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Category</th><th>Count</th><th>Percentage</th></tr></thead><tbody>
+<tr><td><strong>Total Personnel</strong></td><td>15,800</td><td>100%</td></tr>
+<tr><td>Officers</td><td>920</td><td>5.8%</td></tr>
+<tr><td>NCOs</td><td>2,750</td><td>17.4%</td></tr>
+<tr><td>Enlisted</td><td>12,130</td><td>76.8%</td></tr>
+</tbody></table>
+</div>
+<p><strong>Personnel Notes:</strong></p>
+<ul>
+<li>Reduced from Q1 (16,550) due to battle casualties at Enfidaville/Takrouna</li>
+<li>Division under-strength after 2.5 years continuous combat (Greece 1941 - Tunisia 1943)</li>
+<li>Part of 14,000 total NZ casualties (killed/wounded/POW) across North Africa campaign 1941-1943</li>
+<li>June 1943: Reorganization and recuperation at Maadi Camp</li>
+</ul>
+<h2 id="armored-strength"><a class="header" href="#armored-strength">Armored Strength</a></h2>
+<h3 id="tank-summary"><a class="header" href="#tank-summary">Tank Summary</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>Category</th><th>Total</th><th>Operational</th><th>Readiness</th></tr></thead><tbody>
+<tr><td><strong>Total Tanks</strong></td><td>148</td><td>135</td><td>91.2%</td></tr>
+<tr><td>Heavy Tanks</td><td>0</td><td>0</td><td>-</td></tr>
+<tr><td>Medium Tanks</td><td>102</td><td>93</td><td>91.2%</td></tr>
+<tr><td>Light Tanks</td><td>46</td><td>42</td><td>91.3%</td></tr>
+</tbody></table>
+</div>
+<p><strong>Tank Notes:</strong></p>
+<ul>
+<li>Reduced from Q1 (164 tanks) after March/April losses</li>
+<li>4th Armoured Brigade reorganizing June 1943 (converting from Infantry Brigade)</li>
+<li>Medium tanks: M4 Sherman (primary), M3 Grant (secondary)</li>
+<li>Light tanks: M3 Stuart reconnaissance</li>
+</ul>
+<h3 id="tank-distribution-by-type"><a class="header" href="#tank-distribution-by-type">Tank Distribution by Type</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>Tank Model</th><th>Quantity</th><th>Role</th></tr></thead><tbody>
+<tr><td>M4 Sherman</td><td>85</td><td>Main battle tank</td></tr>
+<tr><td>M3 Grant</td><td>17</td><td>Medium support</td></tr>
+<tr><td>M3 Stuart</td><td>46</td><td>Reconnaissance, light support</td></tr>
+</tbody></table>
+</div>
+<h2 id="artillery-strength"><a class="header" href="#artillery-strength">Artillery Strength</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Category</th><th>Quantity</th></tr></thead><tbody>
+<tr><td><strong>Total Artillery</strong></td><td>138</td></tr>
+<tr><td>Field Artillery</td><td>90</td></tr>
+<tr><td>Anti-Tank Guns</td><td>48</td></tr>
+<tr><td>Anti-Aircraft Guns</td><td>0</td></tr>
+</tbody></table>
+</div>
+<h3 id="field-artillery-90-guns"><a class="header" href="#field-artillery-90-guns">Field Artillery (90 guns)</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>Weapon</th><th>Quantity</th><th>Notes</th></tr></thead><tbody>
+<tr><td>Ordnance QF 25-pounder</td><td>90</td><td>Standard NZ divisional field gun. Provided fire support for Enfidaville mountain warfare.</td></tr>
+</tbody></table>
+</div>
+<h3 id="anti-tank-artillery-48-guns"><a class="header" href="#anti-tank-artillery-48-guns">Anti-Tank Artillery (48 guns)</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>Weapon</th><th>Quantity</th><th>Notes</th></tr></thead><tbody>
+<tr><td>Ordnance QF 6-pounder (57mm)</td><td>36</td><td>Standard anti-tank gun</td></tr>
+<tr><td>Ordnance QF 17-pounder (76mm)</td><td>12</td><td>Heavy anti-tank gun. Critical for mountain defense at Enfidaville.</td></tr>
+</tbody></table>
+</div>
+<h2 id="armored-cars"><a class="header" href="#armored-cars">Armored Cars</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Category</th><th>Quantity</th></tr></thead><tbody>
+<tr><td><strong>Total Armored Cars</strong></td><td>36</td></tr>
+</tbody></table>
+</div><div class="table-wrapper"><table><thead><tr><th>Model</th><th>Quantity</th><th>Role</th></tr></thead><tbody>
+<tr><td>Marmon-Herrington Mk III</td><td>24</td><td>Reconnaissance, screening</td></tr>
+<tr><td>Humber Armoured Car</td><td>12</td><td>Reconnaissance, liaison</td></tr>
+</tbody></table>
+</div>
+<h2 id="infantry-weapons"><a class="header" href="#infantry-weapons">Infantry Weapons</a></h2>
+<h3 id="top-3-weapons-by-count"><a class="header" href="#top-3-weapons-by-count">Top 3 Weapons by Count</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>Rank</th><th>Weapon</th><th>Count</th><th>Type</th></tr></thead><tbody>
+<tr><td>1</td><td>Lee-Enfield No.1 Mk III Rifle</td><td>11,200</td><td>Bolt-action rifle</td></tr>
+<tr><td>2</td><td>Bren Light Machine Gun</td><td>470</td><td>Light machine gun</td></tr>
+<tr><td>3</td><td>Vickers Medium Machine Gun</td><td>66</td><td>Medium machine gun</td></tr>
+</tbody></table>
+</div>
+<p><strong>Infantry Weapons Notes:</strong></p>
+<ul>
+<li>Lee-Enfield: Standard rifle for NZ infantry (1 per rifleman)</li>
+<li>Bren LMG: Squad automatic weapon (~1 per section)</li>
+<li>Vickers MMG: Battalion/company support weapon</li>
+</ul>
+<h2 id="transport--vehicles"><a class="header" href="#transport--vehicles">Transport &amp; Vehicles</a></h2>
+<p><strong>Total Ground Vehicles:</strong> 5,800</p>
+<div class="table-wrapper"><table><thead><tr><th>Category</th><th>Quantity</th><th>Notes</th></tr></thead><tbody>
+<tr><td>CMP 15cwt trucks</td><td>1,880</td><td>Light transport</td></tr>
+<tr><td>CMP 30cwt trucks</td><td>2,100</td><td>Medium transport</td></tr>
+<tr><td>Bedford 3-ton trucks</td><td>940</td><td>Heavy transport</td></tr>
+<tr><td>M5 Half-tracks</td><td>48</td><td>Armored transport</td></tr>
+<tr><td>Universal Carriers</td><td>210</td><td>Infantry support, reconnaissance</td></tr>
+<tr><td>Motorcycles</td><td>222</td><td>Liaison, dispatch</td></tr>
+</tbody></table>
+</div>
+<p><strong>Vehicle Notes:</strong></p>
+<ul>
+<li>Reduced from Q1 (6,000 to 5,800) due to battle losses and 3,000km return drive to Egypt</li>
+<li>15 May - 1 June: 3,000km convoy from Tunisia to Egypt required extensive fuel/maintenance</li>
+<li>June: Vehicles refitted at Maadi Camp depot</li>
+</ul>
+<h2 id="organizational-structure"><a class="header" href="#organizational-structure">Organizational Structure</a></h2>
+<h3 id="subordinate-units"><a class="header" href="#subordinate-units">Subordinate Units</a></h3>
+<ol>
+<li>
+<p><strong>4th New Zealand Brigade (reorganizing to Armoured)</strong></p>
+<ul>
+<li>Type: Infantry Brigade (converting to Armoured)</li>
+<li>Commander: Brigadier Unknown</li>
+<li>Strength: 2,000 personnel</li>
+<li>Status: Major reorganization underway June 1943</li>
+<li>Notes: Converting from Infantry to Armoured Brigade at Maadi. Major structural change for Italian Campaign.</li>
+</ul>
+</li>
+<li>
+<p><strong>5th New Zealand Brigade</strong></p>
+<ul>
+<li>Type: Infantry Brigade</li>
+<li>Commander: Brigadier Unknown</li>
+<li>Strength: 3,950 personnel</li>
+<li>Status: Refit after Takrouna battle</li>
+<li>Notes: Led assault on Takrouna 19-21 April. Heavy fighting, took two days to capture objective.</li>
+</ul>
+</li>
+<li>
+<p><strong>6th New Zealand Brigade</strong></p>
+<ul>
+<li>Type: Infantry Brigade</li>
+<li>Commander: Brigadier Unknown</li>
+<li>Strength: 3,950 personnel</li>
+<li>Status: Refit after Enfidaville operations</li>
+<li>Notes: Attacked north of Takrouna-Enfidaville road during Operation Oration. Secured objectives easily 19 April.</li>
+</ul>
+</li>
+<li>
+<p><strong>2nd NZ Divisional Artillery</strong></p>
+<ul>
+<li>Type: Artillery Regiment</li>
+<li>Commander: Unknown</li>
+<li>Strength: 1,800 personnel</li>
+<li>Equipment: 90x Ordnance QF 25-pounder field guns</li>
+<li>Notes: Provided fire support for Enfidaville mountain warfare April 1943.</li>
+</ul>
+</li>
+<li>
+<p><strong>2nd NZ Anti-Tank Regiment</strong></p>
+<ul>
+<li>Type: Anti-Tank Regiment</li>
+<li>Commander: Unknown</li>
+<li>Strength: 750 personnel</li>
+<li>Equipment: 36x 6-pounder, 12x 17-pounder AT guns</li>
+<li>Notes: Anti-tank guns critical for mountain defense positions at Enfidaville.</li>
+</ul>
+</li>
+</ol>
+<h2 id="supply--logistics"><a class="header" href="#supply--logistics">Supply &amp; Logistics</a></h2>
+<p><strong>Supply Status:</strong> TRANSITIONAL - April: Enfidaville offensive (adequate supply). May: 3,000km return to Egypt (convoy logistics). June: Reorganization at Maadi Camp with excellent depot support. Division withdrawn to Egypt for refit after Tunisia victory (13 May), not participating in Sicily invasion (9 July).</p>
+<div class="table-wrapper"><table><thead><tr><th>Metric</th><th>Value</th><th>Notes</th></tr></thead><tbody>
+<tr><td>Operational Radius</td><td>160 km</td><td>Reduced from Q1 mobile operations</td></tr>
+<tr><td>Fuel Reserves</td><td>10 days</td><td>April: offensive ops. May: convoy fuel. June: depot stocks</td></tr>
+<tr><td>Ammunition Reserves</td><td>18 days</td><td>Adequate for April battles, replenished Egypt</td></tr>
+<tr><td>Water per Day</td><td>15 liters/person</td><td>Critical for desert convoy May, Egypt summer June</td></tr>
+</tbody></table>
+</div>
+<p><strong>Logistics Notes:</strong></p>
+<ul>
+<li><strong>April:</strong> Final offensive supply at Enfidaville. Mountain terrain limited vehicle movement.</li>
+<li><strong>15 May - 1 June:</strong> 3,000km drive to Egypt required extensive convoy fuel, water, and maintenance support.</li>
+<li><strong>June:</strong> Maadi Camp depot provides excellent refit support. 4th Infantry Brigade converting to 4th Armoured Brigade (major vehicle/equipment reorganization).</li>
+<li><strong>Sicily:</strong> Division did NOT participate in Sicily invasion (9 July), remaining in Egypt for refit.</li>
+</ul>
+<h2 id="weather--environment"><a class="header" href="#weather--environment">Weather &amp; Environment</a></h2>
+<p><strong>Season:</strong> Q2 1943 (April-June) - Spring/Early Summer
+<strong>Location:</strong> April: Northern Tunisia (Enfidaville). May-June: Egypt (Maadi Camp near Cairo)</p>
+<div class="table-wrapper"><table><thead><tr><th>Environmental Factor</th><th>Value</th></tr></thead><tbody>
+<tr><td>Temperature Range</td><td>12°C to 32°C (54°F to 90°F)</td></tr>
+<tr><td>Terrain Type</td><td>April: Mountains (Enfidaville, Djebel Takrouna). May-June: Desert (Egypt)</td></tr>
+<tr><td>Storm Frequency</td><td>2 days/month</td></tr>
+<tr><td>Daylight Hours</td><td>13.5 hours</td></tr>
+</tbody></table>
+</div>
+<p><strong>Environmental Notes:</strong></p>
+<ul>
+<li><strong>April:</strong> Mountainous terrain at Enfidaville. High ground, defensive Axis positions. Djebel Takrouna assault in difficult terrain.</li>
+<li><strong>May:</strong> 3,000km drive through desert. High heat, dust, mechanical wear on vehicles.</li>
+<li><strong>June:</strong> Egypt summer heat at Maadi Camp. Reorganization phase, not operational combat.</li>
+</ul>
+<h2 id="tactical-doctrine--capabilities"><a class="header" href="#tactical-doctrine--capabilities">Tactical Doctrine &amp; Capabilities</a></h2>
+<p><strong>Primary Role:</strong> April: Final offensive operations at Enfidaville/Takrouna (19-21 April). May: Withdrawal to Egypt for refit (15 May - 1 June). June: Reorganization at Maadi Camp for Italian Campaign. Division resting/refitting - NOT participating in Sicily invasion (9 July).</p>
+<h3 id="special-capabilities"><a class="header" href="#special-capabilities">Special Capabilities</a></h3>
+<ul>
+<li><strong>Veteran division:</strong> Continuous combat from Greece 1941 through Tunisia 1943 (2.5 years)</li>
+<li><strong>Combined arms excellence:</strong> Infantry, armor, artillery coordination refined through North Africa campaign</li>
+<li><strong>Mountain warfare capability:</strong> Demonstrated at Enfidaville/Takrouna assaults April 1943</li>
+<li><strong>Strategic significance:</strong> Last 8th Army battle in North Africa, accepted Axis surrender</li>
+<li><strong>Reorganization expertise:</strong> Converting 4th Infantry Brigade to Armoured Brigade (major structural change)</li>
+</ul>
+<h3 id="known-issues"><a class="header" href="#known-issues">Known Issues</a></h3>
+<ul>
+<li><strong>Under-strength:</strong> After prolonged North Africa campaign (1941-1943), division needs refit</li>
+<li><strong>Battle weariness:</strong> 2.5 years continuous combat, part of 14,000 NZ casualties in North Africa</li>
+<li><strong>Heavy casualties at Takrouna:</strong> 5th Brigade struggled, took 2 days to capture objective</li>
+<li><strong>Major reorganization required:</strong> 4th Infantry Brigade converting to 4th Armoured Brigade (June 1943)</li>
+<li><strong>Vehicle attrition:</strong> 3,000km return drive to Egypt caused mechanical wear, reduced count from 6,000 to 5,800</li>
+</ul>
+<h2 id="historical-context"><a class="header" href="#historical-context">Historical Context</a></h2>
+<p><strong>Formation Date:</strong> 1940 (Middle East)
+<strong>Operational Status:</strong> Active - Final Tunisia battles April, then withdrawal to Egypt for refit May-June</p>
+<h3 id="q2-1943-timeline"><a class="header" href="#q2-1943-timeline">Q2 1943 Timeline</a></h3>
+<p><strong>April 1943:</strong></p>
+<ul>
+<li><strong>19-21 April:</strong> Battle of Enfidaville - Last 8th Army battle in North Africa</li>
+<li><strong>19-21 April:</strong> Assault on Takrouna - 5th Brigade heavy fighting (2 days to capture)</li>
+<li><strong>19 April:</strong> 6th Brigade secures objectives north of Takrouna-Enfidaville road</li>
+<li><strong>Result:</strong> 8th Army failed to break Axis resistance in mountainous terrain, but captured Takrouna and part of Djebel Garci</li>
+</ul>
+<p><strong>May 1943:</strong></p>
+<ul>
+<li><strong>13 May:</strong> Axis Surrender Tunisia - 238,000 Germans/Italians surrender</li>
+<li><strong>13 May:</strong> Lieutenant-General Freyberg accepts surrender of Marshal Giovanni Messe (Italian 1st Army) and Major-General Kurt von Liebenstein (German 164th Light Afrika Division) as temporary corps commander</li>
+<li><strong>15 May:</strong> Division begins 3,000km drive back to Egypt</li>
+<li><strong>1 June:</strong> Last units arrive at Maadi and Helwan camps near Cairo</li>
+</ul>
+<p><strong>June 1943:</strong></p>
+<ul>
+<li><strong>June:</strong> Reorganization and recuperation at Maadi Camp</li>
+<li><strong>June:</strong> 4th Infantry Brigade begins conversion to 4th Armoured Brigade</li>
+<li><strong>9 July:</strong> Sicily invasion begins - 2nd NZ Division does NOT participate (remaining in Egypt for refit)</li>
+</ul>
+<h3 id="major-battles-q2-1943"><a class="header" href="#major-battles-q2-1943">Major Battles (Q2 1943)</a></h3>
+<ol>
+<li>
+<p><strong>Battle of Enfidaville (19-21 April 1943)</strong></p>
+<ul>
+<li>Last major 8th Army battle in North Africa</li>
+<li>Mountain warfare in difficult terrain</li>
+<li>6th Brigade secured objectives easily, 5th Brigade struggled</li>
+<li>8th Army failed to break Axis mountain defenses</li>
+<li>Captured Takrouna and part of Djebel Garci at heavy cost</li>
+</ul>
+</li>
+<li>
+<p><strong>Assault on Takrouna (19-21 April 1943)</strong></p>
+<ul>
+<li>5th NZ Brigade assault on Djebel Takrouna</li>
+<li>Heavy fighting, took 2 days to capture</li>
+<li>Mountainous terrain, Axis defensive positions on high ground</li>
+<li>Part of Operation Oration (X Corps offensive towards Tunis)</li>
+</ul>
+</li>
+<li>
+<p><strong>Axis Surrender (13 May 1943)</strong></p>
+<ul>
+<li>238,000 Germans and Italians laid down arms</li>
+<li>Freyberg accepts surrender as temporary corps commander</li>
+<li>North African campaign ends after 3 years</li>
+</ul>
+</li>
+</ol>
+<h3 id="historical-notes"><a class="header" href="#historical-notes">Historical Notes</a></h3>
+<ul>
+<li><strong>Q2 1943 Two Phases:</strong> (1) April combat at Enfidaville/Takrouna, (2) May-June withdrawal and refit in Egypt</li>
+<li><strong>Last Combat:</strong> Takrouna assault 19-21 April 1943 was the last NZ Division battle in North Africa</li>
+<li><strong>Acceptance of Surrender:</strong> Freyberg's role on 13 May marked strategic end of campaign</li>
+<li><strong>3,000km Return Drive:</strong> 15 May - 1 June convoy from Tunisia to Egypt (longest unit movement)</li>
+<li><strong>Maadi Camp:</strong> Base from 1 June through October 1943 for reorganization</li>
+<li><strong>Sicily Exclusion:</strong> Division did NOT participate in Sicily invasion (9 July 1943), continued refitting</li>
+<li><strong>Italian Campaign Preparation:</strong> 4th Infantry Brigade converting to Armoured Brigade for Italy (deployed October 1943)</li>
+<li><strong>Total North Africa Casualties:</strong> 14,000 New Zealanders killed/wounded/POW across 1941-1943 campaign</li>
+</ul>
+<h2 id="combat-performance--lessons-learned"><a class="header" href="#combat-performance--lessons-learned">Combat Performance &amp; Lessons Learned</a></h2>
+<h3 id="successes"><a class="header" href="#successes">Successes</a></h3>
+<ul>
+<li><strong>Takrouna Capture:</strong> Despite heavy fighting and 2-day struggle, 5th Brigade captured strategic objective</li>
+<li><strong>6th Brigade Excellence:</strong> Quickly secured objectives north of Takrouna-Enfidaville road</li>
+<li><strong>Command Recognition:</strong> Freyberg selected as temporary corps commander to accept Axis surrender (13 May)</li>
+<li><strong>Veteran Proficiency:</strong> Combined arms coordination after 2.5 years continuous combat</li>
+<li><strong>Logistics Achievement:</strong> Successfully completed 3,000km return convoy to Egypt (15 May - 1 June)</li>
+</ul>
+<h3 id="challenges"><a class="header" href="#challenges">Challenges</a></h3>
+<ul>
+<li><strong>Under-Strength:</strong> Division weakened after prolonged combat, required major refit</li>
+<li><strong>Mountain Warfare Limitations:</strong> 8th Army (including NZ Division) failed to break Axis mountain defenses at Enfidaville</li>
+<li><strong>Battle Weariness:</strong> 2.5 years continuous combat took toll on personnel</li>
+<li><strong>Takrouna Difficulty:</strong> 5th Brigade struggled for 2 days in heavy fighting (compared to 6th Brigade's easy success)</li>
+<li><strong>Reorganization Required:</strong> Major structural change (4th Infantry → Armoured Brigade) needed for future operations</li>
+</ul>
+<h3 id="tactical-lessons"><a class="header" href="#tactical-lessons">Tactical Lessons</a></h3>
+<ul>
+<li><strong>Mountain Terrain Challenges:</strong> High ground defensive positions extremely difficult to assault (Enfidaville experience)</li>
+<li><strong>Brigade Variability:</strong> 6th Brigade's easy success vs. 5th Brigade's 2-day struggle shows terrain/position impact</li>
+<li><strong>Refit Necessity:</strong> After 2.5 years combat, division required withdrawal from Sicily invasion to reorganize</li>
+<li><strong>Reorganization Flexibility:</strong> Converting infantry to armoured brigade demonstrates adaptability</li>
+</ul>
+<h2 id="wargaming-data"><a class="header" href="#wargaming-data">Wargaming Data</a></h2>
+<h3 id="scenario-battle-of-enfidavilletakrouna-19-21-april-1943"><a class="header" href="#scenario-battle-of-enfidavilletakrouna-19-21-april-1943">Scenario: Battle of Enfidaville/Takrouna (19-21 April 1943)</a></h3>
+<p><strong>Map:</strong> Northern Tunisia - Enfidaville, Djebel Takrouna, Djebel Garci mountains</p>
+<p><strong>NZ Division Forces:</strong></p>
+<ul>
+<li>5th NZ Brigade: 3,950 infantry (assault Takrouna)</li>
+<li>6th NZ Brigade: 3,950 infantry (north of Takrouna-Enfidaville road)</li>
+<li>4th NZ Armoured Brigade: 148 tanks (limited by mountain terrain)</li>
+<li>Divisional Artillery: 90x 25-pounder guns</li>
+<li>Anti-Tank: 48x AT guns (6-pdr and 17-pdr)</li>
+</ul>
+<p><strong>Terrain:</strong> Mountainous, high ground Axis defenses, limited armor mobility</p>
+<p><strong>Objective:</strong></p>
+<ul>
+<li>5th Brigade: Capture Djebel Takrouna</li>
+<li>6th Brigade: Secure positions north of Takrouna-Enfidaville road</li>
+<li>Division: Break Axis mountain defenses</li>
+</ul>
+<p><strong>Historical Outcome:</strong></p>
+<ul>
+<li>6th Brigade: Quick success, objectives secured 19 April</li>
+<li>5th Brigade: Heavy fighting, 2 days to capture Takrouna (19-21 April)</li>
+<li>Division: Captured Takrouna and part of Djebel Garci, but 8th Army failed to break Axis defenses</li>
+<li>Casualties: Part of total campaign losses leading to under-strength status</li>
+</ul>
+<p><strong>Victory Conditions:</strong></p>
+<ul>
+<li><strong>NZ Major Victory:</strong> Capture Takrouna AND break Axis mountain line (historically not achieved)</li>
+<li><strong>NZ Minor Victory:</strong> Capture Takrouna (historical outcome)</li>
+<li><strong>Draw:</strong> Partial objectives, heavy casualties</li>
+<li><strong>Axis Victory:</strong> Hold Takrouna and mountain positions</li>
+</ul>
+<h3 id="unit-quality-ratings-wargaming"><a class="header" href="#unit-quality-ratings-wargaming">Unit Quality Ratings (Wargaming)</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>Attribute</th><th>Rating (1-10)</th><th>Notes</th></tr></thead><tbody>
+<tr><td>Training</td><td>9</td><td>Veteran division, 2.5 years continuous combat</td></tr>
+<tr><td>Morale</td><td>7</td><td>Battle-weary but determined (end of North Africa campaign)</td></tr>
+<tr><td>Equipment</td><td>8</td><td>Well-equipped with Shermans, 25-pounders, AT guns</td></tr>
+<tr><td>Leadership</td><td>9</td><td>Freyberg VC, experienced brigade commanders</td></tr>
+<tr><td>Combined Arms</td><td>9</td><td>Excellent infantry-armor-artillery coordination</td></tr>
+<tr><td>Logistics</td><td>7</td><td>Adequate for April operations, challenged by 3,000km May withdrawal</td></tr>
+</tbody></table>
+</div>
+<h2 id="data-quality--known-gaps"><a class="header" href="#data-quality--known-gaps">Data Quality &amp; Known Gaps</a></h2>
+<p><strong>Overall Confidence:</strong> 82%</p>
+<h3 id="confidence-breakdown"><a class="header" href="#confidence-breakdown">Confidence Breakdown</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>Category</th><th>Confidence</th><th>Notes</th></tr></thead><tbody>
+<tr><td>Unit Identification</td><td>98%</td><td>Well-documented NZ Division, clear sources</td></tr>
+<tr><td>Command</td><td>95%</td><td>Freyberg well-documented, brigade commanders unknown</td></tr>
+<tr><td>Personnel</td><td>85%</td><td>Estimated from Q1 baseline minus battle losses</td></tr>
+<tr><td>Equipment</td><td>80%</td><td>Tank counts estimated from operational status, vehicle attrition from convoy</td></tr>
+<tr><td>Organization</td><td>88%</td><td>Brigade structure known, 4th Brigade conversion documented</td></tr>
+<tr><td>Supply/Logistics</td><td>82%</td><td>General status known, specific metrics estimated</td></tr>
+</tbody></table>
+</div>
+<h3 id="primary-sources"><a class="header" href="#primary-sources">Primary Sources</a></h3>
+<ul>
+<li>WebSearch: "2nd New Zealand Division" Enfidaville Takrouna April 1943 organization strength casualties</li>
+<li>WebSearch: "2nd New Zealand Division" Egypt Maadi June 1943 reorganization Sicily preparation</li>
+<li>Wikipedia - 2nd New Zealand Division</li>
+<li>Wikipedia - Battle of Enfidaville (19-21 April 1943)</li>
+<li>NZ History - Tunisia Campaign and return to Egypt</li>
+<li>British Military History - Tunisia 1942-1943 Commonwealth Divisions</li>
+<li>British 1943-Q1 2nd NZ Division baseline (adapted for Q2 context)</li>
+</ul>
+<h3 id="known-data-gaps"><a class="header" href="#known-data-gaps">Known Data Gaps</a></h3>
+<ul>
+<li><strong>Brigade Commanders:</strong> Names not documented in available sources (listed as "Unknown")</li>
+<li><strong>Specific Casualties:</strong> Enfidaville/Takrouna battle casualties not found (only campaign total 14,000 across 1941-1943)</li>
+<li><strong>Tank Losses:</strong> April 1943 tank losses estimated from operational status reduction (164 → 148)</li>
+<li><strong>Vehicle Breakdown:</strong> Estimated based on convoy attrition during 3,000km return to Egypt (6,000 → 5,800)</li>
+</ul>
+<h3 id="validation-notes"><a class="header" href="#validation-notes">Validation Notes</a></h3>
+<ul>
+<li><strong>Q2 1943 Two-Phase Structure:</strong> Division in distinct phases - (1) April combat at Enfidaville, (2) May-June Egypt refit</li>
+<li><strong>Last Combat Date:</strong> 19-21 April 1943 (Takrouna) was last NZ Division battle in North Africa</li>
+<li><strong>Axis Surrender:</strong> 13 May, division begins 3,000km drive to Egypt on 15 May</li>
+<li><strong>Maadi Arrival:</strong> 1 June, remained through June for reorganization</li>
+<li><strong>Major Reorganization:</strong> 4th Infantry Brigade converting to 4th Armoured Brigade (documented structural change)</li>
+<li><strong>Sicily Exclusion:</strong> Division did NOT participate in Sicily invasion (9 July), preparing for Italy (October 1943)</li>
+<li><strong>Tier 2 Classification:</strong> Due to missing brigade commander names and specific battle casualty figures</li>
+<li><strong>Aggregation Method:</strong> Used 1943-Q1 baseline with Q2 delta changes (combat → refit transition)</li>
+</ul>
+<hr />
+<p><strong>Generated:</strong> 2025-10-25
+<strong>Schema Version:</strong> 3.1.0
+<strong>Data Quality Tier:</strong> 2 (review_recommended)
+<strong>Last Validated:</strong> 2025-10-25T12:00:00Z</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../chapters/chapter_british_1943q2_1st_infantry_division.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../chapters/chapter_british_1943q2_46th_infantry_division.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../chapters/chapter_british_1943q2_1st_infantry_division.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../chapters/chapter_british_1943q2_46th_infantry_division.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

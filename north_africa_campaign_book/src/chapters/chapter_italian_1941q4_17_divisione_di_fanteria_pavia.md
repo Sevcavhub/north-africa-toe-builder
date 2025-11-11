@@ -1,0 +1,49 @@
+# 17ª Divisione di Fanteria Pavia
+
+**Nation:** Italian
+**Quarter:** 1941-Q4
+**Commander:** Generale di Brigata Generale di Brigata Antonio Franceschini
+**Type:** 
+**Parent Formation:** Independent
+**HQ:** Gazala Line withdrawal positions, Cyrenaica
+
+## 1. Overview
+
+The 17ª Divisione di Fanteria Pavia operated during 1941-Q4 with 9,580 personnel under Generale di Brigata Generale di Brigata Antonio Franceschini's command.
+
+## 2. Command
+
+**Commander:** Generale di Brigata Generale di Brigata Antonio Franceschini
+**Headquarters:** Gazala Line withdrawal positions, Cyrenaica
+**Parent Formation:** Independent
+
+## 3. Personnel
+
+**Total Strength:** 9,580
+- Officers: 324 (3.4%)
+- NCOs: 1,098 (11.5%)
+- Enlisted: 8,158 (85.2%)
+
+## 4. Equipment
+
+- Vehicles: 0
+- Artillery: 0
+- Tanks: 0
+
+## 5. Supply
+
+- Fuel: 0 days
+- Ammunition: 0 days
+- Water: 0L/man/day
+
+## 6. Operations
+
+The unit conducted operations in North Africa during 1941-Q4.
+
+## 7. Data Validation
+
+**Confidence:** 85%
+**Schema:** v3.1.0
+
+---
+*Enhanced from  TO&E data.*

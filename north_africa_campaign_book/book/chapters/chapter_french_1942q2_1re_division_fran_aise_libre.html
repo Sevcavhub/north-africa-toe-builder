@@ -1,0 +1,843 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>1Re Division Fran Aise Libre - North Africa Campaign 1940-1943: Complete Order of Battle</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">North Africa Campaign 1940-1943: Complete Order of Battle</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/yourusername/north-africa-toe-builder" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="1re-division-française-libre-1st-free-french-division"><a class="header" href="#1re-division-française-libre-1st-free-french-division">1re Division Française Libre (1st Free French Division)</a></h1>
+<h2 id="1942-q2-april-june-1942---north-africa"><a class="header" href="#1942-q2-april-june-1942---north-africa">1942-Q2 (April-June 1942) - North Africa</a></h2>
+<hr />
+<h2 id="command-structure"><a class="header" href="#command-structure">Command Structure</a></h2>
+<p><strong>Commander</strong>: Général de brigade Marie-Pierre Koenig<br />
+<strong>Headquarters</strong>: Bir Hakeim, Libya<br />
+<strong>Parent Formation</strong>: British Eighth Army<br />
+<strong>Organization Level</strong>: Division (formally Brigade in Q2 1942)</p>
+<h3 id="command-staff"><a class="header" href="#command-staff">Command Staff</a></h3>
+<ul>
+<li><strong>Commander</strong>: Marie-Pierre Koenig, Général de brigade (Brigadier General)
+<ul>
+<li>Appointed: December 1, 1941</li>
+<li>Previous Service: Commander of Free French Forces in Libya since 1941</li>
+</ul>
+</li>
+<li><strong>Headquarters Location</strong>: Bir Hakeim fortress, southern Libya</li>
+<li><strong>Staff Strength</strong>: 180 officers, 220 enlisted personnel</li>
+</ul>
+<hr />
+<h2 id="unit-strength"><a class="header" href="#unit-strength">Unit Strength</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Category</th><th>Count</th></tr></thead><tbody>
+<tr><td><strong>Total Personnel</strong></td><td>3,700</td></tr>
+<tr><td>Officers</td><td>180</td></tr>
+<tr><td>NCOs</td><td>420</td></tr>
+<tr><td>Enlisted</td><td>3,100</td></tr>
+</tbody></table>
+</div>
+<h3 id="personnel-composition"><a class="header" href="#personnel-composition">Personnel Composition</a></h3>
+<p>The 1st Free French Brigade was a multinational force comprising:</p>
+<ul>
+<li><strong>French Foreign Legion</strong>: 2 battalions (13e DBLE) - ~900 men</li>
+<li><strong>White Colonial Forces</strong>: Naval Infantry and Pacific Islander units - ~650 men</li>
+<li><strong>Black Colonial Forces</strong>: Tirailleurs from French Equatorial Africa - ~580 men</li>
+<li><strong>North African Colonial Forces</strong>: Moroccan, Algerian, Tunisian companies - ~520 men</li>
+<li><strong>Artillery</strong>: French 75mm gun regiment - ~480 men</li>
+<li><strong>Naval Fusiliers</strong>: Anti-aircraft battalion - ~240 men</li>
+<li><strong>Support Services</strong>: Engineers, signals, medical, logistics - ~330 men</li>
+</ul>
+<hr />
+<h2 id="subordinate-units"><a class="header" href="#subordinate-units">Subordinate Units</a></h2>
+<h3 id="infantry-battalions"><a class="header" href="#infantry-battalions">Infantry Battalions</a></h3>
+<h4 id="13th-demi-brigade-of-the-foreign-legion-13e-dble"><a class="header" href="#13th-demi-brigade-of-the-foreign-legion-13e-dble">13th Demi-Brigade of the Foreign Legion (13e DBLE)</a></h4>
+<ul>
+<li><strong>Type</strong>: Infantry Battalion (Foreign Legion)</li>
+<li><strong>Commander</strong>: Lieutenant-Colonel Amilakvari</li>
+<li><strong>Strength</strong>: 900 men</li>
+<li><strong>Composition</strong>: Two battalions from French Foreign Legion</li>
+<li><strong>Note</strong>: Defended eastern sector of Bir Hakeim, destroyed 35 Italian tanks on May 27</li>
+</ul>
+<h4 id="bataillon-dinfanterie-de-marine-et-du-pacifique-bimpacific-battalion"><a class="header" href="#bataillon-dinfanterie-de-marine-et-du-pacifique-bimpacific-battalion">Bataillon d'Infanterie de Marine et du Pacifique (BIM/Pacific Battalion)</a></h4>
+<ul>
+<li><strong>Type</strong>: Colonial Infantry Battalion</li>
+<li><strong>Strength</strong>: 650 men</li>
+<li><strong>Composition</strong>: White Colonial battalion with units from Naval Infantry, New Caledonia, and Pacific Islands</li>
+<li><strong>Badge</strong>: Coconut tree and mountains emblem</li>
+</ul>
+<h4 id="2e-bataillon-de-marche-2nd-march-battalion"><a class="header" href="#2e-bataillon-de-marche-2nd-march-battalion">2e Bataillon de Marche (2nd March Battalion)</a></h4>
+<ul>
+<li><strong>Type</strong>: Colonial Infantry Battalion</li>
+<li><strong>Commanders</strong>: Battalion Chief De Roux / Battalion Chief Amiel</li>
+<li><strong>Strength</strong>: 580 men</li>
+<li><strong>Composition</strong>: Black Colonial battalion of tirailleurs from French Equatorial Africa (Oubangui-Chari)</li>
+<li><strong>Note</strong>: Defended heavily attacked northwestern sector during Bir Hakeim siege</li>
+</ul>
+<h4 id="bataillon-de-chasseurs-dafrique"><a class="header" href="#bataillon-de-chasseurs-dafrique">Bataillon de Chasseurs d'Afrique</a></h4>
+<ul>
+<li><strong>Type</strong>: Colonial Infantry Battalion</li>
+<li><strong>Strength</strong>: 520 men</li>
+<li><strong>Composition</strong>: North African Colonial battalion with companies from Morocco, Algeria, Tunisia</li>
+</ul>
+<h3 id="artillery-and-support-units"><a class="header" href="#artillery-and-support-units">Artillery and Support Units</a></h3>
+<h4 id="1er-régiment-dartillerie-1st-artillery-regiment"><a class="header" href="#1er-régiment-dartillerie-1st-artillery-regiment">1er Régiment d'Artillerie (1st Artillery Regiment)</a></h4>
+<ul>
+<li><strong>Type</strong>: Artillery Regiment</li>
+<li><strong>Commander</strong>: Major Laurent-Champrosay</li>
+<li><strong>Strength</strong>: 480 men</li>
+<li><strong>Equipment</strong>:
+<ul>
+<li>4 batteries × 6 guns each = 24× Canon de 75 modèle 1897</li>
+<li>Additional 16× 75mm guns deployed in anti-tank role</li>
+<li>Total: 40× 75mm guns</li>
+</ul>
+</li>
+<li><strong>Performance</strong>: Averaged 3,000 rounds fired per day during Bir Hakeim siege</li>
+</ul>
+<h4 id="1er-bataillon-de-fusiliers-marins-1st-naval-fusiliers-battalion---aa"><a class="header" href="#1er-bataillon-de-fusiliers-marins-1st-naval-fusiliers-battalion---aa">1er Bataillon de Fusiliers Marins (1st Naval Fusiliers Battalion - AA)</a></h4>
+<ul>
+<li><strong>Type</strong>: Anti-Aircraft Battalion</li>
+<li><strong>Commander</strong>: Capitaine de Corvette Amyot d'Inville</li>
+<li><strong>Strength</strong>: 240 men</li>
+<li><strong>Equipment</strong>: 12× Bofors 40mm L/60 guns (plus 6× Bofors manned by British crews)</li>
+<li><strong>Achievement</strong>: Shot down 7 enemy aircraft during Bir Hakeim siege</li>
+<li><strong>Note</strong>: Received Bofors guns shortly before Bir Hakeim battle, replacing obsolete weapons</li>
+</ul>
+<h4 id="engineer-companies"><a class="header" href="#engineer-companies">Engineer Companies</a></h4>
+<ul>
+<li><strong>Strength</strong>: 120 men</li>
+<li><strong>Role</strong>: Minefield construction, clearance operations, defensive fortifications</li>
+<li><strong>Achievement</strong>: Constructed extensive pentagonal minefield network around Bir Hakeim (2 miles × 2 miles)</li>
+</ul>
+<h4 id="transmissionsignals-companies"><a class="header" href="#transmissionsignals-companies">Transmission/Signals Companies</a></h4>
+<ul>
+<li><strong>Strength</strong>: 85 men</li>
+<li><strong>Role</strong>: Communications, telegraph, line repair</li>
+<li><strong>Note</strong>: Maintained communications under heavy fire, continuously repairing cut telephone lines</li>
+</ul>
+<h4 id="medical-group-and-light-surgical-ambulance"><a class="header" href="#medical-group-and-light-surgical-ambulance">Medical Group and Light Surgical Ambulance</a></h4>
+<ul>
+<li><strong>Strength</strong>: 75 men</li>
+<li><strong>Tragedy</strong>: Light surgical ambulance destroyed by German bombing on June 9, 1942, despite Red Cross markings</li>
+<li><strong>Casualties</strong>: 20 severely wounded killed in tent bombing</li>
+</ul>
+<h4 id="supply-and-support-services"><a class="header" href="#supply-and-support-services">Supply and Support Services</a></h4>
+<ul>
+<li><strong>Strength</strong>: 50 men</li>
+<li><strong>Location</strong>: Main supply depot at El-Adem (behind lines)</li>
+<li><strong>Role</strong>: Quartermaster, provisions, water supply, ammunition distribution</li>
+</ul>
+<hr />
+<h2 id="equipment"><a class="header" href="#equipment">Equipment</a></h2>
+<h3 id="infantry-weapons"><a class="header" href="#infantry-weapons">Infantry Weapons</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>Weapon</th><th>Count</th><th>Type</th></tr></thead><tbody>
+<tr><td>Lee-Enfield No. 1 Mk III Rifle</td><td>2,400</td><td>Bolt-Action Rifle</td></tr>
+<tr><td>Bren Light Machine Gun</td><td>180</td><td>Light Machine Gun</td></tr>
+<tr><td>Breda M37 Machine Gun</td><td>24</td><td>Medium Machine Gun (Captured Italian)</td></tr>
+</tbody></table>
+</div>
+<p><strong>Additional Small Arms</strong>:</p>
+<ul>
+<li>Mortars (various calibers)</li>
+<li>Hand grenades (incendiary and fragmentation)</li>
+<li>Thompson submachine guns</li>
+<li>Pistols and sidearms</li>
+</ul>
+<h3 id="armored-vehicles--tanks"><a class="header" href="#armored-vehicles--tanks">Armored Vehicles &amp; Tanks</a></h3>
+<p><strong>Total Tanks</strong>: 0<br />
+<strong>Note</strong>: The 1st Free French Brigade had no tank support during 1942-Q2. All armored vehicles were reconnaissance/light vehicles.</p>
+<h4 id="armored-cars-18-total"><a class="header" href="#armored-cars-18-total">Armored Cars (18 total)</a></h4>
+<ul>
+<li><strong>Marmon-Herrington Mk II</strong>: 12 vehicles (10 operational) - Reconnaissance role</li>
+<li><strong>Humber Armoured Car</strong>: 6 vehicles (5 operational) - Reconnaissance role</li>
+</ul>
+<h4 id="bren-gun-carriers"><a class="header" href="#bren-gun-carriers">Bren Gun Carriers</a></h4>
+<ul>
+<li><strong>Universal Carriers</strong>: 24× Bren Gun Carriers</li>
+<li><strong>Role</strong>: Infantry support, anti-tank assault, mobile fire platforms</li>
+<li><strong>Notable Action</strong>: Charged German positions during June 10-11 breakout</li>
+</ul>
+<h3 id="trucks--transport-350-total"><a class="header" href="#trucks--transport-350-total">Trucks &amp; Transport (350 total)</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>Vehicle Type</th><th>Count</th><th>Capacity</th></tr></thead><tbody>
+<tr><td>Bedford 3-ton</td><td>180</td><td>3-ton</td></tr>
+<tr><td>Chevrolet 15cwt</td><td>120</td><td>15-cwt</td></tr>
+<tr><td>Ford 15cwt</td><td>50</td><td>15-cwt</td></tr>
+</tbody></table>
+</div>
+<h3 id="support-vehicles-82-total"><a class="header" href="#support-vehicles-82-total">Support Vehicles (82 total)</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>Vehicle Type</th><th>Count</th><th>Role</th></tr></thead><tbody>
+<tr><td>Bren Gun Carrier</td><td>24</td><td>Universal Carrier</td></tr>
+<tr><td>Ambulance vehicles</td><td>18</td><td>Medical</td></tr>
+<tr><td>Water trucks</td><td>12</td><td>Water transport</td></tr>
+<tr><td>Workshop trucks</td><td>16</td><td>Maintenance</td></tr>
+<tr><td>Communications vehicles</td><td>12</td><td>Signals</td></tr>
+</tbody></table>
+</div>
+<p><strong>Total Ground Vehicles</strong>: 450 (pre-Bir Hakeim)<br />
+<strong>Vehicles Lost During Bir Hakeim</strong>: 250 destroyed<br />
+<strong>Vehicles Evacuated</strong>: ~200 (June 10-11 breakout)</p>
+<h3 id="artillery"><a class="header" href="#artillery">Artillery</a></h3>
+<h4 id="field-artillery-40-total"><a class="header" href="#field-artillery-40-total">Field Artillery (40 total)</a></h4>
+<ul>
+<li><strong>Canon de 75 modèle 1897</strong>: 40× 75mm guns
+<ul>
+<li>Organization: 4 batteries × 6 guns each (24 guns)</li>
+<li>Additional 16 guns deployed in anti-tank role</li>
+<li>Rate of Fire: Averaged 3,000 rounds/day during siege</li>
+<li>Final Reserve: 22 shells remaining on June 10, 1942</li>
+</ul>
+</li>
+</ul>
+<h4 id="anti-tank-guns-18-total"><a class="header" href="#anti-tank-guns-18-total">Anti-Tank Guns (18 total)</a></h4>
+<ul>
+<li><strong>QF 2-pounder</strong>: 12× 40mm guns</li>
+<li><strong>Canon de 47 mm SA mle 1937</strong>: 6× 47mm French anti-tank guns</li>
+<li><strong>Note</strong>: Also employed 75mm field guns in anti-tank role at close range</li>
+</ul>
+<h4 id="anti-aircraft-artillery-18-total"><a class="header" href="#anti-aircraft-artillery-18-total">Anti-Aircraft Artillery (18 total)</a></h4>
+<ul>
+<li><strong>Bofors 40mm L/60</strong>: 18 guns total
+<ul>
+<li>12 manned by Naval Fusiliers</li>
+<li>6 manned by British crews</li>
+<li><strong>Achievement</strong>: Shot down 7 enemy aircraft (4 Stukas, 3 Messerschmitt 110s)</li>
+<li><strong>Loss</strong>: 1 gun destroyed by direct Stuka attack (June 1, 1942) - all 7 gunners killed</li>
+</ul>
+</li>
+</ul>
+<h3 id="aircraft"><a class="header" href="#aircraft">Aircraft</a></h3>
+<p><strong>Total Aircraft</strong>: 0<br />
+<strong>Note</strong>: Free French Brigade had no organic air assets. Air support provided by RAF Western Desert Air Force.</p>
+<hr />
+<h2 id="supply--logistics"><a class="header" href="#supply--logistics">Supply &amp; Logistics</a></h2>
+<h3 id="supply-status"><a class="header" href="#supply-status">Supply Status</a></h3>
+<p><strong>Critical Supply Constraints During Bir Hakeim Siege</strong> (May 26 - June 11, 1942):</p>
+<h4 id="water-supply-crisis"><a class="header" href="#water-supply-crisis">Water Supply Crisis</a></h4>
+<ul>
+<li><strong>Initial Ration</strong>: Normal desert allocation</li>
+<li><strong>June 1-7</strong>: Reduced rations as convoy failed to arrive</li>
+<li><strong>June 8-10</strong>: Critical rationing - 2 liters per man per day (4 tin cups for 12 hours)</li>
+<li><strong>Black Colonial Troops</strong>: Particularly affected due to higher water needs</li>
+<li><strong>Medical Impact</strong>: Unable to re-bandage wounds after June 8 due to water shortage</li>
+<li><strong>Final Convoy</strong>: June 8 - Only 2 water trucks broke through, extending supplies to June 11</li>
+</ul>
+<h4 id="ammunition-expenditure"><a class="header" href="#ammunition-expenditure">Ammunition Expenditure</a></h4>
+<ul>
+<li><strong>Artillery</strong>: ~3,000 rounds per day during heavy combat</li>
+<li><strong>Peak Consumption</strong>: June 8-10 during final German assaults</li>
+<li><strong>Final Reserve</strong>: 22× 75mm shells on evening of June 10</li>
+<li><strong>Bofors AA</strong>: Continuous fire during 60-100 aircraft raids</li>
+<li><strong>Small Arms</strong>: Moderate consumption (defensive posture)</li>
+</ul>
+<h4 id="fuel-and-provisions"><a class="header" href="#fuel-and-provisions">Fuel and Provisions</a></h4>
+<ul>
+<li><strong>Fuel Status</strong>: Adequate for static defense, critical for breakout operation</li>
+<li><strong>Food</strong>: Corned beef and biscuits - irregular distribution during siege</li>
+<li><strong>Resupply</strong>: Final convoy breakthrough on June 8 delivered limited ammunition</li>
+</ul>
+<h3 id="operational-radius"><a class="header" href="#operational-radius">Operational Radius</a></h3>
+<p><strong>Operational Radius</strong>: 120 km from main supply depot at El-Adem</p>
+<h3 id="supply-reserve-days-pre-siege-estimates"><a class="header" href="#supply-reserve-days-pre-siege-estimates">Supply Reserve Days (Pre-Siege Estimates)</a></h3>
+<ul>
+<li><strong>Fuel</strong>: 4.0 days of mobile operations</li>
+<li><strong>Ammunition</strong>: 2.5 days of intense combat</li>
+<li><strong>Water</strong>: 2.0 liters/person/day (critical minimum for desert)</li>
+</ul>
+<p><strong>Note</strong>: Bir Hakeim was designed as a static defensive position, not a mobile formation. Supply calculations reflect siege conditions.</p>
+<hr />
+<h2 id="weather--environment"><a class="header" href="#weather--environment">Weather &amp; Environment</a></h2>
+<h3 id="seasonal-conditions"><a class="header" href="#seasonal-conditions">Seasonal Conditions</a></h3>
+<p><strong>Quarter</strong>: 1942-Q2 (April-June 1942) - Late Spring/Early Summer</p>
+<h3 id="temperature"><a class="header" href="#temperature">Temperature</a></h3>
+<ul>
+<li><strong>Minimum</strong>: 18°C (64°F) - early morning</li>
+<li><strong>Maximum</strong>: 42°C (108°F) - midday desert heat</li>
+<li><strong>Impact</strong>: Extreme heat exhaustion, increased water requirements</li>
+</ul>
+<h3 id="terrain"><a class="header" href="#terrain">Terrain</a></h3>
+<p><strong>Type</strong>: Barren desert plain (rocky/sandy soil), completely flat with minimal vegetation</p>
+<p><strong>Bir Hakeim Description</strong> (from primary source):</p>
+<blockquote>
+<p>"The Libyan desert, from the coast to a few hundred kilometres inland, is a barren plain of soil and stones, barely undulating; in places, this plain is covered with short shrubs; in the spring a few wild graminae and some flowers grow there; in April, everything is already burnt by the sun, and the plants take on the light ochre colour of the soil; at Bir Hakeim, the soil, slightly sandy, is incapable of feeding even this meagre vegetation."</p>
+</blockquote>
+<p><strong>Defensive Features</strong>:</p>
+<ul>
+<li>Flat, open ground (excellent fields of fire)</li>
+<li>No natural cover or concealment</li>
+<li>Soil suitable for digging defensive positions</li>
+<li>Extensive minefield construction possible</li>
+</ul>
+<h3 id="sand-storms"><a class="header" href="#sand-storms">Sand Storms</a></h3>
+<ul>
+<li><strong>Frequency</strong>: ~3 days per month (approximately 10 days during Q2)</li>
+<li><strong>Impact</strong>:
+<ul>
+<li>Reduced visibility to &lt;10 meters</li>
+<li>Prevented German aerial bombing (June 2, 1942)</li>
+<li>Obscured artillery observation</li>
+<li>Covered defensive positions with sand</li>
+<li>Enabled concealed movements</li>
+</ul>
+</li>
+</ul>
+<p><strong>Notable Storm</strong>: June 2, 1942 - Massive sandstorm prevented German attack and allowed Allied column to escape from Rotunda Segnali</p>
+<h3 id="daylight-hours"><a class="header" href="#daylight-hours">Daylight Hours</a></h3>
+<p><strong>Average</strong>: 13.5 hours of daylight</p>
+<ul>
+<li><strong>Tactical Impact</strong>: Extended operational tempo, more daylight for air attacks</li>
+<li><strong>Night Operations</strong>: Used for resupply, patrol, and final breakout (June 10-11)</li>
+</ul>
+<hr />
+<h2 id="tactical-doctrine"><a class="header" href="#tactical-doctrine">Tactical Doctrine</a></h2>
+<h3 id="primary-role"><a class="header" href="#primary-role">Primary Role</a></h3>
+<p><strong>Static Defensive Operations</strong>: Anchor southern flank of British Eighth Army's Gazala Line. Pivot point for Allied armored maneuvers in Libyan Desert. Defended fortified position (Bir Hakeim) with extensive minefield network against Axis encirclement and assault.</p>
+<h3 id="special-capabilities"><a class="header" href="#special-capabilities">Special Capabilities</a></h3>
+<ol>
+<li><strong>Desert Warfare Veterans</strong>: Experience from previous operations in Libya, Eritrea, Syria, and Gabon</li>
+<li><strong>Fortification Expertise</strong>: Construction of extensive defensive positions and minefield networks</li>
+<li><strong>Multi-National Coordination</strong>: Effective command of French, Foreign Legion, North African, Equatorial African, and Pacific Islander units</li>
+<li><strong>British Integration</strong>: Seamless coordination with British Eighth Army command structure</li>
+<li><strong>Night Operations</strong>: Skilled in night breakouts and infiltration tactics</li>
+</ol>
+<h3 id="tactical-innovations"><a class="header" href="#tactical-innovations">Tactical Innovations</a></h3>
+<ol>
+<li>
+<p><strong>Pentagonal Minefield System</strong>:</p>
+<ul>
+<li>2 miles × 2 miles pentagon-shaped defensive perimeter</li>
+<li>Mines laid &lt;1 meter apart</li>
+<li>5 entrances ("chicanes") - narrow, staggered passages</li>
+<li>Funneled enemy armor into kill zones</li>
+</ul>
+</li>
+<li>
+<p><strong>Underground Defensive Positions</strong>:</p>
+<ul>
+<li>All vehicles dug-in below ground level</li>
+<li>Extensive trench networks and saps</li>
+<li>Personal shelters for every soldier</li>
+<li>Protected against aerial bombing and artillery</li>
+</ul>
+</li>
+<li>
+<p><strong>Artillery Integration</strong>:</p>
+<ul>
+<li>French 75mm guns used in both indirect fire and direct anti-tank role</li>
+<li>Engagement ranges: 400 meters to point-blank (few meters)</li>
+<li>Coordinated fire with anti-tank guns and infantry</li>
+</ul>
+</li>
+<li>
+<p><strong>All-Arms Defense</strong>:</p>
+<ul>
+<li>Coordinated infantry, artillery, anti-tank, anti-aircraft operations</li>
+<li>Continuous communications despite heavy damage</li>
+<li>Mutually supporting defensive sectors</li>
+</ul>
+</li>
+<li>
+<p><strong>Organized Breakout Under Fire</strong>:</p>
+<ul>
+<li>Night of June 10-11: Forced passage through triple enemy encirclement</li>
+<li>Infantry assault teams cleared enemy positions</li>
+<li>Vehicle column followed through cleared corridor</li>
+<li>75% of force and equipment successfully evacuated</li>
+</ul>
+</li>
+</ol>
+<h3 id="known-issues--vulnerabilities"><a class="header" href="#known-issues--vulnerabilities">Known Issues &amp; Vulnerabilities</a></h3>
+<ol>
+<li><strong>No Heavy Artillery</strong>: Unable to counter German 155mm and 210mm guns</li>
+<li><strong>No Anti-Infantry Barbed Wire</strong>: Material shortage prevented perimeter fencing</li>
+<li><strong>Water Shortage</strong>: Critical vulnerability in desert siege conditions</li>
+<li><strong>No Armored Support</strong>: No tanks for counterattack or mobile defense</li>
+<li><strong>Isolated Position</strong>: Vulnerable to encirclement and cut-off from supplies</li>
+<li><strong>Limited AA Assets</strong>: 18 Bofors insufficient against 60-100 aircraft raids</li>
+</ol>
+<h3 id="desert-adaptations"><a class="header" href="#desert-adaptations">Desert Adaptations</a></h3>
+<ul>
+<li><strong>Underground Construction</strong>: All positions dug-in to survive bombing</li>
+<li><strong>Water Rationing Protocols</strong>: Reduced to 2 liters/man/day by June 8</li>
+<li><strong>Sand Camouflage</strong>: Positions blended with desert terrain</li>
+<li><strong>Night Operations</strong>: Resupply, patrol, and breakout conducted after dark</li>
+<li><strong>Heat Management</strong>: Minimal daytime movement, underground shelters</li>
+</ul>
+<hr />
+<h2 id="wargaming-data"><a class="header" href="#wargaming-data">Wargaming Data</a></h2>
+<h3 id="scenario-suitability"><a class="header" href="#scenario-suitability">Scenario Suitability</a></h3>
+<ol>
+<li><strong>Battle of Bir Hakeim</strong> (May 26 - June 11, 1942) - 15-day defensive siege</li>
+<li><strong>Operation Crusader Follow-up</strong> (Q4 1941 - Q1 1942) - Mobile desert operations</li>
+<li><strong>Gazala Line Defense</strong> (May-June 1942) - Defensive scenarios</li>
+<li><strong>Night Breakout</strong> (June 10-11, 1942) - Special operations scenario</li>
+<li><strong>Desert Patrol Operations</strong> (February-May 1942) - Reconnaissance and raiding</li>
+</ol>
+<h3 id="morale-rating"><a class="header" href="#morale-rating">Morale Rating</a></h3>
+<p><strong>9 / 10</strong> - Elite morale, refused three surrender ultimatums</p>
+<h3 id="experience-level"><a class="header" href="#experience-level">Experience Level</a></h3>
+<p><strong>Veteran</strong> - Combat experience in multiple theaters (Gabon, Eritrea, Syria, Libya)</p>
+<h3 id="special-rules-wargaming"><a class="header" href="#special-rules-wargaming">Special Rules (Wargaming)</a></h3>
+<ol>
+<li><strong>Stubborn Defense</strong>: May re-roll failed morale checks when defending prepared positions</li>
+<li><strong>Desert Veterans</strong>: +1 to initiative in desert terrain</li>
+<li><strong>Multi-National Force</strong>: Mixed quality levels
+<ul>
+<li>Foreign Legion units: Veteran</li>
+<li>Marine/Naval units: Veteran</li>
+<li>Colonial units: Regular</li>
+</ul>
+</li>
+<li><strong>Water Shortage</strong>: -1 to all actions after 10+ consecutive days of combat</li>
+<li><strong>Free French Determination</strong>: Never surrenders - will attempt breakout instead of capitulation</li>
+</ol>
+<h3 id="historical-engagements"><a class="header" href="#historical-engagements">Historical Engagements</a></h3>
+<h4 id="battle-of-bir-hakeim-may-26---june-11-1942"><a class="header" href="#battle-of-bir-hakeim-may-26---june-11-1942">Battle of Bir Hakeim (May 26 - June 11, 1942)</a></h4>
+<p><strong>Opposing Forces</strong>:</p>
+<ul>
+<li>German: 90th Light Division</li>
+<li>Italian: Ariete Armored Division, Trieste Motorized Division</li>
+<li>Commander: Generaloberst Erwin Rommel (personally directed assault)</li>
+</ul>
+<p><strong>Key Actions</strong>:</p>
+<ul>
+<li><strong>May 27</strong>: Repulsed Italian Ariete Division tank assault - destroyed 43 tanks (35 by Legion battalions, 8 in hand-to-hand combat)</li>
+<li><strong>May 30</strong>: Enemy withdrawal after failed offensive</li>
+<li><strong>June 1-2</strong>: Temporary relief, sent column to Rotunda Segnali</li>
+<li><strong>June 2</strong>: Rommel's 1st surrender ultimatum - rejected</li>
+<li><strong>June 3</strong>: 2nd surrender ultimatum (written by Rommel) - rejected with artillery fire</li>
+<li><strong>June 5</strong>: 3rd surrender ultimatum (German plenipotentiary) - rejected, envoy's car blown up by mine</li>
+<li><strong>June 6-10</strong>: Massive aerial bombing (60-100 Stukas and Junkers 88s per raid) and artillery bombardment</li>
+<li><strong>June 8</strong>: Final supply convoy breakthrough (limited resupply)</li>
+<li><strong>June 9</strong>: Light surgical ambulance destroyed by bombing (20 wounded killed)</li>
+<li><strong>June 10-11</strong>: Organized breakout through triple enemy encirclement - 75% of force escaped</li>
+</ul>
+<p><strong>Results</strong>:</p>
+<ul>
+<li><strong>French Casualties</strong>: 900 dead, wounded, missing, captured (600 during breakout)</li>
+<li><strong>Equipment Lost</strong>: 40× 75mm guns, 8× Bofors guns, 5× 47mm guns, 250 vehicles</li>
+<li><strong>Enemy Losses</strong>: 50 tanks, 11 armored cars, 5 mounted guns, 7 aircraft destroyed</li>
+<li><strong>Prisoners Taken</strong>: 125 German, 154 Italian (including Italian Colonel commanding Ariete tank regiment)</li>
+</ul>
+<h4 id="column-operations-february-may-1942"><a class="header" href="#column-operations-february-may-1942">Column Operations (February-May 1942)</a></h4>
+<ul>
+<li>Mobile patrols in Mechili-Rotunda Segnali region</li>
+<li>Harassment of Axis supply lines</li>
+<li>Reconnaissance and raiding operations</li>
+</ul>
+<hr />
+<h2 id="historical-context"><a class="header" href="#historical-context">Historical Context</a></h2>
+<h3 id="formation-history"><a class="header" href="#formation-history">Formation History</a></h3>
+<p><strong>Official Designation (1942-Q2)</strong>: In April-June 1942, this force was officially the <strong>1re Brigade Française Libre</strong> (1st Free French Brigade), not yet a full division. The formal division designation (<strong>1re Division Française Libre</strong>) was adopted on February 1, 1943, when three Free French brigades were combined.</p>
+<p><strong>Previous Service</strong>:</p>
+<ul>
+<li><strong>1940-1941</strong>: Operations in Gabon, Eritrea, Syria</li>
+<li><strong>December 1941</strong>: Arrived in Libya, integrated into British Eighth Army</li>
+<li><strong>December 1941</strong>: Reorganized from "1st Light Free French Division" into brigade structure to match British organization</li>
+<li><strong>February 1942</strong>: Relieved British unit at Bir Hakeim fortress</li>
+<li><strong>February-May 1942</strong>: Constructed extensive defensive fortifications and minefield network</li>
+</ul>
+<h3 id="bir-hakeim-significance"><a class="header" href="#bir-hakeim-significance">Bir Hakeim Significance</a></h3>
+<p>The <strong>Battle of Bir Hakeim</strong> (May 26 - June 11, 1942) was the first major Free French engagement against German forces in North Africa and became legendary in French Resistance history.</p>
+<p><strong>Strategic Impact</strong>:</p>
+<ul>
+<li>Delayed Rommel's Gazala offensive by 15 days</li>
+<li>Prevented German bypass of Gazala Line via southern desert route</li>
+<li>Enabled British Eighth Army to reorganize after initial defeats</li>
+<li>Demonstrated Free French combat effectiveness to Allied command</li>
+</ul>
+<p><strong>Political Impact</strong>:</p>
+<ul>
+<li>
+<p><strong>General de Gaulle</strong> (June 1942):</p>
+<blockquote>
+<p>"When, at Bir Hakeim, a ray of renascent glory came to caress the bloody forehead of her soldiers, the world recognized France."</p>
+</blockquote>
+<blockquote>
+<p>"General Koenig, hear this and tell your troops: the whole of France is watching you and you are her pride."</p>
+</blockquote>
+</li>
+<li>
+<p><strong>British Middle-East Command Special Communiqué</strong> (June 1942):</p>
+<blockquote>
+<p>"The United Nations should be grateful and admiring to the First Free French Brigade and their valiant General... For more than two weeks, this force were compelled to fight against the German 90th Light Infantry Division and the Italian 'Trieste' Motorised Division, repelling numerous attacks from German and Italian tanks, and made it impossible for the enemy to carry out their plans."</p>
+</blockquote>
+</li>
+<li>
+<p><strong>General Catroux</strong> (June 16, 1942):</p>
+<blockquote>
+<p>"Soldiers of Bir Hakeim, with these memorable deeds, you have gloriously reopened the book of the sources of national pride, which had remained closed since the 1940 armistice... France revives the flame of its faith and hope with your heroism."</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="three-german-surrender-ultimatums"><a class="header" href="#three-german-surrender-ultimatums">Three German Surrender Ultimatums</a></h3>
+<ol>
+<li><strong>May 27, 1942</strong> (via Italian mediators): Verbal summons to capitulate - rejected by Koenig</li>
+<li><strong>June 3, 1942</strong> (written message signed by Rommel): German telegram demanding surrender - rejected with artillery barrage</li>
+<li><strong>June 5, 1942</strong> (German plenipotentiary officer): Personal envoy sent at 4 AM - rejected, envoy's car destroyed by mine during departure</li>
+</ol>
+<p><strong>Koenig's Response</strong> (June 3, General Order):</p>
+<blockquote>
+<p>"We must now expect serious attack from all quarters (aircraft, tanks, artillery, infantry). It will be powerful. I repeat my orders and my certainty that all of you will carry out your duty without faltering, as is required of you, even if you are cut off. Our task is to hold the ground, whatever the cost, until our victory is complete."</p>
+</blockquote>
+<h3 id="the-breakout-night-of-june-10-11-1942"><a class="header" href="#the-breakout-night-of-june-10-11-1942">The Breakout (Night of June 10-11, 1942)</a></h3>
+<p><strong>Situation</strong>: By June 10, garrison critically short of water (2 liters/man/day) and ammunition (22 shells remaining). British Eighth Army Command ordered evacuation.</p>
+<p><strong>Plan</strong>: Force breakout through southern sector at 11 PM</p>
+<p><strong>Execution</strong>:</p>
+<ul>
+<li>Infantry assault teams attacked German positions in hand-to-hand combat</li>
+<li>Vehicle column followed in single file through cleared minefield passage</li>
+<li>Enemy launched flares and machine-gun fire (described as "multi-colored will-o'-the-wisps")</li>
+<li>General Koenig personally led charge in Bren carriers with British female driver</li>
+<li>Four-hour running battle through triple enemy encirclement</li>
+</ul>
+<p><strong>Results</strong>:</p>
+<ul>
+<li>75% of force evacuated (2,775 men)</li>
+<li>200 wounded evacuated with force</li>
+<li>~200 vehicles recovered</li>
+<li>600 casualties during breakout (killed, wounded, captured)</li>
+</ul>
+<p><strong>German Reaction</strong>: Germans did not realize Bir Hakeim had been evacuated until morning of June 11, when they launched massive air raid on abandoned positions.</p>
+<h3 id="awards-and-citations"><a class="header" href="#awards-and-citations">Awards and Citations</a></h3>
+<p><strong>Army Orders</strong> (Cited to Army Order by General de Gaulle):</p>
+<ol>
+<li><strong>1er Bataillon de Fusiliers Marins (Naval Fusiliers)</strong>: For anti-aircraft defense excellence, shooting down 7 enemy aircraft</li>
+<li><strong>2e Bataillon de la Légion Étrangère (2nd Foreign Legion Battalion)</strong>: For destroying 35 Italian tanks on May 27</li>
+<li><strong>1er Régiment d'Artillerie (1st Artillery Regiment)</strong>: For sustained fire support under heavy counterattack</li>
+<li><strong>2e Bataillon de Marche (2nd March Battalion - Oubangui-Chari)</strong>: For defense of heavily attacked sector</li>
+</ol>
+<p><strong>Individual Decorations</strong>: Numerous Croix de Guerre and Médaille Militaire awards to officers and enlisted personnel</p>
+<hr />
+<h2 id="data-sources--confidence"><a class="header" href="#data-sources--confidence">Data Sources &amp; Confidence</a></h2>
+<h3 id="primary-sources"><a class="header" href="#primary-sources">Primary Sources</a></h3>
+<ol>
+<li>
+<p><strong>1dfl.fr</strong> - Official 1st Free French Division website</p>
+<ul>
+<li>Complete battle diary of Bir Hakeim siege (day-by-day account)</li>
+<li>First-person eyewitness testimony</li>
+<li>Equipment and organization details</li>
+</ul>
+</li>
+<li>
+<p><strong>Chemins de mémoire</strong> (French Ministry of Defense)</p>
+<ul>
+<li>Official historical article on 1st Free French Division</li>
+<li>Organizational structure and timeline</li>
+</ul>
+</li>
+<li>
+<p><strong>General Koenig's General Order No. 1</strong> (June 15, 1942)</p>
+<ul>
+<li>Official casualty figures</li>
+<li>Equipment losses</li>
+<li>Battle chronology</li>
+</ul>
+</li>
+<li>
+<p><strong>General Catroux's General Order</strong> (June 16, 1942)</p>
+<ul>
+<li>Army-level commendations</li>
+<li>Strategic assessment</li>
+</ul>
+</li>
+<li>
+<p><strong>British Middle-East Command Special Communiqué</strong> (June 1942)</p>
+<ul>
+<li>Allied perspective on Free French performance</li>
+<li>Enemy losses assessment</li>
+</ul>
+</li>
+<li>
+<p><strong>General de Gaulle Statements</strong> (June 1942)</p>
+<ul>
+<li>Political and symbolic significance</li>
+<li>French national morale impact</li>
+</ul>
+</li>
+</ol>
+<h3 id="data-quality-assessment"><a class="header" href="#data-quality-assessment">Data Quality Assessment</a></h3>
+<p><strong>Confidence Level</strong>: 85%<br />
+<strong>Tier</strong>: 2 (Review Recommended)<br />
+<strong>Status</strong>: review_recommended</p>
+<h4 id="strengths"><a class="header" href="#strengths">Strengths</a></h4>
+<ul>
+<li><strong>Personnel Strength</strong>: Confirmed 3,700 men from multiple sources</li>
+<li><strong>Artillery</strong>: Detailed organization (4 batteries × 6 guns + anti-tank role guns = 40 total)</li>
+<li><strong>Anti-Aircraft</strong>: Confirmed 18× Bofors guns (12 French, 6 British crews)</li>
+<li><strong>Casualties</strong>: Precise figures from General Koenig's official report</li>
+<li><strong>Enemy Losses</strong>: Confirmed from multiple sources (French, British, prisoner interrogations)</li>
+<li><strong>Timeline</strong>: Day-by-day battle diary with specific dates and times</li>
+<li><strong>Commander</strong>: Full name, rank, appointment date confirmed</li>
+</ul>
+<h4 id="gaps--estimates"><a class="header" href="#gaps--estimates">Gaps &amp; Estimates</a></h4>
+<ol>
+<li>
+<p><strong>Subordinate Unit Commanders</strong> (Partial -15 confidence impact):</p>
+<ul>
+<li><strong>Confirmed</strong>: Koenig, Amilakvari, Laurent-Champrosay, Amyot d'Inville, De Roux/Amiel</li>
+<li><strong>Missing</strong>: Battalion commanders for BIM/Pacific, Chasseurs d'Afrique, Engineers, Signals</li>
+<li><strong>Mitigation</strong>: Further research in French military archives (Service Historique de la Défense) required</li>
+</ul>
+</li>
+<li>
+<p><strong>Exact Equipment Counts</strong> (Estimated -5 confidence impact):</p>
+<ul>
+<li><strong>Confirmed</strong>: Artillery (40× 75mm), AA (18× Bofors), vehicle losses (250 destroyed)</li>
+<li><strong>Estimated</strong>: Truck counts, small arms quantities based on British brigade TO&amp;E analogy</li>
+<li><strong>Method</strong>: 3,700-man brigade × British equipment scales = estimated counts</li>
+</ul>
+</li>
+<li>
+<p><strong>Vehicle Operational Status</strong> (Estimated -5 confidence impact):</p>
+<ul>
+<li><strong>Confirmed</strong>: 250 vehicles lost during siege/breakout from ~450 total</li>
+<li><strong>Estimated</strong>: Pre-battle operational rates (85-90%) based on British Eighth Army typical readiness</li>
+<li><strong>Method</strong>: Working backwards from confirmed losses and breakout recovery (~200 vehicles)</li>
+</ul>
+</li>
+</ol>
+<h3 id="validation-notes"><a class="header" href="#validation-notes">Validation Notes</a></h3>
+<p><strong>Schema Version</strong>: 3.1.0<br />
+<strong>Last Updated</strong>: October 24, 2025<br />
+<strong>Validated By</strong>: Claude Code Agent<br />
+<strong>Aggregation Status</strong>: Manually entered (no subordinate unit JSONs to aggregate)</p>
+<p><strong>Required Field Gaps</strong>:</p>
+<ul>
+<li><code>individual_positions</code>: Not applicable (division level)</li>
+<li>Subordinate unit commander names: Partial (3 of 10 identified)</li>
+</ul>
+<hr />
+<h2 id="conclusion"><a class="header" href="#conclusion">Conclusion</a></h2>
+<p>The <strong>1st Free French Brigade</strong> (later 1st Free French Division) in 1942-Q2 represented the pinnacle of Free French ground combat capability in North Africa. Its legendary defense of Bir Hakeim from May 26 to June 11, 1942 - withstanding 15 days of siege by vastly superior German and Italian forces - became a defining moment in Free French and French Resistance history.</p>
+<p>Under <strong>Général de brigade Marie-Pierre Koenig</strong>, the 3,700-man brigade refused three German surrender ultimatums, inflicted heavy casualties on Rommel's Afrika Korps (50 tanks, 7 aircraft destroyed), and successfully broke out through enemy encirclement with 75% of its force intact.</p>
+<p>The unit's multinational composition - French Foreign Legion, Naval Infantry, Pacific Islanders, North African colonial troops, and Equatorial African tirailleurs - demonstrated the global reach of Free France's commitment to Allied victory. Its integration with British Eighth Army operations and effective use of artillery, anti-tank, and anti-aircraft assets showcased the combat effectiveness of Free French forces.</p>
+<p><strong>Strategic Legacy</strong>: Bir Hakeim delayed Rommel's Gazala offensive, contributed to the eventual Allied victory at El Alamein, and restored French military prestige on the world stage. As General de Gaulle proclaimed: "At Bir Hakeim, the world recognized France."</p>
+<hr />
+<p><strong>Generated</strong>: October 24, 2025<br />
+<strong>Schema</strong>: v3.1.0<br />
+<strong>Source Authority</strong>: Tier 1 Primary Sources (Official French Government, British Command, Eyewitness Accounts)<br />
+<strong>Confidence</strong>: 85% (Tier 2 - Review Recommended)</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../chapters/chapter_french_1942q2_1re_brigade_française_libre.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../chapters/chapter_french_1942q2_1re_division_française_libre_1st_free_french_division.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../chapters/chapter_french_1942q2_1re_brigade_française_libre.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../chapters/chapter_french_1942q2_1re_division_française_libre_1st_free_french_division.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

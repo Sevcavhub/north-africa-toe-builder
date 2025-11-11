@@ -1,0 +1,452 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Xxii Corpo D Armata Xxii Corps - North Africa Campaign 1940-1943: Complete Order of Battle</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">North Africa Campaign 1940-1943: Complete Order of Battle</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/yourusername/north-africa-toe-builder" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="xxii-corpo-darmata-xxii-corps"><a class="header" href="#xxii-corpo-darmata-xxii-corps">XXII Corpo d'Armata (XXII Corps)</a></h1>
+<p><strong>Italian Forces • 1940 Q4 (October-December) • North Africa - Tobruk</strong></p>
+<hr />
+<h2 id="-critical-notice-structural-placeholder-only"><a class="header" href="#-critical-notice-structural-placeholder-only">⚠️ CRITICAL NOTICE: STRUCTURAL PLACEHOLDER ONLY</a></h2>
+<p><strong>This chapter represents a STRUCTURAL PLACEHOLDER demonstrating corps-level organization, NOT a complete TO&amp;E extraction.</strong></p>
+<p><strong>Reason</strong>: NONE of the subordinate divisions (61st Sirte, possibly 64th Catanzaro, possibly 4th CC.NN. "3 Gennaio") have been extracted. All personnel and equipment totals are 0.</p>
+<p><strong>Additional Issue</strong>: Sources CONFLICT on exact corps composition - some place Catanzaro and 3 Gennaio under XXIII Corps instead of XXII Corps.</p>
+<p><strong>Confidence</strong>: 48% (Tier 4 - Research Brief Created)
+<strong>Status</strong>: Awaiting subordinate division extractions AND source conflict resolution</p>
+<hr />
+<h2 id="corps-overview"><a class="header" href="#corps-overview">Corps Overview</a></h2>
+<p>XXII Corps served as the Italian 10th Army's general reserve and Tobruk fortress garrison during Q4 1940. Under Generale di Corpo d'Armata Petassi Manella, the corps had the best supply situation of all 10th Army corps due to direct port access at Tobruk.</p>
+<p><strong>Confirmed Composition</strong>:</p>
+<ul>
+<li><strong>61st Infantry Division "Sirte"</strong> - At Tobruk (consistently placed with XXII Corps in sources)</li>
+</ul>
+<p><strong>Conflicting Sources</strong> (may be XXII Corps OR XXIII Corps):</p>
+<ul>
+<li><strong>64th Infantry Division "Catanzaro"</strong> - Some sources place with XXII Corps, others with XXIII Corps</li>
+<li><strong>4th Blackshirt Division "3 Gennaio"</strong> - Some sources place with XXII Corps, others with XXIII Corps</li>
+</ul>
+<p><strong>Additional Assets</strong>:</p>
+<ul>
+<li>Tobruk Fortress Troops (heavy coastal artillery, garrison units)</li>
+</ul>
+<p>The corps was held in general reserve and NOT committed to the forward Sidi Barrani deployment (Sept-Dec 1940). After Operation Compass destroyed the forward Italian divisions, XXII Corps became trapped in Tobruk and was besieged by British/Australian forces in January 1941, resulting in the fall of Tobruk (21-22 January 1941) with 25,000 prisoners.</p>
+<hr />
+<h2 id="command"><a class="header" href="#command">Command</a></h2>
+<p><strong>Corps Commander</strong>: Generale di Corpo d'Armata Petassi Manella
+<strong>Appointed</strong>: Unknown
+<strong>Headquarters</strong>: Tobruk, Libya (fortress and port)</p>
+<p><strong>Staff</strong>: Estimated 450 personnel (45 officers, 85 NCOs, 320 enlisted)</p>
+<p><strong>Chief of Staff</strong>: Unknown</p>
+<hr />
+<h2 id="personnel-strength"><a class="header" href="#personnel-strength">Personnel Strength</a></h2>
+<p><strong>⚠️ DATA UNAVAILABLE</strong>: All personnel totals are 0 because subordinate divisions have NOT been extracted.</p>
+<p><strong>Estimated Strength</strong> (based on typical Italian corps organization):</p>
+<ul>
+<li><strong>61st Sirte Division</strong>: ~13,000 personnel (metropolitan division) - CONFIRMED</li>
+<li><strong>64th Catanzaro Division</strong>: ~13,000 personnel (if part of XXII Corps) - CONFLICTING SOURCES</li>
+<li><strong>4th CC.NN. "3 Gennaio"</strong>: ~10,500 personnel (if part of XXII Corps) - CONFLICTING SOURCES</li>
+<li><strong>Tobruk Fortress Troops</strong>: ~5,000 personnel (estimated)</li>
+<li><strong>Corps Total (if all included)</strong>: ~41,500 personnel + corps troops</li>
+</ul>
+<p><strong>NOTE</strong>: These are ESTIMATES only. Actual extractions required for accurate data. Composition uncertain due to conflicting sources.</p>
+<hr />
+<h2 id="equipment-summary"><a class="header" href="#equipment-summary">Equipment Summary</a></h2>
+<p><strong>⚠️ DATA UNAVAILABLE</strong>: All equipment totals are 0 because subordinate divisions have NOT been extracted.</p>
+<p>Cannot provide equipment breakdowns without division-level data.</p>
+<hr />
+<h2 id="supply--logistics"><a class="header" href="#supply--logistics">Supply &amp; Logistics</a></h2>
+<h3 id="logistics-status-1940-q4"><a class="header" href="#logistics-status-1940-q4">Logistics Status (1940 Q4)</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>Resource</th><th>Quantity</th><th>Status</th><th>Notes</th></tr></thead><tbody>
+<tr><td><strong>Operational Radius</strong></td><td>180 km</td><td>Good</td><td>From Tobruk port</td></tr>
+<tr><td><strong>Fuel Reserves</strong></td><td>16.5 days</td><td>Excellent</td><td>Best supply situation in 10th Army</td></tr>
+<tr><td><strong>Ammunition</strong></td><td>22.5 days</td><td>Very Good</td><td>Port access enabling good stockpiles</td></tr>
+<tr><td><strong>Water Supply</strong></td><td>5.0 L/day/person</td><td>Adequate</td><td>Tobruk port/wells</td></tr>
+</tbody></table>
+</div>
+<p><strong>Supply Status</strong>: General reserve corps at Tobruk fortress had the BEST supply situation of all 10th Army corps due to:</p>
+<ul>
+<li><strong>Direct port access</strong> at Tobruk - sea supply route</li>
+<li><strong>Fortress stockpiles</strong> - heavy artillery, ammunition, fuel</li>
+<li><strong>Shortest supply line</strong> - closer to supply bases than forward corps</li>
+<li><strong>Coastal water supply</strong> - port facilities and wells</li>
+</ul>
+<p>However, after Operation Compass destroyed forward divisions (Dec 1940), XXII Corps became trapped in Tobruk and besieged by British/Australian forces (January 1941).</p>
+<hr />
+<h2 id="operational-environment"><a class="header" href="#operational-environment">Operational Environment</a></h2>
+<h3 id="environmental-conditions-1940-q4"><a class="header" href="#environmental-conditions-1940-q4">Environmental Conditions (1940 Q4)</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>Factor</th><th>Value</th><th>Impact</th></tr></thead><tbody>
+<tr><td><strong>Season</strong></td><td>Autumn/Early Winter at Tobruk</td><td>Coastal conditions</td></tr>
+<tr><td><strong>Temperature Range</strong></td><td>14°C to 22°C</td><td>Mild coastal climate</td></tr>
+<tr><td><strong>Terrain Type</strong></td><td>Coastal plain at fortress/port</td><td>Urban/fortification focus</td></tr>
+<tr><td><strong>Storm Frequency</strong></td><td>2 days/month</td><td>Minimal disruption</td></tr>
+<tr><td><strong>Daylight Hours</strong></td><td>10.5 hours</td><td>Standard autumn/winter</td></tr>
+</tbody></table>
+</div>
+<hr />
+<h2 id="organizational-structure"><a class="header" href="#organizational-structure">Organizational Structure</a></h2>
+<h3 id="subordinate-divisions-not-extracted"><a class="header" href="#subordinate-divisions-not-extracted">Subordinate Divisions (NOT EXTRACTED)</a></h3>
+<p><strong>61st Infantry Division "Sirte"</strong> (CONFIRMED):</p>
+<ul>
+<li>Status: Metropolitan infantry division</li>
+<li>Location Q4 1940: Tobruk fortress garrison</li>
+<li>Strength: ~13,000 estimated</li>
+<li><strong>NOT EXTRACTED</strong> - Division file not available</li>
+<li><strong>Sources</strong>: Consistently placed with XXII Corps</li>
+</ul>
+<p><strong>64th Infantry Division "Catanzaro"</strong> (CONFLICTING):</p>
+<ul>
+<li>Status: Metropolitan infantry division</li>
+<li>Location Q4 1940: Conflicting (XXII Corps OR XXIII Corps)</li>
+<li>Strength: ~13,000 estimated</li>
+<li><strong>NOT EXTRACTED</strong> - Division file not available</li>
+<li><strong>Sources</strong>: Some place with XXII Corps, others with XXIII Corps</li>
+</ul>
+<p><strong>4th Blackshirt Division "3 Gennaio"</strong> (CONFLICTING):</p>
+<ul>
+<li>Status: CC.NN. (Fascist Militia) division</li>
+<li>Location Q4 1940: Conflicting (XXII Corps OR XXIII Corps)</li>
+<li>Strength: ~10,500 estimated</li>
+<li><strong>NOT EXTRACTED</strong> - Division file not available</li>
+<li><strong>Sources</strong>: Some place with XXII Corps, others with XXIII Corps</li>
+</ul>
+<p><strong>Tobruk Fortress Troops</strong>:</p>
+<ul>
+<li>Status: Corps-level assets (NOT separate division)</li>
+<li>Composition: Heavy coastal artillery, fortress engineers, garrison</li>
+<li>Strength: ~5,000 estimated</li>
+<li><strong>NOT EXTRACTED</strong></li>
+</ul>
+<hr />
+<h2 id="tactical-role"><a class="header" href="#tactical-role">Tactical Role</a></h2>
+<p>XXII Corps served as the 10th Army general reserve and Tobruk fortress defense force. The corps was NOT committed to combat during Q4 1940 - it remained at Tobruk while forward divisions were destroyed at Sidi Barrani (December 1940).</p>
+<p><strong>Advantages</strong>:</p>
+<ul>
+<li>Fortress defenses at Tobruk</li>
+<li>Heavy coastal artillery for harbor defense</li>
+<li>Direct port supply access</li>
+<li>Best logistics in 10th Army</li>
+</ul>
+<p><strong>Limitations</strong>:</p>
+<ul>
+<li>Fortress mentality - limited offensive capability</li>
+<li>NOT deployed to support forward divisions during Operation Compass</li>
+<li>After forward corps destroyed, became trapped in Tobruk fortress</li>
+<li>Besieged by British/Australian forces (January 1941)</li>
+<li>Tobruk fell 21-22 January 1941: 25,000 prisoners</li>
+</ul>
+<hr />
+<h2 id="historical-context"><a class="header" href="#historical-context">Historical Context</a></h2>
+<h3 id="tobruk-garrison-q4-1940"><a class="header" href="#tobruk-garrison-q4-1940">Tobruk Garrison (Q4 1940)</a></h3>
+<p>XXII Corps garrisoned Tobruk fortress throughout Q4 1940, remaining in general reserve while forward divisions advanced to Sidi Barrani (September 1940) and deployed in isolated fortified camps. This positioning gave XXII Corps:</p>
+<ul>
+<li>Best supply situation (port access)</li>
+<li>Fortress protection</li>
+<li>Avoided disastrous Sidi Barrani deployment</li>
+<li>BUT: Failed to support forward divisions when Operation Compass struck</li>
+</ul>
+<h3 id="operation-compass-impact-december-1940"><a class="header" href="#operation-compass-impact-december-1940">Operation Compass Impact (December 1940)</a></h3>
+<p>When the British launched Operation Compass (December 9, 1940), XXII Corps remained at Tobruk in general reserve. The rapid destruction of forward divisions (Nibeiwa, Tummar, Sidi Barrani - December 9-16) left XXII Corps isolated at Tobruk.</p>
+<h3 id="siege-of-tobruk-january-21-22-1941"><a class="header" href="#siege-of-tobruk-january-21-22-1941">Siege of Tobruk (January 21-22, 1941)</a></h3>
+<p>After the British captured Bardia (January 3-5, 1941 - 45,000 prisoners), they turned on Tobruk. The Australian 6th Division assaulted the fortress on January 21, 1941:</p>
+<ul>
+<li><strong>Tobruk fell in 2 days</strong> (21-22 January 1941)</li>
+<li><strong>25,000 Italian prisoners</strong></li>
+<li><strong>208 guns captured</strong></li>
+<li><strong>87 tanks captured</strong></li>
+<li>XXII Corps largely destroyed</li>
+</ul>
+<hr />
+<h2 id="data-quality--known-gaps"><a class="header" href="#data-quality--known-gaps">Data Quality &amp; Known Gaps</a></h2>
+<h3 id="-extraction-quality"><a class="header" href="#-extraction-quality">⭐ EXTRACTION QUALITY</a></h3>
+<p><strong>Tier</strong>: 4 (Research Brief Created)
+<strong>Status</strong>: research_brief_created
+<strong>Confidence Score</strong>: 48% (CRITICALLY LOW - Insufficient data + source conflicts)</p>
+<p><strong>Tier Explanation</strong>: This XXII Corps file is a STRUCTURAL PLACEHOLDER demonstrating corps-level schema v3.0 compliance but contains NO actual TO&amp;E data. All equipment/personnel totals are 0 because subordinate divisions have NOT been extracted. ADDITIONALLY, sources CONFLICT on exact corps composition.</p>
+<hr />
+<h3 id="data-sources"><a class="header" href="#data-sources">Data Sources</a></h3>
+<p><strong>Historical Sources</strong>:</p>
+<ul>
+<li>Wikipedia: Operation Compass - XXII Corps mentioned (Tier 2, 72% confidence)</li>
+<li>Wikipedia: XXII Army Corps (Italy) - Petassi Manella command (Tier 2, 65% confidence)</li>
+<li>Web searches: XXII Corps organization 1940 (Tier 2, 68-70% confidence)</li>
+</ul>
+<p><strong>Subordinate Unit Sources</strong>: NONE - divisions not extracted</p>
+<hr />
+<h3 id="critical-gaps"><a class="header" href="#critical-gaps">Critical Gaps</a></h3>
+<p>🔴 <strong>CRITICAL - Missing Subordinate Divisions</strong>:</p>
+<ul>
+<li>61st Division "Sirte" - NOT EXTRACTED (consistently confirmed with XXII Corps)</li>
+<li>64th Division "Catanzaro" - NOT EXTRACTED (conflicting sources on corps assignment)</li>
+<li>4th CC.NN. "3 Gennaio" - NOT EXTRACTED (conflicting sources on corps assignment)</li>
+<li>Tobruk Fortress Troops - NOT EXTRACTED (corps-level assets)</li>
+</ul>
+<p>🔴 <strong>CRITICAL - Source Conflicts on Composition</strong>:</p>
+<ul>
+<li><strong>Catanzaro and 3 Gennaio divisions</strong>: Some sources place with XXII Corps, others with XXIII Corps</li>
+<li><strong>May vary by time period</strong>: Organization may have changed during Q4 1940 (Oct-Dec)</li>
+<li><strong>Need primary sources</strong>: Italian war diaries or official OOB documents to resolve</li>
+</ul>
+<p><strong>Impact</strong>: Cannot aggregate corps-level data without division extractions AND cannot determine exact composition without resolving source conflicts.</p>
+<p><strong>Mitigation</strong>:</p>
+<ol>
+<li>Extract 61st Sirte Division (confirmed with XXII Corps)</li>
+<li>Research Italian primary sources to resolve Catanzaro/3 Gennaio corps assignment</li>
+<li>Extract remaining divisions once assignment confirmed</li>
+<li>May need to show different configurations for different periods within Q4 1940</li>
+</ol>
+<hr />
+<h3 id="future-requirements"><a class="header" href="#future-requirements">Future Requirements</a></h3>
+<p>Before this XXII Corps extraction can be considered complete:</p>
+<ol>
+<li><strong>Extract 61st Division "Sirte"</strong> (confirmed with XXII Corps)</li>
+<li><strong>RESOLVE SOURCE CONFLICTS</strong>: Determine whether Catanzaro and 3 Gennaio were XXII Corps or XXIII Corps in Q4 1940</li>
+<li><strong>Extract Catanzaro/3 Gennaio</strong> (once corps assignment resolved)</li>
+<li><strong>Extract Tobruk Fortress Troops</strong> details (corps-level assets)</li>
+<li><strong>Aggregate division data</strong> to corps level</li>
+<li><strong>Update confidence</strong> from Tier 4 (48%) to Tier 1-2 (75%+)</li>
+</ol>
+<hr />
+<h2 id="conclusion"><a class="header" href="#conclusion">Conclusion</a></h2>
+<p>XXII Corps served as the Italian 10th Army's general reserve and Tobruk fortress garrison during Q4 1940, with the best supply situation due to port access. However, the corps failed to intervene when Operation Compass destroyed forward divisions, and subsequently became trapped in Tobruk. The siege of Tobruk (January 21-22, 1941) resulted in the fall of the fortress with 25,000 prisoners, largely destroying XXII Corps.</p>
+<p><strong>This file demonstrates corps-level structure but awaits subordinate division extractions AND resolution of source conflicts on composition before complete TO&amp;E data can be provided.</strong></p>
+<hr />
+<p><strong>Data Source</strong>: Structural placeholder - historical sources only, NO TO&amp;E aggregation
+<strong>Confidence</strong>: 48% (Tier 4 - Research Brief Created + Source Conflicts)
+<strong>Schema</strong>: unified_toe_schema.json v3.0.0 (Ground Forces)
+<strong>Extraction Date</strong>: 2025-10-20</p>
+<hr />
+<p><em>Required for completion:</em></p>
+<ul>
+<li>Extract 61st Division "Sirte" (CONFIRMED with XXII Corps)</li>
+<li>RESOLVE: Catanzaro and 3 Gennaio corps assignment (XXII vs XXIII Corps)</li>
+<li>Extract Catanzaro/3 Gennaio (once assignment confirmed)</li>
+<li>Extract Tobruk Fortress Troops details</li>
+<li>Perform bottom-up aggregation to corps level</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../chapters/chapter_italian_1940q4_xxi_corpo_darmata_xxi_corps.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../chapters/chapter_italian_1940q4_xxii_corpo_darmata_xxii_corps.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../chapters/chapter_italian_1940q4_xxi_corpo_darmata_xxi_corps.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../chapters/chapter_italian_1940q4_xxii_corpo_darmata_xxii_corps.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

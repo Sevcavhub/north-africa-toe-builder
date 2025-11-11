@@ -1,0 +1,553 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>1St Moroccan March Division - North Africa Campaign 1940-1943: Complete Order of Battle</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">North Africa Campaign 1940-1943: Complete Order of Battle</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/yourusername/north-africa-toe-builder" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="division-de-marche-du-maroc-1st-moroccan-march-division"><a class="header" href="#division-de-marche-du-maroc-1st-moroccan-march-division">Division de Marche du Maroc (1st Moroccan March Division)</a></h1>
+<p><strong>Nation:</strong> French<br />
+<strong>Quarter:</strong> 1943-Q1 (January - March 1943)<br />
+<strong>Organization Level:</strong> Division<br />
+<strong>Type:</strong> Colonial Infantry Division (Moroccan)<br />
+<strong>Parent Formation:</strong> French XIX Corps</p>
+<hr />
+<h2 id="command"><a class="header" href="#command">Command</a></h2>
+<p><strong>Commander:</strong> Général de Division Maurice Mathenet<br />
+<strong>Appointment Date:</strong> November 8, 1942<br />
+<strong>Previous Service:</strong> Commander of Military Division of Meknès, Morocco</p>
+<p><strong>Chief of Staff:</strong> Lieutenant-Colonel (name unknown)<br />
+<strong>Headquarters Location:</strong> Central Tunisia (mobile headquarters)</p>
+<p><strong>Staff Strength:</strong></p>
+<ul>
+<li>Officers: 42</li>
+<li>NCOs: 85</li>
+<li>Enlisted: 173</li>
+</ul>
+<hr />
+<h2 id="personnel-overview"><a class="header" href="#personnel-overview">Personnel Overview</a></h2>
+<p><strong>Total Strength:</strong> 12,500 personnel</p>
+<p><strong>Composition by Rank:</strong></p>
+<ul>
+<li>Officers: 520</li>
+<li>NCOs: 1,875</li>
+<li>Enlisted: 10,105</li>
+</ul>
+<p><strong>Ethnic Composition:</strong></p>
+<ul>
+<li>French Officers: 450</li>
+<li>French NCOs: 375</li>
+<li>French Enlisted: 1,200</li>
+<li>Moroccan Enlisted: 7,200</li>
+<li>Algerian Enlisted: 1,880</li>
+</ul>
+<p><strong>Note:</strong> Approximately 79% Maghrebi (North African), 21% French European composition - typical of French colonial divisions.</p>
+<hr />
+<h2 id="combat-equipment-summary"><a class="header" href="#combat-equipment-summary">Combat Equipment Summary</a></h2>
+<h3 id="infantry-weapons-top-3"><a class="header" href="#infantry-weapons-top-3">Infantry Weapons (Top 3)</a></h3>
+<ol>
+<li>
+<p><strong>MAS-36 Rifle</strong> - 8,950 rifles</p>
+<ul>
+<li>Standard French bolt-action rifle</li>
+<li>Reliable in desert conditions</li>
+</ul>
+</li>
+<li>
+<p><strong>FM 24/29 Light Machine Gun</strong> - 895 LMGs</p>
+<ul>
+<li>Squad-level automatic weapon</li>
+<li>7.5mm caliber</li>
+</ul>
+</li>
+<li>
+<p><strong>Hotchkiss M1914 Machine Gun</strong> - 268 HMGs</p>
+<ul>
+<li>Company/battalion-level support weapon</li>
+<li>Air-cooled heavy machine gun</li>
+</ul>
+</li>
+</ol>
+<h3 id="armored-vehicles"><a class="header" href="#armored-vehicles">Armored Vehicles</a></h3>
+<p><strong>Tanks:</strong> 24 total (18 operational)</p>
+<ul>
+<li><strong>Somua S35</strong> (12 medium tanks, 9 operational) - Best pre-war French tank
+<ul>
+<li>Armament: 47mm SA35 gun + 7.5mm coax</li>
+<li>Armor: 40mm frontal</li>
+</ul>
+</li>
+<li><strong>Hotchkiss H39</strong> (8 light tanks, 6 operational)
+<ul>
+<li>Armament: 37mm SA38 gun</li>
+<li>Armor: 45mm frontal</li>
+</ul>
+</li>
+<li><strong>Renault R35</strong> (4 light tanks, 3 operational)
+<ul>
+<li>Armament: 37mm SA18 gun</li>
+<li>Armor: 40mm</li>
+</ul>
+</li>
+</ul>
+<p><strong>Armored Cars:</strong> 18 total</p>
+<ul>
+<li><strong>Panhard 178</strong> (12 cars) - Reconnaissance role, 25mm gun</li>
+<li><strong>White-Laffly AMD 50</strong> (6 cars) - 37mm gun</li>
+</ul>
+<p><strong>Operational Rate:</strong> 75% for tanks, reflecting maintenance challenges with pre-war equipment</p>
+<h3 id="transport--logistics"><a class="header" href="#transport--logistics">Transport &amp; Logistics</a></h3>
+<p><strong>Trucks:</strong> 285 total (operational rate: 69%)</p>
+<ul>
+<li>Renault AGC/AGK/AGP (95 trucks) - Pre-war French military</li>
+<li>Laffly V15T (70 trucks) - All-terrain for desert</li>
+<li>Berliet GDC (60 trucks) - Commercial impressed vehicles</li>
+<li>Captured Italian FIAT 626 (40 trucks)</li>
+<li>US Lend-Lease GMC CCKW (20 trucks) - First deliveries late Q1 1943</li>
+</ul>
+<p><strong>Critical Issue:</strong> Severe shortage of spare parts for pre-war French vehicles; operational rate declining rapidly without American replacements.</p>
+<p><strong>Motorcycles:</strong> 28 total (Terrot RATT and Gnome-Rhône AX2)</p>
+<p><strong>Artillery Tractors:</strong> 20 total (Lorraine 37L and Laffly W15 TCC)</p>
+<h3 id="artillery"><a class="header" href="#artillery">Artillery</a></h3>
+<p><strong>Total Guns:</strong> 72</p>
+<p><strong>Field Artillery:</strong> 48 guns</p>
+<ul>
+<li><strong>Canon de 75 modèle 1897</strong> (36 guns) - Proven effective at Faïd Pass
+<ul>
+<li>Range: 11,000m</li>
+<li>Rate of fire: 15-20 rounds/minute</li>
+<li>The famous "French 75"</li>
+</ul>
+</li>
+<li><strong>Canon de 105 court mle 1935 B</strong> (8 howitzers) - 105mm</li>
+<li><strong>Canon de 155 C modèle 1917 Schneider</strong> (4 guns) - Heavy field gun</li>
+</ul>
+<p><strong>Anti-Tank:</strong> 16 guns</p>
+<ul>
+<li><strong>Canon de 47mm SA mle 1937</strong> (12 guns) - Inadequate vs. 1943 German armor
+<ul>
+<li>Penetration: 60mm at 500m</li>
+<li>Cannot defeat Panzer IV or Tiger I effectively</li>
+</ul>
+</li>
+<li><strong>Canon de 25mm SA-L mle 1937</strong> (4 guns) - Obsolete</li>
+</ul>
+<p><strong>Anti-Aircraft:</strong> 8 guns</p>
+<ul>
+<li>Canon de 75mm CA modèle 1915-1939 (4 guns) - Heavy AA</li>
+<li>Hotchkiss 13.2mm (4 guns) - Light AA / heavy MG</li>
+</ul>
+<hr />
+<h2 id="supply--logistics-schema-v300"><a class="header" href="#supply--logistics-schema-v300">Supply &amp; Logistics (Schema v3.0.0+)</a></h2>
+<p><strong>Fuel Available:</strong> 6 days<br />
+<strong>Ammunition Available:</strong> 7 days<br />
+<strong>Water:</strong> 7 liters per man per day<br />
+<strong>Food Available:</strong> 8 days</p>
+<p><strong>Supply Line Status:</strong> Stretched - Supply lines run from Algerian bases through British 1st Army logistics network. Severe spare parts shortages for pre-war French equipment.</p>
+<p><strong>Resupply Interval:</strong> Every 5 days<br />
+<strong>Operational Radius:</strong> 80 km<br />
+<strong>Fuel Consumption:</strong> 12,000 liters per day</p>
+<p><strong>Critical Shortages:</strong></p>
+<ul>
+<li>Spare parts for French vehicles</li>
+<li>Anti-tank ammunition</li>
+<li>Modern anti-tank weapons</li>
+</ul>
+<p><strong>Logistics Note:</strong> Division entirely dependent on Allied logistics infrastructure. American re-equipment beginning late Q1 1943 will significantly improve sustainability.</p>
+<hr />
+<h2 id="weather--environment-schema-v300"><a class="header" href="#weather--environment-schema-v300">Weather &amp; Environment (Schema v3.0.0+)</a></h2>
+<p><strong>Terrain:</strong> Mountainous - Eastern Dorsal Mountains of central Tunisia with rocky passes and wadis</p>
+<p><strong>Temperature Range:</strong> 8-22°C (winter conditions January-March 1943)</p>
+<p><strong>Seasonal Impact:</strong> Winter rains create mud and flash floods in wadis. Cold nights in mountains require winter clothing. Weather conditions favor infantry defense over armor mobility.</p>
+<p><strong>Environmental Challenges:</strong></p>
+<ul>
+<li>Mountain warfare conditions</li>
+<li>Flash flooding in wadis during winter rains</li>
+<li>Cold nights requiring winter clothing</li>
+<li>Rocky terrain limiting vehicle movement</li>
+</ul>
+<p><strong>Tactical Advantages:</strong> Mountainous terrain strongly favors defensive infantry operations. Moroccan troops highly experienced in mountain warfare from pre-war Atlas Mountains campaigns.</p>
+<hr />
+<h2 id="subordinate-units"><a class="header" href="#subordinate-units">Subordinate Units</a></h2>
+<ol>
+<li>
+<p><strong>4e Régiment de Tirailleurs Marocains</strong> (4th Moroccan Tirailleurs Regiment)</p>
+<ul>
+<li>Strength: 3,100</li>
+<li>Composition: 79% Moroccan enlisted, 21% French officers/NCOs</li>
+</ul>
+</li>
+<li>
+<p><strong>5e Régiment de Tirailleurs Marocains</strong> (5th Moroccan Tirailleurs Regiment)</p>
+<ul>
+<li>Strength: 3,100</li>
+<li>Composition: 79% Moroccan enlisted, 21% French officers/NCOs</li>
+</ul>
+</li>
+<li>
+<p><strong>7e Régiment de Tirailleurs Marocains</strong> (7th Moroccan Tirailleurs Regiment)</p>
+<ul>
+<li>Commander: Colonel Carpentier</li>
+<li>Strength: 3,100</li>
+<li>Composition: 79% Moroccan enlisted, 21% French officers/NCOs</li>
+</ul>
+</li>
+<li>
+<p><strong>62e Régiment d'Artillerie d'Afrique</strong> (62nd African Artillery Regiment)</p>
+<ul>
+<li>Strength: 850</li>
+<li>Equipment: Canon de 75 mle 1897 (three battalions)</li>
+</ul>
+</li>
+<li>
+<p><strong>Compagnie de Chars</strong> (Tank Company)</p>
+<ul>
+<li>Strength: 120</li>
+<li>Equipment: Somua S35 and light tanks</li>
+</ul>
+</li>
+<li>
+<p><strong>Escadron de Reconnaissance</strong> (Reconnaissance Squadron)</p>
+<ul>
+<li>Strength: 180</li>
+<li>Equipment: Panhard 178 armored cars</li>
+</ul>
+</li>
+<li>
+<p><strong>Compagnie du Génie</strong> (Engineer Company)</p>
+<ul>
+<li>Strength: 210</li>
+</ul>
+</li>
+<li>
+<p><strong>Services Divisionnaires</strong> (Divisional Services)</p>
+<ul>
+<li>Strength: 840</li>
+<li>Functions: Medical, signals, supply, transport, maintenance</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h2 id="tactical-doctrine"><a class="header" href="#tactical-doctrine">Tactical Doctrine</a></h2>
+<p><strong>Primary Role:</strong> Defensive infantry division holding sectors of the Eastern Dorsal Mountains in central Tunisia</p>
+<p><strong>Special Capabilities:</strong></p>
+<ul>
+<li>North African troops well-adapted to desert conditions</li>
+<li>Experienced in colonial warfare tactics</li>
+<li>Strong esprit de corps among Moroccan tirailleurs units</li>
+</ul>
+<p><strong>Known Issues:</strong></p>
+<ul>
+<li>Inadequate anti-tank capability versus 1943 German armor (Panzer IV, Tiger I)</li>
+<li>Limited mechanization compared to German and British forces</li>
+<li>Obsolete pre-war equipment with critical spare parts shortages</li>
+<li>Artillery effective but limited in range and mobility</li>
+<li>Poor coordination with Allied forces initially due to recent armistice</li>
+</ul>
+<p><strong>Desert Adaptations:</strong> Troops well-acclimated to North African terrain and climate. French colonial forces had extensive desert warfare experience from pre-war operations in Morocco and Algeria.</p>
+<hr />
+<h2 id="combat-history"><a class="header" href="#combat-history">Combat History</a></h2>
+<p><strong>Formation Date:</strong> November 8, 1942</p>
+<p><strong>Period of Service:</strong> November 1942 - May 1943</p>
+<p><strong>Key Engagements:</strong></p>
+<ol>
+<li>
+<p><strong>Port-Lyautey (November 1942)</strong> - Initially opposed American landings during Operation Torch before armistice</p>
+</li>
+<li>
+<p><strong>Eastern Dorsal Mountains Defense (January-March 1943)</strong> - Held defensive positions in central Tunisia</p>
+</li>
+<li>
+<p><strong>Battle of Faïd Pass (January 30, 1943)</strong> - Defeated despite effective 75mm artillery fire by German armor superiority</p>
+</li>
+<li>
+<p><strong>Kasserine Pass Operations (February 1943)</strong> - Participated in defensive operations during German offensive</p>
+</li>
+<li>
+<p><strong>Battle of Zaghouan (May 12, 1943)</strong> - Obtained surrender of German Colonel Pfeiffer (21st Panzer Division Kampfgruppe commander) and Italian Colonel Agnelo</p>
+</li>
+</ol>
+<p><strong>Command Relationships:</strong> Part of French XIX Corps under Lieutenant General Marie-Louis Koëltz. Nominally under British 1st Army command but took operational orders from Général Juin (senior French commander North Africa).</p>
+<p><strong>Post-Tunisia:</strong> Reorganized after Tunisia campaign ended May 13, 1943. Elements contributed to formation of 2e Division d'Infanterie Marocaine (formed May 1, 1943) for Italian campaign.</p>
+<hr />
+<h2 id="wargaming-data"><a class="header" href="#wargaming-data">Wargaming Data</a></h2>
+<p><strong>Morale Rating:</strong> 7/10<br />
+<strong>Experience Level:</strong> Regular</p>
+<p><strong>Scenario Suitability:</strong></p>
+<ul>
+<li>Defensive scenarios in mountainous terrain</li>
+<li>Small-unit actions (company/battalion level)</li>
+<li>Mixed Allied operations requiring French colonial forces</li>
+<li>Tunisia Campaign scenarios January-May 1943</li>
+</ul>
+<p><strong>Special Rules:</strong></p>
+<ul>
+<li>French colonial infantry: +1 morale in defensive positions</li>
+<li>Moroccan tirailleurs: Excellent night fighters</li>
+<li>Inadequate AT: -2 modifier versus German armor</li>
+<li>Supply issues: Limited ammunition resupply</li>
+<li>Canon de 75 mle 1897: High rate of fire (15-20 rpm) but limited range</li>
+</ul>
+<p><strong>Historical Engagements for Scenarios:</strong></p>
+<ul>
+<li>Faïd Pass 1943</li>
+<li>Kasserine Pass 1943</li>
+<li>Zaghouan 1943</li>
+</ul>
+<hr />
+<h2 id="validation-metadata"><a class="header" href="#validation-metadata">Validation Metadata</a></h2>
+<p><strong>Schema Version:</strong> 3.1.0<br />
+<strong>Confidence Rating:</strong> 78%<br />
+<strong>Last Updated:</strong> October 24, 2025<br />
+<strong>Validated By:</strong> Claude Code v3.1.0 schema update</p>
+<p><strong>Sources:</strong></p>
+<ul>
+<li>British Military History - Tunisia 1942-1943 French Divisions</li>
+<li>Chemins de Mémoire (French Ministry of Defense) - La campagne de Tunisie</li>
+<li>Légion Étrangère archives - Jean Balazuc Tunisia Campaign history</li>
+<li>Warfare History Network - French forces in Tunisia</li>
+<li>US Army Historical Division - Tunisia Campaign</li>
+<li>Custermen.com - French Army Organization 1943</li>
+</ul>
+<p><strong>Known Gaps:</strong></p>
+<ul>
+<li>Exact battalion and company-level organization not fully documented</li>
+<li>Precise commander names for most subordinate units unknown</li>
+<li>Exact operational vehicle counts estimated from organizational tables</li>
+<li>Individual weapon counts calculated from standard French colonial division TO&amp;E</li>
+</ul>
+<p><strong>Important Note:</strong> This TO&amp;E represents Division de Marche du Maroc (formed November 1942), NOT 2e Division d'Infanterie Marocaine (formed May 1, 1943). The latter did not exist during 1943-Q1 timeframe.</p>
+<p><strong>Alternative Designations:</strong></p>
+<ul>
+<li>English: 1st Moroccan March Division</li>
+<li>French: Division de Marche du Maroc</li>
+<li>Abbreviation: DMM</li>
+</ul>
+<hr />
+<p><em>Generated from validated TO&amp;E data - Schema v3.1.0</em></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../chapters/chapter_french_1943q1_1re_division_française_libre_1st_free_french_division.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../chapters/chapter_french_1943q1_2e_division_d_infanterie_marocaine.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../chapters/chapter_french_1943q1_1re_division_française_libre_1st_free_french_division.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../chapters/chapter_french_1943q1_2e_division_d_infanterie_marocaine.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

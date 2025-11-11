@@ -1,0 +1,711 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>164. Leichte Division - North Africa Campaign 1940-1943: Complete Order of Battle</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">North Africa Campaign 1940-1943: Complete Order of Battle</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/yourusername/north-africa-toe-builder" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="164-leichte-division"><a class="header" href="#164-leichte-division">164. leichte Division</a></h1>
+<p><strong>Nation:</strong> German
+<strong>Quarter:</strong> 1942-Q3
+<strong>Organization Level:</strong> Division</p>
+<h2 id="1-overview"><a class="header" href="#1-overview">1. Overview</a></h2>
+<p><strong>[MANUAL: Add 2-3 paragraphs of historical context about the 164. leichte Division]</strong></p>
+<p><strong>[MANUAL: Describe the unit's role during 1942-Q3, formation history, and strategic importance]</strong></p>
+<p><strong>[MANUAL: Add operational context - what major operations/battles occurred this quarter]</strong></p>
+<p><strong>Key Statistics (1942-Q3):</strong></p>
+<ul>
+<li>Total Strength: 9,200 personnel</li>
+<li>Unit Type: Light Motorized Infantry Division</li>
+<li>Organization Level: Division</li>
+<li>Parent Formation: Panzerarmee Afrika</li>
+<li>Commander: Generalleutnant Generalleutnant Carl-Hans Lungershausen</li>
+<li>Headquarters Location: Mobile HQ, El Alamein sector (estimated)</li>
+<li>Artillery: 68 guns</li>
+<li>Motor Vehicles: 1,450</li>
+</ul>
+<h2 id="2-command-structure"><a class="header" href="#2-command-structure">2. Command Structure</a></h2>
+<h3 id="division-commander"><a class="header" href="#division-commander">Division Commander</a></h3>
+<p><strong>Generalleutnant Generalleutnant Carl-Hans Lungershausen</strong> assumed command on 1942-08-15.</p>
+<p>Previous service: Unknown - documented gap</p>
+<p><strong>[MANUAL: Add 1-2 paragraphs about commander's background, command style, and performance]</strong></p>
+<h3 id="division-staff"><a class="header" href="#division-staff">Division Staff</a></h3>
+<p>The division headquarters staff comprised approximately 200 personnel:</p>
+<ul>
+<li><strong>Officers:</strong> 40 (operations, intelligence, logistics, signals)</li>
+<li><strong>Enlisted:</strong> 160 (clerks, drivers, guards, support)</li>
+</ul>
+<h3 id="chief-of-staff"><a class="header" href="#chief-of-staff">Chief of Staff</a></h3>
+<p><strong>Oberstleutnant (estimated) Unknown - documented gap</strong> served as Chief of Staff, coordinating all divisional operations.</p>
+<h3 id="headquarters-location"><a class="header" href="#headquarters-location">Headquarters Location</a></h3>
+<p>Division headquarters was established at: Mobile HQ, El Alamein sector (estimated)</p>
+<p><strong>[MANUAL: Add details about headquarters mobility, facilities, and operational context]</strong></p>
+<h2 id="3-personnel-strength"><a class="header" href="#3-personnel-strength">3. Personnel Strength</a></h2>
+<h3 id="total-strength-9200-personnel"><a class="header" href="#total-strength-9200-personnel">Total Strength: 9,200 Personnel</a></h3>
+<p><strong>[MANUAL: Add 1-2 paragraphs about overall strength, comparing to establishment, explaining any understrength/overstrength]</strong></p>
+<h3 id="officer-corps-420-officers-46-of-total"><a class="header" href="#officer-corps-420-officers-46-of-total">Officer Corps: 420 Officers (4.6% of total)</a></h3>
+<p>The division's officer corps included:</p>
+<ul>
+<li>Division staff and headquarters officers</li>
+<li>Regiment and battalion commanders</li>
+<li>Company and platoon leaders</li>
+<li>Technical specialists</li>
+</ul>
+<p><strong>[MANUAL: Add details about officer quality, training, and leadership capabilities]</strong></p>
+<h3 id="non-commissioned-officers-1380-ncos-150-of-total"><a class="header" href="#non-commissioned-officers-1380-ncos-150-of-total">Non-Commissioned Officers: 1,380 NCOs (15.0% of total)</a></h3>
+<p>NCOs provided critical small unit leadership:</p>
+<ul>
+<li>Squad and section leaders</li>
+<li>Weapon crew chiefs</li>
+<li>Technical specialists</li>
+<li>Administrative and supply NCOs</li>
+</ul>
+<p><strong>[MANUAL: Add details about NCO experience and role]</strong></p>
+<h3 id="enlisted-personnel-7400-804-of-total"><a class="header" href="#enlisted-personnel-7400-804-of-total">Enlisted Personnel: 7,400 (80.4% of total)</a></h3>
+<p>The bulk of the division consisted of enlisted soldiers:</p>
+<ul>
+<li>Infantry riflemen</li>
+<li>Machine gun and weapon crews</li>
+<li>Artillery crews</li>
+<li>Drivers and mechanics</li>
+<li>Engineers and pioneers</li>
+<li>Supply and administrative personnel</li>
+</ul>
+<h3 id="personnel-quality"><a class="header" href="#personnel-quality">Personnel Quality</a></h3>
+<p><strong>[MANUAL: Add 2-3 paragraphs about:]</strong></p>
+<ul>
+<li>Combat experience level (veteran vs. newly-arrived)</li>
+<li>Morale status</li>
+<li>Training emphasis</li>
+<li>Replacement situation</li>
+<li>Known strengths/weaknesses</li>
+</ul>
+<h2 id="4-organization"><a class="header" href="#4-organization">4. Organization</a></h2>
+<p><strong>[MANUAL: Add 1-2 paragraphs describing overall organizational structure and doctrine]</strong></p>
+<h3 id="primary-subordinate-units"><a class="header" href="#primary-subordinate-units">Primary Subordinate Units</a></h3>
+<p><strong>1. Infanterie-Regiment 125</strong></p>
+<ul>
+<li>Type: Infantry Regiment</li>
+<li>Strength: 2,400 personnel</li>
+<li>Commander: Unknown - documented gap</li>
+</ul>
+<p><strong>2. Infanterie-Regiment 382</strong></p>
+<ul>
+<li>Type: Infantry Regiment</li>
+<li>Strength: 2,300 personnel</li>
+<li>Commander: Unknown - documented gap</li>
+</ul>
+<p><strong>3. Infanterie-Regiment 433</strong></p>
+<ul>
+<li>Type: Infantry Regiment</li>
+<li>Strength: 2,200 personnel</li>
+<li>Commander: Unknown - documented gap</li>
+</ul>
+<p><strong>4. Artillerie-Regiment 220</strong></p>
+<ul>
+<li>Type: Artillery Regiment</li>
+<li>Strength: 780 personnel</li>
+<li>Commander: Unknown - documented gap</li>
+</ul>
+<p><strong>5. Panzerjäger-Abteilung 220</strong></p>
+<ul>
+<li>Type: Anti-Tank Battalion</li>
+<li>Strength: 320 personnel</li>
+<li>Commander: Unknown - documented gap</li>
+</ul>
+<p><strong>6. Aufklärungs-Abteilung 220</strong></p>
+<ul>
+<li>Type: Reconnaissance Battalion</li>
+<li>Strength: 380 personnel</li>
+<li>Commander: Unknown - documented gap</li>
+</ul>
+<p><strong>7. Pionier-Bataillon 220</strong></p>
+<ul>
+<li>Type: Engineer Battalion</li>
+<li>Strength: 520 personnel</li>
+<li>Commander: Unknown - documented gap</li>
+</ul>
+<p><strong>8. Nachrichten-Abteilung 220</strong></p>
+<ul>
+<li>Type: Signals Battalion</li>
+<li>Strength: 250 personnel</li>
+<li>Commander: Unknown - documented gap</li>
+</ul>
+<p><strong>9. Divisional Services</strong></p>
+<ul>
+<li>Type: Supply, Medical, Administrative Units</li>
+<li>Strength: 650 personnel</li>
+<li>Commander: Various</li>
+</ul>
+<h3 id="organizational-assessment"><a class="header" href="#organizational-assessment">Organizational Assessment</a></h3>
+<p><strong>[MANUAL: Add assessment of organizational strengths, gaps, and combat effectiveness]</strong></p>
+<h2 id="5-infantry-weapons"><a class="header" href="#5-infantry-weapons">5. Infantry Weapons</a></h2>
+<p><strong>[MANUAL: Add introductory paragraph about unit's infantry weapons doctrine and supply]</strong></p>
+<h3 id="karabiner-98k"><a class="header" href="#karabiner-98k">Karabiner 98k</a></h3>
+<ul>
+<li><strong>Count:</strong> 6,500</li>
+<li><strong>Type:</strong> Rifle</li>
+</ul>
+<p><strong>[MANUAL: Add specifications:]</strong></p>
+<ul>
+<li>Caliber</li>
+<li>Action type</li>
+<li>Magazine/feed system</li>
+<li>Effective range</li>
+<li>Rate of fire</li>
+<li>Weight</li>
+<li>Muzzle velocity</li>
+</ul>
+<p><strong>[MANUAL: Add 1-2 paragraphs about weapon's performance, reliability, and tactical employment]</strong></p>
+<h3 id="mg-34"><a class="header" href="#mg-34">MG 34</a></h3>
+<ul>
+<li><strong>Count:</strong> 300</li>
+<li><strong>Type:</strong> Machine Gun</li>
+</ul>
+<p><strong>[MANUAL: Add specifications:]</strong></p>
+<ul>
+<li>Caliber</li>
+<li>Action type</li>
+<li>Magazine/feed system</li>
+<li>Effective range</li>
+<li>Rate of fire</li>
+<li>Weight</li>
+<li>Muzzle velocity</li>
+</ul>
+<p><strong>[MANUAL: Add 1-2 paragraphs about weapon's performance, reliability, and tactical employment]</strong></p>
+<h3 id="mp-40"><a class="header" href="#mp-40">MP 40</a></h3>
+<ul>
+<li><strong>Count:</strong> 400</li>
+<li><strong>Type:</strong> Submachine Gun</li>
+</ul>
+<p><strong>[MANUAL: Add specifications:]</strong></p>
+<ul>
+<li>Caliber</li>
+<li>Action type</li>
+<li>Magazine/feed system</li>
+<li>Effective range</li>
+<li>Rate of fire</li>
+<li>Weight</li>
+<li>Muzzle velocity</li>
+</ul>
+<p><strong>[MANUAL: Add 1-2 paragraphs about weapon's performance, reliability, and tactical employment]</strong></p>
+<h2 id="6-motor-vehicles-and-transport"><a class="header" href="#6-motor-vehicles-and-transport">6. Motor Vehicles and Transport</a></h2>
+<h3 id="total-motor-vehicles-1450"><a class="header" href="#total-motor-vehicles-1450">Total Motor Vehicles: 1,450</a></h3>
+<p><strong>[MANUAL: Add paragraph about unit's motorization level and mobility capabilities]</strong></p>
+<h3 id="trucks-1050-total"><a class="header" href="#trucks-1050-total">Trucks: 1,050 Total</a></h3>
+<h4 id="opel-blitz-3-ton"><a class="header" href="#opel-blitz-3-ton">Opel Blitz 3-ton</a></h4>
+<ul>
+<li><strong>Count:</strong> 380</li>
+<li><strong>Capacity:</strong> 3_ton</li>
+</ul>
+<p><strong>[MANUAL: Add specifications and usage]</strong></p>
+<h4 id="mercedes-benz-l3000"><a class="header" href="#mercedes-benz-l3000">Mercedes-Benz L3000</a></h4>
+<ul>
+<li><strong>Count:</strong> 280</li>
+<li><strong>Capacity:</strong> 3_ton</li>
+</ul>
+<p><strong>[MANUAL: Add specifications and usage]</strong></p>
+<h4 id="italian-lanciafiat"><a class="header" href="#italian-lanciafiat">Italian Lancia/Fiat</a></h4>
+<ul>
+<li><strong>Count:</strong> 250</li>
+<li><strong>Capacity:</strong> 3_ton</li>
+</ul>
+<p><strong>[MANUAL: Add specifications and usage]</strong></p>
+<h4 id="captured-british-vehicles"><a class="header" href="#captured-british-vehicles">Captured British vehicles</a></h4>
+<ul>
+<li><strong>Count:</strong> 140</li>
+<li><strong>Capacity:</strong> various</li>
+</ul>
+<p><strong>[MANUAL: Add specifications and usage]</strong></p>
+<h3 id="motorcycles-120-total"><a class="header" href="#motorcycles-120-total">Motorcycles: 120 Total</a></h3>
+<h4 id="bmw-r75"><a class="header" href="#bmw-r75">BMW R75</a></h4>
+<ul>
+<li><strong>Count:</strong> 65</li>
+</ul>
+<p><strong>[MANUAL: Add specifications and usage]</strong></p>
+<h4 id="zündapp-ks750"><a class="header" href="#zündapp-ks750">Zündapp KS750</a></h4>
+<ul>
+<li><strong>Count:</strong> 55</li>
+</ul>
+<p><strong>[MANUAL: Add specifications and usage]</strong></p>
+<h3 id="armored-cars-40-total"><a class="header" href="#armored-cars-40-total">Armored Cars: 40 Total</a></h3>
+<p><strong>[MANUAL: Add armored car variants with specifications and tactical employment]</strong></p>
+<h3 id="support-vehicles-180-total"><a class="header" href="#support-vehicles-180-total">Support Vehicles: 180 Total</a></h3>
+<h4 id="kubelwagen"><a class="header" href="#kubelwagen">Kubelwagen</a></h4>
+<ul>
+<li><strong>Count:</strong> 100</li>
+<li><strong>Type:</strong> Light Utility Vehicle</li>
+</ul>
+<h4 id="schwimmwagen"><a class="header" href="#schwimmwagen">Schwimmwagen</a></h4>
+<ul>
+<li><strong>Count:</strong> 5</li>
+<li><strong>Type:</strong> Amphibious Vehicle</li>
+</ul>
+<h4 id="repair-and-recovery-vehicles"><a class="header" href="#repair-and-recovery-vehicles">Repair and recovery vehicles</a></h4>
+<ul>
+<li><strong>Count:</strong> 40</li>
+<li><strong>Type:</strong> Workshop Vehicles</li>
+</ul>
+<h4 id="fuel-tankers"><a class="header" href="#fuel-tankers">Fuel tankers</a></h4>
+<ul>
+<li><strong>Count:</strong> 35</li>
+<li><strong>Type:</strong> Supply Vehicles</li>
+</ul>
+<h3 id="transport-challenges"><a class="header" href="#transport-challenges">Transport Challenges</a></h3>
+<p><strong>[MANUAL: Add section about desert operating challenges, maintenance, fuel consumption, etc.]</strong></p>
+<h2 id="7-artillery"><a class="header" href="#7-artillery">7. Artillery</a></h2>
+<h3 id="total-artillery-68-guns"><a class="header" href="#total-artillery-68-guns">Total Artillery: 68 Guns</a></h3>
+<p><strong>[MANUAL: Add paragraph about artillery organization and doctrine]</strong></p>
+<h3 id="field-artillery-36-guns"><a class="header" href="#field-artillery-36-guns">Field Artillery: 36 Guns</a></h3>
+<h4 id="105cm-lefh-18"><a class="header" href="#105cm-lefh-18">10.5cm leFH 18</a></h4>
+<ul>
+<li><strong>Count:</strong> 24</li>
+<li><strong>Caliber:</strong> 105mm</li>
+</ul>
+<p><strong>[MANUAL: Add specifications:]</strong></p>
+<ul>
+<li>Range</li>
+<li>Shell weight</li>
+<li>Rate of fire</li>
+<li>Muzzle velocity</li>
+<li>Weight</li>
+<li>Crew size</li>
+</ul>
+<p><strong>[MANUAL: Add tactical employment paragraph]</strong></p>
+<h4 id="15cm-sfh-18"><a class="header" href="#15cm-sfh-18">15cm sFH 18</a></h4>
+<ul>
+<li><strong>Count:</strong> 12</li>
+<li><strong>Caliber:</strong> 150mm</li>
+</ul>
+<p><strong>[MANUAL: Add specifications:]</strong></p>
+<ul>
+<li>Range</li>
+<li>Shell weight</li>
+<li>Rate of fire</li>
+<li>Muzzle velocity</li>
+<li>Weight</li>
+<li>Crew size</li>
+</ul>
+<p><strong>[MANUAL: Add tactical employment paragraph]</strong></p>
+<h3 id="anti-tank-artillery-24-guns"><a class="header" href="#anti-tank-artillery-24-guns">Anti-Tank Artillery: 24 Guns</a></h3>
+<h4 id="5cm-pak-38"><a class="header" href="#5cm-pak-38">5cm PaK 38</a></h4>
+<ul>
+<li><strong>Count:</strong> 18</li>
+<li><strong>Caliber:</strong> 50mm</li>
+</ul>
+<p><strong>[MANUAL: Add specifications and anti-armor effectiveness]</strong></p>
+<h4 id="75cm-pak-40"><a class="header" href="#75cm-pak-40">7.5cm PaK 40</a></h4>
+<ul>
+<li><strong>Count:</strong> 6</li>
+<li><strong>Caliber:</strong> 75mm</li>
+</ul>
+<p><strong>[MANUAL: Add specifications and anti-armor effectiveness]</strong></p>
+<h3 id="anti-aircraft-artillery-8-guns"><a class="header" href="#anti-aircraft-artillery-8-guns">Anti-Aircraft Artillery: 8 Guns</a></h3>
+<h4 id="88cm-flak-1836"><a class="header" href="#88cm-flak-1836">8.8cm FlaK 18/36</a></h4>
+<ul>
+<li><strong>Count:</strong> 4</li>
+<li><strong>Caliber:</strong> 88mm</li>
+</ul>
+<p><strong>[MANUAL: Add specifications and air defense employment]</strong></p>
+<h4 id="2cm-flak-38"><a class="header" href="#2cm-flak-38">2cm FlaK 38</a></h4>
+<ul>
+<li><strong>Count:</strong> 4</li>
+<li><strong>Caliber:</strong> 20mm</li>
+</ul>
+<p><strong>[MANUAL: Add specifications and air defense employment]</strong></p>
+<h2 id="8-supply-and-logistics"><a class="header" href="#8-supply-and-logistics">8. Supply and Logistics</a></h2>
+<h3 id="supply-status"><a class="header" href="#supply-status">Supply Status</a></h3>
+<p>Adequate for defensive operations. Division newly arrived in North Africa (August 1942), last major German reinforcement to reach theater. Initial supply state better than veteran divisions but still constrained by long Mediterranean supply lines. Primary supply base at Benghazi (700km west) and Tobruk. Water supply critical for newly acclimatized troops in desert conditions.</p>
+<h3 id="fuel-supply"><a class="header" href="#fuel-supply">Fuel Supply</a></h3>
+<p><strong>Fuel Reserves:</strong> 6 days</p>
+<p><strong>[MANUAL: Add fuel supply details, daily consumption, sources, constraints]</strong></p>
+<h3 id="ammunition-supply"><a class="header" href="#ammunition-supply">Ammunition Supply</a></h3>
+<p><strong>Ammunition Reserves:</strong> 10 days</p>
+<p><strong>[MANUAL: Add ammunition supply details, types, resupply, shortages]</strong></p>
+<h3 id="water-supply"><a class="header" href="#water-supply">Water Supply</a></h3>
+<p><strong>Daily Requirement:</strong> 5 liters per day</p>
+<p><strong>[MANUAL: Add water supply details, transport, rationing, sources]</strong></p>
+<h3 id="operational-radius"><a class="header" href="#operational-radius">Operational Radius</a></h3>
+<p><strong>Estimated:</strong> 180 km from supply dumps</p>
+<h3 id="supply-chain-vulnerabilities"><a class="header" href="#supply-chain-vulnerabilities">Supply Chain Vulnerabilities</a></h3>
+<p><strong>[MANUAL: Add section about supply chain risks, interdiction, priorities, and challenges]</strong></p>
+<h2 id="9-weather-and-environment"><a class="header" href="#9-weather-and-environment">9. Weather and Environment</a></h2>
+<h3 id="climate-1942-q3"><a class="header" href="#climate-1942-q3">Climate (1942-Q3)</a></h3>
+<p><strong>Season:</strong> 1942-Q3 (July-September) - Summer</p>
+<p><strong>Temperature Range:</strong> 20-42°C</p>
+<p><strong>Daylight Hours:</strong> 13 hours</p>
+<p><strong>Storm Frequency:</strong> Approximately 2 days per month</p>
+<p><strong>[MANUAL: Add detailed climate description for this quarter]</strong></p>
+<h3 id="terrain"><a class="header" href="#terrain">Terrain</a></h3>
+<p>Coastal plain and rocky desert - El Alamein defensive sector</p>
+<h3 id="weather-challenges"><a class="header" href="#weather-challenges">Weather Challenges</a></h3>
+<p><strong>[MANUAL: Add weather impact on operations]</strong></p>
+<h3 id="environmental-challenges"><a class="header" href="#environmental-challenges">Environmental Challenges</a></h3>
+<p><strong>[MANUAL: Add environmental challenges - dust, heat, navigation, disease, etc.]</strong></p>
+<h2 id="10-combat-history"><a class="header" href="#10-combat-history">10. Combat History</a></h2>
+<h3 id="formation-and-deployment"><a class="header" href="#formation-and-deployment">Formation and Deployment</a></h3>
+<p><strong>[MANUAL: Add 2-3 paragraphs about unit formation, when/where raised, deployment to theater]</strong></p>
+<h3 id="major-engagements"><a class="header" href="#major-engagements">Major Engagements</a></h3>
+<p><strong>[MANUAL: List and describe major battles, operations, and engagements]</strong></p>
+<h3 id="combat-effectiveness-assessment"><a class="header" href="#combat-effectiveness-assessment">Combat Effectiveness Assessment</a></h3>
+<p><strong>[MANUAL: Add assessment of strengths, weaknesses, and overall combat performance]</strong></p>
+<h2 id="11-tactical-doctrine-and-capabilities"><a class="header" href="#11-tactical-doctrine-and-capabilities">11. Tactical Doctrine and Capabilities</a></h2>
+<h3 id="doctrinal-role"><a class="header" href="#doctrinal-role">Doctrinal Role</a></h3>
+<p>Light infantry division for defensive operations in El Alamein sector. Newly arrived division assigned to holding defensive positions. Limited motorization compared to 90. leichte Division. Designed for positional defense rather than mobile desert operations.</p>
+<h3 id="special-capabilities"><a class="header" href="#special-capabilities">Special Capabilities</a></h3>
+<ul>
+<li>Recently reinforced division with fresh troops</li>
+<li>Full strength infantry regiments (three regiments vs. four for 90. leichte)</li>
+<li>Standard German defensive doctrine and training</li>
+</ul>
+<h3 id="tactical-innovations"><a class="header" href="#tactical-innovations">Tactical Innovations</a></h3>
+<ul>
+<li>Integration into established Afrika Korps defensive systems</li>
+<li>Adaptation to desert defensive warfare</li>
+</ul>
+<h3 id="combined-arms-integration"><a class="header" href="#combined-arms-integration">Combined Arms Integration</a></h3>
+<p><strong>[MANUAL: Add section about infantry-tank-artillery cooperation, air support, engineer support]</strong></p>
+<h3 id="known-issues-and-limitations"><a class="header" href="#known-issues-and-limitations">Known Issues and Limitations</a></h3>
+<ul>
+<li>Limited desert warfare experience (newly arrived August 1942)</li>
+<li>Less motorization than 90. leichte Division (documented as 'limited motorization')</li>
+<li>No organic tank strength</li>
+<li>Troops not yet acclimatized to extreme desert conditions</li>
+<li>Insufficient anti-aircraft protection against British air superiority</li>
+<li>Last major German reinforcement to reach North Africa - no follow-on support expected</li>
+</ul>
+<h3 id="desert-adaptations"><a class="header" href="#desert-adaptations">Desert Adaptations</a></h3>
+<p>Division undergoing rapid acclimatization to desert conditions. Water discipline, heat management, and desert navigation being learned from veteran units. Limited time for adaptation before First Battle of El Alamein (July 1-27, 1942).</p>
+<h2 id="12-wargaming-and-scenario-data"><a class="header" href="#12-wargaming-and-scenario-data">12. Wargaming and Scenario Data</a></h2>
+<h3 id="morale-and-experience"><a class="header" href="#morale-and-experience">Morale and Experience</a></h3>
+<p><strong>Morale Rating:</strong> 7/10</p>
+<p><strong>Experience Level:</strong> Regular</p>
+<p><strong>[MANUAL: Add paragraph explaining morale factors and experience level]</strong></p>
+<h3 id="scenario-suitability"><a class="header" href="#scenario-suitability">Scenario Suitability</a></h3>
+<p>This unit is well-suited for:</p>
+<ul>
+<li>First Battle of El Alamein (July 1-27, 1942) - Defensive operations</li>
+<li>Second Battle of El Alamein (October 23 - November 11, 1942) - Division participated in defense</li>
+<li>Static defensive scenarios in desert terrain</li>
+<li>Introduction to desert warfare scenarios (green troops in harsh environment)</li>
+</ul>
+<h3 id="special-rules-wargaming"><a class="header" href="#special-rules-wargaming">Special Rules (Wargaming)</a></h3>
+<ul>
+<li>Fresh Reinforcement: Better supply state initially (+1 supply), but -1 to desert operations (acclimatization)</li>
+<li>Limited Motorization: Reduced movement compared to 90. leichte Division</li>
+<li>Positional Defense: +1 to prepared defensive positions</li>
+<li>No Tank Support: Cannot operate independently against enemy armor without attached units</li>
+<li>Desert Novices: -1 to sustained desert operations beyond 2 days (acclimatization penalty)</li>
+</ul>
+<h3 id="historical-engagements-this-quarter"><a class="header" href="#historical-engagements-this-quarter">Historical Engagements (This Quarter)</a></h3>
+<ul>
+<li>First Battle of El Alamein (July 1-27, 1942) - Defensive operations immediately upon arrival</li>
+<li>Second Battle of El Alamein (October 23 - November 11, 1942) - Major defensive battle</li>
+<li>Retreat to Tunisia (November 1942 - January 1943)</li>
+</ul>
+<h3 id="force-composition-for-scenarios"><a class="header" href="#force-composition-for-scenarios">Force Composition for Scenarios</a></h3>
+<p><strong>[MANUAL: Add typical force breakdowns for wargaming scenarios]</strong></p>
+<h2 id="13-data-quality-and-sources"><a class="header" href="#13-data-quality-and-sources">13. Data Quality and Sources</a></h2>
+<h3 id="source-documentation"><a class="header" href="#source-documentation">Source Documentation</a></h3>
+<p>This TO&amp;E is based on:</p>
+<ul>
+<li>Tessin, Georg - Verbände und Truppen der deutschen Wehrmacht und Waffen-SS, Band 07, pages 140-141 (regiment designations: 125, 382, 433, Artillery Regiment 220)</li>
+<li>Backfill data from autonomous session 1760247716952 (commander: Lungershausen, appointment August 15, 1942, personnel: 9,200)</li>
+<li>Generic German light division TO&amp;E 1942 (equipment estimates)</li>
+<li>Historical context: Division arrived August 1942 as last major German reinforcement to North Africa</li>
+</ul>
+<p><strong>Last Updated:</strong> 2025-10-24</p>
+<p><strong>Validated By:</strong> Claude (AI extraction - Tier 3 research brief)</p>
+<h3 id="confidence-assessment"><a class="header" href="#confidence-assessment">Confidence Assessment</a></h3>
+<p><strong>Overall Confidence:</strong> 55% (Tier 3)</p>
+<p><strong>[MANUAL: Add confidence breakdown by category - High/Medium/Low confidence areas]</strong></p>
+<h3 id="required-field-gaps"><a class="header" href="#required-field-gaps">Required Field Gaps</a></h3>
+<p>Missing information:</p>
+<ul>
+<li>command.commander.previous_service</li>
+<li>command.chief_of_staff.name</li>
+<li>all subordinate_unit commanders</li>
+<li>exact equipment counts (all categories estimated)</li>
+<li>exact personnel strengths by subordinate unit</li>
+<li>precise vehicle operational status</li>
+<li>specific combat performance records for Q3 1942</li>
+</ul>
+<h3 id="gap-documentation"><a class="header" href="#gap-documentation">Gap Documentation</a></h3>
+<p><strong>command.commander.previous_service:</strong></p>
+<ul>
+<li>status: unknown</li>
+<li>reason: Primary Nafziger PDF unreadable. Backfill data provides name and appointment date but not previous service record.</li>
+<li>sources_checked: ['Nafziger Collection p15040coll6_164.pdf (unreadable)', 'Tessin Vol 7 pages 140-141 (unit organization only)', 'Backfill database records']</li>
+<li>confidence_impact: -5</li>
+<li>mitigation: Research German personnel files or divisional histories for Lungershausen's career</li>
+</ul>
+<p><strong>command.chief_of_staff.name:</strong></p>
+<ul>
+<li>status: unknown</li>
+<li>reason: No primary sources available provide Chief of Staff identity for newly arrived division in Q3 1942</li>
+<li>sources_checked: ['Nafziger Collection (unreadable)', 'Tessin Vol 7 (organization only)', 'Web searches']</li>
+<li>confidence_impact: -8</li>
+<li>mitigation: Consult German divisional staff records or war diaries if available</li>
+</ul>
+<p><strong>subordinate_unit_commanders:</strong></p>
+<ul>
+<li>status: unknown</li>
+<li>reason: Regimental and battalion commander names not documented in available sources for Q3 1942 timeframe. Division newly arrived, command structure not yet documented in accessible sources.</li>
+<li>sources_checked: ['Nafziger Collection (unreadable)', 'Tessin Vol 7 (unit numbers only, not commanders)', 'Backfill data (division commander only)']</li>
+<li>confidence_impact: -12</li>
+<li>mitigation: Research Tessin volumes comprehensively, German regimental histories, or personnel records</li>
+</ul>
+<p><strong>exact_equipment_counts:</strong></p>
+<ul>
+<li>status: estimated</li>
+<li>reason: Primary Nafziger PDF unreadable. No detailed TO&amp;E data available for Q3 1942 period. Estimates based on generic German light division establishment with reduced motorization noted in historical records.</li>
+<li>sources_checked: ['Nafziger Collection p15040coll6_164.pdf (unreadable)', 'Tessin Vol 7 (general structure only)', '90. leichte Division TO&amp;E as comparison template']</li>
+<li>confidence_impact: -15</li>
+<li>estimate_method: Standard German light division TO&amp;E 1942 reduced by 30% for vehicles to reflect 'limited motorization' documented in historical records. Infantry weapons estimated from personnel count (9,200) using standard rifle company TO&amp;E ratios. Artillery estimated from single artillery regiment (vs. three for 90. leichte) with two battalions of 105mm and one battery of 150mm guns.</li>
+</ul>
+<p><strong>combat_performance_Q3:</strong></p>
+<ul>
+<li>status: partial</li>
+<li>reason: Division arrived August 1942 and immediately engaged at First Battle of El Alamein (July 1-27 predates arrival, so only late July engagement if any). Specific performance records for August-September 1942 not available in accessible sources.</li>
+<li>sources_checked: ['Historical context from web searches (arrival date August 1942)', 'El Alamein battle chronology (division participated)']</li>
+<li>confidence_impact: -5</li>
+<li>mitigation: Research First and Second El Alamein battle reports, German after-action reports, Commonwealth intelligence assessments</li>
+</ul>
+<h3 id="data-tier-rationale"><a class="header" href="#data-tier-rationale">Data Tier Rationale</a></h3>
+<p><strong>[MANUAL: Add explanation of tier assignment and data quality factors]</strong></p>
+<h2 id="14-historical-significance"><a class="header" href="#14-historical-significance">14. Historical Significance</a></h2>
+<h3 id="strategic-importance"><a class="header" href="#strategic-importance">Strategic Importance</a></h3>
+<p><strong>[MANUAL: Add 2-3 paragraphs about unit's strategic role in theater]</strong></p>
+<h3 id="operational-lessons"><a class="header" href="#operational-lessons">Operational Lessons</a></h3>
+<p><strong>[MANUAL: Add lessons learned from this unit's operations]</strong></p>
+<h3 id="legacy"><a class="header" href="#legacy">Legacy</a></h3>
+<p><strong>[MANUAL: Add information about unit's post-war legacy, memorials, historical assessment]</strong></p>
+<hr />
+<p><em>[MANUAL: Add concluding paragraph summarizing the unit's significance]</em></p>
+<p><strong>Generated from Phase 6 TO&amp;E Data | [MANUAL: Add sources] | Confidence: [%] | Tier [#]</strong></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../chapters/chapter_german_1942q3_164_leichte_division.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../chapters/chapter_german_1942q3_21_panzer_division.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../chapters/chapter_german_1942q3_164_leichte_division.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../chapters/chapter_german_1942q3_21_panzer_division.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

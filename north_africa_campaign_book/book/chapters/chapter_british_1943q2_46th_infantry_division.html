@@ -1,0 +1,1749 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>46Th Infantry Division - North Africa Campaign 1940-1943: Complete Order of Battle</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">North Africa Campaign 1940-1943: Complete Order of Battle</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/yourusername/north-africa-toe-builder" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="british-46th-infantry-division---1943-q2-april-june-1943"><a class="header" href="#british-46th-infantry-division---1943-q2-april-june-1943">British 46th Infantry Division - 1943-Q2 (April-June 1943)</a></h1>
+<h2 id="section-1-unit-identification"><a class="header" href="#section-1-unit-identification">Section 1: Unit Identification</a></h2>
+<p><strong>Unit Designation:</strong> 46th Infantry Division
+<strong>Nation:</strong> British
+<strong>Formation Type:</strong> Infantry Division (Territorial Army)
+<strong>Time Period:</strong> 1943-Q2 (April-June 1943)
+<strong>Theater:</strong> Tunisia Campaign (April-May), Training (June)
+<strong>Parent Formation:</strong> V Corps, British First Army
+<strong>Commander:</strong> Major-General Harold Freeman-Attwood</p>
+<p><strong>Nickname:</strong> "The Oak Tree Division" (divisional insignia featured an oak tree)</p>
+<hr />
+<h2 id="section-2-command-structure"><a class="header" href="#section-2-command-structure">Section 2: Command Structure</a></h2>
+<h3 id="division-commander"><a class="header" href="#division-commander">Division Commander</a></h3>
+<p><strong>Major-General Harold Freeman-Attwood</strong></p>
+<ul>
+<li><strong>Appointment:</strong> 31 October 1941</li>
+<li><strong>Previous Service:</strong> Led division through entire Tunisia Campaign (January-May 1943)</li>
+<li><strong>Q2 Service:</strong> Operation Vulcan (April), Final Offensive (May), Victory Parade (20 May), Training period (June)</li>
+<li><strong>Command Duration:</strong> Remained until 25 August 1943 (replaced by Major-General John Hawkesworth)</li>
+<li><strong>Notable:</strong> Freeman-Attwood commanded from Tunisia deployment through final victory and into training for Italy</li>
+</ul>
+<h3 id="headquarters"><a class="header" href="#headquarters">Headquarters</a></h3>
+<p><strong>Location:</strong> Tunisia (mobile/varied)</p>
+<ul>
+<li><strong>Early April 1943:</strong> Bou Arada sector (Operation Vulcan staging)</li>
+<li><strong>22-27 April:</strong> Bou Arada hills northeast (Operation Vulcan combat zone)</li>
+<li><strong>Late April:</strong> First Army reserve area (rest and reconstitution)</li>
+<li><strong>1-13 May:</strong> V Corps sector (final offensive operations)</li>
+<li><strong>May-June:</strong> Tunisia rest and training areas</li>
+</ul>
+<p><strong>Staff Strength:</strong></p>
+<ul>
+<li><strong>Officers:</strong> 88</li>
+<li><strong>NCOs:</strong> 175</li>
+<li><strong>Enlisted:</strong> 345</li>
+<li><strong>Total HQ Staff:</strong> ~608</li>
+</ul>
+<p><strong>Chief of Staff:</strong> Lieutenant-Colonel (name unknown - see validation notes)</p>
+<h3 id="brigade-structure"><a class="header" href="#brigade-structure">Brigade Structure</a></h3>
+<p><strong>128th (Hampshire) Infantry Brigade</strong></p>
+<ul>
+<li><strong>Commander:</strong> Brigadier (name unknown)</li>
+<li><strong>Strength:</strong> 5,850 personnel</li>
+<li><strong>Composition:</strong>
+<ul>
+<li>2nd Battalion, Hampshire Regiment</li>
+<li>5th Battalion, Hampshire Regiment</li>
+<li>1/4th Battalion, Hampshire Regiment</li>
+</ul>
+</li>
+<li><strong>Q2 Operations:</strong> Moved south 2 April to Kairouan sector. Participated in Operation Vulcan (22-27 April) and final offensive (May). Elements in Tunis victory parade (20 May).</li>
+</ul>
+<p><strong>138th Infantry Brigade</strong></p>
+<ul>
+<li><strong>Commander:</strong> Brigadier (name unknown)</li>
+<li><strong>Strength:</strong> 5,850 personnel</li>
+<li><strong>Composition:</strong>
+<ul>
+<li>6th Battalion, Lincolnshire Regiment</li>
+<li>2/4th Battalion, King's Own Yorkshire Light Infantry</li>
+<li>6th Battalion, York and Lancaster Regiment</li>
+</ul>
+</li>
+<li><strong>Q2 Operations:</strong> Relieved by US 47th Infantry Regiment on 13 April near Jefna Station. Participated in Operation Vulcan and final offensive. 6th Lincolnshire Regiment worked with Churchill tanks during operations.</li>
+</ul>
+<p><strong>139th (Sherwood Foresters) Infantry Brigade</strong></p>
+<ul>
+<li><strong>Commander:</strong> Brigadier R. C. J. Chichester-Constable</li>
+<li><strong>Strength:</strong> 5,860 personnel</li>
+<li><strong>Composition:</strong>
+<ul>
+<li>2/5th Battalion, Sherwood Foresters</li>
+<li>2/6th Battalion, Sherwood Foresters</li>
+<li>2/7th Battalion, Sherwood Foresters</li>
+</ul>
+</li>
+<li><strong>Q2 Operations:</strong> Recovered from heavy Q1 Sedjenane casualties. Rebuilt with replacement personnel March-April. Participated in Operation Vulcan (April) and final offensive (May).</li>
+</ul>
+<hr />
+<h2 id="section-3-personnel-strength"><a class="header" href="#section-3-personnel-strength">Section 3: Personnel Strength</a></h2>
+<h3 id="total-strength"><a class="header" href="#total-strength">Total Strength</a></h3>
+<p><strong>Total Personnel:</strong> 17,450
+<strong>Officers:</strong> 940
+<strong>NCOs:</strong> 3,200
+<strong>Enlisted:</strong> 13,310</p>
+<h3 id="strength-analysis"><a class="header" href="#strength-analysis">Strength Analysis</a></h3>
+<p>The 46th Infantry Division began Q2 1943 slightly below full establishment due to Q1 combat casualties (estimated 850-1,200 from Sedjenane and Hunt's Gap battles). Replacement personnel were integrated during March-April 1943, bringing the division back to near-full strength for Operation Vulcan.</p>
+<p><strong>Q2 1943 Operations and Casualties:</strong></p>
+<p><strong>April (Operation Vulcan):</strong></p>
+<ul>
+<li>Heavy fighting 22-27 April against elite Hermann Göring Division</li>
+<li>Attacking in hill terrain with artillery bombardment</li>
+<li>Estimated casualties: 200-400 (killed/wounded)</li>
+<li>Fighting described as "heavy" in historical accounts</li>
+</ul>
+<p><strong>May (Final Offensive):</strong></p>
+<ul>
+<li>Operation Strike (5-13 May): Final Tunisia offensive</li>
+<li>Lower casualties than April due to Axis collapse</li>
+<li>Estimated casualties: 100-200 (killed/wounded)</li>
+<li>Campaign ended 13 May with Axis surrender</li>
+</ul>
+<p><strong>June (Training):</strong></p>
+<ul>
+<li>Minimal casualties during training exercises</li>
+<li>Exercise Conqueror amphibious training</li>
+<li>Note: Later Exercise Dryshod (August) had accident: 15 killed, 30 injured</li>
+</ul>
+<p><strong>Total Q2 Estimated Casualties:</strong> 300-600 personnel (killed/wounded)</p>
+<h3 id="personnel-quality"><a class="header" href="#personnel-quality">Personnel Quality</a></h3>
+<p><strong>Training Level:</strong> Well-trained with combat experience
+<strong>Experience Level:</strong> Veteran (combat-proven through Q1 and Q2 Tunisia operations)</p>
+<ul>
+<li><strong>April:</strong> Regular to Veteran (first major offensive operation)</li>
+<li><strong>May:</strong> Veteran (final offensive, Axis surrender)</li>
+<li><strong>June:</strong> Veteran (training for next operations)
+<strong>Morale:</strong> High (7/10) - Victory in Tunisia, successful operations, preparing for Italy</li>
+</ul>
+<hr />
+<h2 id="section-4-equipment-and-armament"><a class="header" href="#section-4-equipment-and-armament">Section 4: Equipment and Armament</a></h2>
+<h3 id="infantry-weapons"><a class="header" href="#infantry-weapons">Infantry Weapons</a></h3>
+<p><strong>Top 3 Infantry Weapons:</strong></p>
+<ol>
+<li>
+<p><strong>Lee-Enfield No. 4 Mk I Rifle</strong></p>
+<ul>
+<li><strong>Count:</strong> 12,300</li>
+<li><strong>Type:</strong> Bolt-action rifle</li>
+<li><strong>Caliber:</strong> .303 British (7.7mm)</li>
+<li><strong>Primary weapon</strong> for infantry sections</li>
+</ul>
+</li>
+<li>
+<p><strong>Bren Light Machine Gun</strong></p>
+<ul>
+<li><strong>Count:</strong> 680</li>
+<li><strong>Type:</strong> Light machine gun</li>
+<li><strong>Caliber:</strong> .303 British</li>
+<li><strong>Role:</strong> Squad automatic weapon, 1-2 per infantry section</li>
+</ul>
+</li>
+<li>
+<p><strong>Sten Mk II Submachine Gun</strong></p>
+<ul>
+<li><strong>Count:</strong> 530</li>
+<li><strong>Type:</strong> Submachine gun</li>
+<li><strong>Caliber:</strong> 9mm Parabellum</li>
+<li><strong>Role:</strong> Officers, NCOs, vehicle crews, close combat</li>
+</ul>
+</li>
+</ol>
+<p><strong>Additional Infantry Weapons:</strong></p>
+<ul>
+<li><strong>Vickers Medium Machine Gun:</strong> 64 (sustained fire support)</li>
+<li><strong>Boys Anti-Tank Rifle:</strong> 58 (obsolescent by 1943)</li>
+<li><strong>No. 36 Mills Grenade:</strong> ~35,000</li>
+<li><strong>2-inch Mortar:</strong> ~165 (platoon indirect fire)</li>
+<li><strong>3-inch Mortar:</strong> ~49 (company/battalion fire support)</li>
+</ul>
+<h3 id="tanks-and-armored-vehicles"><a class="header" href="#tanks-and-armored-vehicles">Tanks and Armored Vehicles</a></h3>
+<p><strong>Organic Tanks:</strong> 0
+<strong>Note:</strong> Infantry division with no organic tank units. Supported during Q2 operations by:</p>
+<ul>
+<li>Churchill tanks from various armored regiments</li>
+<li>6th Armoured Division elements during Operation Vulcan</li>
+<li>Army tank brigades as assigned</li>
+</ul>
+<p><strong>Armored Cars (Reconnaissance):</strong> 54 total</p>
+<ul>
+<li><strong>Humber Armoured Car Mk III:</strong> 27 (operational: 26)</li>
+<li><strong>Daimler Armoured Car:</strong> 19 (operational: 18)</li>
+<li><strong>Marmon-Herrington Mk III:</strong> 8 (operational: 7)</li>
+</ul>
+<p><strong>Role:</strong> Divisional reconnaissance regiment provided mobile reconnaissance and screening.</p>
+<h3 id="artillery"><a class="header" href="#artillery">Artillery</a></h3>
+<p><strong>Total Artillery Pieces:</strong> 144</p>
+<p><strong>Field Artillery:</strong> 96 guns</p>
+<ul>
+<li><strong>Ordnance QF 25-pounder Gun-Howitzer:</strong> 96 (operational: 95)
+<ul>
+<li><strong>Caliber:</strong> 87.6mm</li>
+<li><strong>Organization:</strong> Three field regiments (24 guns each = 72) + divisional artillery (24)</li>
+<li><strong>Range:</strong> 11,000-13,000 meters</li>
+<li><strong>Notable:</strong> "Heavy artillery bombardment" supported Operation Vulcan attack on 22 April 1943</li>
+</ul>
+</li>
+</ul>
+<p><strong>Anti-Tank Artillery:</strong> 48 guns</p>
+<ul>
+<li><strong>Ordnance QF 6-pounder (57mm):</strong> 38 (operational: 37)
+<ul>
+<li>Effective against most German armor</li>
+</ul>
+</li>
+<li><strong>Ordnance QF 17-pounder (76mm):</strong> 10 (operational: 10)
+<ul>
+<li>Increased from 8 in Q1, effective against all German tanks including Tigers</li>
+</ul>
+</li>
+</ul>
+<p><strong>Anti-Aircraft Artillery:</strong> 0 organic</p>
+<ul>
+<li><strong>Note:</strong> AA protection from First Army AA units and strong RAF air cover</li>
+</ul>
+<h3 id="vehicles-and-transport"><a class="header" href="#vehicles-and-transport">Vehicles and Transport</a></h3>
+<p><strong>Total Ground Vehicles:</strong> 2,795</p>
+<p><strong>Trucks:</strong> 1,845</p>
+<ul>
+<li><strong>Bedford QL/OY 3-ton:</strong> 740 (primary logistics)</li>
+<li><strong>Morris Commercial 15cwt:</strong> 590 (light transport)</li>
+<li><strong>CMP Chevrolet 3-ton:</strong> 455 (Canadian Military Pattern)</li>
+<li><strong>Specialized vehicles:</strong> 60 (water, fuel, workshop trucks)</li>
+</ul>
+<p><strong>Support Vehicles:</strong> 635</p>
+<ul>
+<li><strong>Universal Carrier:</strong> 250 (infantry section transport)</li>
+<li><strong>Bren Carrier:</strong> 125 (weapons carrier)</li>
+<li><strong>Scout Car:</strong> 80 (reconnaissance)</li>
+<li><strong>Jeeps and light vehicles:</strong> 180 (command/liaison)</li>
+</ul>
+<p><strong>Motorcycles:</strong> 261</p>
+<ul>
+<li><strong>BSA M20:</strong> 150 (dispatch riders)</li>
+<li><strong>Norton 16H:</strong> 111 (dispatch riders)</li>
+</ul>
+<p><strong>Mobility Assessment:</strong>
+Fully motorized British/Canadian trucks. Vehicle numbers slightly reduced from Q1 due to combat losses (trucks, carriers damaged during operations). June training period allowed maintenance and reconditioning.</p>
+<hr />
+<h2 id="section-5-combat-history---1943-q2"><a class="header" href="#section-5-combat-history---1943-q2">Section 5: Combat History - 1943-Q2</a></h2>
+<h3 id="quarter-overview"><a class="header" href="#quarter-overview">Quarter Overview</a></h3>
+<p><strong>Q2 1943 represented the transition from combat to training for the 46th Division:</strong></p>
+<ul>
+<li><strong>April:</strong> Operation Vulcan offensive operations</li>
+<li><strong>May:</strong> Final Tunisia offensive and victory</li>
+<li><strong>June:</strong> Rest, training, and preparation for Italy invasion</li>
+</ul>
+<p>This was Freeman-Attwood's final quarter commanding in combat before the Italy Campaign.</p>
+<h3 id="april-1943-operation-vulcan"><a class="header" href="#april-1943-operation-vulcan">April 1943: Operation Vulcan</a></h3>
+<p><strong>2 April: 128th Brigade Redeployment</strong></p>
+<ul>
+<li>128th (Hampshire) Brigade moved 100 miles south</li>
+<li>Mission: Assist in attack near Kairouan</li>
+<li>Demonstrates division's operational flexibility</li>
+</ul>
+<p><strong>22 April: Operation Vulcan Begins</strong></p>
+<ul>
+<li><strong>Objective:</strong> Attack hills northeast of Bou Arada held by elite Hermann Göring Division</li>
+<li><strong>Mission:</strong> Create breakthrough opportunity for 6th Armoured Division</li>
+<li><strong>Method:</strong> Heavy artillery bombardment followed by infantry assault</li>
+<li><strong>Forces:</strong> 46th Division on IX Corps front</li>
+</ul>
+<p><strong>22-27 April: Heavy Fighting</strong></p>
+<ul>
+<li>Division attacked after heavy artillery bombardment</li>
+<li>"Heavy fighting" to capture assigned objectives</li>
+<li>Took <strong>two days</strong> to fully clear positions (22-24 April)</li>
+<li>Clearing too slow: German anti-tank screen formed before armor could exploit</li>
+<li>Continued fighting 24-27 April to clear additional Axis positions</li>
+<li><strong>Assessment:</strong> Objectives captured but pace insufficient for breakthrough</li>
+</ul>
+<p><strong>Late April: Withdrawal to Reserve</strong></p>
+<ul>
+<li>After Vulcan showed limited progress, General Anderson withdrew division</li>
+<li>"Most of the 46th Infantry Division" moved to First Army reserve</li>
+<li>Rest, reconstitution, integration of replacements</li>
+<li>Preparation for final offensive</li>
+</ul>
+<h3 id="may-1943-final-offensive-and-victory"><a class="header" href="#may-1943-final-offensive-and-victory">May 1943: Final Offensive and Victory</a></h3>
+<p><strong>1 May: Transfer to V Corps</strong></p>
+<ul>
+<li>Division transferred from IX Corps to V Corps</li>
+<li>V Corps: 1st, 4th, and 78th Infantry Divisions + 46th Division</li>
+<li>Preparation for Operation Strike (final offensive)</li>
+</ul>
+<p><strong>5-13 May: Operation Strike - The Final Offensive</strong></p>
+<ul>
+<li><strong>5 May:</strong> Final Allied offensive begins</li>
+<li><strong>Mission:</strong> V Corps to hold Axis forces, IX Corps main breakthrough</li>
+<li><strong>46th Division Role:</strong> Participated in V Corps operations</li>
+<li><strong>7 May:</strong> Tunis falls to British forces, Bizerte to US forces</li>
+<li><strong>13 May:</strong> Axis forces surrender - <strong>~250,000 POWs captured</strong></li>
+<li><strong>Assessment:</strong> Tunisia Campaign complete, total Allied victory</li>
+</ul>
+<p><strong>20 May: Victory Parade in Tunis</strong></p>
+<ul>
+<li>Elements of 46th Division participated in victory parade</li>
+<li>Public recognition of division's Tunisia Campaign service</li>
+<li>Represents culmination of 4.5 months combat (3 Jan - 13 May)</li>
+</ul>
+<p><strong>Mid-Late May: Rest and Reorganization</strong></p>
+<ul>
+<li>Division rested in Tunisia following campaign end</li>
+<li>Equipment maintenance and reconditioning</li>
+<li>Personnel replacements for Q2 casualties</li>
+<li>Planning for next operations</li>
+</ul>
+<h3 id="june-1943-training-and-preparation-for-italy"><a class="header" href="#june-1943-training-and-preparation-for-italy">June 1943: Training and Preparation for Italy</a></h3>
+<p><strong>Exercise Conqueror</strong></p>
+<ul>
+<li><strong>Type:</strong> Amphibious landing training exercise</li>
+<li><strong>Scenario:</strong> 46th Division opposed amphibious landing by American forces</li>
+<li><strong>Purpose:</strong> Training for future Italy invasion</li>
+<li><strong>Assessment:</strong> Defender role in exercise, learning amphibious defense tactics</li>
+</ul>
+<p><strong>Amphibious Training</strong></p>
+<ul>
+<li>Division originally assigned to <strong>Operation Buttress</strong> (proposed Strait of Messina crossing)</li>
+<li>When Buttress cancelled, reassigned to <strong>Operation Avalanche</strong> (Salerno invasion)</li>
+<li>Training focused on amphibious assault techniques</li>
+<li>Different from North Africa desert/hill warfare</li>
+</ul>
+<p><strong>Sicily Decision</strong></p>
+<ul>
+<li>Division <strong>NOT</strong> assigned to Operation Husky (Sicily invasion, July 1943)</li>
+<li>Instead held in reserve for Italy operations</li>
+<li>Allowed extended training period</li>
+</ul>
+<p><strong>Command Change Preparation</strong></p>
+<ul>
+<li><strong>25 August:</strong> Major-General John Hawkesworth assumes command</li>
+<li>Freeman-Attwood's command ends after 22 months (Oct 1941 - Aug 1943)</li>
+<li>Hawkesworth will lead division at Salerno (September 1943)</li>
+</ul>
+<h3 id="q2-1943-battle-summary"><a class="header" href="#q2-1943-battle-summary">Q2 1943 Battle Summary</a></h3>
+<p><strong>Engagements:</strong></p>
+<ul>
+<li><strong>Operation Vulcan (22-27 April):</strong> Attack on Hermann Göring Division, Bou Arada sector</li>
+<li><strong>Operation Strike (5-13 May):</strong> Final Tunisia offensive, Tunis capture</li>
+<li><strong>Exercise Conqueror (June):</strong> Amphibious training vs. US forces</li>
+</ul>
+<p><strong>Tactical Role Evolution:</strong></p>
+<ul>
+<li><strong>April:</strong> Offensive operations (first major division offensive)</li>
+<li><strong>May:</strong> Final offensive operations (victorious conclusion)</li>
+<li><strong>June:</strong> Training transition (preparation for Italy)</li>
+</ul>
+<p><strong>Casualties (estimated):</strong></p>
+<ul>
+<li><strong>April (Vulcan):</strong> 200-400 killed/wounded</li>
+<li><strong>May (Final Offensive):</strong> 100-200 killed/wounded</li>
+<li><strong>June:</strong> Minimal (training accidents minor)</li>
+<li><strong>Total Q2:</strong> ~300-600 casualties</li>
+</ul>
+<p><strong>Enemy Forces Engaged:</strong></p>
+<ul>
+<li><strong>Hermann Göring Division</strong> (elite Luftwaffe panzergrenadier division) - Operation Vulcan</li>
+<li><strong>Various Axis units</strong> (final offensive) - rapidly collapsing resistance</li>
+<li><strong>Axis surrender 13 May:</strong> ~250,000 POWs, largest since Stalingrad</li>
+</ul>
+<hr />
+<h2 id="section-6-supply-and-logistics"><a class="header" href="#section-6-supply-and-logistics">Section 6: Supply and Logistics</a></h2>
+<h3 id="supply-status"><a class="header" href="#supply-status">Supply Status</a></h3>
+<p><strong>Assessment:</strong> GOOD TO EXCELLENT (progression across Q2)</p>
+<p><strong>April:</strong> GOOD</p>
+<ul>
+<li>Division supplied for Operation Vulcan offensive</li>
+<li>Heavy ammunition expenditure during artillery bombardments</li>
+<li>Resupply maintained from First Army stocks</li>
+</ul>
+<p><strong>May:</strong> EXCELLENT</p>
+<ul>
+<li>Tunisia Campaign victory secured all ports and supply lines</li>
+<li>No Axis interdiction of supply routes</li>
+<li>Abundant supplies for final offensive</li>
+</ul>
+<p><strong>June:</strong> EXCELLENT</p>
+<ul>
+<li>Post-victory supply situation ideal</li>
+<li>All North African ports under Allied control</li>
+<li>Build-up for Sicily (July) and Italy (September) operations</li>
+<li>Division received full resupply and equipment reconditioning</li>
+</ul>
+<h3 id="supply-infrastructure"><a class="header" href="#supply-infrastructure">Supply Infrastructure</a></h3>
+<p><strong>Primary Supply Ports:</strong></p>
+<ul>
+<li><strong>Algiers, Algeria:</strong> ~200-300km from division positions</li>
+<li><strong>Bone (Annaba), Algeria:</strong> ~150-200km from northern Tunisia operations</li>
+<li><strong>Tunis, Tunisia:</strong> Captured 7 May, fully operational by late May</li>
+<li><strong>Bizerte, Tunisia:</strong> Captured 7 May, major port for future operations</li>
+</ul>
+<p><strong>Supply Routes:</strong></p>
+<ul>
+<li>Road and rail networks fully under Allied control</li>
+<li>No Axis interdiction after 13 May surrender</li>
+<li>Excellent distribution from ports to units</li>
+<li>June: Free movement throughout Tunisia</li>
+</ul>
+<p><strong>Logistical Organization:</strong></p>
+<ul>
+<li>Divisional supply column: ~180 trucks</li>
+<li>Brigade organic transport</li>
+<li>First Army/V Corps supply coordination</li>
+<li>Post-victory: Simplified supply operations</li>
+</ul>
+<h3 id="q2-1943-supply-factors"><a class="header" href="#q2-1943-supply-factors">Q2 1943 Supply Factors</a></h3>
+<p><strong>Positive Factors:</strong></p>
+<ul>
+<li>Short supply lines (200-300km vs. 8th Army's 1000+ km from Egypt)</li>
+<li>Multiple ports available (Algiers, Bone, Tunis, Bizerte)</li>
+<li>First Army prioritization for offensive operations</li>
+<li>Victory eliminated Axis interference</li>
+<li>Post-May: Complete Allied control of North Africa</li>
+<li>June buildup for Sicily/Italy: Abundant supplies</li>
+</ul>
+<p><strong>Challenges:</strong></p>
+<ul>
+<li>Operation Vulcan: High ammunition consumption (heavy bombardment)</li>
+<li>April offensive operations: Increased fuel, ammunition demand</li>
+<li>Vehicle wear from combat operations</li>
+<li>Combat losses requiring equipment replacement</li>
+</ul>
+<p><strong>Mitigated by:</strong></p>
+<ul>
+<li>Strong First Army logistics system</li>
+<li>Proximity to supply ports</li>
+<li>Post-victory reconditioning period (June)</li>
+<li>Allied air superiority: No supply interdiction</li>
+</ul>
+<h3 id="supply-categories"><a class="header" href="#supply-categories">Supply Categories</a></h3>
+<p><strong>Fuel:</strong></p>
+<ul>
+<li><strong>Reserves:</strong> 16 days at current consumption rate</li>
+<li><strong>April:</strong> High consumption during Vulcan offensive</li>
+<li><strong>May:</strong> Moderate consumption during final offensive</li>
+<li><strong>June:</strong> Lower consumption during training</li>
+<li><strong>Availability:</strong> Excellent from Algerian/Tunisian ports</li>
+</ul>
+<p><strong>Ammunition:</strong></p>
+<ul>
+<li><strong>Reserves:</strong> 20 days combat supply</li>
+<li><strong>22 April:</strong> Heavy artillery bombardment at Operation Vulcan start</li>
+<li><strong>22-27 April:</strong> Continued high expenditure during "heavy fighting"</li>
+<li><strong>5-13 May:</strong> Moderate expenditure during final offensive (Axis collapsing)</li>
+<li><strong>Resupply:</strong> Excellent throughout Q2</li>
+<li><strong>June:</strong> Ammunition stocks rebuilt for Italy operations</li>
+</ul>
+<p><strong>Water:</strong></p>
+<ul>
+<li><strong>Allocation:</strong> 5.5 liters per person per day</li>
+<li><strong>Spring/Summer:</strong> Increased demand due to warming temperatures</li>
+<li><strong>Sources:</strong> Local wells, natural sources, water trucks</li>
+<li><strong>Availability:</strong> Good - northern Tunisia has more water than desert</li>
+</ul>
+<p><strong>Rations:</strong></p>
+<ul>
+<li><strong>Type:</strong> British compo rations</li>
+<li><strong>Availability:</strong> Excellent - short supply lines ensured regular delivery</li>
+<li><strong>June:</strong> Post-victory improved ration quality and variety</li>
+<li><strong>Special:</strong> Fresh food increasingly available after victory</li>
+</ul>
+<p><strong>Medical Supplies:</strong></p>
+<ul>
+<li><strong>Field Ambulances:</strong> Divisional medical units</li>
+<li><strong>Evacuation:</strong> To First Army hospitals, later civilian hospitals in liberated Tunisia</li>
+<li><strong>April-May:</strong> Adequate for combat casualties</li>
+<li><strong>June:</strong> Excellent for training period</li>
+</ul>
+<h3 id="operational-radius"><a class="header" href="#operational-radius">Operational Radius</a></h3>
+<p><strong>170 kilometers</strong> from main supply depots</p>
+<p><strong>Explanation:</strong></p>
+<ul>
+<li>Based on truck capacity, fuel availability, terrain</li>
+<li>April Vulcan operations: Within operational radius from Algiers/Bone</li>
+<li>May final offensive: Within radius from multiple ports</li>
+<li>June: Not operationally constrained by supply considerations</li>
+<li>Improved from Q1 (165 km) due to additional ports and better roads</li>
+</ul>
+<h3 id="supply-assessment-by-month"><a class="header" href="#supply-assessment-by-month">Supply Assessment by Month</a></h3>
+<p><strong>April 1943:</strong> GOOD</p>
+<ul>
+<li>Vulcan offensive required heavy logistical support</li>
+<li>Ammunition (artillery bombardment), fuel (offensive operations), medical supplies (combat casualties)</li>
+<li>Resupply maintained despite high consumption</li>
+<li>First Army logistics successfully supported offensive</li>
+</ul>
+<p><strong>May 1943:</strong> EXCELLENT</p>
+<ul>
+<li>Final offensive well-supplied</li>
+<li>Axis collapse reduced ammunition consumption below expectations</li>
+<li>Victory (13 May) eliminated supply threats</li>
+<li>Ports captured (Tunis, Bizerte) expanded logistics infrastructure</li>
+</ul>
+<p><strong>June 1943:</strong> EXCELLENT</p>
+<ul>
+<li>Post-victory reconditioning</li>
+<li>Complete equipment maintenance</li>
+<li>Ammunition stocks rebuilt</li>
+<li>Fuel reserves replenished</li>
+<li>Training exercises well-supplied</li>
+<li>Build-up for Italy operations underway</li>
+</ul>
+<hr />
+<h2 id="section-7-weather-and-environmental-conditions"><a class="header" href="#section-7-weather-and-environmental-conditions">Section 7: Weather and Environmental Conditions</a></h2>
+<h3 id="seasonal-overview"><a class="header" href="#seasonal-overview">Seasonal Overview</a></h3>
+<p><strong>Quarter:</strong> 1943-Q2 (April-June 1943)
+<strong>Season:</strong> Spring transitioning to Early Summer
+<strong>Climate Zone:</strong> Northern Tunisia - Mediterranean climate</p>
+<h3 id="temperature"><a class="header" href="#temperature">Temperature</a></h3>
+<p><strong>Range:</strong> 12°C to 28°C (54°F to 82°F)</p>
+<ul>
+<li><strong>April:</strong> 12-24°C, spring warming, comfortable operations</li>
+<li><strong>May:</strong> 15-27°C, warm days, mild nights</li>
+<li><strong>June:</strong> 18-30°C, early summer heat, hot days</li>
+<li><strong>Nighttime:</strong> April 12-14°C, May 15-17°C, June 18-20°C</li>
+<li><strong>Daytime:</strong> April 22-24°C, May 25-27°C, June 28-30°C</li>
+</ul>
+<p><strong>Impact on Operations:</strong></p>
+<ul>
+<li>Much warmer than Q1 (8-19°C) winter conditions</li>
+<li>Spring warming improved soldier comfort and morale</li>
+<li>June heat beginning to affect operations (hydration important)</li>
+<li>Better weather than Q1 for combat operations</li>
+<li>Training in June required heat acclimatization</li>
+</ul>
+<h3 id="terrain"><a class="header" href="#terrain">Terrain</a></h3>
+<p><strong>Type:</strong> Northern Tunisia - varied terrain depending on operations</p>
+<p><strong>Bou Arada Sector (April - Operation Vulcan):</strong></p>
+<ul>
+<li><strong>Character:</strong> Hills northeast of Bou Arada</li>
+<li><strong>Elevation:</strong> 200-600m hills</li>
+<li><strong>Vegetation:</strong> Mediterranean scrub, some agricultural areas</li>
+<li><strong>Movement:</strong> Restrictive - hills channelize infantry movement</li>
+<li><strong>Defense:</strong> Hermann Göring Division held strong positions in hills</li>
+<li><strong>Attack:</strong> British infantry assault uphill under German defensive fire</li>
+</ul>
+<p><strong>Final Offensive Terrain (May):</strong></p>
+<ul>
+<li><strong>Varied:</strong> Hills, plains, approaches to Tunis</li>
+<li><strong>Urban:</strong> Tunis itself (captured 7 May)</li>
+<li><strong>Roads:</strong> Better than Q1 areas, more developed near Tunis</li>
+<li><strong>Mobility:</strong> Improved compared to winter hill battles</li>
+</ul>
+<p><strong>Training Areas (June):</strong></p>
+<ul>
+<li><strong>Coastal:</strong> Amphibious training near beaches</li>
+<li><strong>Varied:</strong> Different terrain for Exercise Conqueror</li>
+<li><strong>Purpose:</strong> Preparation for Italy coastal assaults</li>
+</ul>
+<h3 id="weather-patterns"><a class="header" href="#weather-patterns">Weather Patterns</a></h3>
+<p><strong>Rainfall:</strong></p>
+<ul>
+<li><strong>Storm Frequency:</strong> ~3 days per month (much drier than Q1's 6 days)</li>
+<li><strong>Spring/Summer:</strong> Mediterranean dry season beginning</li>
+<li><strong>April:</strong> Occasional spring rains</li>
+<li><strong>May-June:</strong> Mostly dry, few storms</li>
+<li><strong>Impact:</strong> Much better conditions than Q1 winter mud</li>
+</ul>
+<p><strong>Daylight Hours:</strong></p>
+<ul>
+<li><strong>Average:</strong> 13 hours per day (Q2 average)</li>
+<li><strong>April:</strong> ~13 hours (lengthening towards summer)</li>
+<li><strong>May:</strong> ~14 hours (long daylight for operations)</li>
+<li><strong>June:</strong> ~14.5 hours (longest days of year approaching)</li>
+<li><strong>Impact:</strong> Extended daylight allowed longer operational days than Q1 (11 hours)</li>
+</ul>
+<p><strong>Visibility:</strong></p>
+<ul>
+<li><strong>Clear Days:</strong> Excellent long-range visibility</li>
+<li><strong>Dust:</strong> Moderate - drier conditions created some dust</li>
+<li><strong>Heat Haze:</strong> June heat beginning to create shimmer effect</li>
+<li><strong>Overall:</strong> Very good visibility for artillery observation and air support</li>
+</ul>
+<h3 id="environmental-challenges"><a class="header" href="#environmental-challenges">Environmental Challenges</a></h3>
+<p><strong>For British Forces:</strong></p>
+<p><strong>Terrain Challenges:</strong></p>
+<ol>
+<li><strong>Operation Vulcan:</strong> Uphill attacks against prepared German positions</li>
+<li><strong>Hermann Göring Division:</strong> Elite enemy in strong defensive terrain</li>
+<li><strong>Anti-Tank Screen:</strong> Germans formed defensive line after slow British advance</li>
+<li><strong>Hill Warfare:</strong> Still restrictive terrain similar to Q1 operations</li>
+<li><strong>Final Offensive:</strong> Varied terrain requiring tactical flexibility</li>
+</ol>
+<p><strong>Climate Challenges:</strong></p>
+<ol>
+<li><strong>Warming Temperatures:</strong> Adjustment from Q1 winter to Q2 spring/summer</li>
+<li><strong>Increased Hydration:</strong> Water consumption rising with temperature</li>
+<li><strong>June Heat:</strong> Early summer heat during training exercises</li>
+<li><strong>Dust:</strong> Drier conditions created dust from vehicle movement</li>
+<li><strong>Physical Demand:</strong> Heat increased physical strain during operations</li>
+</ol>
+<p><strong>Operational Tempo:</strong></p>
+<ul>
+<li>Longer daylight (13-14 hours) allowed extended operations</li>
+<li>Warmer weather improved mobility and soldier comfort</li>
+<li>Dry conditions excellent for vehicles (no Q1 mud problems)</li>
+<li>Heat stress beginning to factor (especially June)</li>
+</ul>
+<h3 id="comparison-to-q1-1943"><a class="header" href="#comparison-to-q1-1943">Comparison to Q1 1943</a></h3>
+<p><strong>Improvements in Q2:</strong></p>
+<ul>
+<li><strong>Temperature:</strong> Warmer (12-28°C vs. 8-19°C), more comfortable</li>
+<li><strong>Rainfall:</strong> Much drier (3 days/month vs. 6), no mud problems</li>
+<li><strong>Daylight:</strong> Longer (13-14 hours vs. 11), extended operations possible</li>
+<li><strong>Mobility:</strong> Excellent - dry ground vs. Q1 mud</li>
+<li><strong>Morale:</strong> Better weather improved soldier morale</li>
+</ul>
+<p><strong>New Challenges:</strong></p>
+<ul>
+<li><strong>Heat:</strong> June approaching summer heat levels</li>
+<li><strong>Dust:</strong> Drier conditions more dusty</li>
+<li><strong>Hydration:</strong> Increased water requirements</li>
+</ul>
+<h3 id="environmental-adaptation"><a class="header" href="#environmental-adaptation">Environmental Adaptation</a></h3>
+<p><strong>46th Division Q2 Adaptations:</strong></p>
+<ul>
+<li><strong>Heat Acclimatization:</strong> Gradual adjustment from winter to summer</li>
+<li><strong>Offensive Tactics:</strong> First major offensive (Vulcan) in hill terrain</li>
+<li><strong>Combined Arms:</strong> Artillery-infantry coordination in attack</li>
+<li><strong>Amphibious Training:</strong> New environment (beaches) for June exercises</li>
+<li><strong>Equipment:</strong> Maintenance in warming conditions (different from winter)</li>
+</ul>
+<p><strong>Assessment:</strong>
+Q2 1943 weather was significantly better than Q1 for military operations. Spring warming, reduced rainfall, longer daylight, and dry ground created ideal conditions for the final Tunisia offensive. The division's experience with Q1 winter operations in northern Tunisia prepared them well for Q2 spring/summer conditions. June heat beginning to be a factor but manageable for training operations.</p>
+<hr />
+<h2 id="section-8-tactical-doctrine-and-employment"><a class="header" href="#section-8-tactical-doctrine-and-employment">Section 8: Tactical Doctrine and Employment</a></h2>
+<h3 id="doctrinal-role-evolution"><a class="header" href="#doctrinal-role-evolution">Doctrinal Role Evolution</a></h3>
+<p><strong>Q1 1943:</strong> Defensive operations (Sedjenane, Hunt's Gap)
+<strong>Q2 1943:</strong> Offensive operations (Vulcan), final offensive (Strike), training</p>
+<p><strong>Primary Q2 Role:</strong> Transition from defensive to offensive operations, participate in Tunisia victory, prepare for Italy invasion</p>
+<h3 id="tactical-employment---q2-1943"><a class="header" href="#tactical-employment---q2-1943">Tactical Employment - Q2 1943</a></h3>
+<p><strong>Offensive Operations (April - First Major Offensive)</strong></p>
+<p>Operation Vulcan (22-27 April) represented the division's first major offensive operation, a significant change from Q1 defensive battles.</p>
+<p><strong>Operation Vulcan Tactics:</strong></p>
+<ol>
+<li><strong>Heavy Artillery Bombardment:</strong> Division artillery plus corps/army artillery pounded German positions before assault</li>
+<li><strong>Infantry Assault:</strong> Brigades attacked uphill against Hermann Göring Division positions</li>
+<li><strong>Objective Seizure:</strong> Captured assigned hills in "heavy fighting"</li>
+<li><strong>Clearing Operations:</strong> Took two days to fully clear positions and eliminate resistance</li>
+<li><strong>Follow-On:</strong> Intended to create gap for 6th Armoured Division breakthrough</li>
+</ol>
+<p><strong>Tactical Assessment:</strong></p>
+<ul>
+<li><strong>Strengths:</strong> Heavy artillery support, determined infantry assault, objectives captured</li>
+<li><strong>Weaknesses:</strong> Pace too slow (2 days to clear), allowed German anti-tank screen to form, armor breakthrough prevented</li>
+<li><strong>Lesson:</strong> Offensive operations in hills require speed to exploit success before enemy reacts</li>
+</ul>
+<p><strong>Final Offensive Operations (May - Victorious Conclusion)</strong></p>
+<p>Operation Strike (5-13 May) saw division as part of V Corps in final Tunisia offensive.</p>
+<p><strong>Final Offensive Characteristics:</strong></p>
+<ol>
+<li><strong>Rapid Axis Collapse:</strong> German/Italian resistance crumbling</li>
+<li><strong>Multi-Corps Operation:</strong> Coordinated attacks across First Army front</li>
+<li><strong>Pursuit Operations:</strong> Following retreating Axis forces</li>
+<li><strong>Urban Operations:</strong> Tunis capture (7 May)</li>
+<li><strong>POW Operations:</strong> Processing ~250,000 Axis prisoners</li>
+</ol>
+<p><strong>Tactical Flexibility:</strong></p>
+<ul>
+<li>Division adapted to rapid tempo of collapsing enemy</li>
+<li>Shifted from deliberate attacks to pursuit</li>
+<li>Managed transition to occupation duties</li>
+<li>Participated in victory celebrations (20 May parade)</li>
+</ul>
+<h3 id="special-capabilities"><a class="header" href="#special-capabilities">Special Capabilities</a></h3>
+<p><strong>1. Offensive Operations Capability (New in Q2):</strong></p>
+<ul>
+<li>First major offensive: Operation Vulcan</li>
+<li>Heavy artillery bombardment coordination</li>
+<li>Uphill assaults against prepared positions</li>
+<li>Multi-day sustained attacks</li>
+</ul>
+<p><strong>2. Combat Veteran Status:</strong></p>
+<ul>
+<li>Q1 defensive battles (Sedjenane, Hunt's Gap)</li>
+<li>Q2 offensive battles (Vulcan, final offensive)</li>
+<li>Regular to Veteran progression</li>
+<li>Experienced junior officers and NCOs</li>
+</ul>
+<p><strong>3. Combined Arms Integration:</strong></p>
+<ul>
+<li>Artillery-infantry coordination (heavy bombardment + assault)</li>
+<li>Worked with 6th Armoured Division (attempted breakthrough)</li>
+<li>Churchill tank support (6th Lincolnshire Regiment)</li>
+<li>Corps-level integration (IX Corps, V Corps)</li>
+</ul>
+<p><strong>4. Operational Flexibility:</strong></p>
+<ul>
+<li>128th Brigade 100-mile redeployment (2 April)</li>
+<li>Transfer IX Corps to V Corps (1 May)</li>
+<li>Rapid transition combat to training (May-June)</li>
+<li>Amphibious training (June) after hill warfare (April-May)</li>
+</ul>
+<p><strong>5. Territorial Army Cohesion:</strong></p>
+<ul>
+<li>Hampshire battalions (128th Brigade)</li>
+<li>Sherwood Foresters battalions (139th Brigade)</li>
+<li>Regional identity maintained morale</li>
+<li>Replacement integration successful</li>
+</ul>
+<h3 id="known-issues-and-limitations"><a class="header" href="#known-issues-and-limitations">Known Issues and Limitations</a></h3>
+<p><strong>1. Operation Vulcan Performance Issues:</strong></p>
+<ul>
+<li>Attack pace too slow: Two days to clear objectives</li>
+<li>Allowed German anti-tank screen to form</li>
+<li>Prevented armored breakthrough by 6th Armoured Division</li>
+<li><strong>Root Cause:</strong> First major offensive, learning curve for attack tactics</li>
+</ul>
+<p><strong>2. 139th Brigade Rebuilding:</strong></p>
+<ul>
+<li>Still recovering from heavy Q1 Sedjenane casualties</li>
+<li>Replacement personnel integration March-April</li>
+<li>Not quite at Q1 veteran cohesion levels</li>
+<li><strong>Mitigation:</strong> Successful operations in Vulcan and final offensive</li>
+</ul>
+<p><strong>3. Transition to Offensive Warfare:</strong></p>
+<ul>
+<li>Division experienced in defensive operations (Q1)</li>
+<li>Offensive operations new role (Q2)</li>
+<li>Learning curve evident in Vulcan pace issues</li>
+<li><strong>Improvement:</strong> Better performance in May final offensive</li>
+</ul>
+<p><strong>4. Equipment Attrition:</strong></p>
+<ul>
+<li>Combat losses during Vulcan and final offensive</li>
+<li>Vehicles, weapons damaged/destroyed</li>
+<li><strong>Mitigation:</strong> June reconditioning period, replacements received</li>
+</ul>
+<p><strong>5. Training Accident (Post-Q2 Note):</strong></p>
+<ul>
+<li>Exercise Dryshod (August): 15 killed, 30 injured from land mines</li>
+<li>Indicates amphibious training hazards</li>
+<li><strong>Lesson:</strong> Mine clearance procedures needed improvement</li>
+</ul>
+<h3 id="tactical-innovations"><a class="header" href="#tactical-innovations">Tactical Innovations</a></h3>
+<p><strong>1. First Major Offensive Operation:</strong></p>
+<ul>
+<li>Division's inaugural large-scale attack</li>
+<li>Learned offensive tactics through combat</li>
+<li>Artillery-infantry coordination refined</li>
+<li>Lessons applied to Italy Campaign</li>
+</ul>
+<p><strong>2. Multi-Corps Flexibility:</strong></p>
+<ul>
+<li>Operated under IX Corps (April Vulcan)</li>
+<li>Transferred to V Corps (May final offensive)</li>
+<li>Adapted to different corps command styles and missions</li>
+<li>Important for later multi-national Italy operations</li>
+</ul>
+<p><strong>3. Rapid Role Transitions:</strong></p>
+<ul>
+<li>Combat (April-May) to Training (June)</li>
+<li>Hill warfare to amphibious training</li>
+<li>Offensive to occupation duties</li>
+<li>Demonstrates division flexibility</li>
+</ul>
+<p><strong>4. Amphibious Training Innovation:</strong></p>
+<ul>
+<li>Exercise Conqueror: British defended against US amphibious assault</li>
+<li>Learned amphibious tactics from both perspectives</li>
+<li>Preparation for Salerno (September 1943)</li>
+<li>Different warfare mode from North Africa</li>
+</ul>
+<h3 id="comparison-q1-vs-q2-tactical-employment"><a class="header" href="#comparison-q1-vs-q2-tactical-employment">Comparison: Q1 vs. Q2 Tactical Employment</a></h3>
+<p><strong>Q1 1943 (Jan-Mar):</strong></p>
+<ul>
+<li><strong>Role:</strong> Defensive operations</li>
+<li><strong>Battles:</strong> Sedjenane (costly), Hunt's Gap (successful)</li>
+<li><strong>Tactics:</strong> Hill defense, artillery support, fighting withdrawals</li>
+<li><strong>Assessment:</strong> Solid defensive division, learning curve</li>
+</ul>
+<p><strong>Q2 1943 (Apr-Jun):</strong></p>
+<ul>
+<li><strong>Role:</strong> Offensive operations, victory, training</li>
+<li><strong>Battles:</strong> Operation Vulcan (successful with issues), final offensive (victorious)</li>
+<li><strong>Tactics:</strong> Artillery bombardment + assault, clearing operations, pursuit</li>
+<li><strong>Assessment:</strong> Developing offensive capability, victorious conclusion</li>
+</ul>
+<p><strong>Progression:</strong> Defensive (Q1) → Offensive (Q2) → Amphibious (future)</p>
+<hr />
+<h2 id="section-9-wargaming-data-and-scenario-suitability"><a class="header" href="#section-9-wargaming-data-and-scenario-suitability">Section 9: Wargaming Data and Scenario Suitability</a></h2>
+<h3 id="historical-scenarios"><a class="header" href="#historical-scenarios">Historical Scenarios</a></h3>
+<p><strong>1. Operation Vulcan (22-27 April 1943)</strong></p>
+<ul>
+<li><strong>Forces:</strong>
+<ul>
+<li>British: 46th Infantry Division + corps/army artillery</li>
+<li>German: Hermann Göring Division (elite Luftwaffe panzergrenadiers) in prepared hill positions</li>
+</ul>
+</li>
+<li><strong>Terrain:</strong> Hills northeast of Bou Arada, restrictive, prepared defenses</li>
+<li><strong>Mission:</strong>
+<ul>
+<li>British: Capture hills, create gap for 6th Armoured Division</li>
+<li>German: Hold positions, delay British advance</li>
+</ul>
+</li>
+<li><strong>Victory Conditions:</strong>
+<ul>
+<li>British: Capture objectives within 1 day (historical: 2 days), prevent anti-tank screen</li>
+<li>German: Hold 2+ days, form anti-tank screen, prevent armor breakthrough</li>
+</ul>
+</li>
+<li><strong>Special Rules:</strong>
+<ul>
+<li>Heavy British artillery bombardment (22 April morning)</li>
+<li>German prepared positions in hills (+2 defense)</li>
+<li>British armor waiting to exploit (6th Armoured Division entry if breakthrough)</li>
+<li>Hermann Göring Division elite status (morale 8/10)</li>
+<li>Time pressure: British must clear quickly</li>
+</ul>
+</li>
+<li><strong>Historical Outcome:</strong> British captured objectives but took 2 days, German anti-tank screen formed, armor breakthrough prevented</li>
+<li><strong>Alternate History:</strong> If British clear in 1 day, armor breakthrough possible, earlier Tunisia victory</li>
+</ul>
+<p><strong>2. Final Offensive - Operation Strike (5-13 May 1943)</strong></p>
+<ul>
+<li><strong>Forces:</strong>
+<ul>
+<li>Allied: 46th Division (V Corps) + other British divisions, US forces</li>
+<li>Axis: Collapsing German/Italian forces, retreating towards Tunis</li>
+</ul>
+</li>
+<li><strong>Terrain:</strong> Varied - hills, plains, approaches to Tunis, urban Tunis</li>
+<li><strong>Mission:</strong>
+<ul>
+<li>Allied: Break Axis defenses, capture Tunis, force surrender</li>
+<li>Axis: Delay Allied advance, evacuate to Cape Bon, fight for time</li>
+</ul>
+</li>
+<li><strong>Victory Conditions:</strong>
+<ul>
+<li>Allied: Capture Tunis by 7 May (historical), force Axis surrender</li>
+<li>Axis: Hold Tunis past 10 May, evacuate troops by sea, minimize POWs</li>
+</ul>
+</li>
+<li><strong>Special Rules:</strong>
+<ul>
+<li>Axis morale collapsing (progressive -1 morale per day)</li>
+<li>Allied air superiority (RAF dominates)</li>
+<li>Rapid Allied advance (pursuit rules)</li>
+<li>POW processing (250,000 historical)</li>
+</ul>
+</li>
+<li><strong>Historical Outcome:</strong> Tunis captured 7 May, Axis surrender 13 May, ~250,000 POWs</li>
+<li><strong>Wargaming:</strong> Play Axis trying to evacuate or Allied racing to cut off retreat</li>
+</ul>
+<p><strong>3. Exercise Conqueror (June 1943)</strong></p>
+<ul>
+<li><strong>Type:</strong> Training exercise scenario</li>
+<li><strong>Forces:</strong>
+<ul>
+<li>British: 46th Division defending beaches</li>
+<li>US: Amphibious landing force (division-size)</li>
+</ul>
+</li>
+<li><strong>Terrain:</strong> Tunisian coastal beach area</li>
+<li><strong>Mission:</strong>
+<ul>
+<li>British: Defend against amphibious landing, destroy beachhead</li>
+<li>US: Establish beachhead, break inland</li>
+</ul>
+</li>
+<li><strong>Special Rules:</strong>
+<ul>
+<li>Training exercise (morale/casualties abstract)</li>
+<li>Learning scenario for amphibious tactics</li>
+<li>British using North Africa combat veteran experience</li>
+<li>US using amphibious landing doctrine</li>
+</ul>
+</li>
+<li><strong>Purpose:</strong> Training for both sides (British: defense, US: assault)</li>
+<li><strong>Future Application:</strong> British lessons for Salerno (September 1943)</li>
+</ul>
+<p><strong>4. 128th Brigade Kairouan Operation (2 April 1943)</strong></p>
+<ul>
+<li><strong>Type:</strong> Brigade-level scenario</li>
+<li><strong>Forces:</strong> 128th (Hampshire) Brigade + supporting arms</li>
+<li><strong>Mission:</strong> 100-mile redeployment south, attack near Kairouan</li>
+<li><strong>Scenario Elements:</strong>
+<ul>
+<li>Operational movement (100 miles)</li>
+<li>Brigade vs. Axis defensive positions</li>
+<li>Supporting US forces in sector</li>
+</ul>
+</li>
+<li><strong>Scale:</strong> Brigade-level (smaller than division scenarios)</li>
+</ul>
+<h3 id="unit-statistics-for-wargaming"><a class="header" href="#unit-statistics-for-wargaming">Unit Statistics for Wargaming</a></h3>
+<p><strong>Morale Rating:</strong> 7/10</p>
+<ul>
+<li><strong>Explanation:</strong>
+<ul>
+<li>Q1: 7/10 (combat veteran after Sedjenane/Hunt's Gap)</li>
+<li>April (Vulcan): 7/10 (first offensive, learning)</li>
+<li>May (Final Offensive): 7/10 (victorious, high morale)</li>
+<li>June: 7/10 (post-victory, training, preparing for Italy)</li>
+<li>Consistent through Q2, solid veteran division</li>
+</ul>
+</li>
+</ul>
+<p><strong>Experience Level:</strong> Regular to Veteran (progression)</p>
+<ul>
+<li><strong>April:</strong> Regular (defensive veteran, offensive learner)</li>
+<li><strong>May:</strong> Veteran (offensive experience gained, victorious)</li>
+<li><strong>June:</strong> Veteran (combat-proven, training for next campaign)</li>
+</ul>
+<p><strong>Special Rules for Wargaming:</strong></p>
+<p><strong>1. Combat Veteran (All Q2):</strong></p>
+<ul>
+<li>Q1 defensive battle experience</li>
+<li>No green penalties</li>
+<li>Solid morale in combat</li>
+<li>Experienced junior leadership</li>
+</ul>
+<p><strong>2. Offensive Learning Curve (April Vulcan):</strong></p>
+<ul>
+<li>First major offensive operation</li>
+<li>-1 modifier to attack speed (reflecting historical 2-day clearing)</li>
+<li>+1 artillery support (heavy bombardment)</li>
+<li>Learning offensive tactics</li>
+</ul>
+<p><strong>3. Veteran Offensive (May Final Offensive):</strong></p>
+<ul>
+<li>Offensive learning complete</li>
+<li>No attack penalties</li>
+<li>Pursuit operations bonus</li>
+<li>High morale from victories</li>
+</ul>
+<p><strong>4. Artillery Support:</strong></p>
+<ul>
+<li>+2 modifier for artillery availability</li>
+<li>Heavy bombardment capability (demonstrated 22 April)</li>
+<li>96 x 25-pounders available</li>
+<li>Corps/army artillery attachments possible</li>
+</ul>
+<p><strong>5. Territorial Army Cohesion:</strong></p>
+<ul>
+<li>+1 morale within brigades (regional identity)</li>
+<li>Strong NCO leadership</li>
+<li>Good replacement integration</li>
+</ul>
+<p><strong>6. Combined Arms (when available):</strong></p>
+<ul>
+<li>Churchill tank support: +1 attack/defense when attached</li>
+<li>6th Armoured Division cooperation: armor breakthrough if infantry creates gap</li>
+<li>RAF air support: +1 attack when available</li>
+</ul>
+<p><strong>7. Amphibious Training (June):</strong></p>
+<ul>
+<li>Preparing for beach assaults</li>
+<li>Learning new tactics (different from hill warfare)</li>
+<li>Future Salerno capability (September 1943)</li>
+</ul>
+<h3 id="scenario-suitability-assessment"><a class="header" href="#scenario-suitability-assessment">Scenario Suitability Assessment</a></h3>
+<p><strong>Highly Suitable:</strong></p>
+<ul>
+<li>Operation Vulcan (22-27 April): British vs. Hermann Göring Division</li>
+<li>British infantry division offensive operations in hills</li>
+<li>Combined arms scenarios (infantry-artillery-armor)</li>
+<li>Final Tunisia offensive (multi-division, rapid tempo)</li>
+<li>April-May 1943 timeframe</li>
+<li>V Corps or IX Corps operations</li>
+</ul>
+<p><strong>Moderately Suitable:</strong></p>
+<ul>
+<li>Brigade-level operations (128th Kairouan, others)</li>
+<li>Training scenarios (Exercise Conqueror)</li>
+<li>Defensive scenarios (division still capable after Q1 experience)</li>
+<li>Infantry vs. infantry engagements</li>
+</ul>
+<p><strong>Not Suitable:</strong></p>
+<ul>
+<li>Desert warfare (never operated in Western Desert)</li>
+<li>Before April 1943 (different Q1 defensive focus)</li>
+<li>After June 1943 Tunisia (division in Italy September 1943)</li>
+<li>Armor-dominant scenarios (infantry division, no organic tanks)</li>
+</ul>
+<h3 id="force-organization-for-scenarios"><a class="header" href="#force-organization-for-scenarios">Force Organization for Scenarios</a></h3>
+<p><strong>Division-Level Scenarios:</strong></p>
+<ul>
+<li><strong>Full Division:</strong> ~17,450 personnel</li>
+<li><strong>3 Infantry Brigades:</strong> 128th, 138th, 139th</li>
+<li><strong>Artillery:</strong> 96 x 25-pounders, 48 x AT guns</li>
+<li><strong>Support:</strong> Reconnaissance, engineers, signals</li>
+<li><strong>Scale:</strong> Division vs. division (Vulcan vs. Hermann Göring)</li>
+</ul>
+<p><strong>Brigade-Level Scenarios:</strong></p>
+<ul>
+<li><strong>Infantry Brigade:</strong> ~5,850 personnel</li>
+<li><strong>3 Infantry Battalions:</strong> ~800 each</li>
+<li><strong>Brigade Artillery:</strong> 24 x 25-pounders</li>
+<li><strong>Scale:</strong> Brigade-level actions</li>
+</ul>
+<p><strong>Supporting Arms (attachments):</strong></p>
+<ul>
+<li><strong>Churchill Tanks:</strong> Squadrons/regiments as assigned</li>
+<li><strong>6th Armoured Division:</strong> For Vulcan breakthrough scenarios</li>
+<li><strong>US Forces:</strong> Exercise Conqueror scenarios</li>
+<li><strong>RAF:</strong> Air support (tactical bombing, ground attack)</li>
+</ul>
+<hr />
+<h2 id="section-10-historical-context-and-significance"><a class="header" href="#section-10-historical-context-and-significance">Section 10: Historical Context and Significance</a></h2>
+<h3 id="q2-1943-strategic-situation"><a class="header" href="#q2-1943-strategic-situation">Q2 1943 Strategic Situation</a></h3>
+<p><strong>Tunisia Campaign Final Phase:</strong></p>
+<ul>
+<li><strong>Allied Strategy:</strong> Final offensive to capture Tunis and destroy Axis forces</li>
+<li><strong>Axis Strategy:</strong> Hold Tunisia as long as possible, then evacuate to Sicily/Italy</li>
+<li><strong>Reality:</strong> Evacuation impossible, Axis forces trapped, surrender inevitable</li>
+</ul>
+<p><strong>46th Division Context:</strong></p>
+<ul>
+<li>Arrived January 1943 (Q1)</li>
+<li>Q1: Defensive battles (Sedjenane, Hunt's Gap)</li>
+<li><strong>Q2: Transition to offensive operations, Tunisia victory</strong></li>
+<li>Q3 onwards: Preparation and deployment to Italy</li>
+</ul>
+<h3 id="april-1943-operation-vulcan-1"><a class="header" href="#april-1943-operation-vulcan-1">April 1943: Operation Vulcan</a></h3>
+<p><strong>Strategic Purpose:</strong></p>
+<ul>
+<li>Break Axis defenses before final offensive</li>
+<li>Create breakthrough for armor exploitation</li>
+<li>Weaken German/Italian resistance</li>
+<li>Test Axis defensive lines</li>
+</ul>
+<p><strong>46th Division's Role:</strong></p>
+<ul>
+<li>Attack elite Hermann Göring Division</li>
+<li>Capture hills northeast of Bou Arada</li>
+<li>Create gap for 6th Armoured Division</li>
+<li>Part of larger IX Corps offensive</li>
+</ul>
+<p><strong>Outcome and Significance:</strong></p>
+<ul>
+<li>Division captured objectives in heavy fighting</li>
+<li><strong>But:</strong> Took 2 days instead of 1, too slow for armor breakthrough</li>
+<li>Germans formed anti-tank screen</li>
+<li>Vulcan failed to achieve decisive breakthrough</li>
+<li><strong>However:</strong> Became first stage of final offensive, weakened Axis defenses</li>
+</ul>
+<h3 id="may-1943-operation-strike-and-tunisia-victory"><a class="header" href="#may-1943-operation-strike-and-tunisia-victory">May 1943: Operation Strike and Tunisia Victory</a></h3>
+<p><strong>Final Offensive (5-13 May):</strong></p>
+<ul>
+<li>Multi-corps Allied attack</li>
+<li>V Corps (including 46th Division) and IX Corps</li>
+<li>US forces on western flank</li>
+<li>Overwhelming Allied superiority</li>
+</ul>
+<p><strong>7 May: Tunis and Bizerte Fall:</strong></p>
+<ul>
+<li>British forces capture Tunis</li>
+<li>US forces capture Bizerte</li>
+<li>Axis resistance collapsing</li>
+</ul>
+<p><strong>13 May: Axis Surrender:</strong></p>
+<ul>
+<li><strong>~250,000 POWs captured</strong> (largest surrender since Stalingrad)</li>
+<li>German: ~125,000</li>
+<li>Italian: ~125,000</li>
+<li>Includes Afrika Korps remnants, Italian divisions</li>
+<li><strong>Tunisia Campaign complete: Total Allied victory</strong></li>
+</ul>
+<p><strong>20 May: Victory Parade:</strong></p>
+<ul>
+<li>46th Division elements participate in Tunis victory parade</li>
+<li>Public recognition of Tunisia Campaign service</li>
+<li>Symbolic conclusion to 4.5 months combat (3 Jan - 13 May)</li>
+</ul>
+<h3 id="june-1943-training-and-strategic-transition"><a class="header" href="#june-1943-training-and-strategic-transition">June 1943: Training and Strategic Transition</a></h3>
+<p><strong>Sicily Planning:</strong></p>
+<ul>
+<li>Operation Husky (Sicily invasion) planned for July 1943</li>
+<li><strong>46th Division NOT assigned</strong> - held in reserve</li>
+<li>Fresh divisions (Canadian, British from UK) assigned instead</li>
+<li>46th Division: Training for future Italy operations</li>
+</ul>
+<p><strong>Italy Preparation:</strong></p>
+<ul>
+<li><strong>Original Plan:</strong> Operation Buttress (Strait of Messina crossing)</li>
+<li><strong>Buttress Cancelled:</strong> Strategic changes</li>
+<li><strong>New Mission:</strong> Operation Avalanche (Salerno invasion, September 1943)</li>
+<li>Training shifts to amphibious assault techniques</li>
+</ul>
+<p><strong>Exercise Conqueror:</strong></p>
+<ul>
+<li>British 46th Division defends against US amphibious landing</li>
+<li>Training value for both sides</li>
+<li>46th learns amphibious defense (applicable to understanding amphibious assault)</li>
+<li>Preparation for Salerno landings</li>
+</ul>
+<h3 id="q2-1943-significance-for-46th-division"><a class="header" href="#q2-1943-significance-for-46th-division">Q2 1943 Significance for 46th Division</a></h3>
+<p><strong>Operational Transition:</strong></p>
+<ul>
+<li><strong>Defensive Division (Q1)</strong> → <strong>Offensive Division (Q2)</strong></li>
+<li>First major offensive: Operation Vulcan</li>
+<li>Lessons learned: Attack pace, combined arms, clearing operations</li>
+<li>Applied to Italy Campaign: Salerno, up Italian peninsula</li>
+</ul>
+<p><strong>Victory Achievement:</strong></p>
+<ul>
+<li>Participated in Tunisia Campaign victory</li>
+<li>Part of First Army that captured Tunis</li>
+<li>Witnessed Axis surrender of 250,000 troops</li>
+<li>Victory parade recognition</li>
+</ul>
+<p><strong>Freeman-Attwood's Culmination:</strong></p>
+<ul>
+<li>Led division from UK deployment (Dec 1942) through Tunisia victory (May 1943)</li>
+<li>4.5 months combat command (Jan-May 1943)</li>
+<li>Successful transition defensive to offensive</li>
+<li><strong>Command ended August 1943</strong> after preparing division for Italy</li>
+</ul>
+<p><strong>Casualties and Losses:</strong></p>
+<ul>
+<li>Q2: ~300-600 casualties (April Vulcan, May final offensive)</li>
+<li>Combined Q1+Q2: ~1,150-1,800 casualties total Tunisia Campaign</li>
+<li>Significant but division maintained combat effectiveness</li>
+<li>Replacements successfully integrated</li>
+</ul>
+<p><strong>Reputation and Legacy:</strong></p>
+<ul>
+<li>Solid, reliable British infantry division</li>
+<li>Not elite but competent and adaptable</li>
+<li>Defensive excellence (Q1 Hunt's Gap)</li>
+<li>Offensive capability developing (Q2 Vulcan)</li>
+<li>Victorious conclusion (Q2 final offensive)</li>
+<li>Ready for Italy Campaign challenges</li>
+</ul>
+<h3 id="post-q2-summary-italy-campaign-preview"><a class="header" href="#post-q2-summary-italy-campaign-preview">Post-Q2 Summary (Italy Campaign Preview)</a></h3>
+<p><strong>August 1943:</strong></p>
+<ul>
+<li>Command change: Hawkesworth replaces Freeman-Attwood (25 August)</li>
+<li>Exercise Dryshod (final Salerno rehearsal): Tragic accident, 15 killed</li>
+</ul>
+<p><strong>September 1943:</strong></p>
+<ul>
+<li><strong>Operation Avalanche: Salerno invasion (9 September)</strong></li>
+<li>46th Division amphibious assault</li>
+<li>Difficult fighting, German counterattacks</li>
+<li>Beachhead held, breakout successful</li>
+</ul>
+<p><strong>1943-1945:</strong></p>
+<ul>
+<li><strong>Italy Campaign:</strong> Division fought entire campaign</li>
+<li>One of few divisions Salerno → Victory (May 1945)</li>
+<li>Monte Cassino, Gothic Line, Po Valley</li>
+<li>Distinguished service through war's end</li>
+</ul>
+<p><strong>Q2 1943 Assessment:</strong>
+Q2 1943 was the pivotal quarter for the 46th Division - the transition from defensive operations to offensive capability, from North African hill warfare to preparation for Italian coastal assaults, and from combat introduction (Q1) to combat veteran status and victory (Q2). The lessons learned during Operation Vulcan (pace, combined arms, clearing operations) and the morale boost from Tunisia victory prepared the division for the long, difficult Italy Campaign. Freeman-Attwood's leadership through Tunisia established the division's character, while Hawkesworth would lead it through Italy to final victory.</p>
+<hr />
+<h2 id="section-11-unit-assessments-and-analysis"><a class="header" href="#section-11-unit-assessments-and-analysis">Section 11: Unit Assessments and Analysis</a></h2>
+<h3 id="strengths"><a class="header" href="#strengths">Strengths</a></h3>
+<p><strong>1. Combat Veteran Status:</strong></p>
+<ul>
+<li>Q1 defensive battles: Sedjenane, Hunt's Gap</li>
+<li>Q2 offensive battles: Vulcan, final offensive</li>
+<li>Experienced officers and NCOs (those who survived Q1)</li>
+<li>Junior leadership proven in combat</li>
+</ul>
+<p><strong>2. Offensive Capability (Developed in Q2):</strong></p>
+<ul>
+<li>Operation Vulcan: First major offensive</li>
+<li>Heavy artillery bombardment coordination</li>
+<li>Infantry assault tactics in hills</li>
+<li>Clearing operations (albeit slow)</li>
+<li>Learning applied to future operations</li>
+</ul>
+<p><strong>3. Artillery Firepower:</strong></p>
+<ul>
+<li>96 x 25-pounder field guns</li>
+<li>Heavy bombardment capability (22 April demonstrated)</li>
+<li>Effective corps/army artillery integration</li>
+<li>Fire support for infantry attacks</li>
+</ul>
+<p><strong>4. Operational Flexibility:</strong></p>
+<ul>
+<li>128th Brigade 100-mile redeployment (2 April)</li>
+<li>IX Corps to V Corps transfer (1 May)</li>
+<li>Combat to training transition (May-June)</li>
+<li>Hill warfare to amphibious training</li>
+<li>Adaptable to changing missions</li>
+</ul>
+<p><strong>5. Morale and Cohesion:</strong></p>
+<ul>
+<li>Territorial Army regional identity maintained</li>
+<li>Hampshire, Sherwood Foresters esprit de corps</li>
+<li>Victory in Tunisia boosted morale</li>
+<li>Successful replacement integration</li>
+<li>Post-victory morale excellent</li>
+</ul>
+<p><strong>6. Combined Arms Integration:</strong></p>
+<ul>
+<li>Infantry-artillery coordination refined</li>
+<li>Worked with armor (6th Armoured Division, Churchill tanks)</li>
+<li>Multi-corps operations (IX, V Corps)</li>
+<li>British-US exercises (Conqueror)</li>
+</ul>
+<h3 id="weaknesses"><a class="header" href="#weaknesses">Weaknesses</a></h3>
+<p><strong>1. Offensive Pace Issues (Vulcan):</strong></p>
+<ul>
+<li>Took 2 days to clear objectives (should be 1)</li>
+<li>Allowed German anti-tank screen to form</li>
+<li>Prevented armor breakthrough</li>
+<li><strong>Root Cause:</strong> First major offensive, learning curve</li>
+</ul>
+<p><strong>2. 139th Brigade Rebuilding:</strong></p>
+<ul>
+<li>Heavy Q1 Sedjenane casualties</li>
+<li>Replacement integration March-April</li>
+<li>Not at full veteran cohesion</li>
+<li>Combat effectiveness reduced until replacements experienced</li>
+</ul>
+<p><strong>3. Equipment Attrition:</strong></p>
+<ul>
+<li>Q2 combat operations caused losses</li>
+<li>Vehicles damaged/destroyed</li>
+<li>Weapons lost in fighting</li>
+<li><strong>Mitigation:</strong> June reconditioning period</li>
+</ul>
+<p><strong>4. Amphibious Inexperience (June):</strong></p>
+<ul>
+<li>No amphibious combat experience</li>
+<li>Learning new tactical environment</li>
+<li>Training accidents (Exercise Dryshod: 15 killed)</li>
+<li>Salerno would be first amphibious assault under fire</li>
+</ul>
+<p><strong>5. Comparison to Elite Divisions:</strong></p>
+<ul>
+<li>Not Guards division quality (elite status)</li>
+<li>Not 7th Armoured "Desert Rats" veteran level</li>
+<li>Solid, reliable but not exceptional</li>
+<li><strong>Assessment:</strong> Good regular division, not elite</li>
+</ul>
+<h3 id="overall-assessment"><a class="header" href="#overall-assessment">Overall Assessment</a></h3>
+<p><strong>Combat Effectiveness Q2 1943:</strong></p>
+<ul>
+<li><strong>April (Vulcan):</strong> 70% - First offensive, learning curve, objectives captured</li>
+<li><strong>May (Final Offensive):</strong> 75% - Offensive capability improved, victorious</li>
+<li><strong>June (Training):</strong> 75% - Veteran division, preparing for next campaign</li>
+</ul>
+<p><strong>Q1 to Q2 Progression:</strong></p>
+<ul>
+<li><strong>Q1 Start (Jan):</strong> 60% - Green division, fresh from UK</li>
+<li><strong>Q1 End (Mar):</strong> 70% - Combat veteran, defensive capability proven</li>
+<li><strong>Q2 Start (Apr):</strong> 70% - Transitioning to offensive operations</li>
+<li><strong>Q2 End (Jun):</strong> 75% - Offensive capability developed, victorious, training</li>
+</ul>
+<p><strong>Comparison to Other British Divisions (Q2 1943):</strong></p>
+<ul>
+<li><strong>vs. 7th Armoured Division:</strong> Less experienced overall, but solid infantry vs. armored role</li>
+<li><strong>vs. 50th Infantry Division:</strong> Similar quality, both veteran infantry divisions</li>
+<li><strong>vs. 78th Infantry Division:</strong> Comparable, both fought Tunisia</li>
+<li><strong>vs. Guards Divisions:</strong> Lower quality, Guards are elite</li>
+<li><strong>vs. 1st Infantry Division:</strong> Similar, both arrived Q1 1943</li>
+</ul>
+<p><strong>Tactical Niche:</strong></p>
+<ul>
+<li><strong>Best At:</strong> Infantry operations in restrictive terrain, combined infantry-artillery attacks, defensive operations</li>
+<li><strong>Good At:</strong> Offensive operations (improving), combined arms, operational flexibility</li>
+<li><strong>Learning:</strong> Amphibious assault (training underway), rapid offensive tempo</li>
+<li><strong>Not Suited For:</strong> Armor-dominant operations, desert mobile warfare</li>
+</ul>
+<h3 id="lessons-learned-q2-1943"><a class="header" href="#lessons-learned-q2-1943">Lessons Learned Q2 1943</a></h3>
+<p><strong>Offensive Operations:</strong></p>
+<ol>
+<li><strong>Speed Essential:</strong> Slow clearing allowed enemy to react (Vulcan lesson)</li>
+<li><strong>Combined Arms:</strong> Infantry must coordinate closely with armor for breakthrough</li>
+<li><strong>Artillery:</strong> Heavy bombardment effective but infantry must exploit quickly</li>
+<li><strong>Clearing:</strong> Methodical but rapid clearing prevents enemy reinforcement</li>
+</ol>
+<p><strong>Command and Control:</strong></p>
+<ol>
+<li><strong>Multi-Corps:</strong> Can operate effectively under different corps (IX, V)</li>
+<li><strong>Transition:</strong> Rapid role changes require good staff work and communication</li>
+<li><strong>Replacement Integration:</strong> March-April integration successful, maintained effectiveness</li>
+</ol>
+<p><strong>Logistics:</strong></p>
+<ol>
+<li><strong>Offensive Consumption:</strong> Ammunition, fuel demands higher than defensive</li>
+<li><strong>Supply Lines:</strong> Short lines (Tunisia) enabled sustained operations</li>
+<li><strong>Reconditioning:</strong> Post-victory period essential for equipment maintenance</li>
+</ol>
+<p><strong>Morale:</strong></p>
+<ol>
+<li><strong>Victory Impact:</strong> Tunisia victory significantly boosted morale</li>
+<li><strong>Regional Identity:</strong> Territorial Army structure maintained cohesion</li>
+<li><strong>Recognition:</strong> Victory parade important for morale</li>
+</ol>
+<h3 id="historical-significance---46th-division"><a class="header" href="#historical-significance---46th-division">Historical Significance - 46th Division</a></h3>
+<p><strong>Tunisia Campaign (Q1-Q2 1943):</strong></p>
+<ul>
+<li>Arrived 3 January 1943</li>
+<li>Defensive battles (Sedjenane, Hunt's Gap)</li>
+<li>Offensive operations (Vulcan, final offensive)</li>
+<li>Tunisia victory participant</li>
+<li><strong>4.5 months combat:</strong> 3 Jan - 13 May</li>
+<li><strong>Casualties:</strong> ~1,150-1,800 (Q1+Q2)</li>
+</ul>
+<p><strong>Italy Campaign (Q3 1943 - Q2 1945):</strong></p>
+<ul>
+<li>Salerno landings (9 September 1943)</li>
+<li>Fought entire Italy Campaign</li>
+<li>Monte Cassino, Gothic Line, Po Valley</li>
+<li>One of few divisions: Salerno → Victory</li>
+<li>Distinguished service through war's end</li>
+</ul>
+<p><strong>46th Division Legacy:</strong></p>
+<ul>
+<li>Solid, reliable British infantry division</li>
+<li>Territorial Army (North Midlands) regional identity</li>
+<li>Combat veteran of two major campaigns (Tunisia, Italy)</li>
+<li>Not elite but competent, adaptable, tenacious</li>
+<li><strong>Q2 1943:</strong> The transition quarter that prepared division for Italy</li>
+</ul>
+<hr />
+<h2 id="section-12-validation-and-sources"><a class="header" href="#section-12-validation-and-sources">Section 12: Validation and Sources</a></h2>
+<h3 id="source-quality-assessment"><a class="header" href="#source-quality-assessment">Source Quality Assessment</a></h3>
+<p><strong>Tier 2 Extraction:</strong> Review Recommended
+<strong>Confidence Level:</strong> 76%
+<strong>Validation Date:</strong> 25 October 2025
+<strong>Validated By:</strong> Claude Code Manual Extraction</p>
+<h3 id="primary-sources-used"><a class="header" href="#primary-sources-used">Primary Sources Used</a></h3>
+<p><strong>1. Web-Based Historical Research:</strong></p>
+<ul>
+<li>
+<p><strong>WebSearch:</strong> British 46th Infantry Division Tunisia April May June 1943 Sicily preparation Tunis victory</p>
+<ul>
+<li>Operation Vulcan (22 April - 1 May 1943)</li>
+<li>Final offensive (5-13 May 1943)</li>
+<li>Tunis victory parade (20 May)</li>
+<li>Exercise Conqueror (June)</li>
+</ul>
+</li>
+<li>
+<p><strong>WebFetch: britishmilitaryhistory.co.uk</strong> - Tunisia 1942-1943 British Infantry Divisions</p>
+<ul>
+<li>Arrival 17 January 1943 (note: conflicts with 3 January for main convoy)</li>
+<li>Final offensive participation 5-13 May</li>
+<li>Victory context</li>
+</ul>
+</li>
+<li>
+<p><strong>WebFetch: Wikipedia - Operation Vulcan</strong></p>
+<ul>
+<li>22 April: 46th Division attacked Hermann Göring Division</li>
+<li>Hills northeast of Bou Arada</li>
+<li>Heavy artillery bombardment</li>
+<li>Heavy fighting, 2 days to clear objectives</li>
+<li>Too slow for armor breakthrough</li>
+<li>Division withdrawn to reserve late April</li>
+</ul>
+</li>
+<li>
+<p><strong>WebFetch: Wikipedia - 46th Infantry Division</strong></p>
+<ul>
+<li>2 April: 128th Brigade moved south to Kairouan</li>
+<li>21-27 April: Operation Vulcan fighting</li>
+<li>1 May: Transferred to V Corps</li>
+<li>20 May: Victory parade in Tunis</li>
+<li>June: Exercise Conqueror</li>
+<li>25 August: Hawkesworth assumed command</li>
+<li>Exercise Dryshod accident (August): 15 killed, 30 injured</li>
+</ul>
+</li>
+<li>
+<p><strong>WebSearch: Operation Strike final offensive</strong></p>
+<ul>
+<li>5-13 May: Final Tunisia offensive</li>
+<li>V Corps participation (46th Division)</li>
+<li>7 May: Tunis captured</li>
+<li>13 May: Axis surrender, ~250,000 POWs</li>
+</ul>
+</li>
+</ul>
+<p><strong>2. Previous Quarter Data:</strong></p>
+<ul>
+<li><strong>british_1943q1_46th_infantry_division_toe.json</strong>
+<ul>
+<li>Command structure (Freeman-Attwood, brigades)</li>
+<li>Equipment baselines (Q1 → Q2 adjustments)</li>
+<li>Personnel strength (Q1 → Q2 with casualties)</li>
+<li>Operational context continuity</li>
+</ul>
+</li>
+</ul>
+<p><strong>3. Standard British Military References:</strong></p>
+<ul>
+<li><strong>British infantry division establishment 1943</strong></li>
+<li><strong>War Office tables:</strong> Equipment allocations, vehicle scales</li>
+<li><strong>Territorial Army structure:</strong> Brigade compositions</li>
+</ul>
+<h3 id="data-gaps-and-mitigation"><a class="header" href="#data-gaps-and-mitigation">Data Gaps and Mitigation</a></h3>
+<p><strong>Critical Gaps (Documented):</strong></p>
+<p><strong>1. Chief of Staff Name</strong></p>
+<ul>
+<li><strong>Status:</strong> Unknown</li>
+<li><strong>Confidence Impact:</strong> -4%</li>
+<li><strong>Mitigation:</strong> UK National Archives war diaries</li>
+</ul>
+<p><strong>2. Brigade Commanders (Partial)</strong></p>
+<ul>
+<li><strong>Status:</strong> Only Chichester-Constable (139th) confirmed</li>
+<li><strong>128th Commander:</strong> Unknown</li>
+<li><strong>138th Commander:</strong> Unknown</li>
+<li><strong>Confidence Impact:</strong> -7%</li>
+<li><strong>Mitigation:</strong> Regimental histories</li>
+</ul>
+<p><strong>3. Operation Vulcan Casualties</strong></p>
+<ul>
+<li><strong>Status:</strong> Unknown (estimated 200-400)</li>
+<li><strong>Reason:</strong> "Heavy fighting" described but exact figures unavailable</li>
+<li><strong>Estimate Method:</strong> Elite enemy (Hermann Göring), 5 days combat, uphill attacks</li>
+<li><strong>Confidence Impact:</strong> -5%</li>
+<li><strong>Mitigation:</strong> First Army casualty returns, division war diaries</li>
+</ul>
+<p><strong>4. Final Offensive Details</strong></p>
+<ul>
+<li><strong>Status:</strong> Partial</li>
+<li><strong>Known:</strong> Division participated 5-13 May under V Corps</li>
+<li><strong>Unknown:</strong> Specific brigade operations, objectives, detailed actions</li>
+<li><strong>Confidence Impact:</strong> -3%</li>
+<li><strong>Mitigation:</strong> V Corps war diaries</li>
+</ul>
+<p><strong>Minor Gaps:</strong></p>
+<ul>
+<li>Exact Exercise Conqueror dates (June 1943, precise dates unknown)</li>
+<li>Detailed equipment losses by battle</li>
+<li>Precise vehicle/weapon counts (estimated from Q1 with adjustments)</li>
+<li>Battalion-level TO&amp;E (approximated from standard)</li>
+</ul>
+<h3 id="confidence-assessment-breakdown"><a class="header" href="#confidence-assessment-breakdown">Confidence Assessment Breakdown</a></h3>
+<p><strong>High Confidence (85-95%):</strong></p>
+<ul>
+<li>Operation Vulcan dates and objectives (22-27 April confirmed)</li>
+<li>Final offensive participation (5-13 May confirmed)</li>
+<li>Victory parade (20 May confirmed)</li>
+<li>Command change (Hawkesworth 25 August confirmed)</li>
+<li>Exercise Conqueror (June confirmed)</li>
+<li>Commander (Freeman-Attwood confirmed)</li>
+</ul>
+<p><strong>Medium Confidence (70-80%):</strong></p>
+<ul>
+<li>Personnel numbers (based on Q1 with estimated Q2 casualties)</li>
+<li>Equipment counts (Q1 baseline with Q2 attrition estimates)</li>
+<li>Casualty estimates (based on "heavy fighting" descriptions)</li>
+<li>Brigade operations (general but not detailed)</li>
+</ul>
+<p><strong>Lower Confidence (60-70%):</strong></p>
+<ul>
+<li>Exact casualty figures (estimated ranges)</li>
+<li>Brigade commanders except Chichester-Constable</li>
+<li>Detailed equipment losses</li>
+<li>Precise dates for June training</li>
+</ul>
+<p><strong>Overall Confidence: 76%</strong></p>
+<ul>
+<li>Higher than Q1 (74%) due to better operational documentation</li>
+<li>Operation Vulcan well-documented (Wikipedia, multiple sources)</li>
+<li>Final offensive context clear (Tunisia victory 13 May)</li>
+<li>Training period confirmed (Exercise Conqueror)</li>
+<li>Gaps: Staff names, exact casualties, detailed brigade operations</li>
+</ul>
+<h3 id="aggregation-status"><a class="header" href="#aggregation-status">Aggregation Status</a></h3>
+<p><strong>Unit-Specific with Standard Establishment</strong></p>
+<p><strong>Unit-Specific Data:</strong></p>
+<ul>
+<li>Operation Vulcan: 22-27 April, Hermann Göring Division, Bou Arada</li>
+<li>Final offensive: 5-13 May, V Corps, Tunis victory</li>
+<li>Victory parade: 20 May</li>
+<li>128th Brigade Kairouan operation: 2 April</li>
+<li>Exercise Conqueror: June amphibious training</li>
+<li>Command change: Hawkesworth 25 August</li>
+<li>Brigades: 128th Hampshire, 138th, 139th Sherwood Foresters</li>
+</ul>
+<p><strong>Standard Establishment Data:</strong></p>
+<ul>
+<li>Personnel allocations (officers, NCOs, enlisted)</li>
+<li>Equipment counts (rifles, machine guns, vehicles)</li>
+<li>Organization (brigades, battalions, supporting arms)</li>
+<li>Based on 1943 British infantry division with Q2 combat adjustments</li>
+</ul>
+<h3 id="recommendations-for-future-research"><a class="header" href="#recommendations-for-future-research">Recommendations for Future Research</a></h3>
+<p><strong>To Achieve Tier 1 (75%+ confidence, currently 76% - very close!):</strong></p>
+<p><strong>Minor improvements to reach solid Tier 1:</strong></p>
+<ol>
+<li>
+<p><strong>UK National Archives Research:</strong></p>
+<ul>
+<li>WO 169 series: 46th Division war diaries April-June 1943</li>
+<li>Would provide: Exact casualty figures, brigade operations details, daily logs</li>
+<li>Estimated confidence gain: +5-7%</li>
+</ul>
+</li>
+<li>
+<p><strong>Brigade/Battalion War Diaries:</strong></p>
+<ul>
+<li>Hampshire Regiment (128th Brigade)</li>
+<li>Sherwood Foresters (139th Brigade)</li>
+<li>Lincolnshire, KOYLI (138th Brigade)</li>
+<li>Would provide: Brigade commander names, battalion actions, casualty returns</li>
+<li>Estimated confidence gain: +3-5%</li>
+</ul>
+</li>
+<li>
+<p><strong>V Corps War Diaries:</strong></p>
+<ul>
+<li>Final offensive details (5-13 May)</li>
+<li>46th Division role and operations</li>
+<li>Brigade objectives and actions</li>
+<li>Estimated confidence gain: +2-3%</li>
+</ul>
+</li>
+</ol>
+<p><strong>Current Assessment:</strong>
+With web-based research and previous quarter continuity, this extraction achieves <strong>Tier 2 (76% confidence)</strong>, very close to Tier 1 threshold. The operational events are well-documented and confirmed across multiple sources. Gaps are in exact numbers (casualties) and staff names, not in fundamental operational history (what, where, when, why). Suitable for wargaming scenarios and historical reference. UK National Archives research would easily push to solid Tier 1.</p>
+<hr />
+<h2 id="section-13-conclusion"><a class="header" href="#section-13-conclusion">Section 13: Conclusion</a></h2>
+<p>The British 46th Infantry Division's Q2 1943 quarter (April-June 1943) represents the culmination of the Tunisia Campaign and the transition to preparation for the Italy Campaign. This quarter saw the division transform from a defensive-focused formation (Q1 1943) into a combat-veteran division capable of offensive operations, though with a learning curve evident in Operation Vulcan's execution.</p>
+<p><strong>April 1943</strong> marked the division's first major offensive operation - Operation Vulcan (22-27 April) - attacking the elite Hermann Göring Division in the hills northeast of Bou Arada. After heavy artillery bombardment, the division's three brigades assaulted uphill against prepared German positions in "heavy fighting" that lasted five days. While the division successfully captured its objectives, the pace was too slow - taking two days to fully clear positions instead of one - which allowed the Germans to form an anti-tank screen that prevented the intended breakthrough by the 6th Armoured Division. This operational experience taught crucial lessons about offensive tempo, combined arms coordination, and the need for rapid exploitation of success before the enemy can react.</p>
+<p><strong>May 1943</strong> saw the division participate in the final Tunisia offensive - Operation Strike (5-13 May) - after being transferred from IX Corps to V Corps on 1 May. As part of the multi-corps Allied attack that broke Axis resistance, the division witnessed and contributed to the rapid collapse of German and Italian forces. On 7 May, Tunis fell to British forces (and Bizerte to American forces), and by 13 May the entire Axis force in Tunisia - approximately 250,000 prisoners of war, the largest surrender since Stalingrad - had capitulated. On 20 May, elements of the 46th Division participated in the victory parade in Tunis, a symbolic recognition of the division's 4.5 months of continuous combat operations (3 January - 13 May 1943) in the Tunisia Campaign.</p>
+<p><strong>June 1943</strong> marked a complete transition from combat to training as the division prepared for the next phase of the war. Rather than participating in Operation Husky (the Sicily invasion in July), the division was held in Tunisia for amphibious assault training. Exercise Conqueror saw the 46th Division defending against an American amphibious landing, providing valuable training from the defender's perspective that would inform their understanding of amphibious operations. This training was in preparation for Operation Buttress (a proposed Strait of Messina crossing) which was later cancelled, leading to the division's reassignment to Operation Avalanche - the Salerno landings in September 1943.</p>
+<p>Under Major-General Harold Freeman-Attwood's continued command (his final months before replacement by Major-General John Hawkesworth on 25 August 1943), the division successfully navigated the challenges of Q2 1943. Estimated casualties of 300-600 personnel (primarily from Operation Vulcan's heavy fighting) were sustainable and did not significantly degrade combat effectiveness. The division's Territorial Army structure - with its regional identity in the Hampshire and Sherwood Foresters brigades - maintained morale and cohesion through the transition from defensive to offensive operations.</p>
+<p>The 46th Division's Q2 1943 experience exemplifies the British First Army's path through the final phase of the North African campaign: transitioning from defensive operations to offensive capability, achieving decisive victory, and then preparing for the next operational challenge. The lessons learned during Operation Vulcan about offensive pace and combined arms integration, combined with the morale boost from Tunisia's victorious conclusion, prepared the division for the long and difficult Italy Campaign that would follow. The division that landed at Salerno in September 1943 was a far more capable formation than the green division that had arrived in Tunisia in January - tempered by defensive battles, taught by offensive operations, and emboldened by victory.</p>
+<p>Q2 1943 was not the division's most dramatic quarter (Q1's Sedjenane and Hunt's Gap battles were more intense), nor its most costly in casualties (Italy Campaign would exceed Tunisia losses many times over), but it was the pivotal quarter that transformed the 46th Infantry Division from a defensive force learning its trade into a combat-veteran division ready for the challenges of amphibious assault and the grinding campaign up the Italian peninsula.</p>
+<hr />
+<p><strong>End of Chapter</strong></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../chapters/chapter_british_1943q2_2nd_new_zealand_division.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../chapters/chapter_british_1943q2_4th_indian_division.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../chapters/chapter_british_1943q2_2nd_new_zealand_division.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../chapters/chapter_british_1943q2_4th_indian_division.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

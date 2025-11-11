@@ -1,0 +1,669 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>1St Armored Division - North Africa Campaign 1940-1943: Complete Order of Battle</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">North Africa Campaign 1940-1943: Complete Order of Battle</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/yourusername/north-africa-toe-builder" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="1st-armored-division"><a class="header" href="#1st-armored-division">1st Armored Division</a></h1>
+<p><strong>Nation:</strong> American
+<strong>Quarter:</strong> 1942-Q4
+<strong>Organization Level:</strong> Division</p>
+<h2 id="1-overview"><a class="header" href="#1-overview">1. Overview</a></h2>
+<p><strong>[MANUAL: Add 2-3 paragraphs of historical context about the 1st Armored Division]</strong></p>
+<p><strong>[MANUAL: Describe the unit's role during 1942-Q4, formation history, and strategic importance]</strong></p>
+<p><strong>[MANUAL: Add operational context - what major operations/battles occurred this quarter]</strong></p>
+<p><strong>Key Statistics (1942-Q4):</strong></p>
+<ul>
+<li>Total Strength: 14,620 personnel</li>
+<li>Unit Type: Armored Division (Heavy)</li>
+<li>Organization Level: Division</li>
+<li>Parent Formation: II Corps (Center Task Force)</li>
+<li>Commander: Major General Orlando Ward</li>
+<li>Headquarters Location: Oran, Algeria (as of December 1942)</li>
+<li>Tanks: 263</li>
+<li>Artillery: 54 guns</li>
+<li>Motor Vehicles: 1,848</li>
+</ul>
+<h2 id="2-command-structure"><a class="header" href="#2-command-structure">2. Command Structure</a></h2>
+<h3 id="division-commander"><a class="header" href="#division-commander">Division Commander</a></h3>
+<p><strong>Major General Orlando Ward</strong> assumed command on 1942-03-01.</p>
+<p>Previous service: Commandant of the Tank School, Fort Knox</p>
+<p><strong>[MANUAL: Add 1-2 paragraphs about commander's background, command style, and performance]</strong></p>
+<h3 id="division-staff"><a class="header" href="#division-staff">Division Staff</a></h3>
+<p>The division headquarters staff comprised approximately 220 personnel:</p>
+<ul>
+<li><strong>Officers:</strong> 68 (operations, intelligence, logistics, signals)</li>
+<li><strong>NCOs:</strong> 42 (section chiefs, administrative staff)</li>
+<li><strong>Enlisted:</strong> 110 (clerks, drivers, guards, support)</li>
+</ul>
+<h3 id="chief-of-staff"><a class="header" href="#chief-of-staff">Chief of Staff</a></h3>
+<p><strong>Colonel Colonel Charles J. Denholm</strong> served as Chief of Staff, coordinating all divisional operations.</p>
+<h3 id="headquarters-location"><a class="header" href="#headquarters-location">Headquarters Location</a></h3>
+<p>Division headquarters was established at: Oran, Algeria (as of December 1942)</p>
+<p><strong>[MANUAL: Add details about headquarters mobility, facilities, and operational context]</strong></p>
+<h2 id="3-personnel-strength"><a class="header" href="#3-personnel-strength">3. Personnel Strength</a></h2>
+<h3 id="total-strength-14620-personnel"><a class="header" href="#total-strength-14620-personnel">Total Strength: 14,620 Personnel</a></h3>
+<p><strong>[MANUAL: Add 1-2 paragraphs about overall strength, comparing to establishment, explaining any understrength/overstrength]</strong></p>
+<h3 id="officer-corps-876-officers-60-of-total"><a class="header" href="#officer-corps-876-officers-60-of-total">Officer Corps: 876 Officers (6.0% of total)</a></h3>
+<p>The division's officer corps included:</p>
+<ul>
+<li>Division staff and headquarters officers</li>
+<li>Regiment and battalion commanders</li>
+<li>Company and platoon leaders</li>
+<li>Technical specialists</li>
+</ul>
+<p><strong>[MANUAL: Add details about officer quality, training, and leadership capabilities]</strong></p>
+<h3 id="non-commissioned-officers-2628-ncos-180-of-total"><a class="header" href="#non-commissioned-officers-2628-ncos-180-of-total">Non-Commissioned Officers: 2,628 NCOs (18.0% of total)</a></h3>
+<p>NCOs provided critical small unit leadership:</p>
+<ul>
+<li>Squad and section leaders</li>
+<li>Weapon crew chiefs</li>
+<li>Technical specialists</li>
+<li>Administrative and supply NCOs</li>
+</ul>
+<p><strong>[MANUAL: Add details about NCO experience and role]</strong></p>
+<h3 id="enlisted-personnel-11116-760-of-total"><a class="header" href="#enlisted-personnel-11116-760-of-total">Enlisted Personnel: 11,116 (76.0% of total)</a></h3>
+<p>The bulk of the division consisted of enlisted soldiers:</p>
+<ul>
+<li>Infantry riflemen</li>
+<li>Machine gun and weapon crews</li>
+<li>Artillery crews</li>
+<li>Drivers and mechanics</li>
+<li>Engineers and pioneers</li>
+<li>Supply and administrative personnel</li>
+</ul>
+<h3 id="personnel-quality"><a class="header" href="#personnel-quality">Personnel Quality</a></h3>
+<p><strong>[MANUAL: Add 2-3 paragraphs about:]</strong></p>
+<ul>
+<li>Combat experience level (veteran vs. newly-arrived)</li>
+<li>Morale status</li>
+<li>Training emphasis</li>
+<li>Replacement situation</li>
+<li>Known strengths/weaknesses</li>
+</ul>
+<h2 id="4-organization"><a class="header" href="#4-organization">4. Organization</a></h2>
+<p><strong>[MANUAL: Add 1-2 paragraphs describing overall organizational structure and doctrine]</strong></p>
+<h3 id="primary-subordinate-units"><a class="header" href="#primary-subordinate-units">Primary Subordinate Units</a></h3>
+<p><strong>1. 1st Armored Regiment</strong></p>
+<ul>
+<li>Type: Armored Regiment</li>
+<li>Strength: 2,548 personnel</li>
+<li>Commander: Colonel Peter C. Hains III</li>
+<li>Note: Three tank battalions: 1st Bn (light tanks), 2nd Bn (medium tanks), 3rd Bn (medium tanks)</li>
+</ul>
+<p><strong>2. 13th Armored Regiment</strong></p>
+<ul>
+<li>Type: Armored Regiment</li>
+<li>Strength: 2,300 personnel</li>
+<li>Commander: Colonel John H. Collier</li>
+<li>Note: Three tank battalions. 1st and 2nd Battalions part of Combat Command B at Oran landing</li>
+</ul>
+<p><strong>3. 6th Armored Infantry Regiment</strong></p>
+<ul>
+<li>Type: Armored Infantry Regiment</li>
+<li>Strength: 2,389 personnel</li>
+<li>Commander: Colonel Clarence C. Benson</li>
+<li>Note: Three battalions of motorized/mechanized infantry</li>
+</ul>
+<p><strong>4. 27th Armored Field Artillery Battalion</strong></p>
+<ul>
+<li>Type: Self-Propelled Artillery Battalion</li>
+<li>Strength: 546 personnel</li>
+<li>Commander: Lieutenant Colonel Louis V. Hightower</li>
+<li>Note: 18x M7 Priest 105mm SPG</li>
+</ul>
+<p><strong>5. 68th Armored Field Artillery Battalion</strong></p>
+<ul>
+<li>Type: Self-Propelled Artillery Battalion</li>
+<li>Strength: 546 personnel</li>
+<li>Commander: Lieutenant Colonel Harry W. Hillyard</li>
+<li>Note: 18x M7 Priest 105mm SPG</li>
+</ul>
+<p><strong>6. 91st Armored Field Artillery Battalion</strong></p>
+<ul>
+<li>Type: Self-Propelled Artillery Battalion</li>
+<li>Strength: 546 personnel</li>
+<li>Commander: Lieutenant Colonel Thomas E. Roderick</li>
+<li>Note: 18x M7 Priest 105mm SPG</li>
+</ul>
+<p><strong>7. 81st Reconnaissance Battalion (Armored)</strong></p>
+<ul>
+<li>Type: Armored Reconnaissance Battalion</li>
+<li>Strength: 812 personnel</li>
+<li>Commander: Lieutenant Colonel William B. Kern</li>
+<li>Note: M8 Greyhound armored cars, M3 scout cars, light tanks</li>
+</ul>
+<p><strong>8. Combat Command A</strong></p>
+<ul>
+<li>Type: Combat Command (Task Force)</li>
+<li>Strength: 4,800 personnel</li>
+<li>Commander: Brigadier General Raymond E. McQuillin</li>
+<li>Note: Flexible combined arms task force. Composition varied by mission</li>
+</ul>
+<p><strong>9. Combat Command B</strong></p>
+<ul>
+<li>Type: Combat Command (Task Force)</li>
+<li>Strength: 4,600 personnel</li>
+<li>Commander: Brigadier General Lunsford E. Oliver</li>
+<li>Note: Landed at Oran 8 November. Suffered losses at Medjez el Bab 10-11 December</li>
+</ul>
+<p><strong>10. Division Trains</strong></p>
+<ul>
+<li>Type: Support and Service Units</li>
+<li>Strength: 1,533 personnel</li>
+<li>Commander: Colonel Robert W. Wilson</li>
+<li>Note: Maintenance, supply, medical, and administrative units</li>
+</ul>
+<h3 id="organizational-assessment"><a class="header" href="#organizational-assessment">Organizational Assessment</a></h3>
+<p><strong>[MANUAL: Add assessment of organizational strengths, gaps, and combat effectiveness]</strong></p>
+<h2 id="5-infantry-weapons"><a class="header" href="#5-infantry-weapons">5. Infantry Weapons</a></h2>
+<p><strong>[MANUAL: Add introductory paragraph about unit's infantry weapons doctrine and supply]</strong></p>
+<h3 id="m1-garand-rifle"><a class="header" href="#m1-garand-rifle">M1 Garand Rifle</a></h3>
+<ul>
+<li><strong>Count:</strong> 6,420</li>
+<li><strong>Type:</strong> Semi-Automatic Rifle</li>
+</ul>
+<p><strong>[MANUAL: Add specifications:]</strong></p>
+<ul>
+<li>Caliber</li>
+<li>Action type</li>
+<li>Magazine/feed system</li>
+<li>Effective range</li>
+<li>Rate of fire</li>
+<li>Weight</li>
+<li>Muzzle velocity</li>
+</ul>
+<p><strong>[MANUAL: Add 1-2 paragraphs about weapon's performance, reliability, and tactical employment]</strong></p>
+<h3 id="m1-carbine"><a class="header" href="#m1-carbine">M1 Carbine</a></h3>
+<ul>
+<li><strong>Count:</strong> 2,180</li>
+<li><strong>Type:</strong> Carbine</li>
+</ul>
+<p><strong>[MANUAL: Add specifications:]</strong></p>
+<ul>
+<li>Caliber</li>
+<li>Action type</li>
+<li>Magazine/feed system</li>
+<li>Effective range</li>
+<li>Rate of fire</li>
+<li>Weight</li>
+<li>Muzzle velocity</li>
+</ul>
+<p><strong>[MANUAL: Add 1-2 paragraphs about weapon's performance, reliability, and tactical employment]</strong></p>
+<h3 id="m1919a4-30-cal-browning-machine-gun"><a class="header" href="#m1919a4-30-cal-browning-machine-gun">M1919A4 .30 cal Browning Machine Gun</a></h3>
+<ul>
+<li><strong>Count:</strong> 278</li>
+<li><strong>Type:</strong> Medium Machine Gun</li>
+</ul>
+<p><strong>[MANUAL: Add specifications:]</strong></p>
+<ul>
+<li>Caliber</li>
+<li>Action type</li>
+<li>Magazine/feed system</li>
+<li>Effective range</li>
+<li>Rate of fire</li>
+<li>Weight</li>
+<li>Muzzle velocity</li>
+</ul>
+<p><strong>[MANUAL: Add 1-2 paragraphs about weapon's performance, reliability, and tactical employment]</strong></p>
+<h2 id="6-motor-vehicles-and-transport"><a class="header" href="#6-motor-vehicles-and-transport">6. Motor Vehicles and Transport</a></h2>
+<h3 id="total-motor-vehicles-1848"><a class="header" href="#total-motor-vehicles-1848">Total Motor Vehicles: 1,848</a></h3>
+<p><strong>[MANUAL: Add paragraph about unit's motorization level and mobility capabilities]</strong></p>
+<h3 id="trucks-886-total"><a class="header" href="#trucks-886-total">Trucks: 886 Total</a></h3>
+<h4 id="gmc-cckw-25-ton"><a class="header" href="#gmc-cckw-25-ton">GMC CCKW 2.5-ton</a></h4>
+<ul>
+<li><strong>Count:</strong> 512</li>
+<li><strong>Capacity:</strong> 2_5_ton</li>
+</ul>
+<p><strong>[MANUAL: Add specifications and usage]</strong></p>
+<h4 id="dodge-wc-5152-34-ton"><a class="header" href="#dodge-wc-5152-34-ton">Dodge WC-51/52 3/4-ton</a></h4>
+<ul>
+<li><strong>Count:</strong> 284</li>
+<li><strong>Capacity:</strong> 3_4_ton</li>
+</ul>
+<p><strong>[MANUAL: Add specifications and usage]</strong></p>
+<h4 id="gmc-6x6-5-ton"><a class="header" href="#gmc-6x6-5-ton">GMC 6x6 5-ton</a></h4>
+<ul>
+<li><strong>Count:</strong> 90</li>
+<li><strong>Capacity:</strong> 5_ton</li>
+</ul>
+<p><strong>[MANUAL: Add specifications and usage]</strong></p>
+<h3 id="motorcycles-124-total"><a class="header" href="#motorcycles-124-total">Motorcycles: 124 Total</a></h3>
+<h4 id="harley-davidson-wla"><a class="header" href="#harley-davidson-wla">Harley-Davidson WLA</a></h4>
+<ul>
+<li><strong>Count:</strong> 98</li>
+</ul>
+<p><strong>[MANUAL: Add specifications and usage]</strong></p>
+<h4 id="indian-741"><a class="header" href="#indian-741">Indian 741</a></h4>
+<ul>
+<li><strong>Count:</strong> 26</li>
+</ul>
+<p><strong>[MANUAL: Add specifications and usage]</strong></p>
+<h3 id="armored-cars-54-total"><a class="header" href="#armored-cars-54-total">Armored Cars: 54 Total</a></h3>
+<p><strong>[MANUAL: Add armored car variants with specifications and tactical employment]</strong></p>
+<h3 id="support-vehicles-80-total"><a class="header" href="#support-vehicles-80-total">Support Vehicles: 80 Total</a></h3>
+<h4 id="m31-tank-recovery-vehicle"><a class="header" href="#m31-tank-recovery-vehicle">M31 Tank Recovery Vehicle</a></h4>
+<ul>
+<li><strong>Count:</strong> 18</li>
+<li><strong>Type:</strong> Armored Recovery Vehicle</li>
+</ul>
+<h4 id="m30-cargo-carrier"><a class="header" href="#m30-cargo-carrier">M30 Cargo Carrier</a></h4>
+<ul>
+<li><strong>Count:</strong> 36</li>
+<li><strong>Type:</strong> Tracked Cargo Carrier</li>
+</ul>
+<h4 id="various-tank-transporters-and-maintenance-vehicles"><a class="header" href="#various-tank-transporters-and-maintenance-vehicles">Various tank transporters and maintenance vehicles</a></h4>
+<ul>
+<li><strong>Count:</strong> 26</li>
+<li><strong>Type:</strong> Specialized Support</li>
+</ul>
+<h3 id="transport-challenges"><a class="header" href="#transport-challenges">Transport Challenges</a></h3>
+<p><strong>[MANUAL: Add section about desert operating challenges, maintenance, fuel consumption, etc.]</strong></p>
+<h2 id="7-artillery"><a class="header" href="#7-artillery">7. Artillery</a></h2>
+<h3 id="total-artillery-54-guns"><a class="header" href="#total-artillery-54-guns">Total Artillery: 54 Guns</a></h3>
+<p><strong>[MANUAL: Add paragraph about artillery organization and doctrine]</strong></p>
+<h3 id="field-artillery-54-guns"><a class="header" href="#field-artillery-54-guns">Field Artillery: 54 Guns</a></h3>
+<h4 id="m7-priest-105mm-spg"><a class="header" href="#m7-priest-105mm-spg">M7 Priest 105mm SPG</a></h4>
+<ul>
+<li><strong>Count:</strong> 54</li>
+<li><strong>Caliber:</strong> 105mm</li>
+</ul>
+<p><strong>[MANUAL: Add specifications:]</strong></p>
+<ul>
+<li>Range</li>
+<li>Shell weight</li>
+<li>Rate of fire</li>
+<li>Muzzle velocity</li>
+<li>Weight</li>
+<li>Crew size</li>
+</ul>
+<p><strong>[MANUAL: Add tactical employment paragraph]</strong></p>
+<h3 id="anti-tank-artillery-72-guns"><a class="header" href="#anti-tank-artillery-72-guns">Anti-Tank Artillery: 72 Guns</a></h3>
+<h4 id="m3-37mm-anti-tank-gun"><a class="header" href="#m3-37mm-anti-tank-gun">M3 37mm Anti-Tank Gun</a></h4>
+<ul>
+<li><strong>Count:</strong> 48</li>
+<li><strong>Caliber:</strong> 37mm</li>
+</ul>
+<p><strong>[MANUAL: Add specifications and anti-armor effectiveness]</strong></p>
+<h4 id="m5-3-inch-gun"><a class="header" href="#m5-3-inch-gun">M5 3-inch Gun</a></h4>
+<ul>
+<li><strong>Count:</strong> 24</li>
+<li><strong>Caliber:</strong> 3-inch (76.2mm)</li>
+</ul>
+<p><strong>[MANUAL: Add specifications and anti-armor effectiveness]</strong></p>
+<h3 id="anti-aircraft-artillery-48-guns"><a class="header" href="#anti-aircraft-artillery-48-guns">Anti-Aircraft Artillery: 48 Guns</a></h3>
+<h4 id="m1-40mm-bofors"><a class="header" href="#m1-40mm-bofors">M1 40mm Bofors</a></h4>
+<ul>
+<li><strong>Count:</strong> 16</li>
+<li><strong>Caliber:</strong> 40mm</li>
+</ul>
+<p><strong>[MANUAL: Add specifications and air defense employment]</strong></p>
+<h4 id="m45-quadmount-50-cal"><a class="header" href="#m45-quadmount-50-cal">M45 Quadmount .50 cal</a></h4>
+<ul>
+<li><strong>Count:</strong> 32</li>
+<li><strong>Caliber:</strong> .50 cal (12.7mm)</li>
+</ul>
+<p><strong>[MANUAL: Add specifications and air defense employment]</strong></p>
+<h2 id="8-supply-and-logistics"><a class="header" href="#8-supply-and-logistics">8. Supply and Logistics</a></h2>
+<h3 id="supply-status"><a class="header" href="#supply-status">Supply Status</a></h3>
+<p>Strained but adequate for initial operations. Primary constraints: long supply lines from Oran (800km to Tunisia front), limited port capacity at Oran, inadequate forward storage facilities, and inexperienced logistics staff. Fuel and ammunition prioritized over spare parts and maintenance supplies. Combat Command B experienced significant equipment losses at Medjez el Bab (10-11 December) due to mud and hasty withdrawal.</p>
+<h3 id="fuel-supply"><a class="header" href="#fuel-supply">Fuel Supply</a></h3>
+<p><strong>Fuel Reserves:</strong> 4.5 days</p>
+<p><strong>[MANUAL: Add fuel supply details, daily consumption, sources, constraints]</strong></p>
+<h3 id="ammunition-supply"><a class="header" href="#ammunition-supply">Ammunition Supply</a></h3>
+<p><strong>Ammunition Reserves:</strong> 7 days</p>
+<p><strong>[MANUAL: Add ammunition supply details, types, resupply, shortages]</strong></p>
+<h3 id="water-supply"><a class="header" href="#water-supply">Water Supply</a></h3>
+<p><strong>Daily Requirement:</strong> 5.5 liters per day</p>
+<p><strong>[MANUAL: Add water supply details, transport, rationing, sources]</strong></p>
+<h3 id="operational-radius"><a class="header" href="#operational-radius">Operational Radius</a></h3>
+<p><strong>Estimated:</strong> 240 km from supply dumps</p>
+<h3 id="supply-chain-vulnerabilities"><a class="header" href="#supply-chain-vulnerabilities">Supply Chain Vulnerabilities</a></h3>
+<p><strong>[MANUAL: Add section about supply chain risks, interdiction, priorities, and challenges]</strong></p>
+<h2 id="9-weather-and-environment"><a class="header" href="#9-weather-and-environment">9. Weather and Environment</a></h2>
+<h3 id="climate-1942-q4"><a class="header" href="#climate-1942-q4">Climate (1942-Q4)</a></h3>
+<p><strong>Season:</strong> 1942-Q4 (October-December)</p>
+<p><strong>Temperature Range:</strong> 8-22°C</p>
+<p><strong>Daylight Hours:</strong> 10.5 hours</p>
+<p><strong>Storm Frequency:</strong> Approximately 6 days per month</p>
+<p><strong>[MANUAL: Add detailed climate description for this quarter]</strong></p>
+<h3 id="terrain"><a class="header" href="#terrain">Terrain</a></h3>
+<p>mixed terrain - coastal plains near Oran transitioning to hilly interior and mountain passes approaching Tunisia</p>
+<h3 id="weather-challenges"><a class="header" href="#weather-challenges">Weather Challenges</a></h3>
+<p><strong>[MANUAL: Add weather impact on operations]</strong></p>
+<h3 id="environmental-challenges"><a class="header" href="#environmental-challenges">Environmental Challenges</a></h3>
+<p><strong>[MANUAL: Add environmental challenges - dust, heat, navigation, disease, etc.]</strong></p>
+<h2 id="10-combat-history"><a class="header" href="#10-combat-history">10. Combat History</a></h2>
+<h3 id="formation-and-deployment"><a class="header" href="#formation-and-deployment">Formation and Deployment</a></h3>
+<p><strong>[MANUAL: Add 2-3 paragraphs about unit formation, when/where raised, deployment to theater]</strong></p>
+<h3 id="major-engagements"><a class="header" href="#major-engagements">Major Engagements</a></h3>
+<p><strong>[MANUAL: List and describe major battles, operations, and engagements]</strong></p>
+<h3 id="combat-effectiveness-assessment"><a class="header" href="#combat-effectiveness-assessment">Combat Effectiveness Assessment</a></h3>
+<p><strong>[MANUAL: Add assessment of strengths, weaknesses, and overall combat performance]</strong></p>
+<h2 id="11-tactical-doctrine-and-capabilities"><a class="header" href="#11-tactical-doctrine-and-capabilities">11. Tactical Doctrine and Capabilities</a></h2>
+<h3 id="doctrinal-role"><a class="header" href="#doctrinal-role">Doctrinal Role</a></h3>
+<p>Armored exploitation and breakthrough force. Heavy armored division optimized for sustained mobile operations with emphasis on tank firepower and shock action.</p>
+<h3 id="special-capabilities"><a class="header" href="#special-capabilities">Special Capabilities</a></h3>
+<ul>
+<li>Three-battalion armored regiments provide greater striking power than light armored divisions</li>
+<li>Combat Command structure allows flexible combined arms task organization</li>
+<li>Self-propelled artillery maintains pace with armored advance</li>
+<li>Mechanized infantry provides immediate infantry support without dismounting</li>
+</ul>
+<h3 id="tactical-innovations"><a class="header" href="#tactical-innovations">Tactical Innovations</a></h3>
+<ul>
+<li>Combat Command system pioneered flexible task force organization</li>
+<li>Integration of self-propelled artillery with armored maneuver elements</li>
+<li>Reconnaissance battalion provides deep reconnaissance capability</li>
+</ul>
+<h3 id="combined-arms-integration"><a class="header" href="#combined-arms-integration">Combined Arms Integration</a></h3>
+<p><strong>[MANUAL: Add section about infantry-tank-artillery cooperation, air support, engineer support]</strong></p>
+<h3 id="known-issues-and-limitations"><a class="header" href="#known-issues-and-limitations">Known Issues and Limitations</a></h3>
+<ul>
+<li>Division too large and unwieldy for effective control (would be reorganized 1943)</li>
+<li>Tank distribution across two regiments dispersed firepower</li>
+<li>M3 Lee/Grant tanks inferior to German Panzer IV in Tunisia</li>
+<li>Inexperienced crews and commanders in first combat operations</li>
+<li>Supply and maintenance units struggled with North African conditions</li>
+<li>Dispersal of Combat Commands by higher headquarters reduced division effectiveness</li>
+</ul>
+<h3 id="desert-adaptations"><a class="header" href="#desert-adaptations">Desert Adaptations</a></h3>
+<p>Division still adapting to North African conditions in December 1942. Issues with sand filters, water supply, navigation, and maintenance in austere environment. Medjez el Bab disaster (10-11 December) highlighted vulnerability to mud and weather in rainy season.</p>
+<h2 id="12-wargaming-and-scenario-data"><a class="header" href="#12-wargaming-and-scenario-data">12. Wargaming and Scenario Data</a></h2>
+<h3 id="morale-and-experience"><a class="header" href="#morale-and-experience">Morale and Experience</a></h3>
+<p><strong>Morale Rating:</strong> 7/10</p>
+<p><strong>Experience Level:</strong> Green</p>
+<p><strong>[MANUAL: Add paragraph explaining morale factors and experience level]</strong></p>
+<h3 id="scenario-suitability"><a class="header" href="#scenario-suitability">Scenario Suitability</a></h3>
+<p>This unit is well-suited for:</p>
+<ul>
+<li>Operation Torch landings (November 1942)</li>
+<li>Tunisia Campaign opening battles (December 1942 - January 1943)</li>
+<li>Kasserine Pass (February 1943)</li>
+<li>El Guettar offensive (March 1943)</li>
+<li>First American tank vs. tank combat actions</li>
+</ul>
+<h3 id="special-rules-wargaming"><a class="header" href="#special-rules-wargaming">Special Rules (Wargaming)</a></h3>
+<ul>
+<li>Green Unit: -1 to all combat rolls in first three scenarios</li>
+<li>Dispersed Organization: Combat Commands may be separated by up to 50km</li>
+<li>Supply Strain: Roll for supply shortage on any turn distance &gt; 200km from Oran</li>
+<li>Maintenance Issues: 15% of tanks non-operational at start of each scenario</li>
+<li>Learning Curve: Experience level improves to Regular after Kasserine Pass</li>
+</ul>
+<h3 id="historical-engagements-this-quarter"><a class="header" href="#historical-engagements-this-quarter">Historical Engagements (This Quarter)</a></h3>
+<ul>
+<li>Oran landings (8-10 November 1942)</li>
+<li>Medjez el Bab withdrawal (10-11 December 1942)</li>
+<li>Sidi Bou Zid (14-15 February 1943)</li>
+<li>Kasserine Pass (19-22 February 1943)</li>
+<li>El Guettar (23 March 1943)</li>
+</ul>
+<h3 id="force-composition-for-scenarios"><a class="header" href="#force-composition-for-scenarios">Force Composition for Scenarios</a></h3>
+<p><strong>[MANUAL: Add typical force breakdowns for wargaming scenarios]</strong></p>
+<h2 id="13-data-quality-and-sources"><a class="header" href="#13-data-quality-and-sources">13. Data Quality and Sources</a></h2>
+<h3 id="source-documentation"><a class="header" href="#source-documentation">Source Documentation</a></h3>
+<p>This TO&amp;E is based on:</p>
+<ul>
+<li>US Army Center of Military History - 1st Armored Division Combat Chronicles (history.army.mil)</li>
+<li>HyperWar: U.S. Army Campaigns of World War II: Tunisia (ibiblio.org)</li>
+<li>US Army Field Manual FM 17-10: Armored Force Field Manual (7 March 1942)</li>
+<li>Army Historical Foundation - Center Task Force Operation Torch organizational records (armyhistory.org)</li>
+<li>Mike's Research: Kasserine Pass 1943 tank analysis (mikesresearch.com)</li>
+<li>US Army AGF historical documents on armored division TO&amp;E March 1942 (history.army.mil)</li>
+<li>The Army Historical Foundation - 13th Armor unit history (armyhistory.org)</li>
+</ul>
+<p><strong>Last Updated:</strong> 2025-10-13</p>
+<p><strong>Validated By:</strong> Claude Code Agent - Document Analysis</p>
+<h3 id="confidence-assessment"><a class="header" href="#confidence-assessment">Confidence Assessment</a></h3>
+<p><strong>Overall Confidence:</strong> 82% (unknown)</p>
+<p><strong>[MANUAL: Add confidence breakdown by category - High/Medium/Low confidence areas]</strong></p>
+<h3 id="required-field-gaps"><a class="header" href="#required-field-gaps">Required Field Gaps</a></h3>
+<p>Missing information:</p>
+<ul>
+<li>Exact distribution of M4 Sherman variants (M4, M4A1, M4A2) not confirmed</li>
+<li>Precise personnel numbers by subordinate unit estimated from standard TO&amp;E</li>
+<li>Individual commander names for some artillery battalions derived from organizational records</li>
+<li>Chief of Staff identification moderate confidence</li>
+<li>Tank operational percentages estimated at 88% based on typical peacetime maintenance standards</li>
+<li>Some support vehicle exact counts aggregated from category totals</li>
+</ul>
+<h3 id="data-tier-rationale"><a class="header" href="#data-tier-rationale">Data Tier Rationale</a></h3>
+<p><strong>[MANUAL: Add explanation of tier assignment and data quality factors]</strong></p>
+<h2 id="14-historical-significance"><a class="header" href="#14-historical-significance">14. Historical Significance</a></h2>
+<h3 id="strategic-importance"><a class="header" href="#strategic-importance">Strategic Importance</a></h3>
+<p><strong>[MANUAL: Add 2-3 paragraphs about unit's strategic role in theater]</strong></p>
+<h3 id="operational-lessons"><a class="header" href="#operational-lessons">Operational Lessons</a></h3>
+<p><strong>[MANUAL: Add lessons learned from this unit's operations]</strong></p>
+<h3 id="legacy"><a class="header" href="#legacy">Legacy</a></h3>
+<p><strong>[MANUAL: Add information about unit's post-war legacy, memorials, historical assessment]</strong></p>
+<hr />
+<p><em>[MANUAL: Add concluding paragraph summarizing the unit's significance]</em></p>
+<p><strong>Generated from Phase 6 TO&amp;E Data | [MANUAL: Add sources] | Confidence: [%] | Tier [#]</strong></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../chapters/chapter_italian_1943q2_xxi_corpo_darmata_xxi_corps.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../chapters/chapter_american_1942q4_1st_infantry_division.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../chapters/chapter_italian_1943q2_xxi_corpo_darmata_xxi_corps.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../chapters/chapter_american_1942q4_1st_infantry_division.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

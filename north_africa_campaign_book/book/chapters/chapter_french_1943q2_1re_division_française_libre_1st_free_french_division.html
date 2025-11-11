@@ -1,0 +1,682 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>1Re Division Française Libre 1St Free French Division - North Africa Campaign 1940-1943: Complete Order of Battle</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">North Africa Campaign 1940-1943: Complete Order of Battle</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/yourusername/north-africa-toe-builder" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="1re-division-française-libre-1st-free-french-division"><a class="header" href="#1re-division-française-libre-1st-free-french-division">1re Division Française Libre (1st Free French Division)</a></h1>
+<p><strong>Nation:</strong> French
+<strong>Quarter:</strong> 1943-Q2
+<strong>Organization Level:</strong> Division</p>
+<h2 id="1-overview"><a class="header" href="#1-overview">1. Overview</a></h2>
+<p><strong>[MANUAL: Add 2-3 paragraphs of historical context about the 1re Division Française Libre (1st Free French Division)]</strong></p>
+<p><strong>[MANUAL: Describe the unit's role during 1943-Q2, formation history, and strategic importance]</strong></p>
+<p><strong>[MANUAL: Add operational context - what major operations/battles occurred this quarter]</strong></p>
+<p><strong>Key Statistics (1943-Q2):</strong></p>
+<ul>
+<li>Total Strength: 15,800 personnel</li>
+<li>Unit Type: Motorized Infantry Division</li>
+<li>Organization Level: Division</li>
+<li>Parent Formation: British Eighth Army</li>
+<li>Commander: Général de Division Général de Division Pierre Koenig</li>
+<li>Headquarters Location: Tripolitania, Libya</li>
+<li>Tanks: 52</li>
+<li>Artillery: 96 guns</li>
+<li>Motor Vehicles: 1,920</li>
+</ul>
+<h2 id="2-command-structure"><a class="header" href="#2-command-structure">2. Command Structure</a></h2>
+<h3 id="division-commander"><a class="header" href="#division-commander">Division Commander</a></h3>
+<p><strong>Général de Division Général de Division Pierre Koenig</strong> assumed command on 1943-05-17.</p>
+<p>Previous service: Succeeded Edgard de Larminat (Feb 1-May 16 1943), Commander of 1st Free French Brigade at Bir Hakeim. Succeeded by Diego Brosset Aug 1 1943</p>
+<p><strong>[MANUAL: Add 1-2 paragraphs about commander's background, command style, and performance]</strong></p>
+<h3 id="division-staff"><a class="header" href="#division-staff">Division Staff</a></h3>
+<p>The division headquarters staff comprised approximately 243 personnel:</p>
+<ul>
+<li><strong>Officers:</strong> 48 (operations, intelligence, logistics, signals)</li>
+<li><strong>NCOs:</strong> 70 (section chiefs, administrative staff)</li>
+<li><strong>Enlisted:</strong> 125 (clerks, drivers, guards, support)</li>
+</ul>
+<h3 id="chief-of-staff"><a class="header" href="#chief-of-staff">Chief of Staff</a></h3>
+<p>The <strong>Chief of Staff</strong> position was typically held by a Colonel who coordinated all divisional operations.</p>
+<h3 id="headquarters-location"><a class="header" href="#headquarters-location">Headquarters Location</a></h3>
+<p>Division headquarters was established at: Tripolitania, Libya</p>
+<p><strong>[MANUAL: Add details about headquarters mobility, facilities, and operational context]</strong></p>
+<h2 id="3-personnel-strength"><a class="header" href="#3-personnel-strength">3. Personnel Strength</a></h2>
+<h3 id="total-strength-15800-personnel"><a class="header" href="#total-strength-15800-personnel">Total Strength: 15,800 Personnel</a></h3>
+<p><strong>[MANUAL: Add 1-2 paragraphs about overall strength, comparing to establishment, explaining any understrength/overstrength]</strong></p>
+<h3 id="officer-corps-750-officers-47-of-total"><a class="header" href="#officer-corps-750-officers-47-of-total">Officer Corps: 750 Officers (4.7% of total)</a></h3>
+<p>The division's officer corps included:</p>
+<ul>
+<li>Division staff and headquarters officers</li>
+<li>Regiment and battalion commanders</li>
+<li>Company and platoon leaders</li>
+<li>Technical specialists</li>
+</ul>
+<p><strong>[MANUAL: Add details about officer quality, training, and leadership capabilities]</strong></p>
+<h3 id="non-commissioned-officers-2350-ncos-149-of-total"><a class="header" href="#non-commissioned-officers-2350-ncos-149-of-total">Non-Commissioned Officers: 2,350 NCOs (14.9% of total)</a></h3>
+<p>NCOs provided critical small unit leadership:</p>
+<ul>
+<li>Squad and section leaders</li>
+<li>Weapon crew chiefs</li>
+<li>Technical specialists</li>
+<li>Administrative and supply NCOs</li>
+</ul>
+<p><strong>[MANUAL: Add details about NCO experience and role]</strong></p>
+<h3 id="enlisted-personnel-12700-804-of-total"><a class="header" href="#enlisted-personnel-12700-804-of-total">Enlisted Personnel: 12,700 (80.4% of total)</a></h3>
+<p>The bulk of the division consisted of enlisted soldiers:</p>
+<ul>
+<li>Infantry riflemen</li>
+<li>Machine gun and weapon crews</li>
+<li>Artillery crews</li>
+<li>Drivers and mechanics</li>
+<li>Engineers and pioneers</li>
+<li>Supply and administrative personnel</li>
+</ul>
+<h3 id="personnel-quality"><a class="header" href="#personnel-quality">Personnel Quality</a></h3>
+<p><strong>[MANUAL: Add 2-3 paragraphs about:]</strong></p>
+<ul>
+<li>Combat experience level (veteran vs. newly-arrived)</li>
+<li>Morale status</li>
+<li>Training emphasis</li>
+<li>Replacement situation</li>
+<li>Known strengths/weaknesses</li>
+</ul>
+<h2 id="4-organization"><a class="header" href="#4-organization">4. Organization</a></h2>
+<p><strong>[MANUAL: Add 1-2 paragraphs describing overall organizational structure and doctrine]</strong></p>
+<h3 id="primary-subordinate-units"><a class="header" href="#primary-subordinate-units">Primary Subordinate Units</a></h3>
+<p><strong>1. 1re Brigade Française Libre (1st Free French Brigade)</strong></p>
+<ul>
+<li>Type: Infantry Brigade</li>
+<li>Strength: 5,200 personnel</li>
+<li>Commander: Colonel Unknown (Koenig promoted to division command May 17)</li>
+<li>Note: Includes 13th DBLE (Demi-Brigade of Foreign Legion), Bataillon du Pacifique (Pacific Battalion), Bataillon de Nouvelle-Calédonie (New Caledonia Battalion), 22nd North African Battalion. Assaulted Djebel Garci during Battle of Takrouna May 10-13 1943</li>
+</ul>
+<p><strong>2. 2e Brigade Française Libre (2nd Free French Brigade)</strong></p>
+<ul>
+<li>Type: Infantry Brigade</li>
+<li>Strength: 4,900 personnel</li>
+<li>Commander: Général de Brigade Henri Cazaud</li>
+<li>Note: Includes 1st, 3rd, 11th March Battalions, 1st Foreign Legion Battalion. Assaulted Takrouna village during Battle of Takrouna May 10-13 1943, breaking German-Italian resistance line</li>
+</ul>
+<p><strong>3. 4e Brigade Française Libre (4th Free French Brigade)</strong></p>
+<ul>
+<li>Type: Infantry Brigade</li>
+<li>Strength: 3,300 personnel</li>
+<li>Commander: Colonel Unknown</li>
+<li>Note: Formed from units arriving from various Free French garrisons, reinforced after Tunisia</li>
+</ul>
+<p><strong>4. 1er Régiment de Fusiliers Marins</strong></p>
+<ul>
+<li>Type: Naval Infantry Regiment</li>
+<li>Strength: 880 personnel</li>
+<li>Commander: Capitaine de Corvette Unknown</li>
+</ul>
+<p><strong>5. 1er Régiment de Marche de Spahis Marocains</strong></p>
+<ul>
+<li>Type: Cavalry/Reconnaissance Regiment</li>
+<li>Strength: 750 personnel</li>
+<li>Commander: Colonel Unknown</li>
+</ul>
+<p><strong>6. 1er Régiment d'Artillerie Mécanisé</strong></p>
+<ul>
+<li>Type: Divisional Artillery</li>
+<li>Strength: 1,250 personnel</li>
+<li>Commander: Colonel Unknown</li>
+<li>Note: Two motorized 75mm battalions, equipped primarily with British 25-pounders</li>
+</ul>
+<p><strong>7. Divisional Services</strong></p>
+<ul>
+<li>Type: Support and Services</li>
+<li>Strength: 1,120 personnel</li>
+<li>Commander: Colonel Unknown</li>
+<li>Note: Engineers, signals (1st Signal Battalion with 2 companies), medical, supply, transport companies</li>
+</ul>
+<h3 id="organizational-assessment"><a class="header" href="#organizational-assessment">Organizational Assessment</a></h3>
+<p><strong>[MANUAL: Add assessment of organizational strengths, gaps, and combat effectiveness]</strong></p>
+<h2 id="5-infantry-weapons"><a class="header" href="#5-infantry-weapons">5. Infantry Weapons</a></h2>
+<p><strong>[MANUAL: Add introductory paragraph about unit's infantry weapons doctrine and supply]</strong></p>
+<h3 id="lee-enfield-no4-rifle"><a class="header" href="#lee-enfield-no4-rifle">Lee-Enfield No.4 Rifle</a></h3>
+<ul>
+<li><strong>Count:</strong> 8,800</li>
+<li><strong>Type:</strong> Rifle</li>
+</ul>
+<p><strong>[MANUAL: Add specifications:]</strong></p>
+<ul>
+<li>Caliber</li>
+<li>Action type</li>
+<li>Magazine/feed system</li>
+<li>Effective range</li>
+<li>Rate of fire</li>
+<li>Weight</li>
+<li>Muzzle velocity</li>
+</ul>
+<p><strong>[MANUAL: Add 1-2 paragraphs about weapon's performance, reliability, and tactical employment]</strong></p>
+<h3 id="bren-light-machine-gun"><a class="header" href="#bren-light-machine-gun">Bren Light Machine Gun</a></h3>
+<ul>
+<li><strong>Count:</strong> 640</li>
+<li><strong>Type:</strong> Light Machine Gun</li>
+</ul>
+<p><strong>[MANUAL: Add specifications:]</strong></p>
+<ul>
+<li>Caliber</li>
+<li>Action type</li>
+<li>Magazine/feed system</li>
+<li>Effective range</li>
+<li>Rate of fire</li>
+<li>Weight</li>
+<li>Muzzle velocity</li>
+</ul>
+<p><strong>[MANUAL: Add 1-2 paragraphs about weapon's performance, reliability, and tactical employment]</strong></p>
+<h3 id="sten-submachine-gun"><a class="header" href="#sten-submachine-gun">Sten Submachine Gun</a></h3>
+<ul>
+<li><strong>Count:</strong> 510</li>
+<li><strong>Type:</strong> Submachine Gun</li>
+</ul>
+<p><strong>[MANUAL: Add specifications:]</strong></p>
+<ul>
+<li>Caliber</li>
+<li>Action type</li>
+<li>Magazine/feed system</li>
+<li>Effective range</li>
+<li>Rate of fire</li>
+<li>Weight</li>
+<li>Muzzle velocity</li>
+</ul>
+<p><strong>[MANUAL: Add 1-2 paragraphs about weapon's performance, reliability, and tactical employment]</strong></p>
+<h2 id="6-motor-vehicles-and-transport"><a class="header" href="#6-motor-vehicles-and-transport">6. Motor Vehicles and Transport</a></h2>
+<h3 id="total-motor-vehicles-1920"><a class="header" href="#total-motor-vehicles-1920">Total Motor Vehicles: 1,920</a></h3>
+<p><strong>[MANUAL: Add paragraph about unit's motorization level and mobility capabilities]</strong></p>
+<h3 id="trucks-1480-total"><a class="header" href="#trucks-1480-total">Trucks: 1,480 Total</a></h3>
+<h4 id="bedford-ql"><a class="header" href="#bedford-ql">Bedford QL</a></h4>
+<ul>
+<li><strong>Count:</strong> 540</li>
+<li><strong>Capacity:</strong> 3_ton</li>
+</ul>
+<p><strong>[MANUAL: Add specifications and usage]</strong></p>
+<h4 id="cmp-15cwt"><a class="header" href="#cmp-15cwt">CMP 15cwt</a></h4>
+<ul>
+<li><strong>Count:</strong> 400</li>
+<li><strong>Capacity:</strong> 15_cwt</li>
+</ul>
+<p><strong>[MANUAL: Add specifications and usage]</strong></p>
+<h4 id="cmp-3-ton"><a class="header" href="#cmp-3-ton">CMP 3-ton</a></h4>
+<ul>
+<li><strong>Count:</strong> 340</li>
+<li><strong>Capacity:</strong> 3_ton</li>
+</ul>
+<p><strong>[MANUAL: Add specifications and usage]</strong></p>
+<h4 id="dodge-wc"><a class="header" href="#dodge-wc">Dodge WC</a></h4>
+<ul>
+<li><strong>Count:</strong> 200</li>
+<li><strong>Capacity:</strong> 3_4_ton</li>
+</ul>
+<p><strong>[MANUAL: Add specifications and usage]</strong></p>
+<h3 id="motorcycles-125-total"><a class="header" href="#motorcycles-125-total">Motorcycles: 125 Total</a></h3>
+<h4 id="norton-16h"><a class="header" href="#norton-16h">Norton 16H</a></h4>
+<ul>
+<li><strong>Count:</strong> 75</li>
+</ul>
+<p><strong>[MANUAL: Add specifications and usage]</strong></p>
+<h4 id="bsa-m20"><a class="header" href="#bsa-m20">BSA M20</a></h4>
+<ul>
+<li><strong>Count:</strong> 50</li>
+</ul>
+<p><strong>[MANUAL: Add specifications and usage]</strong></p>
+<h3 id="armored-cars-52-total"><a class="header" href="#armored-cars-52-total">Armored Cars: 52 Total</a></h3>
+<p><strong>[MANUAL: Add armored car variants with specifications and tactical employment]</strong></p>
+<h3 id="support-vehicles-175-total"><a class="header" href="#support-vehicles-175-total">Support Vehicles: 175 Total</a></h3>
+<h4 id="water-tankers"><a class="header" href="#water-tankers">Water Tankers</a></h4>
+<ul>
+<li><strong>Count:</strong> 42</li>
+<li><strong>Type:</strong> Water Supply</li>
+</ul>
+<h4 id="fuel-tankers"><a class="header" href="#fuel-tankers">Fuel Tankers</a></h4>
+<ul>
+<li><strong>Count:</strong> 38</li>
+<li><strong>Type:</strong> Fuel Supply</li>
+</ul>
+<h4 id="ambulances"><a class="header" href="#ambulances">Ambulances</a></h4>
+<ul>
+<li><strong>Count:</strong> 40</li>
+<li><strong>Type:</strong> Medical</li>
+</ul>
+<h4 id="workshop-vehicles"><a class="header" href="#workshop-vehicles">Workshop Vehicles</a></h4>
+<ul>
+<li><strong>Count:</strong> 32</li>
+<li><strong>Type:</strong> Maintenance</li>
+</ul>
+<h4 id="staff-cars"><a class="header" href="#staff-cars">Staff Cars</a></h4>
+<ul>
+<li><strong>Count:</strong> 23</li>
+<li><strong>Type:</strong> Command</li>
+</ul>
+<h3 id="transport-challenges"><a class="header" href="#transport-challenges">Transport Challenges</a></h3>
+<p><strong>[MANUAL: Add section about desert operating challenges, maintenance, fuel consumption, etc.]</strong></p>
+<h2 id="7-artillery"><a class="header" href="#7-artillery">7. Artillery</a></h2>
+<h3 id="total-artillery-96-guns"><a class="header" href="#total-artillery-96-guns">Total Artillery: 96 Guns</a></h3>
+<p><strong>[MANUAL: Add paragraph about artillery organization and doctrine]</strong></p>
+<h3 id="field-artillery-48-guns"><a class="header" href="#field-artillery-48-guns">Field Artillery: 48 Guns</a></h3>
+<h4 id="qf-25-pounder"><a class="header" href="#qf-25-pounder">QF 25-pounder</a></h4>
+<ul>
+<li><strong>Count:</strong> 36</li>
+<li><strong>Caliber:</strong> 87.6mm</li>
+</ul>
+<p><strong>[MANUAL: Add specifications:]</strong></p>
+<ul>
+<li>Range</li>
+<li>Shell weight</li>
+<li>Rate of fire</li>
+<li>Muzzle velocity</li>
+<li>Weight</li>
+<li>Crew size</li>
+</ul>
+<p><strong>[MANUAL: Add tactical employment paragraph]</strong></p>
+<h4 id="canon-de-75-mle-1897"><a class="header" href="#canon-de-75-mle-1897">Canon de 75 mle 1897</a></h4>
+<ul>
+<li><strong>Count:</strong> 12</li>
+<li><strong>Caliber:</strong> 75mm</li>
+</ul>
+<p><strong>[MANUAL: Add specifications:]</strong></p>
+<ul>
+<li>Range</li>
+<li>Shell weight</li>
+<li>Rate of fire</li>
+<li>Muzzle velocity</li>
+<li>Weight</li>
+<li>Crew size</li>
+</ul>
+<p><strong>[MANUAL: Add tactical employment paragraph]</strong></p>
+<h3 id="anti-tank-artillery-32-guns"><a class="header" href="#anti-tank-artillery-32-guns">Anti-Tank Artillery: 32 Guns</a></h3>
+<h4 id="qf-6-pounder"><a class="header" href="#qf-6-pounder">QF 6-pounder</a></h4>
+<ul>
+<li><strong>Count:</strong> 24</li>
+<li><strong>Caliber:</strong> 57mm</li>
+</ul>
+<p><strong>[MANUAL: Add specifications and anti-armor effectiveness]</strong></p>
+<h4 id="qf-2-pounder"><a class="header" href="#qf-2-pounder">QF 2-pounder</a></h4>
+<ul>
+<li><strong>Count:</strong> 8</li>
+<li><strong>Caliber:</strong> 40mm</li>
+</ul>
+<p><strong>[MANUAL: Add specifications and anti-armor effectiveness]</strong></p>
+<h3 id="anti-aircraft-artillery-16-guns"><a class="header" href="#anti-aircraft-artillery-16-guns">Anti-Aircraft Artillery: 16 Guns</a></h3>
+<h4 id="bofors-40mm"><a class="header" href="#bofors-40mm">Bofors 40mm</a></h4>
+<ul>
+<li><strong>Count:</strong> 12</li>
+<li><strong>Caliber:</strong> 40mm</li>
+</ul>
+<p><strong>[MANUAL: Add specifications and air defense employment]</strong></p>
+<h4 id="hotchkiss-m1929"><a class="header" href="#hotchkiss-m1929">Hotchkiss M1929</a></h4>
+<ul>
+<li><strong>Count:</strong> 4</li>
+<li><strong>Caliber:</strong> 13.2mm</li>
+</ul>
+<p><strong>[MANUAL: Add specifications and air defense employment]</strong></p>
+<h2 id="8-supply-and-logistics"><a class="header" href="#8-supply-and-logistics">8. Supply and Logistics</a></h2>
+<h3 id="supply-status"><a class="header" href="#supply-status">Supply Status</a></h3>
+<p>Good - 1st Free French Division post-Tunisia Campaign (May-June 1943) resting and refitting in Tripolitania under British Eighth Army. Supplied via British logistics with fuel reserves 8 days for motorized operations, ammunition excellent at 21 days for sustained operations, water 5L/man/day (79,000L total / 15,800 personnel), food reserves 28 days. Division received replacement equipment and personnel after Tunisia. Commander Général Pierre Koenig commanded May-June 1943 (succeeded by Brosset Aug 1). Division preparing for Italian campaign (Sicily/Italy). Supply base: British Eighth Army depots in Libya.</p>
+<h3 id="fuel-supply"><a class="header" href="#fuel-supply">Fuel Supply</a></h3>
+<p><strong>Fuel Reserves:</strong> 8 days</p>
+<p><strong>[MANUAL: Add fuel supply details, daily consumption, sources, constraints]</strong></p>
+<h3 id="ammunition-supply"><a class="header" href="#ammunition-supply">Ammunition Supply</a></h3>
+<p><strong>Ammunition Reserves:</strong> 21 days</p>
+<p><strong>[MANUAL: Add ammunition supply details, types, resupply, shortages]</strong></p>
+<h3 id="water-supply"><a class="header" href="#water-supply">Water Supply</a></h3>
+<p><strong>Daily Requirement:</strong> 5 liters per day</p>
+<p><strong>[MANUAL: Add water supply details, transport, rationing, sources]</strong></p>
+<h3 id="operational-radius"><a class="header" href="#operational-radius">Operational Radius</a></h3>
+<p><strong>Estimated:</strong> 200 km from supply dumps</p>
+<h3 id="supply-chain-vulnerabilities"><a class="header" href="#supply-chain-vulnerabilities">Supply Chain Vulnerabilities</a></h3>
+<p><strong>[MANUAL: Add section about supply chain risks, interdiction, priorities, and challenges]</strong></p>
+<h2 id="9-weather-and-environment"><a class="header" href="#9-weather-and-environment">9. Weather and Environment</a></h2>
+<h3 id="climate-1943-q2"><a class="header" href="#climate-1943-q2">Climate (1943-Q2)</a></h3>
+<p><strong>Season:</strong> 1943-Q2 (April-June) - Spring/Early summer in Libya</p>
+<p><strong>Temperature Range:</strong> 15-32°C</p>
+<p><strong>Daylight Hours:</strong> 13.5 hours</p>
+<p><strong>Storm Frequency:</strong> Approximately 2 days per month</p>
+<p><strong>[MANUAL: Add detailed climate description for this quarter]</strong></p>
+<h3 id="terrain"><a class="header" href="#terrain">Terrain</a></h3>
+<p>Libyan coastal plain - post-campaign rest area in Tripolitania, good roads, desert terrain, coastal access</p>
+<h3 id="weather-challenges"><a class="header" href="#weather-challenges">Weather Challenges</a></h3>
+<p><strong>[MANUAL: Add weather impact on operations]</strong></p>
+<h3 id="environmental-challenges"><a class="header" href="#environmental-challenges">Environmental Challenges</a></h3>
+<p><strong>[MANUAL: Add environmental challenges - dust, heat, navigation, disease, etc.]</strong></p>
+<h2 id="10-combat-history"><a class="header" href="#10-combat-history">10. Combat History</a></h2>
+<h3 id="formation-and-deployment"><a class="header" href="#formation-and-deployment">Formation and Deployment</a></h3>
+<p><strong>[MANUAL: Add 2-3 paragraphs about unit formation, when/where raised, deployment to theater]</strong></p>
+<h3 id="major-engagements"><a class="header" href="#major-engagements">Major Engagements</a></h3>
+<p><strong>[MANUAL: List and describe major battles, operations, and engagements]</strong></p>
+<h3 id="combat-effectiveness-assessment"><a class="header" href="#combat-effectiveness-assessment">Combat Effectiveness Assessment</a></h3>
+<p><strong>[MANUAL: Add assessment of strengths, weaknesses, and overall combat performance]</strong></p>
+<h2 id="11-tactical-doctrine-and-capabilities"><a class="header" href="#11-tactical-doctrine-and-capabilities">11. Tactical Doctrine and Capabilities</a></h2>
+<h3 id="doctrinal-role"><a class="header" href="#doctrinal-role">Doctrinal Role</a></h3>
+<p>Motorized infantry division organized on British brigade model, post-Tunisia Campaign rest and refit period</p>
+<h3 id="special-capabilities"><a class="header" href="#special-capabilities">Special Capabilities</a></h3>
+<ul>
+<li>Veteran desert warfare force with Tunisia Campaign experience including Battle of Takrouna</li>
+<li>Multi-ethnic composition including Free French, Foreign Legion, Colonial troops, Pacific Islanders</li>
+<li>Proficient in mobile desert operations with British equipment and doctrine</li>
+<li>Strong morale from Tunisia victory, preparing for Italian campaign</li>
+</ul>
+<h3 id="tactical-innovations"><a class="header" href="#tactical-innovations">Tactical Innovations</a></h3>
+<ul>
+<li>Consolidated Free French forces from multiple theaters into cohesive division</li>
+<li>Effective integration of diverse national and colonial units under unified French command</li>
+<li>Adapted to British tactical doctrine while maintaining French military traditions and élan</li>
+</ul>
+<h3 id="combined-arms-integration"><a class="header" href="#combined-arms-integration">Combined Arms Integration</a></h3>
+<p><strong>[MANUAL: Add section about infantry-tank-artillery cooperation, air support, engineer support]</strong></p>
+<h3 id="known-issues-and-limitations"><a class="header" href="#known-issues-and-limitations">Known Issues and Limitations</a></h3>
+<ul>
+<li>Mixed equipment from French, British, and American sources requiring complex logistics</li>
+<li>Some units still equipped with obsolescent French weapons pending replacement</li>
+<li>Integration of new replacements after Tunisia casualties</li>
+<li>Limited heavy armor compared to British armored divisions</li>
+</ul>
+<h3 id="desert-adaptations"><a class="header" href="#desert-adaptations">Desert Adaptations</a></h3>
+<p>Extensive experience in desert operations from Libyan, Saharan, and Tunisia campaigns; excellent water discipline; adapted to extreme heat and supply constraints; veteran force ready for Mediterranean operations</p>
+<h2 id="12-wargaming-and-scenario-data"><a class="header" href="#12-wargaming-and-scenario-data">12. Wargaming and Scenario Data</a></h2>
+<h3 id="morale-and-experience"><a class="header" href="#morale-and-experience">Morale and Experience</a></h3>
+<p><strong>Morale Rating:</strong> 9/10</p>
+<p><strong>Experience Level:</strong> Veteran</p>
+<p><strong>[MANUAL: Add paragraph explaining morale factors and experience level]</strong></p>
+<h3 id="scenario-suitability"><a class="header" href="#scenario-suitability">Scenario Suitability</a></h3>
+<p>This unit is well-suited for:</p>
+<ul>
+<li>Tunisia Campaign finale (April-May 1943)</li>
+<li>Battle of Takrouna (May 10-13 1943)</li>
+<li>Post-Tunisia rest period (June 1943)</li>
+<li>Preparation for Sicily/Italy invasion (July-August 1943)</li>
+</ul>
+<h3 id="special-rules-wargaming"><a class="header" href="#special-rules-wargaming">Special Rules (Wargaming)</a></h3>
+<ul>
+<li>Veteran Desert Fighters: +1 to combat rolls in desert terrain</li>
+<li>Tunisia Veterans: Re-roll one failed combat roll per battle (Battle of Takrouna experience)</li>
+<li>Multinational Force: Mixed command structure may cause coordination delays</li>
+<li>Free French Determination: Re-roll failed morale checks once per battle</li>
+<li>British Equipment: Uses British supply rules and logistics</li>
+</ul>
+<h3 id="historical-engagements-this-quarter"><a class="header" href="#historical-engagements-this-quarter">Historical Engagements (This Quarter)</a></h3>
+<ul>
+<li>Siege of Kufra (1941)</li>
+<li>Battle of Bir Hakeim (May-June 1942)</li>
+<li>El Alamein (October-November 1942)</li>
+<li>Liberation of Tripoli (January 1943)</li>
+<li>Tunisia Campaign (February-May 1943)</li>
+<li>Battle of Takrouna (May 10-13 1943) - 1st Brigade assaulted Djebel Garci, 2nd Brigade captured Takrouna village, broke German-Italian resistance leading to Axis capitulation May 13</li>
+</ul>
+<h3 id="force-composition-for-scenarios"><a class="header" href="#force-composition-for-scenarios">Force Composition for Scenarios</a></h3>
+<p><strong>[MANUAL: Add typical force breakdowns for wargaming scenarios]</strong></p>
+<h2 id="13-data-quality-and-sources"><a class="header" href="#13-data-quality-and-sources">13. Data Quality and Sources</a></h2>
+<h3 id="source-documentation"><a class="header" href="#source-documentation">Source Documentation</a></h3>
+<p>This TO&amp;E is based on:</p>
+<ul>
+<li>Nafziger Collection 943fhaa.pdf: French Gaulist Forces 12 August 1943 - 1st French Division structure in Libya/Egypt post-Tunisia, brigade composition, artillery, equipment allocations, subordinate units (Tier 1, 92% confidence)</li>
+<li>Service Historique de la Défense (French Military Archives): 1re DFL formation 1 February 1943, command succession documented (Larminat Feb 1-May 16, Koenig May 17-Aug 4, Brosset Aug 5 1943+), British Eighth Army and X Corps assignments Tunisia, Corps Expéditionnaire Français Italy preparation, journals of operations April-June 1943, strength reports, casualty records (Tier 1, 90% confidence) - https://www.servicehistorique.sga.defense.gouv.fr/ark/1468846</li>
+<li>Playfair, History of the Second World War: Mediterranean and Middle East Vol.IV - 1st Free French Division Tunisia Campaign Feb-May 1943, Takrouna operations May 10-13 1943, integration with British Eighth Army, post-Tunisia rest period (Tier 1, 88% confidence)</li>
+<li>Chemins de mémoire (French Ministry of Defence): 1re DFL command structure (Koenig May-Aug 1943, Brosset Aug 1943+), Tunisia Campaign participation, Battle of Takrouna May 10-13 with 1st Brigade Djebel Garci and 2nd Brigade Takrouna village assaults, CEF formation post-Tunisia, division composition 5000+ personnel, Axis capitulation May 13 with 300,000 POWs (Tier 2, 87% confidence) - https://www.cheminsdememoire.gouv.fr/fr/la-1re-division-francaise-libre-dfl</li>
+<li>Musée de l'Armée (French Army Museum): Tunisia Campaign operations Feb-May 1943, Battle of Takrouna detailed operations May 10-13 1943 (1st Brigade Djebel Garci assault, 2nd Brigade Takrouna village breakthrough), German-Italian resistance collapse May 13, eight FFL units awarded Cross of Liberation including 2e Brigade with 'Takrouna 1943' battle honor (Tier 2, 85% confidence) - https://www.musee-armee.fr/</li>
+<li>Fondation de la France Libre: 1re DFL Tunisia Campaign Feb-May 1943, post-Tunisia rest period Libya June 1943, redesignation to 1re Division Motorisée d'Infanterie Aug 24 1943, brigade structures (13th DBLE, Bataillon du Pacifique, Bataillon de Nouvelle-Calédonie, North African battalions, Foreign Legion units), integration of Djibouti forces (4th Brigade) (Tier 2, 84% confidence) - https://www.france-libre.net/</li>
+<li>TracesOfWar.com: Diego Brosset promoted Brigadier General June 1943, took 1st DFL command August 1 1943 (cross-validated with SHD archives showing Koenig commanded through Aug 4) (Tier 2, 82% confidence) - https://www.tracesofwar.com/persons/90786/Brosset-Diego.htm</li>
+<li>Cross-referenced: Command succession Q2 1943 - Larminat (Feb 1-May 16), Koenig (May 17-Aug 4), Brosset (Aug 5+). Q2 period (Apr-Jun 1943) covers end of Larminat command, Koenig command May-June 1943</li>
+<li>Cross-referenced: Division formed 1 February 1943, fought Tunisia Campaign Feb-May 1943, Axis capitulation May 13 1943 with 300,000 prisoners</li>
+<li>Cross-referenced: Battle of Takrouna May 10-13 1943 (NOT April) - 1st Brigade assaulted Djebel Garci, 2nd Brigade assaulted and captured Takrouna village, breakthrough of German-Italian resistance line</li>
+<li>Cross-referenced: Brigade commanders - Pierre Koenig (1st BFL then division command May 17), Henri Cazaud (2nd BFL), 4th Brigade from Djibouti reinforcements</li>
+<li>Cross-referenced: Post-Tunisia rest period June 1943 in Tripolitania Libya, division joined CEF for Italian campaign, redesignated 1re DMI August 24 1943</li>
+<li>Calculated: Personnel 15,800 from brigade strengths (1st BFL 5,200 + 2nd BFL 4,900 + 4th BFL 3,300 + support 2,400), increased from Q1 due to replacements post-Tunisia, Chemins de mémoire confirms 5000+ base strength</li>
+<li>British Eighth Army organization tables: Free French equipment post-Tunisia (Valentine, Stuart tanks, 25-pdr artillery, British trucks), supply via British logistics depots Libya</li>
+<li>Schema v3.1.0: supply_logistics and weather_environment with post-Tunisia rest period conditions June 1943 Tripolitania Libya</li>
+</ul>
+<p><strong>Last Updated:</strong> 2025-10-26</p>
+<p><strong>Validated By:</strong> Claude Code Agent</p>
+<h3 id="confidence-assessment"><a class="header" href="#confidence-assessment">Confidence Assessment</a></h3>
+<p><strong>Overall Confidence:</strong> 88% (unknown)</p>
+<p><strong>[MANUAL: Add confidence breakdown by category - High/Medium/Low confidence areas]</strong></p>
+<h3 id="required-field-gaps"><a class="header" href="#required-field-gaps">Required Field Gaps</a></h3>
+<p>Missing information:</p>
+<ul>
+<li>1st Brigade commander after Koenig promotion to division command (May 17) not identified by name in sources</li>
+<li>4th Brigade commander not identified by name in available sources</li>
+<li>Some subordinate unit commanders (Fusiliers Marins, Spahis, Artillery) not identified by name in Nafziger sources</li>
+<li>Vehicle counts estimated from British supply patterns for motorized divisions in Mediterranean theater</li>
+<li>Exact equipment losses from Tunisia Campaign and replacement schedules not fully documented in available sources</li>
+</ul>
+<h3 id="data-tier-rationale"><a class="header" href="#data-tier-rationale">Data Tier Rationale</a></h3>
+<p><strong>[MANUAL: Add explanation of tier assignment and data quality factors]</strong></p>
+<h2 id="14-historical-significance"><a class="header" href="#14-historical-significance">14. Historical Significance</a></h2>
+<h3 id="strategic-importance"><a class="header" href="#strategic-importance">Strategic Importance</a></h3>
+<p><strong>[MANUAL: Add 2-3 paragraphs about unit's strategic role in theater]</strong></p>
+<h3 id="operational-lessons"><a class="header" href="#operational-lessons">Operational Lessons</a></h3>
+<p><strong>[MANUAL: Add lessons learned from this unit's operations]</strong></p>
+<h3 id="legacy"><a class="header" href="#legacy">Legacy</a></h3>
+<p><strong>[MANUAL: Add information about unit's post-war legacy, memorials, historical assessment]</strong></p>
+<hr />
+<p><em>[MANUAL: Add concluding paragraph summarizing the unit's significance]</em></p>
+<p><strong>Generated from Phase 6 TO&amp;E Data | [MANUAL: Add sources] | Confidence: [%] | Tier [#]</strong></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../chapters/chapter_french_1943q2_1re_division_fran_aise_libre.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../chapters/chapter_french_1943q2_1st_moroccan_march_division.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../chapters/chapter_french_1943q2_1re_division_fran_aise_libre.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../chapters/chapter_french_1943q2_1st_moroccan_march_division.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

@@ -1,0 +1,478 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>90 Leichte Division - North Africa Campaign 1940-1943: Complete Order of Battle</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">North Africa Campaign 1940-1943: Complete Order of Battle</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/yourusername/north-africa-toe-builder" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="90-leichte-division"><a class="header" href="#90-leichte-division">90. leichte Division</a></h1>
+<p><strong>Nation:</strong> German<br />
+<strong>Quarter:</strong> 1943-Q1 (January-March 1943)<br />
+<strong>Organization Level:</strong> Division<br />
+<strong>Type:</strong> Light Infantry Division<br />
+<strong>Parent Formation:</strong> Panzerarmee Afrika / Heeresgruppe Afrika</p>
+<hr />
+<h2 id="commander"><a class="header" href="#commander">Commander</a></h2>
+<p><strong>Generalmajor Theodor Graf von Sponeck</strong></p>
+<ul>
+<li><strong>Rank:</strong> Generalmajor</li>
+<li><strong>Appointment:</strong> 1 September 1942</li>
+<li><strong>Background:</strong> Promoted to Generalmajor on 1 November 1942, continued command through the Tunisia Campaign until the division's surrender in May 1943.</li>
+</ul>
+<p><strong>Headquarters:</strong> Tunisia - Mareth Line defensive positions (January-March 1943)</p>
+<hr />
+<h2 id="personnel"><a class="header" href="#personnel">Personnel</a></h2>
+<ul>
+<li><strong>Total Strength:</strong> 8,420 (reduced 14.5% from Q4 1942)</li>
+<li><strong>Officers:</strong> 362</li>
+<li><strong>NCOs:</strong> 1,587</li>
+<li><strong>Enlisted:</strong> 6,471</li>
+</ul>
+<p><strong>Personnel Breakdown by Unit:</strong></p>
+<ul>
+<li>Panzergrenadier-Regiment 155: 1,865</li>
+<li>Panzergrenadier-Regiment 200: 1,958</li>
+<li>Panzergrenadier-Regiment 361: 1,667</li>
+<li>Artillerie-Regiment 190: 723</li>
+<li>Panzerjäger-Abteilung 190: 352</li>
+<li>Aufklärungs-Abteilung 190: 414</li>
+<li>Pionier-Bataillon 190: 265</li>
+<li>Nachrichten-Abteilung 190: 176</li>
+<li>Divisional Staff &amp; Support: 192</li>
+</ul>
+<hr />
+<h2 id="equipment-summary"><a class="header" href="#equipment-summary">Equipment Summary</a></h2>
+<h3 id="infantry-weapons-top-3"><a class="header" href="#infantry-weapons-top-3">Infantry Weapons (Top 3)</a></h3>
+<ol>
+<li><strong>Karabiner 98k</strong> (Rifle): 4,120</li>
+<li><strong>MG 34</strong> (Machine Gun): 245</li>
+<li><strong>MP 40</strong> (Submachine Gun): 134</li>
+</ol>
+<h3 id="ground-vehicles-1043-total-164-reduction-from-q4-1942"><a class="header" href="#ground-vehicles-1043-total-164-reduction-from-q4-1942">Ground Vehicles: 1,043 total (16.4% reduction from Q4 1942)</a></h3>
+<p><strong>Armored Fighting Vehicles:</strong></p>
+<ul>
+<li><strong>Halftracks:</strong> 29 (operational: 21)
+<ul>
+<li>Sd.Kfz. 250: 11 (8 operational)</li>
+<li>Sd.Kfz. 251: 18 (13 operational)</li>
+</ul>
+</li>
+<li><strong>Armored Cars:</strong> 34 (operational: 25)
+<ul>
+<li>Sd.Kfz. 222: 15 (11 operational)</li>
+<li>Sd.Kfz. 231 (8-rad): 12 (9 operational)</li>
+<li>Sd.Kfz. 232 (8-rad): 7 (5 operational)</li>
+</ul>
+</li>
+</ul>
+<p><strong>Transport &amp; Support:</strong></p>
+<ul>
+<li><strong>Trucks:</strong> 734
+<ul>
+<li>Opel Blitz 3-ton: 382</li>
+<li>Mercedes-Benz L3000: 176</li>
+<li>Büssing-NAG 4500A: 98</li>
+<li>Captured vehicles (mixed): 78</li>
+</ul>
+</li>
+<li><strong>Motorcycles:</strong> 143
+<ul>
+<li>BMW R75: 72</li>
+<li>Zündapp KS750: 47</li>
+<li>DKW NZ350: 24</li>
+</ul>
+</li>
+<li><strong>Support Vehicles:</strong> 103
+<ul>
+<li>Kübelwagen: 61</li>
+<li>Workshop trucks: 26</li>
+<li>Ambulances: 16</li>
+</ul>
+</li>
+</ul>
+<h3 id="artillery-76-pieces-95-reduction-from-q4-1942"><a class="header" href="#artillery-76-pieces-95-reduction-from-q4-1942">Artillery: 76 pieces (9.5% reduction from Q4 1942)</a></h3>
+<p><strong>Field Artillery:</strong> 32 pieces</p>
+<ul>
+<li>10.5 cm leFH 18: 21</li>
+<li>15 cm sFH 18: 11</li>
+</ul>
+<p><strong>Anti-Tank Guns:</strong> 28 pieces</p>
+<ul>
+<li>5 cm PaK 38: 15</li>
+<li>7.5 cm PaK 40: 10</li>
+<li>Captured 25-pdr (as AT): 3</li>
+</ul>
+<p><strong>Anti-Aircraft Guns:</strong> 16 pieces</p>
+<ul>
+<li>2 cm FlaK 38: 10</li>
+<li>8.8 cm FlaK 18/36: 6</li>
+</ul>
+<hr />
+<h2 id="supply--logistics-status"><a class="header" href="#supply--logistics-status">Supply &amp; Logistics Status</a></h2>
+<p><strong>Overall Assessment:</strong> CRITICAL DETERIORATION</p>
+<p>The 90. leichte Division entered 1943-Q1 in severely degraded condition following the catastrophic retreat from El Alamein (November-December 1942). The division's supply situation reached crisis levels during the Tunisia Campaign defensive operations.</p>
+<p><strong>Key Supply Metrics:</strong></p>
+<ul>
+<li><strong>Fuel Reserves:</strong> 1.5 days (critical - barely sufficient for local tactical movement)</li>
+<li><strong>Ammunition:</strong> 3 days supply (severely rationed for defensive combat only)</li>
+<li><strong>Water:</strong> 6 liters/person/day (50,520L total - minimum survival level)</li>
+<li><strong>Operational Radius:</strong> 65 km from supply bases</li>
+</ul>
+<p><strong>Supply Bases:</strong></p>
+<ul>
+<li>Tunis (350 km north) - under constant Allied air attack</li>
+<li>Sfax (120 km north) - limited capacity, air attacks</li>
+</ul>
+<p><strong>Critical Issues:</strong></p>
+<ul>
+<li>Complete Allied air and naval supremacy strangling all Mediterranean supply convoys</li>
+<li>Lack of fuel, ammunition, spare parts, and medical supplies</li>
+<li>No replacement personnel or equipment arriving</li>
+<li>Vehicle maintenance crisis due to shortage of spare parts</li>
+<li>Personnel suffering from exhaustion, disease, and malnutrition</li>
+<li>Supply situation deteriorated significantly from already-critical Q4 1942 levels</li>
+</ul>
+<hr />
+<h2 id="environmental-conditions"><a class="header" href="#environmental-conditions">Environmental Conditions</a></h2>
+<p><strong>Season:</strong> Winter/Early Spring in Tunisia (January-March 1943)</p>
+<p><strong>Temperature Range:</strong> 8°C to 18°C (cooler than desert operations)</p>
+<p><strong>Terrain:</strong> Southern Tunisia - Mareth Line fortifications, coastal plain, Matmata Hills, Wadi Zigzaou anti-tank ditch, mixed rocky desert and agricultural areas</p>
+<p><strong>Weather Impacts:</strong></p>
+<ul>
+<li>Storm frequency: 4 days per month (winter rains, occasional sandstorms)</li>
+<li>Daylight hours: 11 hours average</li>
+<li>Muddy conditions during winter rains affecting mobility</li>
+<li>Better temperatures for personnel compared to summer desert operations</li>
+<li>Fortified defensive positions along Mareth Line</li>
+</ul>
+<hr />
+<h2 id="tactical-doctrine--capabilities"><a class="header" href="#tactical-doctrine--capabilities">Tactical Doctrine &amp; Capabilities</a></h2>
+<p><strong>Primary Role:</strong> Light infantry division conducting defensive operations in the Tunisia Campaign</p>
+<p><strong>Special Capabilities:</strong></p>
+<ul>
+<li>Experienced in defensive warfare and delaying actions</li>
+<li>Veteran of continuous North African combat since 1941 (28 months)</li>
+<li>Skilled at mobile defense with severely limited resources</li>
+<li>Expertise in desert and semi-arid terrain operations</li>
+<li>Integration of fortified positions with mobile defense tactics</li>
+</ul>
+<p><strong>Tactical Innovations:</strong></p>
+<ul>
+<li>Integration of Mareth Line fortifications into mobile defense doctrine</li>
+<li>Improvisation with critically limited fuel and ammunition</li>
+<li>Use of captured Allied equipment to supplement heavy losses</li>
+<li>Coordination with Italian units in Mareth defensive sector</li>
+</ul>
+<p><strong>Known Limitations:</strong></p>
+<ul>
+<li>Severely degraded combat effectiveness due to continuous attrition</li>
+<li>Critical fuel shortages limiting tactical mobility to local counterattacks only</li>
+<li>Ammunition rationing reducing available firepower by approximately 60%</li>
+<li>Personnel exhaustion from continuous operations since El Alamein (4+ months)</li>
+<li>Vehicle maintenance problems preventing full operational readiness</li>
+<li>Low morale due to deteriorating strategic situation and supply crisis</li>
+<li>Reduced strength prevents effective large-scale counterattacks</li>
+<li>Dependency on prepared defensive positions due to mobility constraints</li>
+</ul>
+<hr />
+<h2 id="historical-context"><a class="header" href="#historical-context">Historical Context</a></h2>
+<h3 id="strategic-situation"><a class="header" href="#strategic-situation">Strategic Situation</a></h3>
+<p>The 90. leichte Division entered 1943-Q1 as part of the Axis forces retreating into Tunisia following the Second Battle of El Alamein (October-November 1942) and the subsequent 2,000+ km retreat across Libya. The division occupied defensive positions along the Mareth Line, originally built by the French in the 1930s as defenses against Italian Libya.</p>
+<h3 id="operational-timeline-1943-q1"><a class="header" href="#operational-timeline-1943-q1">Operational Timeline (1943-Q1)</a></h3>
+<ul>
+<li><strong>January 1943:</strong> Division reorganizes and fortifies Mareth Line positions</li>
+<li><strong>February 1943:</strong> Defensive operations, limited local counterattacks</li>
+<li><strong>March 20-27, 1943:</strong> Battle of Mareth Line - division fights Montgomery's Eighth Army assault</li>
+<li><strong>Late March 1943:</strong> Withdrawal to Wadi Akarit positions after Mareth Line flanked</li>
+</ul>
+<h3 id="combat-effectiveness"><a class="header" href="#combat-effectiveness">Combat Effectiveness</a></h3>
+<p>By Q1 1943, the 90. leichte Division was a shadow of its former strength. Personnel had declined 14.5% from Q4 1942 (9,847 to 8,420), vehicles were down 16.4% (1,247 to 1,043), and artillery reduced by 9.5% (84 to 76 pieces). More significantly, operational readiness rates plummeted due to fuel shortages, lack of spare parts, and continuous combat without adequate rest or replacement.</p>
+<p>The division's experience and defensive skills remained high, but its offensive capabilities were virtually eliminated by the supply crisis. It could conduct effective local defense but lacked the fuel, ammunition, and mobility for sustained operations.</p>
+<h3 id="final-operations"><a class="header" href="#final-operations">Final Operations</a></h3>
+<p>The division continued fighting until the final Axis surrender in Tunisia on May 12-13, 1943. Generalmajor Theodor Graf von Sponeck was captured along with the remaining personnel.</p>
+<hr />
+<h2 id="wargaming-data"><a class="header" href="#wargaming-data">Wargaming Data</a></h2>
+<p><strong>Experience Level:</strong> Veteran<br />
+<strong>Morale Rating:</strong> 5/10 (reduced from 6/10 in Q4 1942)</p>
+<p><strong>Scenario Suitability:</strong></p>
+<ul>
+<li>Battle of Mareth Line (March 20-27, 1943)</li>
+<li>Defense of southern Tunisia (January-March 1943)</li>
+<li>Delaying actions against Montgomery's Eighth Army</li>
+<li>Tunisia Campaign defensive operations</li>
+<li>Final phase of Axis North Africa operations</li>
+</ul>
+<p><strong>Special Rules:</strong></p>
+<ul>
+<li><strong>Supply Crisis Severe:</strong> -2 to all combat rolls due to critical shortages</li>
+<li><strong>Desert Veterans:</strong> +1 to defensive combat in fortified positions</li>
+<li><strong>Attrition Effects:</strong> -1 to initiative due to personnel exhaustion</li>
+<li><strong>Reduced Mobility:</strong> Fuel shortages limit movement to 50% normal</li>
+</ul>
+<p><strong>Historical Engagements:</strong></p>
+<ul>
+<li>Defense of Mareth Line positions (January-March 1943)</li>
+<li>Battle of Mareth (March 20-27, 1943)</li>
+<li>Withdrawal to Wadi Akarit (late March 1943)</li>
+<li>Final Tunisia Campaign operations (April-May 1943, ending in surrender)</li>
+</ul>
+<hr />
+<h2 id="subordinate-units"><a class="header" href="#subordinate-units">Subordinate Units</a></h2>
+<ol>
+<li><strong>Panzergrenadier-Regiment 155</strong> - Motorized Infantry Regiment (1,865 men)</li>
+<li><strong>Panzergrenadier-Regiment 200</strong> - Motorized Infantry Regiment (1,958 men)</li>
+<li><strong>Panzergrenadier-Regiment 361</strong> - Motorized Infantry Regiment (1,667 men)</li>
+<li><strong>Artillerie-Regiment 190</strong> - Artillery Regiment (723 men)</li>
+<li><strong>Panzerjäger-Abteilung 190</strong> - Anti-Tank Battalion (352 men)</li>
+<li><strong>Aufklärungs-Abteilung 190</strong> - Reconnaissance Battalion (414 men)</li>
+<li><strong>Pionier-Bataillon 190</strong> - Engineer Battalion (265 men)</li>
+<li><strong>Nachrichten-Abteilung 190</strong> - Signals Battalion (176 men)</li>
+</ol>
+<hr />
+<h2 id="sources--validation"><a class="header" href="#sources--validation">Sources &amp; Validation</a></h2>
+<p><strong>Confidence Level:</strong> 76% (Tier 2: Review Recommended)<br />
+<strong>Extraction Status:</strong> Review recommended due to estimated equipment counts and operational status</p>
+<p><strong>Primary Sources:</strong></p>
+<ul>
+<li>Tessin Band 05: Verbände und Truppen - 90. leichte Division organizational structure</li>
+<li>Nafziger Collection: German OOB Tunisia 1943 - Mareth Line order of battle</li>
+<li>U.S. Army Command and General Staff College: German Forces Tunisia Campaign</li>
+<li>Feldgrau.com: 90. leichte-Afrika-Division unit history</li>
+<li>Lexikon der Wehrmacht: 90. leichte Division operations</li>
+</ul>
+<p><strong>Data Quality Notes:</strong></p>
+<ul>
+<li>Personnel and equipment counts are estimates based on Q4 1942 baseline with documented attrition rates (15-20%)</li>
+<li>Exact subordinate unit commander names unavailable for Tunisia period</li>
+<li>Operational vehicle counts estimated due to supply/maintenance crisis</li>
+<li>Tunisia Campaign chaos resulted in inconsistent German strength reporting</li>
+</ul>
+<p><strong>Last Updated:</strong> 2025-10-25</p>
+<hr />
+<p><em>Generated from unified TO&amp;E schema v3.1.0 - includes supply/logistics and environmental data for scenario generation</em></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../chapters/chapter_german_1943q1_5th_panzer_army.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../chapters/chapter_german_1943q1_90._leichte_division.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../chapters/chapter_german_1943q1_5th_panzer_army.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../chapters/chapter_german_1943q1_90._leichte_division.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

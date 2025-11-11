@@ -1,0 +1,572 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Centauro Division - North Africa Campaign 1940-1943: Complete Order of Battle</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">North Africa Campaign 1940-1943: Complete Order of Battle</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/yourusername/north-africa-toe-builder" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="131ª-divisione-corazzata-centauro---1943-q2-april-june-1943"><a class="header" href="#131ª-divisione-corazzata-centauro---1943-q2-april-june-1943">131ª Divisione Corazzata "Centauro" - 1943-Q2 (April-June 1943)</a></h1>
+<h2 id="historical-context"><a class="header" href="#historical-context">Historical Context</a></h2>
+<p>The second quarter of 1943 marked the final chapter in the history of the Centauro Armoured Division. After suffering severe losses during the Battle of El Guettar in March-April 1943, the division entered Q2 1943 as a combat-ineffective formation, reduced to approximately 6,200 personnel from its authorized strength of over 9,200. The division's commander, Generale Giorgio Carlo Calvi di Bergolo, was repatriated to Italy on 7 April 1943 following the devastating casualties at El Guettar.</p>
+<h3 id="the-tunisia-bridgehead-collapses"><a class="header" href="#the-tunisia-bridgehead-collapses">The Tunisia Bridgehead Collapses</a></h3>
+<p>By April 1943, the Axis forces in Tunisia were trapped in a shrinking bridgehead, surrounded by Allied forces advancing from both east (British 8th Army) and west (British 1st Army and US II Corps). The Centauro Division, as part of the Italian First Army, found itself in an increasingly desperate defensive position with:</p>
+<ul>
+<li>Critical fuel shortages (1.5 days of reserves)</li>
+<li>Ammunition nearly exhausted (2.5 days of combat stocks)</li>
+<li>Water rationed to 2.8 liters per person per day</li>
+<li>Tank strength reduced to just 28 vehicles (18 operational)</li>
+<li>Transport capability degraded by 40% due to vehicle losses and fuel shortages</li>
+<li>Spare parts virtually non-existent</li>
+</ul>
+<h3 id="final-combat-operations-april-1-13-may-1943"><a class="header" href="#final-combat-operations-april-1-13-may-1943">Final Combat Operations (April 1-13 May 1943)</a></h3>
+<p>The division conducted defensive operations during April and early May 1943, but its combat effectiveness was minimal. With only 18 operational tanks and critically depleted supplies, Centauro could do little more than man static defensive positions. The operational radius of the division had shrunk to just 35 kilometers due to fuel shortages.</p>
+<h3 id="axis-surrender-13-may-1943"><a class="header" href="#axis-surrender-13-may-1943">Axis Surrender (13 May 1943)</a></h3>
+<p>On 13 May 1943, all remaining Axis forces in Tunisia surrendered to Allied forces. This included the remnants of the Centauro Division - approximately 6,200 officers and men. The division's war ended not in a final battle, but in mass capitulation as the Tunisia bridgehead collapsed.</p>
+<p>The survivors entered Allied prisoner of war camps, initially in North Africa, then transferred to camps in the United States, United Kingdom, or other Allied territories for the remainder of the war.</p>
+<h2 id="table-of-organization--equipment"><a class="header" href="#table-of-organization--equipment">Table of Organization &amp; Equipment</a></h2>
+<h3 id="command-structure"><a class="header" href="#command-structure">Command Structure</a></h3>
+<p><strong>Division Commander</strong>: Generale di Divisione Giorgio Carlo Calvi di Bergolo (until 7 April 1943)</p>
+<ul>
+<li>Repatriated to Italy after severe casualties at El Guettar</li>
+<li>Subsequent commander unknown</li>
+</ul>
+<p><strong>Chief of Staff</strong>: Colonnello (Unknown)</p>
+<p><strong>Headquarters Location</strong>: Tunisia (final defensive positions)</p>
+<p><strong>Staff Strength</strong>: 208 personnel (38 officers, 55 NCOs, 115 enlisted)</p>
+<h3 id="personnel-summary"><a class="header" href="#personnel-summary">Personnel Summary</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>Category</th><th>Count</th></tr></thead><tbody>
+<tr><td><strong>Total Personnel</strong></td><td>6,200</td></tr>
+<tr><td>Officers</td><td>310</td></tr>
+<tr><td>NCOs</td><td>950</td></tr>
+<tr><td>Enlisted</td><td>4,940</td></tr>
+</tbody></table>
+</div>
+<p><strong>Note</strong>: Personnel strength represents severely depleted state after Battle of El Guettar. Division at approximately 67% of authorized strength.</p>
+<h3 id="infantry-weapons"><a class="header" href="#infantry-weapons">Infantry Weapons</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>Weapon</th><th>Count</th><th>Type</th></tr></thead><tbody>
+<tr><td>Carcano M1891 Rifle</td><td>4,500</td><td>Bolt-action rifle</td></tr>
+<tr><td>Breda M30 Light Machine Gun</td><td>310</td><td>Light MG</td></tr>
+<tr><td>Beretta M1938A Submachine Gun</td><td>280</td><td>SMG</td></tr>
+</tbody></table>
+</div>
+<p><strong>Small Arms Analysis</strong>: Infantry weapons availability reduced but still adequate for defensive operations. Ammunition critically short - estimated 2.5 days of combat stocks remaining by early May 1943.</p>
+<h3 id="armored-vehicles"><a class="header" href="#armored-vehicles">Armored Vehicles</a></h3>
+<h4 id="medium-tanks-total-28-operational-18"><a class="header" href="#medium-tanks-total-28-operational-18">Medium Tanks (Total: 28, Operational: 18)</a></h4>
+<div class="table-wrapper"><table><thead><tr><th>Tank Model</th><th>Count</th><th>Operational</th><th>Armament</th><th>Armor</th></tr></thead><tbody>
+<tr><td>M14/41</td><td>17</td><td>12</td><td>47mm L/40 gun</td><td>30mm frontal</td></tr>
+<tr><td>M13/40</td><td>11</td><td>6</td><td>47mm L/32 gun</td><td>30mm frontal</td></tr>
+</tbody></table>
+</div>
+<p><strong>Tank Strength Analysis</strong>: Catastrophic reduction from 52 tanks in Q4 1942. Only 64% operational due to battle damage, mechanical failures, and complete absence of spare parts. By Q2 1943, Italian M13/40 and M14/41 tanks were hopelessly outclassed by Allied M4 Sherman and Churchill tanks.</p>
+<h4 id="assault-guns-total-6-operational-4"><a class="header" href="#assault-guns-total-6-operational-4">Assault Guns (Total: 6, Operational: 4)</a></h4>
+<div class="table-wrapper"><table><thead><tr><th>Model</th><th>Count</th><th>Operational</th><th>Armament</th></tr></thead><tbody>
+<tr><td>Semovente 75/18</td><td>6</td><td>4</td><td>75mm howitzer</td></tr>
+</tbody></table>
+</div>
+<p><strong>Assault Gun Analysis</strong>: Self-propelled 75/18 howitzers on M14/41 chassis. Reduced from 12 in Q4 1942. Provided mobile fire support but inadequate armor protection for 1943 combat environment.</p>
+<h3 id="reconnaissance-and-support-vehicles"><a class="header" href="#reconnaissance-and-support-vehicles">Reconnaissance and Support Vehicles</a></h3>
+<h4 id="armored-cars-total-12-operational-9"><a class="header" href="#armored-cars-total-12-operational-9">Armored Cars (Total: 12, Operational: 9)</a></h4>
+<div class="table-wrapper"><table><thead><tr><th>Model</th><th>Count</th><th>Operational</th><th>Armament</th></tr></thead><tbody>
+<tr><td>Autoblinda AB 41</td><td>8</td><td>6</td><td>20mm gun</td></tr>
+<tr><td>Autoblinda AB 40</td><td>4</td><td>3</td><td>Machine guns</td></tr>
+</tbody></table>
+</div>
+<h4 id="transport-vehicles-total-125"><a class="header" href="#transport-vehicles-total-125">Transport Vehicles (Total: 125)</a></h4>
+<div class="table-wrapper"><table><thead><tr><th>Vehicle Type</th><th>Count</th><th>Capacity</th></tr></thead><tbody>
+<tr><td>FIAT 626</td><td>65</td><td>3-ton</td></tr>
+<tr><td>Lancia 3Ro</td><td>35</td><td>3-ton</td></tr>
+<tr><td>FIAT 634N</td><td>25</td><td>1.5-ton</td></tr>
+</tbody></table>
+</div>
+<p><strong>Transport Analysis</strong>: Truck strength reduced by 33% from Q4 1942 levels. Many vehicles immobilized by fuel shortages. Operational radius limited to 35km.</p>
+<h4 id="motorcycles-total-32"><a class="header" href="#motorcycles-total-32">Motorcycles (Total: 32)</a></h4>
+<div class="table-wrapper"><table><thead><tr><th>Model</th><th>Count</th><th>Type</th></tr></thead><tbody>
+<tr><td>Moto Guzzi Alce</td><td>22</td><td>Solo motorcycle</td></tr>
+<tr><td>Moto Guzzi Trialce</td><td>10</td><td>Tricycle cargo</td></tr>
+</tbody></table>
+</div>
+<h3 id="artillery"><a class="header" href="#artillery">Artillery</a></h3>
+<h4 id="field-artillery-total-28-pieces"><a class="header" href="#field-artillery-total-28-pieces">Field Artillery (Total: 28 pieces)</a></h4>
+<div class="table-wrapper"><table><thead><tr><th>Gun Type</th><th>Count</th><th>Caliber</th><th>Type</th></tr></thead><tbody>
+<tr><td>Cannone da 75/27 modello 11</td><td>18</td><td>75mm</td><td>Field gun</td></tr>
+<tr><td>Obice da 100/17 modello 14</td><td>10</td><td>100mm</td><td>Howitzer</td></tr>
+</tbody></table>
+</div>
+<p><strong>Artillery Analysis</strong>: Standard Italian divisional artillery. Reduced from 36 pieces in Q4 1942. Ammunition critically short - expenditure limited to conserve remaining stocks for final defensive battles.</p>
+<h4 id="anti-tank-guns-total-16-pieces"><a class="header" href="#anti-tank-guns-total-16-pieces">Anti-Tank Guns (Total: 16 pieces)</a></h4>
+<div class="table-wrapper"><table><thead><tr><th>Gun Type</th><th>Count</th><th>Caliber</th><th>Effectiveness</th></tr></thead><tbody>
+<tr><td>Cannone da 47/32 M35</td><td>12</td><td>47mm</td><td>Inadequate vs M4 Sherman</td></tr>
+<tr><td>Cannone da 20/65 modello 35</td><td>4</td><td>20mm</td><td>Obsolete by 1943</td></tr>
+</tbody></table>
+</div>
+<p><strong>Anti-Tank Analysis</strong>: Italian 47/32 gun ineffective against Allied armor by 1943. Frontal armor penetration impossible against M4 Sherman (51mm) or Churchill (102mm). Division essentially defenseless against Allied tank attacks.</p>
+<h4 id="anti-aircraft-guns-total-8-pieces"><a class="header" href="#anti-aircraft-guns-total-8-pieces">Anti-Aircraft Guns (Total: 8 pieces)</a></h4>
+<div class="table-wrapper"><table><thead><tr><th>Gun Type</th><th>Count</th><th>Caliber</th></tr></thead><tbody>
+<tr><td>Cannone-Mitragliera da 20/65 modello 35</td><td>8</td><td>20mm</td></tr>
+</tbody></table>
+</div>
+<p><strong>Anti-Aircraft Analysis</strong>: Breda 20mm dual-purpose AA/AT weapons. Inadequate against Allied medium bombers and tactical aircraft dominating Tunisia skies by May 1943.</p>
+<h4 id="mortars-total-38-pieces"><a class="header" href="#mortars-total-38-pieces">Mortars (Total: 38 pieces)</a></h4>
+<div class="table-wrapper"><table><thead><tr><th>Mortar Type</th><th>Count</th><th>Caliber</th><th>Level</th></tr></thead><tbody>
+<tr><td>Mortaio da 81mm modello 35</td><td>26</td><td>81mm</td><td>Battalion</td></tr>
+<tr><td>Mortaio da 45mm modello 35 Brixia</td><td>12</td><td>45mm</td><td>Company</td></tr>
+</tbody></table>
+</div>
+<h3 id="subordinate-units"><a class="header" href="#subordinate-units">Subordinate Units</a></h3>
+<h4 id="31st-tank-regiment-reggimento-carri"><a class="header" href="#31st-tank-regiment-reggimento-carri">31st Tank Regiment (Reggimento Carri)</a></h4>
+<ul>
+<li><strong>Commander</strong>: Colonnello (Unknown)</li>
+<li><strong>Strength</strong>: 950 personnel</li>
+<li><strong>Equipment</strong>: 28 medium tanks (M14/41, M13/40), 6 Semovente 75/18 assault guns</li>
+<li><strong>Status</strong>: Critically understrength. Many tanks non-operational due to battle damage and lack of spare parts. Regiment combat ineffective by early May 1943.</li>
+</ul>
+<h4 id="5th-bersaglieri-regiment"><a class="header" href="#5th-bersaglieri-regiment">5th Bersaglieri Regiment</a></h4>
+<ul>
+<li><strong>Commander</strong>: Colonnello (Unknown)</li>
+<li><strong>Home Station</strong>: Siena</li>
+<li><strong>Strength</strong>: 1,850 personnel (~70% of authorized strength)</li>
+<li><strong>Equipment</strong>: Three battalions motorized infantry, severely depleted transport</li>
+<li><strong>Status</strong>: Elite light infantry formation. Sustained heavy casualties at El Guettar (March-April 1943). Still combat capable for defensive operations despite losses.</li>
+</ul>
+<h4 id="131st-artillery-regiment-centauro"><a class="header" href="#131st-artillery-regiment-centauro">131st Artillery Regiment "Centauro"</a></h4>
+<ul>
+<li><strong>Commander</strong>: Colonnello (Unknown)</li>
+<li><strong>Home Station</strong>: Trento</li>
+<li><strong>Strength</strong>: 1,180 personnel</li>
+<li><strong>Equipment</strong>: 18x 75/27 field guns, 10x 100/17 howitzers</li>
+<li><strong>Status</strong>: Ammunition critically short. Fire missions limited to conserve remaining stocks for final defensive battles.</li>
+</ul>
+<h4 id="136th-anti-tank-battalion"><a class="header" href="#136th-anti-tank-battalion">136th Anti-Tank Battalion</a></h4>
+<ul>
+<li><strong>Commander</strong>: Maggiore (Unknown)</li>
+<li><strong>Strength</strong>: 285 personnel</li>
+<li><strong>Equipment</strong>: 12x 47/32 anti-tank guns, 4x 20mm anti-tank rifles</li>
+<li><strong>Status</strong>: Weapons inadequate against Allied M4 Sherman and Churchill tanks. Battalion capable of engaging light armor and infantry support roles only.</li>
+</ul>
+<h4 id="31st-engineer-battalion"><a class="header" href="#31st-engineer-battalion">31st Engineer Battalion</a></h4>
+<ul>
+<li><strong>Commander</strong>: Maggiore (Unknown)</li>
+<li><strong>Strength</strong>: 420 personnel</li>
+<li><strong>Equipment</strong>: Mine-laying, mine-clearing, demolitions, field fortifications</li>
+<li><strong>Status</strong>: Engineers focused on defensive preparations and obstacle construction during final Tunisia battles. 89th Pioneer Company attached.</li>
+</ul>
+<h4 id="131st-signal-company"><a class="header" href="#131st-signal-company">131st Signal Company</a></h4>
+<ul>
+<li><strong>Commander</strong>: Capitano (Unknown)</li>
+<li><strong>Strength</strong>: 185 personnel</li>
+<li><strong>Equipment</strong>: Radio, telephone, motorcycle couriers (many sets inoperative)</li>
+<li><strong>Status</strong>: Divisional communications degraded by equipment failures, lack of spare parts, and Allied air attacks on signal infrastructure.</li>
+</ul>
+<h4 id="1152nd-heavy-motor-transport-section"><a class="header" href="#1152nd-heavy-motor-transport-section">1152nd Heavy Motor Transport Section</a></h4>
+<ul>
+<li><strong>Commander</strong>: Capitano (Unknown)</li>
+<li><strong>Strength</strong>: 145 personnel</li>
+<li><strong>Equipment</strong>: Heavy trucks (many destroyed or abandoned)</li>
+<li><strong>Status</strong>: Logistical capability severely degraded. Many vehicles immobilized for lack of fuel. Unable to support mobile operations.</li>
+</ul>
+<h4 id="56th-heavy-workshop"><a class="header" href="#56th-heavy-workshop">56th Heavy Workshop</a></h4>
+<ul>
+<li><strong>Commander</strong>: Capitano (Unknown)</li>
+<li><strong>Strength</strong>: 165 personnel</li>
+<li><strong>Equipment</strong>: Tank recovery and repair facilities</li>
+<li><strong>Status</strong>: Unable to maintain tank operational rates due to complete absence of replacement parts and components. Workshop reduced to performing emergency field repairs only.</li>
+</ul>
+<h4 id="106th-carabinieri-section-ccrr"><a class="header" href="#106th-carabinieri-section-ccrr">106th Carabinieri Section (CCRR)</a></h4>
+<ul>
+<li><strong>Commander</strong>: Tenente (Unknown)</li>
+<li><strong>Strength</strong>: 55 personnel</li>
+<li><strong>Equipment</strong>: Small arms, motorcycles</li>
+<li><strong>Status</strong>: Military police for traffic control, security, POW handling. Post-surrender, assisted with orderly capitulation and Allied POW processing.</li>
+</ul>
+<h4 id="medical-services"><a class="header" href="#medical-services">Medical Services</a></h4>
+<ul>
+<li><strong>Commander</strong>: Maggiore Medico (Unknown)</li>
+<li><strong>Strength</strong>: 125 personnel</li>
+<li><strong>Equipment</strong>: Field ambulances, aid stations (medical supplies critically depleted)</li>
+<li><strong>Status</strong>: Divisional medical support overwhelmed by casualties from earlier battles. Medical supplies nearly exhausted by early May 1943.</li>
+</ul>
+<h2 id="supply-and-logistics"><a class="header" href="#supply-and-logistics">Supply and Logistics</a></h2>
+<h3 id="supply-status-critical"><a class="header" href="#supply-status-critical">Supply Status: <strong>CRITICAL</strong></a></h3>
+<p>The Centauro Division entered Q2 1943 in a state of complete logistical collapse:</p>
+<div class="table-wrapper"><table><thead><tr><th>Resource</th><th>Status</th><th>Notes</th></tr></thead><tbody>
+<tr><td><strong>Fuel Reserves</strong></td><td>1.5 days</td><td>Division essentially immobilized</td></tr>
+<tr><td><strong>Ammunition</strong></td><td>2.5 days</td><td>Fire missions severely restricted</td></tr>
+<tr><td><strong>Water</strong></td><td>2.8 L/person/day</td><td>Barely adequate for survival</td></tr>
+<tr><td><strong>Operational Radius</strong></td><td>35 km</td><td>Reduced from 180km in Q4 1942</td></tr>
+</tbody></table>
+</div>
+<p><strong>Logistical Analysis</strong>: By April 1943, the Tunisia bridgehead was under complete Allied siege. Axis supply convoys across the Mediterranean suffered catastrophic losses to Allied air and naval forces. The Centauro Division could not be resupplied and consumed its remaining stocks during April-early May defensive operations.</p>
+<p>The division's operational radius of just 35 kilometers rendered it incapable of mobile warfare. This once-proud armored division was reduced to a static defensive formation, its tanks immobilized by lack of fuel, its artillery silent to conserve ammunition.</p>
+<h2 id="weather-and-environment"><a class="header" href="#weather-and-environment">Weather and Environment</a></h2>
+<h3 id="quarter-1943-q2-april-june-1943"><a class="header" href="#quarter-1943-q2-april-june-1943">Quarter: 1943-Q2 (April-June 1943)</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>Environmental Factor</th><th>Details</th></tr></thead><tbody>
+<tr><td><strong>Temperature Range</strong></td><td>14-28°C (57-82°F)</td></tr>
+<tr><td><strong>Terrain</strong></td><td>Tunisia - coastal plains, rocky hills, mixed agricultural/desert</td></tr>
+<tr><td><strong>Storm Frequency</strong></td><td>1 day/month (minimal)</td></tr>
+<tr><td><strong>Daylight Hours</strong></td><td>13.5 hours</td></tr>
+</tbody></table>
+</div>
+<p><strong>Environmental Analysis</strong>: Spring weather in Tunisia was favorable for operations - moderate temperatures, minimal sandstorms, long daylight hours. However, environmental conditions were irrelevant given the division's complete logistical collapse and imminent surrender.</p>
+<h2 id="combat-history---q2-1943"><a class="header" href="#combat-history---q2-1943">Combat History - Q2 1943</a></h2>
+<h3 id="april-1943-final-defensive-operations"><a class="header" href="#april-1943-final-defensive-operations">April 1943: Final Defensive Operations</a></h3>
+<p>The Centauro Division spent April 1943 in static defensive positions as part of the shrinking Tunisia bridgehead. With only 18 operational tanks and critical shortages of all supplies, the division could mount no offensive operations and struggled to conduct even basic defensive missions.</p>
+<p>The division's tanks were essentially immobilized by fuel shortages. The 31st Tank Regiment's M13/40 and M14/41 tanks were positioned in static "pillbox" roles, conserving the minimal fuel available for short-range movements to alternate defensive positions.</p>
+<h3 id="may-1-13-1943-axis-surrender"><a class="header" href="#may-1-13-1943-axis-surrender">May 1-13, 1943: Axis Surrender</a></h3>
+<p>By early May 1943, the Tunisia bridgehead had shrunk to a small pocket around Tunis and Bizerte. Allied forces (British, American, French) closed in from all sides. The Axis position was hopeless - no reinforcements possible, no supplies incoming, no prospect of evacuation.</p>
+<p>On 13 May 1943, German Generaloberst Hans-Jürgen von Arnim surrendered all Axis forces in Tunisia to Allied command. Approximately 275,000 German and Italian soldiers entered POW captivity, including the 6,200 survivors of the Centauro Division.</p>
+<h3 id="may-13---june-30-1943-pow-status"><a class="header" href="#may-13---june-30-1943-pow-status">May 13 - June 30, 1943: POW Status</a></h3>
+<p>The remainder of Q2 1943 saw Centauro personnel in Allied prisoner of war camps. Initial processing occurred in North Africa (near Tunis and in Algeria). Subsequently, Italian POWs were transferred to permanent camps:</p>
+<ul>
+<li>United States (primarily southern states)</li>
+<li>United Kingdom</li>
+<li>Egypt</li>
+<li>Other Allied territories</li>
+</ul>
+<p>Most Centauro veterans remained POWs until Italy's armistice with the Allies (September 1943) or until the end of the war (May 1945), depending on individual circumstances.</p>
+<h2 id="tactical-doctrine-and-capabilities"><a class="header" href="#tactical-doctrine-and-capabilities">Tactical Doctrine and Capabilities</a></h2>
+<h3 id="role-armored-division-defensive-operations-only"><a class="header" href="#role-armored-division-defensive-operations-only">Role: Armored Division (Defensive Operations Only)</a></h3>
+<p>By Q2 1943, the Centauro Division could no longer fulfill its intended role as a mobile armored formation. The division's tactical capabilities were reduced to:</p>
+<ul>
+<li><strong>Static Defense</strong>: Tanks employed as immobile pillboxes</li>
+<li><strong>Infantry Defense</strong>: Bersaglieri regiments manning defensive positions</li>
+<li><strong>Artillery Support</strong>: Limited fire missions to conserve ammunition</li>
+<li><strong>Obstacle Construction</strong>: Engineers preparing defensive positions</li>
+</ul>
+<h3 id="special-capabilities-all-degraded"><a class="header" href="#special-capabilities-all-degraded">Special Capabilities (All Degraded)</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>Capability</th><th>Q4 1942 Status</th><th>Q2 1943 Status</th></tr></thead><tbody>
+<tr><td>Mobile operations</td><td>Capable</td><td>Impossible (no fuel)</td></tr>
+<tr><td>Combined arms coordination</td><td>Effective</td><td>Degraded</td></tr>
+<tr><td>Self-propelled artillery support</td><td>Available</td><td>Minimal (4 operational SPGs)</td></tr>
+<tr><td>Tank-infantry cooperation</td><td>Trained</td><td>Static defense only</td></tr>
+</tbody></table>
+</div>
+<h3 id="known-deficiencies"><a class="header" href="#known-deficiencies">Known Deficiencies</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>Issue</th><th>Impact</th></tr></thead><tbody>
+<tr><td>Tank armor/firepower inadequate</td><td>Helpless vs Allied M4/Churchill</td></tr>
+<tr><td>Complete fuel exhaustion</td><td>No mobile operations possible</td></tr>
+<tr><td>Ammunition near-zero</td><td>Fire missions restricted</td></tr>
+<tr><td>No spare parts</td><td>Cannot repair battle damage</td></tr>
+<tr><td>Outmatched by Allied technology</td><td>Italian armor obsolete by 1943</td></tr>
+<tr><td>Supply lines severed</td><td>No resupply possible</td></tr>
+</tbody></table>
+</div>
+<h3 id="desert-adaptations"><a class="header" href="#desert-adaptations">Desert Adaptations</a></h3>
+<p>Limited. The Centauro Division was trained primarily for mountain warfare in Albania and Yugoslavia. Its deployment to North Africa in November 1942 came late in the campaign, and the division never fully adapted to desert conditions before the Tunisia collapse.</p>
+<h2 id="wargaming-scenarios"><a class="header" href="#wargaming-scenarios">Wargaming Scenarios</a></h2>
+<h3 id="historical-engagements-1943-q2"><a class="header" href="#historical-engagements-1943-q2">Historical Engagements (1943-Q2)</a></h3>
+<p>The Centauro Division's Q2 1943 operations offer limited wargaming potential due to the division's combat-ineffective state:</p>
+<ol>
+<li><strong>Final Tunisia Defense (April 1-13 May 1943)</strong>: Static defensive operations with depleted forces</li>
+<li><strong>Axis Surrender (13 May 1943)</strong>: Mass capitulation scenario (non-combat)</li>
+</ol>
+<h3 id="scenario-suitability"><a class="header" href="#scenario-suitability">Scenario Suitability</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>Scenario Type</th><th>Suitability</th><th>Notes</th></tr></thead><tbody>
+<tr><td>Mobile armor operations</td><td>Poor</td><td>Division immobilized by fuel shortages</td></tr>
+<tr><td>Defensive battles</td><td>Moderate</td><td>Static defense with depleted forces</td></tr>
+<tr><td>Combined arms</td><td>Poor</td><td>Logistics collapse negates coordination</td></tr>
+<tr><td>Final stand scenarios</td><td>Good</td><td>Desperate defense with inadequate resources</td></tr>
+</tbody></table>
+</div>
+<h3 id="game-statistics-suggested"><a class="header" href="#game-statistics-suggested">Game Statistics (Suggested)</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>Attribute</th><th>Rating</th><th>Scale</th></tr></thead><tbody>
+<tr><td><strong>Morale</strong></td><td>4/10</td><td>Low (defeat imminent, supplies exhausted)</td></tr>
+<tr><td><strong>Experience</strong></td><td>Veteran</td><td>Division combat-experienced but demoralized</td></tr>
+<tr><td><strong>Equipment Quality</strong></td><td>3/10</td><td>Obsolete tanks, inadequate AT guns</td></tr>
+<tr><td><strong>Supply State</strong></td><td>1/10</td><td>Critical shortages of everything</td></tr>
+</tbody></table>
+</div>
+<h3 id="special-rules-q2-1943-centauro"><a class="header" href="#special-rules-q2-1943-centauro">Special Rules (Q2 1943 Centauro)</a></h3>
+<ol>
+<li><strong>Fuel Starvation</strong>: Tanks may only move 35km total per scenario (division operational radius)</li>
+<li><strong>Ammunition Rationing</strong>: Artillery limited to 25% normal fire missions</li>
+<li><strong>No Resupply</strong>: Division cannot receive replacements or supplies</li>
+<li><strong>Equipment Breakdown</strong>: All vehicles have 25% increased breakdown chance</li>
+<li><strong>Allied Air Superiority</strong>: Allied aircraft operate unopposed over Centauro positions</li>
+<li><strong>Tank Obsolescence</strong>: Italian 47mm guns cannot penetrate Allied M4 Sherman frontal armor at any range</li>
+</ol>
+<h2 id="casualties---q2-1943"><a class="header" href="#casualties---q2-1943">Casualties - Q2 1943</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Casualty Type</th><th>Count</th><th>Notes</th></tr></thead><tbody>
+<tr><td><strong>Killed</strong></td><td>285</td><td>Combat deaths April-May 1943</td></tr>
+<tr><td><strong>Wounded</strong></td><td>720</td><td>Battle casualties (many entered POW camps wounded)</td></tr>
+<tr><td><strong>Missing</strong></td><td>145</td><td>Unaccounted for during final collapse</td></tr>
+<tr><td><strong>Captured</strong></td><td>5,050</td><td>Entire surviving division at 13 May surrender</td></tr>
+</tbody></table>
+</div>
+<p><strong>Total Losses</strong>: 6,200 (100% of Q2 1943 divisional strength)</p>
+<p><strong>Analysis</strong>: The surrender of 13 May 1943 marked the complete destruction of the Centauro Division. Unlike divisions destroyed in battle (where remnants might escape to fight again), Centauro's entire surviving strength entered POW camps. The division ceased to exist as a combat formation.</p>
+<h2 id="post-tunisia-history"><a class="header" href="#post-tunisia-history">Post-Tunisia History</a></h2>
+<h3 id="division-disbanded"><a class="header" href="#division-disbanded">Division Disbanded</a></h3>
+<p>The 131ª Divisione Corazzata "Centauro" was formally disbanded following the Tunisia surrender. The division name and lineage were preserved in Italian military records, but the unit no longer existed.</p>
+<h3 id="survivors-as-pows"><a class="header" href="#survivors-as-pows">Survivors as POWs</a></h3>
+<p>Approximately 6,200 Centauro personnel entered Allied POW camps:</p>
+<ul>
+<li>Initial processing in North Africa (Tunisia/Algeria)</li>
+<li>Transfer to permanent camps (USA, UK, Egypt)</li>
+<li>Treatment under Geneva Convention</li>
+<li>Repatriation after Italy's September 1943 armistice or after May 1945 war end</li>
+</ul>
+<h3 id="post-war-legacy"><a class="header" href="#post-war-legacy">Post-War Legacy</a></h3>
+<p>After World War II, the Italian Army reconstituted some pre-war division names. The Centauro lineage was preserved and later became:</p>
+<ul>
+<li>Centauro armored brigade (post-war)</li>
+<li>Modern Italian Army mechanized/armored formations carry the Centauro name</li>
+</ul>
+<p>The modern Centauro B1 wheeled tank destroyer honors the division's legacy, though the connection is historical rather than direct lineage.</p>
+<h2 id="conclusion"><a class="header" href="#conclusion">Conclusion</a></h2>
+<p>The 131ª Divisione Corazzata "Centauro" in 1943-Q2 represents a tragic study in the collapse of an armored formation. Once a capable mobile division (1939-1942), Centauro entered its final quarter as a combat-ineffective force:</p>
+<ul>
+<li>Personnel reduced to 67% of authorized strength</li>
+<li>Tank strength reduced to 54% of Q4 1942 levels (and only 64% operational)</li>
+<li>Completely immobilized by fuel shortages (35km operational radius)</li>
+<li>Ammunition nearly exhausted</li>
+<li>No spare parts for maintenance</li>
+<li>Outclassed by Allied armor and air power</li>
+</ul>
+<p>The division's surrender on 13 May 1943 was inevitable. Trapped in the Tunisia bridgehead with no hope of resupply, reinforcement, or evacuation, the Centauro Division's war ended not in a climactic battle but in mass capitulation alongside 275,000 other Axis troops.</p>
+<p>For wargamers and historians, Centauro's Q2 1943 story offers insights into:</p>
+<ul>
+<li>The consequences of logistical collapse</li>
+<li>The impossibility of mobile warfare without fuel</li>
+<li>The obsolescence of Italian armor by 1943</li>
+<li>The psychology of defeat and surrender</li>
+<li>The end of Axis operations in North Africa</li>
+</ul>
+<p>The Centauro Division's service - from the mountains of Albania (1940) to the deserts of Tunisia (1943) - ended in POW camps, its tanks abandoned, its personnel captured, its name preserved only in memory and historical records.</p>
+<hr />
+<p><strong>Sources</strong>:</p>
+<ul>
+<li>Order of Battle of the Italian Army, USA HQ G-2, July 1943 (Primary Source)</li>
+<li>TM E 30-420: Handbook on Italian Military Forces, August 1943</li>
+<li>Italian Army organizational records and divisional histories</li>
+<li>Tunisia Campaign operational histories</li>
+<li>Axis surrender documentation, 13 May 1943</li>
+</ul>
+<p><strong>Data Confidence</strong>: 72% (Tier 2: Review Recommended)</p>
+<p><strong>Extraction Date</strong>: 26 October 2025</p>
+<p><strong>Schema Version</strong>: 3.1.0</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../chapters/chapter_italian_1943q2_80th_la_spezia_division.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../chapters/chapter_italian_1943q2_first_italian_army.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../chapters/chapter_italian_1943q2_80th_la_spezia_division.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../chapters/chapter_italian_1943q2_first_italian_army.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

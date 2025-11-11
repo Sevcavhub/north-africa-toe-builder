@@ -1,0 +1,396 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Xxi Corpo D Armata Xxi Corps - North Africa Campaign 1940-1943: Complete Order of Battle</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">North Africa Campaign 1940-1943: Complete Order of Battle</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/yourusername/north-africa-toe-builder" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="xxi-corpo-darmata-xxi-corps"><a class="header" href="#xxi-corpo-darmata-xxi-corps">XXI Corpo d'Armata (XXI Corps)</a></h1>
+<p><strong>Italian Forces • 1940 Q4 (October-December) • North Africa - Cyrenaica</strong></p>
+<hr />
+<h2 id="-critical-notice-structural-placeholder-only"><a class="header" href="#-critical-notice-structural-placeholder-only">⚠️ CRITICAL NOTICE: STRUCTURAL PLACEHOLDER ONLY</a></h2>
+<p><strong>This chapter represents a STRUCTURAL PLACEHOLDER demonstrating corps-level organization, NOT a complete TO&amp;E extraction.</strong></p>
+<p><strong>Reason</strong>: NONE of the 3 subordinate divisions (63rd Cirene, 1st CC.NN. "23 Marzo", 2nd CC.NN. "28 Ottobre") have been extracted. All personnel and equipment totals are 0.</p>
+<p><strong>Confidence</strong>: 50% (Tier 4 - Research Brief Created)
+<strong>Status</strong>: Awaiting subordinate division extractions for bottom-up aggregation</p>
+<hr />
+<h2 id="corps-overview"><a class="header" href="#corps-overview">Corps Overview</a></h2>
+<p>XXI Corps served as the Italian 10th Army's reserve corps during Q4 1940, positioned at Tobruk and Sofafi (Cyrenaica). Under the command of Generale di Corpo d'Armata Carlo Spatocco (who replaced Lorenzo Dalmazzo on September 26, 1940), the corps comprised three divisions:</p>
+<ol>
+<li><strong>63rd Infantry Division "Cirene"</strong> - At Rabia/Sofafi</li>
+<li><strong>1st Blackshirt Division "23 Marzo"</strong> - Blackshirt (Fascist Militia)</li>
+<li><strong>2nd Blackshirt Division "28 Ottobre"</strong> - Blackshirt (Fascist Militia)</li>
+</ol>
+<p>The corps was NOT deployed in the forward fortified camps at Sidi Barrani that were destroyed in the opening phase of Operation Compass (December 9-11, 1940). However, XXI Corps divisions fought in subsequent battles during the British advance.</p>
+<hr />
+<h2 id="command"><a class="header" href="#command">Command</a></h2>
+<p><strong>Corps Commander</strong>: Generale di Corpo d'Armata Carlo Spatocco
+<strong>Previous Commander</strong>: Generale di Corpo d'Armata Lorenzo Dalmazzo (1 December 1939 - 26 September 1940)
+<strong>Appointed</strong>: 26 September 1940
+<strong>Headquarters</strong>: Sofafi, Libya (later Tobruk as reserve)</p>
+<p><strong>Staff</strong>: Estimated 450 personnel (45 officers, 85 NCOs, 320 enlisted)</p>
+<p><strong>Chief of Staff</strong>: Unknown</p>
+<hr />
+<h2 id="personnel-strength"><a class="header" href="#personnel-strength">Personnel Strength</a></h2>
+<p><strong>⚠️ DATA UNAVAILABLE</strong>: All personnel totals are 0 because subordinate divisions have NOT been extracted.</p>
+<p><strong>Estimated Strength</strong> (based on typical Italian corps organization):</p>
+<ul>
+<li><strong>63rd Cirene Division</strong>: ~13,000 personnel (metropolitan division)</li>
+<li><strong>1st CC.NN. "23 Marzo"</strong>: ~10,500 personnel (Blackshirt division)</li>
+<li><strong>2nd CC.NN. "28 Ottobre"</strong>: ~10,500 personnel (Blackshirt division)</li>
+<li><strong>Corps Total (estimated)</strong>: ~34,000 personnel + corps troops</li>
+</ul>
+<p><strong>NOTE</strong>: These are ESTIMATES only. Actual extractions required for accurate data.</p>
+<hr />
+<h2 id="equipment-summary"><a class="header" href="#equipment-summary">Equipment Summary</a></h2>
+<p><strong>⚠️ DATA UNAVAILABLE</strong>: All equipment totals are 0 because subordinate divisions have NOT been extracted.</p>
+<p>Cannot provide equipment breakdowns without division-level data.</p>
+<hr />
+<h2 id="supply--logistics"><a class="header" href="#supply--logistics">Supply &amp; Logistics</a></h2>
+<h3 id="logistics-status-1940-q4"><a class="header" href="#logistics-status-1940-q4">Logistics Status (1940 Q4)</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>Resource</th><th>Quantity</th><th>Status</th><th>Notes</th></tr></thead><tbody>
+<tr><td><strong>Operational Radius</strong></td><td>220 km</td><td>Adequate</td><td>From Tobruk/coastal bases</td></tr>
+<tr><td><strong>Fuel Reserves</strong></td><td>13.5 days</td><td>Good</td><td>Better than forward corps at Sidi Barrani</td></tr>
+<tr><td><strong>Ammunition</strong></td><td>19.0 days</td><td>Good</td><td>Reserve status = better supply</td></tr>
+<tr><td><strong>Water Supply</strong></td><td>4.5 L/day/person</td><td>Adequate</td><td>Coastal wells at Tobruk</td></tr>
+</tbody></table>
+</div>
+<p><strong>Supply Status</strong>: Reserve corps positioned at Tobruk/Sofafi had better supply situation than forward corps at Sidi Barrani due to proximity to supply bases and coastal port access at Tobruk. However, XXI Corps was still subject to overall 10th Army logistics constraints (1,800km from Tripoli).</p>
+<hr />
+<h2 id="operational-environment"><a class="header" href="#operational-environment">Operational Environment</a></h2>
+<h3 id="environmental-conditions-1940-q4"><a class="header" href="#environmental-conditions-1940-q4">Environmental Conditions (1940 Q4)</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>Factor</th><th>Value</th><th>Impact</th></tr></thead><tbody>
+<tr><td><strong>Season</strong></td><td>Autumn/Early Winter Cyrenaica</td><td>Moderate temperatures</td></tr>
+<tr><td><strong>Temperature Range</strong></td><td>12°C to 24°C</td><td>Comfortable for operations</td></tr>
+<tr><td><strong>Terrain Type</strong></td><td>Coastal plain and rocky desert</td><td>Good mobility</td></tr>
+<tr><td><strong>Storm Frequency</strong></td><td>3 days/month</td><td>Minor disruption</td></tr>
+<tr><td><strong>Daylight Hours</strong></td><td>10.5 hours</td><td>Standard autumn/winter</td></tr>
+</tbody></table>
+</div>
+<hr />
+<h2 id="organizational-structure"><a class="header" href="#organizational-structure">Organizational Structure</a></h2>
+<h3 id="subordinate-divisions-not-extracted"><a class="header" href="#subordinate-divisions-not-extracted">Subordinate Divisions (NOT EXTRACTED)</a></h3>
+<p><strong>63rd Infantry Division "Cirene"</strong>:</p>
+<ul>
+<li>Status: Metropolitan infantry division</li>
+<li>Location Q4 1940: Rabia/Sofafi</li>
+<li>Strength: ~13,000 estimated</li>
+<li><strong>NOT EXTRACTED</strong> - Division file not available</li>
+</ul>
+<p><strong>1st Blackshirt Division "23 Marzo"</strong>:</p>
+<ul>
+<li>Status: CC.NN. (Fascist Militia) division</li>
+<li>Location Q4 1940: With XXI Corps</li>
+<li>Strength: ~10,500 estimated</li>
+<li><strong>NOT EXTRACTED</strong> - Division file not available</li>
+</ul>
+<p><strong>2nd Blackshirt Division "28 Ottobre"</strong>:</p>
+<ul>
+<li>Status: CC.NN. (Fascist Militia) division</li>
+<li>Location Q4 1940: With XXI Corps</li>
+<li>Strength: ~10,500 estimated</li>
+<li><strong>NOT EXTRACTED</strong> - Division file not available</li>
+</ul>
+<hr />
+<h2 id="tactical-role"><a class="header" href="#tactical-role">Tactical Role</a></h2>
+<p>XXI Corps served as the 10th Army reserve, positioned at Tobruk/Sofafi to support forward operations. The corps was NOT committed to the disastrous isolated fortified camps at Sidi Barrani (Sept-Dec 1940), giving it better supply and positioning than forward corps.</p>
+<p>However, when Operation Compass destroyed the forward divisions (December 9-11, 1940), XXI Corps was unable to effectively intervene due to command chaos (General Berti on sick leave), insufficient motor transport for rapid redeployment, and the sheer speed of British advance.</p>
+<hr />
+<h2 id="historical-context"><a class="header" href="#historical-context">Historical Context</a></h2>
+<h3 id="reserve-deployment-q4-1940"><a class="header" href="#reserve-deployment-q4-1940">Reserve Deployment (Q4 1940)</a></h3>
+<p>XXI Corps remained in reserve throughout the Italian invasion of Egypt (September 1940) and the subsequent static deployment at Sidi Barrani (September-December 1940). This positioning at Tobruk/Sofafi provided:</p>
+<ul>
+<li>Better logistics (closer to supply bases)</li>
+<li>Port access at Tobruk</li>
+<li>Ability to support any threatened sector</li>
+<li>Avoided the fatal isolation of Sidi Barrani fortified camps</li>
+</ul>
+<h3 id="operation-compass-december-1940"><a class="header" href="#operation-compass-december-1940">Operation Compass (December 1940)</a></h3>
+<p>When the British launched Operation Compass on December 9, 1940, XXI Corps was positioned to support the forward corps but could not:</p>
+<ul>
+<li>General Berti (10th Army commander) on sick leave</li>
+<li>Command chaos at 10th Army headquarters (Bardia)</li>
+<li>British speed of advance (Nibeiwa, Tummar destroyed in 2 days)</li>
+<li>Insufficient motor transport to redeploy divisions rapidly</li>
+<li>Forward corps destroyed before XXI Corps could intervene</li>
+</ul>
+<p>XXI Corps divisions fought in subsequent battles during the British advance but could not prevent the 10th Army's complete destruction.</p>
+<hr />
+<h2 id="data-quality--known-gaps"><a class="header" href="#data-quality--known-gaps">Data Quality &amp; Known Gaps</a></h2>
+<h3 id="-extraction-quality"><a class="header" href="#-extraction-quality">⭐ EXTRACTION QUALITY</a></h3>
+<p><strong>Tier</strong>: 4 (Research Brief Created)
+<strong>Status</strong>: research_brief_created
+<strong>Confidence Score</strong>: 50% (CRITICALLY LOW - Insufficient data for extraction)</p>
+<p><strong>Tier Explanation</strong>: This XXI Corps file is a STRUCTURAL PLACEHOLDER demonstrating corps-level schema v3.0 compliance but contains NO actual TO&amp;E data. All equipment/personnel totals are 0 because NONE of the 3 subordinate divisions have been extracted.</p>
+<hr />
+<h3 id="data-sources"><a class="header" href="#data-sources">Data Sources</a></h3>
+<p><strong>Historical Sources</strong>:</p>
+<ul>
+<li>Wikipedia: Operation Compass - XXI Corps organization (Tier 2, 75% confidence)</li>
+<li>Wikipedia: XXI Army Corps (Italy) - Command history (Tier 2, 78% confidence)</li>
+<li>Web searches: XXI Corps composition 1940 (Tier 2, 72% confidence)</li>
+</ul>
+<p><strong>Subordinate Unit Sources</strong>: NONE - divisions not extracted</p>
+<hr />
+<h3 id="critical-gaps"><a class="header" href="#critical-gaps">Critical Gaps</a></h3>
+<p>🔴 <strong>CRITICAL - Missing Subordinate Divisions</strong>:</p>
+<ul>
+<li>63rd Infantry Division "Cirene" - NOT EXTRACTED</li>
+<li>1st CC.NN. Division "23 Marzo" - NOT EXTRACTED</li>
+<li>2nd CC.NN. Division "28 Ottobre" - NOT EXTRACTED</li>
+</ul>
+<p><strong>Impact</strong>: Cannot aggregate corps-level personnel or equipment totals without division data.</p>
+<p><strong>Mitigation</strong>: Extract all 3 subordinate divisions to enable bottom-up aggregation.</p>
+<hr />
+<h3 id="future-requirements"><a class="header" href="#future-requirements">Future Requirements</a></h3>
+<p>Before this XXI Corps extraction can be considered complete:</p>
+<ol>
+<li><strong>Extract 63rd Division "Cirene"</strong> (metropolitan infantry division)</li>
+<li><strong>Extract 1st CC.NN. "23 Marzo"</strong> (Blackshirt division)</li>
+<li><strong>Extract 2nd CC.NN. "28 Ottobre"</strong> (Blackshirt division)</li>
+<li><strong>Aggregate division data</strong> to corps level</li>
+<li><strong>Update confidence</strong> from Tier 4 (50%) to Tier 1-2 (75%+)</li>
+</ol>
+<hr />
+<h2 id="conclusion"><a class="header" href="#conclusion">Conclusion</a></h2>
+<p>XXI Corps served as the Italian 10th Army's reserve during Q4 1940, positioned at Tobruk/Sofafi with better logistics than the forward corps destroyed at Sidi Barrani. However, command chaos and the speed of British Operation Compass prevented effective intervention.</p>
+<p><strong>This file demonstrates corps-level structure but awaits subordinate division extractions for complete TO&amp;E data.</strong></p>
+<hr />
+<p><strong>Data Source</strong>: Structural placeholder - historical sources only, NO TO&amp;E aggregation
+<strong>Confidence</strong>: 50% (Tier 4 - Research Brief Created)
+<strong>Schema</strong>: unified_toe_schema.json v3.0.0 (Ground Forces)
+<strong>Extraction Date</strong>: 2025-10-20</p>
+<hr />
+<p><em>Required for completion:</em></p>
+<ul>
+<li>Extract 63rd Division "Cirene"</li>
+<li>Extract 1st CC.NN. Division "23 Marzo"</li>
+<li>Extract 2nd CC.NN. Division "28 Ottobre"</li>
+<li>Perform bottom-up aggregation to corps level</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../chapters/chapter_italian_1940q4_trento_division.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../chapters/chapter_italian_1940q4_xxi_corpo_darmata_xxi_corps.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../chapters/chapter_italian_1940q4_trento_division.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../chapters/chapter_italian_1940q4_xxi_corpo_darmata_xxi_corps.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

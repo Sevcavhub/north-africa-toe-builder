@@ -1,0 +1,721 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Deutsches Afrikakorps Dak - North Africa Campaign 1940-1943: Complete Order of Battle</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">North Africa Campaign 1940-1943: Complete Order of Battle</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/yourusername/north-africa-toe-builder" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="deutsches-afrikakorps-dak"><a class="header" href="#deutsches-afrikakorps-dak">Deutsches Afrikakorps (DAK)</a></h1>
+<p><strong>Nation:</strong> German
+<strong>Quarter:</strong> 1942-Q1
+<strong>Organization Level:</strong> Corps</p>
+<h2 id="1-overview"><a class="header" href="#1-overview">1. Overview</a></h2>
+<p><strong>[MANUAL: Add 2-3 paragraphs of historical context about the Deutsches Afrikakorps (DAK)]</strong></p>
+<p><strong>[MANUAL: Describe the unit's role during 1942-Q1, formation history, and strategic importance]</strong></p>
+<p><strong>[MANUAL: Add operational context - what major operations/battles occurred this quarter]</strong></p>
+<p><strong>Key Statistics (1942-Q1):</strong></p>
+<ul>
+<li>Total Strength: 23,850 personnel</li>
+<li>Unit Type: Panzerkorps (Armored Corps)</li>
+<li>Organization Level: Corps</li>
+<li>Parent Formation: Panzerarmee Afrika (from 30 January 1942)</li>
+<li>Commander: Generalleutnant Generalleutnant Ludwig Crüwell</li>
+<li>Headquarters Location: Mobile HQ, Cyrenaica (Libya) - Q1 1942: Mersa el Brega (Jan), Agedabia (late Jan), Benghazi (Feb-Mar)</li>
+<li>Tanks: 165</li>
+<li>Artillery: 235 guns</li>
+<li>Motor Vehicles: 4,685</li>
+</ul>
+<h2 id="2-command-structure"><a class="header" href="#2-command-structure">2. Command Structure</a></h2>
+<h3 id="division-commander"><a class="header" href="#division-commander">Division Commander</a></h3>
+<p><strong>Generalleutnant Generalleutnant Ludwig Crüwell</strong> assumed command on 1941-09-01.</p>
+<p>Previous service: Commander XXXXVII. Panzerkorps (Poland 1939), Commander XXXXI. Panzerkorps (France 1940, Barbarossa 1941)</p>
+<p><strong>[MANUAL: Add 1-2 paragraphs about commander's background, command style, and performance]</strong></p>
+<h3 id="division-staff"><a class="header" href="#division-staff">Division Staff</a></h3>
+<p>The division headquarters staff comprised approximately 365 personnel:</p>
+<ul>
+<li><strong>Officers:</strong> 68 (operations, intelligence, logistics, signals)</li>
+<li><strong>NCOs:</strong> 102 (section chiefs, administrative staff)</li>
+<li><strong>Enlisted:</strong> 195 (clerks, drivers, guards, support)</li>
+</ul>
+<h3 id="chief-of-staff"><a class="header" href="#chief-of-staff">Chief of Staff</a></h3>
+<p><strong>Oberstleutnant Oberstleutnant Fritz Bayerlein</strong> served as Chief of Staff, coordinating all divisional operations.</p>
+<h3 id="headquarters-location"><a class="header" href="#headquarters-location">Headquarters Location</a></h3>
+<p>Division headquarters was established at: Mobile HQ, Cyrenaica (Libya) - Q1 1942: Mersa el Brega (Jan), Agedabia (late Jan), Benghazi (Feb-Mar)</p>
+<p><strong>[MANUAL: Add details about headquarters mobility, facilities, and operational context]</strong></p>
+<h2 id="3-personnel-strength"><a class="header" href="#3-personnel-strength">3. Personnel Strength</a></h2>
+<h3 id="total-strength-23850-personnel"><a class="header" href="#total-strength-23850-personnel">Total Strength: 23,850 Personnel</a></h3>
+<p><strong>[MANUAL: Add 1-2 paragraphs about overall strength, comparing to establishment, explaining any understrength/overstrength]</strong></p>
+<h3 id="officer-corps-895-officers-38-of-total"><a class="header" href="#officer-corps-895-officers-38-of-total">Officer Corps: 895 Officers (3.8% of total)</a></h3>
+<p>The division's officer corps included:</p>
+<ul>
+<li>Division staff and headquarters officers</li>
+<li>Regiment and battalion commanders</li>
+<li>Company and platoon leaders</li>
+<li>Technical specialists</li>
+</ul>
+<p><strong>[MANUAL: Add details about officer quality, training, and leadership capabilities]</strong></p>
+<h3 id="non-commissioned-officers-3560-ncos-149-of-total"><a class="header" href="#non-commissioned-officers-3560-ncos-149-of-total">Non-Commissioned Officers: 3,560 NCOs (14.9% of total)</a></h3>
+<p>NCOs provided critical small unit leadership:</p>
+<ul>
+<li>Squad and section leaders</li>
+<li>Weapon crew chiefs</li>
+<li>Technical specialists</li>
+<li>Administrative and supply NCOs</li>
+</ul>
+<p><strong>[MANUAL: Add details about NCO experience and role]</strong></p>
+<h3 id="enlisted-personnel-19395-813-of-total"><a class="header" href="#enlisted-personnel-19395-813-of-total">Enlisted Personnel: 19,395 (81.3% of total)</a></h3>
+<p>The bulk of the division consisted of enlisted soldiers:</p>
+<ul>
+<li>Infantry riflemen</li>
+<li>Machine gun and weapon crews</li>
+<li>Artillery crews</li>
+<li>Drivers and mechanics</li>
+<li>Engineers and pioneers</li>
+<li>Supply and administrative personnel</li>
+</ul>
+<h3 id="personnel-quality"><a class="header" href="#personnel-quality">Personnel Quality</a></h3>
+<p><strong>[MANUAL: Add 2-3 paragraphs about:]</strong></p>
+<ul>
+<li>Combat experience level (veteran vs. newly-arrived)</li>
+<li>Morale status</li>
+<li>Training emphasis</li>
+<li>Replacement situation</li>
+<li>Known strengths/weaknesses</li>
+</ul>
+<h2 id="4-organization"><a class="header" href="#4-organization">4. Organization</a></h2>
+<p><strong>[MANUAL: Add 1-2 paragraphs describing overall organizational structure and doctrine]</strong></p>
+<h3 id="primary-subordinate-units"><a class="header" href="#primary-subordinate-units">Primary Subordinate Units</a></h3>
+<p><strong>1. 15. Panzer-Division</strong></p>
+<ul>
+<li>Type: Panzer Division</li>
+<li>Strength: 11,920 personnel</li>
+<li>Commander: Generalmajor Gustav von Vaerst</li>
+<li>Composition: Panzer-Regiment 8, Schützen-Regimenter 104/115, Kradschützen-Bataillon 15, Artillerie-Regiment 33, support units</li>
+<li>Note: Post-Crusader rebuild. Von Vaerst commanded from 1 Jan 1942 (replaced Neumann-Silkow KIA 9 Dec 1941). Tank strength reduced from 155 (Q2 1941) to 86 (Q1 1942) - 45% loss in Crusader.</li>
+</ul>
+<p><strong>2. 21. Panzer-Division</strong></p>
+<ul>
+<li>Type: Panzer Division (formerly 5. leichte Division)</li>
+<li>Strength: 11,565 personnel</li>
+<li>Commander: Generalmajor Georg von Bismarck</li>
+<li>Composition: Panzer-Regiment 5, Panzergrenadier-Regimenter 104/155, Aufklärungs-Abteilung 3, Artillerie-Regiment 155, support units</li>
+<li>Note: Redesignated from 5. leichte Division on 1 August 1941. Von Bismarck commanded from 1 Jan 1942 (replaced von Ravenstein captured 29 Nov 1941). Tank strength reduced from 85 (Q2 1941) to 79 (Q1 1942) - Crusader losses.</li>
+</ul>
+<p><strong>3. Panzerkorps-Nachrichten-Abteilung 475</strong></p>
+<ul>
+<li>Type: Corps Signals Battalion</li>
+<li>Strength: 365 personnel</li>
+<li>Composition: 2 Companies (radio, telephone/telegraph)</li>
+<li>Note: Only organic corps troop unit documented in Tessin Band 14. Essential for coordination of mobile operations in Q1 counter-offensive.</li>
+</ul>
+<h3 id="organizational-assessment"><a class="header" href="#organizational-assessment">Organizational Assessment</a></h3>
+<p><strong>[MANUAL: Add assessment of organizational strengths, gaps, and combat effectiveness]</strong></p>
+<h2 id="5-infantry-weapons"><a class="header" href="#5-infantry-weapons">5. Infantry Weapons</a></h2>
+<p><strong>[MANUAL: Add introductory paragraph about unit's infantry weapons doctrine and supply]</strong></p>
+<h3 id="karabiner-98k"><a class="header" href="#karabiner-98k">Karabiner 98k</a></h3>
+<ul>
+<li><strong>Count:</strong> 15,420</li>
+<li><strong>Type:</strong> Rifle</li>
+</ul>
+<p><strong>[MANUAL: Add specifications:]</strong></p>
+<ul>
+<li>Caliber</li>
+<li>Action type</li>
+<li>Magazine/feed system</li>
+<li>Effective range</li>
+<li>Rate of fire</li>
+<li>Weight</li>
+<li>Muzzle velocity</li>
+</ul>
+<p><strong>[MANUAL: Add 1-2 paragraphs about weapon's performance, reliability, and tactical employment]</strong></p>
+<h3 id="mg-34"><a class="header" href="#mg-34">MG 34</a></h3>
+<ul>
+<li><strong>Count:</strong> 780</li>
+<li><strong>Type:</strong> Machine Gun</li>
+</ul>
+<p><strong>[MANUAL: Add specifications:]</strong></p>
+<ul>
+<li>Caliber</li>
+<li>Action type</li>
+<li>Magazine/feed system</li>
+<li>Effective range</li>
+<li>Rate of fire</li>
+<li>Weight</li>
+<li>Muzzle velocity</li>
+</ul>
+<p><strong>[MANUAL: Add 1-2 paragraphs about weapon's performance, reliability, and tactical employment]</strong></p>
+<h3 id="mp-40"><a class="header" href="#mp-40">MP 40</a></h3>
+<ul>
+<li><strong>Count:</strong> 950</li>
+<li><strong>Type:</strong> Submachine Gun</li>
+</ul>
+<p><strong>[MANUAL: Add specifications:]</strong></p>
+<ul>
+<li>Caliber</li>
+<li>Action type</li>
+<li>Magazine/feed system</li>
+<li>Effective range</li>
+<li>Rate of fire</li>
+<li>Weight</li>
+<li>Muzzle velocity</li>
+</ul>
+<p><strong>[MANUAL: Add 1-2 paragraphs about weapon's performance, reliability, and tactical employment]</strong></p>
+<h2 id="6-motor-vehicles-and-transport"><a class="header" href="#6-motor-vehicles-and-transport">6. Motor Vehicles and Transport</a></h2>
+<h3 id="total-motor-vehicles-4685"><a class="header" href="#total-motor-vehicles-4685">Total Motor Vehicles: 4,685</a></h3>
+<p><strong>[MANUAL: Add paragraph about unit's motorization level and mobility capabilities]</strong></p>
+<h3 id="trucks-2680-total"><a class="header" href="#trucks-2680-total">Trucks: 2,680 Total</a></h3>
+<h4 id="opel-blitz-3-ton"><a class="header" href="#opel-blitz-3-ton">Opel Blitz 3-ton</a></h4>
+<ul>
+<li><strong>Count:</strong> 1,085</li>
+<li><strong>Capacity:</strong> 3_ton</li>
+</ul>
+<p><strong>[MANUAL: Add specifications and usage]</strong></p>
+<h4 id="mercedes-benz-l3000"><a class="header" href="#mercedes-benz-l3000">Mercedes-Benz L3000</a></h4>
+<ul>
+<li><strong>Count:</strong> 740</li>
+<li><strong>Capacity:</strong> 3_ton</li>
+</ul>
+<p><strong>[MANUAL: Add specifications and usage]</strong></p>
+<h4 id="büssing-nag"><a class="header" href="#büssing-nag">Büssing-NAG</a></h4>
+<ul>
+<li><strong>Count:</strong> 425</li>
+<li><strong>Capacity:</strong> 4.5_ton</li>
+</ul>
+<p><strong>[MANUAL: Add specifications and usage]</strong></p>
+<h4 id="krupp-l2h143"><a class="header" href="#krupp-l2h143">Krupp L2H143</a></h4>
+<ul>
+<li><strong>Count:</strong> 315</li>
+<li><strong>Capacity:</strong> 2.5_ton</li>
+</ul>
+<p><strong>[MANUAL: Add specifications and usage]</strong></p>
+<h4 id="horch-kfz15"><a class="header" href="#horch-kfz15">Horch Kfz.15</a></h4>
+<ul>
+<li><strong>Count:</strong> 95</li>
+<li><strong>Capacity:</strong> light_car</li>
+</ul>
+<p><strong>[MANUAL: Add specifications and usage]</strong></p>
+<h4 id="staff-cars-various"><a class="header" href="#staff-cars-various">Staff cars (various)</a></h4>
+<ul>
+<li><strong>Count:</strong> 20</li>
+<li><strong>Capacity:</strong> personnel</li>
+</ul>
+<p><strong>[MANUAL: Add specifications and usage]</strong></p>
+<h3 id="motorcycles-720-total"><a class="header" href="#motorcycles-720-total">Motorcycles: 720 Total</a></h3>
+<h4 id="bmw-r75"><a class="header" href="#bmw-r75">BMW R75</a></h4>
+<ul>
+<li><strong>Count:</strong> 335</li>
+</ul>
+<p><strong>[MANUAL: Add specifications and usage]</strong></p>
+<h4 id="zündapp-ks750"><a class="header" href="#zündapp-ks750">Zündapp KS750</a></h4>
+<ul>
+<li><strong>Count:</strong> 220</li>
+</ul>
+<p><strong>[MANUAL: Add specifications and usage]</strong></p>
+<h4 id="bmw-r12"><a class="header" href="#bmw-r12">BMW R12</a></h4>
+<ul>
+<li><strong>Count:</strong> 75</li>
+</ul>
+<p><strong>[MANUAL: Add specifications and usage]</strong></p>
+<h4 id="dkw-nz350"><a class="header" href="#dkw-nz350">DKW NZ350</a></h4>
+<ul>
+<li><strong>Count:</strong> 90</li>
+</ul>
+<p><strong>[MANUAL: Add specifications and usage]</strong></p>
+<h3 id="armored-cars-98-total"><a class="header" href="#armored-cars-98-total">Armored Cars: 98 Total</a></h3>
+<p><strong>[MANUAL: Add armored car variants with specifications and tactical employment]</strong></p>
+<h3 id="support-vehicles-717-total"><a class="header" href="#support-vehicles-717-total">Support Vehicles: 717 Total</a></h3>
+<h4 id="recovery-vehicles"><a class="header" href="#recovery-vehicles">Recovery vehicles</a></h4>
+<ul>
+<li><strong>Count:</strong> 48</li>
+<li><strong>Type:</strong> Tank Recovery (Various)</li>
+</ul>
+<h4 id="fuel-tankers"><a class="header" href="#fuel-tankers">Fuel tankers</a></h4>
+<ul>
+<li><strong>Count:</strong> 155</li>
+<li><strong>Type:</strong> Fuel Transport (Various)</li>
+</ul>
+<h4 id="water-tankers"><a class="header" href="#water-tankers">Water tankers</a></h4>
+<ul>
+<li><strong>Count:</strong> 128</li>
+<li><strong>Type:</strong> Water Transport</li>
+</ul>
+<h4 id="workshop-vehicles"><a class="header" href="#workshop-vehicles">Workshop vehicles</a></h4>
+<ul>
+<li><strong>Count:</strong> 115</li>
+<li><strong>Type:</strong> Mobile Repair Shops</li>
+</ul>
+<h4 id="ambulances"><a class="header" href="#ambulances">Ambulances</a></h4>
+<ul>
+<li><strong>Count:</strong> 82</li>
+<li><strong>Type:</strong> Medical Transport</li>
+</ul>
+<h4 id="command-vehicles"><a class="header" href="#command-vehicles">Command vehicles</a></h4>
+<ul>
+<li><strong>Count:</strong> 48</li>
+<li><strong>Type:</strong> Communications Vehicles</li>
+</ul>
+<h4 id="staff-cars"><a class="header" href="#staff-cars">Staff cars</a></h4>
+<ul>
+<li><strong>Count:</strong> 26</li>
+<li><strong>Type:</strong> Personnel Transport</li>
+</ul>
+<h3 id="transport-challenges"><a class="header" href="#transport-challenges">Transport Challenges</a></h3>
+<p><strong>[MANUAL: Add section about desert operating challenges, maintenance, fuel consumption, etc.]</strong></p>
+<h2 id="7-artillery"><a class="header" href="#7-artillery">7. Artillery</a></h2>
+<h3 id="total-artillery-235-guns"><a class="header" href="#total-artillery-235-guns">Total Artillery: 235 Guns</a></h3>
+<p><strong>[MANUAL: Add paragraph about artillery organization and doctrine]</strong></p>
+<h3 id="field-artillery-100-guns"><a class="header" href="#field-artillery-100-guns">Field Artillery: 100 Guns</a></h3>
+<h4 id="105cm-lefh-18"><a class="header" href="#105cm-lefh-18">10.5cm leFH 18</a></h4>
+<ul>
+<li><strong>Count:</strong> 68</li>
+<li><strong>Caliber:</strong> 105mm</li>
+</ul>
+<p><strong>[MANUAL: Add specifications:]</strong></p>
+<ul>
+<li>Range</li>
+<li>Shell weight</li>
+<li>Rate of fire</li>
+<li>Muzzle velocity</li>
+<li>Weight</li>
+<li>Crew size</li>
+</ul>
+<p><strong>[MANUAL: Add tactical employment paragraph]</strong></p>
+<h4 id="15cm-sfh-18"><a class="header" href="#15cm-sfh-18">15cm sFH 18</a></h4>
+<ul>
+<li><strong>Count:</strong> 32</li>
+<li><strong>Caliber:</strong> 150mm</li>
+</ul>
+<p><strong>[MANUAL: Add specifications:]</strong></p>
+<ul>
+<li>Range</li>
+<li>Shell weight</li>
+<li>Rate of fire</li>
+<li>Muzzle velocity</li>
+<li>Weight</li>
+<li>Crew size</li>
+</ul>
+<p><strong>[MANUAL: Add tactical employment paragraph]</strong></p>
+<h3 id="anti-tank-artillery-64-guns"><a class="header" href="#anti-tank-artillery-64-guns">Anti-Tank Artillery: 64 Guns</a></h3>
+<h4 id="5cm-pak-38"><a class="header" href="#5cm-pak-38">5cm PaK 38</a></h4>
+<ul>
+<li><strong>Count:</strong> 38</li>
+<li><strong>Caliber:</strong> 50mm</li>
+</ul>
+<p><strong>[MANUAL: Add specifications and anti-armor effectiveness]</strong></p>
+<h4 id="37cm-pak-3536"><a class="header" href="#37cm-pak-3536">3.7cm PaK 35/36</a></h4>
+<ul>
+<li><strong>Count:</strong> 26</li>
+<li><strong>Caliber:</strong> 37mm</li>
+</ul>
+<p><strong>[MANUAL: Add specifications and anti-armor effectiveness]</strong></p>
+<h3 id="anti-aircraft-artillery-71-guns"><a class="header" href="#anti-aircraft-artillery-71-guns">Anti-Aircraft Artillery: 71 Guns</a></h3>
+<h4 id="88cm-flak-1836"><a class="header" href="#88cm-flak-1836">8.8cm FlaK 18/36</a></h4>
+<ul>
+<li><strong>Count:</strong> 18</li>
+<li><strong>Caliber:</strong> 88mm</li>
+</ul>
+<p><strong>[MANUAL: Add specifications and air defense employment]</strong></p>
+<h4 id="2cm-flak-30"><a class="header" href="#2cm-flak-30">2cm FlaK 30</a></h4>
+<ul>
+<li><strong>Count:</strong> 10</li>
+<li><strong>Caliber:</strong> 20mm</li>
+</ul>
+<p><strong>[MANUAL: Add specifications and air defense employment]</strong></p>
+<h4 id="2cm-flak-38"><a class="header" href="#2cm-flak-38">2cm FlaK 38</a></h4>
+<ul>
+<li><strong>Count:</strong> 30</li>
+<li><strong>Caliber:</strong> 20mm</li>
+</ul>
+<p><strong>[MANUAL: Add specifications and air defense employment]</strong></p>
+<h4 id="37cm-flak-36"><a class="header" href="#37cm-flak-36">3.7cm FlaK 36</a></h4>
+<ul>
+<li><strong>Count:</strong> 13</li>
+<li><strong>Caliber:</strong> 37mm</li>
+</ul>
+<p><strong>[MANUAL: Add specifications and air defense employment]</strong></p>
+<h2 id="8-supply-and-logistics"><a class="header" href="#8-supply-and-logistics">8. Supply and Logistics</a></h2>
+<h3 id="supply-status"><a class="header" href="#supply-status">Supply Status</a></h3>
+<p>CRITICAL - Post-Operation Crusader depletion. Extended supply lines from Tripoli (800-1000+ km) via single coastal road (Via Balbia). British naval interdiction (Malta-based RAF/RN) destroys 30-40% of Axis convoys. Fuel reserves 5-6 days (lowest of war so far), ammunition 8-9 days, water 10-15L/man/day (critical desert constraint), food 10-12 days. Rommel Papers document: 'Only 18,000 tons reached Panzer Army in March 1942 out of 60,000 ton requirement.' Supply convoy arrived 5 Jan 1942 (55 tanks, 20 armored cars, AT guns) enabled Jan counter-offensive. Supply base: Tripoli port (sole Axis lifeline). Forward supply dumps at Mersa el Brega (Jan), Benghazi recaptured 29 Jan (critical port). Q1 1942: Rebuilding phase after Crusader losses.</p>
+<h3 id="fuel-supply"><a class="header" href="#fuel-supply">Fuel Supply</a></h3>
+<p><strong>Fuel Reserves:</strong> 5.5 days</p>
+<p><strong>[MANUAL: Add fuel supply details, daily consumption, sources, constraints]</strong></p>
+<h3 id="ammunition-supply"><a class="header" href="#ammunition-supply">Ammunition Supply</a></h3>
+<p><strong>Ammunition Reserves:</strong> 8.5 days</p>
+<p><strong>[MANUAL: Add ammunition supply details, types, resupply, shortages]</strong></p>
+<h3 id="water-supply"><a class="header" href="#water-supply">Water Supply</a></h3>
+<p><strong>Daily Requirement:</strong> 12.5 liters per day</p>
+<p><strong>[MANUAL: Add water supply details, transport, rationing, sources]</strong></p>
+<h3 id="operational-radius"><a class="header" href="#operational-radius">Operational Radius</a></h3>
+<p><strong>Estimated:</strong> 160 km from supply dumps</p>
+<h3 id="supply-chain-vulnerabilities"><a class="header" href="#supply-chain-vulnerabilities">Supply Chain Vulnerabilities</a></h3>
+<p><strong>[MANUAL: Add section about supply chain risks, interdiction, priorities, and challenges]</strong></p>
+<h2 id="9-weather-and-environment"><a class="header" href="#9-weather-and-environment">9. Weather and Environment</a></h2>
+<h3 id="climate-1942-q1"><a class="header" href="#climate-1942-q1">Climate (1942-Q1)</a></h3>
+<p><strong>Season:</strong> 1942-Q1 (January-March) - Winter in Libya</p>
+<p><strong>Temperature Range:</strong> 8-22°C</p>
+<p><strong>Daylight Hours:</strong> 11.5 hours</p>
+<p><strong>Storm Frequency:</strong> Approximately 5 days per month</p>
+<p><strong>[MANUAL: Add detailed climate description for this quarter]</strong></p>
+<h3 id="terrain"><a class="header" href="#terrain">Terrain</a></h3>
+<p>Coastal desert (Cyrenaica/Tripolitania) - sand, gravel, rocky escarpments, wadis, minimal vegetation, no water sources. Q1 1942 operations: Mersa el Brega → Agedabia → Benghazi → Gazala Line defensive positions.</p>
+<h3 id="weather-challenges"><a class="header" href="#weather-challenges">Weather Challenges</a></h3>
+<p><strong>[MANUAL: Add weather impact on operations]</strong></p>
+<h3 id="environmental-challenges"><a class="header" href="#environmental-challenges">Environmental Challenges</a></h3>
+<p><strong>[MANUAL: Add environmental challenges - dust, heat, navigation, disease, etc.]</strong></p>
+<h2 id="10-combat-history"><a class="header" href="#10-combat-history">10. Combat History</a></h2>
+<h3 id="formation-and-deployment"><a class="header" href="#formation-and-deployment">Formation and Deployment</a></h3>
+<p><strong>[MANUAL: Add 2-3 paragraphs about unit formation, when/where raised, deployment to theater]</strong></p>
+<h3 id="major-engagements"><a class="header" href="#major-engagements">Major Engagements</a></h3>
+<p><strong>[MANUAL: List and describe major battles, operations, and engagements]</strong></p>
+<h3 id="combat-effectiveness-assessment"><a class="header" href="#combat-effectiveness-assessment">Combat Effectiveness Assessment</a></h3>
+<p><strong>[MANUAL: Add assessment of strengths, weaknesses, and overall combat performance]</strong></p>
+<h2 id="11-tactical-doctrine-and-capabilities"><a class="header" href="#11-tactical-doctrine-and-capabilities">11. Tactical Doctrine and Capabilities</a></h2>
+<h3 id="doctrinal-role"><a class="header" href="#doctrinal-role">Doctrinal Role</a></h3>
+<p>German armored corps in North Africa. Mobile armored exploitation force for offensive operations, breakthrough warfare, rapid maneuver in desert terrain. Combined arms coordination at corps level between panzer divisions, motorized infantry, and supporting arms. Q1 1942: Rebuilding after Operation Crusader (Nov-Dec 1941) then launching surprise counter-offensive (21 Jan - 6 Feb 1942) to retake Cyrenaica.</p>
+<h3 id="special-capabilities"><a class="header" href="#special-capabilities">Special Capabilities</a></h3>
+<ul>
+<li>Rapid exploitation of breakthroughs via two panzer divisions</li>
+<li>Mobile defensive operations using 8.8cm FlaK in AT role</li>
+<li>Desert navigation and movement coordination</li>
+<li>Aggressive reconnaissance-in-force tactics</li>
+<li>Combined arms coordination (tanks, motorized infantry, artillery, AT, AA)</li>
+<li>Battlefield improvisation (capture and use of British supplies)</li>
+<li>Mobile 'hedgehog' defensive positions</li>
+<li>Surprise offensive operations (Jan 1942 counter-offensive caught British off-guard)</li>
+</ul>
+<h3 id="tactical-innovations"><a class="header" href="#tactical-innovations">Tactical Innovations</a></h3>
+<ul>
+<li>Revolutionary use of 8.8cm FlaK guns in anti-tank role (devastating vs British cruiser/infantry tanks)</li>
+<li>Mobile AT gun screens (PaK 38, 8.8cm FlaK) to lure British armor into kill zones</li>
+<li>Rapid desert exploitation using sun compass/dead reckoning navigation</li>
+<li>Aggressive use of reconnaissance to find flanks</li>
+<li>Capture and immediate use of British fuel/supply dumps (critical in Q1 1942 counter-offensive)</li>
+<li>Concentration of armor at decisive points (Schwerpunkt doctrine)</li>
+<li>Mobile workshops for rapid battlefield repairs (essential post-Crusader)</li>
+<li>Deception operations (Rommel kept Jan 1942 offensive secret from Italian High Command to prevent leaks)</li>
+</ul>
+<h3 id="combined-arms-integration"><a class="header" href="#combined-arms-integration">Combined Arms Integration</a></h3>
+<p><strong>[MANUAL: Add section about infantry-tank-artillery cooperation, air support, engineer support]</strong></p>
+<h3 id="known-issues-and-limitations"><a class="header" href="#known-issues-and-limitations">Known Issues and Limitations</a></h3>
+<ul>
+<li>Insufficient tank numbers vs British armored forces (165 tanks, down from 240 in Q2 1941 - 31% reduction)</li>
+<li>Extended supply lines (800-1000+ km from Tripoli) via single coastal road</li>
+<li>British naval/air interdiction destroys 30-40% of Axis supply convoys</li>
+<li>Desert conditions: extreme heat, sand (vehicle breakdowns), water scarcity (10-15L/man/day essential)</li>
+<li>3.7cm PaK 35/36 inadequate against Matilda II infantry tanks (78mm frontal armor)</li>
+<li>Limited spare parts (vehicles/tanks cannibalized for parts)</li>
+<li>Vulnerability of soft-skinned vehicles to British air attacks</li>
+<li>Chronic fuel shortages (5-6 days reserves, lowest of war - limits operational tempo)</li>
+<li>Italian forces require German stiffening (morale/training issues)</li>
+<li>No organic air support (dependent on Fliegerführer Afrika at theater level)</li>
+<li>Post-Crusader attrition: Tank strength 165 (Q1) vs 240 (Q2 1941), truck operational readiness 80% (Q1) vs 91% (Q2 1941)</li>
+<li>British air superiority growing (Malta-based RAF raids on supply convoys)</li>
+</ul>
+<h3 id="desert-adaptations"><a class="header" href="#desert-adaptations">Desert Adaptations</a></h3>
+<p>Tropical uniforms (khaki), sand filters on all vehicles, desert tires, increased water capacity (tankers), sun compass/dead reckoning navigation, vehicle recovery emphasis (limited replacements), water discipline (10-15L/man/day), capture of British supply dumps essential, mobile workshops for field repairs, aggressive reconnaissance (water sources, supply dumps, enemy positions). Q1 1942: Emphasis on rapid repairs to restore tank strength after Crusader losses.</p>
+<h2 id="12-wargaming-and-scenario-data"><a class="header" href="#12-wargaming-and-scenario-data">12. Wargaming and Scenario Data</a></h2>
+<h3 id="morale-and-experience"><a class="header" href="#morale-and-experience">Morale and Experience</a></h3>
+<p><strong>Morale Rating:</strong> 8/10</p>
+<p><strong>Experience Level:</strong> Veteran</p>
+<p><strong>[MANUAL: Add paragraph explaining morale factors and experience level]</strong></p>
+<h3 id="scenario-suitability"><a class="header" href="#scenario-suitability">Scenario Suitability</a></h3>
+<p>This unit is well-suited for:</p>
+<ul>
+<li>Rommel's Counter-Offensive (21 January - 6 February 1942) - DAK's surprise attack from Mersa el Brega</li>
+<li>Battle of Agedabia (22-23 January 1942) - British 1st Armoured Division loses 117 tanks</li>
+<li>Capture of Benghazi (28-29 January 1942) - DAK seizes key port and supply dumps</li>
+<li>Advance to Gazala Line (February 1942) - DAK establishes defensive positions</li>
+<li>Desert patrol actions and reconnaissance battles (Jan-Mar 1942)</li>
+<li>Anti-tank ambush scenarios (8.8cm FlaK vs British Crusader/Grant tanks)</li>
+<li>Post-Crusader rebuild operations (January 1942)</li>
+<li>Supply convoy interdiction scenarios (British vs Axis convoys)</li>
+</ul>
+<h3 id="special-rules-wargaming"><a class="header" href="#special-rules-wargaming">Special Rules (Wargaming)</a></h3>
+<ul>
+<li>Crüwell leadership bonus: +1 to DAK units within 5km of Crüwell's HQ (less than Rommel's +1 bonus)</li>
+<li>8.8cm FlaK guns may fire in AT role (exceptional vs all British armor)</li>
+<li>Superior combined arms coordination: +1 to coordination checks</li>
+<li>Desert warfare experience: +1 to navigation/survival checks</li>
+<li>Extended supply lines penalty: -2 to sustained operations after 4 days without resupply (worse than Q2 1941 due to fuel crisis)</li>
+<li>Panzer III J long 50mm gun effective against British Crusader/Grant tanks</li>
+<li>British Matilda II infantry tanks immune to 3.7cm PaK (require 5cm PaK or 8.8cm FlaK)</li>
+<li>Capture British supply dumps: +3 days fuel/ammunition if British supply dump overrun (critical in Q1 1942)</li>
+<li>Post-Crusader attrition: -1 to tank availability checks (tank strength 165 vs 240 in Q2 1941)</li>
+<li>Surprise offensive: +2 to initiative rolls for first 2 turns (Jan 1942 counter-offensive caught British off-guard)</li>
+</ul>
+<h3 id="historical-engagements-this-quarter"><a class="header" href="#historical-engagements-this-quarter">Historical Engagements (This Quarter)</a></h3>
+<ul>
+<li>Rommel's Counter-Offensive (21 January - 6 February 1942) - Recaptured Cyrenaica in 2 weeks</li>
+<li>Battle of Agedabia (22 January 1942) - British withdraw in disorder, DAK captures town</li>
+<li>Envelopment of British 1st Armoured Division (23 January 1942) - 117 British tanks destroyed, 33 guns captured</li>
+<li>Pursuit to Msus (24 January 1942) - 98 British armored vehicles destroyed, 38 guns captured</li>
+<li>Capture of Benghazi (28-29 January 1942) - Key port and vast supply dumps seized</li>
+<li>Advance to Gazala Line (February 1942) - DAK establishes defensive positions</li>
+<li>Gazala Line stalemate (February-May 1942) - Both sides build up for summer offensive</li>
+</ul>
+<h3 id="force-composition-for-scenarios"><a class="header" href="#force-composition-for-scenarios">Force Composition for Scenarios</a></h3>
+<p><strong>[MANUAL: Add typical force breakdowns for wargaming scenarios]</strong></p>
+<h2 id="13-data-quality-and-sources"><a class="header" href="#13-data-quality-and-sources">13. Data Quality and Sources</a></h2>
+<h3 id="source-documentation"><a class="header" href="#source-documentation">Source Documentation</a></h3>
+<p>This TO&amp;E is based on:</p>
+<ul>
+<li>Tessin Band 14 - Deutsches Afrikakorps organizational structure (Tier 1, 95% confidence)</li>
+<li>The Rommel Papers - PRIMARY SOURCE: Tank strength 20 Jan 1942: 111 serviceable at front + 28 in rear = 139 operational (Tier 1, 95% confidence)</li>
+<li>The Rommel Papers - Counter-offensive dates, operations, Crüwell command (Tier 1, 95% confidence)</li>
+<li>The Rommel Papers - Supply crisis: 'Only 18,000 tons reached Panzer Army in March 1942 out of 60,000 ton requirement' (Tier 1, 95% confidence)</li>
+<li>The Rommel Papers - 5 Jan 1942 convoy: 55 tanks, 20 armored cars arrived Tripoli (Tier 1, 95% confidence)</li>
+<li>The Rommel Papers - Panzergruppe Afrika redesignated Panzerarmee Afrika on 22 Jan 1942 (Tier 1, 95% confidence)</li>
+<li>Tessin Band 06 - 15. Panzer-Division (Tier 1, 85% confidence)</li>
+<li>Tessin Band 06 - 21. Panzer-Division (formerly 5. leichte) (Tier 1, 85% confidence)</li>
+<li>Nafziger Collection - German OOB North Africa 1942 Q1 (Tier 1, 82% confidence)</li>
+<li>Feldgrau.com - DAK unit history, Crüwell command 1 Sept 1941 - 29 May 1942 (Tier 2, 80% confidence)</li>
+<li>Cross-referenced: Crüwell commanding 1 Sept 1941 - 29 May 1942 (Tessin, Keilig, Mitcham)</li>
+<li>Cross-referenced: Chief of Staff Bayerlein - Rommel Papers, Mitcham</li>
+<li>Cross-referenced: Subordinate divisions (15. Pz, 21. Pz) - all sources agree</li>
+<li>Calculated: Tank totals (165) from Rommel Papers Q1 1942 data (139 operational + 26 in repair)</li>
+<li>Calculated: Personnel (23,850) from division aggregation post-Crusader losses</li>
+<li>Calculated: Supply/logistics from Rommel Papers Q1 1942 entries (Jan counter-offensive, March supply crisis)</li>
+<li>Schema v3.1.0: supply_logistics and weather_environment sections complete</li>
+</ul>
+<h3 id="confidence-assessment"><a class="header" href="#confidence-assessment">Confidence Assessment</a></h3>
+<p><strong>Data Completeness:</strong> 92%</p>
+<p><strong>[MANUAL: Add confidence breakdown by category - High/Medium/Low confidence areas]</strong></p>
+<h3 id="required-field-gaps"><a class="header" href="#required-field-gaps">Required Field Gaps</a></h3>
+<h3 id="data-tier-rationale"><a class="header" href="#data-tier-rationale">Data Tier Rationale</a></h3>
+<p><strong>[MANUAL: Add explanation of tier assignment and data quality factors]</strong></p>
+<h2 id="14-historical-significance"><a class="header" href="#14-historical-significance">14. Historical Significance</a></h2>
+<h3 id="strategic-importance"><a class="header" href="#strategic-importance">Strategic Importance</a></h3>
+<p><strong>[MANUAL: Add 2-3 paragraphs about unit's strategic role in theater]</strong></p>
+<h3 id="operational-lessons"><a class="header" href="#operational-lessons">Operational Lessons</a></h3>
+<p><strong>[MANUAL: Add lessons learned from this unit's operations]</strong></p>
+<h3 id="legacy"><a class="header" href="#legacy">Legacy</a></h3>
+<p><strong>[MANUAL: Add information about unit's post-war legacy, memorials, historical assessment]</strong></p>
+<hr />
+<p><em>[MANUAL: Add concluding paragraph summarizing the unit's significance]</em></p>
+<p><strong>Generated from Phase 6 TO&amp;E Data | [MANUAL: Add sources] | Confidence: [%] | Tier [#]</strong></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../chapters/chapter_german_1942q1_deutsches_afrikakorps.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../chapters/chapter_german_1942q1_panzerarmee_afrika.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../chapters/chapter_german_1942q1_deutsches_afrikakorps.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../chapters/chapter_german_1942q1_panzerarmee_afrika.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

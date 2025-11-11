@@ -1,0 +1,517 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Xxi Corpo Darmata Xxi Corps - North Africa Campaign 1940-1943: Complete Order of Battle</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">North Africa Campaign 1940-1943: Complete Order of Battle</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/yourusername/north-africa-toe-builder" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="xxi-corpo-darmata-xxi-corps"><a class="header" href="#xxi-corpo-darmata-xxi-corps">XXI Corpo d'Armata (XXI Corps)</a></h1>
+<p><strong>Nation:</strong> Italian
+<strong>Quarter:</strong> 1943-Q1
+<strong>Organization Level:</strong> Corps</p>
+<h2 id="1-overview"><a class="header" href="#1-overview">1. Overview</a></h2>
+<p><strong>[MANUAL: Add 2-3 paragraphs of historical context about the XXI Corpo d'Armata (XXI Corps)]</strong></p>
+<p><strong>[MANUAL: Describe the unit's role during 1943-Q1, formation history, and strategic importance]</strong></p>
+<p><strong>[MANUAL: Add operational context - what major operations/battles occurred this quarter]</strong></p>
+<p><strong>Key Statistics (1943-Q1):</strong></p>
+<ul>
+<li>Total Strength: 0 personnel</li>
+<li>Unit Type: corps</li>
+<li>Organization Level: Corps</li>
+<li>Parent Formation: Italian First Army (1a Armata)</li>
+<li>Commander: Generale di Corpo d'Armata Generale di Corpo d'Armata Enea Navarini</li>
+<li>Headquarters Location: Unknown - Corps status uncertain in Tunisia 1943-Q1</li>
+</ul>
+<h2 id="2-command-structure"><a class="header" href="#2-command-structure">2. Command Structure</a></h2>
+<h3 id="division-commander"><a class="header" href="#division-commander">Division Commander</a></h3>
+<p><strong>Generale di Corpo d'Armata Generale di Corpo d'Armata Enea Navarini</strong> assumed command on 1941-11-01.</p>
+<p>Previous service: Commanded XXI Corps from November 1941 through El Alamein. Status in 1943-Q1 unclear - corps may have been disbanded or held skeletal command status</p>
+<p><strong>[MANUAL: Add 1-2 paragraphs about commander's background, command style, and performance]</strong></p>
+<h3 id="division-staff"><a class="header" href="#division-staff">Division Staff</a></h3>
+<p>The division headquarters staff comprised approximately 0 personnel:</p>
+<h3 id="chief-of-staff"><a class="header" href="#chief-of-staff">Chief of Staff</a></h3>
+<p>The <strong>Chief of Staff</strong> position was typically held by a Colonnello who coordinated all divisional operations.</p>
+<h3 id="headquarters-location"><a class="header" href="#headquarters-location">Headquarters Location</a></h3>
+<p>Division headquarters was established at: Unknown - Corps status uncertain in Tunisia 1943-Q1</p>
+<p><strong>[MANUAL: Add details about headquarters mobility, facilities, and operational context]</strong></p>
+<h2 id="3-personnel-strength"><a class="header" href="#3-personnel-strength">3. Personnel Strength</a></h2>
+<h3 id="total-strength-0-personnel"><a class="header" href="#total-strength-0-personnel">Total Strength: 0 Personnel</a></h3>
+<p><strong>[MANUAL: Add 1-2 paragraphs about overall strength, comparing to establishment, explaining any understrength/overstrength]</strong></p>
+<h3 id="officer-corps-0-officers-00-of-total"><a class="header" href="#officer-corps-0-officers-00-of-total">Officer Corps: 0 Officers (0.0% of total)</a></h3>
+<p>The division's officer corps included:</p>
+<ul>
+<li>Division staff and headquarters officers</li>
+<li>Regiment and battalion commanders</li>
+<li>Company and platoon leaders</li>
+<li>Technical specialists</li>
+</ul>
+<p><strong>[MANUAL: Add details about officer quality, training, and leadership capabilities]</strong></p>
+<h3 id="non-commissioned-officers-0-ncos-00-of-total"><a class="header" href="#non-commissioned-officers-0-ncos-00-of-total">Non-Commissioned Officers: 0 NCOs (0.0% of total)</a></h3>
+<p>NCOs provided critical small unit leadership:</p>
+<ul>
+<li>Squad and section leaders</li>
+<li>Weapon crew chiefs</li>
+<li>Technical specialists</li>
+<li>Administrative and supply NCOs</li>
+</ul>
+<p><strong>[MANUAL: Add details about NCO experience and role]</strong></p>
+<h3 id="enlisted-personnel-0-00-of-total"><a class="header" href="#enlisted-personnel-0-00-of-total">Enlisted Personnel: 0 (0.0% of total)</a></h3>
+<p>The bulk of the division consisted of enlisted soldiers:</p>
+<ul>
+<li>Infantry riflemen</li>
+<li>Machine gun and weapon crews</li>
+<li>Artillery crews</li>
+<li>Drivers and mechanics</li>
+<li>Engineers and pioneers</li>
+<li>Supply and administrative personnel</li>
+</ul>
+<h3 id="personnel-quality"><a class="header" href="#personnel-quality">Personnel Quality</a></h3>
+<p><strong>[MANUAL: Add 2-3 paragraphs about:]</strong></p>
+<ul>
+<li>Combat experience level (veteran vs. newly-arrived)</li>
+<li>Morale status</li>
+<li>Training emphasis</li>
+<li>Replacement situation</li>
+<li>Known strengths/weaknesses</li>
+</ul>
+<h2 id="4-organization"><a class="header" href="#4-organization">4. Organization</a></h2>
+<p><strong>[MANUAL: Add 1-2 paragraphs describing overall organizational structure and doctrine]</strong></p>
+<h3 id="primary-subordinate-units"><a class="header" href="#primary-subordinate-units">Primary Subordinate Units</a></h3>
+<p><strong>[MANUAL: List subordinate units with type, strength, commander, and composition]</strong></p>
+<h3 id="organizational-assessment"><a class="header" href="#organizational-assessment">Organizational Assessment</a></h3>
+<p><strong>[MANUAL: Add assessment of organizational strengths, gaps, and combat effectiveness]</strong></p>
+<h2 id="5-infantry-weapons"><a class="header" href="#5-infantry-weapons">5. Infantry Weapons</a></h2>
+<p><strong>[MANUAL: Add introductory paragraph about unit's infantry weapons doctrine and supply]</strong></p>
+<h3 id="unknown"><a class="header" href="#unknown">Unknown</a></h3>
+<ul>
+<li><strong>Count:</strong> 0</li>
+<li><strong>Type:</strong> Unknown</li>
+</ul>
+<p><strong>[MANUAL: Add specifications:]</strong></p>
+<ul>
+<li>Caliber</li>
+<li>Action type</li>
+<li>Magazine/feed system</li>
+<li>Effective range</li>
+<li>Rate of fire</li>
+<li>Weight</li>
+<li>Muzzle velocity</li>
+</ul>
+<p><strong>[MANUAL: Add 1-2 paragraphs about weapon's performance, reliability, and tactical employment]</strong></p>
+<h3 id="unknown-1"><a class="header" href="#unknown-1">Unknown</a></h3>
+<ul>
+<li><strong>Count:</strong> 0</li>
+<li><strong>Type:</strong> Unknown</li>
+</ul>
+<p><strong>[MANUAL: Add specifications:]</strong></p>
+<ul>
+<li>Caliber</li>
+<li>Action type</li>
+<li>Magazine/feed system</li>
+<li>Effective range</li>
+<li>Rate of fire</li>
+<li>Weight</li>
+<li>Muzzle velocity</li>
+</ul>
+<p><strong>[MANUAL: Add 1-2 paragraphs about weapon's performance, reliability, and tactical employment]</strong></p>
+<h3 id="unknown-2"><a class="header" href="#unknown-2">Unknown</a></h3>
+<ul>
+<li><strong>Count:</strong> 0</li>
+<li><strong>Type:</strong> Unknown</li>
+</ul>
+<p><strong>[MANUAL: Add specifications:]</strong></p>
+<ul>
+<li>Caliber</li>
+<li>Action type</li>
+<li>Magazine/feed system</li>
+<li>Effective range</li>
+<li>Rate of fire</li>
+<li>Weight</li>
+<li>Muzzle velocity</li>
+</ul>
+<p><strong>[MANUAL: Add 1-2 paragraphs about weapon's performance, reliability, and tactical employment]</strong></p>
+<h2 id="6-motor-vehicles-and-transport"><a class="header" href="#6-motor-vehicles-and-transport">6. Motor Vehicles and Transport</a></h2>
+<h3 id="total-motor-vehicles-0"><a class="header" href="#total-motor-vehicles-0">Total Motor Vehicles: 0</a></h3>
+<p><strong>[MANUAL: Add paragraph about unit's motorization level and mobility capabilities]</strong></p>
+<h3 id="transport-challenges"><a class="header" href="#transport-challenges">Transport Challenges</a></h3>
+<p><strong>[MANUAL: Add section about desert operating challenges, maintenance, fuel consumption, etc.]</strong></p>
+<h2 id="7-artillery"><a class="header" href="#7-artillery">7. Artillery</a></h2>
+<h3 id="total-artillery-0-guns"><a class="header" href="#total-artillery-0-guns">Total Artillery: 0 Guns</a></h3>
+<p><strong>[MANUAL: Add paragraph about artillery organization and doctrine]</strong></p>
+<h2 id="8-supply-and-logistics"><a class="header" href="#8-supply-and-logistics">8. Supply and Logistics</a></h2>
+<h3 id="supply-status"><a class="header" href="#supply-status">Supply Status</a></h3>
+<p>Unknown - XXI Corps status in Tunisia 1943-Q1 unclear. Corps destroyed at El Alamein (October-November 1942) with subordinate divisions Trento and Bologna effectively annihilated. If corps existed in 1943-Q1, likely as skeletal headquarters or paper formation awaiting reconstitution. No operational divisions identified as subordinate to XXI Corps in Tunisia. Supply situation would have been non-applicable for non-operational formation.</p>
+<h3 id="fuel-supply"><a class="header" href="#fuel-supply">Fuel Supply</a></h3>
+<p><strong>[MANUAL: Add fuel supply details, daily consumption, sources, constraints]</strong></p>
+<h3 id="ammunition-supply"><a class="header" href="#ammunition-supply">Ammunition Supply</a></h3>
+<p><strong>[MANUAL: Add ammunition supply details, types, resupply, shortages]</strong></p>
+<h3 id="water-supply"><a class="header" href="#water-supply">Water Supply</a></h3>
+<p><strong>[MANUAL: Add water supply details, transport, rationing, sources]</strong></p>
+<h3 id="operational-radius"><a class="header" href="#operational-radius">Operational Radius</a></h3>
+<p><strong>[MANUAL: Add operational radius estimate with limiting factors]</strong></p>
+<h3 id="supply-chain-vulnerabilities"><a class="header" href="#supply-chain-vulnerabilities">Supply Chain Vulnerabilities</a></h3>
+<p><strong>[MANUAL: Add section about supply chain risks, interdiction, priorities, and challenges]</strong></p>
+<h2 id="9-weather-and-environment"><a class="header" href="#9-weather-and-environment">9. Weather and Environment</a></h2>
+<h3 id="climate-1943-q1"><a class="header" href="#climate-1943-q1">Climate (1943-Q1)</a></h3>
+<p><strong>Season:</strong> 1943-Q1 (January-March)</p>
+<p><strong>Temperature Range:</strong> 8-22°C</p>
+<p><strong>Daylight Hours:</strong> 11.5 hours</p>
+<p><strong>Storm Frequency:</strong> Approximately 4 days per month</p>
+<p><strong>[MANUAL: Add detailed climate description for this quarter]</strong></p>
+<h3 id="terrain"><a class="header" href="#terrain">Terrain</a></h3>
+<p>Tunisia - location unknown if corps was operational. Likely rear area if skeletal headquarters existed.</p>
+<h3 id="weather-challenges"><a class="header" href="#weather-challenges">Weather Challenges</a></h3>
+<p><strong>[MANUAL: Add weather impact on operations]</strong></p>
+<h3 id="environmental-challenges"><a class="header" href="#environmental-challenges">Environmental Challenges</a></h3>
+<p>['Corps operational status unknown for this period', 'If present in Tunisia, standard Tunisian winter conditions would apply', 'Cold nights (5-10°C) and winter rains typical for Tunisia Q1']</p>
+<h2 id="10-combat-history"><a class="header" href="#10-combat-history">10. Combat History</a></h2>
+<h3 id="formation-and-deployment"><a class="header" href="#formation-and-deployment">Formation and Deployment</a></h3>
+<p><strong>[MANUAL: Add 2-3 paragraphs about unit formation, when/where raised, deployment to theater]</strong></p>
+<h3 id="major-engagements"><a class="header" href="#major-engagements">Major Engagements</a></h3>
+<p><strong>[MANUAL: List and describe major battles, operations, and engagements]</strong></p>
+<h3 id="combat-effectiveness-assessment"><a class="header" href="#combat-effectiveness-assessment">Combat Effectiveness Assessment</a></h3>
+<p><strong>[MANUAL: Add assessment of strengths, weaknesses, and overall combat performance]</strong></p>
+<h2 id="11-tactical-doctrine-and-capabilities"><a class="header" href="#11-tactical-doctrine-and-capabilities">11. Tactical Doctrine and Capabilities</a></h2>
+<h3 id="doctrinal-role"><a class="header" href="#doctrinal-role">Doctrinal Role</a></h3>
+<p>XXI Corps role in 1943-Q1 Tunisia unclear. Corps had been infantry corps for static defense and positional warfare during 1940-1942 Libya/Egypt campaigns. Destroyed at Second Battle of El Alamein (October-November 1942) with subordinate divisions Trento (destroyed 25 November 1942) and Bologna (largely destroyed, survivors retreated on foot). No Italian divisions in 1943-Q1 Tunisia list XXI Corps as parent formation, suggesting corps was non-operational, disbanded, or held skeletal command status awaiting reconstitution that never occurred.</p>
+<h3 id="combined-arms-integration"><a class="header" href="#combined-arms-integration">Combined Arms Integration</a></h3>
+<p><strong>[MANUAL: Add section about infantry-tank-artillery cooperation, air support, engineer support]</strong></p>
+<h3 id="known-issues-and-limitations"><a class="header" href="#known-issues-and-limitations">Known Issues and Limitations</a></h3>
+<ul>
+<li>Corps destroyed at El Alamein November 1942</li>
+<li>No identified subordinate divisions in Tunisia 1943-Q1</li>
+<li>Operational status highly uncertain</li>
+<li>May have been paper formation or skeletal headquarters only</li>
+<li>Italian command structure in Tunisia reorganized after El Alamein defeat</li>
+</ul>
+<h3 id="desert-adaptations"><a class="header" href="#desert-adaptations">Desert Adaptations</a></h3>
+<p>Not applicable - corps non-operational in 1943-Q1</p>
+<h2 id="12-wargaming-and-scenario-data"><a class="header" href="#12-wargaming-and-scenario-data">12. Wargaming and Scenario Data</a></h2>
+<h3 id="morale-and-experience"><a class="header" href="#morale-and-experience">Morale and Experience</a></h3>
+<p><strong>Experience Level:</strong> Not applicable</p>
+<p><strong>[MANUAL: Add paragraph explaining morale factors and experience level]</strong></p>
+<h3 id="scenario-suitability"><a class="header" href="#scenario-suitability">Scenario Suitability</a></h3>
+<p>This unit is well-suited for:</p>
+<ul>
+<li>Not suitable for wargaming scenarios - corps non-operational in 1943-Q1</li>
+<li>See 1940-Q4 through 1942-Q4 quarters for operational XXI Corps scenarios</li>
+</ul>
+<h3 id="special-rules-wargaming"><a class="header" href="#special-rules-wargaming">Special Rules (Wargaming)</a></h3>
+<ul>
+<li>Corps non-operational in 1943-Q1 - not usable in scenarios</li>
+<li>Historical research indicates corps destroyed at El Alamein</li>
+<li>Use earlier quarters (1940-1942) for XXI Corps scenarios</li>
+</ul>
+<h3 id="historical-engagements-this-quarter"><a class="header" href="#historical-engagements-this-quarter">Historical Engagements (This Quarter)</a></h3>
+<ul>
+<li>XXI Corps destroyed at Second Battle of El Alamein (October-November 1942)</li>
+<li>No documented engagements in Tunisia 1943-Q1</li>
+<li>Corps likely non-operational or skeletal headquarters only</li>
+</ul>
+<h3 id="force-composition-for-scenarios"><a class="header" href="#force-composition-for-scenarios">Force Composition for Scenarios</a></h3>
+<p><strong>[MANUAL: Add typical force breakdowns for wargaming scenarios]</strong></p>
+<h2 id="13-data-quality-and-sources"><a class="header" href="#13-data-quality-and-sources">13. Data Quality and Sources</a></h2>
+<h3 id="source-documentation"><a class="header" href="#source-documentation">Source Documentation</a></h3>
+<p>This TO&amp;E is based on:</p>
+<ul>
+<li>North Africa Seed Units (validated 2025-10-15) - XXI Corps listed for 1943-Q1 (inclusion uncertain)</li>
+<li>XXI Corps 1942-Q4 TO&amp;E - documents corps destruction at El Alamein with subordinate divisions Trento and Bologna destroyed</li>
+<li>Trento Division: officially declared 'lost due to wartime events' 25 November 1942</li>
+<li>Bologna Division: largely destroyed at El Alamein, survivors retreated on foot</li>
+<li>NO Italian divisions in 1943-Q1 list XXI Corps as parent formation in their TO&amp;Es</li>
+<li>Italian First Army structure in Tunisia: X Corps (Pistoia, La Spezia, Superga), XX Mobile Corps (Trieste), but NO divisions under XXI Corps</li>
+<li>Historical analysis: Italian corps in Tunisia were X Corps, XIX Corps (French), XX Mobile Corps - XXI Corps not mentioned in Tunisia operational records</li>
+</ul>
+<p><strong>Last Updated:</strong> 2025-10-26</p>
+<p><strong>Validated By:</strong> Claude Code Extraction Agent</p>
+<h3 id="confidence-assessment"><a class="header" href="#confidence-assessment">Confidence Assessment</a></h3>
+<p><strong>Overall Confidence:</strong> 15% (Tier 4)</p>
+<p><strong>[MANUAL: Add confidence breakdown by category - High/Medium/Low confidence areas]</strong></p>
+<h3 id="required-field-gaps"><a class="header" href="#required-field-gaps">Required Field Gaps</a></h3>
+<p>Missing information:</p>
+<ul>
+<li>corps_operational_status_1943q1</li>
+<li>subordinate_divisions</li>
+<li>personnel_strength</li>
+<li>equipment_holdings</li>
+<li>location_tunisia</li>
+<li>command_structure</li>
+<li>tactical_missions</li>
+<li>disbandment_or_reconstitution_date</li>
+<li>first_italian_army_integration</li>
+<li>all_operational_details</li>
+</ul>
+<h3 id="gap-documentation"><a class="header" href="#gap-documentation">Gap Documentation</a></h3>
+<p><strong>corps_operational_status:</strong></p>
+<ul>
+<li>status: unknown</li>
+<li>reason: Critical gap: XXI Corps destroyed at El Alamein November 1942. Seed file lists corps for 1943-Q1 but no evidence of operational status found. No Italian divisions in Tunisia reference XXI Corps as parent formation. Corps may have been: (1) disbanded after El Alamein, (2) paper formation held in reserve for reconstitution that never occurred, (3) skeletal headquarters without assigned divisions, or (4) data error in seed file.</li>
+<li>sources_checked: ['All Italian 1943-Q1 division TO&amp;Es - NONE reference XXI Corps', 'XXI Corps 1942-Q4 TO&amp;E documenting destruction at El Alamein', 'Italian First Army structure showing X Corps, XIX Corps, XX Mobile Corps', 'Tunisia Campaign organizational records', 'US Army Order of Battle of the Italian Army (July 1943)', 'North Africa Seed Units validation']</li>
+<li>confidence_impact: -85</li>
+<li>mitigation: CRITICAL RESEARCH PRIORITY: Determine if XXI Corps existed operationally in Tunisia 1943-Q1. Sources needed: Italian Ufficio Storico archives, Italian First Army command structure documents January-March 1943, German-Italian liaison reports, Allied intelligence summaries. Recommendation: Corps may need removal from 1943-Q1 seed file if non-operational status confirmed.</li>
+<li>estimate_method: Unable to estimate - insufficient data. All personnel/equipment values set to zero pending confirmation of operational status.</li>
+</ul>
+<p><strong>subordinate_divisions:</strong></p>
+<ul>
+<li>status: unknown</li>
+<li>reason: No Italian divisions in 1943-Q1 Tunisia list XXI Corps as parent formation. XXI Corps in 1942-Q4 had Trento (destroyed Nov 1942) and Bologna (destroyed at El Alamein). Replacement divisions not identified.</li>
+<li>sources_checked: ['italian_1943q1_101st_trieste_division_toe.json - Parent: XX Mobile Corps', 'italian_1943q1_centauro_division_toe.json - Parent: Italian First Army', 'italian_1943q1_giovani_fascisti_division_toe.json - Parent: Italian First Army', 'italian_1943q1_la_spezia_division_toe.json - Parent: X Corps', 'italian_1943q1_pistoia_division_toe.json - Parent: X Corps', 'italian_1943q1_superga_division_toe.json - Parent: X Corps', 'italian_1943q1_trento_division_toe.json - Disbanded remnants']</li>
+<li>confidence_impact: -85</li>
+<li>mitigation: Comprehensive Italian First Army order of battle research required for Tunisia January-March 1943. If no divisions subordinate to XXI Corps, corps likely non-operational.</li>
+<li>estimate_method: No estimation possible - subordinate_units array left empty.</li>
+</ul>
+<p><strong>disbandment_date:</strong></p>
+<ul>
+<li>status: unknown</li>
+<li>reason: If XXI Corps was disbanded after El Alamein defeat, disbandment date not documented. Alternatively, corps may have remained as paper formation. Italian military personnel records and command structure documents needed.</li>
+<li>sources_checked: ['XXI Corps 1942-Q4 TO&amp;E (last documented operational quarter)', 'Italian First Army Tunisia organizational records', 'US Army G-2 Italian OOB July 1943']</li>
+<li>confidence_impact: -75</li>
+<li>mitigation: Italian Ufficio Storico archives should contain corps disbandment orders if issued. German liaison reports may document Italian corps reorganization post-El Alamein.</li>
+</ul>
+<p><strong>all_operational_data:</strong></p>
+<ul>
+<li>status: unavailable</li>
+<li>reason: Without confirmation of operational status and subordinate divisions, no equipment, personnel, or tactical data can be estimated. All values set to zero or 'unknown' pending primary source research.</li>
+<li>sources_checked: ['Available Italian division TO&amp;Es', 'Tunisia Campaign historical records', 'Italian First Army structure documents']</li>
+<li>confidence_impact: -85</li>
+<li>mitigation: Tier 4 extraction appropriate - this is a research brief documenting the gap, not an operational TO&amp;E.</li>
+<li>estimate_method: No estimation attempted - insufficient foundation data.</li>
+</ul>
+<h3 id="data-tier-rationale"><a class="header" href="#data-tier-rationale">Data Tier Rationale</a></h3>
+<p><strong>[MANUAL: Add explanation of tier assignment and data quality factors]</strong></p>
+<h2 id="14-historical-significance"><a class="header" href="#14-historical-significance">14. Historical Significance</a></h2>
+<h3 id="strategic-importance"><a class="header" href="#strategic-importance">Strategic Importance</a></h3>
+<p><strong>[MANUAL: Add 2-3 paragraphs about unit's strategic role in theater]</strong></p>
+<h3 id="operational-lessons"><a class="header" href="#operational-lessons">Operational Lessons</a></h3>
+<p><strong>[MANUAL: Add lessons learned from this unit's operations]</strong></p>
+<h3 id="legacy"><a class="header" href="#legacy">Legacy</a></h3>
+<p><strong>[MANUAL: Add information about unit's post-war legacy, memorials, historical assessment]</strong></p>
+<hr />
+<p><em>[MANUAL: Add concluding paragraph summarizing the unit's significance]</em></p>
+<p><strong>Generated from Phase 6 TO&amp;E Data | [MANUAL: Add sources] | Confidence: [%] | Tier [#]</strong></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../chapters/chapter_italian_1943q1_xxi_corpo_d_armata_xxi_corps.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../chapters/chapter_italian_1943q2_101st_trieste_division.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../chapters/chapter_italian_1943q1_xxi_corpo_d_armata_xxi_corps.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../chapters/chapter_italian_1943q2_101st_trieste_division.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

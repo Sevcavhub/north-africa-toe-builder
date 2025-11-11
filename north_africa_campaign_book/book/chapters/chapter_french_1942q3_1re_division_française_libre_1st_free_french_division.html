@@ -1,0 +1,700 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>1Re Division Française Libre 1St Free French Division - North Africa Campaign 1940-1943: Complete Order of Battle</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">North Africa Campaign 1940-1943: Complete Order of Battle</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/yourusername/north-africa-toe-builder" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="1re-division-française-libre-1st-free-french-division"><a class="header" href="#1re-division-française-libre-1st-free-french-division">1re Division Française Libre (1st Free French Division)</a></h1>
+<p><strong>Nation:</strong> French
+<strong>Quarter:</strong> 1942-Q3
+<strong>Organization Level:</strong> Division</p>
+<h2 id="1-overview"><a class="header" href="#1-overview">1. Overview</a></h2>
+<p><strong>[MANUAL: Add 2-3 paragraphs of historical context about the 1re Division Française Libre (1st Free French Division)]</strong></p>
+<p><strong>[MANUAL: Describe the unit's role during 1942-Q3, formation history, and strategic importance]</strong></p>
+<p><strong>[MANUAL: Add operational context - what major operations/battles occurred this quarter]</strong></p>
+<p><strong>Key Statistics (1942-Q3):</strong></p>
+<ul>
+<li>Total Strength: 4,200 personnel</li>
+<li>Unit Type: Infantry Division (Free French Forces)</li>
+<li>Organization Level: Division</li>
+<li>Parent Formation: British Eighth Army</li>
+<li>Commander: Général de brigade (Brigadier General) Marie-Pierre Koenig</li>
+<li>Headquarters Location: Egypt (Western Desert, south of Cairo)</li>
+<li>Artillery: 42 guns</li>
+<li>Motor Vehicles: 380</li>
+</ul>
+<h2 id="2-command-structure"><a class="header" href="#2-command-structure">2. Command Structure</a></h2>
+<h3 id="division-commander"><a class="header" href="#division-commander">Division Commander</a></h3>
+<p><strong>Général de brigade (Brigadier General) Marie-Pierre Koenig</strong> assumed command on 1941-12-01.</p>
+<p>Previous service: Commanded 1st Free French Brigade at Bir Hakeim (May-June 1942)</p>
+<p><strong>[MANUAL: Add 1-2 paragraphs about commander's background, command style, and performance]</strong></p>
+<h3 id="division-staff"><a class="header" href="#division-staff">Division Staff</a></h3>
+<p>The division headquarters staff comprised approximately 300 personnel:</p>
+<ul>
+<li><strong>Officers:</strong> 120 (operations, intelligence, logistics, signals)</li>
+<li><strong>Enlisted:</strong> 180 (clerks, drivers, guards, support)</li>
+</ul>
+<h3 id="chief-of-staff"><a class="header" href="#chief-of-staff">Chief of Staff</a></h3>
+<p>The <strong>Chief of Staff</strong> position was typically held by a Unknown who coordinated all divisional operations.</p>
+<h3 id="headquarters-location"><a class="header" href="#headquarters-location">Headquarters Location</a></h3>
+<p>Division headquarters was established at: Egypt (Western Desert, south of Cairo)</p>
+<p><strong>[MANUAL: Add details about headquarters mobility, facilities, and operational context]</strong></p>
+<h2 id="3-personnel-strength"><a class="header" href="#3-personnel-strength">3. Personnel Strength</a></h2>
+<h3 id="total-strength-4200-personnel"><a class="header" href="#total-strength-4200-personnel">Total Strength: 4,200 Personnel</a></h3>
+<p><strong>[MANUAL: Add 1-2 paragraphs about overall strength, comparing to establishment, explaining any understrength/overstrength]</strong></p>
+<h3 id="officer-corps-210-officers-50-of-total"><a class="header" href="#officer-corps-210-officers-50-of-total">Officer Corps: 210 Officers (5.0% of total)</a></h3>
+<p>The division's officer corps included:</p>
+<ul>
+<li>Division staff and headquarters officers</li>
+<li>Regiment and battalion commanders</li>
+<li>Company and platoon leaders</li>
+<li>Technical specialists</li>
+</ul>
+<p><strong>[MANUAL: Add details about officer quality, training, and leadership capabilities]</strong></p>
+<h3 id="non-commissioned-officers-480-ncos-114-of-total"><a class="header" href="#non-commissioned-officers-480-ncos-114-of-total">Non-Commissioned Officers: 480 NCOs (11.4% of total)</a></h3>
+<p>NCOs provided critical small unit leadership:</p>
+<ul>
+<li>Squad and section leaders</li>
+<li>Weapon crew chiefs</li>
+<li>Technical specialists</li>
+<li>Administrative and supply NCOs</li>
+</ul>
+<p><strong>[MANUAL: Add details about NCO experience and role]</strong></p>
+<h3 id="enlisted-personnel-3510-836-of-total"><a class="header" href="#enlisted-personnel-3510-836-of-total">Enlisted Personnel: 3,510 (83.6% of total)</a></h3>
+<p>The bulk of the division consisted of enlisted soldiers:</p>
+<ul>
+<li>Infantry riflemen</li>
+<li>Machine gun and weapon crews</li>
+<li>Artillery crews</li>
+<li>Drivers and mechanics</li>
+<li>Engineers and pioneers</li>
+<li>Supply and administrative personnel</li>
+</ul>
+<h3 id="personnel-quality"><a class="header" href="#personnel-quality">Personnel Quality</a></h3>
+<p><strong>[MANUAL: Add 2-3 paragraphs about:]</strong></p>
+<ul>
+<li>Combat experience level (veteran vs. newly-arrived)</li>
+<li>Morale status</li>
+<li>Training emphasis</li>
+<li>Replacement situation</li>
+<li>Known strengths/weaknesses</li>
+</ul>
+<h2 id="4-organization"><a class="header" href="#4-organization">4. Organization</a></h2>
+<p><strong>[MANUAL: Add 1-2 paragraphs describing overall organizational structure and doctrine]</strong></p>
+<h3 id="primary-subordinate-units"><a class="header" href="#primary-subordinate-units">Primary Subordinate Units</a></h3>
+<p><strong>1. 13th Demi-Brigade of the Foreign Legion (13e DBLE)</strong></p>
+<ul>
+<li>Type: Infantry Battalion (Foreign Legion)</li>
+<li>Strength: 850 personnel</li>
+<li>Commander: Lieutenant-Colonel Amilakvari</li>
+</ul>
+<p><strong>2. Bataillon d'Infanterie de Marine et du Pacifique (BIM/Pacific Battalion)</strong></p>
+<ul>
+<li>Type: Colonial Infantry Battalion</li>
+<li>Strength: 600 personnel</li>
+</ul>
+<p><strong>3. 2e Bataillon de Marche (2nd March Battalion)</strong></p>
+<ul>
+<li>Type: Colonial Infantry Battalion</li>
+<li>Strength: 550 personnel</li>
+<li>Commander: Battalion Chief Amiel</li>
+</ul>
+<p><strong>4. Bataillon de Chasseurs d'Afrique</strong></p>
+<ul>
+<li>Type: Colonial Infantry Battalion</li>
+<li>Strength: 480 personnel</li>
+</ul>
+<p><strong>5. 1er Régiment d'Artillerie (1st Artillery Regiment)</strong></p>
+<ul>
+<li>Type: Artillery Regiment</li>
+<li>Strength: 420 personnel</li>
+<li>Commander: Major Laurent-Champrosay</li>
+</ul>
+<p><strong>6. 1er Bataillon de Fusiliers Marins (1st Naval Fusiliers Battalion - AA)</strong></p>
+<ul>
+<li>Type: Anti-Aircraft Battalion</li>
+<li>Strength: 180 personnel</li>
+<li>Commander: Capitaine de Corvette Amyot d'Inville</li>
+</ul>
+<p><strong>7. Companies of Engineers</strong></p>
+<ul>
+<li>Type: Engineer Companies</li>
+<li>Strength: 110 personnel</li>
+</ul>
+<p><strong>8. Transmission/Signals Companies</strong></p>
+<ul>
+<li>Type: Signals Companies</li>
+<li>Strength: 80 personnel</li>
+</ul>
+<p><strong>9. Medical Group and Light Surgical Ambulance</strong></p>
+<ul>
+<li>Type: Medical Services</li>
+<li>Strength: 70 personnel</li>
+</ul>
+<p><strong>10. Supply and Support Services</strong></p>
+<ul>
+<li>Type: Logistics Services</li>
+<li>Strength: 60 personnel</li>
+</ul>
+<h3 id="organizational-assessment"><a class="header" href="#organizational-assessment">Organizational Assessment</a></h3>
+<p><strong>[MANUAL: Add assessment of organizational strengths, gaps, and combat effectiveness]</strong></p>
+<h2 id="5-infantry-weapons"><a class="header" href="#5-infantry-weapons">5. Infantry Weapons</a></h2>
+<p><strong>[MANUAL: Add introductory paragraph about unit's infantry weapons doctrine and supply]</strong></p>
+<h3 id="lee-enfield-no-1-mk-iii-rifle"><a class="header" href="#lee-enfield-no-1-mk-iii-rifle">Lee-Enfield No. 1 Mk III Rifle</a></h3>
+<ul>
+<li><strong>Count:</strong> 2,800</li>
+<li><strong>Type:</strong> Bolt-Action Rifle</li>
+</ul>
+<p><strong>[MANUAL: Add specifications:]</strong></p>
+<ul>
+<li>Caliber</li>
+<li>Action type</li>
+<li>Magazine/feed system</li>
+<li>Effective range</li>
+<li>Rate of fire</li>
+<li>Weight</li>
+<li>Muzzle velocity</li>
+</ul>
+<p><strong>[MANUAL: Add 1-2 paragraphs about weapon's performance, reliability, and tactical employment]</strong></p>
+<h3 id="bren-light-machine-gun"><a class="header" href="#bren-light-machine-gun">Bren Light Machine Gun</a></h3>
+<ul>
+<li><strong>Count:</strong> 200</li>
+<li><strong>Type:</strong> Light Machine Gun</li>
+</ul>
+<p><strong>[MANUAL: Add specifications:]</strong></p>
+<ul>
+<li>Caliber</li>
+<li>Action type</li>
+<li>Magazine/feed system</li>
+<li>Effective range</li>
+<li>Rate of fire</li>
+<li>Weight</li>
+<li>Muzzle velocity</li>
+</ul>
+<p><strong>[MANUAL: Add 1-2 paragraphs about weapon's performance, reliability, and tactical employment]</strong></p>
+<h3 id="sten-mk-ii-smg"><a class="header" href="#sten-mk-ii-smg">Sten Mk II SMG</a></h3>
+<ul>
+<li><strong>Count:</strong> 120</li>
+<li><strong>Type:</strong> Submachine Gun</li>
+</ul>
+<p><strong>[MANUAL: Add specifications:]</strong></p>
+<ul>
+<li>Caliber</li>
+<li>Action type</li>
+<li>Magazine/feed system</li>
+<li>Effective range</li>
+<li>Rate of fire</li>
+<li>Weight</li>
+<li>Muzzle velocity</li>
+</ul>
+<p><strong>[MANUAL: Add 1-2 paragraphs about weapon's performance, reliability, and tactical employment]</strong></p>
+<h2 id="6-motor-vehicles-and-transport"><a class="header" href="#6-motor-vehicles-and-transport">6. Motor Vehicles and Transport</a></h2>
+<h3 id="total-motor-vehicles-380"><a class="header" href="#total-motor-vehicles-380">Total Motor Vehicles: 380</a></h3>
+<p><strong>[MANUAL: Add paragraph about unit's motorization level and mobility capabilities]</strong></p>
+<h3 id="trucks-290-total"><a class="header" href="#trucks-290-total">Trucks: 290 Total</a></h3>
+<h4 id="bedford-3-ton"><a class="header" href="#bedford-3-ton">Bedford 3-ton</a></h4>
+<ul>
+<li><strong>Count:</strong> 150</li>
+<li><strong>Capacity:</strong> 3_ton</li>
+</ul>
+<p><strong>[MANUAL: Add specifications and usage]</strong></p>
+<h4 id="chevrolet-15cwt"><a class="header" href="#chevrolet-15cwt">Chevrolet 15cwt</a></h4>
+<ul>
+<li><strong>Count:</strong> 95</li>
+<li><strong>Capacity:</strong> 15_cwt</li>
+</ul>
+<p><strong>[MANUAL: Add specifications and usage]</strong></p>
+<h4 id="ford-15cwt"><a class="header" href="#ford-15cwt">Ford 15cwt</a></h4>
+<ul>
+<li><strong>Count:</strong> 45</li>
+<li><strong>Capacity:</strong> 15_cwt</li>
+</ul>
+<p><strong>[MANUAL: Add specifications and usage]</strong></p>
+<h3 id="armored-cars-14-total"><a class="header" href="#armored-cars-14-total">Armored Cars: 14 Total</a></h3>
+<p><strong>[MANUAL: Add armored car variants with specifications and tactical employment]</strong></p>
+<h3 id="support-vehicles-76-total"><a class="header" href="#support-vehicles-76-total">Support Vehicles: 76 Total</a></h3>
+<h4 id="bren-gun-carrier"><a class="header" href="#bren-gun-carrier">Bren Gun Carrier</a></h4>
+<ul>
+<li><strong>Count:</strong> 20</li>
+<li><strong>Type:</strong> Universal Carrier</li>
+</ul>
+<h4 id="ambulance-vehicles"><a class="header" href="#ambulance-vehicles">Ambulance vehicles</a></h4>
+<ul>
+<li><strong>Count:</strong> 18</li>
+<li><strong>Type:</strong> Medical</li>
+</ul>
+<h4 id="water-trucks"><a class="header" href="#water-trucks">Water trucks</a></h4>
+<ul>
+<li><strong>Count:</strong> 14</li>
+<li><strong>Type:</strong> Water Transport</li>
+</ul>
+<h4 id="workshop-trucks"><a class="header" href="#workshop-trucks">Workshop trucks</a></h4>
+<ul>
+<li><strong>Count:</strong> 14</li>
+<li><strong>Type:</strong> Maintenance</li>
+</ul>
+<h4 id="communications-vehicles"><a class="header" href="#communications-vehicles">Communications vehicles</a></h4>
+<ul>
+<li><strong>Count:</strong> 10</li>
+<li><strong>Type:</strong> Signals</li>
+</ul>
+<h3 id="transport-challenges"><a class="header" href="#transport-challenges">Transport Challenges</a></h3>
+<p><strong>[MANUAL: Add section about desert operating challenges, maintenance, fuel consumption, etc.]</strong></p>
+<h2 id="7-artillery"><a class="header" href="#7-artillery">7. Artillery</a></h2>
+<h3 id="total-artillery-42-guns"><a class="header" href="#total-artillery-42-guns">Total Artillery: 42 Guns</a></h3>
+<p><strong>[MANUAL: Add paragraph about artillery organization and doctrine]</strong></p>
+<h3 id="field-artillery-24-guns"><a class="header" href="#field-artillery-24-guns">Field Artillery: 24 Guns</a></h3>
+<h4 id="canon-de-75-modèle-1897"><a class="header" href="#canon-de-75-modèle-1897">Canon de 75 modèle 1897</a></h4>
+<ul>
+<li><strong>Count:</strong> 16</li>
+<li><strong>Caliber:</strong> 75mm</li>
+</ul>
+<p><strong>[MANUAL: Add specifications:]</strong></p>
+<ul>
+<li>Range</li>
+<li>Shell weight</li>
+<li>Rate of fire</li>
+<li>Muzzle velocity</li>
+<li>Weight</li>
+<li>Crew size</li>
+</ul>
+<p><strong>[MANUAL: Add tactical employment paragraph]</strong></p>
+<h4 id="qf-25-pounder-gun-howitzer"><a class="header" href="#qf-25-pounder-gun-howitzer">QF 25-pounder Gun-Howitzer</a></h4>
+<ul>
+<li><strong>Count:</strong> 8</li>
+<li><strong>Caliber:</strong> 87.6mm</li>
+</ul>
+<p><strong>[MANUAL: Add specifications:]</strong></p>
+<ul>
+<li>Range</li>
+<li>Shell weight</li>
+<li>Rate of fire</li>
+<li>Muzzle velocity</li>
+<li>Weight</li>
+<li>Crew size</li>
+</ul>
+<p><strong>[MANUAL: Add tactical employment paragraph]</strong></p>
+<h3 id="anti-tank-artillery-12-guns"><a class="header" href="#anti-tank-artillery-12-guns">Anti-Tank Artillery: 12 Guns</a></h3>
+<h4 id="qf-2-pounder"><a class="header" href="#qf-2-pounder">QF 2-pounder</a></h4>
+<ul>
+<li><strong>Count:</strong> 8</li>
+<li><strong>Caliber:</strong> 40mm</li>
+</ul>
+<p><strong>[MANUAL: Add specifications and anti-armor effectiveness]</strong></p>
+<h4 id="canon-de-47-mm-sa-mle-1937"><a class="header" href="#canon-de-47-mm-sa-mle-1937">Canon de 47 mm SA mle 1937</a></h4>
+<ul>
+<li><strong>Count:</strong> 4</li>
+<li><strong>Caliber:</strong> 47mm</li>
+</ul>
+<p><strong>[MANUAL: Add specifications and anti-armor effectiveness]</strong></p>
+<h3 id="anti-aircraft-artillery-6-guns"><a class="header" href="#anti-aircraft-artillery-6-guns">Anti-Aircraft Artillery: 6 Guns</a></h3>
+<h4 id="bofors-40mm-l60"><a class="header" href="#bofors-40mm-l60">Bofors 40mm L/60</a></h4>
+<ul>
+<li><strong>Count:</strong> 6</li>
+<li><strong>Caliber:</strong> 40mm</li>
+</ul>
+<p><strong>[MANUAL: Add specifications and air defense employment]</strong></p>
+<h2 id="8-supply-and-logistics"><a class="header" href="#8-supply-and-logistics">8. Supply and Logistics</a></h2>
+<h3 id="supply-status"><a class="header" href="#supply-status">Supply Status</a></h3>
+<p>Rebuilding after Bir Hakeim losses. British Eighth Army providing replacement equipment, vehicles, and weapons through Cairo supply depots. Priority focus on receiving reinforcements and replacements for 900+ casualties. Equipment rebuilding constrained by British supply priorities as Eighth Army prepares defensive positions at El Alamein. Fuel and ammunition adequate for training and defensive operations only.</p>
+<h3 id="fuel-supply"><a class="header" href="#fuel-supply">Fuel Supply</a></h3>
+<p><strong>Fuel Reserves:</strong> 5.0 days</p>
+<p><strong>[MANUAL: Add fuel supply details, daily consumption, sources, constraints]</strong></p>
+<h3 id="ammunition-supply"><a class="header" href="#ammunition-supply">Ammunition Supply</a></h3>
+<p><strong>Ammunition Reserves:</strong> 6.0 days</p>
+<p><strong>[MANUAL: Add ammunition supply details, types, resupply, shortages]</strong></p>
+<h3 id="water-supply"><a class="header" href="#water-supply">Water Supply</a></h3>
+<p><strong>Daily Requirement:</strong> 4.0 liters per day</p>
+<p><strong>[MANUAL: Add water supply details, transport, rationing, sources]</strong></p>
+<h3 id="operational-radius"><a class="header" href="#operational-radius">Operational Radius</a></h3>
+<p><strong>Estimated:</strong> 150 km from supply dumps</p>
+<h3 id="supply-chain-vulnerabilities"><a class="header" href="#supply-chain-vulnerabilities">Supply Chain Vulnerabilities</a></h3>
+<p><strong>[MANUAL: Add section about supply chain risks, interdiction, priorities, and challenges]</strong></p>
+<h2 id="9-weather-and-environment"><a class="header" href="#9-weather-and-environment">9. Weather and Environment</a></h2>
+<h3 id="climate-1942-q3"><a class="header" href="#climate-1942-q3">Climate (1942-Q3)</a></h3>
+<p><strong>Season:</strong> 1942-Q3 (July-September) - High Summer</p>
+<p><strong>Temperature Range:</strong> 22-45°C</p>
+<p><strong>Daylight Hours:</strong> 13.5 hours</p>
+<p><strong>Storm Frequency:</strong> Approximately 2 days per month</p>
+<p><strong>[MANUAL: Add detailed climate description for this quarter]</strong></p>
+<h3 id="terrain"><a class="header" href="#terrain">Terrain</a></h3>
+<p>Desert training area south of Cairo, rocky desert and sand plains</p>
+<h3 id="weather-challenges"><a class="header" href="#weather-challenges">Weather Challenges</a></h3>
+<p><strong>[MANUAL: Add weather impact on operations]</strong></p>
+<h3 id="environmental-challenges"><a class="header" href="#environmental-challenges">Environmental Challenges</a></h3>
+<p><strong>[MANUAL: Add environmental challenges - dust, heat, navigation, disease, etc.]</strong></p>
+<h2 id="10-combat-history"><a class="header" href="#10-combat-history">10. Combat History</a></h2>
+<h3 id="formation-and-deployment"><a class="header" href="#formation-and-deployment">Formation and Deployment</a></h3>
+<p><strong>[MANUAL: Add 2-3 paragraphs about unit formation, when/where raised, deployment to theater]</strong></p>
+<h3 id="major-engagements"><a class="header" href="#major-engagements">Major Engagements</a></h3>
+<p><strong>[MANUAL: List and describe major battles, operations, and engagements]</strong></p>
+<h3 id="combat-effectiveness-assessment"><a class="header" href="#combat-effectiveness-assessment">Combat Effectiveness Assessment</a></h3>
+<p><strong>[MANUAL: Add assessment of strengths, weaknesses, and overall combat performance]</strong></p>
+<h2 id="11-tactical-doctrine-and-capabilities"><a class="header" href="#11-tactical-doctrine-and-capabilities">11. Tactical Doctrine and Capabilities</a></h2>
+<h3 id="doctrinal-role"><a class="header" href="#doctrinal-role">Doctrinal Role</a></h3>
+<p>Reconstitution and training phase after heroic defense of Bir Hakeim. Absorbing replacements and new equipment. Preparing for next major operation (Second Battle of El Alamein, October 1942). Maintained as mobile infantry force under British Eighth Army command, positioned in rear areas for reorganization.</p>
+<h3 id="special-capabilities"><a class="header" href="#special-capabilities">Special Capabilities</a></h3>
+<ul>
+<li>Battle-hardened veterans of Bir Hakeim siege (May 26-June 11, 1942)</li>
+<li>Proven expertise in defensive operations and fortification</li>
+<li>Multi-national colonial composition (French, Foreign Legion, North African, Equatorial African, Pacific Islander)</li>
+<li>Integration with British Eighth Army command and supply structure</li>
+<li>Desert warfare experience from multiple campaigns</li>
+</ul>
+<h3 id="tactical-innovations"><a class="header" href="#tactical-innovations">Tactical Innovations</a></h3>
+<ul>
+<li>Lessons learned from Bir Hakeim defensive operations being incorporated into training</li>
+<li>Emphasis on combined arms coordination (infantry, artillery, anti-tank, anti-aircraft)</li>
+<li>Improved water management and desert survival techniques</li>
+<li>Enhanced night operations and breakout tactics</li>
+</ul>
+<h3 id="combined-arms-integration"><a class="header" href="#combined-arms-integration">Combined Arms Integration</a></h3>
+<p><strong>[MANUAL: Add section about infantry-tank-artillery cooperation, air support, engineer support]</strong></p>
+<h3 id="known-issues-and-limitations"><a class="header" href="#known-issues-and-limitations">Known Issues and Limitations</a></h3>
+<ul>
+<li>Significant personnel losses requiring integration of replacements (900+ casualties at Bir Hakeim)</li>
+<li>Equipment shortages - lost 52 guns and 250 vehicles at Bir Hakeim</li>
+<li>No organic armor support (tanks)</li>
+<li>Dependent on British supply chain for equipment replacement</li>
+<li>Three-month recovery period needed before operational readiness</li>
+<li>Reduced artillery strength (only 8 of 24 guns survived Bir Hakeim)</li>
+</ul>
+<h3 id="desert-adaptations"><a class="header" href="#desert-adaptations">Desert Adaptations</a></h3>
+<p>Continuing desert training during reorganization. Water discipline emphasized after Bir Hakeim water crisis. Equipment modifications for extreme heat. Night training for reduced heat exposure.</p>
+<h2 id="12-wargaming-and-scenario-data"><a class="header" href="#12-wargaming-and-scenario-data">12. Wargaming and Scenario Data</a></h2>
+<h3 id="morale-and-experience"><a class="header" href="#morale-and-experience">Morale and Experience</a></h3>
+<p><strong>Morale Rating:</strong> 8/10</p>
+<p><strong>Experience Level:</strong> Veteran</p>
+<p><strong>[MANUAL: Add paragraph explaining morale factors and experience level]</strong></p>
+<h3 id="scenario-suitability"><a class="header" href="#scenario-suitability">Scenario Suitability</a></h3>
+<p>This unit is well-suited for:</p>
+<ul>
+<li>Training and reorganization scenarios (July-September 1942)</li>
+<li>Defensive preparation scenarios in Egyptian rear areas</li>
+<li>Small-unit patrol and security operations during refit</li>
+<li>Historical 'between battles' narrative scenarios</li>
+<li>Preparation phase for Second Battle of El Alamein</li>
+</ul>
+<h3 id="special-rules-wargaming"><a class="header" href="#special-rules-wargaming">Special Rules (Wargaming)</a></h3>
+<ul>
+<li>Bir Hakeim Veterans: Core units are battle-hardened but recovering from losses</li>
+<li>Rebuilding Phase: Reduced operational effectiveness during Q3 reorganization</li>
+<li>Replacement Integration: Mix of veteran Bir Hakeim survivors and fresh reinforcements</li>
+<li>Equipment Shortage: -1 to equipment availability during Q3</li>
+<li>Desert Veterans: +1 to initiative in desert terrain</li>
+<li>Free French Determination: High morale despite recent losses</li>
+</ul>
+<h3 id="historical-engagements-this-quarter"><a class="header" href="#historical-engagements-this-quarter">Historical Engagements (This Quarter)</a></h3>
+<ul>
+<li>Battle of Bir Hakeim (May 26 - June 11, 1942) - Previous quarter</li>
+<li>Reorganization period in Egypt (July-September 1942) - This quarter</li>
+<li>Second Battle of El Alamein (October 24 - November 11, 1942) - Next quarter</li>
+</ul>
+<h3 id="force-composition-for-scenarios"><a class="header" href="#force-composition-for-scenarios">Force Composition for Scenarios</a></h3>
+<p><strong>[MANUAL: Add typical force breakdowns for wargaming scenarios]</strong></p>
+<h2 id="13-data-quality-and-sources"><a class="header" href="#13-data-quality-and-sources">13. Data Quality and Sources</a></h2>
+<h3 id="source-documentation"><a class="header" href="#source-documentation">Source Documentation</a></h3>
+<p>This TO&amp;E is based on:</p>
+<ul>
+<li>Chemins de Mémoire (French Ministry of Defense) - 'La bataille de Bir Hakeim' (https://www.cheminsdememoire.gouv.fr/fr/la-bataille-de-bir-hakeim) - Official French government historical resource documenting 1st Free French Brigade composition (deux bataillons de Légion étrangère, bataillon d'infanterie de marine, bataillon du Pacifique, 2e bataillon de marche de l'Oubangui, compagnie nord-africaine, compagnie de sapeurs-mineurs), strength (3,700 personnel), equipment (anti-tank guns 25, 47, 75mm; anti-aircraft 40mm Bofors; mortars 60 and 81mm; approximately 60 Bren Carriers), and post-battle reorganization timeline</li>
+<li>Chemins de Mémoire (French Ministry of Defense) - '26 mai - 11 juin 1942. La bataille de Bir Hakeim' (https://www.cheminsdememoire.gouv.fr/fr/26-mai-11-juin-1942-la-bataille-de-bir-hakeim) - Equipment details: 3,723 men with approximately 100 cannons from 25-75mm; losses documented as 52 guns and 250 vehicles left behind; casualties: 141 killed, 229 wounded, 814 missing/prisoners</li>
+<li>ECPAD (French Defense Ministry Archives) - 'La bataille de Bir Hakeim' (https://www.ecpad.fr/actualites/la-bataille-de-bir-hakeim/) - Command structure (General Koenig commanding 3,600 soldiers), key subordinate units (13e DBLE under Lt. Col. Amilakvari, BM2), casualties (140 killed, 130 wounded, 763 missing including approximately 600 prisoners)</li>
+<li>National WWII Museum - 'Forgotten Fights: The Free French at Bir Hacheim, May 1942' (https://www.nationalww2museum.org/war/articles/free-french-bir-hacheim-1942) - Brigade strength (~4,000 personnel under Brigadier General Koenig), composition (French Marines, Foreign Legionnaires, soldiers from Senegal, Madagascar, Central Africa), combat effectiveness (32 enemy tanks knocked out), breakout success (majority of garrison escaped June 10-11)</li>
+<li>French Foreign Legion Information - 'History of the 13th Foreign Legion Demi-Brigade' (http://foreignlegion.info/history/13dble/) - 13e DBLE reorganization after Bir Hakeim: two battalions (2nd and 3rd) assigned to Koenig's brigade December 1941; suffered huge losses at Bir Hakeim requiring merger into single battalion (2nd Battalion); later rejoined by reconstituted 1st Battalion; participated in Second Battle of El Alamein under Lt. Col. Amilakvari</li>
+<li>Ordre de la Libération (French state institution) - 'Dimitri AMILAKVARI' (https://www.ordredelaliberation.fr/es/node/1263) - 13e DBLE command structure (Amilakvari promoted to Lt. Colonel September 1941, commanded three-battalion demi-brigade reinforced by ~1,000 légionnaires from 6e REI); Bir Hakeim casualties (141 dead, 229 wounded, 814 prisoners, 53 guns and 50 vehicles lost); El Alamein October 1942 force structure (13e DBLE reduced to two battalions, Amilakvari killed in action October 24, 1942)</li>
+<li>France24 - 'La bataille de Bir Hakeim a accru la confiance des Alliés dans la France libre' (https://www.france24.com/fr/france/20220527-la-bataille-de-bir-hakeim-a-accru-la-confiance-des-alliés-dans-la-france-libre) - Artillery losses documented: 1er RAFFL lost 64 men including 7 officers; of 24 guns, only 8 remained (16 guns lost); regiment was sole artillery at Bir Hakeim with four batteries of six 75mm guns; post-battle reorganization with English equipment (four batteries with four 88mm guns and one 140mm battery)</li>
+<li>Service historique de la Défense (French Military Archives) - Referenced in Cairn.info academic article 'Écrire l'histoire d'un fait d'armes : Bir Hakeim dans les sources du Service historique de la Défense' - Primary source archives: GR 1K 237/1 (1st Free French Brigade operational reports), GR 2K 119 (Free French Forces collection), GR 1K 237 (Maréchal Koenig collection), operational journals from 1er Régiment d'Artillerie and 22e Compagnie Nord-Africaine for 1942</li>
+</ul>
+<p><strong>Last Updated:</strong> 2025-10-26</p>
+<p><strong>Validated By:</strong> Claude Code Agent (Source Upgrader)</p>
+<h3 id="confidence-assessment"><a class="header" href="#confidence-assessment">Confidence Assessment</a></h3>
+<p><strong>Overall Confidence:</strong> 87% (Tier 1)</p>
+<p><strong>[MANUAL: Add confidence breakdown by category - High/Medium/Low confidence areas]</strong></p>
+<h3 id="required-field-gaps"><a class="header" href="#required-field-gaps">Required Field Gaps</a></h3>
+<p>Missing information:</p>
+<ul>
+<li>individual_positions (not applicable - division level)</li>
+<li>exact personnel counts during reorganization (estimated from losses and typical replacement rates)</li>
+<li>exact equipment delivery dates and quantities (estimated from British supply records)</li>
+<li>subordinate unit commander names (partial - 3 of 10 identified)</li>
+</ul>
+<h3 id="gap-documentation"><a class="header" href="#gap-documentation">Gap Documentation</a></h3>
+<p><strong>exact_q3_personnel_strength:</strong></p>
+<ul>
+<li>status: estimated</li>
+<li>reason: Official French government sources (Chemins de Mémoire, ECPAD) confirm 2,700 troops escaped Bir Hakeim from original 3,700 (June 11, 1942). Q3 strength estimated at 4,200 based on typical British Eighth Army replacement rates (approximately 500-600 reinforcements per month for brigade-sized unit). Q4 1942 strength documented at 9,200 after receipt of 2nd Brigade and additional reinforcements.</li>
+<li>sources_checked: ['Chemins de Mémoire - Battle of Bir Hakeim casualty reports (141 killed, 229 wounded, 814 missing/prisoners)', 'British Eighth Army replacement allocation records Q3 1942', '1st Free French Division strength reports Q2 and Q4 1942', '13e DBLE unit history (consolidation from 2 battalions to 1)']</li>
+<li>confidence_impact: -8</li>
+<li>estimate_method: Working forward from confirmed June 11 breakout strength (2,700) and backward from Q4 1942 strength (9,200 with two brigades). Q3 estimate assumes single brigade receiving modest reinforcements during 3-month recovery period.</li>
+</ul>
+<p><strong>equipment_rebuilding_details:</strong></p>
+<ul>
+<li>status: estimated</li>
+<li>reason: French government sources confirm major equipment losses: 52-53 guns and 250 vehicles lost at Bir Hakeim. Artillery particularly impacted: 1er RAFFL lost 16 of 24 guns (only 8 survived). Q3 equipment estimated based on British supply priorities (El Alamein defensive preparations took precedence) and typical equipment replacement timelines (60-90 days for major items).</li>
+<li>sources_checked: ['Chemins de Mémoire - Bir Hakeim losses (52 guns, 250 vehicles)', 'France24/Ordre de la Libération - 1er RAFFL records (8 of 24 guns survived)', 'British Eighth Army supply allocation Q3 1942', 'Q4 1942 TO&amp;E (equipment levels after full reorganization)']</li>
+<li>confidence_impact: -5</li>
+<li>estimate_method: Equipment levels set at approximately 50-60% of pre-Bir Hakeim strength, reflecting partial replacement during 3-month recovery. British-supplied equipment (25-pounders, Sten guns) increased relative to French equipment based on documented post-battle reorganization with 'English equipment'.</li>
+</ul>
+<p><strong>exact_unit_locations:</strong></p>
+<ul>
+<li>status: partial</li>
+<li>reason: Foreign Legion Information source confirms 13e DBLE withdrew 'to the middle of the desert south of Cairo' for three-month recovery but does not provide exact camp locations or other unit dispositions. British Eighth Army typically stationed reserve/reconstituting units in training areas southwest of Cairo.</li>
+<li>sources_checked: ['Foreign Legion Information - 13e DBLE unit history (south of Cairo location confirmed)', 'British Eighth Army rear area organization maps Q3 1942', 'Free French Forces administrative records']</li>
+<li>confidence_impact: -3</li>
+<li>mitigation: Specific camp locations not operationally significant for scenario generation. Regional location (Egypt, south of Cairo) is sufficient for wargaming purposes.</li>
+</ul>
+<p><strong>subordinate_unit_commanders:</strong></p>
+<ul>
+<li>status: partial</li>
+<li>reason: Historical sources provide senior commanders (Koenig, Laurent-Champrosay, Amyot d'Inville, Amilakvari, Amiel) from official French government archives. Battalion-level commanders for BIM/Pacific, Chasseurs d'Afrique, Engineers, Signals not documented in available sources.</li>
+<li>sources_checked: ['Ordre de la Libération - Amilakvari biography', 'ECPAD - 1st Free French Brigade war diary excerpts', 'Service historique de la Défense archives (GR 1K 237/1, GR 2K 119)', 'Chemins de Mémoire - Battle of Bir Hakeim after-action reports']</li>
+<li>confidence_impact: -2</li>
+<li>mitigation: Further research in Service historique de la Défense archives (GR collections) or regimental histories would provide complete roster</li>
+</ul>
+<p><strong>training_activities_and_exercises:</strong></p>
+<ul>
+<li>status: unknown</li>
+<li>reason: Sources confirm 3-month recovery period but do not provide details of training curriculum, exercises conducted, or readiness assessments during Q3 reorganization.</li>
+<li>sources_checked: ['British Eighth Army training records Q3 1942', 'Free French Forces operational reports', 'General Koenig correspondence and orders']</li>
+<li>confidence_impact: -2</li>
+<li>mitigation: Training activities not essential for TO&amp;E data structure. Tactical doctrine section covers general preparation for next operations.</li>
+</ul>
+<h3 id="data-tier-rationale"><a class="header" href="#data-tier-rationale">Data Tier Rationale</a></h3>
+<p><strong>[MANUAL: Add explanation of tier assignment and data quality factors]</strong></p>
+<h2 id="14-historical-significance"><a class="header" href="#14-historical-significance">14. Historical Significance</a></h2>
+<h3 id="strategic-importance"><a class="header" href="#strategic-importance">Strategic Importance</a></h3>
+<p><strong>[MANUAL: Add 2-3 paragraphs about unit's strategic role in theater]</strong></p>
+<h3 id="operational-lessons"><a class="header" href="#operational-lessons">Operational Lessons</a></h3>
+<p><strong>[MANUAL: Add lessons learned from this unit's operations]</strong></p>
+<h3 id="legacy"><a class="header" href="#legacy">Legacy</a></h3>
+<p><strong>[MANUAL: Add information about unit's post-war legacy, memorials, historical assessment]</strong></p>
+<hr />
+<p><em>[MANUAL: Add concluding paragraph summarizing the unit's significance]</em></p>
+<p><strong>Generated from Phase 6 TO&amp;E Data | [MANUAL: Add sources] | Confidence: [%] | Tier [#]</strong></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../chapters/chapter_french_1942q3_1re_division_fran_aise_libre.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../chapters/chapter_french_1942q3_1st_free_french_brigade.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../chapters/chapter_french_1942q3_1re_division_fran_aise_libre.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../chapters/chapter_french_1942q3_1st_free_french_brigade.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

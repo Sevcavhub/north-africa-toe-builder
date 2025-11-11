@@ -1,0 +1,470 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>7Th Australian Division - North Africa Campaign 1940-1943: Complete Order of Battle</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">North Africa Campaign 1940-1943: Complete Order of Battle</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/yourusername/north-africa-toe-builder" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="7th-australian-division-18th-brigade-only"><a class="header" href="#7th-australian-division-18th-brigade-only">7th Australian Division (18th Brigade only)</a></h1>
+<p><strong>Nation:</strong> British (Commonwealth - Australia)
+<strong>Quarter:</strong> 1941-Q3 (July-September 1941)
+<strong>Organization Level:</strong> Division (single brigade representation)
+<strong>Parent Formation:</strong> Tobruk Garrison</p>
+<h2 id="commander"><a class="header" href="#commander">Commander</a></h2>
+<p><strong>Major-General Arthur Allen</strong></p>
+<ul>
+<li>Rank: Major-General</li>
+<li>Appointed: 18 June 1941</li>
+<li>Previous Service: Replaced Major-General John Lavarack who was promoted to command Australian I Corps</li>
+</ul>
+<p><strong>Chief of Staff:</strong> Unknown (Colonel)</p>
+<h2 id="headquarters-location"><a class="header" href="#headquarters-location">Headquarters Location</a></h2>
+<p>Division HQ: Palestine/Syria (outside North Africa scope)
+18th Brigade: Tobruk, Libya (detached for siege operations)</p>
+<p><strong>Note:</strong> This extraction covers only the 18th Brigade, which was the sole element of the 7th Australian Division operating in North Africa during 1941-Q3. The division's other two brigades (21st and 25th) were deployed in Syria-Lebanon, outside the project scope.</p>
+<h2 id="personnel"><a class="header" href="#personnel">Personnel</a></h2>
+<p><strong>Total:</strong> 3,500 (18th Brigade only)</p>
+<ul>
+<li>Officers: 180</li>
+<li>NCOs: 570</li>
+<li>Enlisted: 2,750</li>
+</ul>
+<p><strong>Composition:</strong></p>
+<ul>
+<li>18th Australian Infantry Brigade (Brigadier George Wootten)
+<ul>
+<li>2/9th Battalion</li>
+<li>2/10th Battalion</li>
+<li>2/12th Battalion</li>
+</ul>
+</li>
+</ul>
+<h2 id="top-3-infantry-weapons"><a class="header" href="#top-3-infantry-weapons">Top 3 Infantry Weapons</a></h2>
+<ol>
+<li>
+<p><em><em>Lee-Enfield No.1 Mk.III</em> Rifle</em>* - 2,520 rifles</p>
+<ul>
+<li>Type: Bolt-action rifle</li>
+<li>Caliber: .303 British</li>
+<li>Primary infantry weapon</li>
+</ul>
+</li>
+<li>
+<p><strong>Bren Gun</strong> - 108 light machine guns</p>
+<ul>
+<li>Type: Light machine gun</li>
+<li>Caliber: .303 British</li>
+<li>Squad-level fire support</li>
+</ul>
+</li>
+<li>
+<p><strong>M1928 Thompson SMG</strong> - 54 submachine guns</p>
+<ul>
+<li>Type: Submachine gun</li>
+<li>Caliber: .45 ACP</li>
+<li>Close-quarters combat, officer/NCO weapon</li>
+</ul>
+</li>
+</ol>
+<h2 id="ground-vehicles"><a class="header" href="#ground-vehicles">Ground Vehicles</a></h2>
+<p><strong>Total:</strong> 285 vehicles</p>
+<h3 id="armored-vehicles"><a class="header" href="#armored-vehicles">Armored Vehicles</a></h3>
+<ul>
+<li><strong>Armored Cars:</strong> 10
+<ul>
+<li>Marmon-Herrington Mk II: 6 (5 operational)</li>
+<li>Daimler Scout Car: 4 (4 operational)</li>
+</ul>
+</li>
+</ul>
+<h3 id="soft-skin-vehicles"><a class="header" href="#soft-skin-vehicles">Soft-Skin Vehicles</a></h3>
+<ul>
+<li>
+<p><strong>Trucks:</strong> 228</p>
+<ul>
+<li>Bedford MW 15cwt: 58</li>
+<li>Bedford QL 3-ton: 92</li>
+<li>CMP 15cwt: 38</li>
+<li>CMP 3-ton: 40</li>
+</ul>
+</li>
+<li>
+<p><strong>Motorcycles:</strong> 38</p>
+<ul>
+<li>Norton 16H: 28</li>
+<li>BSA M20: 10</li>
+</ul>
+</li>
+<li>
+<p><strong>Support Vehicles:</strong> 9</p>
+<ul>
+<li>Ambulances: 6</li>
+<li>Workshop vehicles: 3</li>
+</ul>
+</li>
+</ul>
+<h2 id="artillery"><a class="header" href="#artillery">Artillery</a></h2>
+<p><strong>Total:</strong> 12 pieces</p>
+<h3 id="anti-tank-artillery"><a class="header" href="#anti-tank-artillery">Anti-Tank Artillery</a></h3>
+<ul>
+<li>Ordnance QF 2-pounder (40mm): 6 guns</li>
+<li>Boys Anti-Tank Rifle (.55in): 4 rifles</li>
+</ul>
+<h3 id="anti-aircraft-artillery"><a class="header" href="#anti-aircraft-artillery">Anti-Aircraft Artillery</a></h3>
+<ul>
+<li>Bofors 40mm: 2 guns</li>
+</ul>
+<p><strong>Note:</strong> No brigade-level field artillery. Fire support provided by Tobruk Garrison artillery units under fortress command.</p>
+<h2 id="infantry-support-weapons"><a class="header" href="#infantry-support-weapons">Infantry Support Weapons</a></h2>
+<h3 id="mortars-33-total"><a class="header" href="#mortars-33-total">Mortars (33 total)</a></h3>
+<ul>
+<li>3-inch Mortar (76.2mm): 9 (3 per battalion)</li>
+<li>2-inch Mortar (51mm): 24 (8 per battalion)</li>
+</ul>
+<h3 id="machine-guns-36-total"><a class="header" href="#machine-guns-36-total">Machine Guns (36 total)</a></h3>
+<ul>
+<li>Vickers .303in Medium MG: 18 (6 per battalion)</li>
+<li>Additional Bren Guns: 18 (fire support)</li>
+</ul>
+<h2 id="tanks"><a class="header" href="#tanks">Tanks</a></h2>
+<p><strong>Total:</strong> 0</p>
+<p>The 18th Brigade was an infantry brigade with no organic tank units. Tank support at Tobruk was provided by attached British armoured units under garrison command.</p>
+<h2 id="supply--logistics"><a class="header" href="#supply--logistics">Supply &amp; Logistics</a></h2>
+<p><strong>Supply Status:</strong> Besieged - supplied by sea from Alexandria (360km). Nightly destroyer and coastal vessel runs ('Spud Run'). Critical constraints: limited port capacity, enemy air/naval interdiction. Water strictly rationed. Ammunition adequate for defensive operations.</p>
+<p><strong>Operational Radius:</strong> 15 km (defensive perimeter operations only)</p>
+<p><strong>Fuel Reserves:</strong> 8 days</p>
+<p><strong>Ammunition Supply:</strong> 12 days</p>
+<p><strong>Water Supply:</strong> 3.0 liters per person per day (strict rationing due to siege conditions)</p>
+<h3 id="supply-context"><a class="header" href="#supply-context">Supply Context</a></h3>
+<p>The 18th Brigade was supplied as part of the Tobruk Garrison via the famous 'Spud Run' - nightly naval supply missions from Alexandria. The Royal Navy used destroyers and fast coastal vessels to run supplies into Tobruk under cover of darkness, evading German/Italian air and naval interdiction. Port capacity and enemy action severely limited supply tonnage. Water was critically rationed due to limited production and storage facilities within the besieged perimeter.</p>
+<h2 id="weather--environment"><a class="header" href="#weather--environment">Weather &amp; Environment</a></h2>
+<p><strong>Season:</strong> 1941-Q3 (July-September) - High summer</p>
+<p><strong>Temperature Range:</strong> 22°C to 38°C</p>
+<ul>
+<li>Extreme daytime heat (regularly exceeding 35°C)</li>
+<li>Cooler nights (20-25°C)</li>
+</ul>
+<p><strong>Terrain:</strong> Coastal desert - defensive perimeter around Tobruk port (30km perimeter)</p>
+<p><strong>Storm Frequency:</strong> 0 days per month (dry season)</p>
+<p><strong>Daylight Hours:</strong> 13.5 hours</p>
+<h3 id="environmental-context"><a class="header" href="#environmental-context">Environmental Context</a></h3>
+<p>The 18th Brigade defended sectors of the Tobruk perimeter during the hottest months of the North African summer. Temperatures regularly exceeded 35°C, with little natural shade in the desert positions. The defensive perimeter consisted of interconnected strongpoints and trenches across rocky desert terrain. Dust storms were rare during summer months. The brigade faced harsh conditions with limited water, extreme heat, and constant exposure to enemy artillery and air attacks.</p>
+<h2 id="historical-context"><a class="header" href="#historical-context">Historical Context</a></h2>
+<h3 id="operational-status"><a class="header" href="#operational-status">Operational Status</a></h3>
+<p><strong>Active defensive operations</strong> - Siege of Tobruk garrison (18th Brigade only, detached from division)</p>
+<h3 id="campaign"><a class="header" href="#campaign">Campaign</a></h3>
+<p><strong>Siege of Tobruk</strong> (10 April - 27 November 1941)</p>
+<ul>
+<li>18th Brigade participation: May-August 1941</li>
+</ul>
+<h3 id="opponents"><a class="header" href="#opponents">Opponents</a></h3>
+<ul>
+<li>German Afrika Korps (15th and 21st Panzer Divisions)</li>
+<li>Italian forces (Ariete, Brescia, Pavia, Trento Divisions)</li>
+<li>Commander: General Erwin Rommel (Panzergruppe Afrika)</li>
+</ul>
+<h3 id="major-battles--operations"><a class="header" href="#major-battles--operations">Major Battles &amp; Operations</a></h3>
+<ul>
+<li>Salient defense operations (May-August 1941)</li>
+<li>Continuous defensive operations along assigned perimeter sectors</li>
+<li>Patrol and raid operations in no-man's land</li>
+<li>Defense against German/Italian probing attacks</li>
+</ul>
+<h3 id="outcomes"><a class="header" href="#outcomes">Outcomes</a></h3>
+<p>The 18th Brigade successfully defended its assigned sectors of the Tobruk perimeter from May through August 1941. The brigade was evacuated by sea in August as part of a garrison rotation, with 5,040 men withdrawn by Royal Navy destroyers and coastal vessels. The brigade rejoined the 7th Division in Syria in September 1941.</p>
+<h3 id="casualties-1941-q3"><a class="header" href="#casualties-1941-q3">Casualties (1941-Q3)</a></h3>
+<ul>
+<li>Killed: Unknown (specific Q3 figures not available)</li>
+<li>Wounded: Unknown (specific Q3 figures not available)</li>
+<li>Captured: 0</li>
+<li><strong>Estimated Total:</strong> 150-250 for July-August period</li>
+</ul>
+<p><strong>Note:</strong> Total Tobruk garrison casualties April-November 1941: 832 KIA, 2,177 WIA, 941 POW (all nationalities)</p>
+<h2 id="special-notes"><a class="header" href="#special-notes">Special Notes</a></h2>
+<h3 id="unique-operational-situation"><a class="header" href="#unique-operational-situation">Unique Operational Situation</a></h3>
+<ul>
+<li>
+<p><strong>Single Brigade Representation:</strong> The 7th Australian Division was represented in North Africa solely by the 18th Brigade during 1941-Q3. The division's two other brigades (21st and 25th) remained in Syria-Lebanon following the successful campaign there, operating outside the North Africa theater.</p>
+</li>
+<li>
+<p><strong>Detached Command:</strong> The 18th Brigade was operationally controlled by the Tobruk Garrison commander, Lieutenant General Leslie Morshead (9th Australian Division), not by the 7th Division commander.</p>
+</li>
+</ul>
+<h3 id="the-rats-of-tobruk"><a class="header" href="#the-rats-of-tobruk">The 'Rats of Tobruk'</a></h3>
+<p>The Australian defenders of Tobruk earned the nickname 'Rats of Tobruk' from German propaganda broadcasts by Lord Haw-Haw, who referred to them as "rats caught in a trap." The Australians embraced the name as a badge of honor. The garrison held a 30km defensive perimeter against repeated German and Italian assaults.</p>
+<h3 id="the-spud-run"><a class="header" href="#the-spud-run">The 'Spud Run'</a></h3>
+<p>Supply operations to Tobruk were conducted nightly by Royal Navy destroyers and fast coastal vessels in missions dubbed the 'Spud Run.' These dangerous 360km runs from Alexandria brought in ammunition, fuel, food, water, and reinforcements while evacuating wounded. The navy faced constant threat from German/Italian air attacks, submarines, and surface vessels.</p>
+<h3 id="garrison-rotation"><a class="header" href="#garrison-rotation">Garrison Rotation</a></h3>
+<p>The 18th Brigade was evacuated as part of a planned garrison rotation in August 1941. A total of 5,040 men of the 18th Australian Infantry Brigade and the Indian 18th King Edward's Own Cavalry were withdrawn by sea. Polish forces replaced them on the perimeter. The brigade rejoined the 7th Division at Aleppo, Syria in September 1941.</p>
+<h3 id="environmental-challenges"><a class="header" href="#environmental-challenges">Environmental Challenges</a></h3>
+<ul>
+<li><strong>Water Rationing:</strong> Severe water rationing (3 liters/person/day) due to limited production and storage</li>
+<li><strong>Extreme Heat:</strong> Summer temperatures exceeding 38°C with minimal shade</li>
+<li><strong>Limited Cover:</strong> Rocky desert terrain offered little natural protection</li>
+<li><strong>Dust and Flies:</strong> Constant irritation from dust and massive fly populations</li>
+<li><strong>Sanitation:</strong> Difficult hygiene maintenance in siege conditions</li>
+</ul>
+<h3 id="strategic-significance"><a class="header" href="#strategic-significance">Strategic Significance</a></h3>
+<p>Tobruk's continued resistance denied Rommel a critical forward supply port and forced the Afrika Korps to maintain long supply lines from Tripoli (1,600km). The garrison tied down significant Axis forces that could have been used for offensive operations into Egypt. The 18th Brigade's successful defense contributed to the overall Allied strategy in the Western Desert.</p>
+<h2 id="data-quality-assessment"><a class="header" href="#data-quality-assessment">Data Quality Assessment</a></h2>
+<p><strong>Overall Confidence:</strong> 75%
+<strong>Tier:</strong> 2 (review_recommended)
+<strong>Status:</strong> Review recommended</p>
+<h3 id="source-quality"><a class="header" href="#source-quality">Source Quality</a></h3>
+<ul>
+<li>6 primary sources consulted</li>
+<li>Mix of web-based Australian War Memorial archives and historical texts</li>
+<li>Cross-referenced with British Army Lists and The Rommel Papers</li>
+</ul>
+<h3 id="known-gaps"><a class="header" href="#known-gaps">Known Gaps</a></h3>
+<ul>
+<li>Chief of Staff name and details</li>
+<li>Exact operational readiness percentages for vehicles</li>
+<li>Precise daily supply tonnage figures</li>
+<li>Detailed casualty figures for 1941-Q3 specifically</li>
+<li>Commanders below brigade level</li>
+</ul>
+<h3 id="confidence-by-section"><a class="header" href="#confidence-by-section">Confidence by Section</a></h3>
+<ul>
+<li>Command: 65%</li>
+<li>Personnel: 80%</li>
+<li>Infantry Weapons: 78%</li>
+<li>Vehicles: 72%</li>
+<li>Artillery: 75%</li>
+<li>Subordinate Units: 85%</li>
+<li>Supply/Logistics: 80%</li>
+<li>Weather/Environment: 90%</li>
+</ul>
+<h3 id="documentation-notes"><a class="header" href="#documentation-notes">Documentation Notes</a></h3>
+<p>This extraction represents a unique case where only a single brigade of a division operated in North Africa while the parent formation was deployed elsewhere. The data reflects brigade-level strength and equipment rather than full divisional assets. Equipment estimates are based on standard Australian infantry brigade establishments for 1941, adjusted for siege conditions and limited resupply capacity.</p>
+<hr />
+<p><strong>Extracted:</strong> 2025-10-24
+<strong>Schema Version:</strong> 3.1.0
+<strong>Extraction Agent:</strong> Claude Code Extraction Agent
+<strong>Validation Status:</strong> Schema v3.1.0 compliant, Tier 2 (review_recommended)</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../chapters/chapter_british_1941q3_7th_armoured_division.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../chapters/chapter_british_1941q3_7th_australian_division_18th_brigade_only.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../chapters/chapter_british_1941q3_7th_armoured_division.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../chapters/chapter_british_1941q3_7th_australian_division_18th_brigade_only.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

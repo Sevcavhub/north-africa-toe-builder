@@ -1,0 +1,317 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>4Th Indian Division - North Africa Campaign 1940-1943: Complete Order of Battle</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">North Africa Campaign 1940-1943: Complete Order of Battle</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/yourusername/north-africa-toe-builder" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="4th-indian-infantry-division"><a class="header" href="#4th-indian-infantry-division">4th Indian Infantry Division</a></h1>
+<p><strong>Nation:</strong> British (Indian Army)
+<strong>Quarter:</strong> 1940-Q2 (April-June 1940)
+<strong>Commander:</strong> Major-General Philip Neame
+<strong>Type:</strong> Infantry Division (Mixed British-Indian)
+<strong>Parent Formation:</strong> Western Desert Force
+<strong>HQ:</strong> Fayed, Egypt (Ismailia Governorate)</p>
+<h2 id="1-overview"><a class="header" href="#1-overview">1. Overview</a></h2>
+<p>The 4th Indian Infantry Division achieved the historic distinction of being the first Indian division deployed overseas in World War II, arriving in Egypt during 1940-Q2 for desert warfare training at Fayed. With 15,000 personnel comprising 40% British and 60% Indian troops organized across three infantry brigades, this mixed-composition force represented the Indian Army commitment to the Allied cause in North Africa.</p>
+<p>Under Major-General Philip Neame command (February-August 1940), the division underwent intensive desert training during April-June 1940, preparing for what would become Operation Compass (December 1940). The division exemplified the Indian Army brigade structure with each of its three brigades (5th, 7th, 11th Indian Infantry) combining British and Indian battalions.</p>
+<p><strong>Key Features:</strong></p>
+<ul>
+<li>First Indian division overseas in WWII (historic milestone)</li>
+<li>Mixed composition: 40% British (6,000), 60% Indian (9,000) personnel</li>
+<li>Three infantry brigades with combined British-Indian battalions</li>
+<li>72x 25-pounder field guns (three field regiments)</li>
+<li>48x 2-pounder AT guns (inadequate for future German armor)</li>
+<li>Well-supplied from Egyptian base infrastructure</li>
+</ul>
+<h2 id="2-command-and-equipment"><a class="header" href="#2-command-and-equipment">2. Command and Equipment</a></h2>
+<p><strong>Commander:</strong> Major-General Philip Neame (appointed February 1, 1940)
+<strong>Chief of Staff:</strong> Lieutenant-Colonel (name unknown)
+<strong>HQ Staff:</strong> 250 (45 officers, 85 NCOs, 120 enlisted)</p>
+<p><strong>Personnel:</strong> 15,000 total (850 officers, 2,800 NCOs, 11,350 enlisted)</p>
+<p><strong>Small Arms:</strong></p>
+<ul>
+<li>Lee-Enfield No.1 Mk III rifles (9,800)</li>
+<li>Bren Light Machine Guns (450)</li>
+<li>Vickers Machine Guns (36)</li>
+</ul>
+<p><strong>Artillery:</strong></p>
+<ul>
+<li>25-pounder Mk I field guns (72): Three field regiments</li>
+<li>2-pounder AT guns (48): Divisional anti-tank regiment</li>
+<li>3-inch mortars (54)</li>
+</ul>
+<p><strong>Vehicles (2,850 total):</strong></p>
+<ul>
+<li>Trucks (2,200): Bedford 3-ton, Morris 15cwt, Austin K2/Y</li>
+<li>Motorcycles (480): Norton 16H, BSA M20</li>
+<li>Armored cars (24): Morris CS9, Rolls-Royce</li>
+<li>Universal Carriers (72)</li>
+</ul>
+<h2 id="3-organization"><a class="header" href="#3-organization">3. Organization</a></h2>
+<p><strong>5th Indian Infantry Brigade</strong> (Brigadier Theophilus J. Ponting)</p>
+<ul>
+<li>1st Royal Fusiliers, 3/1st Punjab Regiment, 4/6th Rajputana Rifles</li>
+</ul>
+<p><strong>7th Indian Infantry Brigade</strong></p>
+<ul>
+<li>Renumbered from 4th Brigade in June 1940</li>
+</ul>
+<p><strong>11th Indian Infantry Brigade</strong></p>
+<ul>
+<li>1/6th Rajputana Rifles, 2nd Cameron Highlanders, 4/7th Rajput Regiment</li>
+</ul>
+<p><strong>Divisional Artillery</strong> (Brigadier P. Maxwell, from June 1940)</p>
+<ul>
+<li>Three field regiments (72x 25-pdr), one AT regiment (48x 2-pdr)</li>
+</ul>
+<h2 id="4-operations-desert-training-april-june-1940"><a class="header" href="#4-operations-desert-training-april-june-1940">4. Operations: Desert Training (April-June 1940)</a></h2>
+<p><strong>Training at Fayed, Egypt:</strong></p>
+<ul>
+<li>Desert navigation and water discipline</li>
+<li>Heat management (18-35C temperatures)</li>
+<li>Combined arms coordination</li>
+</ul>
+<p><strong>Supply Status:</strong></p>
+<ul>
+<li>Fuel reserves: 7 days</li>
+<li>Ammunition: 14 days</li>
+<li>Water: 10L/man/day (150,000L daily)</li>
+<li>Operational radius: 100 km</li>
+</ul>
+<h2 id="5-historical-significance"><a class="header" href="#5-historical-significance">5. Historical Significance</a></h2>
+<p><strong>First Indian Division Overseas:</strong> Historic milestone for Indian Army in WWII. Prepared for Operation Compass (December 1940) where division would destroy Italian 10th Army.</p>
+<p><strong>Mixed British-Indian Model:</strong> Brigade organization became standard for Indian divisions throughout WWII.</p>
+<h2 id="6-data-validation"><a class="header" href="#6-data-validation">6. Data Validation</a></h2>
+<p><strong>Confidence:</strong> 88% (Tier 1: Production-Ready)
+<strong>Sources:</strong> Playfair (1954), Mason (1982), Das (1996), Singh (1993), TM 30-410 (1942)
+<strong>Schema:</strong> v3.0.0
+<strong>Gaps:</strong> Chief of staff name unknown, some brigade commanders unknown</p>
+<hr />
+<p><em>Enhanced from division TO&amp;E data. First Indian division overseas in WWII, training at Fayed (Egypt) 1940-Q2. 15,000-strong mixed British-Indian force under Major-General Philip Neame. Prepared for Operation Compass (December 1940).</em></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../quarter_overviews/1943q2.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../chapters/chapter_british_1940q2_4th_indian_infantry_division.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../quarter_overviews/1943q2.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../chapters/chapter_british_1940q2_4th_indian_infantry_division.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

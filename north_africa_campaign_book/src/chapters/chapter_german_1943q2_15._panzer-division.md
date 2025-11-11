@@ -1,0 +1,340 @@
+# 15. Panzer-Division
+
+**Nation:** German
+**Quarter:** 1943-Q2
+**Organization Level:** Division
+
+## 1. Overview
+
+**[MANUAL: Add 2-3 paragraphs of historical context about the 15. Panzer-Division]**
+
+**[MANUAL: Describe the unit's role during 1943-Q2, formation history, and strategic importance]**
+
+**[MANUAL: Add operational context - what major operations/battles occurred this quarter]**
+
+**Key Statistics (1943-Q2):**
+- Total Strength: 4,487 personnel
+- Unit Type: armored_division
+- Organization Level: Division
+- Parent Formation: Deutsches Afrikakorps, 5. Panzerarmee (Tunisia)
+- Commander: Generalleutnant Generalleutnant Eduard Crasemann
+- Tanks: 29
+- Artillery: 132 guns
+- Motor Vehicles: 493
+
+## 2. Command Structure
+
+### Division Commander
+
+**Generalleutnant Generalleutnant Eduard Crasemann**.
+
+**[MANUAL: Add 1-2 paragraphs about commander's background, command style, and performance]**
+
+### Division Staff
+
+The division headquarters staff comprised approximately 0 personnel:
+
+### Chief of Staff
+
+The **Chief of Staff** position was typically held by a Oberstleutnant who coordinated all divisional operations.
+
+### Headquarters Location
+
+Division headquarters was established at: Unknown
+
+**[MANUAL: Add details about headquarters mobility, facilities, and operational context]**
+
+## 3. Personnel Strength
+
+### Total Strength: 4,487 Personnel
+
+**[MANUAL: Add 1-2 paragraphs about overall strength, comparing to establishment, explaining any understrength/overstrength]**
+
+### Officer Corps: 235 Officers (5.2% of total)
+
+The division's officer corps included:
+- Division staff and headquarters officers
+- Regiment and battalion commanders
+- Company and platoon leaders
+- Technical specialists
+
+**[MANUAL: Add details about officer quality, training, and leadership capabilities]**
+
+### Non-Commissioned Officers: 720 NCOs (16.0% of total)
+
+NCOs provided critical small unit leadership:
+- Squad and section leaders
+- Weapon crew chiefs
+- Technical specialists
+- Administrative and supply NCOs
+
+**[MANUAL: Add details about NCO experience and role]**
+
+### Enlisted Personnel: 3,532 (78.7% of total)
+
+The bulk of the division consisted of enlisted soldiers:
+- Infantry riflemen
+- Machine gun and weapon crews
+- Artillery crews
+- Drivers and mechanics
+- Engineers and pioneers
+- Supply and administrative personnel
+
+### Personnel Quality
+
+**[MANUAL: Add 2-3 paragraphs about:]**
+- Combat experience level (veteran vs. newly-arrived)
+- Morale status
+- Training emphasis
+- Replacement situation
+- Known strengths/weaknesses
+
+## 4. Organization
+
+**[MANUAL: Add 1-2 paragraphs describing overall organizational structure and doctrine]**
+
+### Primary Subordinate Units
+
+**[MANUAL: List subordinate units with type, strength, commander, and composition]**
+
+### Organizational Assessment
+
+**[MANUAL: Add assessment of organizational strengths, gaps, and combat effectiveness]**
+
+## 5. Infantry Weapons
+
+**[MANUAL: Add introductory paragraph about unit's infantry weapons doctrine and supply]**
+
+### Karabiner 98k
+- **Count:** 3,150
+- **Type:** Rifle
+
+**[MANUAL: Add specifications:]**
+- Caliber
+- Action type
+- Magazine/feed system
+- Effective range
+- Rate of fire
+- Weight
+- Muzzle velocity
+
+**[MANUAL: Add 1-2 paragraphs about weapon's performance, reliability, and tactical employment]**
+
+### MP38/40 submachine gun
+- **Count:** 385
+- **Type:** Submachine Gun
+
+**[MANUAL: Add specifications:]**
+- Caliber
+- Action type
+- Magazine/feed system
+- Effective range
+- Rate of fire
+- Weight
+- Muzzle velocity
+
+**[MANUAL: Add 1-2 paragraphs about weapon's performance, reliability, and tactical employment]**
+
+### MG34 light machine gun
+- **Count:** 138
+- **Type:** Light Machine Gun
+
+**[MANUAL: Add specifications:]**
+- Caliber
+- Action type
+- Magazine/feed system
+- Effective range
+- Rate of fire
+- Weight
+- Muzzle velocity
+
+**[MANUAL: Add 1-2 paragraphs about weapon's performance, reliability, and tactical employment]**
+
+
+## 6. Motor Vehicles and Transport
+
+### Total Motor Vehicles: 493
+
+**[MANUAL: Add paragraph about unit's motorization level and mobility capabilities]**
+
+
+### Transport Challenges
+
+**[MANUAL: Add section about desert operating challenges, maintenance, fuel consumption, etc.]**
+
+## 7. Artillery
+
+### Total Artillery: 132 Guns
+
+**[MANUAL: Add paragraph about artillery organization and doctrine]**
+
+
+## 8. Supply and Logistics
+
+### Supply Status
+
+CRITICAL - Axis surrender 13 May 1943. Final two weeks: fuel exhausted, ammunition rationed to defensive fires only, food reduced to emergency rations, water scarce, medical supplies depleted. Supply system collapsed - no resupply after May 8.
+
+### Fuel Supply
+
+**Fuel Reserves:** 0.5 days
+
+**[MANUAL: Add fuel supply details, daily consumption, sources, constraints]**
+
+### Ammunition Supply
+
+**Ammunition Reserves:** 2 days
+
+**[MANUAL: Add ammunition supply details, types, resupply, shortages]**
+
+### Water Supply
+
+**Daily Requirement:** 2.5 liters per day
+
+**[MANUAL: Add water supply details, transport, rationing, sources]**
+
+### Operational Radius
+
+{'with_resupply_km': 0, 'without_resupply_km': 25, 'notes': 'Operational radius essentially zero by May 13. No fuel for movement. Division immobilized in defensive positions.'}
+
+
+### Supply Chain Vulnerabilities
+
+**[MANUAL: Add section about supply chain risks, interdiction, priorities, and challenges]**
+
+## 9. Weather and Environment
+
+### Climate (1943-Q2)
+
+**Season:** 1943-Q2 (April-June) - Spring/Early Summer
+
+**Temperature Range:** 15-32°C
+
+**Daylight Hours:** 13.5 hours
+
+**Storm Frequency:** Approximately 1 days per month
+
+**[MANUAL: Add detailed climate description for this quarter]**
+
+### Terrain
+
+Northern Tunisia - Coastal plain, hills, Enfidaville defensive line
+
+### Weather Challenges
+
+**[MANUAL: Add weather impact on operations]**
+
+### Environmental Challenges
+
+**[MANUAL: Add environmental challenges - dust, heat, navigation, disease, etc.]**
+
+
+## 10. Combat History
+
+### Formation and Deployment
+
+**[MANUAL: Add 2-3 paragraphs about unit formation, when/where raised, deployment to theater]**
+
+### Major Engagements
+
+**[MANUAL: List and describe major battles, operations, and engagements]**
+
+### Combat Effectiveness Assessment
+
+**[MANUAL: Add assessment of strengths, weaknesses, and overall combat performance]**
+
+## 11. Tactical Doctrine and Capabilities
+
+### Doctrinal Role
+
+**[MANUAL: Add 1-2 paragraphs about unit's doctrinal role and mission]**
+
+### Combined Arms Integration
+
+**[MANUAL: Add section about infantry-tank-artillery cooperation, air support, engineer support]**
+
+
+## 12. Wargaming and Scenario Data
+
+### Morale and Experience
+
+**[MANUAL: Add paragraph explaining morale factors and experience level]**
+
+### Force Composition for Scenarios
+
+**[MANUAL: Add typical force breakdowns for wargaming scenarios]**
+
+## 13. Data Quality and Sources
+
+### Source Documentation
+
+This TO&E is based on:
+
+- Tessin, Georg - Verbände und Truppen der deutschen Wehrmacht und Waffen-SS - Band 05
+- Lexikon der Wehrmacht - 15. Panzerdivision
+- US Army Center of Military History - Tunisia Campaign 1943
+- The Rommel Papers (B.H. Liddell Hart) - Tunisia operations
+- German Army Handbook 1939-45 - Tunisia surrender
+- British 8th Army records - Enfidaville operations
+
+**Last Updated:** 2025-10-26
+
+### Confidence Assessment
+
+**Overall Confidence:** 72% (Tier 2)
+
+**[MANUAL: Add confidence breakdown by category - High/Medium/Low confidence areas]**
+
+### Required Field Gaps
+
+Missing information:
+- exact_personnel_strength_by_unit
+- precise_tank_operational_status
+- detailed_supply_stocks_final_week
+
+### Gap Documentation
+
+**exact_personnel_strength_by_unit:**
+- status: estimated
+- reason: Final personnel reports for May 13 surrender not available. Unit-level strength estimated from division total and combat loss reports.
+- sources_checked: ['Tessin Band 05', 'Lexikon der Wehrmacht', 'US Army CMH - Tunisia Campaign']
+- confidence_impact: -8
+- estimate_method: Based 1943-Q2 on 1943-Q1 TO&E with estimated 25-30% attrition from April-May battles and supply crisis. Cross-referenced surrender reports (250,000 Axis troops total) and British 8th Army intelligence estimates.
+
+**precise_tank_operational_status:**
+- status: estimated
+- reason: Final tank status reports for May 13 not available in detail. Tank numbers estimated from operational reports and surrender data.
+- sources_checked: ['Tessin Band 05', 'German Army Handbook', 'British 8th Army intelligence summaries']
+- confidence_impact: -6
+- estimate_method: Estimated from 1943-Q1 baseline (45 tanks) minus combat losses in April-May battles (approximately 15-20 tanks destroyed/abandoned). Final count 29 tanks with approximately 55% operational due to fuel shortage and battle damage.
+
+**detailed_supply_stocks_final_week:**
+- status: estimated
+- reason: Detailed supply reports for final week not available. Supply status estimated from operational context and historical accounts.
+- sources_checked: ['The Rommel Papers', 'US Army CMH - Tunisia Campaign', 'German Army Handbook']
+- confidence_impact: -6
+- estimate_method: Based on historical accounts of terminal Axis supply crisis. Allied air/naval interdiction cut supply lines by May 8. Estimated fuel reserves at 0.5-1.5 days, ammunition 2-3 days, from operational context.
+
+### Data Tier Rationale
+
+**[MANUAL: Add explanation of tier assignment and data quality factors]**
+
+## 14. Historical Significance
+
+### Strategic Importance
+
+**[MANUAL: Add 2-3 paragraphs about unit's strategic role in theater]**
+
+### Operational Lessons
+
+**[MANUAL: Add lessons learned from this unit's operations]**
+
+### Legacy
+
+**[MANUAL: Add information about unit's post-war legacy, memorials, historical assessment]**
+
+---
+
+*[MANUAL: Add concluding paragraph summarizing the unit's significance]*
+
+**Generated from Phase 6 TO&E Data | [MANUAL: Add sources] | Confidence: [%] | Tier [#]**

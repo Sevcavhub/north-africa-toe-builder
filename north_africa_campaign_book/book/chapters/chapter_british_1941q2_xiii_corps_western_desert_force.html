@@ -1,0 +1,677 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Xiii Corps Western Desert Force - North Africa Campaign 1940-1943: Complete Order of Battle</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">North Africa Campaign 1940-1943: Complete Order of Battle</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/yourusername/north-africa-toe-builder" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="xiii-corps-western-desert-force"><a class="header" href="#xiii-corps-western-desert-force">XIII Corps (Western Desert Force)</a></h1>
+<p><strong>Nation:</strong> British
+<strong>Quarter:</strong> 1941-Q2
+<strong>Organization Level:</strong> Corps</p>
+<h2 id="1-overview"><a class="header" href="#1-overview">1. Overview</a></h2>
+<p><strong>[MANUAL: Add 2-3 paragraphs of historical context about the XIII Corps (Western Desert Force)]</strong></p>
+<p><strong>[MANUAL: Describe the unit's role during 1941-Q2, formation history, and strategic importance]</strong></p>
+<p><strong>[MANUAL: Add operational context - what major operations/battles occurred this quarter]</strong></p>
+<p><strong>Key Statistics (1941-Q2):</strong></p>
+<ul>
+<li>Total Strength: 45,000 personnel</li>
+<li>Unit Type: Operational Corps</li>
+<li>Organization Level: Corps</li>
+<li>Parent Formation: Middle East Command</li>
+<li>Commander: Lieutenant-General Lieutenant-General Noel Beresford-Peirse</li>
+<li>Headquarters Location: Sidi Barrani area, Egypt</li>
+<li>Tanks: 190</li>
+<li>Artillery: 172 guns</li>
+<li>Motor Vehicles: 4,200</li>
+</ul>
+<h2 id="2-command-structure"><a class="header" href="#2-command-structure">2. Command Structure</a></h2>
+<h3 id="division-commander"><a class="header" href="#division-commander">Division Commander</a></h3>
+<p><strong>Lieutenant-General Lieutenant-General Noel Beresford-Peirse</strong> assumed command on 1941-04-14.</p>
+<p>Previous service: Commander, 4th Indian Division during Operation Compass; East Africa campaign</p>
+<p><strong>[MANUAL: Add 1-2 paragraphs about commander's background, command style, and performance]</strong></p>
+<h3 id="division-staff"><a class="header" href="#division-staff">Division Staff</a></h3>
+<p>The division headquarters staff comprised approximately 250 personnel:</p>
+<ul>
+<li><strong>Officers:</strong> 45 (operations, intelligence, logistics, signals)</li>
+<li><strong>NCOs:</strong> 65 (section chiefs, administrative staff)</li>
+<li><strong>Enlisted:</strong> 140 (clerks, drivers, guards, support)</li>
+</ul>
+<h3 id="chief-of-staff"><a class="header" href="#chief-of-staff">Chief of Staff</a></h3>
+<p>The <strong>Chief of Staff</strong> position was typically held by a Brigadier who coordinated all divisional operations.</p>
+<h3 id="headquarters-location"><a class="header" href="#headquarters-location">Headquarters Location</a></h3>
+<p>Division headquarters was established at: Sidi Barrani area, Egypt</p>
+<p><strong>[MANUAL: Add details about headquarters mobility, facilities, and operational context]</strong></p>
+<h2 id="3-personnel-strength"><a class="header" href="#3-personnel-strength">3. Personnel Strength</a></h2>
+<h3 id="total-strength-45000-personnel"><a class="header" href="#total-strength-45000-personnel">Total Strength: 45,000 Personnel</a></h3>
+<p><strong>[MANUAL: Add 1-2 paragraphs about overall strength, comparing to establishment, explaining any understrength/overstrength]</strong></p>
+<h3 id="officer-corps-2400-officers-53-of-total"><a class="header" href="#officer-corps-2400-officers-53-of-total">Officer Corps: 2,400 Officers (5.3% of total)</a></h3>
+<p>The division's officer corps included:</p>
+<ul>
+<li>Division staff and headquarters officers</li>
+<li>Regiment and battalion commanders</li>
+<li>Company and platoon leaders</li>
+<li>Technical specialists</li>
+</ul>
+<p><strong>[MANUAL: Add details about officer quality, training, and leadership capabilities]</strong></p>
+<h3 id="non-commissioned-officers-6700-ncos-149-of-total"><a class="header" href="#non-commissioned-officers-6700-ncos-149-of-total">Non-Commissioned Officers: 6,700 NCOs (14.9% of total)</a></h3>
+<p>NCOs provided critical small unit leadership:</p>
+<ul>
+<li>Squad and section leaders</li>
+<li>Weapon crew chiefs</li>
+<li>Technical specialists</li>
+<li>Administrative and supply NCOs</li>
+</ul>
+<p><strong>[MANUAL: Add details about NCO experience and role]</strong></p>
+<h3 id="enlisted-personnel-35900-798-of-total"><a class="header" href="#enlisted-personnel-35900-798-of-total">Enlisted Personnel: 35,900 (79.8% of total)</a></h3>
+<p>The bulk of the division consisted of enlisted soldiers:</p>
+<ul>
+<li>Infantry riflemen</li>
+<li>Machine gun and weapon crews</li>
+<li>Artillery crews</li>
+<li>Drivers and mechanics</li>
+<li>Engineers and pioneers</li>
+<li>Supply and administrative personnel</li>
+</ul>
+<h3 id="personnel-quality"><a class="header" href="#personnel-quality">Personnel Quality</a></h3>
+<p><strong>[MANUAL: Add 2-3 paragraphs about:]</strong></p>
+<ul>
+<li>Combat experience level (veteran vs. newly-arrived)</li>
+<li>Morale status</li>
+<li>Training emphasis</li>
+<li>Replacement situation</li>
+<li>Known strengths/weaknesses</li>
+</ul>
+<h2 id="4-organization"><a class="header" href="#4-organization">4. Organization</a></h2>
+<p><strong>[MANUAL: Add 1-2 paragraphs describing overall organizational structure and doctrine]</strong></p>
+<h3 id="primary-subordinate-units"><a class="header" href="#primary-subordinate-units">Primary Subordinate Units</a></h3>
+<p><strong>1. 7th Armoured Division</strong></p>
+<ul>
+<li>Type: Armoured Division</li>
+<li>Strength: 18,500 personnel</li>
+<li>Commander: Major-General Michael O'Moore Creagh</li>
+</ul>
+<p><strong>2. 4th Indian Division</strong></p>
+<ul>
+<li>Type: Infantry Division (Commonwealth)</li>
+<li>Strength: 17,200 personnel</li>
+<li>Commander: Major-General Frank Messervy</li>
+</ul>
+<p><strong>3. 22nd Guards Brigade</strong></p>
+<ul>
+<li>Type: Motorised Infantry Brigade (Independent)</li>
+<li>Strength: 3,200 personnel</li>
+<li>Commander: Brigadier John Marriott</li>
+</ul>
+<p><strong>4. Corps Troops</strong></p>
+<ul>
+<li>Type: Corps-level support units</li>
+<li>Strength: 6,100 personnel</li>
+<li>Commander: Various</li>
+</ul>
+<h3 id="organizational-assessment"><a class="header" href="#organizational-assessment">Organizational Assessment</a></h3>
+<p><strong>[MANUAL: Add assessment of organizational strengths, gaps, and combat effectiveness]</strong></p>
+<h2 id="5-infantry-weapons"><a class="header" href="#5-infantry-weapons">5. Infantry Weapons</a></h2>
+<p><strong>[MANUAL: Add introductory paragraph about unit's infantry weapons doctrine and supply]</strong></p>
+<h3 id="lee-enfield-no-1-mk-iii-rifle"><a class="header" href="#lee-enfield-no-1-mk-iii-rifle">Lee-Enfield No. 1 Mk III Rifle</a></h3>
+<ul>
+<li><strong>Count:</strong> 28,000</li>
+<li><strong>Type:</strong> Bolt-Action Rifle</li>
+</ul>
+<p><strong>[MANUAL: Add specifications:]</strong></p>
+<ul>
+<li>Caliber</li>
+<li>Action type</li>
+<li>Magazine/feed system</li>
+<li>Effective range</li>
+<li>Rate of fire</li>
+<li>Weight</li>
+<li>Muzzle velocity</li>
+</ul>
+<p><strong>[MANUAL: Add 1-2 paragraphs about weapon's performance, reliability, and tactical employment]</strong></p>
+<h3 id="bren-gun"><a class="header" href="#bren-gun">Bren Gun</a></h3>
+<ul>
+<li><strong>Count:</strong> 850</li>
+<li><strong>Type:</strong> Light Machine Gun</li>
+</ul>
+<p><strong>[MANUAL: Add specifications:]</strong></p>
+<ul>
+<li>Caliber</li>
+<li>Action type</li>
+<li>Magazine/feed system</li>
+<li>Effective range</li>
+<li>Rate of fire</li>
+<li>Weight</li>
+<li>Muzzle velocity</li>
+</ul>
+<p><strong>[MANUAL: Add 1-2 paragraphs about weapon's performance, reliability, and tactical employment]</strong></p>
+<h3 id="vickers-medium-machine-gun"><a class="header" href="#vickers-medium-machine-gun">Vickers Medium Machine Gun</a></h3>
+<ul>
+<li><strong>Count:</strong> 180</li>
+<li><strong>Type:</strong> Heavy Machine Gun</li>
+</ul>
+<p><strong>[MANUAL: Add specifications:]</strong></p>
+<ul>
+<li>Caliber</li>
+<li>Action type</li>
+<li>Magazine/feed system</li>
+<li>Effective range</li>
+<li>Rate of fire</li>
+<li>Weight</li>
+<li>Muzzle velocity</li>
+</ul>
+<p><strong>[MANUAL: Add 1-2 paragraphs about weapon's performance, reliability, and tactical employment]</strong></p>
+<h2 id="6-motor-vehicles-and-transport"><a class="header" href="#6-motor-vehicles-and-transport">6. Motor Vehicles and Transport</a></h2>
+<h3 id="total-motor-vehicles-4200"><a class="header" href="#total-motor-vehicles-4200">Total Motor Vehicles: 4,200</a></h3>
+<p><strong>[MANUAL: Add paragraph about unit's motorization level and mobility capabilities]</strong></p>
+<h3 id="trucks-2800-total"><a class="header" href="#trucks-2800-total">Trucks: 2,800 Total</a></h3>
+<h4 id="bedford-mw-15cwt"><a class="header" href="#bedford-mw-15cwt">Bedford MW 15cwt</a></h4>
+<ul>
+<li><strong>Count:</strong> 850</li>
+<li><strong>Capacity:</strong> 15_cwt</li>
+</ul>
+<p><strong>[MANUAL: Add specifications and usage]</strong></p>
+<h4 id="bedford-ql-3-ton"><a class="header" href="#bedford-ql-3-ton">Bedford QL 3-ton</a></h4>
+<ul>
+<li><strong>Count:</strong> 680</li>
+<li><strong>Capacity:</strong> 3_ton</li>
+</ul>
+<p><strong>[MANUAL: Add specifications and usage]</strong></p>
+<h4 id="morris-c8-15cwt"><a class="header" href="#morris-c8-15cwt">Morris C8 15cwt</a></h4>
+<ul>
+<li><strong>Count:</strong> 520</li>
+<li><strong>Capacity:</strong> 15_cwt</li>
+</ul>
+<p><strong>[MANUAL: Add specifications and usage]</strong></p>
+<h4 id="aec-matador-4x4"><a class="header" href="#aec-matador-4x4">AEC Matador 4x4</a></h4>
+<ul>
+<li><strong>Count:</strong> 420</li>
+<li><strong>Capacity:</strong> artillery_tractor</li>
+</ul>
+<p><strong>[MANUAL: Add specifications and usage]</strong></p>
+<h4 id="scammell-pioneer"><a class="header" href="#scammell-pioneer">Scammell Pioneer</a></h4>
+<ul>
+<li><strong>Count:</strong> 180</li>
+<li><strong>Capacity:</strong> tank_recovery</li>
+</ul>
+<p><strong>[MANUAL: Add specifications and usage]</strong></p>
+<h4 id="various-supply-trucks"><a class="header" href="#various-supply-trucks">Various supply trucks</a></h4>
+<ul>
+<li><strong>Count:</strong> 150</li>
+<li><strong>Capacity:</strong> mixed</li>
+</ul>
+<p><strong>[MANUAL: Add specifications and usage]</strong></p>
+<h3 id="motorcycles-340-total"><a class="header" href="#motorcycles-340-total">Motorcycles: 340 Total</a></h3>
+<h4 id="norton-16h"><a class="header" href="#norton-16h">Norton 16H</a></h4>
+<ul>
+<li><strong>Count:</strong> 220</li>
+</ul>
+<p><strong>[MANUAL: Add specifications and usage]</strong></p>
+<h4 id="bsa-m20"><a class="header" href="#bsa-m20">BSA M20</a></h4>
+<ul>
+<li><strong>Count:</strong> 120</li>
+</ul>
+<p><strong>[MANUAL: Add specifications and usage]</strong></p>
+<h3 id="armored-cars-65-total"><a class="header" href="#armored-cars-65-total">Armored Cars: 65 Total</a></h3>
+<p><strong>[MANUAL: Add armored car variants with specifications and tactical employment]</strong></p>
+<h3 id="support-vehicles-805-total"><a class="header" href="#support-vehicles-805-total">Support Vehicles: 805 Total</a></h3>
+<h4 id="universal-carrier"><a class="header" href="#universal-carrier">Universal Carrier</a></h4>
+<ul>
+<li><strong>Count:</strong> 420</li>
+<li><strong>Type:</strong> Infantry Carrier</li>
+</ul>
+<h4 id="ambulance-various"><a class="header" href="#ambulance-various">Ambulance (various)</a></h4>
+<ul>
+<li><strong>Count:</strong> 185</li>
+<li><strong>Type:</strong> Medical</li>
+</ul>
+<h4 id="workshop-trucks"><a class="header" href="#workshop-trucks">Workshop trucks</a></h4>
+<ul>
+<li><strong>Count:</strong> 120</li>
+<li><strong>Type:</strong> Maintenance</li>
+</ul>
+<h4 id="water-tankers"><a class="header" href="#water-tankers">Water tankers</a></h4>
+<ul>
+<li><strong>Count:</strong> 80</li>
+<li><strong>Type:</strong> Supply</li>
+</ul>
+<h3 id="transport-challenges"><a class="header" href="#transport-challenges">Transport Challenges</a></h3>
+<p><strong>[MANUAL: Add section about desert operating challenges, maintenance, fuel consumption, etc.]</strong></p>
+<h2 id="7-artillery"><a class="header" href="#7-artillery">7. Artillery</a></h2>
+<h3 id="total-artillery-172-guns"><a class="header" href="#total-artillery-172-guns">Total Artillery: 172 Guns</a></h3>
+<p><strong>[MANUAL: Add paragraph about artillery organization and doctrine]</strong></p>
+<h3 id="field-artillery-96-guns"><a class="header" href="#field-artillery-96-guns">Field Artillery: 96 Guns</a></h3>
+<h4 id="qf-25-pounder-gun-howitzer"><a class="header" href="#qf-25-pounder-gun-howitzer">QF 25-pounder Gun-Howitzer</a></h4>
+<ul>
+<li><strong>Count:</strong> 72</li>
+<li><strong>Caliber:</strong> 87.6mm</li>
+</ul>
+<p><strong>[MANUAL: Add specifications:]</strong></p>
+<ul>
+<li>Range</li>
+<li>Shell weight</li>
+<li>Rate of fire</li>
+<li>Muzzle velocity</li>
+<li>Weight</li>
+<li>Crew size</li>
+</ul>
+<p><strong>[MANUAL: Add tactical employment paragraph]</strong></p>
+<h4 id="qf-18-pounder-field-gun"><a class="header" href="#qf-18-pounder-field-gun">QF 18-pounder Field Gun</a></h4>
+<ul>
+<li><strong>Count:</strong> 24</li>
+<li><strong>Caliber:</strong> 83.8mm</li>
+</ul>
+<p><strong>[MANUAL: Add specifications:]</strong></p>
+<ul>
+<li>Range</li>
+<li>Shell weight</li>
+<li>Rate of fire</li>
+<li>Muzzle velocity</li>
+<li>Weight</li>
+<li>Crew size</li>
+</ul>
+<p><strong>[MANUAL: Add tactical employment paragraph]</strong></p>
+<h3 id="anti-tank-artillery-52-guns"><a class="header" href="#anti-tank-artillery-52-guns">Anti-Tank Artillery: 52 Guns</a></h3>
+<h4 id="qf-2-pounder-anti-tank-gun"><a class="header" href="#qf-2-pounder-anti-tank-gun">QF 2-pounder Anti-Tank Gun</a></h4>
+<ul>
+<li><strong>Count:</strong> 48</li>
+<li><strong>Caliber:</strong> 40mm</li>
+</ul>
+<p><strong>[MANUAL: Add specifications and anti-armor effectiveness]</strong></p>
+<h4 id="boys-anti-tank-rifle"><a class="header" href="#boys-anti-tank-rifle">Boys Anti-Tank Rifle</a></h4>
+<ul>
+<li><strong>Count:</strong> 4</li>
+<li><strong>Caliber:</strong> 13.9mm</li>
+</ul>
+<p><strong>[MANUAL: Add specifications and anti-armor effectiveness]</strong></p>
+<h3 id="anti-aircraft-artillery-24-guns"><a class="header" href="#anti-aircraft-artillery-24-guns">Anti-Aircraft Artillery: 24 Guns</a></h3>
+<h4 id="qf-37-inch-aa-gun"><a class="header" href="#qf-37-inch-aa-gun">QF 3.7-inch AA Gun</a></h4>
+<ul>
+<li><strong>Count:</strong> 16</li>
+<li><strong>Caliber:</strong> 94mm</li>
+</ul>
+<p><strong>[MANUAL: Add specifications and air defense employment]</strong></p>
+<h4 id="bofors-40mm-aa-gun"><a class="header" href="#bofors-40mm-aa-gun">Bofors 40mm AA Gun</a></h4>
+<ul>
+<li><strong>Count:</strong> 8</li>
+<li><strong>Caliber:</strong> 40mm</li>
+</ul>
+<p><strong>[MANUAL: Add specifications and air defense employment]</strong></p>
+<h2 id="8-supply-and-logistics"><a class="header" href="#8-supply-and-logistics">8. Supply and Logistics</a></h2>
+<h3 id="supply-status"><a class="header" href="#supply-status">Supply Status</a></h3>
+<p>Strained for offensive operations. Operation Battleaxe suffered from inadequate fuel and ammunition reserves. Primary constraint: 600km supply line from railhead at Mersa Matruh to forward positions at Sollum-Halfaya. Poor port facilities at Tobruk (under siege) forced reliance on overland transport.</p>
+<h3 id="fuel-supply"><a class="header" href="#fuel-supply">Fuel Supply</a></h3>
+<p><strong>Fuel Reserves:</strong> 4.5 days</p>
+<p><strong>[MANUAL: Add fuel supply details, daily consumption, sources, constraints]</strong></p>
+<h3 id="ammunition-supply"><a class="header" href="#ammunition-supply">Ammunition Supply</a></h3>
+<p><strong>Ammunition Reserves:</strong> 6 days</p>
+<p><strong>[MANUAL: Add ammunition supply details, types, resupply, shortages]</strong></p>
+<h3 id="water-supply"><a class="header" href="#water-supply">Water Supply</a></h3>
+<p><strong>Daily Requirement:</strong> 4 liters per day</p>
+<p><strong>[MANUAL: Add water supply details, transport, rationing, sources]</strong></p>
+<h3 id="operational-radius"><a class="header" href="#operational-radius">Operational Radius</a></h3>
+<p><strong>Estimated:</strong> 120 km from supply dumps</p>
+<h3 id="supply-chain-vulnerabilities"><a class="header" href="#supply-chain-vulnerabilities">Supply Chain Vulnerabilities</a></h3>
+<p><strong>[MANUAL: Add section about supply chain risks, interdiction, priorities, and challenges]</strong></p>
+<h2 id="9-weather-and-environment"><a class="header" href="#9-weather-and-environment">9. Weather and Environment</a></h2>
+<h3 id="climate-1941-q2"><a class="header" href="#climate-1941-q2">Climate (1941-Q2)</a></h3>
+<p><strong>Season:</strong> 1941-Q2 (April-June)</p>
+<p><strong>Temperature Range:</strong> 18-38°C</p>
+<p><strong>Daylight Hours:</strong> 13.5 hours</p>
+<p><strong>Storm Frequency:</strong> Approximately 1 days per month</p>
+<p><strong>[MANUAL: Add detailed climate description for this quarter]</strong></p>
+<h3 id="terrain"><a class="header" href="#terrain">Terrain</a></h3>
+<p>coastal plain (Sollum-Bardia) and rocky desert plateau (escarpment)</p>
+<h3 id="weather-challenges"><a class="header" href="#weather-challenges">Weather Challenges</a></h3>
+<p><strong>[MANUAL: Add weather impact on operations]</strong></p>
+<h3 id="environmental-challenges"><a class="header" href="#environmental-challenges">Environmental Challenges</a></h3>
+<p><strong>[MANUAL: Add environmental challenges - dust, heat, navigation, disease, etc.]</strong></p>
+<h2 id="10-combat-history"><a class="header" href="#10-combat-history">10. Combat History</a></h2>
+<h3 id="formation-and-deployment"><a class="header" href="#formation-and-deployment">Formation and Deployment</a></h3>
+<p><strong>[MANUAL: Add 2-3 paragraphs about unit formation, when/where raised, deployment to theater]</strong></p>
+<h3 id="major-engagements"><a class="header" href="#major-engagements">Major Engagements</a></h3>
+<p><strong>[MANUAL: List and describe major battles, operations, and engagements]</strong></p>
+<h3 id="combat-effectiveness-assessment"><a class="header" href="#combat-effectiveness-assessment">Combat Effectiveness Assessment</a></h3>
+<p><strong>[MANUAL: Add assessment of strengths, weaknesses, and overall combat performance]</strong></p>
+<h2 id="11-tactical-doctrine-and-capabilities"><a class="header" href="#11-tactical-doctrine-and-capabilities">11. Tactical Doctrine and Capabilities</a></h2>
+<h3 id="doctrinal-role"><a class="header" href="#doctrinal-role">Doctrinal Role</a></h3>
+<p>Operational-level formation responsible for coordinating combined-arms offensive to relieve Tobruk and recapture Cyrenaica from Axis forces. Executed Operation Battleaxe (15-17 June 1941).</p>
+<h3 id="special-capabilities"><a class="header" href="#special-capabilities">Special Capabilities</a></h3>
+<ul>
+<li>Combined arms coordination (armour, infantry, artillery)</li>
+<li>Desert warfare operations</li>
+<li>Siege relief operations (Tobruk garrison)</li>
+<li>Mobile operations in open desert terrain</li>
+</ul>
+<h3 id="tactical-innovations"><a class="header" href="#tactical-innovations">Tactical Innovations</a></h3>
+<ul>
+<li>First large-scale use of Crusader cruiser tanks in North Africa</li>
+<li>Attempted coordination between slow Matilda infantry tanks (8 mph) and faster Crusader cruisers (27 mph)</li>
+</ul>
+<h3 id="combined-arms-integration"><a class="header" href="#combined-arms-integration">Combined Arms Integration</a></h3>
+<p><strong>[MANUAL: Add section about infantry-tank-artillery cooperation, air support, engineer support]</strong></p>
+<h3 id="known-issues-and-limitations"><a class="header" href="#known-issues-and-limitations">Known Issues and Limitations</a></h3>
+<ul>
+<li>Tank speed disparity: Matilda II infantry tanks too slow (8 mph max) for desert mobile warfare</li>
+<li>2-pounder anti-tank guns inadequate penetration vs German 50mm frontal armor</li>
+<li>British tanks vulnerable to German 88mm AA guns in anti-tank role</li>
+<li>Slow command reaction time vs German tactical flexibility</li>
+<li>Inadequate radio communication between armoured brigades</li>
+<li>Fuel and ammunition logistics strained by 600km supply line</li>
+</ul>
+<h3 id="desert-adaptations"><a class="header" href="#desert-adaptations">Desert Adaptations</a></h3>
+<p>Water rationing (4L/day/person), vehicle maintenance against sand infiltration, navigation by sun compass and dead reckoning</p>
+<h2 id="12-wargaming-and-scenario-data"><a class="header" href="#12-wargaming-and-scenario-data">12. Wargaming and Scenario Data</a></h2>
+<h3 id="morale-and-experience"><a class="header" href="#morale-and-experience">Morale and Experience</a></h3>
+<p><strong>Morale Rating:</strong> 7/10</p>
+<p><strong>Experience Level:</strong> Regular</p>
+<p><strong>[MANUAL: Add paragraph explaining morale factors and experience level]</strong></p>
+<h3 id="scenario-suitability"><a class="header" href="#scenario-suitability">Scenario Suitability</a></h3>
+<p>This unit is well-suited for:</p>
+<ul>
+<li>Operation Battleaxe (15-17 June 1941)</li>
+<li>Desert mobile warfare</li>
+<li>Tank battles (Halfaya Pass, Capuzzo, Sollum)</li>
+<li>Combined arms operations</li>
+<li>Siege relief scenarios</li>
+</ul>
+<h3 id="special-rules-wargaming"><a class="header" href="#special-rules-wargaming">Special Rules (Wargaming)</a></h3>
+<ul>
+<li>Tank speed disparity: Matilda II moves at 1/3 speed of Crusader cruisers</li>
+<li>German 88mm AA guns in anti-tank role ignore British tank armor</li>
+<li>British command penalty: -1 initiative vs German tactical flexibility</li>
+<li>Supply constraints: Fuel limited to 4.5 days offensive operations</li>
+</ul>
+<h3 id="historical-engagements-this-quarter"><a class="header" href="#historical-engagements-this-quarter">Historical Engagements (This Quarter)</a></h3>
+<ul>
+<li>Operation Battleaxe (15-17 June 1941) - Failed to relieve Tobruk, heavy tank losses (91 tanks destroyed/damaged)</li>
+<li>Halfaya Pass defense breakthrough attempt (repulsed by German 88mm guns)</li>
+<li>Capuzzo assault (temporary capture, then counterattacked)</li>
+<li>Sollum front battles</li>
+</ul>
+<h3 id="force-composition-for-scenarios"><a class="header" href="#force-composition-for-scenarios">Force Composition for Scenarios</a></h3>
+<p><strong>[MANUAL: Add typical force breakdowns for wargaming scenarios]</strong></p>
+<h2 id="13-data-quality-and-sources"><a class="header" href="#13-data-quality-and-sources">13. Data Quality and Sources</a></h2>
+<h3 id="source-documentation"><a class="header" href="#source-documentation">Source Documentation</a></h3>
+<p>This TO&amp;E is based on:</p>
+<ul>
+<li>The Rommel Papers (Liddell Hart, 1953) - British offensive June 1941 section</li>
+<li>Military Wiki - Operation Battleaxe order of battle</li>
+<li>World War II Database - Operation Battleaxe</li>
+<li>TM 30-410 Handbook on British Army (1942)</li>
+<li>British Army Lists April-June 1941</li>
+</ul>
+<p><strong>Last Updated:</strong> 2025-10-19</p>
+<p><strong>Validated By:</strong> Claude Code (Autonomous Extraction)</p>
+<h3 id="confidence-assessment"><a class="header" href="#confidence-assessment">Confidence Assessment</a></h3>
+<p><strong>Overall Confidence:</strong> 78% (Tier 2)</p>
+<p><strong>[MANUAL: Add confidence breakdown by category - High/Medium/Low confidence areas]</strong></p>
+<h3 id="required-field-gaps"><a class="header" href="#required-field-gaps">Required Field Gaps</a></h3>
+<p>Missing information:</p>
+<ul>
+<li>chief_of_staff.name</li>
+<li>exact_subordinate_unit_strengths</li>
+</ul>
+<h3 id="gap-documentation"><a class="header" href="#gap-documentation">Gap Documentation</a></h3>
+<p><strong>chief_of_staff.name:</strong></p>
+<ul>
+<li>status: unknown</li>
+<li>reason: Chief of Staff name not mentioned in primary sources (Rommel Papers, British Army Lists). Corps-level staff records require archival research.</li>
+<li>sources_checked: ['The Rommel Papers', 'British Army Lists 1941', 'TM 30-410', 'Military Wiki Operation Battleaxe']</li>
+<li>confidence_impact: -5</li>
+<li>mitigation: Archival research at Imperial War Museum or National Archives (Kew) required</li>
+</ul>
+<p><strong>exact_subordinate_unit_strengths:</strong></p>
+<ul>
+<li>status: estimated</li>
+<li>reason: Precise personnel counts for subordinate divisions not available in accessible sources. Estimates based on British divisional TO&amp;E standards 1941.</li>
+<li>sources_checked: ['The Rommel Papers (mentions 7 British divisions total in theater, not individual strengths)', 'Operation Battleaxe order of battle sources', 'TM 30-410 (provides typical division strengths, not specific June 1941 actuals)']</li>
+<li>confidence_impact: -7</li>
+<li>estimate_method: Standard British armoured division: 18,000 personnel; Infantry division: 17,000; Independent brigade: 3,200. Applied to known units.</li>
+</ul>
+<p><strong>exact_vehicle_counts:</strong></p>
+<ul>
+<li>status: estimated</li>
+<li>reason: Tank counts (170-250 range) documented for Operation Battleaxe total force. Specific variant breakdown and soft-skin vehicle counts estimated from British armoured/infantry division TO&amp;E standards.</li>
+<li>sources_checked: ['The Rommel Papers (mentions 170-250 tank range)', 'Operation Battleaxe order of battle', 'TM 30-410 British TO&amp;E tables']</li>
+<li>confidence_impact: -10</li>
+<li>estimate_method: Tank distribution: 90 Matilda II (4th Armoured Brigade documented), 120 cruisers (Crusader + A13 mix), 30 light tanks. Soft-skin vehicles estimated at corps level using British 1941 scales.</li>
+</ul>
+<h3 id="data-tier-rationale"><a class="header" href="#data-tier-rationale">Data Tier Rationale</a></h3>
+<p><strong>[MANUAL: Add explanation of tier assignment and data quality factors]</strong></p>
+<h2 id="14-historical-significance"><a class="header" href="#14-historical-significance">14. Historical Significance</a></h2>
+<h3 id="strategic-importance"><a class="header" href="#strategic-importance">Strategic Importance</a></h3>
+<p><strong>[MANUAL: Add 2-3 paragraphs about unit's strategic role in theater]</strong></p>
+<h3 id="operational-lessons"><a class="header" href="#operational-lessons">Operational Lessons</a></h3>
+<p><strong>[MANUAL: Add lessons learned from this unit's operations]</strong></p>
+<h3 id="legacy"><a class="header" href="#legacy">Legacy</a></h3>
+<p><strong>[MANUAL: Add information about unit's post-war legacy, memorials, historical assessment]</strong></p>
+<hr />
+<p><em>[MANUAL: Add concluding paragraph summarizing the unit's significance]</em></p>
+<p><strong>Generated from Phase 6 TO&amp;E Data | [MANUAL: Add sources] | Confidence: [%] | Tier [#]</strong></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../chapters/chapter_british_1941q2_xiii_corps.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../chapters/chapter_british_1941q3_1st_south_african_division.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../chapters/chapter_british_1941q2_xiii_corps.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../chapters/chapter_british_1941q3_1st_south_african_division.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

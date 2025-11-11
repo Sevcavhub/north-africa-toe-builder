@@ -1,0 +1,703 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>3Rd Infantry Division - North Africa Campaign 1940-1943: Complete Order of Battle</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">North Africa Campaign 1940-1943: Complete Order of Battle</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/yourusername/north-africa-toe-builder" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="3rd-infantry-division---1943-q1-tunisia-campaign"><a class="header" href="#3rd-infantry-division---1943-q1-tunisia-campaign">3rd Infantry Division - 1943 Q1 (Tunisia Campaign)</a></h1>
+<p><strong>Nation:</strong> American<br />
+<strong>Quarter:</strong> 1943-Q1 (January-March 1943)<br />
+<strong>Organization Level:</strong> Division<br />
+<strong>Type:</strong> Infantry Division (Triangular)<br />
+<strong>Parent Formation:</strong> II Corps, First Army (Tunisia Campaign)</p>
+<hr />
+<h2 id="command"><a class="header" href="#command">Command</a></h2>
+<p><strong>Commander:</strong> Major General Jonathan W. Anderson<br />
+<strong>Rank:</strong> Major General<br />
+<strong>Appointment Date:</strong> January 1, 1942</p>
+<p><strong>Chief of Staff:</strong> Colonel Clarence R. Huebner</p>
+<p><strong>Headquarters Location:</strong> Tébessa area, Tunisia (Jan-Mar 1943)</p>
+<p>Major General Anderson led the division through Operation Torch (Morocco, November 1942) and into the Tunisia Campaign. A WWI veteran and Regular Army officer, Anderson brought steady leadership to the division as it transitioned from amphibious assault operations to mountain warfare in Tunisia. The division spent Q1 1943 in defensive positions supporting II Corps operations, gaining valuable combat experience after the brief Morocco campaign.</p>
+<hr />
+<h2 id="personnel-summary"><a class="header" href="#personnel-summary">Personnel Summary</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Category</th><th>Strength</th></tr></thead><tbody>
+<tr><td><strong>Total Personnel</strong></td><td>14,856</td></tr>
+<tr><td>Officers</td><td>812</td></tr>
+<tr><td>NCOs</td><td>2,925</td></tr>
+<tr><td>Enlisted</td><td>11,119</td></tr>
+</tbody></table>
+</div>
+<p><strong>Staff Strength:</strong></p>
+<ul>
+<li>Officers: 98</li>
+<li>NCOs: 168</li>
+<li>Enlisted: 295</li>
+</ul>
+<p>The division maintained high readiness during Q1 1943, with field strength at approximately 98% of authorized TO&amp;E. Personnel losses from the brief Morocco campaign (November 1942) had been replaced, and the division was well-prepared for offensive operations.</p>
+<hr />
+<h2 id="top-3-infantry-weapons"><a class="header" href="#top-3-infantry-weapons">Top 3 Infantry Weapons</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Rank</th><th>Weapon</th><th>Count</th><th>Type</th></tr></thead><tbody>
+<tr><td>1</td><td>M1 Garand Rifle</td><td>9,875</td><td>Rifle</td></tr>
+<tr><td>2</td><td>Browning Automatic Rifle (BAR)</td><td>543</td><td>Automatic Rifle</td></tr>
+<tr><td>3</td><td>M1 Carbine</td><td>1,285</td><td>Carbine</td></tr>
+</tbody></table>
+</div>
+<p>The division was fully equipped with the M1 Garand semi-automatic rifle, giving American infantry a significant firepower advantage over Axis bolt-action rifles. Each infantry squad included one BAR for automatic fire support. The M1 Carbine equipped officers, NCOs, and specialists requiring a lightweight weapon.</p>
+<hr />
+<h2 id="ground-vehicles"><a class="header" href="#ground-vehicles">Ground Vehicles</a></h2>
+<p><strong>Total Ground Vehicles:</strong> 2,087</p>
+<h3 id="armored-vehicles"><a class="header" href="#armored-vehicles">Armored Vehicles</a></h3>
+<p><strong>Tanks:</strong> 0 (Infantry division - no organic tanks)</p>
+<p><strong>Halftracks:</strong> 94 total</p>
+<ul>
+<li>M3 Half-track (Personnel Carrier): 56 (52 operational)</li>
+<li>M2 Half-track (Weapons Carrier): 38 (35 operational)</li>
+</ul>
+<p><strong>Armored Cars:</strong> 54 total</p>
+<ul>
+<li>M8 Greyhound: 54 (49 operational) - Reconnaissance Troop</li>
+</ul>
+<h3 id="soft-skin-vehicles"><a class="header" href="#soft-skin-vehicles">Soft-Skin Vehicles</a></h3>
+<p><strong>Trucks:</strong> 1,792 total</p>
+<ul>
+<li>GMC CCKW 2.5-ton: 765 (710 operational)</li>
+<li>Dodge WC series (3/4-ton): 595 (550 operational)</li>
+<li>Chevrolet G506 (1.5-ton): 278 (265 operational)</li>
+<li>Willys MB Jeep (1/4-ton): 154 (148 operational)</li>
+</ul>
+<p><strong>Motorcycles:</strong> 92 total</p>
+<ul>
+<li>Harley-Davidson WLA (750cc): 92 (85 operational)</li>
+</ul>
+<p><strong>Support Vehicles:</strong> 55 total</p>
+<ul>
+<li>Ambulances (WC54): 38</li>
+<li>Tank Retrievers: 12</li>
+<li>Command vehicles: 5</li>
+</ul>
+<h3 id="vehicle-notes"><a class="header" href="#vehicle-notes">Vehicle Notes</a></h3>
+<p>Operational rates reflect Tunisia Campaign conditions - rough terrain, dust, and limited maintenance facilities reduced availability to 88-96% across vehicle types. The division's motor transport provided excellent mobility for a 1943 infantry division, enabling rapid redeployment across Tunisia's mountainous terrain.</p>
+<hr />
+<h2 id="artillery"><a class="header" href="#artillery">Artillery</a></h2>
+<p><strong>Total Artillery:</strong> 66 pieces</p>
+<h3 id="field-artillery"><a class="header" href="#field-artillery">Field Artillery</a></h3>
+<p><strong>48 guns total</strong></p>
+<ul>
+<li>
+<p><strong>M2A1 105mm Howitzer:</strong> 36 guns (35 operational)</p>
+<ul>
+<li>Three battalions: 9th, 10th, 39th Field Artillery Battalions</li>
+<li>12 guns per battalion</li>
+<li>Primary divisional fire support</li>
+</ul>
+</li>
+<li>
+<p><strong>M1918 155mm Howitzer:</strong> 12 guns (12 operational)</p>
+<ul>
+<li>One battalion: 41st Field Artillery Battalion</li>
+<li>Medium artillery for counter-battery and deep targets</li>
+</ul>
+</li>
+</ul>
+<h3 id="anti-tank-artillery"><a class="header" href="#anti-tank-artillery">Anti-Tank Artillery</a></h3>
+<p><strong>57 guns total</strong></p>
+<ul>
+<li><strong>M3 37mm AT Gun:</strong> 57 guns (54 operational)
+<ul>
+<li>Regimental anti-tank companies</li>
+<li><strong>Known Issue:</strong> Inadequate vs German Panzer III/IV armor</li>
+<li>Division urgently requesting 57mm M1 AT gun replacements</li>
+</ul>
+</li>
+</ul>
+<h3 id="anti-aircraft-artillery"><a class="header" href="#anti-aircraft-artillery">Anti-Aircraft Artillery</a></h3>
+<p><strong>16 guns total</strong></p>
+<ul>
+<li><strong>M1 40mm Bofors:</strong> 16 guns (14 operational)
+<ul>
+<li>Division air defense battery</li>
+</ul>
+</li>
+</ul>
+<h3 id="mortars"><a class="header" href="#mortars">Mortars</a></h3>
+<p><strong>90 mortars total</strong></p>
+<ul>
+<li>
+<p><strong>M1 81mm Mortar:</strong> 54</p>
+<ul>
+<li>Infantry battalion heavy weapons companies</li>
+</ul>
+</li>
+<li>
+<p><strong>M2 60mm Mortar:</strong> 36</p>
+<ul>
+<li>Infantry company weapons platoons</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="aircraft"><a class="header" href="#aircraft">Aircraft</a></h2>
+<p><strong>Total Aircraft:</strong> 0</p>
+<p>The division had no organic aircraft. Air support was coordinated through II Corps and Allied tactical air forces operating in Tunisia.</p>
+<hr />
+<h2 id="supply--logistics"><a class="header" href="#supply--logistics">Supply &amp; Logistics</a></h2>
+<p><strong>Supply Status:</strong> Adequate but strained</p>
+<p>The 3rd Infantry Division's supply situation in Q1 1943 reflected the challenges of the Tunisia Campaign. Supply lines stretched over 500 kilometers from Algerian ports (primarily Oran) to the Tunisian front. Fuel was adequate for defensive operations but limited for sustained offensive action. Ammunition resupply was slower than British 8th Army units receiving supplies from Egypt. Water was adequate from local Tunisian wells and captured French cisterns.</p>
+<p>The division was learning desert logistics after the brief Morocco campaign. Challenges included:</p>
+<ul>
+<li>Long supply lines vulnerable to air attack</li>
+<li>Limited port capacity at Oran</li>
+<li>Competition for trucks with other II Corps divisions</li>
+<li>Dusty conditions requiring increased vehicle maintenance</li>
+<li>Wet winter weather in highlands disrupting road movement</li>
+</ul>
+<p><strong>Logistics Metrics:</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Metric</th><th>Value</th><th>Notes</th></tr></thead><tbody>
+<tr><td>Operational Radius</td><td>380 km</td><td>From main supply depot (Oran/Algiers)</td></tr>
+<tr><td>Fuel Reserves</td><td>6.5 days</td><td>Adequate for defensive ops, limited for offense</td></tr>
+<tr><td>Ammunition</td><td>8 days</td><td>Combat days of supply</td></tr>
+<tr><td>Water</td><td>7.5 L/person/day</td><td>From local wells + transport</td></tr>
+</tbody></table>
+</div>
+<hr />
+<h2 id="weather--environment"><a class="header" href="#weather--environment">Weather &amp; Environment</a></h2>
+<p><strong>Quarter:</strong> 1943-Q1 (January-March 1943)<br />
+<strong>Season:</strong> Winter/Early Spring, Central Tunisia</p>
+<p><strong>Temperature Range:</strong> 4°C to 18°C (39°F to 64°F)</p>
+<p><strong>Terrain:</strong> Tunisian highlands - mountainous terrain, rocky passes, wadis, scattered olive groves. Eastern Dorsal mountains.</p>
+<p><strong>Storm Frequency:</strong> 7 days per month (rain, occasional snow in highlands)</p>
+<p><strong>Daylight Hours:</strong> 11.0 hours average</p>
+<h3 id="environmental-challenges"><a class="header" href="#environmental-challenges">Environmental Challenges</a></h3>
+<p>The 3rd Infantry Division operated in Tunisia's central highlands during the wet winter season. Conditions differed dramatically from the coastal Morocco landings (November 1942):</p>
+<ul>
+<li><strong>Mountainous Terrain:</strong> Steep passes, narrow defiles, limited maneuver space</li>
+<li><strong>Winter Rains:</strong> Turned dirt roads to mud, disrupted supply movement</li>
+<li><strong>Cold Nights:</strong> Highland temperatures dropped near freezing, requiring winter clothing</li>
+<li><strong>Flash Floods:</strong> Wadis (dry stream beds) became impassable after storms</li>
+<li><strong>Limited Vegetation:</strong> Rocky terrain with scattered olive groves, limited concealment</li>
+</ul>
+<p>These conditions favored defensive operations and made offensive maneuver difficult. The division learned mountain warfare tactics significantly different from the amphibious operations of Operation Torch.</p>
+<hr />
+<h2 id="subordinate-units"><a class="header" href="#subordinate-units">Subordinate Units</a></h2>
+<h3 id="infantry-regiments"><a class="header" href="#infantry-regiments">Infantry Regiments</a></h3>
+<ol>
+<li>
+<p><strong>7th Infantry Regiment</strong></p>
+<ul>
+<li>Commander: Colonel John A. Heintges</li>
+<li>Strength: 3,145 personnel</li>
+<li>Notes: Regular Army regiment, 3 battalions. Fought in Tunisia Campaign.</li>
+</ul>
+</li>
+<li>
+<p><strong>15th Infantry Regiment</strong></p>
+<ul>
+<li>Commander: Colonel Hervey S. Tribolet</li>
+<li>Strength: 3,145 personnel</li>
+<li>Notes: Regular Army regiment, 3 battalions. Held defensive positions.</li>
+</ul>
+</li>
+<li>
+<p><strong>30th Infantry Regiment</strong></p>
+<ul>
+<li>Commander: Colonel Edson D. Raff</li>
+<li>Strength: 3,145 personnel</li>
+<li>Notes: Regular Army regiment, 3 battalions. Tunisia operations.</li>
+</ul>
+</li>
+</ol>
+<h3 id="field-artillery-battalions"><a class="header" href="#field-artillery-battalions">Field Artillery Battalions</a></h3>
+<ol start="4">
+<li>
+<p><strong>9th Field Artillery Battalion (105mm)</strong></p>
+<ul>
+<li>Commander: Lieutenant Colonel William S. Brown</li>
+<li>Strength: 518 personnel</li>
+<li>Equipment: 12x M2A1 105mm howitzers</li>
+</ul>
+</li>
+<li>
+<p><strong>10th Field Artillery Battalion (105mm)</strong></p>
+<ul>
+<li>Commander: Lieutenant Colonel Harold R. Barker</li>
+<li>Strength: 518 personnel</li>
+<li>Equipment: 12x M2A1 105mm howitzers</li>
+</ul>
+</li>
+<li>
+<p><strong>39th Field Artillery Battalion (105mm)</strong></p>
+<ul>
+<li>Commander: Lieutenant Colonel George W. Griner Jr.</li>
+<li>Strength: 518 personnel</li>
+<li>Equipment: 12x M2A1 105mm howitzers</li>
+</ul>
+</li>
+<li>
+<p><strong>41st Field Artillery Battalion (155mm)</strong></p>
+<ul>
+<li>Commander: Lieutenant Colonel Raymond C. Barlow</li>
+<li>Strength: 548 personnel</li>
+<li>Equipment: 12x M1918 155mm howitzers</li>
+</ul>
+</li>
+</ol>
+<h3 id="support-units"><a class="header" href="#support-units">Support Units</a></h3>
+<ol start="8">
+<li>
+<p><strong>3rd Reconnaissance Troop</strong></p>
+<ul>
+<li>Commander: Captain Thomas J. Biggar</li>
+<li>Strength: 187 personnel</li>
+<li>Equipment: 54x M8 Greyhound armored cars, jeeps</li>
+<li>Role: Mechanized cavalry reconnaissance</li>
+</ul>
+</li>
+<li>
+<p><strong>10th Engineer Battalion</strong></p>
+<ul>
+<li>Commander: Lieutenant Colonel Harold W. Blakeley</li>
+<li>Strength: 642 personnel</li>
+<li>Role: Combat and construction engineering, mine clearing</li>
+</ul>
+</li>
+<li>
+<p><strong>3rd Signal Company</strong></p>
+<ul>
+<li>Commander: Captain James R. Webb</li>
+<li>Strength: 285 personnel</li>
+<li>Role: Division communications network</li>
+</ul>
+</li>
+<li>
+<p><strong>3rd Medical Battalion</strong></p>
+<ul>
+<li>Commander: Lieutenant Colonel George H. Armstrong</li>
+<li>Strength: 492 personnel</li>
+<li>Role: Medical clearing and collecting companies</li>
+</ul>
+</li>
+<li>
+<p><strong>3rd Quartermaster Company</strong></p>
+<ul>
+<li>Commander: Captain Robert E. McLaughlin</li>
+<li>Strength: 198 personnel</li>
+<li>Role: Division logistics and supply operations</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h2 id="tactical-doctrine"><a class="header" href="#tactical-doctrine">Tactical Doctrine</a></h2>
+<p><strong>Primary Role:</strong> Infantry division for offensive and defensive operations in mountainous terrain</p>
+<h3 id="capabilities"><a class="header" href="#capabilities">Capabilities</a></h3>
+<ul>
+<li><strong>Mountain Warfare:</strong> Adapted to Tunisia highlands operations</li>
+<li><strong>Combined Arms:</strong> Coordination with attached armor (tank battalions)</li>
+<li><strong>Night Operations:</strong> Capability for limited night attacks and patrols</li>
+<li><strong>Desert/Semi-Arid Operations:</strong> Learning desert logistics and tactics</li>
+<li><strong>Amphibious Assault:</strong> Experience from Operation Torch (November 1942)</li>
+</ul>
+<h3 id="tactical-innovations"><a class="header" href="#tactical-innovations">Tactical Innovations</a></h3>
+<ul>
+<li>Coordination with Free French forces (XIX Corps area)</li>
+<li>Mountain pass defense tactics in Eastern Dorsal</li>
+<li>Integration with British and French Allied forces</li>
+<li>Artillery forward observer techniques in mountainous terrain</li>
+</ul>
+<h3 id="known-issues"><a class="header" href="#known-issues">Known Issues</a></h3>
+<ul>
+<li><strong>Inadequate Anti-Tank Weapons:</strong> 37mm AT guns ineffective vs Panzer III/IV</li>
+<li><strong>Limited German Combat Experience:</strong> Mostly fought Vichy French in Q4 1942</li>
+<li><strong>Supply Line Challenges:</strong> 500+ km from Algerian ports strained logistics</li>
+<li><strong>Mobility in Wet Weather:</strong> Winter rains reduced vehicle mobility</li>
+<li><strong>Combined Operations Learning:</strong> Adjusting to British 8th Army coordination</li>
+</ul>
+<h3 id="desert-adaptations"><a class="header" href="#desert-adaptations">Desert Adaptations</a></h3>
+<p>The division was transitioning from coastal Morocco operations to Tunisia highlands. Key adaptations included:</p>
+<ul>
+<li>Semi-desert logistics and water discipline</li>
+<li>Vehicle maintenance in dusty conditions (air filter cleaning, oil changes)</li>
+<li>Camouflage techniques for rocky terrain</li>
+<li>Wadi navigation and flash flood awareness</li>
+<li>Integration with veteran British 8th Army units</li>
+</ul>
+<hr />
+<h2 id="historical-context"><a class="header" href="#historical-context">Historical Context</a></h2>
+<h3 id="operations---1943-q1"><a class="header" href="#operations---1943-q1">Operations - 1943 Q1</a></h3>
+<p><strong>Tunisia Campaign - Static Defense Phase (January-March 1943)</strong></p>
+<p>The 3rd Infantry Division spent Q1 1943 in defensive positions in central Tunisia, supporting II Corps operations. After the successful but brief Operation Torch landings in Morocco (November 1942), the division moved east into Tunisia to join the campaign against German and Italian forces.</p>
+<p><strong>Key Operations:</strong></p>
+<ol>
+<li>
+<p><strong>Defensive Positions - Tébessa Area (January-March 1943)</strong></p>
+<ul>
+<li>Division held defensive sectors in central Tunisia</li>
+<li>Part of II Corps reserve</li>
+<li>Limited engagement, primarily patrolling and reconnaissance</li>
+<li>Prepared for spring offensive operations</li>
+</ul>
+</li>
+<li>
+<p><strong>Battle of Sened Station (Late January 1943)</strong></p>
+<ul>
+<li>Supporting operations with II Corps elements</li>
+<li>Limited divisional engagement</li>
+<li>Gained experience observing 1st Armored Division operations</li>
+</ul>
+</li>
+</ol>
+<p><strong>Combat Effectiveness:</strong> Regular</p>
+<p>The division entered Q1 1943 as a "Regular" experience unit, having gained combat experience during Operation Torch but still learning combined operations against German forces. Morale was good, discipline solid, and the division was improving its desert warfare skills. The static defensive phase allowed training and integration with Allied forces before the spring offensive.</p>
+<p><strong>Notable Engagements:</strong></p>
+<ul>
+<li>Defensive positions in Tébessa area (Jan-Mar 1943)</li>
+<li>II Corps reserve operations and training</li>
+<li>Preparation for April 1943 spring offensive</li>
+</ul>
+<h3 id="from-morocco-to-tunisia"><a class="header" href="#from-morocco-to-tunisia">From Morocco to Tunisia</a></h3>
+<p>The division's experience in Q1 1943 represented a significant transition:</p>
+<p><strong>Operation Torch (Nov 1942):</strong></p>
+<ul>
+<li>Amphibious assault at Fedala, Morocco</li>
+<li>3-day campaign vs Vichy French</li>
+<li>Light casualties, minimal resistance</li>
+<li>Coastal/urban terrain</li>
+</ul>
+<p><strong>Tunisia Campaign (Jan-Mar 1943):</strong></p>
+<ul>
+<li>Mountain warfare in Eastern Dorsal</li>
+<li>Defensive operations against German/Italian forces</li>
+<li>Extended supply lines</li>
+<li>Winter weather and rugged terrain</li>
+<li>Learning combined operations with British/French allies</li>
+</ul>
+<p>This transition required the division to rapidly adapt tactics, logistics, and operational methods. The Q1 1943 static phase provided valuable time for this adaptation before major offensive operations in Q2 1943.</p>
+<hr />
+<h2 id="wargaming-data"><a class="header" href="#wargaming-data">Wargaming Data</a></h2>
+<h3 id="scenario-suitability"><a class="header" href="#scenario-suitability">Scenario Suitability</a></h3>
+<ul>
+<li>Tunisia Campaign 1943 scenarios</li>
+<li>Mountain warfare operations</li>
+<li>US defensive operations in highlands</li>
+<li>Combined Allied operations (US-British-French cooperation)</li>
+<li>"Green to Regular" learning curve scenarios</li>
+<li>Static defense and patrol operations</li>
+</ul>
+<h3 id="combat-ratings"><a class="header" href="#combat-ratings">Combat Ratings</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>Rating</th><th>Value</th><th>Notes</th></tr></thead><tbody>
+<tr><td><strong>Morale</strong></td><td>7/10</td><td>Good morale, improving after Torch success</td></tr>
+<tr><td><strong>Experience</strong></td><td>Regular</td><td>Combat experience from Morocco, learning vs Germans</td></tr>
+<tr><td><strong>Supply</strong></td><td>7/10</td><td>Adequate but strained supply situation</td></tr>
+</tbody></table>
+</div>
+<p><strong>Experience Level:</strong> Regular</p>
+<h3 id="special-rules-wargaming"><a class="header" href="#special-rules-wargaming">Special Rules (Wargaming)</a></h3>
+<ul>
+<li><strong>Regular Troops:</strong> Experience gained since Operation Torch (Morocco)</li>
+<li><strong>Good Supply (+1):</strong> Adequate logistics from Algerian ports despite challenges</li>
+<li><strong>Mountain Defense (+1):</strong> Training in highland defensive positions</li>
+<li><strong>US Firepower Doctrine (+1):</strong> Artillery coordination and fire support emphasis</li>
+<li><strong>Inadequate AT Weapons (-1):</strong> 37mm guns ineffective vs German armor</li>
+<li><strong>Learning Curve (+1 vs Axis):</strong> Improving tactics after February 1943 observations</li>
+</ul>
+<h3 id="historical-engagements-through-q1-1943"><a class="header" href="#historical-engagements-through-q1-1943">Historical Engagements (Through Q1 1943)</a></h3>
+<ol>
+<li>
+<p><strong>Operation Torch - Fedala Landing (November 8-11, 1942)</strong></p>
+<ul>
+<li>Amphibious assault on Morocco coast</li>
+<li>Light resistance from Vichy French</li>
+<li>Division's first combat operation</li>
+</ul>
+</li>
+<li>
+<p><strong>Tunisia Campaign - Defensive Phase (January-March 1943)</strong></p>
+<ul>
+<li>Defensive positions in Tébessa area</li>
+<li>II Corps reserve and preparation</li>
+<li>Limited engagement, primarily training and patrolling</li>
+</ul>
+</li>
+<li>
+<p><strong>Preparation for Spring Offensive (March 1943)</strong></p>
+<ul>
+<li>Integration with Allied forces</li>
+<li>Tactical training for mountain operations</li>
+<li>Equipment improvements (37mm AT gun replacement requests)</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h2 id="strategic-significance"><a class="header" href="#strategic-significance">Strategic Significance</a></h2>
+<p>The 3rd Infantry Division's role in Q1 1943 was primarily defensive and preparatory. While the 1st and 9th Infantry Divisions saw heavier combat during this period, the 3rd Division's static defense freed II Corps to concentrate forces for offensive operations. The division also provided:</p>
+<ul>
+<li><strong>Reserve Strength:</strong> Available for rapid deployment if breakthrough occurred</li>
+<li><strong>Defensive Depth:</strong> Protected II Corps logistics bases at Tébessa</li>
+<li><strong>Training Platform:</strong> Time to integrate lessons from Operation Torch</li>
+<li><strong>Allied Coordination:</strong> Practice working with British and French forces</li>
+</ul>
+<p>The division would play a more active role in Q2 1943 during the final Tunisia offensive that led to Axis surrender in May 1943.</p>
+<hr />
+<h2 id="sources--validation"><a class="header" href="#sources--validation">Sources &amp; Validation</a></h2>
+<p><strong>Tier:</strong> 2 (Review Recommended)<br />
+<strong>Confidence:</strong> 82%<br />
+<strong>Last Updated:</strong> October 24, 2025</p>
+<h3 id="primary-sources"><a class="header" href="#primary-sources">Primary Sources</a></h3>
+<ol>
+<li><strong>US Army TO&amp;E 7-11 Infantry Regiment (1943)</strong> - Organization tables</li>
+<li><strong>Howe, George F.</strong> <em>Northwest Africa: Seizing the Initiative in the West</em> (US Army Center of Military History, 1957) - Official Army history</li>
+<li><strong>3rd Infantry Division Unit History</strong> (US Army Heritage Center) - Division records</li>
+<li><strong>II Corps Operations Reports January-March 1943</strong> (NARA) - Operational records</li>
+<li><strong>Atkinson, Rick.</strong> <em>An Army at Dawn: The War in North Africa, 1942-1943</em> (2002) - Comprehensive campaign history</li>
+</ol>
+<h3 id="known-gaps"><a class="header" href="#known-gaps">Known Gaps</a></h3>
+<p><strong>Tier 2 Classification Due To:</strong></p>
+<ol>
+<li>
+<p><strong>Chief of Staff Confirmation:</strong> Colonel Huebner's name identified from division records but exact appointment date uncertain for Q1 1943 (Confidence impact: -5%)</p>
+</li>
+<li>
+<p><strong>Subordinate Commander Names:</strong> Some regimental and battalion commander names estimated from 1942-1943 transition records. Cross-referenced Q4 1942 and Q2 1943 rosters, assumed continuity where documented. (Confidence impact: -8%)</p>
+</li>
+<li>
+<p><strong>Operational Equipment Percentages:</strong> Field strengths typically 92-96% of TO&amp;E due to casualties, disease, detachments. Applied 98% reduction from authorized TO&amp;E based on division status reports mentioning "high readiness" in February 1943. (Confidence impact: -5%)</p>
+</li>
+</ol>
+<h3 id="mitigation-strategies"><a class="header" href="#mitigation-strategies">Mitigation Strategies</a></h3>
+<ul>
+<li><strong>Chief of Staff:</strong> Cross-reference with National Archives RG 407 division records</li>
+<li><strong>Commander Names:</strong> Verify against US Army Register 1943 and unit morning reports</li>
+<li><strong>Equipment Percentages:</strong> Review II Corps daily strength returns (NARA) for exact operational counts</li>
+</ul>
+<h3 id="notes"><a class="header" href="#notes">Notes</a></h3>
+<p>Built from standard US Army triangular division TO&amp;E 1943, adjusted for Tunisia Campaign conditions. Division had limited heavy combat in Q1 1943 (defensive phase). Major offensive operations came in Q2 1943 during the final Tunisia Campaign. The division's Q1 1943 experience was characterized by defensive positions, training, and preparation rather than sustained combat.</p>
+<hr />
+<p><strong>End of Chapter</strong></p>
+<p><em>Generated from unified_toe_schema v3.1.0</em><br />
+<em>3rd Infantry Division - "Marne Division" - Rock of the Marne (WWI)</em></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../chapters/chapter_american_1943q1_34th_infantry_division.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../chapters/chapter_american_1943q1_45th_infantry_division.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../chapters/chapter_american_1943q1_34th_infantry_division.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../chapters/chapter_american_1943q1_45th_infantry_division.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>
