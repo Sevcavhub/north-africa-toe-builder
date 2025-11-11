@@ -1,16 +1,49 @@
-# 61ª Divisione Motorizzata "Trento"
+# 102a Divisione motorizzata Trento
 
 **Nation:** Italian
 **Quarter:** 1941-Q4
-**Organization Level:** division
+**Commander:** Generale di Divisione Unknown
+**Type:** 
+**Parent Formation:** Independent
+**HQ:** Tobruk sector, Libya
 
-## Commander
+## 1. Overview
 
-Major General (Generale di Divisione) Generale di Divisione Francesco La Ferla
+The 102a Divisione motorizzata Trento operated during 1941-Q4 with 8,650 personnel under Generale di Divisione Unknown's command.
 
-## Personnel
+## 2. Command
 
-Total: 10200
+**Commander:** Generale di Divisione Unknown
+**Headquarters:** Tobruk sector, Libya
+**Parent Formation:** Independent
+
+## 3. Personnel
+
+**Total Strength:** 8,650
+- Officers: 380 (4.4%)
+- NCOs: 1,100 (12.7%)
+- Enlisted: 7,170 (82.9%)
+
+## 4. Equipment
+
+- Vehicles: 0
+- Artillery: 0
+- Tanks: 0
+
+## 5. Supply
+
+- Fuel: 0 days
+- Ammunition: 0 days
+- Water: 0L/man/day
+
+## 6. Operations
+
+The unit conducted operations in North Africa during 1941-Q4.
+
+## 7. Data Validation
+
+**Confidence:** 85%
+**Schema:** v3.1.0
 
 ---
-*Generated automatically from TO&E data*
+*Enhanced from  TO&E data.*

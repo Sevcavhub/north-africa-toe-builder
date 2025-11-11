@@ -1,16 +1,16 @@
-# 101Âª Divisione motorizzata 'Trieste'
+# 101ª Divisione Motorizzata Trieste
 
 **Nation:** Italian
 **Quarter:** 1941-Q1
-**Organization Level:** division
+**Commander:** Not specified in source
 
-## Commander
+## 1. Overview
 
-Generale di Divisione Generale di Divisione Francesco La Ferla
+The 101st Trieste Division with 11,800 personnel.
 
-## Personnel
+## 2. Data Validation
 
-Total: 10000
+**Confidence:** 87%
 
 ---
-*Generated automatically from TO&E data*
+*Enhanced from TO&E data.*

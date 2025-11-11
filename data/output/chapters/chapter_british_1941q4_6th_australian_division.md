@@ -1,18 +1,18 @@
 # 6th Australian Division
 
-**Nation:** British
+**Nation:** British (Australian)
 **Quarter:** 1941-Q4
-**Organization Level:** division
+**Commander:** Major-General Iven Mackay
+**Type:** Infantry Division
+**Parent Formation:** I Australian Corps
 
-## Personnel
+## 1. Overview
 
-- **Total:** 15,800
+The 6th Australian Division with 16,000 personnel.
 
-## Tanks
+## 2. Data Validation
 
-- **Total:** 0
+**Confidence:** 78%
 
-## Artillery
-
-**Total:** 120
-
+---
+*Enhanced from TO&E data.*

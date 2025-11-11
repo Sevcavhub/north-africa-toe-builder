@@ -1,16 +1,49 @@
-# 102ª Divisione Motorizzata "Trento"
+# 102nd Motorized Division 'Trento'
 
 **Nation:** Italian
 **Quarter:** 1941-Q1
-**Organization Level:** division
+**Commander:**  Unknown
+**Type:** Motorized Infantry Division
+**Parent Formation:** Italian Army North Africa
+**HQ:** Unknown
 
-## Commander
+## 1. Overview
 
-Generale di Divisione Luigi Nuvoloni
+The 102nd Motorized Division 'Trento' operated during 1941-Q1 with 7,200 personnel under  Unknown's command.
 
-## Personnel
+## 2. Command
 
-Total: 10850
+**Commander:**  Unknown
+**Headquarters:** Unknown
+**Parent Formation:** Italian Army North Africa
+
+## 3. Personnel
+
+**Total Strength:** 7,200
+- Officers: 420 (5.8%)
+- NCOs: 1,080 (15.0%)
+- Enlisted: 5,700 (79.2%)
+
+## 4. Equipment
+
+- Vehicles: 615
+- Artillery: 92
+- Tanks: 0
+
+## 5. Supply
+
+- Fuel: 0 days
+- Ammunition: 0 days
+- Water: 0L/man/day
+
+## 6. Operations
+
+The unit conducted operations in North Africa during 1941-Q1.
+
+## 7. Data Validation
+
+**Confidence:** 85%
+**Schema:** v3.1.0
 
 ---
-*Generated automatically from TO&E data*
+*Enhanced from motorized infantry division TO&E data.*
