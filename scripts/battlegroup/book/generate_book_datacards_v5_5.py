@@ -1117,6 +1117,10 @@ class BookDatacardGenerator:
 """ + '\n'.join([row.format(armor_front=armor_front, armor_side=armor_side, armor_rear=armor_rear) for row in armament_rows_html]) + f"""
 </table>
 {weapon_table}
+<div class="datacard-footer">
+<div class="footer-stat"><strong>Points:</strong> {points if points else '-'}</div>
+<div class="footer-stat"><strong>BR:</strong> {br if br else '-'}</div>
+</div>
 </div>
 """
 
@@ -1383,6 +1387,20 @@ class BookDatacardGenerator:
     font-style: italic;
     font-size: 7px;
     padding: 1px 3px;
+}
+
+.datacard-footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+    padding: 3px 5px;
+    font-size: 9px;
+    font-weight: bold;
+}
+
+.datacard-footer .footer-stat {
+    flex: 1;
+    text-align: center;
 }
 </style>
 

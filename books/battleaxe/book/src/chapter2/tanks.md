@@ -127,33 +127,42 @@
 }
 
 .datacard-silhouette {
-    width: 80px;
-    height: 60px;
-    background-color: #1a1a1a;
-    border: 1px solid #333;
+    width: 100px;
+    height: 70px;
+    background-color: transparent;
+    border: none;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
+    padding: 5px;
 }
 
 .datacard-silhouette img {
-    width: 100%;
-    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
     object-fit: contain;
-    filter: brightness(0) invert(1);
+    mix-blend-mode: multiply;
 }
 
 .datacard-title-block {
     flex: 1;
-    text-align: right;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .datacard-title {
     font-weight: bold;
-    font-size: 14px;
+    font-size: 16px;
     margin: 0;
     line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .datacard-subtitle {
@@ -207,6 +216,20 @@
     font-style: italic;
     font-size: 7px;
     padding: 1px 3px;
+}
+
+.datacard-footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+    padding: 3px 5px;
+    font-size: 9px;
+    font-weight: bold;
+}
+
+.datacard-footer .footer-stat {
+    flex: 1;
+    text-align: center;
 }
 </style>
 
@@ -314,6 +337,10 @@
 </tr>
 
 </table>
+<div class="datacard-footer">
+<div class="footer-stat"><strong>Points:</strong> -</div>
+<div class="footer-stat"><strong>BR:</strong> 2</div>
+</div>
 </div>
 
 <div class="datacard datacard-british">
@@ -404,6 +431,10 @@
 </tr>
 
 </table>
+<div class="datacard-footer">
+<div class="footer-stat"><strong>Points:</strong> -</div>
+<div class="footer-stat"><strong>BR:</strong> 1</div>
+</div>
 </div>
 
 <div class="datacard datacard-british">
@@ -494,6 +525,10 @@
 </tr>
 
 </table>
+<div class="datacard-footer">
+<div class="footer-stat"><strong>Points:</strong> -</div>
+<div class="footer-stat"><strong>BR:</strong> 1</div>
+</div>
 </div>
 
 <div class="datacard datacard-british">
@@ -541,6 +576,10 @@
 </tr>
 </table>
 
+<div class="datacard-footer">
+<div class="footer-stat"><strong>Points:</strong> -</div>
+<div class="footer-stat"><strong>BR:</strong> 2</div>
+</div>
 </div>
 
 <div class="datacard datacard-british">
@@ -588,6 +627,10 @@
 </tr>
 </table>
 
+<div class="datacard-footer">
+<div class="footer-stat"><strong>Points:</strong> -</div>
+<div class="footer-stat"><strong>BR:</strong> 2</div>
+</div>
 </div>
 
 <div class="datacard datacard-british">
@@ -678,6 +721,10 @@
 </tr>
 
 </table>
+<div class="datacard-footer">
+<div class="footer-stat"><strong>Points:</strong> 35</div>
+<div class="footer-stat"><strong>BR:</strong> 3</div>
+</div>
 </div>
 
 <div class="datacard datacard-british">
@@ -725,6 +772,10 @@
 </tr>
 </table>
 
+<div class="datacard-footer">
+<div class="footer-stat"><strong>Points:</strong> -</div>
+<div class="footer-stat"><strong>BR:</strong> 1</div>
+</div>
 </div>
 
 <div class="datacard datacard-british">
@@ -815,6 +866,10 @@
 </tr>
 
 </table>
+<div class="datacard-footer">
+<div class="footer-stat"><strong>Points:</strong> -</div>
+<div class="footer-stat"><strong>BR:</strong> 2</div>
+</div>
 </div>
 
 <div class="datacard datacard-british">
@@ -862,6 +917,10 @@
 </tr>
 </table>
 
+<div class="datacard-footer">
+<div class="footer-stat"><strong>Points:</strong> -</div>
+<div class="footer-stat"><strong>BR:</strong> 1</div>
+</div>
 </div>
 
 <div class="datacard datacard-german">
@@ -909,6 +968,10 @@
 </tr>
 </table>
 
+<div class="datacard-footer">
+<div class="footer-stat"><strong>Points:</strong> -</div>
+<div class="footer-stat"><strong>BR:</strong> 2</div>
+</div>
 </div>
 
 <div class="datacard datacard-italian">
@@ -956,6 +1019,10 @@
 </tr>
 </table>
 
+<div class="datacard-footer">
+<div class="footer-stat"><strong>Points:</strong> 22</div>
+<div class="footer-stat"><strong>BR:</strong> 2</div>
+</div>
 </div>
 
 <div class="datacard datacard-italian">
@@ -1069,6 +1136,10 @@
 </tr>
 
 </table>
+<div class="datacard-footer">
+<div class="footer-stat"><strong>Points:</strong> -</div>
+<div class="footer-stat"><strong>BR:</strong> 1</div>
+</div>
 </div>
 
 </div>
