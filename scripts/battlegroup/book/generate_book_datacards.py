@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Phase 9B Step 7: Book Equipment Datacard Generator
+Phase 9B Step 7: Book Equipment Datacard Generator (V5.5)
 
 Generates BattleGroup datacards for all equipment used in the 4 battle books:
 - Operation Battleaxe (1941-Q2)
@@ -9,7 +9,13 @@ Generates BattleGroup datacards for all equipment used in the 4 battle books:
 - First El Alamein (1942-Q3)
 
 Reads Phase 6 unit JSONs to extract equipment lists, then generates
-datacards organized by book and category.
+datacards organized by book and category using V5.5 datacard format.
+
+V5.5 features:
+- Armor modifiers (Open-topped, etc.)
+- Silhouette images
+- Nation-specific color themes
+- Multi-row armament tables
 
 Usage:
     python generate_book_datacards.py --battle battleaxe
@@ -28,10 +34,8 @@ from collections import defaultdict
 project_root = Path(__file__).resolve().parents[3]
 sys.path.insert(0, str(project_root))
 
-# Import penetration converter for on-the-fly AP calculation
-from scripts.battlegroup.conversion.penetration_converter import convert_penetration
-from scripts.battlegroup.conversion.he_weight_classifier import classify_he_weight, get_he_weight_and_effectiveness
-from scripts.battlegroup.conversion.he_calculator import calculate_he_effect
+# Import V5.5 datacard generator
+from scripts.battlegroup.book.generate_book_datacards_v5_5 import BookDatacardGenerator as V55Generator
 
 DATABASE_PATH = project_root / "database" / "master_database.db"
 UNITS_DIR = project_root / "data" / "output" / "units"
@@ -65,12 +69,13 @@ NATIONS = ['german', 'british', 'italian', 'american', 'french']
 
 
 class BookDatacardGenerator:
-    """Generate equipment datacards for battle books."""
+    """Generate equipment datacards for battle books using V5.5 format."""
 
     def __init__(self):
         """Initialize generator."""
         self.conn = sqlite3.connect(DATABASE_PATH)
         self.conn.row_factory = sqlite3.Row
+        self.v55_generator = V55Generator()  # V5.5 datacard generator
 
     def get_units_for_battle(self, battle_key: str) -> List[Path]:
         """
@@ -305,7 +310,17 @@ class BookDatacardGenerator:
 
         return categories
 
-    def generate_datacard_markdown(self, equipment: Dict, experience: str = 'r') -> str:
+    # NOTE: generate_datacard_markdown() method removed - now using V5.5 generator
+    # The V5.5 generator (generate_book_datacards_v5_5.py) provides:
+    # - Armor modifiers (Open-topped, etc.)
+    # - Silhouette images with base64 encoding
+    # - Nation-specific color themes
+    # - Multi-row armament tables
+    # - 16px centered titles (no wrapping)
+    #
+    # Old 600+ line method removed on Nov 10, 2025 to use V5.5 generator
+
+    def _old_generate_datacard_markdown(self, equipment: Dict, experience: str = 'r') -> str:
         """
         Generate markdown datacard for equipment.
 
@@ -343,6 +358,35 @@ class BookDatacardGenerator:
         row = cursor.fetchone()
         if not row:
             return f"<!-- Datacard not available for {equipment['name']} -->\n"
+
+        # PRIORITY FIX: If reference_vehicle_id exists, get armor/movement/name from bg_reference_vehicles
+        display_name = equipment['name']  # Default to equipment table name
+        year_range = ''  # Default empty year_range
+        dc_meta = ''  # Default empty dc_meta
+        armor_front_val = row['armor_front']
+        armor_side_val = row['armor_side']
+        armor_rear_val = row['armor_rear']
+        off_road_val = row['off_road_movement']
+        road_val = row['road_movement']
+
+        if row['reference_vehicle_id']:
+            cursor.execute("""
+                SELECT armor_front, armor_side, armor_rear,
+                       off_road_inches, road_inches, name, datacard_name, dc_meta, year_range
+                FROM bg_reference_vehicles
+                WHERE id = ?
+            """, (row['reference_vehicle_id'],))
+            bg_data = cursor.fetchone()
+            if bg_data:
+                # Override with bg_reference_vehicles data (trusted source)
+                armor_front_val = bg_data['armor_front']
+                armor_side_val = bg_data['armor_side']
+                armor_rear_val = bg_data['armor_rear']
+                off_road_val = bg_data['off_road_inches']
+                road_val = bg_data['road_inches']
+                display_name = bg_data['datacard_name'] or bg_data['name'] or equipment['name']  # Use datacard_name first
+                year_range = bg_data['year_range'] or ''
+                dc_meta = bg_data['dc_meta'] or ''  # Store dc_meta for subtitle
 
         # Get points/BR for experience level
         exp_map = {
@@ -411,7 +455,6 @@ class BookDatacardGenerator:
                         })
 
                 # Find main gun (usually turret-mounted, not MG)
-                # First pass: look for turret-mounted weapons
                 for weapon_data in weapons_list:
                     mount = weapon_data.get('mount', '').lower()
                     weapon_name = weapon_data.get('weapon', '')
@@ -422,16 +465,28 @@ class BookDatacardGenerator:
                         main_gun_ammo = ammo
                         break
 
-                # Second pass: if no turret weapon found, take first non-MG weapon
-                # (handles cases where mount data is missing/None)
-                if not main_gun:
-                    for weapon_data in weapons_list:
-                        weapon_name = weapon_data.get('weapon', '')
-                        ammo = weapon_data.get('ammo', None)
-                        if weapon_name and weapon_name.upper() != 'MG':
-                            main_gun = weapon_name
-                            main_gun_ammo = ammo
-                            break
+        # Look up weapon in bg_weapon_name_lookup to get HE/AP data from bg_builder_weapons
+        bg_weapon_he_ap_data = None
+        if main_gun and main_gun not in ['None', '-', '']:
+            cursor.execute("""
+                SELECT bg_builder_weapon_id
+                FROM bg_weapon_name_lookup
+                WHERE bg_reference_name = ?
+            """, (main_gun,))
+            lookup_result = cursor.fetchone()
+
+            if lookup_result and lookup_result['bg_builder_weapon_id']:
+                # Get HE/AP data from bg_builder_weapons
+                cursor.execute("""
+                    SELECT weapon_name, he_type, he_effect,
+                           he_strength_0, he_strength_10, he_strength_20,
+                           he_strength_30, he_strength_40, he_strength_50,
+                           ap_effect, ap_strength_0, ap_strength_10, ap_strength_20,
+                           ap_strength_30, ap_strength_40, ap_strength_50
+                    FROM bg_builder_weapons
+                    WHERE weapon_id = ?
+                """, (lookup_result['bg_builder_weapon_id'],))
+                bg_weapon_he_ap_data = cursor.fetchone()
 
         # Source 3: For towed guns, use reference_gun_id (NEW!)
         if not main_gun and row['reference_gun_id']:
@@ -458,29 +513,9 @@ class BookDatacardGenerator:
         if not main_gun:
             main_gun = 'None'
 
-        # Get secondary weapons (FIXED: exclude main gun by gun_id, include ammunition_count)
-        if main_gun_id:
-            cursor.execute("""
-                SELECT g.name, eg.mount_type, eg.ammunition_count
-                FROM equipment_guns eg
-                JOIN guns g ON eg.gun_id = g.gun_id
-                WHERE eg.equipment_id = ? AND g.gun_id != ?
-                ORDER BY eg.mount_type
-            """, (equipment['canonical_id'], main_gun_id))
-        else:
-            # No main gun found, get all weapons except 'main' mount type
-            cursor.execute("""
-                SELECT g.name, eg.mount_type, eg.ammunition_count
-                FROM equipment_guns eg
-                JOIN guns g ON eg.gun_id = g.gun_id
-                WHERE eg.equipment_id = ? AND eg.mount_type != 'main'
-                ORDER BY eg.mount_type
-            """, (equipment['canonical_id'],))
-
-        secondary = cursor.fetchall()
-
-        # If no secondary weapons, try bg_reference_vehicles via reference_vehicle_id (FIXED!)
-        if not secondary and row['reference_vehicle_id']:
+        # Get secondary weapons from bg_reference_vehicles ONLY (BattleGroup data source)
+        secondary = []
+        if row['reference_vehicle_id']:
             cursor.execute("""
                 SELECT weapon_1, weapon_2, weapon_3, weapon_4,
                        mount_1, mount_2, mount_3, mount_4,
@@ -502,8 +537,8 @@ class BookDatacardGenerator:
                         if weapon_name != main_gun and weapon_name.upper() != 'NONE':
                             secondary.append({
                                 'name': weapon_name,
-                                'mount_type': mount or 'Unknown',
-                                'ammunition_count': ammo
+                                'mount': mount or 'Unknown',
+                                'ammo': ammo
                             })
 
         # Get special rules (names only for header display)
@@ -518,10 +553,10 @@ class BookDatacardGenerator:
         rules = cursor.fetchall()
         special_rules_line = ', '.join([rule['name'] for rule in rules]) if rules else ''
 
-        # Format values
-        armor_front = row['armor_front'] or '-'
-        armor_side = row['armor_side'] or '-'
-        armor_rear = row['armor_rear'] or '-'
+        # Format armor values (using values from bg_reference_vehicles if available)
+        armor_front = armor_front_val or '-'
+        armor_side = armor_side_val or '-'
+        armor_rear = armor_rear_val or '-'
 
         # Handle Schürzen format: N(M) when armor_side_schurzen exists
         if armor_side_schurzen:
@@ -567,26 +602,26 @@ class BookDatacardGenerator:
                         road = '0" (must be towed)'
                 else:
                     # Fallback: use existing values or default
-                    off_road = row['off_road_movement'] or '1"'
-                    road = row['road_movement'] or '1"'
+                    off_road = off_road_val or '1"'
+                    road = road_val or '1"'
             else:
                 # Towed gun without reference - use database values
-                if row['off_road_movement'] is not None:
-                    off_road = f"{row['off_road_movement']}\""
+                if off_road_val is not None:
+                    off_road = f"{off_road_val}\""
                 else:
                     off_road = '1"'
-                if row['road_movement'] is not None:
-                    road = f"{row['road_movement']}\""
+                if road_val is not None:
+                    road = f"{road_val}\""
                 else:
                     road = '1"'
         else:
-            # Not a towed gun, use vehicle speeds
-            if row['off_road_movement'] is not None:
-                off_road = f"{row['off_road_movement']}\""
+            # Not a towed gun, use vehicle speeds (from bg_reference_vehicles if available)
+            if off_road_val is not None:
+                off_road = f"{off_road_val}\""
             else:
                 off_road = '-'
-            if row['road_movement'] is not None:
-                road = f"{row['road_movement']}\""
+            if road_val is not None:
+                road = f"{road_val}\""
             else:
                 road = '-'
 
@@ -606,11 +641,51 @@ class BookDatacardGenerator:
         else:
             production_period = "1940-1945"
 
-        # Get penetration values - CALCULATE ON-THE-FLY using penetration_converter
+        # Get penetration values - PRIORITY: use bg_builder_weapons data if available
         ap_vals = []
+        he_weight = '-'
+        he_effectiveness = '-'
+        he_range_vals = ['-', '-', '-', '-', '-', '-']
 
-        # Strategy: Query equipment_guns table to get main gun caliber/barrel, then calculate
-        cursor.execute("""
+        # PRIORITY 1: Use bg_builder_weapons data if we found it via lookup
+        if bg_weapon_he_ap_data:
+            # Extract AP values from bg_builder_weapons
+            ap_vals = [
+                str(bg_weapon_he_ap_data['ap_strength_0']) if bg_weapon_he_ap_data['ap_strength_0'] is not None else '-',
+                str(bg_weapon_he_ap_data['ap_strength_10']) if bg_weapon_he_ap_data['ap_strength_10'] is not None else '-',
+                str(bg_weapon_he_ap_data['ap_strength_20']) if bg_weapon_he_ap_data['ap_strength_20'] is not None else '-',
+                str(bg_weapon_he_ap_data['ap_strength_30']) if bg_weapon_he_ap_data['ap_strength_30'] is not None else '-',
+                str(bg_weapon_he_ap_data['ap_strength_40']) if bg_weapon_he_ap_data['ap_strength_40'] is not None else '-',
+                str(bg_weapon_he_ap_data['ap_strength_50']) if bg_weapon_he_ap_data['ap_strength_50'] is not None else '-'
+            ]
+
+            # Extract HE values
+            he_type = bg_weapon_he_ap_data['he_type'] or ''
+            he_effect = bg_weapon_he_ap_data['he_effect'] or ''
+
+            # Extract text inside brackets for he_weight (e.g., "HE [VL]" -> "VL")
+            if he_type and '[' in he_type and ']' in he_type:
+                import re
+                match = re.search(r'\[([^\]]+)\]', he_type)
+                he_weight = match.group(1) if match else he_type
+            else:
+                he_weight = he_type if he_type else '-'
+
+            he_effectiveness = he_effect if he_effect else '-'
+
+            # Get HE range values
+            he_range_vals = [
+                str(bg_weapon_he_ap_data['he_strength_0']) if bg_weapon_he_ap_data['he_strength_0'] is not None else '-',
+                str(bg_weapon_he_ap_data['he_strength_10']) if bg_weapon_he_ap_data['he_strength_10'] is not None else '-',
+                str(bg_weapon_he_ap_data['he_strength_20']) if bg_weapon_he_ap_data['he_strength_20'] is not None else '-',
+                str(bg_weapon_he_ap_data['he_strength_30']) if bg_weapon_he_ap_data['he_strength_30'] is not None else '-',
+                str(bg_weapon_he_ap_data['he_strength_40']) if bg_weapon_he_ap_data['he_strength_40'] is not None else '-',
+                str(bg_weapon_he_ap_data['he_strength_50']) if bg_weapon_he_ap_data['he_strength_50'] is not None else '-'
+            ]
+
+        # PRIORITY 2 (FALLBACK): Query equipment_guns table to get main gun caliber/barrel, then calculate
+        if not bg_weapon_he_ap_data:
+            cursor.execute("""
             SELECT g.caliber_mm, g.name, g.barrel_length
             FROM equipment_guns eg
             JOIN guns g ON eg.gun_id = g.gun_id
@@ -662,37 +737,33 @@ class BookDatacardGenerator:
                 val = row[col]
                 ap_vals.append(str(val) if val is not None else '-')
 
-        # Calculate HE weight and effectiveness if gun has caliber data
-        he_weight = '-'
-        he_effectiveness = '-'
-        he_range_vals = ['-', '-', '-', '-', '-', '-']  # Default: no HE range
+            # Calculate HE weight and effectiveness if gun has caliber data (fallback path only)
+            if gun_data and gun_data[0]:  # caliber_mm exists
+                caliber_mm = gun_data[0]
+                gun_name = gun_data[1]
 
-        if gun_data and gun_data[0]:  # caliber_mm exists
-            caliber_mm = gun_data[0]
-            gun_name = gun_data[1]
+                # Get shell weight classification
+                he_weight = classify_he_weight(caliber_mm)
 
-            # Get shell weight classification
-            he_weight = classify_he_weight(caliber_mm)
+                # Get HE effectiveness notation
+                he_result = calculate_he_effect(caliber_mm=caliber_mm, gun_name=gun_name)
+                he_effectiveness = he_result.get('format', '-')
 
-            # Get HE effectiveness notation
-            he_result = calculate_he_effect(caliber_mm=caliber_mm, gun_name=gun_name)
-            he_effectiveness = he_result.get('format', '-')
-
-            # Calculate HE range bands based on caliber and weapon type
-            # BattleGroup rules: HE has fixed effectiveness within max range, then "-" beyond
-            # Most direct-fire weapons: 50" effective range
-            # Howitzers (>100mm): 70" effective range
-            # Small caliber (<50mm): 40" effective range
-            if caliber_mm:
-                if caliber_mm >= 100:
-                    # Large howitzers - full range (70")
-                    he_range_vals = ['2', '2', '2', '2', '2', '2']
-                elif caliber_mm >= 50:
-                    # Medium/large AT guns and tank guns - 50" range
-                    he_range_vals = ['2', '2', '2', '2', '2', '-']
-                else:
-                    # Small caliber - 40" range
-                    he_range_vals = ['2', '2', '2', '2', '-', '-']
+                # Calculate HE range bands based on caliber and weapon type
+                # BattleGroup rules: HE has fixed effectiveness within max range, then "-" beyond
+                # Most direct-fire weapons: 50" effective range
+                # Howitzers (>100mm): 70" effective range
+                # Small caliber (<50mm): 40" effective range
+                if caliber_mm:
+                    if caliber_mm >= 100:
+                        # Large howitzers - full range (70")
+                        he_range_vals = ['2', '2', '2', '2', '2', '2']
+                    elif caliber_mm >= 50:
+                        # Medium/large AT guns and tank guns - 50" range
+                        he_range_vals = ['2', '2', '2', '2', '2', '-']
+                    else:
+                        # Small caliber - 40" range
+                        he_range_vals = ['2', '2', '2', '2', '-', '-']
 
         # Determine equipment type label (for armament table)
         eq_type = equipment.get('equipment_type', '')
@@ -769,6 +840,25 @@ class BookDatacardGenerator:
         # Build weapon performance table (only if main gun exists)
         weapon_table = ''
         if main_gun and main_gun not in ['-', 'None', '']:
+            # Check if weapon has HE data
+            has_he_data = he_effectiveness and he_effectiveness not in ['-', '']
+
+            # Build HE row only if HE data exists
+            he_row = ''
+            if has_he_data:
+                he_row = f"""<tr>
+<td>{main_gun}</td>
+<td>HE</td>
+<td>{he_effectiveness}</td>
+<td>{he_range_vals[0]}</td>
+<td>{he_range_vals[1]}</td>
+<td>{he_range_vals[2]}</td>
+<td>{he_range_vals[3]}</td>
+<td>{he_range_vals[4]}</td>
+<td>{he_range_vals[5]}</td>
+</tr>
+"""
+
             weapon_table = f"""
 <table>
 <tr>
@@ -780,7 +870,7 @@ class BookDatacardGenerator:
 <tr>
 <th></th>
 <th></th>
-<th>{he_weight}</th>
+<th>{he_weight if has_he_data else ''}</th>
 <th>0-10"</th>
 <th>10-20"</th>
 <th>20-30"</th>
@@ -788,18 +878,7 @@ class BookDatacardGenerator:
 <th>40-50"</th>
 <th>50-70"</th>
 </tr>
-<tr>
-<td>{main_gun}</td>
-<td>HE</td>
-<td>{he_effectiveness}</td>
-<td>{he_range_vals[0]}</td>
-<td>{he_range_vals[1]}</td>
-<td>{he_range_vals[2]}</td>
-<td>{he_range_vals[3]}</td>
-<td>{he_range_vals[4]}</td>
-<td>{he_range_vals[5]}</td>
-</tr>
-<tr>
+{he_row}<tr>
 <td>{main_gun}</td>
 <td>AP</td>
 <td>-</td>
@@ -821,15 +900,9 @@ class BookDatacardGenerator:
 <span style="color: white; font-size: 10px;">🔲</span>
 </div>
 <div class="datacard-title-block">
-<p class="datacard-title">{equipment['name'].upper()}</p>
-<p class="datacard-subtitle">{production_period} | {type_label}</p>"""
-
-        # Add special rules line if exists
-        if special_rules_line:
-            template += f"""
-<p class="datacard-special-rules">{special_rules_line}</p>"""
-
-        template += """
+<p class="datacard-title">{display_name.upper()}</p>
+<p class="datacard-subtitle">{year_range}</p>
+<p class="datacard-subtitle">{dc_meta}</p>
 </div>
 </div>
 
@@ -1134,9 +1207,9 @@ class BookDatacardGenerator:
                 # Open single grid for all datacards (no nation headers - flags in silhouettes will distinguish)
                 f.write('<div class="datacard-grid">\n\n')
 
-                # Generate all datacards in one continuous grid
+                # Generate all datacards in one continuous grid using V5.5 generator
                 for equipment in unique_equipment:
-                    datacard = self.generate_datacard_markdown(equipment, 'r')
+                    datacard = self.v55_generator.generate_datacard_markdown(equipment, 'r')
                     f.write(datacard)
                     f.write('\n')
 
@@ -1155,8 +1228,9 @@ class BookDatacardGenerator:
             self.generate_book_datacards(battle_key)
 
     def close(self):
-        """Close database connection."""
+        """Close database connections."""
         self.conn.close()
+        self.v55_generator.close()
 
 
 def main():

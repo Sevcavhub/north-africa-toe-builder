@@ -221,8 +221,8 @@
 </div>
 <div class="datacard-title-block">
 <p class="datacard-title">M1 81MM MORTAR</p>
-<p class="datacard-subtitle">1940-1945 | Unknown</p>
-<p class="datacard-special-rules">American Firepower Doctrine, Desert Adapted, HE Only, Thin Armor</p>
+<p class="datacard-subtitle"></p>
+<p class="datacard-subtitle"></p>
 </div>
 </div>
 
@@ -247,8 +247,8 @@
 </tr>
 <tr>
 <td>Unknown</td>
-<td>3</td>
-<td>3</td>
+<td>3"</td>
+<td>3"</td>
 <td>-</td>
 <td>N</td>
 <td>O</td>
@@ -257,50 +257,8 @@
 <td>Turret</td>
 <td>-</td>
 </tr>
-
 </table>
 
-<table>
-<tr>
-<th class="main-header">WEAPON</th>
-<th class="main-header">AMMO</th>
-<th class="main-header">HE</th>
-<th class="main-header" colspan="6">RANGE</th>
-</tr>
-<tr>
-<th></th>
-<th></th>
-<th>-</th>
-<th>0-10"</th>
-<th>10-20"</th>
-<th>20-30"</th>
-<th>30-40"</th>
-<th>40-50"</th>
-<th>50-70"</th>
-</tr>
-<tr>
-<td>81 gun</td>
-<td>HE</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-</tr>
-<tr>
-<td>81 gun</td>
-<td>AP</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-</tr>
-</table>
 </div>
 
 <div class="datacard datacard-british">
@@ -310,8 +268,8 @@
 </div>
 <div class="datacard-title-block">
 <p class="datacard-title">25 POUNDER</p>
-<p class="datacard-subtitle">1940-1945 | Artillery</p>
-<p class="datacard-special-rules">British Resolve, Desert Adapted, Thin Armor</p>
+<p class="datacard-subtitle"></p>
+<p class="datacard-subtitle"></p>
 </div>
 </div>
 
@@ -346,50 +304,8 @@
 <td>Turret</td>
 <td>-</td>
 </tr>
-
 </table>
 
-<table>
-<tr>
-<th class="main-header">WEAPON</th>
-<th class="main-header">AMMO</th>
-<th class="main-header">HE</th>
-<th class="main-header" colspan="6">RANGE</th>
-</tr>
-<tr>
-<th></th>
-<th></th>
-<th>-</th>
-<th>0-10"</th>
-<th>10-20"</th>
-<th>20-30"</th>
-<th>30-40"</th>
-<th>40-50"</th>
-<th>50-70"</th>
-</tr>
-<tr>
-<td>25 gun</td>
-<td>HE</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-</tr>
-<tr>
-<td>25 gun</td>
-<td>AP</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-</tr>
-</table>
 </div>
 
 <div class="datacard datacard-british">
@@ -399,8 +315,8 @@
 </div>
 <div class="datacard-title-block">
 <p class="datacard-title">4 5 INCH HOWITZER</p>
-<p class="datacard-subtitle">1940-1945 | Artillery</p>
-<p class="datacard-special-rules">British Resolve, Desert Adapted, HE Only, Thin Armor</p>
+<p class="datacard-subtitle"></p>
+<p class="datacard-subtitle"></p>
 </div>
 </div>
 
@@ -435,50 +351,8 @@
 <td>Turret</td>
 <td>-</td>
 </tr>
-
 </table>
 
-<table>
-<tr>
-<th class="main-header">WEAPON</th>
-<th class="main-header">AMMO</th>
-<th class="main-header">HE</th>
-<th class="main-header" colspan="6">RANGE</th>
-</tr>
-<tr>
-<th></th>
-<th></th>
-<th>-</th>
-<th>0-10"</th>
-<th>10-20"</th>
-<th>20-30"</th>
-<th>30-40"</th>
-<th>40-50"</th>
-<th>50-70"</th>
-</tr>
-<tr>
-<td>5 gun</td>
-<td>HE</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-</tr>
-<tr>
-<td>5 gun</td>
-<td>AP</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-</tr>
-</table>
 </div>
 
 <div class="datacard datacard-british">
@@ -488,8 +362,8 @@
 </div>
 <div class="datacard-title-block">
 <p class="datacard-title">60-POUNDER HEAVY GUN</p>
-<p class="datacard-subtitle">1940-1945 | Artillery</p>
-<p class="datacard-special-rules">British Resolve, Desert Adapted, Thin Armor</p>
+<p class="datacard-subtitle"></p>
+<p class="datacard-subtitle"></p>
 </div>
 </div>
 
@@ -524,50 +398,8 @@
 <td>-</td>
 <td>-</td>
 </tr>
-
 </table>
 
-<table>
-<tr>
-<th class="main-header">WEAPON</th>
-<th class="main-header">AMMO</th>
-<th class="main-header">HE</th>
-<th class="main-header" colspan="6">RANGE</th>
-</tr>
-<tr>
-<th></th>
-<th></th>
-<th>-</th>
-<th>0-10"</th>
-<th>10-20"</th>
-<th>20-30"</th>
-<th>30-40"</th>
-<th>40-50"</th>
-<th>50-70"</th>
-</tr>
-<tr>
-<td>Self (towed gun)</td>
-<td>HE</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-</tr>
-<tr>
-<td>Self (towed gun)</td>
-<td>AP</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-</tr>
-</table>
 </div>
 
 <div class="datacard datacard-british">
@@ -577,8 +409,8 @@
 </div>
 <div class="datacard-title-block">
 <p class="datacard-title">BOFORS 40MM</p>
-<p class="datacard-subtitle">1940-1945 | Artillery</p>
-<p class="datacard-special-rules">British Resolve, Desert Adapted, Thin Armor</p>
+<p class="datacard-subtitle"></p>
+<p class="datacard-subtitle"></p>
 </div>
 </div>
 
@@ -609,11 +441,10 @@
 <td>N</td>
 <td>O</td>
 <td>O</td>
-<td>None</td>
-<td>-</td>
+<td>2 pdr</td>
+<td>Turret</td>
 <td>-</td>
 </tr>
-
 </table>
 
 </div>
@@ -625,8 +456,8 @@
 </div>
 <div class="datacard-title-block">
 <p class="datacard-title">LEWIS GUN AA</p>
-<p class="datacard-subtitle">1940-1945 | Unknown</p>
-<p class="datacard-special-rules">British Resolve, Desert Adapted, Dual-Purpose Gun, Thin Armor</p>
+<p class="datacard-subtitle"></p>
+<p class="datacard-subtitle"></p>
 </div>
 </div>
 
@@ -661,7 +492,6 @@
 <td>-</td>
 <td>-</td>
 </tr>
-
 </table>
 
 </div>
@@ -673,8 +503,8 @@
 </div>
 <div class="datacard-title-block">
 <p class="datacard-title">ORDNANCE QF 25-POUNDER MK II</p>
-<p class="datacard-subtitle">1940-1945 | Artillery</p>
-<p class="datacard-special-rules">British Resolve, Desert Adapted, Thin Armor</p>
+<p class="datacard-subtitle"></p>
+<p class="datacard-subtitle"></p>
 </div>
 </div>
 
@@ -709,50 +539,8 @@
 <td>-</td>
 <td>-</td>
 </tr>
-
 </table>
 
-<table>
-<tr>
-<th class="main-header">WEAPON</th>
-<th class="main-header">AMMO</th>
-<th class="main-header">HE</th>
-<th class="main-header" colspan="6">RANGE</th>
-</tr>
-<tr>
-<th></th>
-<th></th>
-<th>-</th>
-<th>0-10"</th>
-<th>10-20"</th>
-<th>20-30"</th>
-<th>30-40"</th>
-<th>40-50"</th>
-<th>50-70"</th>
-</tr>
-<tr>
-<td>Self (towed gun)</td>
-<td>HE</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-</tr>
-<tr>
-<td>Self (towed gun)</td>
-<td>AP</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-</tr>
-</table>
 </div>
 
 <div class="datacard datacard-british">
@@ -762,8 +550,8 @@
 </div>
 <div class="datacard-title-block">
 <p class="datacard-title">QF 17-POUNDER</p>
-<p class="datacard-subtitle">1940-1945 | Artillery</p>
-<p class="datacard-special-rules">British Resolve, Desert Adapted, Thin Armor</p>
+<p class="datacard-subtitle"></p>
+<p class="datacard-subtitle"></p>
 </div>
 </div>
 
@@ -788,8 +576,8 @@
 </tr>
 <tr>
 <td>Artillery</td>
-<td>1</td>
-<td>1</td>
+<td>1"</td>
+<td>1"</td>
 <td>-</td>
 <td>N</td>
 <td>O</td>
@@ -798,50 +586,8 @@
 <td>-</td>
 <td>-</td>
 </tr>
-
 </table>
 
-<table>
-<tr>
-<th class="main-header">WEAPON</th>
-<th class="main-header">AMMO</th>
-<th class="main-header">HE</th>
-<th class="main-header" colspan="6">RANGE</th>
-</tr>
-<tr>
-<th></th>
-<th></th>
-<th>-</th>
-<th>0-10"</th>
-<th>10-20"</th>
-<th>20-30"</th>
-<th>30-40"</th>
-<th>40-50"</th>
-<th>50-70"</th>
-</tr>
-<tr>
-<td>Self (towed gun)</td>
-<td>HE</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-</tr>
-<tr>
-<td>Self (towed gun)</td>
-<td>AP</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-</tr>
-</table>
 </div>
 
 <div class="datacard datacard-german">
@@ -851,8 +597,8 @@
 </div>
 <div class="datacard-title-block">
 <p class="datacard-title">50MM PAK 38</p>
-<p class="datacard-subtitle">1940-1945 | Artillery</p>
-<p class="datacard-special-rules">AP Only, Desert Adapted, German Tactical Doctrine, Thin Armor</p>
+<p class="datacard-subtitle"></p>
+<p class="datacard-subtitle"></p>
 </div>
 </div>
 
@@ -877,60 +623,18 @@
 </tr>
 <tr>
 <td>Artillery</td>
-<td>3"</td>
-<td>3"</td>
+<td>2"</td>
+<td>2"</td>
 <td>-</td>
 <td>N</td>
 <td>O</td>
 <td>O</td>
-<td>2 pounder</td>
+<td>PaK38</td>
 <td>Turret</td>
 <td>-</td>
 </tr>
-
 </table>
 
-<table>
-<tr>
-<th class="main-header">WEAPON</th>
-<th class="main-header">AMMO</th>
-<th class="main-header">HE</th>
-<th class="main-header" colspan="6">RANGE</th>
-</tr>
-<tr>
-<th></th>
-<th></th>
-<th>-</th>
-<th>0-10"</th>
-<th>10-20"</th>
-<th>20-30"</th>
-<th>30-40"</th>
-<th>40-50"</th>
-<th>50-70"</th>
-</tr>
-<tr>
-<td>2 pounder</td>
-<td>HE</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-</tr>
-<tr>
-<td>2 pounder</td>
-<td>AP</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-</tr>
-</table>
 </div>
 
 <div class="datacard datacard-italian">
@@ -940,8 +644,8 @@
 </div>
 <div class="datacard-title-block">
 <p class="datacard-title">20MM BREDA</p>
-<p class="datacard-subtitle">1940-1945 | Artillery</p>
-<p class="datacard-special-rules">Desert Adapted, Reluctant Warriors, Thin Armor</p>
+<p class="datacard-subtitle"></p>
+<p class="datacard-subtitle"></p>
 </div>
 </div>
 
@@ -976,7 +680,6 @@
 <td>-</td>
 <td>-</td>
 </tr>
-
 </table>
 
 </div>
@@ -988,8 +691,8 @@
 </div>
 <div class="datacard-title-block">
 <p class="datacard-title">47MM CANNONE DA 47/32 M35</p>
-<p class="datacard-subtitle">1940-1945 | Artillery</p>
-<p class="datacard-special-rules">Desert Adapted, Half-Tracked, Reluctant Warriors, Thin Armor</p>
+<p class="datacard-subtitle"></p>
+<p class="datacard-subtitle"></p>
 </div>
 </div>
 
@@ -1024,7 +727,6 @@
 <td>-</td>
 <td>-</td>
 </tr>
-
 </table>
 
 </div>
@@ -1036,8 +738,8 @@
 </div>
 <div class="datacard-title-block">
 <p class="datacard-title">75MM CANNONE DA 75/27 MODELLO 11</p>
-<p class="datacard-subtitle">1940-1945 | Artillery</p>
-<p class="datacard-special-rules">Desert Adapted, Reluctant Warriors, Thin Armor</p>
+<p class="datacard-subtitle"></p>
+<p class="datacard-subtitle"></p>
 </div>
 </div>
 
@@ -1072,7 +774,6 @@
 <td>-</td>
 <td>-</td>
 </tr>
-
 </table>
 
 </div>

@@ -220,386 +220,9 @@
 <span style="color: white; font-size: 10px;">🔲</span>
 </div>
 <div class="datacard-title-block">
-<p class="datacard-title">A10 CRUISER MK II</p>
-<p class="datacard-subtitle">1940-1945 | Tank</p>
-<p class="datacard-special-rules">British Resolve, Desert Adapted, Thin Armor</p>
-</div>
-</div>
-
-<table>
-<tr>
-<th class="main-header">VEHICLE</th>
-<th class="main-header" colspan="3">MOVEMENT</th>
-<th class="main-header" colspan="3">ARMOUR</th>
-<th class="main-header" colspan="3">ARMAMENT</th>
-</tr>
-<tr>
-<th></th>
-<th>Off-Road</th>
-<th>Road</th>
-<th>Special</th>
-<th>F</th>
-<th>S</th>
-<th>R</th>
-<th>Weapon</th>
-<th>Mount</th>
-<th>Ammo</th>
-</tr>
-<tr>
-<td>Tank</td>
-<td>10"</td>
-<td>16"</td>
-<td>-</td>
-<td>N</td>
-<td>O</td>
-<td>O</td>
-<td>None</td>
-<td>-</td>
-<td>-</td>
-</tr>
-
-</table>
-
-</div>
-
-<div class="datacard datacard-british">
-<div class="datacard-header">
-<div class="datacard-silhouette">
-<span style="color: white; font-size: 10px;">🔲</span>
-</div>
-<div class="datacard-title-block">
-<p class="datacard-title">A13 CRUISER</p>
-<p class="datacard-subtitle">1940-1945 | Tank</p>
-<p class="datacard-special-rules">British Resolve, Desert Adapted, Thin Armor</p>
-</div>
-</div>
-
-<table>
-<tr>
-<th class="main-header">VEHICLE</th>
-<th class="main-header" colspan="3">MOVEMENT</th>
-<th class="main-header" colspan="3">ARMOUR</th>
-<th class="main-header" colspan="3">ARMAMENT</th>
-</tr>
-<tr>
-<th></th>
-<th>Off-Road</th>
-<th>Road</th>
-<th>Special</th>
-<th>F</th>
-<th>S</th>
-<th>R</th>
-<th>Weapon</th>
-<th>Mount</th>
-<th>Ammo</th>
-</tr>
-<tr>
-<td>Tank</td>
-<td>8"</td>
-<td>12"</td>
-<td>-</td>
-<td>N</td>
-<td>O</td>
-<td>O</td>
-<td>None</td>
-<td>-</td>
-<td>-</td>
-</tr>
-
-</table>
-
-</div>
-
-<div class="datacard datacard-british">
-<div class="datacard-header">
-<div class="datacard-silhouette">
-<span style="color: white; font-size: 10px;">🔲</span>
-</div>
-<div class="datacard-title-block">
-<p class="datacard-title">A13 CRUISER MK2</p>
-<p class="datacard-subtitle">1940-1945 | Tank</p>
-<p class="datacard-special-rules">British Resolve, Desert Adapted, Thin Armor</p>
-</div>
-</div>
-
-<table>
-<tr>
-<th class="main-header">VEHICLE</th>
-<th class="main-header" colspan="3">MOVEMENT</th>
-<th class="main-header" colspan="3">ARMOUR</th>
-<th class="main-header" colspan="3">ARMAMENT</th>
-</tr>
-<tr>
-<th></th>
-<th>Off-Road</th>
-<th>Road</th>
-<th>Special</th>
-<th>F</th>
-<th>S</th>
-<th>R</th>
-<th>Weapon</th>
-<th>Mount</th>
-<th>Ammo</th>
-</tr>
-<tr>
-<td>Tank</td>
-<td>8"</td>
-<td>12"</td>
-<td>-</td>
-<td>N</td>
-<td>O</td>
-<td>O</td>
-<td>None</td>
-<td>-</td>
-<td>-</td>
-</tr>
-
-</table>
-
-</div>
-
-<div class="datacard datacard-british">
-<div class="datacard-header">
-<div class="datacard-silhouette">
-<span style="color: white; font-size: 10px;">🔲</span>
-</div>
-<div class="datacard-title-block">
-<p class="datacard-title">A13 CRUISER MK3</p>
-<p class="datacard-subtitle">1940-1945 | Tank</p>
-<p class="datacard-special-rules">British Resolve, Desert Adapted, Thin Armor</p>
-</div>
-</div>
-
-<table>
-<tr>
-<th class="main-header">VEHICLE</th>
-<th class="main-header" colspan="3">MOVEMENT</th>
-<th class="main-header" colspan="3">ARMOUR</th>
-<th class="main-header" colspan="3">ARMAMENT</th>
-</tr>
-<tr>
-<th></th>
-<th>Off-Road</th>
-<th>Road</th>
-<th>Special</th>
-<th>F</th>
-<th>S</th>
-<th>R</th>
-<th>Weapon</th>
-<th>Mount</th>
-<th>Ammo</th>
-</tr>
-<tr>
-<td>Tank</td>
-<td>8"</td>
-<td>12"</td>
-<td>-</td>
-<td>N</td>
-<td>O</td>
-<td>O</td>
-<td>None</td>
-<td>-</td>
-<td>-</td>
-</tr>
-
-</table>
-
-</div>
-
-<div class="datacard datacard-british">
-<div class="datacard-header">
-<div class="datacard-silhouette">
-<span style="color: white; font-size: 10px;">🔲</span>
-</div>
-<div class="datacard-title-block">
-<p class="datacard-title">A15 CRUSADER MK I</p>
-<p class="datacard-subtitle">1940-1945 | Tank</p>
-<p class="datacard-special-rules">British Resolve, Desert Adapted, Thin Armor</p>
-</div>
-</div>
-
-<table>
-<tr>
-<th class="main-header">VEHICLE</th>
-<th class="main-header" colspan="3">MOVEMENT</th>
-<th class="main-header" colspan="3">ARMOUR</th>
-<th class="main-header" colspan="3">ARMAMENT</th>
-</tr>
-<tr>
-<th></th>
-<th>Off-Road</th>
-<th>Road</th>
-<th>Special</th>
-<th>F</th>
-<th>S</th>
-<th>R</th>
-<th>Weapon</th>
-<th>Mount</th>
-<th>Ammo</th>
-</tr>
-<tr>
-<td>Tank</td>
-<td>8"</td>
-<td>12"</td>
-<td>-</td>
-<td>N</td>
-<td>O</td>
-<td>O</td>
-<td>40mm 2-pdr</td>
-<td>Turret</td>
-<td>-</td>
-</tr>
-
-</table>
-
-<table>
-<tr>
-<th class="main-header">WEAPON</th>
-<th class="main-header">AMMO</th>
-<th class="main-header">HE</th>
-<th class="main-header" colspan="6">RANGE</th>
-</tr>
-<tr>
-<th></th>
-<th></th>
-<th>Light</th>
-<th>0-10"</th>
-<th>10-20"</th>
-<th>20-30"</th>
-<th>30-40"</th>
-<th>40-50"</th>
-<th>50-70"</th>
-</tr>
-<tr>
-<td>40mm 2-pdr</td>
-<td>HE</td>
-<td>3/5+</td>
-<td>2</td>
-<td>2</td>
-<td>2</td>
-<td>2</td>
-<td>-</td>
-<td>-</td>
-</tr>
-<tr>
-<td>40mm 2-pdr</td>
-<td>AP</td>
-<td>-</td>
-<td>5</td>
-<td>5</td>
-<td>4</td>
-<td>3</td>
-<td>2</td>
-<td>-</td>
-</tr>
-</table>
-</div>
-
-<div class="datacard datacard-british">
-<div class="datacard-header">
-<div class="datacard-silhouette">
-<span style="color: white; font-size: 10px;">🔲</span>
-</div>
-<div class="datacard-title-block">
-<p class="datacard-title">STUART I (M3 LIGHT)</p>
-<p class="datacard-subtitle">1940-1945 | Tank</p>
-<p class="datacard-special-rules">British Resolve, Desert Adapted, Half-Tracked, Thin Armor</p>
-</div>
-</div>
-
-<table>
-<tr>
-<th class="main-header">VEHICLE</th>
-<th class="main-header" colspan="3">MOVEMENT</th>
-<th class="main-header" colspan="3">ARMOUR</th>
-<th class="main-header" colspan="3">ARMAMENT</th>
-</tr>
-<tr>
-<th></th>
-<th>Off-Road</th>
-<th>Road</th>
-<th>Special</th>
-<th>F</th>
-<th>S</th>
-<th>R</th>
-<th>Weapon</th>
-<th>Mount</th>
-<th>Ammo</th>
-</tr>
-<tr>
-<td>Tank</td>
-<td>8"</td>
-<td>12"</td>
-<td>-</td>
-<td>N</td>
-<td>O</td>
-<td>O</td>
-<td>None</td>
-<td>-</td>
-<td>-</td>
-</tr>
-
-</table>
-
-</div>
-
-<div class="datacard datacard-british">
-<div class="datacard-header">
-<div class="datacard-silhouette">
-<span style="color: white; font-size: 10px;">🔲</span>
-</div>
-<div class="datacard-title-block">
-<p class="datacard-title">VALENTINE I</p>
-<p class="datacard-subtitle">1940-1945 | Tank</p>
-<p class="datacard-special-rules">British Resolve, Desert Adapted</p>
-</div>
-</div>
-
-<table>
-<tr>
-<th class="main-header">VEHICLE</th>
-<th class="main-header" colspan="3">MOVEMENT</th>
-<th class="main-header" colspan="3">ARMOUR</th>
-<th class="main-header" colspan="3">ARMAMENT</th>
-</tr>
-<tr>
-<th></th>
-<th>Off-Road</th>
-<th>Road</th>
-<th>Special</th>
-<th>F</th>
-<th>S</th>
-<th>R</th>
-<th>Weapon</th>
-<th>Mount</th>
-<th>Ammo</th>
-</tr>
-<tr>
-<td>Tank</td>
-<td>8"</td>
-<td>12"</td>
-<td>-</td>
-<td>K</td>
-<td>K</td>
-<td>L</td>
-<td>None</td>
-<td>-</td>
-<td>-</td>
-</tr>
-
-</table>
-
-</div>
-
-<div class="datacard datacard-british">
-<div class="datacard-header">
-<div class="datacard-silhouette">
-<span style="color: white; font-size: 10px;">🔲</span>
-</div>
-<div class="datacard-title-block">
-<p class="datacard-title">VALENTINE III</p>
-<p class="datacard-subtitle">1940-1945 | Tank</p>
-<p class="datacard-special-rules">British Resolve, Desert Adapted, Slow</p>
+<p class="datacard-title">A10 CRUISER MK I</p>
+<p class="datacard-subtitle">1940-41</p>
+<p class="datacard-subtitle">Modernized cruiser Tank</p>
 </div>
 </div>
 
@@ -627,16 +250,70 @@
 <td>5"</td>
 <td>8"</td>
 <td>-</td>
-<td>K</td>
-<td>K</td>
-<td>L</td>
-<td>None</td>
+<td>M</td>
+<td>N</td>
+<td>O</td>
+<td>2 pdr</td>
+<td>Turret</td>
+<td>10</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>MG</td>
+<td>Co-Axial</td>
 <td>-</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>MG</td>
+<td>Hull</td>
+<td>-</td>
+</tr>
+</table>
+
+<table>
+<tr>
+<th class="main-header">WEAPON</th>
+<th class="main-header">AMMO</th>
+<th class="main-header">HE</th>
+<th class="main-header" colspan="6">RANGE</th>
+</tr>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th>0-10"</th>
+<th>10-20"</th>
+<th>20-30"</th>
+<th>30-40"</th>
+<th>40-50"</th>
+<th>50-70"</th>
+</tr>
+<tr>
+<td>2 pdr</td>
+<td>AP</td>
+<td>-</td>
+<td>4</td>
+<td>4</td>
+<td>3</td>
+<td>2</td>
+<td>1</td>
 <td>-</td>
 </tr>
 
 </table>
-
 </div>
 
 <div class="datacard datacard-british">
@@ -645,9 +322,9 @@
 <span style="color: white; font-size: 10px;">🔲</span>
 </div>
 <div class="datacard-title-block">
-<p class="datacard-title">VICKERS MEDIUM</p>
-<p class="datacard-subtitle">1940-1945 | Tank</p>
-<p class="datacard-special-rules">British Resolve, Desert Adapted, Thin Armor</p>
+<p class="datacard-title">A13 CRUISER</p>
+<p class="datacard-subtitle"></p>
+<p class="datacard-subtitle"></p>
 </div>
 </div>
 
@@ -682,7 +359,507 @@
 <td>-</td>
 <td>-</td>
 </tr>
+</table>
 
+</div>
+
+<div class="datacard datacard-british">
+<div class="datacard-header">
+<div class="datacard-silhouette">
+<span style="color: white; font-size: 10px;">🔲</span>
+</div>
+<div class="datacard-title-block">
+<p class="datacard-title">A13 CRUISER MK I</p>
+<p class="datacard-subtitle">1940-41</p>
+<p class="datacard-subtitle">Modernized cruiser Tank</p>
+</div>
+</div>
+
+<table>
+<tr>
+<th class="main-header">VEHICLE</th>
+<th class="main-header" colspan="3">MOVEMENT</th>
+<th class="main-header" colspan="3">ARMOUR</th>
+<th class="main-header" colspan="3">ARMAMENT</th>
+</tr>
+<tr>
+<th></th>
+<th>Off-Road</th>
+<th>Road</th>
+<th>Special</th>
+<th>F</th>
+<th>S</th>
+<th>R</th>
+<th>Weapon</th>
+<th>Mount</th>
+<th>Ammo</th>
+</tr>
+<tr>
+<td>Tank</td>
+<td>9"</td>
+<td>15"</td>
+<td>-</td>
+<td>M</td>
+<td>N</td>
+<td>O</td>
+<td>2 pdr</td>
+<td>Turret</td>
+<td>10</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>MG</td>
+<td>Co-Axial</td>
+<td>-</td>
+</tr>
+</table>
+
+<table>
+<tr>
+<th class="main-header">WEAPON</th>
+<th class="main-header">AMMO</th>
+<th class="main-header">HE</th>
+<th class="main-header" colspan="6">RANGE</th>
+</tr>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th>0-10"</th>
+<th>10-20"</th>
+<th>20-30"</th>
+<th>30-40"</th>
+<th>40-50"</th>
+<th>50-70"</th>
+</tr>
+<tr>
+<td>2 pdr</td>
+<td>AP</td>
+<td>-</td>
+<td>4</td>
+<td>4</td>
+<td>3</td>
+<td>2</td>
+<td>1</td>
+<td>-</td>
+</tr>
+
+</table>
+</div>
+
+<div class="datacard datacard-british">
+<div class="datacard-header">
+<div class="datacard-silhouette">
+<span style="color: white; font-size: 10px;">🔲</span>
+</div>
+<div class="datacard-title-block">
+<p class="datacard-title">A13 CRUISER MK I</p>
+<p class="datacard-subtitle">1940-41</p>
+<p class="datacard-subtitle">Modernized cruiser Tank</p>
+</div>
+</div>
+
+<table>
+<tr>
+<th class="main-header">VEHICLE</th>
+<th class="main-header" colspan="3">MOVEMENT</th>
+<th class="main-header" colspan="3">ARMOUR</th>
+<th class="main-header" colspan="3">ARMAMENT</th>
+</tr>
+<tr>
+<th></th>
+<th>Off-Road</th>
+<th>Road</th>
+<th>Special</th>
+<th>F</th>
+<th>S</th>
+<th>R</th>
+<th>Weapon</th>
+<th>Mount</th>
+<th>Ammo</th>
+</tr>
+<tr>
+<td>Tank</td>
+<td>9"</td>
+<td>15"</td>
+<td>-</td>
+<td>M</td>
+<td>N</td>
+<td>O</td>
+<td>2 pdr</td>
+<td>Turret</td>
+<td>10</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>MG</td>
+<td>Co-Axial</td>
+<td>-</td>
+</tr>
+</table>
+
+<table>
+<tr>
+<th class="main-header">WEAPON</th>
+<th class="main-header">AMMO</th>
+<th class="main-header">HE</th>
+<th class="main-header" colspan="6">RANGE</th>
+</tr>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th>0-10"</th>
+<th>10-20"</th>
+<th>20-30"</th>
+<th>30-40"</th>
+<th>40-50"</th>
+<th>50-70"</th>
+</tr>
+<tr>
+<td>2 pdr</td>
+<td>AP</td>
+<td>-</td>
+<td>4</td>
+<td>4</td>
+<td>3</td>
+<td>2</td>
+<td>1</td>
+<td>-</td>
+</tr>
+
+</table>
+</div>
+
+<div class="datacard datacard-british">
+<div class="datacard-header">
+<div class="datacard-silhouette">
+<span style="color: white; font-size: 10px;">🔲</span>
+</div>
+<div class="datacard-title-block">
+<p class="datacard-title">A15 CRUSADER MK I</p>
+<p class="datacard-subtitle"></p>
+<p class="datacard-subtitle"></p>
+</div>
+</div>
+
+<table>
+<tr>
+<th class="main-header">VEHICLE</th>
+<th class="main-header" colspan="3">MOVEMENT</th>
+<th class="main-header" colspan="3">ARMOUR</th>
+<th class="main-header" colspan="3">ARMAMENT</th>
+</tr>
+<tr>
+<th></th>
+<th>Off-Road</th>
+<th>Road</th>
+<th>Special</th>
+<th>F</th>
+<th>S</th>
+<th>R</th>
+<th>Weapon</th>
+<th>Mount</th>
+<th>Ammo</th>
+</tr>
+<tr>
+<td>Tank</td>
+<td>8"</td>
+<td>12"</td>
+<td>-</td>
+<td>N</td>
+<td>O</td>
+<td>O</td>
+<td>None</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</table>
+
+</div>
+
+<div class="datacard datacard-british">
+<div class="datacard-header">
+<div class="datacard-silhouette">
+<span style="color: white; font-size: 10px;">🔲</span>
+</div>
+<div class="datacard-title-block">
+<p class="datacard-title">STUART I (M3 LIGHT)</p>
+<p class="datacard-subtitle"></p>
+<p class="datacard-subtitle"></p>
+</div>
+</div>
+
+<table>
+<tr>
+<th class="main-header">VEHICLE</th>
+<th class="main-header" colspan="3">MOVEMENT</th>
+<th class="main-header" colspan="3">ARMOUR</th>
+<th class="main-header" colspan="3">ARMAMENT</th>
+</tr>
+<tr>
+<th></th>
+<th>Off-Road</th>
+<th>Road</th>
+<th>Special</th>
+<th>F</th>
+<th>S</th>
+<th>R</th>
+<th>Weapon</th>
+<th>Mount</th>
+<th>Ammo</th>
+</tr>
+<tr>
+<td>Tank</td>
+<td>8"</td>
+<td>12"</td>
+<td>-</td>
+<td>N</td>
+<td>O</td>
+<td>O</td>
+<td>None</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</table>
+
+</div>
+
+<div class="datacard datacard-british">
+<div class="datacard-header">
+<div class="datacard-silhouette">
+<span style="color: white; font-size: 10px;">🔲</span>
+</div>
+<div class="datacard-title-block">
+<p class="datacard-title">VALENTINE II</p>
+<p class="datacard-subtitle">1941-42</p>
+<p class="datacard-subtitle">Infantry tank</p>
+</div>
+</div>
+
+<table>
+<tr>
+<th class="main-header">VEHICLE</th>
+<th class="main-header" colspan="3">MOVEMENT</th>
+<th class="main-header" colspan="3">ARMOUR</th>
+<th class="main-header" colspan="3">ARMAMENT</th>
+</tr>
+<tr>
+<th></th>
+<th>Off-Road</th>
+<th>Road</th>
+<th>Special</th>
+<th>F</th>
+<th>S</th>
+<th>R</th>
+<th>Weapon</th>
+<th>Mount</th>
+<th>Ammo</th>
+</tr>
+<tr>
+<td>Tank</td>
+<td>6"</td>
+<td>9"</td>
+<td>-</td>
+<td>K</td>
+<td>K</td>
+<td>N</td>
+<td>2 pdr</td>
+<td>Turret</td>
+<td>8</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>MG</td>
+<td>Co-Axial</td>
+<td>-</td>
+</tr>
+</table>
+
+<table>
+<tr>
+<th class="main-header">WEAPON</th>
+<th class="main-header">AMMO</th>
+<th class="main-header">HE</th>
+<th class="main-header" colspan="6">RANGE</th>
+</tr>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th>0-10"</th>
+<th>10-20"</th>
+<th>20-30"</th>
+<th>30-40"</th>
+<th>40-50"</th>
+<th>50-70"</th>
+</tr>
+<tr>
+<td>2 pdr</td>
+<td>AP</td>
+<td>-</td>
+<td>4</td>
+<td>4</td>
+<td>3</td>
+<td>2</td>
+<td>1</td>
+<td>-</td>
+</tr>
+
+</table>
+</div>
+
+<div class="datacard datacard-british">
+<div class="datacard-header">
+<div class="datacard-silhouette">
+<span style="color: white; font-size: 10px;">🔲</span>
+</div>
+<div class="datacard-title-block">
+<p class="datacard-title">VALENTINE II</p>
+<p class="datacard-subtitle">1941-42</p>
+<p class="datacard-subtitle">Infantry tank</p>
+</div>
+</div>
+
+<table>
+<tr>
+<th class="main-header">VEHICLE</th>
+<th class="main-header" colspan="3">MOVEMENT</th>
+<th class="main-header" colspan="3">ARMOUR</th>
+<th class="main-header" colspan="3">ARMAMENT</th>
+</tr>
+<tr>
+<th></th>
+<th>Off-Road</th>
+<th>Road</th>
+<th>Special</th>
+<th>F</th>
+<th>S</th>
+<th>R</th>
+<th>Weapon</th>
+<th>Mount</th>
+<th>Ammo</th>
+</tr>
+<tr>
+<td>Tank</td>
+<td>6"</td>
+<td>9"</td>
+<td>-</td>
+<td>K</td>
+<td>K</td>
+<td>N</td>
+<td>2 pdr</td>
+<td>Turret</td>
+<td>8</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>MG</td>
+<td>Co-Axial</td>
+<td>-</td>
+</tr>
+</table>
+
+<table>
+<tr>
+<th class="main-header">WEAPON</th>
+<th class="main-header">AMMO</th>
+<th class="main-header">HE</th>
+<th class="main-header" colspan="6">RANGE</th>
+</tr>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th>0-10"</th>
+<th>10-20"</th>
+<th>20-30"</th>
+<th>30-40"</th>
+<th>40-50"</th>
+<th>50-70"</th>
+</tr>
+<tr>
+<td>2 pdr</td>
+<td>AP</td>
+<td>-</td>
+<td>4</td>
+<td>4</td>
+<td>3</td>
+<td>2</td>
+<td>1</td>
+<td>-</td>
+</tr>
+
+</table>
+</div>
+
+<div class="datacard datacard-british">
+<div class="datacard-header">
+<div class="datacard-silhouette">
+<span style="color: white; font-size: 10px;">🔲</span>
+</div>
+<div class="datacard-title-block">
+<p class="datacard-title">VICKERS MEDIUM</p>
+<p class="datacard-subtitle"></p>
+<p class="datacard-subtitle"></p>
+</div>
+</div>
+
+<table>
+<tr>
+<th class="main-header">VEHICLE</th>
+<th class="main-header" colspan="3">MOVEMENT</th>
+<th class="main-header" colspan="3">ARMOUR</th>
+<th class="main-header" colspan="3">ARMAMENT</th>
+</tr>
+<tr>
+<th></th>
+<th>Off-Road</th>
+<th>Road</th>
+<th>Special</th>
+<th>F</th>
+<th>S</th>
+<th>R</th>
+<th>Weapon</th>
+<th>Mount</th>
+<th>Ammo</th>
+</tr>
+<tr>
+<td>Tank</td>
+<td>8"</td>
+<td>12"</td>
+<td>-</td>
+<td>N</td>
+<td>O</td>
+<td>O</td>
+<td>None</td>
+<td>-</td>
+<td>-</td>
+</tr>
 </table>
 
 </div>
@@ -694,8 +871,8 @@
 </div>
 <div class="datacard-title-block">
 <p class="datacard-title">L3/35 TANKETTE</p>
-<p class="datacard-subtitle">1940-1945 | Tank</p>
-<p class="datacard-special-rules">Desert Adapted, Reluctant Warriors, Thin Armor</p>
+<p class="datacard-subtitle"></p>
+<p class="datacard-subtitle"></p>
 </div>
 </div>
 
@@ -730,7 +907,6 @@
 <td>-</td>
 <td>-</td>
 </tr>
-
 </table>
 
 </div>
@@ -742,8 +918,8 @@
 </div>
 <div class="datacard-title-block">
 <p class="datacard-title">M13/40</p>
-<p class="datacard-subtitle">1940-1945 | Tank</p>
-<p class="datacard-special-rules">Desert Adapted, Reluctant Warriors</p>
+<p class="datacard-subtitle">1940-43</p>
+<p class="datacard-subtitle">Medium tank</p>
 </div>
 </div>
 
@@ -768,19 +944,84 @@
 </tr>
 <tr>
 <td>Tank</td>
-<td>8"</td>
-<td>12"</td>
+<td>5"</td>
+<td>9"</td>
 <td>-</td>
 <td>L</td>
-<td>M</td>
-<td>M</td>
-<td>None</td>
+<td>N</td>
+<td>N</td>
+<td>47mmL32</td>
+<td>Turret</td>
+<td>10</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>MG</td>
+<td>Co-Axial</td>
 <td>-</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>2 x MGs</td>
+<td>Hull</td>
+<td>-</td>
+</tr>
+</table>
+
+<table>
+<tr>
+<th class="main-header">WEAPON</th>
+<th class="main-header">AMMO</th>
+<th class="main-header">HE</th>
+<th class="main-header" colspan="6">RANGE</th>
+</tr>
+<tr>
+<th></th>
+<th></th>
+<th>VL</th>
+<th>0-10"</th>
+<th>10-20"</th>
+<th>20-30"</th>
+<th>30-40"</th>
+<th>40-50"</th>
+<th>50-70"</th>
+</tr>
+<tr>
+<td>47mmL32</td>
+<td>HE</td>
+<td>3/5+</td>
+<td>2</td>
+<td>2</td>
+<td>2</td>
+<td>2</td>
+<td>2</td>
+<td>-</td>
+</tr>
+<tr>
+<td>47mmL32</td>
+<td>AP</td>
+<td>-</td>
+<td>4</td>
+<td>4</td>
+<td>3</td>
+<td>2</td>
+<td>1</td>
 <td>-</td>
 </tr>
 
 </table>
-
 </div>
 
 <div class="datacard datacard-italian">
@@ -790,8 +1031,8 @@
 </div>
 <div class="datacard-title-block">
 <p class="datacard-title">M14/41</p>
-<p class="datacard-subtitle">1940-1945 | Tank</p>
-<p class="datacard-special-rules">Desert Adapted, Reluctant Warriors, Thin Armor</p>
+<p class="datacard-subtitle">1941-43</p>
+<p class="datacard-subtitle">Upgraded medium tank</p>
 </div>
 </div>
 
@@ -816,19 +1057,84 @@
 </tr>
 <tr>
 <td>Tank</td>
-<td>8"</td>
-<td>12"</td>
+<td>6"</td>
+<td>11"</td>
 <td>-</td>
+<td>L</td>
+<td>M</td>
 <td>N</td>
-<td>O</td>
-<td>O</td>
-<td>None</td>
+<td>47mmL32</td>
+<td>Turret</td>
+<td>10</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>MG</td>
+<td>Co-Axial</td>
 <td>-</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>2x MGs</td>
+<td>Hull</td>
+<td>-</td>
+</tr>
+</table>
+
+<table>
+<tr>
+<th class="main-header">WEAPON</th>
+<th class="main-header">AMMO</th>
+<th class="main-header">HE</th>
+<th class="main-header" colspan="6">RANGE</th>
+</tr>
+<tr>
+<th></th>
+<th></th>
+<th>VL</th>
+<th>0-10"</th>
+<th>10-20"</th>
+<th>20-30"</th>
+<th>30-40"</th>
+<th>40-50"</th>
+<th>50-70"</th>
+</tr>
+<tr>
+<td>47mmL32</td>
+<td>HE</td>
+<td>3/5+</td>
+<td>2</td>
+<td>2</td>
+<td>2</td>
+<td>2</td>
+<td>2</td>
+<td>-</td>
+</tr>
+<tr>
+<td>47mmL32</td>
+<td>AP</td>
+<td>-</td>
+<td>4</td>
+<td>4</td>
+<td>3</td>
+<td>2</td>
+<td>1</td>
 <td>-</td>
 </tr>
 
 </table>
-
 </div>
 
 </div>

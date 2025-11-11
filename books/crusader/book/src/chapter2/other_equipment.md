@@ -221,8 +221,8 @@
 </div>
 <div class="datacard-title-block">
 <p class="datacard-title">M10 WOLVERINE</p>
-<p class="datacard-subtitle">1940-1945 | Unknown</p>
-<p class="datacard-special-rules">American Firepower Doctrine, Desert Adapted, Thin Armor</p>
+<p class="datacard-subtitle"></p>
+<p class="datacard-subtitle"></p>
 </div>
 </div>
 
@@ -257,7 +257,6 @@
 <td>-</td>
 <td>-</td>
 </tr>
-
 </table>
 
 </div>
@@ -269,8 +268,8 @@
 </div>
 <div class="datacard-title-block">
 <p class="datacard-title">BSA M20</p>
-<p class="datacard-subtitle">1940-1945 | Unknown</p>
-<p class="datacard-special-rules">British Resolve, Desert Adapted, Thin Armor</p>
+<p class="datacard-subtitle"></p>
+<p class="datacard-subtitle"></p>
 </div>
 </div>
 
@@ -305,7 +304,6 @@
 <td>-</td>
 <td>-</td>
 </tr>
-
 </table>
 
 </div>
@@ -317,8 +315,8 @@
 </div>
 <div class="datacard-title-block">
 <p class="datacard-title">BLENHEIM MK1</p>
-<p class="datacard-subtitle">1940-1945 | Aircraft</p>
-<p class="datacard-special-rules">British Resolve, Desert Adapted, Thin Armor</p>
+<p class="datacard-subtitle"></p>
+<p class="datacard-subtitle"></p>
 </div>
 </div>
 
@@ -353,7 +351,6 @@
 <td>-</td>
 <td>-</td>
 </tr>
-
 </table>
 
 </div>
@@ -365,8 +362,8 @@
 </div>
 <div class="datacard-title-block">
 <p class="datacard-title">MATCHLESS G3L</p>
-<p class="datacard-subtitle">1940-1945 | Unknown</p>
-<p class="datacard-special-rules">British Resolve, Desert Adapted, Thin Armor</p>
+<p class="datacard-subtitle"></p>
+<p class="datacard-subtitle"></p>
 </div>
 </div>
 
@@ -401,7 +398,6 @@
 <td>-</td>
 <td>-</td>
 </tr>
-
 </table>
 
 </div>
@@ -413,8 +409,8 @@
 </div>
 <div class="datacard-title-block">
 <p class="datacard-title">NORTON 16H</p>
-<p class="datacard-subtitle">1940-1945 | Unknown</p>
-<p class="datacard-special-rules">British Resolve, Desert Adapted, Thin Armor</p>
+<p class="datacard-subtitle"></p>
+<p class="datacard-subtitle"></p>
 </div>
 </div>
 
@@ -449,7 +445,6 @@
 <td>-</td>
 <td>-</td>
 </tr>
-
 </table>
 
 </div>
@@ -461,8 +456,8 @@
 </div>
 <div class="datacard-title-block">
 <p class="datacard-title">BMW R75</p>
-<p class="datacard-subtitle">1940-1945 | Unknown</p>
-<p class="datacard-special-rules">Desert Adapted, German Tactical Doctrine, Thin Armor</p>
+<p class="datacard-subtitle"></p>
+<p class="datacard-subtitle"></p>
 </div>
 </div>
 
@@ -497,7 +492,6 @@
 <td>-</td>
 <td>-</td>
 </tr>
-
 </table>
 
 </div>
@@ -509,8 +503,8 @@
 </div>
 <div class="datacard-title-block">
 <p class="datacard-title">ZÜNDAPP KS750</p>
-<p class="datacard-subtitle">1940-1945 | Unknown</p>
-<p class="datacard-special-rules">Desert Adapted, German Tactical Doctrine, Thin Armor</p>
+<p class="datacard-subtitle"></p>
+<p class="datacard-subtitle"></p>
 </div>
 </div>
 
@@ -545,7 +539,6 @@
 <td>-</td>
 <td>-</td>
 </tr>
-
 </table>
 
 </div>
@@ -557,8 +550,8 @@
 </div>
 <div class="datacard-title-block">
 <p class="datacard-title">BENELLI M36</p>
-<p class="datacard-subtitle">1940-1945 | Unknown</p>
-<p class="datacard-special-rules">Desert Adapted, Half-Tracked, Reluctant Warriors, Thin Armor</p>
+<p class="datacard-subtitle"></p>
+<p class="datacard-subtitle"></p>
 </div>
 </div>
 
@@ -593,7 +586,6 @@
 <td>-</td>
 <td>-</td>
 </tr>
-
 </table>
 
 </div>
@@ -605,8 +597,8 @@
 </div>
 <div class="datacard-title-block">
 <p class="datacard-title">MOTO GUZZI ALCE</p>
-<p class="datacard-subtitle">1940-1945 | Unknown</p>
-<p class="datacard-special-rules">Desert Adapted, Reluctant Warriors, Thin Armor</p>
+<p class="datacard-subtitle"></p>
+<p class="datacard-subtitle"></p>
 </div>
 </div>
 
@@ -641,7 +633,6 @@
 <td>-</td>
 <td>-</td>
 </tr>
-
 </table>
 
 </div>
@@ -653,8 +644,8 @@
 </div>
 <div class="datacard-title-block">
 <p class="datacard-title">SM79 SPARVIERO</p>
-<p class="datacard-subtitle">1940-1945 | Aircraft</p>
-<p class="datacard-special-rules">Desert Adapted, Reluctant Warriors, Thin Armor</p>
+<p class="datacard-subtitle"></p>
+<p class="datacard-subtitle"></p>
 </div>
 </div>
 
@@ -689,7 +680,6 @@
 <td>-</td>
 <td>-</td>
 </tr>
-
 </table>
 
 </div>

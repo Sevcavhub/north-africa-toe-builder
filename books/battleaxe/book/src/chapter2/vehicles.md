@@ -221,8 +221,8 @@
 </div>
 <div class="datacard-title-block">
 <p class="datacard-title">AUSTIN K2</p>
-<p class="datacard-subtitle">1940-1945 | Vehicle</p>
-<p class="datacard-special-rules">British Resolve, Desert Adapted, Thin Armor</p>
+<p class="datacard-subtitle"></p>
+<p class="datacard-subtitle"></p>
 </div>
 </div>
 
@@ -257,7 +257,6 @@
 <td>-</td>
 <td>-</td>
 </tr>
-
 </table>
 
 </div>
@@ -269,8 +268,8 @@
 </div>
 <div class="datacard-title-block">
 <p class="datacard-title">BEDFORD MW</p>
-<p class="datacard-subtitle">1940-1945 | Vehicle</p>
-<p class="datacard-special-rules">British Resolve, Desert Adapted, Thin Armor</p>
+<p class="datacard-subtitle"></p>
+<p class="datacard-subtitle"></p>
 </div>
 </div>
 
@@ -305,7 +304,6 @@
 <td>-</td>
 <td>-</td>
 </tr>
-
 </table>
 
 </div>
@@ -317,8 +315,8 @@
 </div>
 <div class="datacard-title-block">
 <p class="datacard-title">BEDFORD MW 15CWT</p>
-<p class="datacard-subtitle">1940-1945 | Vehicle</p>
-<p class="datacard-special-rules">British Resolve, Desert Adapted, Thin Armor</p>
+<p class="datacard-subtitle"></p>
+<p class="datacard-subtitle"></p>
 </div>
 </div>
 
@@ -353,7 +351,6 @@
 <td>-</td>
 <td>-</td>
 </tr>
-
 </table>
 
 </div>
@@ -365,8 +362,8 @@
 </div>
 <div class="datacard-title-block">
 <p class="datacard-title">BEDFORD QL</p>
-<p class="datacard-subtitle">1940-1945 | Vehicle</p>
-<p class="datacard-special-rules">British Resolve, Desert Adapted, Thin Armor</p>
+<p class="datacard-subtitle"></p>
+<p class="datacard-subtitle"></p>
 </div>
 </div>
 
@@ -401,7 +398,6 @@
 <td>-</td>
 <td>-</td>
 </tr>
-
 </table>
 
 </div>
@@ -413,8 +409,8 @@
 </div>
 <div class="datacard-title-block">
 <p class="datacard-title">CMP CHEVROLET</p>
-<p class="datacard-subtitle">1940-1945 | Vehicle</p>
-<p class="datacard-special-rules">British Resolve, Desert Adapted, Thin Armor</p>
+<p class="datacard-subtitle"></p>
+<p class="datacard-subtitle"></p>
 </div>
 </div>
 
@@ -449,7 +445,6 @@
 <td>-</td>
 <td>-</td>
 </tr>
-
 </table>
 
 </div>
@@ -461,8 +456,8 @@
 </div>
 <div class="datacard-title-block">
 <p class="datacard-title">CMP TRUCKS (ALL VARIANTS)</p>
-<p class="datacard-subtitle">1940-1945 | Vehicle</p>
-<p class="datacard-special-rules">British Resolve, Desert Adapted, Thin Armor, Transport</p>
+<p class="datacard-subtitle"></p>
+<p class="datacard-subtitle"></p>
 </div>
 </div>
 
@@ -497,7 +492,6 @@
 <td>-</td>
 <td>-</td>
 </tr>
-
 </table>
 
 </div>
@@ -509,8 +503,8 @@
 </div>
 <div class="datacard-title-block">
 <p class="datacard-title">CHEVROLET C30 CMP</p>
-<p class="datacard-subtitle">1940-1945 | Vehicle</p>
-<p class="datacard-special-rules">British Resolve, Desert Adapted, Thin Armor</p>
+<p class="datacard-subtitle"></p>
+<p class="datacard-subtitle"></p>
 </div>
 </div>
 
@@ -545,7 +539,6 @@
 <td>-</td>
 <td>-</td>
 </tr>
-
 </table>
 
 </div>
@@ -556,9 +549,9 @@
 <span style="color: white; font-size: 10px;">🔲</span>
 </div>
 <div class="datacard-title-block">
-<p class="datacard-title">HUMBER MK I</p>
-<p class="datacard-subtitle">1940-1945 | Armored Car</p>
-<p class="datacard-special-rules">British Resolve, Desert Adapted, Thin Armor</p>
+<p class="datacard-title">HUMBER II</p>
+<p class="datacard-subtitle">1941-1945</p>
+<p class="datacard-subtitle">Scout armoured car</p>
 </div>
 </div>
 
@@ -584,18 +577,60 @@
 <tr>
 <td>Armored Car</td>
 <td>8"</td>
-<td>12"</td>
+<td>24"</td>
 <td>-</td>
 <td>N</td>
 <td>O</td>
 <td>O</td>
-<td>None</td>
+<td>15mm Besa</td>
+<td>Turret</td>
+<td>18</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>MG</td>
+<td>Co-Axial</td>
 <td>-</td>
+</tr>
+</table>
+
+<table>
+<tr>
+<th class="main-header">WEAPON</th>
+<th class="main-header">AMMO</th>
+<th class="main-header">HE</th>
+<th class="main-header" colspan="6">RANGE</th>
+</tr>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th>0-10"</th>
+<th>10-20"</th>
+<th>20-30"</th>
+<th>30-40"</th>
+<th>40-50"</th>
+<th>50-70"</th>
+</tr>
+<tr>
+<td>15mm Besa</td>
+<td>AP</td>
+<td>-</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
 <td>-</td>
 </tr>
 
 </table>
-
 </div>
 
 <div class="datacard datacard-british">
@@ -605,8 +640,8 @@
 </div>
 <div class="datacard-title-block">
 <p class="datacard-title">HUMBER SCOUT CAR</p>
-<p class="datacard-subtitle">1940-1945 | Armored Car</p>
-<p class="datacard-special-rules">British Resolve, Desert Adapted, Recce, Thin Armor</p>
+<p class="datacard-subtitle">1942-45</p>
+<p class="datacard-subtitle"></p>
 </div>
 </div>
 
@@ -631,17 +666,16 @@
 </tr>
 <tr>
 <td>Armored Car</td>
-<td>10"</td>
+<td>8"</td>
 <td>24"</td>
 <td>-</td>
-<td>N</td>
 <td>O</td>
 <td>O</td>
-<td>None</td>
-<td>-</td>
+<td>O</td>
+<td>LMG</td>
+<td>Hull</td>
 <td>-</td>
 </tr>
-
 </table>
 
 </div>
@@ -652,9 +686,9 @@
 <span style="color: white; font-size: 10px;">🔲</span>
 </div>
 <div class="datacard-title-block">
-<p class="datacard-title">MARMON-HERRINGTON</p>
-<p class="datacard-subtitle">1940-1945 | Armored Car</p>
-<p class="datacard-special-rules">British Resolve, Desert Adapted, Thin Armor</p>
+<p class="datacard-title">MARMON HERRINGTON I</p>
+<p class="datacard-subtitle">1940-41</p>
+<p class="datacard-subtitle">Early South African armoured car</p>
 </div>
 </div>
 
@@ -682,14 +716,23 @@
 <td>8"</td>
 <td>12"</td>
 <td>-</td>
-<td>N</td>
 <td>O</td>
 <td>O</td>
-<td>None</td>
-<td>-</td>
+<td>O</td>
+<td>MG</td>
+<td>Turret</td>
 <td>-</td>
 </tr>
-
+<tr class="armor-modifier-row">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td colspan="3" style="text-align: center; font-style: italic; font-size: 7px;">Open-Topped</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
 </table>
 
 </div>
@@ -701,8 +744,8 @@
 </div>
 <div class="datacard-title-block">
 <p class="datacard-title">MORRIS C8</p>
-<p class="datacard-subtitle">1940-1945 | Vehicle</p>
-<p class="datacard-special-rules">British Resolve, Desert Adapted, Thin Armor</p>
+<p class="datacard-subtitle"></p>
+<p class="datacard-subtitle"></p>
 </div>
 </div>
 
@@ -737,7 +780,6 @@
 <td>-</td>
 <td>-</td>
 </tr>
-
 </table>
 
 </div>
@@ -749,8 +791,8 @@
 </div>
 <div class="datacard-title-block">
 <p class="datacard-title">MORRIS CS9</p>
-<p class="datacard-subtitle">1940-1945 | Armored Car</p>
-<p class="datacard-special-rules">British Resolve, Desert Adapted, Thin Armor</p>
+<p class="datacard-subtitle">1940-41</p>
+<p class="datacard-subtitle">Light armoured car</p>
 </div>
 </div>
 
@@ -778,16 +820,58 @@
 <td>8"</td>
 <td>12"</td>
 <td>-</td>
-<td>N</td>
 <td>O</td>
 <td>O</td>
-<td>None</td>
+<td>O</td>
+<td>Boys AT-rifle</td>
+<td>Turret</td>
+<td>10</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>MG</td>
+<td>Co-Axial</td>
+<td>-</td>
+</tr>
+</table>
+
+<table>
+<tr>
+<th class="main-header">WEAPON</th>
+<th class="main-header">AMMO</th>
+<th class="main-header">HE</th>
+<th class="main-header" colspan="6">RANGE</th>
+</tr>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th>0-10"</th>
+<th>10-20"</th>
+<th>20-30"</th>
+<th>30-40"</th>
+<th>40-50"</th>
+<th>50-70"</th>
+</tr>
+<tr>
+<td>Boys AT-rifle</td>
+<td>AP</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
 <td>-</td>
 <td>-</td>
 </tr>
 
 </table>
-
 </div>
 
 <div class="datacard datacard-british">
@@ -796,9 +880,9 @@
 <span style="color: white; font-size: 10px;">🔲</span>
 </div>
 <div class="datacard-title-block">
-<p class="datacard-title">ROLLS-ROYCE</p>
-<p class="datacard-subtitle">1940-1945 | Armored Car</p>
-<p class="datacard-special-rules">British Resolve, Desert Adapted, Thin Armor</p>
+<p class="datacard-title">ROLLS ROYCE ARMOURED CAR</p>
+<p class="datacard-subtitle">1939-41</p>
+<p class="datacard-subtitle">WWI car modified for desert</p>
 </div>
 </div>
 
@@ -826,16 +910,68 @@
 <td>8"</td>
 <td>12"</td>
 <td>-</td>
-<td>N</td>
 <td>O</td>
 <td>O</td>
-<td>None</td>
+<td>O</td>
+<td>Boys AT-rifle</td>
+<td>Turret</td>
+<td>10</td>
+</tr>
+<tr class="armor-modifier-row">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td colspan="3" style="text-align: center; font-style: italic; font-size: 7px;">Open-Topped</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>LMG</td>
+<td>Co-Axial</td>
+<td>-</td>
+</tr>
+</table>
+
+<table>
+<tr>
+<th class="main-header">WEAPON</th>
+<th class="main-header">AMMO</th>
+<th class="main-header">HE</th>
+<th class="main-header" colspan="6">RANGE</th>
+</tr>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th>0-10"</th>
+<th>10-20"</th>
+<th>20-30"</th>
+<th>30-40"</th>
+<th>40-50"</th>
+<th>50-70"</th>
+</tr>
+<tr>
+<td>Boys AT-rifle</td>
+<td>AP</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
 <td>-</td>
 <td>-</td>
 </tr>
 
 </table>
-
 </div>
 
 <div class="datacard datacard-british">
@@ -845,8 +981,8 @@
 </div>
 <div class="datacard-title-block">
 <p class="datacard-title">SCAMMELL PIONEER</p>
-<p class="datacard-subtitle">1940-1945 | Vehicle</p>
-<p class="datacard-special-rules">British Resolve, Desert Adapted, Thin Armor</p>
+<p class="datacard-subtitle"></p>
+<p class="datacard-subtitle"></p>
 </div>
 </div>
 
@@ -881,7 +1017,6 @@
 <td>-</td>
 <td>-</td>
 </tr>
-
 </table>
 
 </div>
@@ -893,8 +1028,8 @@
 </div>
 <div class="datacard-title-block">
 <p class="datacard-title">UNIVERSAL CARRIER</p>
-<p class="datacard-subtitle">1940-1945 | Vehicle</p>
-<p class="datacard-special-rules">British Resolve, Desert Adapted, Thin Armor</p>
+<p class="datacard-subtitle"></p>
+<p class="datacard-subtitle"></p>
 </div>
 </div>
 
@@ -929,7 +1064,6 @@
 <td>-</td>
 <td>-</td>
 </tr>
-
 </table>
 
 </div>
@@ -941,8 +1075,8 @@
 </div>
 <div class="datacard-title-block">
 <p class="datacard-title">HENSCHEL TYPE 33G1</p>
-<p class="datacard-subtitle">1940-1945 | Vehicle</p>
-<p class="datacard-special-rules">Desert Adapted, German Tactical Doctrine, Thin Armor</p>
+<p class="datacard-subtitle"></p>
+<p class="datacard-subtitle"></p>
 </div>
 </div>
 
@@ -977,7 +1111,6 @@
 <td>-</td>
 <td>-</td>
 </tr>
-
 </table>
 
 </div>
@@ -989,8 +1122,8 @@
 </div>
 <div class="datacard-title-block">
 <p class="datacard-title">WORKSHOP VEHICLES</p>
-<p class="datacard-subtitle">1940-1945 | Vehicle</p>
-<p class="datacard-special-rules">Desert Adapted, German Tactical Doctrine, Thin Armor</p>
+<p class="datacard-subtitle"></p>
+<p class="datacard-subtitle"></p>
 </div>
 </div>
 
@@ -1025,7 +1158,6 @@
 <td>-</td>
 <td>-</td>
 </tr>
-
 </table>
 
 </div>
@@ -1037,8 +1169,8 @@
 </div>
 <div class="datacard-title-block">
 <p class="datacard-title">AB40</p>
-<p class="datacard-subtitle">1940-1945 | Armored Car</p>
-<p class="datacard-special-rules">Desert Adapted, Reluctant Warriors, Thin Armor</p>
+<p class="datacard-subtitle"></p>
+<p class="datacard-subtitle"></p>
 </div>
 </div>
 
@@ -1073,7 +1205,6 @@
 <td>-</td>
 <td>-</td>
 </tr>
-
 </table>
 
 </div>
@@ -1085,8 +1216,8 @@
 </div>
 <div class="datacard-title-block">
 <p class="datacard-title">AB41</p>
-<p class="datacard-subtitle">1940-1945 | Armored Car</p>
-<p class="datacard-special-rules">Desert Adapted, Reluctant Warriors, Thin Armor</p>
+<p class="datacard-subtitle"></p>
+<p class="datacard-subtitle"></p>
 </div>
 </div>
 
@@ -1121,7 +1252,6 @@
 <td>-</td>
 <td>-</td>
 </tr>
-
 </table>
 
 </div>
@@ -1133,8 +1263,8 @@
 </div>
 <div class="datacard-title-block">
 <p class="datacard-title">ALFA ROMEO 6C 2500 COLONIALE</p>
-<p class="datacard-subtitle">1940-1945 | Vehicle</p>
-<p class="datacard-special-rules">Desert Adapted, Reluctant Warriors, Thin Armor</p>
+<p class="datacard-subtitle"></p>
+<p class="datacard-subtitle"></p>
 </div>
 </div>
 
@@ -1169,7 +1299,6 @@
 <td>-</td>
 <td>-</td>
 </tr>
-
 </table>
 
 </div>
@@ -1181,8 +1310,8 @@
 </div>
 <div class="datacard-title-block">
 <p class="datacard-title">ALFA ROMEO 800RE</p>
-<p class="datacard-subtitle">1940-1945 | Vehicle</p>
-<p class="datacard-special-rules">Desert Adapted, Reluctant Warriors, Thin Armor</p>
+<p class="datacard-subtitle"></p>
+<p class="datacard-subtitle"></p>
 </div>
 </div>
 
@@ -1217,7 +1346,6 @@
 <td>-</td>
 <td>-</td>
 </tr>
-
 </table>
 
 </div>
@@ -1229,8 +1357,8 @@
 </div>
 <div class="datacard-title-block">
 <p class="datacard-title">FIAT 508C BALILLA</p>
-<p class="datacard-subtitle">1940-1945 | Vehicle</p>
-<p class="datacard-special-rules">Desert Adapted, Reluctant Warriors, Thin Armor</p>
+<p class="datacard-subtitle"></p>
+<p class="datacard-subtitle"></p>
 </div>
 </div>
 
@@ -1265,7 +1393,6 @@
 <td>-</td>
 <td>-</td>
 </tr>
-
 </table>
 
 </div>
@@ -1277,8 +1404,8 @@
 </div>
 <div class="datacard-title-block">
 <p class="datacard-title">FIAT 626 RECOVERY</p>
-<p class="datacard-subtitle">1940-1945 | Vehicle</p>
-<p class="datacard-special-rules">Desert Adapted, Recovery Vehicle, Reluctant Warriors, Thin Armor</p>
+<p class="datacard-subtitle"></p>
+<p class="datacard-subtitle"></p>
 </div>
 </div>
 
@@ -1313,7 +1440,6 @@
 <td>-</td>
 <td>-</td>
 </tr>
-
 </table>
 
 </div>
@@ -1325,8 +1451,8 @@
 </div>
 <div class="datacard-title-block">
 <p class="datacard-title">LANCIA 3RO</p>
-<p class="datacard-subtitle">1940-1945 | Vehicle</p>
-<p class="datacard-special-rules">Desert Adapted, Reluctant Warriors, Thin Armor</p>
+<p class="datacard-subtitle"></p>
+<p class="datacard-subtitle"></p>
 </div>
 </div>
 
@@ -1361,7 +1487,6 @@
 <td>-</td>
 <td>-</td>
 </tr>
-
 </table>
 
 </div>

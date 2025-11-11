@@ -657,7 +657,6 @@ class BookDatacardGenerator:
 
             # Extract text inside brackets for he_weight (e.g., "HE [VL]" -> "VL")
             if he_type and '[' in he_type and ']' in he_type:
-                import re
                 match = re.search(r'\[([^\]]+)\]', he_type)
                 he_weight = match.group(1) if match else he_type
             else:
@@ -946,7 +945,6 @@ class BookDatacardGenerator:
                         # Extract HE weight
                         he_type = sec_weapon_data['he_type'] or ''
                         if he_type and '[' in he_type and ']' in he_type:
-                            import re
                             match = re.search(r'\[([^\]]+)\]', he_type)
                             sec_he_weight = match.group(1) if match else he_type
                         else:
@@ -1314,9 +1312,12 @@ class BookDatacardGenerator:
 
 .datacard-title {
     font-weight: bold;
-    font-size: 18px;
+    font-size: 16px;
     margin: 0;
     line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .datacard-subtitle {
