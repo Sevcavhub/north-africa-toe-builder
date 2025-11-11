@@ -59,6 +59,26 @@ class ForcesMarkdownGenerator:
             return f"{int(num):,}"
         return str(num)
 
+    def safe_int(self, value, default=0) -> int:
+        """Safely extract integer from value that may be int, dict, or other type."""
+        if isinstance(value, int):
+            return value
+        elif isinstance(value, float):
+            return int(value)
+        elif isinstance(value, dict):
+            # Try common keys
+            for key in ['count', 'total', 'value']:
+                if key in value:
+                    return self.safe_int(value[key], default)
+            return default
+        elif isinstance(value, str):
+            try:
+                return int(value)
+            except (ValueError, TypeError):
+                return default
+        else:
+            return default
+
     def generate_all(self, nation: Optional[str] = None, echelon: Optional[str] = None) -> None:
         """Generate all markdown files."""
 
@@ -101,6 +121,9 @@ class ForcesMarkdownGenerator:
     def extract_tank_variants(self, tank_data: Dict) -> List[Dict]:
         """Extract variant-level tank details from nested JSON structure."""
         variants = []
+
+        if not isinstance(tank_data, dict):
+            return variants
 
         for category in ['heavy_tanks', 'medium_tanks', 'light_tanks']:
             if category not in tank_data:
@@ -213,11 +236,11 @@ class ForcesMarkdownGenerator:
         output_path = self.output_dir / nation / 'divisions' / filename
         output_path.parent.mkdir(parents=True, exist_ok=True)
 
-        # Extract data
-        total_personnel = unit_json.get('total_personnel', 0)
-        officers = unit_json.get('officers', 0)
-        ncos = unit_json.get('ncos', 0)
-        enlisted = unit_json.get('enlisted', 0)
+        # Extract data - use safe_int to handle inconsistent data types
+        total_personnel = self.safe_int(unit_json.get('total_personnel', 0))
+        officers = self.safe_int(unit_json.get('officers', 0))
+        ncos = self.safe_int(unit_json.get('ncos', 0))
+        enlisted = self.safe_int(unit_json.get('enlisted', 0))
 
         commander_data = unit_json.get('command', {}).get('commander', {})
         if isinstance(commander_data, str):
@@ -237,8 +260,9 @@ class ForcesMarkdownGenerator:
         tanks_data = unit_json.get('tanks', {})
         tank_variants = self.extract_tank_variants(tanks_data)
 
-        tank_total = tanks_data.get('total', {}).get('count', 0)
-        tank_operational = tanks_data.get('operational', {}).get('count', 0)
+        # Handle tank totals using safe_int
+        tank_total = self.safe_int(tanks_data.get('total', 0) if isinstance(tanks_data, dict) else 0)
+        tank_operational = self.safe_int(tanks_data.get('operational', 0) if isinstance(tanks_data, dict) else 0)
 
         # Extract artillery
         field_artillery = self.extract_artillery_variants(
