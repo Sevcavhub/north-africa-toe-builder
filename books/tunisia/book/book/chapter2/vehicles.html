@@ -1,0 +1,2307 @@
+<!DOCTYPE HTML>
+<html lang="en" class="rust sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Vehicles - Tunisia Campaign</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="British offensive to relieve Tobruk meets devastating German 88mm anti-tank guns">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../";
+            const default_light_theme = "rust";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('rust')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Tunisia Campaign</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="vehicles"><a class="header" href="#vehicles">Vehicles</a></h1>
+<style>
+@media print {
+    @page {
+        size: A4 landscape;
+        margin: 10mm;
+    }
+
+    .datacard-grid {
+        page-break-after: always;
+    }
+
+    .datacard {
+        page-break-inside: avoid;
+    }
+}
+
+.datacard-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.datacard {
+    border: 3px solid #2c2416;
+    padding: 8px;
+    background-color: #d4c5a0;
+    box-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    font-family: Arial, sans-serif;
+}
+
+/* Nation-Specific Color Themes */
+.datacard.datacard-german {
+    background-color: #797768;
+    border-color: #1a1a1a;
+}
+
+.datacard.datacard-german .datacard-title {
+    color: white;
+}
+
+.datacard.datacard-german .datacard-subtitle {
+    color: white;
+}
+
+.datacard.datacard-german .datacard-special-rules {
+    color: white;
+}
+
+.datacard.datacard-german th {
+    background-color: #ECD1A2;
+    color: #1a1a1a;
+}
+
+.datacard.datacard-german td {
+    background-color: #e8dcc8;
+    color: #1a1a1a;
+}
+
+.datacard.datacard-british {
+    background-color: #d4c5a0;
+    border-color: #2c2416;
+}
+
+.datacard.datacard-british th {
+    background-color: #8b7355;
+    color: white;
+}
+
+.datacard.datacard-british td {
+    background-color: #f5f5dc;
+    color: #1a1a1a;
+}
+
+.datacard.datacard-italian {
+    background-color: #c8b88a;
+    border-color: #5a4a2a;
+}
+
+.datacard.datacard-italian th {
+    background-color: #6b5d3f;
+    color: white;
+}
+
+.datacard.datacard-italian td {
+    background-color: #e8dcc0;
+    color: #1a1a1a;
+}
+
+.datacard.datacard-american {
+    background-color: #b8c5a0;
+    border-color: #3a4a2a;
+}
+
+.datacard.datacard-american th {
+    background-color: #5a6d45;
+    color: white;
+}
+
+.datacard.datacard-american td {
+    background-color: #dce8cf;
+    color: #1a1a1a;
+}
+
+.datacard.datacard-french {
+    background-color: #b8c4d4;
+    border-color: #2a3a4a;
+}
+
+.datacard.datacard-french th {
+    background-color: #4a5a6d;
+    color: white;
+}
+
+.datacard.datacard-french td {
+    background-color: #d8e4f4;
+    color: #1a1a1a;
+}
+
+.datacard-header {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 8px;
+    align-items: center;
+}
+
+.datacard-silhouette {
+    width: 80px;
+    height: 60px;
+    background-color: #1a1a1a;
+    border: 1px solid #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.datacard-silhouette img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+}
+
+.datacard-title-block {
+    flex: 1;
+    text-align: right;
+}
+
+.datacard-title {
+    font-weight: bold;
+    font-size: 14px;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.datacard-subtitle {
+    font-size: 9px;
+    font-style: italic;
+    margin: 2px 0 0 0;
+    line-height: 1.2;
+}
+
+.datacard-special-rules {
+    font-size: 7px;
+    font-style: italic;
+    margin: 2px 0 0 0;
+    line-height: 1.2;
+    color: #5a4a3a;
+}
+
+.datacard table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2px 0;
+    font-size: 8px;
+}
+
+.datacard th {
+    background-color: #8b7355;
+    color: white;
+    font-weight: bold;
+    padding: 1px 2px;
+    border: 1px solid #2c2416;
+    text-align: center;
+    font-size: 7px;
+    line-height: 1.0;
+}
+
+.datacard td {
+    background-color: #f5f5dc;
+    border: 1px solid #2c2416;
+    padding: 1px 2px;
+    text-align: center;
+    font-size: 8px;
+    line-height: 1.0;
+}
+
+.datacard .main-header {
+    font-size: 8px;
+    font-weight: bold;
+}
+
+.armor-modifier-row td {
+    font-style: italic;
+    font-size: 7px;
+    padding: 1px 3px;
+}
+</style>
+<hr />
+<div class="datacard-grid">
+<div class="datacard datacard-american">
+<div class="datacard-header">
+<div class="datacard-silhouette">
+<span style="color: white; font-size: 10px;">🔲</span>
+</div>
+<div class="datacard-title-block">
+<p class="datacard-title">CHEVROLET G506</p>
+<p class="datacard-subtitle"></p>
+<p class="datacard-subtitle"></p>
+</div>
+</div>
+<table>
+<tr>
+<th class="main-header">VEHICLE</th>
+<th class="main-header" colspan="3">MOVEMENT</th>
+<th class="main-header" colspan="3">ARMOUR</th>
+<th class="main-header" colspan="3">ARMAMENT</th>
+</tr>
+<tr>
+<th></th>
+<th>Off-Road</th>
+<th>Road</th>
+<th>Special</th>
+<th>F</th>
+<th>S</th>
+<th>R</th>
+<th>Weapon</th>
+<th>Mount</th>
+<th>Ammo</th>
+</tr>
+<tr>
+<td>Vehicle</td>
+<td>8"</td>
+<td>12"</td>
+<td>-</td>
+<td>N</td>
+<td>O</td>
+<td>O</td>
+<td>None</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</table>
+</div>
+<div class="datacard datacard-american">
+<div class="datacard-header">
+<div class="datacard-silhouette">
+<span style="color: white; font-size: 10px;">🔲</span>
+</div>
+<div class="datacard-title-block">
+<p class="datacard-title">DODGE WC-51</p>
+<p class="datacard-subtitle"></p>
+<p class="datacard-subtitle"></p>
+</div>
+</div>
+<table>
+<tr>
+<th class="main-header">VEHICLE</th>
+<th class="main-header" colspan="3">MOVEMENT</th>
+<th class="main-header" colspan="3">ARMOUR</th>
+<th class="main-header" colspan="3">ARMAMENT</th>
+</tr>
+<tr>
+<th></th>
+<th>Off-Road</th>
+<th>Road</th>
+<th>Special</th>
+<th>F</th>
+<th>S</th>
+<th>R</th>
+<th>Weapon</th>
+<th>Mount</th>
+<th>Ammo</th>
+</tr>
+<tr>
+<td>Vehicle</td>
+<td>8"</td>
+<td>12"</td>
+<td>-</td>
+<td>N</td>
+<td>O</td>
+<td>O</td>
+<td>None</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</table>
+</div>
+<div class="datacard datacard-american">
+<div class="datacard-header">
+<div class="datacard-silhouette">
+<span style="color: white; font-size: 10px;">🔲</span>
+</div>
+<div class="datacard-title-block">
+<p class="datacard-title">DODGE WC62</p>
+<p class="datacard-subtitle"></p>
+<p class="datacard-subtitle"></p>
+</div>
+</div>
+<table>
+<tr>
+<th class="main-header">VEHICLE</th>
+<th class="main-header" colspan="3">MOVEMENT</th>
+<th class="main-header" colspan="3">ARMOUR</th>
+<th class="main-header" colspan="3">ARMAMENT</th>
+</tr>
+<tr>
+<th></th>
+<th>Off-Road</th>
+<th>Road</th>
+<th>Special</th>
+<th>F</th>
+<th>S</th>
+<th>R</th>
+<th>Weapon</th>
+<th>Mount</th>
+<th>Ammo</th>
+</tr>
+<tr>
+<td>Vehicle</td>
+<td>8"</td>
+<td>12"</td>
+<td>-</td>
+<td>N</td>
+<td>O</td>
+<td>O</td>
+<td>None</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</table>
+</div>
+<div class="datacard datacard-american">
+<div class="datacard-header">
+<div class="datacard-silhouette">
+<span style="color: white; font-size: 10px;">🔲</span>
+</div>
+<div class="datacard-title-block">
+<p class="datacard-title">GMC CCKW-352</p>
+<p class="datacard-subtitle"></p>
+<p class="datacard-subtitle"></p>
+</div>
+</div>
+<table>
+<tr>
+<th class="main-header">VEHICLE</th>
+<th class="main-header" colspan="3">MOVEMENT</th>
+<th class="main-header" colspan="3">ARMOUR</th>
+<th class="main-header" colspan="3">ARMAMENT</th>
+</tr>
+<tr>
+<th></th>
+<th>Off-Road</th>
+<th>Road</th>
+<th>Special</th>
+<th>F</th>
+<th>S</th>
+<th>R</th>
+<th>Weapon</th>
+<th>Mount</th>
+<th>Ammo</th>
+</tr>
+<tr>
+<td>Vehicle</td>
+<td>8"</td>
+<td>12"</td>
+<td>-</td>
+<td>N</td>
+<td>O</td>
+<td>O</td>
+<td>None</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</table>
+</div>
+<div class="datacard datacard-american">
+<div class="datacard-header">
+<div class="datacard-silhouette">
+<span style="color: white; font-size: 10px;">🔲</span>
+</div>
+<div class="datacard-title-block">
+<p class="datacard-title">HARLEY-DAVIDSON WLA</p>
+<p class="datacard-subtitle"></p>
+<p class="datacard-subtitle"></p>
+</div>
+</div>
+<table>
+<tr>
+<th class="main-header">VEHICLE</th>
+<th class="main-header" colspan="3">MOVEMENT</th>
+<th class="main-header" colspan="3">ARMOUR</th>
+<th class="main-header" colspan="3">ARMAMENT</th>
+</tr>
+<tr>
+<th></th>
+<th>Off-Road</th>
+<th>Road</th>
+<th>Special</th>
+<th>F</th>
+<th>S</th>
+<th>R</th>
+<th>Weapon</th>
+<th>Mount</th>
+<th>Ammo</th>
+</tr>
+<tr>
+<td>Vehicle</td>
+<td>8"</td>
+<td>12"</td>
+<td>-</td>
+<td>N</td>
+<td>O</td>
+<td>O</td>
+<td>None</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</table>
+</div>
+<div class="datacard datacard-american">
+<div class="datacard-header">
+<div class="datacard-silhouette">
+<span style="color: white; font-size: 10px;">🔲</span>
+</div>
+<div class="datacard-title-block">
+<p class="datacard-title">JEEP COMMAND</p>
+<p class="datacard-subtitle"></p>
+<p class="datacard-subtitle"></p>
+</div>
+</div>
+<table>
+<tr>
+<th class="main-header">VEHICLE</th>
+<th class="main-header" colspan="3">MOVEMENT</th>
+<th class="main-header" colspan="3">ARMOUR</th>
+<th class="main-header" colspan="3">ARMAMENT</th>
+</tr>
+<tr>
+<th></th>
+<th>Off-Road</th>
+<th>Road</th>
+<th>Special</th>
+<th>F</th>
+<th>S</th>
+<th>R</th>
+<th>Weapon</th>
+<th>Mount</th>
+<th>Ammo</th>
+</tr>
+<tr>
+<td>Vehicle</td>
+<td>18"</td>
+<td>26"</td>
+<td>-</td>
+<td>N</td>
+<td>O</td>
+<td>O</td>
+<td>None</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</table>
+</div>
+<div class="datacard datacard-american">
+<div class="datacard-header">
+<div class="datacard-silhouette">
+<span style="color: white; font-size: 10px;">🔲</span>
+</div>
+<div class="datacard-title-block">
+<p class="datacard-title">M2 HALFTRACK</p>
+<p class="datacard-subtitle"></p>
+<p class="datacard-subtitle"></p>
+</div>
+</div>
+<table>
+<tr>
+<th class="main-header">VEHICLE</th>
+<th class="main-header" colspan="3">MOVEMENT</th>
+<th class="main-header" colspan="3">ARMOUR</th>
+<th class="main-header" colspan="3">ARMAMENT</th>
+</tr>
+<tr>
+<th></th>
+<th>Off-Road</th>
+<th>Road</th>
+<th>Special</th>
+<th>F</th>
+<th>S</th>
+<th>R</th>
+<th>Weapon</th>
+<th>Mount</th>
+<th>Ammo</th>
+</tr>
+<tr>
+<td>Halftrack</td>
+<td>8"</td>
+<td>12"</td>
+<td>-</td>
+<td>N</td>
+<td>O</td>
+<td>O</td>
+<td>None</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</table>
+</div>
+<div class="datacard datacard-american">
+<div class="datacard-header">
+<div class="datacard-silhouette">
+<span style="color: white; font-size: 10px;">🔲</span>
+</div>
+<div class="datacard-title-block">
+<p class="datacard-title">M4 HIGH SPEED TRACTOR</p>
+<p class="datacard-subtitle"></p>
+<p class="datacard-subtitle"></p>
+</div>
+</div>
+<table>
+<tr>
+<th class="main-header">VEHICLE</th>
+<th class="main-header" colspan="3">MOVEMENT</th>
+<th class="main-header" colspan="3">ARMOUR</th>
+<th class="main-header" colspan="3">ARMAMENT</th>
+</tr>
+<tr>
+<th></th>
+<th>Off-Road</th>
+<th>Road</th>
+<th>Special</th>
+<th>F</th>
+<th>S</th>
+<th>R</th>
+<th>Weapon</th>
+<th>Mount</th>
+<th>Ammo</th>
+</tr>
+<tr>
+<td>Unknown</td>
+<td>10"</td>
+<td>15"</td>
+<td>-</td>
+<td>Soft-Skinned</td>
+<td>-</td>
+<td>-</td>
+<td>None</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</table>
+</div>
+<div class="datacard datacard-american">
+<div class="datacard-header">
+<div class="datacard-silhouette">
+<span style="color: white; font-size: 10px;">🔲</span>
+</div>
+<div class="datacard-title-block">
+<p class="datacard-title">M8 GREYHOUND</p>
+<p class="datacard-subtitle"></p>
+<p class="datacard-subtitle"></p>
+</div>
+</div>
+<table>
+<tr>
+<th class="main-header">VEHICLE</th>
+<th class="main-header" colspan="3">MOVEMENT</th>
+<th class="main-header" colspan="3">ARMOUR</th>
+<th class="main-header" colspan="3">ARMAMENT</th>
+</tr>
+<tr>
+<th></th>
+<th>Off-Road</th>
+<th>Road</th>
+<th>Special</th>
+<th>F</th>
+<th>S</th>
+<th>R</th>
+<th>Weapon</th>
+<th>Mount</th>
+<th>Ammo</th>
+</tr>
+<tr>
+<td>Armored Car</td>
+<td>18"</td>
+<td>26"</td>
+<td>-</td>
+<td>N</td>
+<td>O</td>
+<td>O</td>
+<td>None</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</table>
+</div>
+<div class="datacard datacard-british">
+<div class="datacard-header">
+<div class="datacard-silhouette">
+<span style="color: white; font-size: 10px;">🔲</span>
+</div>
+<div class="datacard-title-block">
+<p class="datacard-title">A9 RECOVERY</p>
+<p class="datacard-subtitle"></p>
+<p class="datacard-subtitle"></p>
+</div>
+</div>
+<table>
+<tr>
+<th class="main-header">VEHICLE</th>
+<th class="main-header" colspan="3">MOVEMENT</th>
+<th class="main-header" colspan="3">ARMOUR</th>
+<th class="main-header" colspan="3">ARMAMENT</th>
+</tr>
+<tr>
+<th></th>
+<th>Off-Road</th>
+<th>Road</th>
+<th>Special</th>
+<th>F</th>
+<th>S</th>
+<th>R</th>
+<th>Weapon</th>
+<th>Mount</th>
+<th>Ammo</th>
+</tr>
+<tr>
+<td>Vehicle</td>
+<td>8"</td>
+<td>12"</td>
+<td>-</td>
+<td>N</td>
+<td>O</td>
+<td>O</td>
+<td>None</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</table>
+</div>
+<div class="datacard datacard-british">
+<div class="datacard-header">
+<div class="datacard-silhouette">
+<span style="color: white; font-size: 10px;">🔲</span>
+</div>
+<div class="datacard-title-block">
+<p class="datacard-title">AUSTIN K2</p>
+<p class="datacard-subtitle"></p>
+<p class="datacard-subtitle"></p>
+</div>
+</div>
+<table>
+<tr>
+<th class="main-header">VEHICLE</th>
+<th class="main-header" colspan="3">MOVEMENT</th>
+<th class="main-header" colspan="3">ARMOUR</th>
+<th class="main-header" colspan="3">ARMAMENT</th>
+</tr>
+<tr>
+<th></th>
+<th>Off-Road</th>
+<th>Road</th>
+<th>Special</th>
+<th>F</th>
+<th>S</th>
+<th>R</th>
+<th>Weapon</th>
+<th>Mount</th>
+<th>Ammo</th>
+</tr>
+<tr>
+<td>Vehicle</td>
+<td>6"</td>
+<td>24"</td>
+<td>-</td>
+<td>Soft-Skinned</td>
+<td>-</td>
+<td>-</td>
+<td>None</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</table>
+</div>
+<div class="datacard datacard-british">
+<div class="datacard-header">
+<div class="datacard-silhouette">
+<span style="color: white; font-size: 10px;">🔲</span>
+</div>
+<div class="datacard-title-block">
+<p class="datacard-title">BEDFORD MW</p>
+<p class="datacard-subtitle"></p>
+<p class="datacard-subtitle"></p>
+</div>
+</div>
+<table>
+<tr>
+<th class="main-header">VEHICLE</th>
+<th class="main-header" colspan="3">MOVEMENT</th>
+<th class="main-header" colspan="3">ARMOUR</th>
+<th class="main-header" colspan="3">ARMAMENT</th>
+</tr>
+<tr>
+<th></th>
+<th>Off-Road</th>
+<th>Road</th>
+<th>Special</th>
+<th>F</th>
+<th>S</th>
+<th>R</th>
+<th>Weapon</th>
+<th>Mount</th>
+<th>Ammo</th>
+</tr>
+<tr>
+<td>Vehicle</td>
+<td>6"</td>
+<td>24"</td>
+<td>-</td>
+<td>Soft-Skinned</td>
+<td>-</td>
+<td>-</td>
+<td>None</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</table>
+</div>
+<div class="datacard datacard-british">
+<div class="datacard-header">
+<div class="datacard-silhouette">
+<span style="color: white; font-size: 10px;">🔲</span>
+</div>
+<div class="datacard-title-block">
+<p class="datacard-title">BEDFORD MW 15CWT</p>
+<p class="datacard-subtitle"></p>
+<p class="datacard-subtitle"></p>
+</div>
+</div>
+<table>
+<tr>
+<th class="main-header">VEHICLE</th>
+<th class="main-header" colspan="3">MOVEMENT</th>
+<th class="main-header" colspan="3">ARMOUR</th>
+<th class="main-header" colspan="3">ARMAMENT</th>
+</tr>
+<tr>
+<th></th>
+<th>Off-Road</th>
+<th>Road</th>
+<th>Special</th>
+<th>F</th>
+<th>S</th>
+<th>R</th>
+<th>Weapon</th>
+<th>Mount</th>
+<th>Ammo</th>
+</tr>
+<tr>
+<td>Vehicle</td>
+<td>8"</td>
+<td>12"</td>
+<td>-</td>
+<td>N</td>
+<td>O</td>
+<td>O</td>
+<td>None</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</table>
+</div>
+<div class="datacard datacard-british">
+<div class="datacard-header">
+<div class="datacard-silhouette">
+<span style="color: white; font-size: 10px;">🔲</span>
+</div>
+<div class="datacard-title-block">
+<p class="datacard-title">BEDFORD QL RECOVERY</p>
+<p class="datacard-subtitle"></p>
+<p class="datacard-subtitle"></p>
+</div>
+</div>
+<table>
+<tr>
+<th class="main-header">VEHICLE</th>
+<th class="main-header" colspan="3">MOVEMENT</th>
+<th class="main-header" colspan="3">ARMOUR</th>
+<th class="main-header" colspan="3">ARMAMENT</th>
+</tr>
+<tr>
+<th></th>
+<th>Off-Road</th>
+<th>Road</th>
+<th>Special</th>
+<th>F</th>
+<th>S</th>
+<th>R</th>
+<th>Weapon</th>
+<th>Mount</th>
+<th>Ammo</th>
+</tr>
+<tr>
+<td>Vehicle</td>
+<td>8"</td>
+<td>12"</td>
+<td>-</td>
+<td>N</td>
+<td>O</td>
+<td>O</td>
+<td>None</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</table>
+</div>
+<div class="datacard datacard-british">
+<div class="datacard-header">
+<div class="datacard-silhouette">
+<span style="color: white; font-size: 10px;">🔲</span>
+</div>
+<div class="datacard-title-block">
+<p class="datacard-title">CMP CHEVROLET</p>
+<p class="datacard-subtitle"></p>
+<p class="datacard-subtitle"></p>
+</div>
+</div>
+<table>
+<tr>
+<th class="main-header">VEHICLE</th>
+<th class="main-header" colspan="3">MOVEMENT</th>
+<th class="main-header" colspan="3">ARMOUR</th>
+<th class="main-header" colspan="3">ARMAMENT</th>
+</tr>
+<tr>
+<th></th>
+<th>Off-Road</th>
+<th>Road</th>
+<th>Special</th>
+<th>F</th>
+<th>S</th>
+<th>R</th>
+<th>Weapon</th>
+<th>Mount</th>
+<th>Ammo</th>
+</tr>
+<tr>
+<td>Vehicle</td>
+<td>8"</td>
+<td>12"</td>
+<td>-</td>
+<td>N</td>
+<td>O</td>
+<td>O</td>
+<td>None</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</table>
+</div>
+<div class="datacard datacard-british">
+<div class="datacard-header">
+<div class="datacard-silhouette">
+<span style="color: white; font-size: 10px;">🔲</span>
+</div>
+<div class="datacard-title-block">
+<p class="datacard-title">CMP TRUCKS (ALL VARIANTS)</p>
+<p class="datacard-subtitle"></p>
+<p class="datacard-subtitle"></p>
+</div>
+</div>
+<table>
+<tr>
+<th class="main-header">VEHICLE</th>
+<th class="main-header" colspan="3">MOVEMENT</th>
+<th class="main-header" colspan="3">ARMOUR</th>
+<th class="main-header" colspan="3">ARMAMENT</th>
+</tr>
+<tr>
+<th></th>
+<th>Off-Road</th>
+<th>Road</th>
+<th>Special</th>
+<th>F</th>
+<th>S</th>
+<th>R</th>
+<th>Weapon</th>
+<th>Mount</th>
+<th>Ammo</th>
+</tr>
+<tr>
+<td>Vehicle</td>
+<td>8"</td>
+<td>12"</td>
+<td>-</td>
+<td>N</td>
+<td>O</td>
+<td>O</td>
+<td>None</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</table>
+</div>
+<div class="datacard datacard-british">
+<div class="datacard-header">
+<div class="datacard-silhouette">
+<span style="color: white; font-size: 10px;">🔲</span>
+</div>
+<div class="datacard-title-block">
+<p class="datacard-title">CHEVROLET C15A</p>
+<p class="datacard-subtitle"></p>
+<p class="datacard-subtitle"></p>
+</div>
+</div>
+<table>
+<tr>
+<th class="main-header">VEHICLE</th>
+<th class="main-header" colspan="3">MOVEMENT</th>
+<th class="main-header" colspan="3">ARMOUR</th>
+<th class="main-header" colspan="3">ARMAMENT</th>
+</tr>
+<tr>
+<th></th>
+<th>Off-Road</th>
+<th>Road</th>
+<th>Special</th>
+<th>F</th>
+<th>S</th>
+<th>R</th>
+<th>Weapon</th>
+<th>Mount</th>
+<th>Ammo</th>
+</tr>
+<tr>
+<td>Vehicle</td>
+<td>8"</td>
+<td>12"</td>
+<td>-</td>
+<td>N</td>
+<td>O</td>
+<td>O</td>
+<td>None</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</table>
+</div>
+<div class="datacard datacard-british">
+<div class="datacard-header">
+<div class="datacard-silhouette">
+<span style="color: white; font-size: 10px;">🔲</span>
+</div>
+<div class="datacard-title-block">
+<p class="datacard-title">DAIMLER ARMORED CAR</p>
+<p class="datacard-subtitle"></p>
+<p class="datacard-subtitle"></p>
+</div>
+</div>
+<table>
+<tr>
+<th class="main-header">VEHICLE</th>
+<th class="main-header" colspan="3">MOVEMENT</th>
+<th class="main-header" colspan="3">ARMOUR</th>
+<th class="main-header" colspan="3">ARMAMENT</th>
+</tr>
+<tr>
+<th></th>
+<th>Off-Road</th>
+<th>Road</th>
+<th>Special</th>
+<th>F</th>
+<th>S</th>
+<th>R</th>
+<th>Weapon</th>
+<th>Mount</th>
+<th>Ammo</th>
+</tr>
+<tr>
+<td>Armored Car</td>
+<td>8"</td>
+<td>24"</td>
+<td>-</td>
+<td>N</td>
+<td>O</td>
+<td>O</td>
+<td>None</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</table>
+</div>
+<div class="datacard datacard-british">
+<div class="datacard-header">
+<div class="datacard-silhouette">
+<span style="color: white; font-size: 10px;">🔲</span>
+</div>
+<div class="datacard-title-block">
+<p class="datacard-title">GUY QUAD ANT</p>
+<p class="datacard-subtitle"></p>
+<p class="datacard-subtitle"></p>
+</div>
+</div>
+<table>
+<tr>
+<th class="main-header">VEHICLE</th>
+<th class="main-header" colspan="3">MOVEMENT</th>
+<th class="main-header" colspan="3">ARMOUR</th>
+<th class="main-header" colspan="3">ARMAMENT</th>
+</tr>
+<tr>
+<th></th>
+<th>Off-Road</th>
+<th>Road</th>
+<th>Special</th>
+<th>F</th>
+<th>S</th>
+<th>R</th>
+<th>Weapon</th>
+<th>Mount</th>
+<th>Ammo</th>
+</tr>
+<tr>
+<td>Vehicle</td>
+<td>8"</td>
+<td>12"</td>
+<td>-</td>
+<td>N</td>
+<td>O</td>
+<td>O</td>
+<td>None</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</table>
+</div>
+<div class="datacard datacard-british">
+<div class="datacard-header">
+<div class="datacard-silhouette">
+<span style="color: white; font-size: 10px;">🔲</span>
+</div>
+<div class="datacard-title-block">
+<p class="datacard-title">HUMBER II</p>
+<p class="datacard-subtitle">1941-1945</p>
+<p class="datacard-subtitle">Scout armoured car</p>
+</div>
+</div>
+<table>
+<tr>
+<th class="main-header">VEHICLE</th>
+<th class="main-header" colspan="3">MOVEMENT</th>
+<th class="main-header" colspan="3">ARMOUR</th>
+<th class="main-header" colspan="3">ARMAMENT</th>
+</tr>
+<tr>
+<th></th>
+<th>Off-Road</th>
+<th>Road</th>
+<th>Special</th>
+<th>F</th>
+<th>S</th>
+<th>R</th>
+<th>Weapon</th>
+<th>Mount</th>
+<th>Ammo</th>
+</tr>
+<tr>
+<td>Armored Car</td>
+<td>8"</td>
+<td>24"</td>
+<td>-</td>
+<td>N</td>
+<td>O</td>
+<td>O</td>
+<td>15mm Besa</td>
+<td>Turret</td>
+<td>18</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>MG</td>
+<td>Co-Axial</td>
+<td>-</td>
+</tr>
+</table>
+<table>
+<tr>
+<th class="main-header">WEAPON</th>
+<th class="main-header">AMMO</th>
+<th class="main-header">HE</th>
+<th class="main-header" colspan="6">RANGE</th>
+</tr>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th>0-10"</th>
+<th>10-20"</th>
+<th>20-30"</th>
+<th>30-40"</th>
+<th>40-50"</th>
+<th>50-70"</th>
+</tr>
+<tr>
+<td>15mm Besa</td>
+<td>AP</td>
+<td>-</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>-</td>
+</tr>
+</table>
+</div>
+<div class="datacard datacard-british">
+<div class="datacard-header">
+<div class="datacard-silhouette">
+<span style="color: white; font-size: 10px;">🔲</span>
+</div>
+<div class="datacard-title-block">
+<p class="datacard-title">HUMBER SCOUT CAR</p>
+<p class="datacard-subtitle">1942-45</p>
+<p class="datacard-subtitle"></p>
+</div>
+</div>
+<table>
+<tr>
+<th class="main-header">VEHICLE</th>
+<th class="main-header" colspan="3">MOVEMENT</th>
+<th class="main-header" colspan="3">ARMOUR</th>
+<th class="main-header" colspan="3">ARMAMENT</th>
+</tr>
+<tr>
+<th></th>
+<th>Off-Road</th>
+<th>Road</th>
+<th>Special</th>
+<th>F</th>
+<th>S</th>
+<th>R</th>
+<th>Weapon</th>
+<th>Mount</th>
+<th>Ammo</th>
+</tr>
+<tr>
+<td>Armored Car</td>
+<td>8"</td>
+<td>24"</td>
+<td>-</td>
+<td>O</td>
+<td>O</td>
+<td>O</td>
+<td>LMG</td>
+<td>Hull</td>
+<td>-</td>
+</tr>
+</table>
+</div>
+<div class="datacard datacard-british">
+<div class="datacard-header">
+<div class="datacard-silhouette">
+<span style="color: white; font-size: 10px;">🔲</span>
+</div>
+<div class="datacard-title-block">
+<p class="datacard-title">INTERNATIONAL M5-6-318</p>
+<p class="datacard-subtitle"></p>
+<p class="datacard-subtitle"></p>
+</div>
+</div>
+<table>
+<tr>
+<th class="main-header">VEHICLE</th>
+<th class="main-header" colspan="3">MOVEMENT</th>
+<th class="main-header" colspan="3">ARMOUR</th>
+<th class="main-header" colspan="3">ARMAMENT</th>
+</tr>
+<tr>
+<th></th>
+<th>Off-Road</th>
+<th>Road</th>
+<th>Special</th>
+<th>F</th>
+<th>S</th>
+<th>R</th>
+<th>Weapon</th>
+<th>Mount</th>
+<th>Ammo</th>
+</tr>
+<tr>
+<td>Vehicle</td>
+<td>8"</td>
+<td>12"</td>
+<td>-</td>
+<td>N</td>
+<td>O</td>
+<td>O</td>
+<td>None</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</table>
+</div>
+<div class="datacard datacard-british">
+<div class="datacard-header">
+<div class="datacard-silhouette">
+<span style="color: white; font-size: 10px;">🔲</span>
+</div>
+<div class="datacard-title-block">
+<p class="datacard-title">MARMON HERRINGTON I</p>
+<p class="datacard-subtitle">1940-41</p>
+<p class="datacard-subtitle">Early South African armoured car</p>
+</div>
+</div>
+<table>
+<tr>
+<th class="main-header">VEHICLE</th>
+<th class="main-header" colspan="3">MOVEMENT</th>
+<th class="main-header" colspan="3">ARMOUR</th>
+<th class="main-header" colspan="3">ARMAMENT</th>
+</tr>
+<tr>
+<th></th>
+<th>Off-Road</th>
+<th>Road</th>
+<th>Special</th>
+<th>F</th>
+<th>S</th>
+<th>R</th>
+<th>Weapon</th>
+<th>Mount</th>
+<th>Ammo</th>
+</tr>
+<tr>
+<td>Armored Car</td>
+<td>8"</td>
+<td>12"</td>
+<td>-</td>
+<td>O</td>
+<td>O</td>
+<td>O</td>
+<td>MG</td>
+<td>Turret</td>
+<td>-</td>
+</tr>
+<tr class="armor-modifier-row">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td colspan="3" style="text-align: center; font-style: italic; font-size: 7px;">Open-Topped</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</table>
+</div>
+<div class="datacard datacard-british">
+<div class="datacard-header">
+<div class="datacard-silhouette">
+<span style="color: white; font-size: 10px;">🔲</span>
+</div>
+<div class="datacard-title-block">
+<p class="datacard-title">MORRIS C8</p>
+<p class="datacard-subtitle"></p>
+<p class="datacard-subtitle"></p>
+</div>
+</div>
+<table>
+<tr>
+<th class="main-header">VEHICLE</th>
+<th class="main-header" colspan="3">MOVEMENT</th>
+<th class="main-header" colspan="3">ARMOUR</th>
+<th class="main-header" colspan="3">ARMAMENT</th>
+</tr>
+<tr>
+<th></th>
+<th>Off-Road</th>
+<th>Road</th>
+<th>Special</th>
+<th>F</th>
+<th>S</th>
+<th>R</th>
+<th>Weapon</th>
+<th>Mount</th>
+<th>Ammo</th>
+</tr>
+<tr>
+<td>Vehicle</td>
+<td>8"</td>
+<td>12"</td>
+<td>-</td>
+<td>N</td>
+<td>O</td>
+<td>O</td>
+<td>None</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</table>
+</div>
+<div class="datacard datacard-british">
+<div class="datacard-header">
+<div class="datacard-silhouette">
+<span style="color: white; font-size: 10px;">🔲</span>
+</div>
+<div class="datacard-title-block">
+<p class="datacard-title">ROLLS ROYCE ARMOURED CAR</p>
+<p class="datacard-subtitle">1939-41</p>
+<p class="datacard-subtitle">WWI car modified for desert</p>
+</div>
+</div>
+<table>
+<tr>
+<th class="main-header">VEHICLE</th>
+<th class="main-header" colspan="3">MOVEMENT</th>
+<th class="main-header" colspan="3">ARMOUR</th>
+<th class="main-header" colspan="3">ARMAMENT</th>
+</tr>
+<tr>
+<th></th>
+<th>Off-Road</th>
+<th>Road</th>
+<th>Special</th>
+<th>F</th>
+<th>S</th>
+<th>R</th>
+<th>Weapon</th>
+<th>Mount</th>
+<th>Ammo</th>
+</tr>
+<tr>
+<td>Armored Car</td>
+<td>8"</td>
+<td>12"</td>
+<td>-</td>
+<td>O</td>
+<td>O</td>
+<td>O</td>
+<td>Boys AT-rifle</td>
+<td>Turret</td>
+<td>10</td>
+</tr>
+<tr class="armor-modifier-row">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td colspan="3" style="text-align: center; font-style: italic; font-size: 7px;">Open-Topped</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>LMG</td>
+<td>Co-Axial</td>
+<td>-</td>
+</tr>
+</table>
+<table>
+<tr>
+<th class="main-header">WEAPON</th>
+<th class="main-header">AMMO</th>
+<th class="main-header">HE</th>
+<th class="main-header" colspan="6">RANGE</th>
+</tr>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th>0-10"</th>
+<th>10-20"</th>
+<th>20-30"</th>
+<th>30-40"</th>
+<th>40-50"</th>
+<th>50-70"</th>
+</tr>
+<tr>
+<td>Boys AT-rifle</td>
+<td>AP</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</table>
+</div>
+<div class="datacard datacard-british">
+<div class="datacard-header">
+<div class="datacard-silhouette">
+<span style="color: white; font-size: 10px;">🔲</span>
+</div>
+<div class="datacard-title-block">
+<p class="datacard-title">SCAMMELL PIONEER</p>
+<p class="datacard-subtitle"></p>
+<p class="datacard-subtitle"></p>
+</div>
+</div>
+<table>
+<tr>
+<th class="main-header">VEHICLE</th>
+<th class="main-header" colspan="3">MOVEMENT</th>
+<th class="main-header" colspan="3">ARMOUR</th>
+<th class="main-header" colspan="3">ARMAMENT</th>
+</tr>
+<tr>
+<th></th>
+<th>Off-Road</th>
+<th>Road</th>
+<th>Special</th>
+<th>F</th>
+<th>S</th>
+<th>R</th>
+<th>Weapon</th>
+<th>Mount</th>
+<th>Ammo</th>
+</tr>
+<tr>
+<td>Vehicle</td>
+<td>8"</td>
+<td>12"</td>
+<td>-</td>
+<td>N</td>
+<td>O</td>
+<td>O</td>
+<td>None</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</table>
+</div>
+<div class="datacard datacard-british">
+<div class="datacard-header">
+<div class="datacard-silhouette">
+<span style="color: white; font-size: 10px;">🔲</span>
+</div>
+<div class="datacard-title-block">
+<p class="datacard-title">UNIVERSAL CARRIER</p>
+<p class="datacard-subtitle"></p>
+<p class="datacard-subtitle"></p>
+</div>
+</div>
+<table>
+<tr>
+<th class="main-header">VEHICLE</th>
+<th class="main-header" colspan="3">MOVEMENT</th>
+<th class="main-header" colspan="3">ARMOUR</th>
+<th class="main-header" colspan="3">ARMAMENT</th>
+</tr>
+<tr>
+<th></th>
+<th>Off-Road</th>
+<th>Road</th>
+<th>Special</th>
+<th>F</th>
+<th>S</th>
+<th>R</th>
+<th>Weapon</th>
+<th>Mount</th>
+<th>Ammo</th>
+</tr>
+<tr>
+<td>Vehicle</td>
+<td>8"</td>
+<td>12"</td>
+<td>-</td>
+<td>N</td>
+<td>O</td>
+<td>O</td>
+<td>None</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</table>
+</div>
+<div class="datacard datacard-french">
+<div class="datacard-header">
+<div class="datacard-silhouette">
+<span style="color: white; font-size: 10px;">🔲</span>
+</div>
+<div class="datacard-title-block">
+<p class="datacard-title">MORRIS COMMERCIAL</p>
+<p class="datacard-subtitle"></p>
+<p class="datacard-subtitle"></p>
+</div>
+</div>
+<table>
+<tr>
+<th class="main-header">VEHICLE</th>
+<th class="main-header" colspan="3">MOVEMENT</th>
+<th class="main-header" colspan="3">ARMOUR</th>
+<th class="main-header" colspan="3">ARMAMENT</th>
+</tr>
+<tr>
+<th></th>
+<th>Off-Road</th>
+<th>Road</th>
+<th>Special</th>
+<th>F</th>
+<th>S</th>
+<th>R</th>
+<th>Weapon</th>
+<th>Mount</th>
+<th>Ammo</th>
+</tr>
+<tr>
+<td>Vehicle</td>
+<td>8"</td>
+<td>12"</td>
+<td>-</td>
+<td>N</td>
+<td>O</td>
+<td>O</td>
+<td>None</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</table>
+</div>
+<div class="datacard datacard-french">
+<div class="datacard-header">
+<div class="datacard-silhouette">
+<span style="color: white; font-size: 10px;">🔲</span>
+</div>
+<div class="datacard-title-block">
+<p class="datacard-title">PANHARD 178</p>
+<p class="datacard-subtitle"></p>
+<p class="datacard-subtitle"></p>
+</div>
+</div>
+<table>
+<tr>
+<th class="main-header">VEHICLE</th>
+<th class="main-header" colspan="3">MOVEMENT</th>
+<th class="main-header" colspan="3">ARMOUR</th>
+<th class="main-header" colspan="3">ARMAMENT</th>
+</tr>
+<tr>
+<th></th>
+<th>Off-Road</th>
+<th>Road</th>
+<th>Special</th>
+<th>F</th>
+<th>S</th>
+<th>R</th>
+<th>Weapon</th>
+<th>Mount</th>
+<th>Ammo</th>
+</tr>
+<tr>
+<td>Armored Car</td>
+<td>10"</td>
+<td>28"</td>
+<td>-</td>
+<td>M</td>
+<td>N</td>
+<td>O</td>
+<td>None</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</table>
+</div>
+<div class="datacard datacard-french">
+<div class="datacard-header">
+<div class="datacard-silhouette">
+<span style="color: white; font-size: 10px;">🔲</span>
+</div>
+<div class="datacard-title-block">
+<p class="datacard-title">WHITE-LAFFLY AMD 50</p>
+<p class="datacard-subtitle"></p>
+<p class="datacard-subtitle"></p>
+</div>
+</div>
+<table>
+<tr>
+<th class="main-header">VEHICLE</th>
+<th class="main-header" colspan="3">MOVEMENT</th>
+<th class="main-header" colspan="3">ARMOUR</th>
+<th class="main-header" colspan="3">ARMAMENT</th>
+</tr>
+<tr>
+<th></th>
+<th>Off-Road</th>
+<th>Road</th>
+<th>Special</th>
+<th>F</th>
+<th>S</th>
+<th>R</th>
+<th>Weapon</th>
+<th>Mount</th>
+<th>Ammo</th>
+</tr>
+<tr>
+<td>Armored Car</td>
+<td>8"</td>
+<td>12"</td>
+<td>-</td>
+<td>N</td>
+<td>O</td>
+<td>O</td>
+<td>None</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</table>
+</div>
+<div class="datacard datacard-german">
+<div class="datacard-header">
+<div class="datacard-silhouette">
+<span style="color: white; font-size: 10px;">🔲</span>
+</div>
+<div class="datacard-title-block">
+<p class="datacard-title">BÃƑÂ¼SSING-NAG G31</p>
+<p class="datacard-subtitle"></p>
+<p class="datacard-subtitle"></p>
+</div>
+</div>
+<table>
+<tr>
+<th class="main-header">VEHICLE</th>
+<th class="main-header" colspan="3">MOVEMENT</th>
+<th class="main-header" colspan="3">ARMOUR</th>
+<th class="main-header" colspan="3">ARMAMENT</th>
+</tr>
+<tr>
+<th></th>
+<th>Off-Road</th>
+<th>Road</th>
+<th>Special</th>
+<th>F</th>
+<th>S</th>
+<th>R</th>
+<th>Weapon</th>
+<th>Mount</th>
+<th>Ammo</th>
+</tr>
+<tr>
+<td>Vehicle</td>
+<td>8"</td>
+<td>12"</td>
+<td>-</td>
+<td>N</td>
+<td>O</td>
+<td>O</td>
+<td>None</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</table>
+</div>
+<div class="datacard datacard-german">
+<div class="datacard-header">
+<div class="datacard-silhouette">
+<span style="color: white; font-size: 10px;">🔲</span>
+</div>
+<div class="datacard-title-block">
+<p class="datacard-title">HENSCHEL TYPE 33G1</p>
+<p class="datacard-subtitle"></p>
+<p class="datacard-subtitle"></p>
+</div>
+</div>
+<table>
+<tr>
+<th class="main-header">VEHICLE</th>
+<th class="main-header" colspan="3">MOVEMENT</th>
+<th class="main-header" colspan="3">ARMOUR</th>
+<th class="main-header" colspan="3">ARMAMENT</th>
+</tr>
+<tr>
+<th></th>
+<th>Off-Road</th>
+<th>Road</th>
+<th>Special</th>
+<th>F</th>
+<th>S</th>
+<th>R</th>
+<th>Weapon</th>
+<th>Mount</th>
+<th>Ammo</th>
+</tr>
+<tr>
+<td>Vehicle</td>
+<td>8"</td>
+<td>12"</td>
+<td>-</td>
+<td>N</td>
+<td>O</td>
+<td>O</td>
+<td>None</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</table>
+</div>
+<div class="datacard datacard-german">
+<div class="datacard-header">
+<div class="datacard-silhouette">
+<span style="color: white; font-size: 10px;">🔲</span>
+</div>
+<div class="datacard-title-block">
+<p class="datacard-title">MERCEDES-BENZ L3000A</p>
+<p class="datacard-subtitle"></p>
+<p class="datacard-subtitle"></p>
+</div>
+</div>
+<table>
+<tr>
+<th class="main-header">VEHICLE</th>
+<th class="main-header" colspan="3">MOVEMENT</th>
+<th class="main-header" colspan="3">ARMOUR</th>
+<th class="main-header" colspan="3">ARMAMENT</th>
+</tr>
+<tr>
+<th></th>
+<th>Off-Road</th>
+<th>Road</th>
+<th>Special</th>
+<th>F</th>
+<th>S</th>
+<th>R</th>
+<th>Weapon</th>
+<th>Mount</th>
+<th>Ammo</th>
+</tr>
+<tr>
+<td>Vehicle</td>
+<td>8"</td>
+<td>12"</td>
+<td>-</td>
+<td>N</td>
+<td>O</td>
+<td>O</td>
+<td>None</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</table>
+</div>
+<div class="datacard datacard-german">
+<div class="datacard-header">
+<div class="datacard-silhouette">
+<span style="color: white; font-size: 10px;">🔲</span>
+</div>
+<div class="datacard-title-block">
+<p class="datacard-title">OPEL BLITZ</p>
+<p class="datacard-subtitle"></p>
+<p class="datacard-subtitle"></p>
+</div>
+</div>
+<table>
+<tr>
+<th class="main-header">VEHICLE</th>
+<th class="main-header" colspan="3">MOVEMENT</th>
+<th class="main-header" colspan="3">ARMOUR</th>
+<th class="main-header" colspan="3">ARMAMENT</th>
+</tr>
+<tr>
+<th></th>
+<th>Off-Road</th>
+<th>Road</th>
+<th>Special</th>
+<th>F</th>
+<th>S</th>
+<th>R</th>
+<th>Weapon</th>
+<th>Mount</th>
+<th>Ammo</th>
+</tr>
+<tr>
+<td>Vehicle</td>
+<td>6"</td>
+<td>24"</td>
+<td>-</td>
+<td>Soft-Skinned</td>
+<td>-</td>
+<td>-</td>
+<td>None</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</table>
+</div>
+<div class="datacard datacard-german">
+<div class="datacard-header">
+<div class="datacard-silhouette">
+<span style="color: white; font-size: 10px;">🔲</span>
+</div>
+<div class="datacard-title-block">
+<p class="datacard-title">WORKSHOP VEHICLES</p>
+<p class="datacard-subtitle"></p>
+<p class="datacard-subtitle"></p>
+</div>
+</div>
+<table>
+<tr>
+<th class="main-header">VEHICLE</th>
+<th class="main-header" colspan="3">MOVEMENT</th>
+<th class="main-header" colspan="3">ARMOUR</th>
+<th class="main-header" colspan="3">ARMAMENT</th>
+</tr>
+<tr>
+<th></th>
+<th>Off-Road</th>
+<th>Road</th>
+<th>Special</th>
+<th>F</th>
+<th>S</th>
+<th>R</th>
+<th>Weapon</th>
+<th>Mount</th>
+<th>Ammo</th>
+</tr>
+<tr>
+<td>Vehicle</td>
+<td>8"</td>
+<td>12"</td>
+<td>-</td>
+<td>N</td>
+<td>O</td>
+<td>O</td>
+<td>None</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</table>
+</div>
+<div class="datacard datacard-italian">
+<div class="datacard-header">
+<div class="datacard-silhouette">
+<span style="color: white; font-size: 10px;">🔲</span>
+</div>
+<div class="datacard-title-block">
+<p class="datacard-title">AB41</p>
+<p class="datacard-subtitle"></p>
+<p class="datacard-subtitle"></p>
+</div>
+</div>
+<table>
+<tr>
+<th class="main-header">VEHICLE</th>
+<th class="main-header" colspan="3">MOVEMENT</th>
+<th class="main-header" colspan="3">ARMOUR</th>
+<th class="main-header" colspan="3">ARMAMENT</th>
+</tr>
+<tr>
+<th></th>
+<th>Off-Road</th>
+<th>Road</th>
+<th>Special</th>
+<th>F</th>
+<th>S</th>
+<th>R</th>
+<th>Weapon</th>
+<th>Mount</th>
+<th>Ammo</th>
+</tr>
+<tr>
+<td>Armored Car</td>
+<td>8"</td>
+<td>12"</td>
+<td>-</td>
+<td>N</td>
+<td>O</td>
+<td>O</td>
+<td>None</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</table>
+</div>
+<div class="datacard datacard-italian">
+<div class="datacard-header">
+<div class="datacard-silhouette">
+<span style="color: white; font-size: 10px;">🔲</span>
+</div>
+<div class="datacard-title-block">
+<p class="datacard-title">FIAT 508C BALILLA</p>
+<p class="datacard-subtitle"></p>
+<p class="datacard-subtitle"></p>
+</div>
+</div>
+<table>
+<tr>
+<th class="main-header">VEHICLE</th>
+<th class="main-header" colspan="3">MOVEMENT</th>
+<th class="main-header" colspan="3">ARMOUR</th>
+<th class="main-header" colspan="3">ARMAMENT</th>
+</tr>
+<tr>
+<th></th>
+<th>Off-Road</th>
+<th>Road</th>
+<th>Special</th>
+<th>F</th>
+<th>S</th>
+<th>R</th>
+<th>Weapon</th>
+<th>Mount</th>
+<th>Ammo</th>
+</tr>
+<tr>
+<td>Vehicle</td>
+<td>8"</td>
+<td>12"</td>
+<td>-</td>
+<td>N</td>
+<td>O</td>
+<td>O</td>
+<td>None</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</table>
+</div>
+<div class="datacard datacard-italian">
+<div class="datacard-header">
+<div class="datacard-silhouette">
+<span style="color: white; font-size: 10px;">🔲</span>
+</div>
+<div class="datacard-title-block">
+<p class="datacard-title">FIAT 626 RECOVERY</p>
+<p class="datacard-subtitle"></p>
+<p class="datacard-subtitle"></p>
+</div>
+</div>
+<table>
+<tr>
+<th class="main-header">VEHICLE</th>
+<th class="main-header" colspan="3">MOVEMENT</th>
+<th class="main-header" colspan="3">ARMOUR</th>
+<th class="main-header" colspan="3">ARMAMENT</th>
+</tr>
+<tr>
+<th></th>
+<th>Off-Road</th>
+<th>Road</th>
+<th>Special</th>
+<th>F</th>
+<th>S</th>
+<th>R</th>
+<th>Weapon</th>
+<th>Mount</th>
+<th>Ammo</th>
+</tr>
+<tr>
+<td>Vehicle</td>
+<td>8"</td>
+<td>12"</td>
+<td>-</td>
+<td>N</td>
+<td>O</td>
+<td>O</td>
+<td>None</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</table>
+</div>
+<div class="datacard datacard-italian">
+<div class="datacard-header">
+<div class="datacard-silhouette">
+<span style="color: white; font-size: 10px;">🔲</span>
+</div>
+<div class="datacard-title-block">
+<p class="datacard-title">FIAT 665NM</p>
+<p class="datacard-subtitle"></p>
+<p class="datacard-subtitle"></p>
+</div>
+</div>
+<table>
+<tr>
+<th class="main-header">VEHICLE</th>
+<th class="main-header" colspan="3">MOVEMENT</th>
+<th class="main-header" colspan="3">ARMOUR</th>
+<th class="main-header" colspan="3">ARMAMENT</th>
+</tr>
+<tr>
+<th></th>
+<th>Off-Road</th>
+<th>Road</th>
+<th>Special</th>
+<th>F</th>
+<th>S</th>
+<th>R</th>
+<th>Weapon</th>
+<th>Mount</th>
+<th>Ammo</th>
+</tr>
+<tr>
+<td>Vehicle</td>
+<td>8"</td>
+<td>12"</td>
+<td>-</td>
+<td>N</td>
+<td>O</td>
+<td>O</td>
+<td>None</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</table>
+</div>
+<div class="datacard datacard-italian">
+<div class="datacard-header">
+<div class="datacard-silhouette">
+<span style="color: white; font-size: 10px;">🔲</span>
+</div>
+<div class="datacard-title-block">
+<p class="datacard-title">LANCIA 3RO</p>
+<p class="datacard-subtitle"></p>
+<p class="datacard-subtitle"></p>
+</div>
+</div>
+<table>
+<tr>
+<th class="main-header">VEHICLE</th>
+<th class="main-header" colspan="3">MOVEMENT</th>
+<th class="main-header" colspan="3">ARMOUR</th>
+<th class="main-header" colspan="3">ARMAMENT</th>
+</tr>
+<tr>
+<th></th>
+<th>Off-Road</th>
+<th>Road</th>
+<th>Special</th>
+<th>F</th>
+<th>S</th>
+<th>R</th>
+<th>Weapon</th>
+<th>Mount</th>
+<th>Ammo</th>
+</tr>
+<tr>
+<td>Vehicle</td>
+<td>8"</td>
+<td>12"</td>
+<td>-</td>
+<td>N</td>
+<td>O</td>
+<td>O</td>
+<td>None</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</table>
+</div>
+</div>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../chapter2/tanks.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../chapter2/guns_and_artillery.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../chapter2/tanks.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../chapter2/guns_and_artillery.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>
