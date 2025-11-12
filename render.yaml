@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: north-africa-toe-api
+    env: python
+    region: oregon
+    plan: free
+    branch: main
+    buildCommand: "cd scripts/battlegroup/web && pip install -r requirements.txt && mkdir -p database && cp ../../../database/master_database.db database/"
+    startCommand: "cd scripts/battlegroup/web && python railway_app.py"
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.10.0
+      - key: PORT
+        sync: false
