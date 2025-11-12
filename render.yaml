@@ -5,8 +5,12 @@ services:
     region: oregon
     plan: free
     branch: main
-    buildCommand: "cd scripts/battlegroup/web && pip install -r requirements.txt && mkdir -p database && cp ../../../database/master_database.db database/"
-    startCommand: "cd scripts/battlegroup/web && python railway_app.py"
+    buildCommand: "cd scripts/battlegroup/web && pip install -r requirements.txt"
+    startCommand: "cd scripts/battlegroup/web && python railway_app_with_upload.py"
+    disk:
+      name: database-disk
+      mountPath: /opt/render/project/src/scripts/battlegroup/web/database
+      sizeGB: 1
     envVars:
       - key: PYTHON_VERSION
         value: 3.10.0
