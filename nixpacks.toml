@@ -1,13 +1,19 @@
 # Railway deployment configuration for Flask API
-# This tells Railway to deploy ONLY the Flask app in scripts/battlegroup/web/
+# Root directory: scripts/battlegroup/web/
 
 [phases.setup]
 nixPkgs = ["python313"]
 
 [phases.install]
 cmds = [
-    "pip install -r scripts/battlegroup/web/requirements.txt"
+    "pip install -r requirements.txt"
+]
+
+[phases.build]
+cmds = [
+    "mkdir -p database",
+    "cp ../../../database/master_database.db database/ 2>/dev/null || echo 'Note: Database will be uploaded via Railway dashboard'"
 ]
 
 [start]
-cmd = "cd scripts/battlegroup/web && python app.py"
+cmd = "python railway_app.py"
