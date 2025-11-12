@@ -1,0 +1,14 @@
+[build]
+builder = "NIXPACKS"
+
+[build.nixpacksPlan]
+providers = ["python"]
+
+[[build.nixpacksPlan.phases.setup]]
+nixPkgs = ["python313"]
+
+[[build.nixpacksPlan.phases.install]]
+cmds = ["cd scripts/battlegroup/web && pip install -r requirements.txt"]
+
+[deploy]
+startCommand = "cd scripts/battlegroup/web && python app.py"
