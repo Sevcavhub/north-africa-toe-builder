@@ -66,6 +66,65 @@
             margin-bottom: 0.5rem;
         }
 
+        /* Top Navigation Bar */
+        .top-nav {
+            background: var(--dark-olive);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .nav-brand a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-brand a:hover {
+            color: var(--desert-tan);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--desert-sand);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+        }
+
+        .nav-links a:hover {
+            color: white;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-links .tools-link {
+            background: var(--accent-red);
+            color: white;
+            font-weight: 600;
+        }
+
+        .nav-links .tools-link:hover {
+            background: #8A2E22;
+            transform: translateY(-2px);
+        }
+
         /* Container */
         .container {
             max-width: 1200px;
@@ -412,6 +471,21 @@
     </style>
 </head>
 <body>
+    <!-- Top Navigation Bar -->
+    <nav class="top-nav">
+        <div class="container nav-container">
+            <div class="nav-brand">
+                <a href="index.html">🎖️ North Africa Campaign</a>
+            </div>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#books">Books</a>
+                <a href="tools.html" class="tools-link">⚙️ Interactive Tools</a>
+                <a href="bibliography.html">Bibliography</a>
+            </div>
+        </div>
+    </nav>
+
     <!-- Header/Hero -->
     <header>
         <div class="container">
@@ -427,40 +501,41 @@
     <main>
         <div class="container">
             <!-- About Section -->
-            <section class="about-section">
+            <section id="about" class="about-section">
                 <h2>About This Project</h2>
                 <div class="about-content">
                     <p><strong>Publication-ready scenario books</strong> for the BattleGroup WWII tabletop wargaming system, meticulously researched and professionally formatted. Each book represents months of historical research, database development, and content generation.</p>
 
                     <p>Built from a comprehensive database of <strong>469 equipment items</strong>, <strong>612 AFV specifications</strong>, and <strong>402 unit-quarter extractions</strong> covering every major formation that fought in North Africa from 1940-1943.</p>
 
+                    <p><strong>Each book includes:</strong></p>
                     <div class="features-grid">
                         <div class="feature-item">
                             <div class="feature-icon">📊</div>
                             <h3 class="feature-title">Equipment Datacards</h3>
-                            <p class="feature-text">V5.5 format with nation colors, multi-row armament, special rules, and silhouette images</p>
+                            <p class="feature-text">V5.5 format with nation colors, multi-row armament tables, special rules, and silhouette images for tanks, guns, and vehicles</p>
                         </div>
                         <div class="feature-item">
                             <div class="feature-icon">⚔️</div>
                             <h3 class="feature-title">Historical Scenarios</h3>
-                            <p class="feature-text">45+ combined arms scenarios with tactical objectives and historical context</p>
+                            <p class="feature-text">Combined arms scenarios with tactical objectives, force compositions, and historical context for each battle</p>
                         </div>
                         <div class="feature-item">
                             <div class="feature-icon">🗺️</div>
                             <h3 class="feature-title">Orders of Battle</h3>
-                            <p class="feature-text">Complete organizational hierarchies from Corps to Company level</p>
+                            <p class="feature-text">Complete organizational hierarchies from Corps to Company level showing unit structure and equipment</p>
                         </div>
                         <div class="feature-item">
                             <div class="feature-icon">📚</div>
-                            <h3 class="feature-title">Research Citations</h3>
-                            <p class="feature-text">181 Phase 6 citations, 71 archive references, comprehensive bibliography</p>
+                            <h3 class="feature-title">Historical Sources</h3>
+                            <p class="feature-text">Comprehensive citations and bibliography documenting the historical research behind each battle</p>
                         </div>
                     </div>
                 </div>
             </section>
 
             <!-- Early War (1940-1941) -->
-            <section class="period-section">
+            <section id="books" class="period-section">
                 <div class="period-header">
                     <span class="period-badge">Early War</span>
                     <span class="period-dates">1940-1941</span>
