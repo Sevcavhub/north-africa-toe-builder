@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bibliography - North Africa Campaign Books</title>
+    <meta name="description" content="Historical sources and citations for the North Africa Campaign Books project">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>📚</text></svg>">
+    <style>
+        /* Color Palette */
+        :root {
+            --desert-tan: #C9A77C;
+            --desert-sand: #E4D5B7;
+            --olive-drab: #6B7F3D;
+            --dark-olive: #4A5335;
+            --text-dark: #2C2416;
+            --text-light: #F5F5DC;
+            --background-light: #FAF8F3;
+            --card-shadow: rgba(0, 0, 0, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: linear-gradient(135deg, var(--background-light) 0%, var(--desert-sand) 100%);
+            min-height: 100vh;
+        }
+
+        /* Top Navigation */
+        .top-nav {
+            background: var(--dark-olive);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .nav-brand a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--desert-sand);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: white;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--dark-olive) 0%, var(--olive-drab) 100%);
+            color: var(--text-light);
+            padding: 3rem 0;
+            text-align: center;
+            box-shadow: 0 4px 12px var(--card-shadow);
+        }
+
+        header h1 {
+            color: var(--text-light);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            color: var(--desert-sand);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        /* Intro Section */
+        .intro {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 4px 16px var(--card-shadow);
+        }
+
+        .intro h2 {
+            color: var(--dark-olive);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid var(--desert-tan);
+        }
+
+        .intro p {
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        /* Book Citations Grid */
+        .citations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .citation-card {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 16px var(--card-shadow);
+            border-left: 4px solid var(--olive-drab);
+            transition: all 0.3s ease;
+        }
+
+        .citation-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px var(--card-shadow);
+        }
+
+        .citation-card h3 {
+            color: var(--dark-olive);
+            margin-bottom: 0.5rem;
+            font-size: 1.5rem;
+        }
+
+        .citation-card .battle-dates {
+            color: var(--olive-drab);
+            font-style: italic;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .citation-card p {
+            margin-bottom: 1.5rem;
+            color: #555;
+        }
+
+        .citation-card .btn {
+            display: inline-block;
+            background: var(--olive-drab);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .citation-card .btn:hover {
+            background: var(--dark-olive);
+            transform: translateX(4px);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-olive);
+            color: var(--desert-sand);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        footer a {
+            color: var(--desert-tan);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Navigation Bar -->
+    <nav class="top-nav">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <a href="index.html">🎖️ North Africa Campaign</a>
+            </div>
+            <div class="nav-links">
+                <a href="index.html#about">About</a>
+                <a href="index.html#books">Books</a>
+                <a href="tools.html">Interactive Tools</a>
+                <a href="bibliography.html">Bibliography</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header>
+        <h1>📚 Historical Sources & Bibliography</h1>
+        <p>Comprehensive research citations for the North Africa Campaign Books</p>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Introduction -->
+        <div class="intro">
+            <h2>About the Research</h2>
+            <p>Each book in the North Africa Campaign series is meticulously researched using primary sources, official military records, and authoritative historical references. This project draws from <strong>181 Phase 6 unit extraction citations</strong> and <strong>71 archive references</strong>, ensuring historical accuracy in equipment specifications, organizational structures, and tactical scenarios.</p>
+            <p>The bibliography for each book is contained in <strong>Appendix C: Historical Sources</strong>, documenting all references used for that specific battle or campaign. Click the links below to access the complete citations for each book.</p>
+        </div>
+
+        <!-- Book Citations Grid -->
+        <h2 style="color: var(--dark-olive); margin-bottom: 2rem; padding-bottom: 0.5rem; border-bottom: 3px solid var(--desert-tan);">Book-Specific Bibliographies</h2>
+
+        <div class="citations-grid">
+            <!-- Battleaxe -->
+            <div class="citation-card">
+                <h3>Operation Battleaxe</h3>
+                <p class="battle-dates">June 1941 (1941-Q2)</p>
+                <p>British attempt to relieve Tobruk and recapture Cyrenaica. Rommel's first major defensive victory in North Africa.</p>
+                <a href="battleaxe/book/book/appendices/appendix_c.html" class="btn">View Citations →</a>
+            </div>
+
+            <!-- Crusader -->
+            <div class="citation-card">
+                <h3>Operation Crusader</h3>
+                <p class="battle-dates">November 1941 (1941-Q4)</p>
+                <p>Major British offensive to relieve Tobruk. Largest tank battle in North Africa involving over 1,000 tanks.</p>
+                <a href="crusader/book/book/appendices/appendix_c.html" class="btn">View Citations →</a>
+            </div>
+
+            <!-- Gazala -->
+            <div class="citation-card">
+                <h3>Battle of Gazala</h3>
+                <p class="battle-dates">May-June 1942 (1942-Q2)</p>
+                <p>Rommel's masterful flanking maneuver around the Gazala Line. Led to the fall of Tobruk and advance into Egypt.</p>
+                <a href="gazala/book/book/appendices/appendix_c.html" class="btn">View Citations →</a>
+            </div>
+
+            <!-- First El Alamein -->
+            <div class="citation-card">
+                <h3>First Battle of El Alamein</h3>
+                <p class="battle-dates">July 1942 (1942-Q3)</p>
+                <p>Auchinleck's defensive stand that halted Rommel's advance on Alexandria. Turning point of the Desert War.</p>
+                <a href="first_alamein/book/book/appendices/appendix_c.html" class="btn">View Citations →</a>
+            </div>
+        </div>
+
+        <!-- Additional Information -->
+        <div class="intro">
+            <h2>Source Categories</h2>
+            <p><strong>Primary Sources:</strong> War diaries, after-action reports, unit records, and official military histories from British, German, Italian, and American archives.</p>
+            <p><strong>Secondary Sources:</strong> Academic monographs, regimental histories, and authoritative reference works by military historians.</p>
+            <p><strong>Technical References:</strong> Equipment specifications from Jane's Fighting Vehicles, WWIITANKS database (612 AFVs), OnWar military encyclopedia, and official BattleGroup game supplements.</p>
+            <p><strong>Database Integration:</strong> This project synthesizes data from 469 equipment items, 402 unit-quarter extractions, and 1,296 penetration data points to provide historically accurate game statistics.</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 North Africa Campaign Books Project | <a href="https://github.com/Sevcavhub/north-africa-toe-builder">GitHub Repository</a></p>
+        <p>Built with historical data and modern technology for the BattleGroup wargaming community</p>
+    </footer>
+</body>
+</html>

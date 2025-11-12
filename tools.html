@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Tools - North Africa Campaign Books</title>
+    <style>
+        :root {
+            --desert-tan: #C9A77C;
+            --olive-drab: #6B7F3D;
+            --dark-olive: #4A5335;
+            --accent-red: #A8382A;
+            --desert-sand: #E4D5B7;
+            --success-green: #4CAF50;
+            --error-red: #f44336;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, var(--desert-sand) 0%, #ffffff 100%);
+            color: #333;
+            min-height: 100vh;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--dark-olive) 0%, var(--olive-drab) 100%);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 1rem;
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border: 2px solid white;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            background: white;
+            color: var(--dark-olive);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        /* Tool Grid */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Tool Card */
+        .tool-card {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border: 2px solid var(--desert-tan);
+            transition: all 0.3s ease;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 12px rgba(0,0,0,0.15);
+            border-color: var(--olive-drab);
+        }
+
+        .tool-card h2 {
+            color: var(--dark-olive);
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--desert-tan);
+            padding-bottom: 0.5rem;
+        }
+
+        .tool-card p {
+            color: #666;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        /* Form Elements */
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--dark-olive);
+        }
+
+        input[type="number"],
+        select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid var(--desert-tan);
+            border-radius: 4px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        input:focus,
+        select:focus {
+            outline: none;
+            border-color: var(--olive-drab);
+        }
+
+        .checkbox-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .checkbox-group label {
+            display: flex;
+            align-items: center;
+            font-weight: normal;
+            cursor: pointer;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            margin-right: 0.5rem;
+            width: auto;
+        }
+
+        /* Buttons */
+        button {
+            background: var(--olive-drab);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        button:hover {
+            background: var(--dark-olive);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Results */
+        .results {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            margin-top: 1.5rem;
+            border: 2px solid var(--success-green);
+            display: none;
+        }
+
+        .results.show {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .results.error {
+            border-color: var(--error-red);
+        }
+
+        .results h3 {
+            color: var(--dark-olive);
+            margin-bottom: 1rem;
+        }
+
+        .results pre {
+            background: #f5f5f5;
+            padding: 1rem;
+            border-radius: 4px;
+            overflow-x: auto;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        /* Loading Spinner */
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 1rem;
+            color: var(--olive-drab);
+            font-weight: 600;
+        }
+
+        .loading.show {
+            display: block;
+        }
+
+        .spinner {
+            border: 4px solid var(--desert-tan);
+            border-top: 4px solid var(--olive-drab);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 1rem auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* API Status */
+        .api-status {
+            background: white;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .api-status.online {
+            border-left: 4px solid var(--success-green);
+        }
+
+        .api-status.offline {
+            border-left: 4px solid var(--error-red);
+        }
+
+        .status-indicator {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 0.5rem;
+        }
+
+        .status-indicator.online {
+            background: var(--success-green);
+            box-shadow: 0 0 8px var(--success-green);
+        }
+
+        .status-indicator.offline {
+            background: var(--error-red);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .tool-card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🎖️ Interactive Tools</h1>
+        <p>BattleGroup Scenario & Army List Generators</p>
+        <a href="index.html" class="back-link">← Back to Books</a>
+    </header>
+
+    <div class="container">
+        <!-- API Status -->
+        <div id="apiStatus" class="api-status offline">
+            <div>
+                <span class="status-indicator offline"></span>
+                <strong>API Status:</strong> <span id="statusText">Checking...</span>
+            </div>
+            <div>
+                <small id="apiUrl">https://north-africa-toe-api.onrender.com</small>
+            </div>
+        </div>
+
+        <!-- Tools Grid -->
+        <div class="tools-grid">
+            <!-- Random Scenario Generator -->
+            <div class="tool-card">
+                <h2>🎲 Random Scenario Generator</h2>
+                <p>Generate a balanced random scenario with specified points and nations.</p>
+
+                <form id="randomScenarioForm">
+                    <div class="form-group">
+                        <label for="randomPoints">Points Budget (100-2000)</label>
+                        <input type="number" id="randomPoints" min="100" max="2000" step="50" value="1000" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="randomQuarter">Quarter</label>
+                        <select id="randomQuarter" required>
+                            <option value="1940q2">1940 Q2 - Italian invasion</option>
+                            <option value="1940q3">1940 Q3 - Early skirmishes</option>
+                            <option value="1940q4">1940 Q4 - Operation Compass</option>
+                            <option value="1941q1">1941 Q1 - Rommel arrives</option>
+                            <option value="1941q2" selected>1941 Q2 - Operation Battleaxe</option>
+                            <option value="1941q3">1941 Q3 - Siege of Tobruk</option>
+                            <option value="1941q4">1941 Q4 - Operation Crusader</option>
+                            <option value="1942q1">1942 Q1 - Rommel offensive</option>
+                            <option value="1942q2">1942 Q2 - Battle of Gazala</option>
+                            <option value="1942q3">1942 Q3 - First El Alamein</option>
+                            <option value="1942q4">1942 Q4 - Second El Alamein</option>
+                            <option value="1943q1">1943 Q1 - Tunisia campaign</option>
+                            <option value="1943q2">1943 Q2 - Final victory</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Select 2 Nations</label>
+                        <div class="checkbox-group">
+                            <label><input type="checkbox" name="randomNation" value="german"> German</label>
+                            <label><input type="checkbox" name="randomNation" value="british" checked> British</label>
+                            <label><input type="checkbox" name="randomNation" value="italian"> Italian</label>
+                            <label><input type="checkbox" name="randomNation" value="american"> American</label>
+                            <label><input type="checkbox" name="randomNation" value="french"> French</label>
+                        </div>
+                    </div>
+
+                    <button type="submit">Generate Random Scenario</button>
+                </form>
+
+                <div class="loading" id="randomLoading">
+                    <div class="spinner"></div>
+                    <p>Generating scenario...</p>
+                </div>
+
+                <div class="results" id="randomResults">
+                    <h3>Generated Scenario</h3>
+                    <pre id="randomOutput"></pre>
+                </div>
+            </div>
+
+            <!-- Historical Scenario Generator -->
+            <div class="tool-card">
+                <h2>📜 Historical Scenario Generator</h2>
+                <p>Create historically accurate scenarios based on actual battles.</p>
+
+                <form id="historicalScenarioForm">
+                    <div class="form-group">
+                        <label for="histQuarter">Quarter</label>
+                        <select id="histQuarter" required>
+                            <option value="1941q2" selected>1941 Q2 - Operation Battleaxe</option>
+                            <option value="1941q4">1941 Q4 - Operation Crusader</option>
+                            <option value="1942q2">1942 Q2 - Battle of Gazala</option>
+                            <option value="1942q3">1942 Q3 - First El Alamein</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="histBattle">Battle</label>
+                        <select id="histBattle" required>
+                            <option value="battleaxe" selected>Operation Battleaxe</option>
+                            <option value="crusader">Operation Crusader</option>
+                            <option value="gazala">Battle of Gazala</option>
+                            <option value="first_alamein">First El Alamein</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="histLocation">Location</label>
+                        <select id="histLocation" required>
+                            <option value="Halfaya Pass">Halfaya Pass</option>
+                        </select>
+                    </div>
+
+                    <button type="submit">Generate Historical Scenario</button>
+                </form>
+
+                <div class="loading" id="histLoading">
+                    <div class="spinner"></div>
+                    <p>Generating scenario...</p>
+                </div>
+
+                <div class="results" id="histResults">
+                    <h3>Generated Scenario</h3>
+                    <pre id="histOutput"></pre>
+                </div>
+            </div>
+
+            <!-- Equipment Search -->
+            <div class="tool-card">
+                <h2>🔍 Equipment Search</h2>
+                <p>Search the equipment database by name, nation, or category.</p>
+
+                <form id="equipmentSearchForm">
+                    <div class="form-group">
+                        <label for="searchName">Equipment Name</label>
+                        <input type="text" id="searchName" placeholder="e.g., Panzer IV, Sherman, 88mm">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="searchNation">Nation (optional)</label>
+                        <select id="searchNation">
+                            <option value="">All Nations</option>
+                            <option value="german">German</option>
+                            <option value="british">British</option>
+                            <option value="italian">Italian</option>
+                            <option value="american">American</option>
+                            <option value="french">French</option>
+                        </select>
+                    </div>
+
+                    <button type="submit">Search Equipment</button>
+                </form>
+
+                <div class="loading" id="searchLoading">
+                    <div class="spinner"></div>
+                    <p>Searching...</p>
+                </div>
+
+                <div class="results" id="searchResults">
+                    <h3>Search Results</h3>
+                    <pre id="searchOutput"></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Configuration
+        const API_URL = 'https://north-africa-toe-api.onrender.com';
+
+        // Check API status on load
+        checkAPIStatus();
+
+        async function checkAPIStatus() {
+            const statusEl = document.getElementById('apiStatus');
+            const statusText = document.getElementById('statusText');
+            const indicator = document.querySelector('.status-indicator');
+
+            try {
+                const response = await fetch(`${API_URL}/api/health`);
+                const data = await response.json();
+
+                if (data.status === 'healthy') {
+                    statusEl.classList.remove('offline');
+                    statusEl.classList.add('online');
+                    indicator.classList.remove('offline');
+                    indicator.classList.add('online');
+                    statusText.textContent = `Online - ${data.service} v${data.api_version}`;
+                }
+            } catch (error) {
+                statusText.textContent = 'Offline - Start Flask server (python scripts/battlegroup/web/app.py)';
+            }
+        }
+
+        // Random Scenario Form
+        document.getElementById('randomScenarioForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const points = parseInt(document.getElementById('randomPoints').value);
+            const quarter = document.getElementById('randomQuarter').value;
+            const nationCheckboxes = document.querySelectorAll('input[name="randomNation"]:checked');
+            const nations = Array.from(nationCheckboxes).map(cb => cb.value);
+
+            if (nations.length !== 2) {
+                alert('Please select exactly 2 nations');
+                return;
+            }
+
+            showLoading('randomLoading');
+            hideResults('randomResults');
+
+            try {
+                const response = await fetch(`${API_URL}/api/scenarios/random`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ points, nations, quarter })
+                });
+
+                const data = await response.json();
+
+                hideLoading('randomLoading');
+                showResults('randomResults', data, response.ok);
+            } catch (error) {
+                hideLoading('randomLoading');
+                showResults('randomResults', { error: error.message }, false);
+            }
+        });
+
+        // Historical Scenario Form
+        document.getElementById('historicalScenarioForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const quarter = document.getElementById('histQuarter').value;
+            const battle = document.getElementById('histBattle').value;
+            const location = document.getElementById('histLocation').value;
+
+            showLoading('histLoading');
+            hideResults('histResults');
+
+            try {
+                const response = await fetch(`${API_URL}/api/scenarios/historical`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ quarter, battle, location })
+                });
+
+                const data = await response.json();
+
+                hideLoading('histLoading');
+                showResults('histResults', data, response.ok);
+            } catch (error) {
+                hideLoading('histLoading');
+                showResults('histResults', { error: error.message }, false);
+            }
+        });
+
+        // Equipment Search Form
+        document.getElementById('equipmentSearchForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const name = document.getElementById('searchName').value;
+            const nation = document.getElementById('searchNation').value;
+
+            showLoading('searchLoading');
+            hideResults('searchResults');
+
+            try {
+                const params = new URLSearchParams();
+                if (name) params.append('name', name);
+                if (nation) params.append('nation', nation);
+
+                const response = await fetch(`${API_URL}/api/equipment/search?${params}`);
+                const data = await response.json();
+
+                hideLoading('searchLoading');
+                showResults('searchResults', data, response.ok);
+            } catch (error) {
+                hideLoading('searchLoading');
+                showResults('searchResults', { error: error.message }, false);
+            }
+        });
+
+        // Update locations when quarter changes
+        document.getElementById('histQuarter').addEventListener('change', async (e) => {
+            const quarter = e.target.value;
+            const locationSelect = document.getElementById('histLocation');
+
+            try {
+                const response = await fetch(`${API_URL}/api/scenarios/locations/${quarter}`);
+                const data = await response.json();
+
+                locationSelect.innerHTML = '';
+                data.locations.forEach(location => {
+                    const option = document.createElement('option');
+                    option.value = location;
+                    option.textContent = location;
+                    locationSelect.appendChild(option);
+                });
+            } catch (error) {
+                console.error('Failed to load locations:', error);
+            }
+        });
+
+        // Helper functions
+        function showLoading(id) {
+            document.getElementById(id).classList.add('show');
+        }
+
+        function hideLoading(id) {
+            document.getElementById(id).classList.remove('show');
+        }
+
+        function showResults(id, data, success) {
+            const resultsEl = document.getElementById(id);
+            const outputEl = resultsEl.querySelector('pre');
+
+            outputEl.textContent = JSON.stringify(data, null, 2);
+            resultsEl.classList.add('show');
+
+            if (!success) {
+                resultsEl.classList.add('error');
+            } else {
+                resultsEl.classList.remove('error');
+            }
+        }
+
+        function hideResults(id) {
+            const resultsEl = document.getElementById(id);
+            resultsEl.classList.remove('show');
+        }
+
+        // Nation checkbox validation
+        document.querySelectorAll('input[name="randomNation"]').forEach(checkbox => {
+            checkbox.addEventListener('change', () => {
+                const checked = document.querySelectorAll('input[name="randomNation"]:checked');
+                if (checked.length >= 2) {
+                    document.querySelectorAll('input[name="randomNation"]:not(:checked)').forEach(cb => {
+                        cb.disabled = true;
+                    });
+                } else {
+                    document.querySelectorAll('input[name="randomNation"]').forEach(cb => {
+                        cb.disabled = false;
+                    });
+                }
+            });
+        });
+
+        // Initialize nation checkboxes
+        const checkedNations = document.querySelectorAll('input[name="randomNation"]:checked');
+        if (checkedNations.length >= 2) {
+            document.querySelectorAll('input[name="randomNation"]:not(:checked)').forEach(cb => {
+                cb.disabled = true;
+            });
+        }
+    </script>
+</body>
+</html>

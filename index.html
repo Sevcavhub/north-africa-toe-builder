@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>North Africa Campaign Books - BattleGroup Wargaming Scenarios</title>
+    <meta name="description" content="Professional wargaming scenario books covering the North Africa Campaign 1940-1943. Equipment datacards, historical scenarios, and tactical guides for BattleGroup players.">
+    <!-- Deployment trigger -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🎖️</text></svg>">
+    <style>
+        /* CSS Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Color Palette - Desert/Military Theme */
+        :root {
+            --desert-tan: #C9A77C;
+            --desert-sand: #E4D5B7;
+            --olive-drab: #6B7F3D;
+            --dark-olive: #4A5335;
+            --desert-dark: #8B7355;
+            --accent-red: #A8382A;
+            --text-dark: #2C2416;
+            --text-light: #F5F5DC;
+            --background-light: #FAF8F3;
+            --card-shadow: rgba(0, 0, 0, 0.15);
+        }
+
+        /* Base Styles */
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: linear-gradient(135deg, var(--background-light) 0%, var(--desert-sand) 100%);
+            min-height: 100vh;
+        }
+
+        /* Typography */
+        h1, h2, h3 {
+            font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            color: var(--dark-olive);
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            font-size: 2rem;
+            color: var(--olive-drab);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid var(--desert-tan);
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            color: var(--dark-olive);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Top Navigation Bar */
+        .top-nav {
+            background: var(--dark-olive);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .nav-brand a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-brand a:hover {
+            color: var(--desert-tan);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--desert-sand);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+        }
+
+        .nav-links a:hover {
+            color: white;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-links .tools-link {
+            background: var(--accent-red);
+            color: white;
+            font-weight: 600;
+        }
+
+        .nav-links .tools-link:hover {
+            background: #8A2E22;
+            transform: translateY(-2px);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Header/Hero Section */
+        header {
+            background: linear-gradient(135deg, var(--dark-olive) 0%, var(--olive-drab) 100%);
+            color: var(--text-light);
+            padding: 4rem 0 3rem;
+            box-shadow: 0 4px 12px var(--card-shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                repeating-linear-gradient(
+                    45deg,
+                    transparent,
+                    transparent 10px,
+                    rgba(255, 255, 255, 0.03) 10px,
+                    rgba(255, 255, 255, 0.03) 20px
+                );
+            pointer-events: none;
+        }
+
+        header .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        header h1 {
+            color: var(--text-light);
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            font-size: 1.4rem;
+            color: var(--desert-tan);
+            font-style: italic;
+            margin-bottom: 1.5rem;
+        }
+
+        .intro {
+            max-width: 800px;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--desert-sand);
+        }
+
+        /* Main Content */
+        main {
+            padding: 3rem 0;
+        }
+
+        section {
+            margin-bottom: 4rem;
+        }
+
+        /* Period Sections */
+        .period-section {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 16px var(--card-shadow);
+            margin-bottom: 3rem;
+        }
+
+        .period-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .period-badge {
+            background: var(--olive-drab);
+            color: var(--text-light);
+            padding: 0.5rem 1.5rem;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            white-space: nowrap;
+        }
+
+        .period-dates {
+            color: var(--desert-dark);
+            font-style: italic;
+            font-size: 1.1rem;
+        }
+
+        /* Book Grid */
+        .books-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        /* Book Cards */
+        .book-card {
+            background: var(--background-light);
+            border: 2px solid var(--desert-tan);
+            border-radius: 6px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .book-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--olive-drab);
+            transform: scaleY(0);
+            transition: transform 0.3s ease;
+        }
+
+        .book-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px var(--card-shadow);
+            border-color: var(--olive-drab);
+        }
+
+        .book-card:hover::before {
+            transform: scaleY(1);
+        }
+
+        .book-title {
+            color: var(--dark-olive);
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .book-date {
+            color: var(--accent-red);
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 0.75rem;
+            display: block;
+        }
+
+        .book-description {
+            color: var(--text-dark);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .book-arrow {
+            display: inline-block;
+            margin-top: 0.75rem;
+            color: var(--olive-drab);
+            font-weight: 700;
+            transition: transform 0.3s ease;
+        }
+
+        .book-card:hover .book-arrow {
+            transform: translateX(5px);
+        }
+
+        /* About Section */
+        .about-section {
+            background: white;
+            border-radius: 8px;
+            padding: 2.5rem;
+            box-shadow: 0 4px 16px var(--card-shadow);
+            margin-bottom: 3rem;
+        }
+
+        .about-content {
+            max-width: 900px;
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        .about-content p {
+            margin-bottom: 1rem;
+        }
+
+        .about-content strong {
+            color: var(--olive-drab);
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: var(--background-light);
+            border-radius: 6px;
+            border: 2px solid var(--desert-tan);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-title {
+            color: var(--dark-olive);
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-text {
+            color: var(--text-dark);
+            font-size: 0.95rem;
+        }
+
+        /* Tools Section */
+        .tools-section {
+            background: linear-gradient(135deg, var(--olive-drab) 0%, var(--dark-olive) 100%);
+            color: var(--text-light);
+            border-radius: 8px;
+            padding: 2.5rem;
+            text-align: center;
+            box-shadow: 0 4px 16px var(--card-shadow);
+        }
+
+        .tools-section h2 {
+            color: var(--text-light);
+            border-bottom-color: var(--desert-tan);
+        }
+
+        .tools-placeholder {
+            font-size: 1.1rem;
+            color: var(--desert-sand);
+            font-style: italic;
+            margin-top: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-olive);
+            color: var(--desert-sand);
+            padding: 2rem 0;
+            margin-top: 4rem;
+            box-shadow: 0 -4px 12px var(--card-shadow);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-links a {
+            color: var(--desert-tan);
+            text-decoration: none;
+            margin-left: 2rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--text-light);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .intro {
+                font-size: 1rem;
+            }
+
+            header {
+                padding: 2rem 0 1.5rem;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+
+            .books-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .period-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-links a {
+                margin: 0.5rem;
+            }
+        }
+
+        /* Scroll Reveal Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .period-section {
+            animation: fadeInUp 0.6s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Navigation Bar -->
+    <nav class="top-nav">
+        <div class="container nav-container">
+            <div class="nav-brand">
+                <a href="index.html">🎖️ North Africa Campaign</a>
+            </div>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#books">Books</a>
+                <a href="tools.html" class="tools-link">⚙️ Interactive Tools</a>
+                <a href="bibliography.html">Bibliography</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header/Hero -->
+    <header>
+        <div class="container">
+            <h1>🎖️ North Africa Campaign Books</h1>
+            <p class="subtitle">1940-1943: The Desert War</p>
+            <div class="intro">
+                <p>Professional wargaming scenario books covering the complete North Africa Campaign. Each book contains detailed equipment datacards, historical scenarios, tactical guides, and orders of battle for BattleGroup tabletop wargaming.</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="container">
+            <!-- About Section -->
+            <section id="about" class="about-section">
+                <h2>About This Project</h2>
+                <div class="about-content">
+                    <p><strong>Publication-ready scenario books</strong> for the BattleGroup WWII tabletop wargaming system, meticulously researched and professionally formatted. Each book represents months of historical research, database development, and content generation.</p>
+
+                    <p>Built from a comprehensive database of <strong>469 equipment items</strong>, <strong>612 AFV specifications</strong>, and <strong>402 unit-quarter extractions</strong> covering every major formation that fought in North Africa from 1940-1943.</p>
+
+                    <p><strong>Each book includes:</strong></p>
+                    <div class="features-grid">
+                        <div class="feature-item">
+                            <div class="feature-icon">📊</div>
+                            <h3 class="feature-title">Equipment Datacards</h3>
+                            <p class="feature-text">V5.5 format with nation colors, multi-row armament tables, special rules, and silhouette images for tanks, guns, and vehicles</p>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">⚔️</div>
+                            <h3 class="feature-title">Historical Scenarios</h3>
+                            <p class="feature-text">Combined arms scenarios with tactical objectives, force compositions, and historical context for each battle</p>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">🗺️</div>
+                            <h3 class="feature-title">Orders of Battle</h3>
+                            <p class="feature-text">Complete organizational hierarchies from Corps to Company level showing unit structure and equipment</p>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">📚</div>
+                            <h3 class="feature-title">Historical Sources</h3>
+                            <p class="feature-text">Comprehensive citations and bibliography documenting the historical research behind each battle</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Early War (1940-1941) -->
+            <section id="books" class="period-section">
+                <div class="period-header">
+                    <span class="period-badge">Early War</span>
+                    <span class="period-dates">1940-1941</span>
+                </div>
+                <div class="books-grid">
+                    <a href="compass/book/book/index.html" class="book-card">
+                        <h3 class="book-title">Operation Compass</h3>
+                        <span class="book-date">Q4 1940</span>
+                        <p class="book-description">British Western Desert Force's stunning offensive against Italian Tenth Army. O'Connor's masterpiece of mobile warfare capturing 130,000 prisoners.</p>
+                        <span class="book-arrow">Read Book →</span>
+                    </a>
+
+                    <a href="sonnenblume/book/book/index.html" class="book-card">
+                        <h3 class="book-title">Operation Sonnenblume</h3>
+                        <span class="book-date">Q1 1941</span>
+                        <p class="book-description">Rommel's arrival in North Africa with the Afrika Korps. First German offensive throws back British forces to Egyptian frontier.</p>
+                        <span class="book-arrow">Read Book →</span>
+                    </a>
+
+                    <a href="tobruk/book/book/index.html" class="book-card">
+                        <h3 class="book-title">Siege of Tobruk</h3>
+                        <span class="book-date">Q2-Q3 1941</span>
+                        <p class="book-description">Eight-month siege of the vital port. Australian 9th Division's determined defense against repeated German-Italian assaults.</p>
+                        <span class="book-arrow">Read Book →</span>
+                    </a>
+
+                    <a href="books/battleaxe/book/book/index.html" class="book-card">
+                        <h3 class="book-title">Operation Battleaxe</h3>
+                        <span class="book-date">Q2 1941</span>
+                        <p class="book-description">British attempt to relieve Tobruk defeated by German anti-tank screen. Churchill's first major setback in the desert.</p>
+                        <span class="book-arrow">Read Book →</span>
+                    </a>
+
+                    <a href="books/crusader/book/book/index.html" class="book-card">
+                        <h3 class="book-title">Operation Crusader</h3>
+                        <span class="book-date">Q4 1941</span>
+                        <p class="book-description">Largest tank battle of 1941. Eighth Army's offensive relieves Tobruk but Rommel counterattacks to Gazala line.</p>
+                        <span class="book-arrow">Read Book →</span>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Mid War (1942) -->
+            <section class="period-section">
+                <div class="period-header">
+                    <span class="period-badge">Mid War</span>
+                    <span class="period-dates">1942</span>
+                </div>
+                <div class="books-grid">
+                    <a href="books/gazala/book/book/index.html" class="book-card">
+                        <h3 class="book-title">Battle of Gazala</h3>
+                        <span class="book-date">Q2 1942</span>
+                        <p class="book-description">Rommel's greatest victory. Sweeping armored maneuver outflanks British positions, captures Tobruk, advances to El Alamein.</p>
+                        <span class="book-arrow">Read Book →</span>
+                    </a>
+
+                    <a href="books/first_alamein/book/book/index.html" class="book-card">
+                        <h3 class="book-title">First Battle of El Alamein</h3>
+                        <span class="book-date">Q3 1942</span>
+                        <p class="book-description">Auchinleck halts Rommel's advance just 60 miles from Alexandria. The high-water mark of Axis expansion in Africa.</p>
+                        <span class="book-arrow">Read Book →</span>
+                    </a>
+
+                    <a href="alam_halfa/book/book/index.html" class="book-card">
+                        <h3 class="book-title">Battle of Alam Halfa</h3>
+                        <span class="book-date">Q3 1942</span>
+                        <p class="book-description">Montgomery's defensive masterpiece. Rommel's final offensive broken against prepared British positions and air superiority.</p>
+                        <span class="book-arrow">Read Book →</span>
+                    </a>
+
+                    <a href="second_alamein/book/book/index.html" class="book-card">
+                        <h3 class="book-title">Second Battle of El Alamein</h3>
+                        <span class="book-date">Q4 1942</span>
+                        <p class="book-description">Churchill's victory bell tolls. Montgomery's set-piece battle breaks Panzerarmee Afrika and begins the long retreat to Tunisia.</p>
+                        <span class="book-arrow">Read Book →</span>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Late War (1942-1943) -->
+            <section class="period-section">
+                <div class="period-header">
+                    <span class="period-badge">Late War</span>
+                    <span class="period-dates">1942-1943</span>
+                </div>
+                <div class="books-grid">
+                    <a href="torch/book/book/index.html" class="book-card">
+                        <h3 class="book-title">Operation Torch</h3>
+                        <span class="book-date">Q4 1942</span>
+                        <p class="book-description">American entry into North Africa. Simultaneous landings in Morocco and Algeria open second front against Axis forces.</p>
+                        <span class="book-arrow">Read Book →</span>
+                    </a>
+
+                    <a href="tunisia/book/book/index.html" class="book-card">
+                        <h3 class="book-title">Tunisia Campaign</h3>
+                        <span class="book-date">Q1-Q2 1943</span>
+                        <p class="description">Six-month campaign as Allied forces converge from east and west. Kasserine Pass, Mareth Line, and final Axis collapse.</p>
+                        <span class="book-arrow">Read Book →</span>
+                    </a>
+
+                    <a href="mareth/book/book/index.html" class="book-card">
+                        <h3 class="book-title">Battle of Mareth Line</h3>
+                        <span class="book-date">Q1 1943</span>
+                        <p class="book-description">Montgomery's frontal assault on old French fortifications combined with New Zealand Corps left hook. Breaking the last major defensive line.</p>
+                        <span class="book-arrow">Read Book →</span>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Interactive Tools Section -->
+            <section class="tools-section">
+                <h2>Interactive Tools</h2>
+                <p style="margin-bottom: 1.5rem;">Generate scenarios, search equipment, and access army list builders powered by our Flask REST API.</p>
+                <div style="text-align: center;">
+                    <a href="tools.html" style="display: inline-block; background: var(--olive-drab); color: white; padding: 1rem 2rem; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 1.1rem; transition: all 0.3s ease; box-shadow: 0 4px 6px rgba(0,0,0,0.1);" onmouseover="this.style.background='var(--dark-olive)'; this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 12px rgba(0,0,0,0.15)';" onmouseout="this.style.background='var(--olive-drab)'; this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 6px rgba(0,0,0,0.1)';">
+                        Launch Interactive Tools →
+                    </a>
+                </div>
+                <div style="margin-top: 1.5rem; padding: 1rem; background: rgba(107, 127, 61, 0.1); border-left: 4px solid var(--olive-drab); border-radius: 4px;">
+                    <strong>Available Tools:</strong>
+                    <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                        <li>Random Scenario Generator - Create balanced scenarios</li>
+                        <li>Historical Scenario Generator - Recreate actual battles</li>
+                        <li>Equipment Database Search - Query 469 items with BattleGroup stats</li>
+                        <li>BG Builder Integration - Import/export with BattlegroupBuilder.io</li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <p>&copy; 2025 North Africa Campaign Books Project</p>
+                    <p style="font-size: 0.9rem; margin-top: 0.5rem;">Publication-ready scenario books for BattleGroup tabletop wargaming</p>
+                </div>
+                <div class="footer-links">
+                    <a href="https://github.com/yourusername/north-africa-toe-builder" target="_blank">GitHub Repository</a>
+                    <a href="#about">About</a>
+                    <a href="shared/bibliography.html">Bibliography</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Minimal JavaScript for smooth scrolling -->
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add fade-in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe period sections
+        document.querySelectorAll('.period-section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(30px)';
+            section.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
