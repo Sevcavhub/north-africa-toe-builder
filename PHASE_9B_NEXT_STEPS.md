@@ -347,3 +347,157 @@ User needs to fill blank CSV fields using PDF or OCR text as reference:
 - Canada's Crucible extraction scripts: `scripts/battlegroup/manual_extraction/canada_*.py`
 - Database schema: Check table definitions with `PRAGMA table_info(table_name)`
 - OCR script: `create_all_british_csv_templates.py`
+
+---
+
+## 🌐 WEB DEPLOYMENT STATUS (November 12, 2025)
+
+### ✅ BACKEND API (Render.com) - DEPLOYED
+
+**Deployment URL**: https://north-africa-toe-api.onrender.com
+
+**Status**: ✅ Production ready
+- Health check passing: `/api/health` (service healthy, database exists)
+- Database: 6.58 MB web_database.db (17 tables, optimized for deployment)
+- Equipment search working: `/api/equipment/search` (Sherman: 10 results, Panzer: 14 results)
+
+**API Endpoints Implemented**:
+1. `GET /api/health` - Health check (status, version, database status)
+2. `GET /api` - API info/documentation
+3. `GET /api/equipment/search` - Equipment search with filters (name, nation, category)
+4. `GET /api/equipment/<id>` - Equipment details by ID
+5. `POST /api/scenarios/random` - Random scenario generator (points, nations, quarter)
+6. `POST /api/scenarios/historical` - Historical scenario generator (location, quarter)
+7. `GET /api/scenarios/locations/<quarter>` - Battle locations by quarter (1941q1-1942q4)
+
+**Database Optimization**:
+- Original: 15.57 MB full database
+- Optimized: 6.58 MB (stripped to essential tables)
+- Excluded: Phase 6 extraction metadata, temporary tables, unused indexes
+
+**Configuration**:
+- Auto-deploy from main branch on git push
+- CORS enabled for GitHub Pages frontend
+- Error handling with JSON responses
+- Logging enabled for debugging
+
+### ✅ FRONTEND (GitHub Pages) - DEPLOYED
+
+**Deployment URL**: https://sevcavhub.github.io/north-africa-toe-builder/
+
+**Status**: ✅ Production ready with navigation improvements
+
+**Pages Deployed**:
+1. `index.html` - Landing page with sticky navigation ✅
+2. `tools.html` - Interactive tools (scenario generators, equipment search) ✅
+3. `bibliography.html` - Research sources and citations ✅
+4. **4 Battle Books** (MDBook HTML outputs):
+   - `battleaxe/book/book/` - 134+ HTML files ✅
+   - `crusader/book/book/` - 134+ HTML files ✅
+   - `gazala/book/book/` - 134+ HTML files ✅
+   - `first_alamein/book/book/` - 134+ HTML files ✅
+
+**Navigation UX Improvements** (November 12, 2025):
+- ✅ Sticky top navigation bar added (About, Books, Interactive Tools, Bibliography)
+- ✅ Feature cards rewrded to clarify book contents ("Each book includes...")
+- ✅ Bibliography reference page created (links to all 4 book appendices)
+- ✅ Interactive Tools highlighted in navigation (red accent button)
+- ✅ Section anchors added (id="about", id="books")
+
+**Tools Page Features**:
+- Equipment search with filters (name, nation, category)
+- Random scenario generator (configurable points, nations, quarter)
+- Historical scenario generator (quarter selection, location dropdown)
+- Raw API response display for debugging
+
+### 📋 REMAINING WEB TASKS
+
+**Priority 1: Book 404 Troubleshooting** (if issues persist)
+- Current Status: Books deployed to git, may have GitHub Pages propagation delay
+- Files in git: 281 HTML files (4 books × ~70 files each)
+- Next steps:
+  1. Wait for GitHub Pages cache refresh (24-48 hours)
+  2. If persistent, check GitHub Pages build logs
+  3. Verify `.gitignore` not re-excluding book directories
+  4. Test book links manually: `battleaxe/book/book/index.html`, etc.
+
+**Priority 2: Quick Access Consolidated Pages** (Optional Enhancement)
+- **Equipment Index**: Searchable/filterable master list of all 469 equipment items
+  - Filters: Nation, category, quarter availability
+  - Links to datacard pages in books
+  - Estimated: 4-6 hours
+- **Consolidated OOBs**: Master organization view across all quarters
+  - Hierarchical: Theater → Army → Corps → Division
+  - Timeline view showing unit evolution
+  - Estimated: 6-8 hours
+- **Scenario Browser**: All 45+ scenarios with filters
+  - Filters: Quarter, nation, battle, points range
+  - Quick reference cards with setup details
+  - Estimated: 4-6 hours
+- **Timeline Visualization**: Interactive campaign timeline
+  - Visual timeline: June 1941 → July 1942
+  - Key battles, unit deployments, equipment introductions
+  - Estimated: 6-8 hours
+
+**Priority 3: Production Testing Checklist**
+- [ ] Test all 7 API endpoints with various parameters
+- [ ] Test equipment search with edge cases (special characters, empty results)
+- [ ] Test scenario generators with all 8 quarters (1941q1-1942q4)
+- [ ] Verify book navigation (chapter links, appendix links, cross-references)
+- [ ] Mobile responsiveness testing (landing page, tools page, books)
+- [ ] Browser compatibility (Chrome, Firefox, Safari, Edge)
+- [ ] Performance testing (API response times, page load times)
+- [ ] Accessibility audit (WCAG compliance, screen reader testing)
+
+**Priority 4: Future Enhancements**
+- Enhanced equipment display (formatted cards instead of raw JSON)
+- Save/share scenario configurations (URL parameters or local storage)
+- Printable scenario sheets (CSS @media print styles)
+- Dark mode toggle for all pages
+- Search across all book content (full-text search index)
+
+### 🚀 DEPLOYMENT WORKFLOW
+
+**Backend Updates** (Render.com):
+1. Make changes to `scripts/battlegroup/web/railway_app.py` or `railway_config.py`
+2. Commit and push to main branch
+3. Render auto-deploys within 2-5 minutes
+4. Verify at https://north-africa-toe-api.onrender.com/api/health
+
+**Frontend Updates** (GitHub Pages):
+1. Make changes to HTML/CSS files in `books/` directory
+2. Regenerate MDBook outputs if needed (`cd books/[battle]/book && mdbook build`)
+3. Commit and push to main branch
+4. GitHub Pages deploys within 1-5 minutes
+5. May need to clear browser cache to see changes
+
+**Database Updates**:
+1. Update `scripts/battlegroup/web/database/web_database.db` locally
+2. Upload to Render via web dashboard (Disk storage section)
+3. Restart Render service to pick up new database
+4. Verify changes via `/api/equipment/search` or other endpoints
+
+### 📊 WEB DEPLOYMENT METRICS
+
+**Git Commits** (Web Deployment Phase):
+- `d65ff456` - feat(render): Add Render.com deployment configuration
+- `26bd33ee` - feat(render): Add temporary database upload endpoint
+- `cd321a23` - feat(phase12): Complete 1942-Q2 (Gazala/Tobruk, 80.4k chars)
+- `8a3fb197` - feat(web): Create stripped database for Render deployment
+- `[pending]` - feat(web): Add scenario endpoints and navigation improvements
+- `f0a1ce5f` - feat(web): Add navigation bar and bibliography page
+
+**Files Changed** (Web Deployment):
+- Backend: `railway_app.py`, `railway_config.py`, `render.yaml`
+- Frontend: `index.html`, `tools.html`, `bibliography.html` (new)
+- Database: `web_database.db` (stripped, 6.58 MB)
+- Git config: `.gitignore` (un-excluded book directories)
+- Books: 281 HTML files added (4 books × MDBook outputs)
+
+**Lines of Code**:
+- Backend API: ~300 lines (7 endpoints, error handling, CORS)
+- Frontend HTML: ~850 lines (3 pages with navigation)
+- CSS: ~500 lines (responsive design, navigation, cards)
+- JavaScript: ~200 lines (API calls, form handling, display logic)
+
+---

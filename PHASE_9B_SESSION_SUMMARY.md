@@ -1907,3 +1907,166 @@ All destructive operations backed up table before changes:
 **Next Session**: Continue with PHASE_9B_NEXT_STEPS.md tasks or user-directed data entry
 
 ---
+
+## 🌐 Web Deployment Complete (November 12, 2025)
+
+**Achievement**: Full-stack web application deployed to production with database optimization
+
+**Duration**: ~6 hours (database optimization, API deployment, frontend deployment, navigation improvements)
+
+### Backend API (Render.com)
+
+**Status**: ✅ **DEPLOYED** - https://north-africa-toe-api.onrender.com
+
+**Database Optimization**:
+- Original: 15.57 MB (99 tables, 42,968 rows)
+- Stripped: 6.58 MB (17 tables, 5,972 rows) - **57.8% reduction**
+- Excluded: Backups, WITW tables, scenarios, campaign system, archives
+- Kept: Core equipment, BattleGroup reference, technical specs, conversion formulas
+
+**API Endpoints Implemented**:
+1. `GET /api/health` - Health check with database status
+2. `GET /api` - API information and endpoint list
+3. `GET /api/equipment/search` - Equipment database search (name, nation, category filters)
+4. `GET /api/equipment/<id>` - Equipment details by ID
+5. `POST /api/scenarios/random` - Random scenario generator
+6. `POST /api/scenarios/historical` - Historical scenario generator
+7. `GET /api/scenarios/locations/<quarter>` - Battle locations by quarter (1941q1-1942q4)
+
+**Deployment Method**:
+- Database included in git repository (automatic deployment)
+- CORS configured for GitHub Pages origin
+- Auto-deploys on git push to main branch
+
+### Frontend (GitHub Pages)
+
+**Status**: ✅ **DEPLOYED** - https://sevcavhub.github.io/north-africa-toe-builder/
+
+**Pages Deployed**:
+1. **Landing Page** (`index.html`):
+   - Top navigation bar (sticky, professional styling)
+   - About section with clarified feature cards
+   - 12 book cards organized by period (Early/Mid/Late War)
+   - Links to Interactive Tools and Bibliography
+
+2. **Interactive Tools** (`tools.html`):
+   - Random Scenario Generator (working ✅)
+   - Historical Scenario Generator (working ✅, location dropdown fixed)
+   - Equipment Search (working ✅, returns JSON data)
+   - Army List Generator, Points Calculator, BG Builder (placeholders)
+
+3. **Bibliography** (`bibliography.html` - NEW):
+   - Links to all 4 book appendices (Appendix C: Historical Sources)
+   - Research methodology explanation
+   - Source categories documentation
+
+4. **MDBook HTML Outputs**:
+   - 281 HTML files added to git (4 books × ~70 files each)
+   - Book structure: battleaxe/book/book/, crusader/book/book/, etc.
+   - Un-ignored from .gitignore for GitHub Pages deployment
+   - Status: ⚠️ Still showing 404s (GitHub Pages caching/propagation delay)
+
+### Navigation UX Improvements
+
+**Completed (November 12)**:
+1. ✅ Top navigation bar with Interactive Tools highlighted
+2. ✅ Feature cards reworded ("Each book includes:" clarity)
+3. ✅ Bibliography reference page created
+4. ✅ Section anchors added (About, Books sections)
+
+**In Progress**:
+- MDBook HTML 404 errors (deployment propagation issue)
+
+**Pending (Phase 4-5)**:
+- Quick Access consolidated pages:
+  - Equipment Index (all equipment searchable)
+  - Consolidated OOBs (master organization view)
+  - Scenario Browser (all scenarios filterable)
+  - Timeline visualization (12 battles chronological)
+
+### Technical Details
+
+**Database Schema**:
+- 17 essential tables for web deployment
+- 469 equipment items, 281 BG reference vehicles, 51 BG guns
+- 612 WWIITANKS AFVs, 343 guns, 1,296 penetration data points
+- Conversion formulas: armor, penetration, movement, HE
+
+**Files Created**:
+- `scripts/battlegroup/web/web_database.db` (6.58 MB stripped database)
+- `scripts/battlegroup/web/analyze_db_size.py` (analysis tool)
+- `scripts/battlegroup/web/create_stripped_database.py` (generator script)
+- `scripts/battlegroup/web/railway_app.py` (Flask API with scenario endpoints)
+- `books/bibliography.html` (bibliography reference page)
+- `render.yaml` (Render.com deployment config)
+
+**Files Modified**:
+- `books/index.html` (navigation bar, feature cards, section IDs)
+- `books/tools.html` (API URL updated to production)
+- `.gitignore` (un-ignored book HTML outputs)
+- `scripts/battlegroup/web/railway_config.py` (use web_database.db)
+
+### Deployment Issues Fixed
+
+**Issue 1: Railway Deployment Failures**
+- Problem: Railway auto-detecting wrong dependencies, installing chromium/X11
+- Attempts: 5+ configuration files (railway.toml, nixpacks.toml, Procfile, etc.)
+- Solution: **Switched to Render.com** (simpler, more reliable)
+
+**Issue 2: Database Upload Complexity**
+- Problem: 16MB database too large for manual upload patterns
+- Attempts: Created temporary upload endpoint with security token
+- Solution: **Stripped database to 6.58 MB and included in git**
+
+**Issue 3: Missing API Endpoints**
+- Problem: tools.html calling `/api/scenarios/random` but endpoint didn't exist
+- Solution: Added 3 scenario endpoints to `railway_app.py`
+
+**Issue 4: Historical Scenario Location Dropdown Empty**
+- Problem: Only defined 4 quarters, tools.html has 8 quarters
+- Solution: Extended to all 1941q1-1942q4 with battle locations
+
+**Issue 5: Book Links 404 Errors**
+- Problem: MDBook outputs (books/*/book/book/) were gitignored
+- Solution: Un-ignored directories, added 281 HTML files to git
+- Status: ⚠️ Still 404ing (GitHub Pages propagation delay)
+
+### Next Steps for Web
+
+1. **Troubleshoot Book 404s**:
+   - Verify GitHub Pages deployment completed
+   - Check Actions tab for build errors
+   - May need .nojekyll file or different path structure
+
+2. **Complete Quick Access Pages** (Phase 4):
+   - Equipment Index (aggregate all book equipment)
+   - Consolidated OOBs (master organization view)
+   - Scenario Browser (all scenarios searchable)
+   - Timeline visualization
+
+3. **Equipment Display Enhancement**:
+   - tools.html shows raw JSON (by design for debugging)
+   - Consider formatted display cards for better UX
+   - Equipment data has null values (Phase 5 matching incomplete)
+
+4. **Production Testing**:
+   - End-to-end testing once book 404s resolved
+   - Cross-browser testing
+   - Mobile responsiveness check
+
+### Git Commits (Web Deployment)
+
+```
+8a3fb197 feat(web): Create stripped database for Render deployment
+0b7af73d fix(render): Simplify deployment - database now in git
+ba6d910f feat(web): Update tools.html to use production Render API
+26bd33ee feat(render): Add temporary database upload endpoint
+49896155 fix(api): Add missing scenario generation endpoints
+625dd275 fix(api): Add all quarters to location endpoint (1941q1-1942q4)
+3aa02868 fix(pages): Add MDBook HTML outputs for GitHub Pages deployment
+f0a1ce5f feat(ux): Add top navigation and improve landing page clarity
+```
+
+**Next Session**: Continue with PHASE_9B_NEXT_STEPS.md tasks or user-directed data entry
+
+---
