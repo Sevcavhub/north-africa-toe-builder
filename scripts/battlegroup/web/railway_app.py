@@ -75,10 +75,113 @@ def create_app():
                 'equipment': {
                     'search': 'GET /api/equipment/search',
                     'details': 'GET /api/equipment/{equipment_id}'
+                },
+                'scenarios': {
+                    'random': 'POST /api/scenarios/random',
+                    'historical': 'POST /api/scenarios/historical',
+                    'locations': 'GET /api/scenarios/locations/{quarter}'
                 }
             },
             'status': 'Railway deployment active'
         })
+
+    # ============================================================================
+    # SCENARIO ENDPOINTS
+    # ============================================================================
+
+    @app.route('/api/scenarios/random', methods=['POST'])
+    def generate_random_scenario():
+        """Generate a random scenario."""
+        import sqlite3
+        import random
+
+        data = request.get_json() or {}
+        points = data.get('points', 1000)
+        nation1 = data.get('nation1', 'german')
+        nation2 = data.get('nation2', 'british')
+        quarter = data.get('quarter', '1942q2')
+
+        try:
+            # Simple scenario generation
+            scenario = {
+                'title': f'Random Encounter - {quarter.upper()}',
+                'description': f'A meeting engagement between {nation1.title()} and {nation2.title()} forces in North Africa.',
+                'points': points,
+                'quarter': quarter,
+                'attacker': {
+                    'nation': nation1,
+                    'points': points,
+                    'force': f'{nation1.title()} battlegroup'
+                },
+                'defender': {
+                    'nation': nation2,
+                    'points': points,
+                    'force': f'{nation2.title()} battlegroup'
+                },
+                'objectives': [
+                    'Control the central objective',
+                    'Inflict casualties on enemy forces',
+                    'Hold defensive positions'
+                ],
+                'special_rules': [
+                    'Meeting Engagement',
+                    'Standard deployment'
+                ],
+                'terrain': random.choice([
+                    'Desert plain with scattered rocks',
+                    'Rocky outcrops and wadis',
+                    'Open desert with dunes',
+                    'Village ruins and fields'
+                ])
+            }
+
+            return jsonify(scenario), 200
+
+        except Exception as e:
+            return jsonify({
+                'error': 'Failed to generate scenario',
+                'message': str(e)
+            }), 500
+
+    @app.route('/api/scenarios/locations/<quarter>', methods=['GET'])
+    def get_scenario_locations(quarter):
+        """Get available battle locations for a quarter."""
+        # Predefined locations for each quarter
+        locations = {
+            '1941q2': ['Halfaya Pass', 'Fort Capuzzo', 'Sollum'],
+            '1941q4': ['Sidi Rezegh', 'Tobruk', 'Bir el Gubi'],
+            '1942q2': ['Gazala', 'Bir Hacheim', 'Got el Ualeb'],
+            '1942q3': ['El Alamein', 'Ruweisat Ridge', 'Alam el Halfa']
+        }
+
+        quarter_locations = locations.get(quarter, ['Generic Desert Location'])
+
+        return jsonify({
+            'quarter': quarter,
+            'locations': quarter_locations
+        }), 200
+
+    @app.route('/api/scenarios/historical', methods=['POST'])
+    def generate_historical_scenario():
+        """Generate a historical scenario."""
+        data = request.get_json() or {}
+        location = data.get('location', 'El Alamein')
+        quarter = data.get('quarter', '1942q3')
+
+        # Return a placeholder historical scenario
+        scenario = {
+            'title': f'Battle of {location}',
+            'quarter': quarter,
+            'location': location,
+            'description': f'Historical engagement at {location} during {quarter.upper()}.',
+            'historical_context': f'This battle was part of the North Africa campaign.',
+            'forces': {
+                'axis': 'German/Italian forces',
+                'allies': 'British/Commonwealth forces'
+            }
+        }
+
+        return jsonify(scenario), 200
 
     # ============================================================================
     # EQUIPMENT DATABASE ENDPOINTS (Basic implementation)
