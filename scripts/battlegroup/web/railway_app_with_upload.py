@@ -36,7 +36,7 @@ def create_app():
         ⚠️ TEMPORARY ENDPOINT: Upload database file
 
         Usage from local machine:
-        curl -X POST -F "database=@database/master_database.db" \
+        curl -X POST -F "database=@database/web_database.db" \
              https://north-africa-toe-api.onrender.com/api/admin/upload-database
         """
         # Simple token check (set via Render environment variable)
