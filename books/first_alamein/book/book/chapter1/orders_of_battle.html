@@ -1,0 +1,638 @@
+<!DOCTYPE HTML>
+<html lang="en" class="rust sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Orders of Battle - First Battle of El Alamein</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Rommel&#x27;s offensive finally halted, Commonwealth defensive masterpiece">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../";
+            const default_light_theme = "rust";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('rust')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">First Battle of El Alamein</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="orders-of-battle---first-battle-of-el-alamein"><a class="header" href="#orders-of-battle---first-battle-of-el-alamein">Orders of Battle - First Battle of El Alamein</a></h1>
+<h2 id="britishcommonwealth-forces-july-1942"><a class="header" href="#britishcommonwealth-forces-july-1942">British/Commonwealth Forces (July 1942)</a></h2>
+<p><strong>Commander-in-Chief Middle East:</strong> General Sir Claude Auchinleck (assumed direct command of Eighth Army after relieving Ritchie)<br />
+<strong>Eighth Army Commander:</strong> General Sir Claude Auchinleck (acting)<br />
+<strong>Deputy Commander:</strong> Lieutenant-General Thomas Corbett</p>
+<h3 id="xxx-corps-northern-sector"><a class="header" href="#xxx-corps-northern-sector">XXX Corps (Northern Sector)</a></h3>
+<p><strong>Commander:</strong> Lieutenant-General William Ramsden</p>
+<h4 id="1st-south-african-division"><a class="header" href="#1st-south-african-division">1st South African Division</a></h4>
+<p><strong>Commander:</strong> Major-General Dan Pienaar</p>
+<p><strong>Composition:</strong></p>
+<ul>
+<li>1st, 2nd, 3rd South African Infantry Brigades</li>
+<li>South African artillery and support</li>
+<li>Northern coastal sector</li>
+<li>Approximately 14,000 troops (2nd SA Division lost at Tobruk)</li>
+</ul>
+<h4 id="9th-australian-division"><a class="header" href="#9th-australian-division">9th Australian Division</a></h4>
+<p><strong>Commander:</strong> Major-General Leslie Morshead</p>
+<p><strong>Composition:</strong></p>
+<ul>
+<li>20th, 24th, 26th Australian Infantry Brigades</li>
+<li>Australian artillery (25-pounders)</li>
+<li>Divisional support units</li>
+<li><strong>Elite formation—masters of night operations</strong></li>
+<li>Approximately 15,000 troops</li>
+</ul>
+<p><strong>Performance:</strong> Outstanding. Repeatedly attacked and gained ground at Tel el Eisa and Alam el Onsol. Night assault tactics among most effective Allied operations of entire desert war.</p>
+<h4 id="50th-infantry-division-northumbrian---reformed"><a class="header" href="#50th-infantry-division-northumbrian---reformed">50th Infantry Division (Northumbrian) - Reformed</a></h4>
+<p><strong>Commander:</strong> Major-General William Ramsden (prior to XXX Corps command)</p>
+<p><strong>Composition:</strong></p>
+<ul>
+<li>69th, 151st Infantry Brigades (150th Brigade destroyed at Gazala)</li>
+<li>Rebuilt after Gazala</li>
+<li>Approximately 11,000 troops</li>
+</ul>
+<p><strong>XXX Corps Total:</strong> ~40,000 troops</p>
+<hr />
+<h3 id="xiii-corps-centralsouthern-sector"><a class="header" href="#xiii-corps-centralsouthern-sector">XIII Corps (Central/Southern Sector)</a></h3>
+<p><strong>Commander:</strong> Lieutenant-General William Gott (killed August 7 in air attack; succeeded by Montgomery)</p>
+<h4 id="2nd-new-zealand-division"><a class="header" href="#2nd-new-zealand-division">2nd New Zealand Division</a></h4>
+<p><strong>Commander:</strong> Lieutenant-General Bernard Freyberg VC</p>
+<p><strong>Composition:</strong></p>
+<ul>
+<li>4th, 5th, 6th New Zealand Infantry Brigades</li>
+<li>28th (Maori) Battalion</li>
+<li>New Zealand Divisional Cavalry</li>
+<li>New Zealand artillery</li>
+<li>Elite veteran formation</li>
+<li>Approximately 12,000 troops</li>
+</ul>
+<p><strong>Performance:</strong> Fought at Ruweisat Ridge (July 14-16) with mixed results; night attacks succeeded but supporting armor coordination failed. Still among best Commonwealth formations.</p>
+<h4 id="5th-indian-division"><a class="header" href="#5th-indian-division">5th Indian Division</a></h4>
+<p><strong>Commander:</strong> Major-General Harold Briggs</p>
+<p><strong>Composition:</strong></p>
+<ul>
+<li>9th, 10th, 29th Indian Infantry Brigades</li>
+<li>18th Indian Brigade (destroyed at Deir el Shein July 1—heroic 24-hour delaying action)</li>
+<li>Indian artillery and support</li>
+<li>Approximately 11,000 troops</li>
+</ul>
+<p><strong>Performance:</strong> 18th Brigade's sacrifice at Deir el Shein bought crucial 24 hours that saved Egypt.</p>
+<h4 id="4th-indian-division-reserve"><a class="header" href="#4th-indian-division-reserve">4th Indian Division (Reserve)</a></h4>
+<p><strong>Commander:</strong> Major-General Francis Tuker</p>
+<p><strong>Composition:</strong></p>
+<ul>
+<li>5th, 7th, 11th Indian Infantry Brigades</li>
+<li>Reserve, not heavily engaged</li>
+<li>Approximately 10,000 troops</li>
+</ul>
+<p><strong>XIII Corps Total:</strong> ~35,000 troops</p>
+<hr />
+<h3 id="armored-forces-distributed-between-corps"><a class="header" href="#armored-forces-distributed-between-corps">Armored Forces (Distributed Between Corps)</a></h3>
+<h4 id="1st-armoured-division"><a class="header" href="#1st-armoured-division">1st Armoured Division</a></h4>
+<p><strong>Commander:</strong> Major-General Herbert Lumsden</p>
+<p><strong>Composition:</strong></p>
+<ul>
+<li>
+<p><strong>2nd Armoured Brigade</strong></p>
+<ul>
+<li>Queen's Bays (Grant medium tanks)</li>
+<li>9th Lancers (Grant medium tanks)</li>
+<li>10th Hussars (Grant medium tanks)</li>
+</ul>
+</li>
+<li>
+<p><strong>22nd Armoured Brigade</strong> (Reformed after Gazala)</p>
+<ul>
+<li>Various tank regiments</li>
+<li>Crusader and Grant tanks</li>
+</ul>
+</li>
+</ul>
+<p><strong>Tank Strength:</strong> Approximately 150 tanks operational (Grant, Crusader, Valentine mix), with reserves arriving continuously</p>
+<h4 id="7th-armoured-division-the-desert-rats---depleted"><a class="header" href="#7th-armoured-division-the-desert-rats---depleted">7th Armoured Division (The "Desert Rats") - Depleted</a></h4>
+<p><strong>Commander:</strong> Major-General John Harding</p>
+<p><strong>Composition:</strong></p>
+<ul>
+<li>
+<p><strong>4th Light Armoured Brigade</strong></p>
+<ul>
+<li>Honey Stuart M3 light tanks</li>
+<li>Armored car reconnaissance</li>
+</ul>
+</li>
+<li>
+<p><strong>7th Motor Brigade</strong></p>
+<ul>
+<li>Motorized infantry support</li>
+</ul>
+</li>
+</ul>
+<p><strong>Tank Strength:</strong> Approximately 100 tanks (primarily Honey Stuart light tanks, some Grant), severely depleted from Gazala</p>
+<h4 id="23rd-armoured-brigade-new---catastrophic-debut"><a class="header" href="#23rd-armoured-brigade-new---catastrophic-debut">23rd Armoured Brigade (NEW - Catastrophic Debut)</a></h4>
+<p><strong>Commander:</strong> Brigadier George Richards</p>
+<p><strong>Composition:</strong></p>
+<ul>
+<li>40th, 46th, 50th Royal Tank Regiments</li>
+<li><strong>Equipped with Valentine infantry tanks</strong> (slow, thin armor)</li>
+<li>Approximately 110 Valentine tanks</li>
+</ul>
+<p><strong>Performance:</strong> Annihilated July 21-22 at El Mreir Depression—80+ tanks destroyed in single day. One of worst British armor disasters of desert war.</p>
+<p><strong>Total Armored Strength:</strong> Approximately 400 tanks operational (including reserves), with continuous replacements arriving from Egypt</p>
+<p><strong>Tank Types:</strong></p>
+<ul>
+<li><strong>M3 Grant:</strong> 75mm sponson gun, 37mm turret gun, effective but tall profile</li>
+<li><strong>Crusader III:</strong> 6-pounder gun (improved from 2-pounder), mechanically unreliable</li>
+<li><strong>Valentine:</strong> 2-pounder or 6-pounder gun, slow (15 mph), reliable but vulnerable</li>
+<li><strong>Honey Stuart M3:</strong> 37mm gun, light tank, excellent reconnaissance and reliability</li>
+</ul>
+<hr />
+<h3 id="artillery-and-support"><a class="header" href="#artillery-and-support">Artillery and Support</a></h3>
+<p><strong>Royal Artillery:</strong></p>
+<ul>
+<li>600+ 25-pounder field guns (18/25-pounders, excellent range and HE effectiveness)</li>
+<li>6-pounder anti-tank guns (increasing numbers, effective against most German tanks)</li>
+<li>2-pounder anti-tank guns (obsolescent but still deployed)</li>
+</ul>
+<p><strong>Desert Air Force:</strong>
+<strong>Commander:</strong> Air Vice-Marshal Arthur Coningham</p>
+<p><strong>Aircraft:</strong> 500+ aircraft</p>
+<ul>
+<li>Hurricane IIc fighters (4x 20mm cannon)</li>
+<li>Kittyhawk fighters (P-40)</li>
+<li>Baltimore and Boston light bombers</li>
+<li><strong>Maintained air superiority throughout battle</strong></li>
+</ul>
+<hr />
+<p><strong>Total Commonwealth Eighth Army Strength:</strong></p>
+<ul>
+<li><strong>Personnel:</strong> ~150,000 troops</li>
+<li><strong>Tanks:</strong> 400+ operational (continuous replacement from Egypt)</li>
+<li><strong>Artillery:</strong> 600+ guns (massive advantage)</li>
+<li><strong>Aircraft:</strong> 500+ (air superiority)</li>
+</ul>
+<p><strong>Organizational Innovation:</strong></p>
+<p>Auchinleck reorganized forces into <strong>combined brigade groups</strong>—integrating tanks, infantry, artillery, and anti-tank guns into cohesive formations. This copied successful German tactics and marked significant improvement over previous piecemeal British organization.</p>
+<hr />
+<h2 id="axis-forces-july-1942"><a class="header" href="#axis-forces-july-1942">Axis Forces (July 1942)</a></h2>
+<p><strong>Commander:</strong> Generalfeldmarschall Erwin Rommel (Panzerarmee Afrika)</p>
+<h3 id="german-forces---afrika-korps-severely-depleted"><a class="header" href="#german-forces---afrika-korps-severely-depleted">German Forces - Afrika Korps (Severely Depleted)</a></h3>
+<h4 id="15th-panzer-division"><a class="header" href="#15th-panzer-division">15th Panzer Division</a></h4>
+<p><strong>Commander:</strong> Generalmajor Gustav von Vaerst</p>
+<p><strong>Composition:</strong></p>
+<ul>
+<li>
+<p><strong>8th Panzer Regiment</strong> (depleted)</p>
+<ul>
+<li>Approximately 50-60 operational tanks (Panzer III, Panzer IV F2)</li>
+<li>Down from 120 tanks at Gazala start</li>
+</ul>
+</li>
+<li>
+<p><strong>104th and 115th Panzergrenadier Regiments</strong></p>
+<ul>
+<li>Motorized infantry at reduced strength</li>
+<li>Approximately 3,000 men (down from 4,000)</li>
+</ul>
+</li>
+<li>
+<p><strong>33rd Artillery Regiment</strong></p>
+<ul>
+<li>105mm, 150mm howitzers</li>
+<li>88mm FlaK batteries (ammunition rationed)</li>
+</ul>
+</li>
+<li>
+<p><strong>33rd Panzerjäger Battalion</strong></p>
+<ul>
+<li>PAK 38 50mm, PAK 40 75mm AT guns</li>
+</ul>
+</li>
+</ul>
+<p><strong>Division Strength:</strong> ~55 tanks, ~6,000 men (heavily depleted)</p>
+<h4 id="21st-panzer-division"><a class="header" href="#21st-panzer-division">21st Panzer Division</a></h4>
+<p><strong>Commander:</strong> Generalmajor Georg von Bismarck</p>
+<p><strong>Composition:</strong></p>
+<ul>
+<li>
+<p><strong>5th Panzer Regiment</strong> (depleted)</p>
+<ul>
+<li>Approximately 50-60 operational tanks (Panzer III, Panzer IV F2)</li>
+<li>Down from 130 tanks at Gazala start</li>
+</ul>
+</li>
+<li>
+<p><strong>104th and 155th Rifle Regiments</strong> (motorized infantry)</p>
+<ul>
+<li>Approximately 3,000 men (reduced)</li>
+</ul>
+</li>
+<li>
+<p><strong>155th Artillery Regiment</strong></p>
+<ul>
+<li>Mixed artillery, 88mm FlaK batteries</li>
+</ul>
+</li>
+<li>
+<p><strong>39th Panzerjäger Battalion</strong></p>
+<ul>
+<li>PAK 38, PAK 40 AT guns</li>
+</ul>
+</li>
+</ul>
+<p><strong>Division Strength:</strong> ~55 tanks, ~6,000 men (heavily depleted)</p>
+<h4 id="90th-light-division-afrika-division"><a class="header" href="#90th-light-division-afrika-division">90th Light Division (Afrika Division)</a></h4>
+<p><strong>Commander:</strong> Generalmajor Ulrich Kleemann</p>
+<p><strong>Composition:</strong></p>
+<ul>
+<li>155th, 200th, 361st Regiments (motorized infantry)</li>
+<li>Reconnaissance battalion</li>
+<li>Artillery and AT support</li>
+<li>Approximately 7,000 men (down from 9,000)</li>
+<li>No tanks (pure motorized infantry)</li>
+</ul>
+<h4 id="164th-light-division-newarrived-late-june"><a class="header" href="#164th-light-division-newarrived-late-june">164th Light Division (NEW—arrived late June)</a></h4>
+<p><strong>Commander:</strong> Generalmajor Carl-Hans Lungershausen</p>
+<p><strong>Composition:</strong></p>
+<ul>
+<li>Infantry division (not motorized)</li>
+<li>Approximately 6,000 men</li>
+<li>Deployed in northern sector; engaged by Australian attacks</li>
+</ul>
+<p><strong>German Tank Types:</strong></p>
+<ul>
+<li><strong>Panzer III Ausf J/L:</strong> 50mm KwK 39 L/60 long gun, effective</li>
+<li><strong>Panzer IV Ausf F2:</strong> 75mm KwK 40 L/43 long gun—still superior firepower to most British tanks</li>
+<li><strong>Panzer II:</strong> Light tank, limited combat value</li>
+</ul>
+<p><strong>Critical German Assets:</strong></p>
+<ul>
+<li><strong>88mm FlaK 18/36/37:</strong> Still devastating, but ammunition rationed (~40 guns operational)</li>
+<li><strong>PAK 40 75mm:</strong> Excellent AT gun, increasing numbers (~30-35 guns)</li>
+<li><strong>PAK 38 50mm:</strong> Standard AT gun (~60-80 guns)</li>
+</ul>
+<p><strong>Total German Strength:</strong> ~110-120 tanks operational, ~28,000 men</p>
+<p><strong>Critical German Weaknesses:</strong></p>
+<ul>
+<li><strong>Fuel Crisis:</strong> Severe shortages limited operations; tanks often immobilized</li>
+<li><strong>Ammunition Shortages:</strong> Artillery and AT guns rationed</li>
+<li><strong>Exhaustion:</strong> Continuous combat since May 26</li>
+<li><strong>Extended Supply Lines:</strong> 1,400 miles from Tripoli; Tobruk capture didn't solve fundamental problem</li>
+<li><strong>Mechanical Attrition:</strong> Tank strength down 60% from combat and breakdowns</li>
+</ul>
+<hr />
+<h3 id="italian-forces-heavily-depleted"><a class="header" href="#italian-forces-heavily-depleted">Italian Forces (Heavily Depleted)</a></h3>
+<h4 id="ariete-armored-division-heavily-damaged"><a class="header" href="#ariete-armored-division-heavily-damaged">Ariete Armored Division (Heavily Damaged)</a></h4>
+<p><strong>Commander:</strong> Generale Baldassarre</p>
+<p><strong>Composition:</strong></p>
+<ul>
+<li>
+<p><strong>132nd Armored Regiment</strong></p>
+<ul>
+<li>Approximately 50 operational tanks/assault guns (M13/40, M14/41, Semovente 75/18)</li>
+<li>Down from 130 at Gazala start</li>
+</ul>
+</li>
+<li>
+<p><strong>8th Bersaglieri Regiment</strong> (motorized infantry, reduced)</p>
+<ul>
+<li>Approximately 1,500 men</li>
+</ul>
+</li>
+</ul>
+<p><strong>Division Strength:</strong> ~50 armored vehicles, ~6,000 men (heavily depleted from Bir Hacheim fighting)</p>
+<h4 id="littorio-armored-division"><a class="header" href="#littorio-armored-division">Littorio Armored Division</a></h4>
+<p><strong>Commander:</strong> Generale Bitossi</p>
+<p><strong>Composition:</strong></p>
+<ul>
+<li>
+<p><strong>133rd Armored Regiment</strong></p>
+<ul>
+<li>Approximately 60 operational tanks (M14/41, Semovente guns)</li>
+<li>Down from 100 at Gazala start</li>
+</ul>
+</li>
+<li>
+<p><strong>12th Bersaglieri Regiment</strong> (motorized infantry)</p>
+</li>
+</ul>
+<p><strong>Division Strength:</strong> ~60 armored vehicles, ~6,500 men</p>
+<h4 id="trieste-motorized-division-101st"><a class="header" href="#trieste-motorized-division-101st">Trieste Motorized Division (101st)</a></h4>
+<p><strong>Commander:</strong> Generale La Ferla</p>
+<p><strong>Composition:</strong></p>
+<ul>
+<li>65th and 66th Infantry Regiments (truck-mobile)</li>
+<li>Approximately 8,000 men (reduced from 11,000)</li>
+</ul>
+<h4 id="trento-brescia-infantry-divisions"><a class="header" href="#trento-brescia-infantry-divisions">Trento, Brescia Infantry Divisions</a></h4>
+<ul>
+<li>Static infantry divisions</li>
+<li>Defensive positions</li>
+<li>Particularly vulnerable to Australian night attacks</li>
+<li>Approximately 12,000 men combined (heavily depleted)</li>
+</ul>
+<p><strong>Italian Tank Types:</strong></p>
+<ul>
+<li><strong>M13/40/M14/41:</strong> 47mm gun, thin armor, obsolescent</li>
+<li><strong>Semovente 75/18:</strong> Self-propelled 75mm gun, effective support weapon</li>
+<li><strong>Semovente 105/25:</strong> Limited numbers, powerful but slow</li>
+</ul>
+<p><strong>Total Italian Strength:</strong> ~110 tanks/assault guns, ~32,500 men</p>
+<hr />
+<h2 id="force-comparison"><a class="header" href="#force-comparison">Force Comparison</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Category</th><th>Commonwealth</th><th>Axis (German + Italian)</th></tr></thead><tbody>
+<tr><td><strong>Personnel</strong></td><td>150,000</td><td>~60,500 (28,000 German, 32,500 Italian)</td></tr>
+<tr><td><strong>Tanks</strong></td><td>400+ operational (continuous replacement)</td><td>~220 operational (110-120 German, 110 Italian)</td></tr>
+<tr><td><strong>Tank Quality</strong></td><td>Grant effective, Crusader/Valentine mixed</td><td>Panzer IV F2 still superior; Italian tanks obsolete</td></tr>
+<tr><td><strong>Anti-Tank</strong></td><td>6-pounder improving, 2-pounder obsolete</td><td>88mm/PAK 40 excellent but ammunition rationed</td></tr>
+<tr><td><strong>Artillery</strong></td><td>600+ 25-pounders (massive advantage)</td><td>Mixed German/Italian (adequate but low ammunition)</td></tr>
+<tr><td><strong>Air Power</strong></td><td>500+ aircraft (total superiority)</td><td>~200-250 aircraft (inadequate, fuel-starved)</td></tr>
+<tr><td><strong>Supply Situation</strong></td><td>Secure, short lines to Egypt</td><td><strong>CRITICAL CRISIS—fuel and ammunition shortages</strong></td></tr>
+<tr><td><strong>Troop Condition</strong></td><td>Shaken from Gazala but reorganizing</td><td><strong>Exhausted from continuous operations since May 26</strong></td></tr>
+</tbody></table>
+</div>
+<p><strong>Commonwealth Advantages:</strong></p>
+<ul>
+<li>Numerical superiority: 2.5:1 troops, 1.8:1 tanks, 3:1 artillery</li>
+<li><strong>Defensive position:</strong> El Alamein narrow front (40 miles) eliminated flanking maneuvers</li>
+<li>Short supply lines: Cairo 60 miles, Alexandria 100 miles</li>
+<li><strong>Air superiority:</strong> RAF Desert Air Force dominated</li>
+<li>Continuous reinforcements and replacements</li>
+<li><strong>Combined brigade groups:</strong> Improved organization (Auchinleck's reform)</li>
+</ul>
+<p><strong>Axis Advantages:</strong></p>
+<ul>
+<li>Superior crew training and gunnery (German forces)</li>
+<li>Panzer IV F2 long 75mm still provided firepower advantage</li>
+<li>Integrated combined-arms tactics (German doctrine)</li>
+<li>Tactical leadership (Rommel's genius)</li>
+<li><strong>BUT:</strong> Advantages negated by fuel/ammunition crisis, exhaustion, and numerical inferiority</li>
+</ul>
+<p><strong>Critical Factors:</strong></p>
+<ol>
+<li><strong>Axis Supply Crisis:</strong> Fuel shortages immobilized armor; ammunition rationing limited artillery/AT effectiveness</li>
+<li><strong>Narrow Front:</strong> El Alamein position eliminated Rommel's favored flanking maneuvers</li>
+<li><strong>Exhaustion:</strong> Axis forces depleted from 60+ days continuous combat</li>
+<li><strong>British Numbers:</strong> Material superiority finally decisive; Axis couldn't sustain attrition</li>
+<li><strong>Australian Effectiveness:</strong> 9th Australian Division's night attacks particularly effective</li>
+</ol>
+<hr />
+<h2 id="special-engagements-and-performance-notes"><a class="header" href="#special-engagements-and-performance-notes">Special Engagements and Performance Notes</a></h2>
+<h3 id="deir-el-shein-july-1"><a class="header" href="#deir-el-shein-july-1">Deir el Shein (July 1)</a></h3>
+<ul>
+<li><strong>Indian 18th Brigade</strong> (~4,000 men) held fortified box 24 hours</li>
+<li>Destroyed by German 90th Light Division + captured Grants + 88mm guns</li>
+<li><strong>Heroic delaying action saved Egypt—bought time for defense organization</strong></li>
+</ul>
+<h3 id="tel-el-eisa-july-10-12"><a class="header" href="#tel-el-eisa-july-10-12">Tel el Eisa (July 10-12)</a></h3>
+<ul>
+<li><strong>9th Australian Division</strong> attacked German 164th Light + Italian Brescia</li>
+<li>Australian success created salient, inflicted disproportionate casualties</li>
+<li>Demonstrated Allied offensive capability</li>
+</ul>
+<h3 id="ruweisat-ridge-july-14-16"><a class="header" href="#ruweisat-ridge-july-14-16">Ruweisat Ridge (July 14-16)</a></h3>
+<ul>
+<li><strong>2nd New Zealand Division</strong> night attacks initially successful</li>
+<li>Tank-infantry coordination failures led to German dawn counter-attacks defeating both separately</li>
+<li>Heavy casualties; demonstrated continued British tactical difficulties despite improvements</li>
+</ul>
+<h3 id="el-mreir-depression-july-21-22"><a class="header" href="#el-mreir-depression-july-21-22">El Mreir Depression (July 21-22)</a></h3>
+<ul>
+<li><strong>23rd Armoured Brigade</strong> (110 Valentine tanks) attacked into killing ground</li>
+<li>80+ tanks destroyed by concealed 88mm, PAK 40, Panzer IV F2</li>
+<li><strong>One of worst British armor disasters—"tank graveyard"</strong></li>
+</ul>
+<h3 id="alam-el-onsol-july-26-27"><a class="header" href="#alam-el-onsol-july-26-27">Alam el Onsol (July 26-27)</a></h3>
+<ul>
+<li><strong>9th Australian Division</strong> night attack</li>
+<li>Overran German/Italian positions using infiltration tactics</li>
+<li>Extended salient; demonstrated Australian mastery of night operations</li>
+</ul>
+<hr />
+<p><strong>Notes:</strong></p>
+<ul>
+<li>Axis forces down 60% from Gazala start due to combat losses, mechanical breakdowns, fuel shortages</li>
+<li>British continuous replacement maintained strength; Axis could not replace losses</li>
+<li>9th Australian Division emerged as star performer—aggressive night operations models for future Allied tactics</li>
+<li>First El Alamein was defensive battle; Second El Alamein (October 1942) would be Montgomery's offensive using Auchinleck's defensive foundation</li>
+</ul>
+<p><strong>Sources:</strong></p>
+<ul>
+<li>"The Battle of Alamein" by John Bierman and Colin Smith</li>
+<li>Australian Official History: "Bardia to Enfidaville"</li>
+<li>"Auchinleck's Command" by John Connell</li>
+<li>New Zealand Official History sections on First Alamein</li>
+<li>British Official History: "The Mediterranean and Middle East, Vol III"</li>
+<li>German war diaries: Afrika Korps divisions</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../chapter1/historical_overview.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../scenarios/overview.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../chapter1/historical_overview.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../scenarios/overview.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

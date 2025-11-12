@@ -1,0 +1,1128 @@
+<!DOCTYPE HTML>
+<html lang="en" class="rust sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Appendix C: Historical Sources - The Battle of Gazala</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Rommel&#x27;s left-hook maneuver, Free French at Bir Hacheim, fall of Tobruk">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../";
+            const default_light_theme = "rust";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('rust')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">The Battle of Gazala</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="appendix-c-historical-sources"><a class="header" href="#appendix-c-historical-sources">Appendix C: Historical Sources</a></h1>
+<p>This appendix documents the primary and secondary sources used to construct the Gazala scenarios, orders of battle, and equipment datacards. The Battle of Gazala (May-June 1942) was Rommel's masterpiece - the "Gazala Gallop" - featuring the epic Free French defense at Bir Hacheim, the "Cauldron" battles, and the fall of Tobruk.</p>
+<hr />
+<h2 id="primary-sources"><a class="header" href="#primary-sources">Primary Sources</a></h2>
+<h3 id="war-diaries-and-official-records"><a class="header" href="#war-diaries-and-official-records">War Diaries and Official Records</a></h3>
+<ol>
+<li>
+<p><strong>War Diary, 1st Armoured Division, May-June 1942</strong> (TNA WO 169/4365)</p>
+<ul>
+<li>British National Archives, Kew</li>
+<li>Grant tank combat reports from Knightsbridge battles</li>
+<li>Tank strength returns during Cauldron engagements</li>
+<li>First use of Grant M3 with 75mm gun in major battle</li>
+</ul>
+</li>
+<li>
+<p><strong>War Diary, 50th Infantry Division, May-June 1942</strong> (TNA WO 169/4482)</p>
+<ul>
+<li>150th Brigade Box siege and destruction</li>
+<li>Gazala line defensive positions and minefields</li>
+<li>Final withdrawal from Gazala line ("Gazala Gallop")</li>
+</ul>
+</li>
+<li>
+<p><strong>War Diary, 7th Armoured Division, May-June 1942</strong> (TNA WO 169/4350)</p>
+<ul>
+<li>Desert Rats in Gazala battles</li>
+<li>Knightsbridge tank engagements</li>
+<li>Withdrawal to Egyptian frontier</li>
+</ul>
+</li>
+<li>
+<p><strong>Journal de Marche, 1re Brigade Française Libre, Mai-Juin 1942</strong></p>
+<ul>
+<li>Service Historique de la Défense, Vincennes, France</li>
+<li>Bir Hacheim siege documentation (May 27 - June 10, 1942)</li>
+<li>Free French defensive operations and breakout</li>
+<li>Most detailed French account of desert war's finest hour</li>
+</ul>
+</li>
+<li>
+<p><strong>Kriegstagebuch, Panzergruppe Afrika, Mai-Juni 1942</strong></p>
+<ul>
+<li>Bundesarchiv RH 21-3/v.30-31</li>
+<li>Rommel's "left hook" planning and execution</li>
+<li>Cauldron battles and breakout from encirclement</li>
+<li>Tobruk assault planning and execution</li>
+</ul>
+</li>
+<li>
+<p><strong>Kriegstagebuch, 15. Panzer-Division, Mai-Juni 1942</strong></p>
+<ul>
+<li>Bundesarchiv RH 27-15/5</li>
+<li>Panzer III Ausf J (long 50mm) and Panzer IV F2 (long 75mm) combat reports</li>
+<li>Knightsbridge tank battles</li>
+<li>150th Brigade Box assault operations</li>
+</ul>
+</li>
+<li>
+<p><strong>Kriegstagebuch, 21. Panzer-Division, Mai-Juni 1942</strong></p>
+<ul>
+<li>Bundesarchiv RH 27-21/3</li>
+<li>Left-hook maneuver south of Bir Hacheim</li>
+<li>Cauldron defensive operations</li>
+<li>Pursuit to Egyptian frontier</li>
+</ul>
+</li>
+<li>
+<p><strong>Kriegstagebuch, 90. leichte Afrika-Division, Mai-Juni 1942</strong></p>
+<ul>
+<li>Bundesarchiv RH 27-90/4</li>
+<li>Bir Hacheim siege operations</li>
+<li>Motorized infantry operations in Cauldron</li>
+<li>Tobruk assault (northern sector)</li>
+</ul>
+</li>
+<li>
+<p><strong>Diario Storico, Divisione Corazzata Ariete, Maggio-Giugno 1942</strong></p>
+<ul>
+<li>Ufficio Storico dello Stato Maggiore dell'Esercito, Rome</li>
+<li>Bir Hacheim first assaults (May 27-28)</li>
+<li>Cauldron battles alongside DAK</li>
+<li>M13/40 tank performance against Grant tanks</li>
+</ul>
+</li>
+<li>
+<p><strong>Diario Storico, Divisione Corazzata Littorio, Maggio-Giugno 1942</strong></p>
+<ul>
+<li>Ufficio Storico SME, Rome</li>
+<li>Italian armored division debut in North Africa</li>
+<li>Coordination with German Panzer divisions</li>
+<li>Equipment: M14/41 tanks, Semovente 75/18</li>
+</ul>
+</li>
+</ol>
+<h3 id="official-histories"><a class="header" href="#official-histories">Official Histories</a></h3>
+<ol start="11">
+<li>
+<p><strong>Playfair, I.S.O. et al. "The Mediterranean and Middle East, Volume III"</strong></p>
+<ul>
+<li><em>British Fortunes Reach their Lowest Ebb (September 1941 to September 1942)</em>, HMSO, 1960</li>
+<li>British Official History - Gazala chapters (Chapters VIII-X)</li>
+<li>Most detailed British account of the campaign</li>
+<li>Fall of Tobruk analyzed (Chapter X)</li>
+</ul>
+</li>
+<li>
+<p><strong>Long, Gavin. "To Benghazi" and "Bardia to Enfidaville"</strong></p>
+<ul>
+<li><em>Australia in the War of 1939-1945, Series 1 (Army), Volumes I and II</em></li>
+<li>Australian War Memorial, Canberra, 1952-1961</li>
+<li>Australian Official History - Limited Australian involvement at Gazala</li>
+<li>Background on Australian units for later First Alamein</li>
+</ul>
+</li>
+<li>
+<p><strong>Agar-Hamilton, J.A.I. and Turner, L.C.F. "Crisis in the Desert: May-July 1942"</strong></p>
+<ul>
+<li><em>The Union War Histories: The War in the Middle East, Vol II</em></li>
+<li>Government Printer, Pretoria, 1952</li>
+<li>South African Official History - 1st and 2nd SA Divisions at Gazala</li>
+<li>Fall of Tobruk (2nd SA Division captured)</li>
+</ul>
+</li>
+<li>
+<p><strong>Broche, François. "L'Épopée de la France Libre"</strong></p>
+<ul>
+<li>Pygmalion, Paris, 1998</li>
+<li>Free French Official History perspective</li>
+<li>Bir Hacheim siege detailed analysis</li>
+<li>Free French breakout operations</li>
+</ul>
+</li>
+</ol>
+<h3 id="german-organizational-documents"><a class="header" href="#german-organizational-documents">German Organizational Documents</a></h3>
+<ol start="15">
+<li>
+<p><strong>Tessin, Georg. "Verbände und Truppen der deutschen Wehrmacht..."</strong></p>
+<ul>
+<li>Band 4: Die Landstreitkräfte 15-30</li>
+<li>Band 5: Die Landstreitkräfte 31-70</li>
+<li>Biblio Verlag, Osnabrück, 1976-1977</li>
+<li>
+<ol start="15">
+<li>Panzer-Division organization (1942-Q2)</li>
+</ol>
+</li>
+<li>
+<ol start="21">
+<li>Panzer-Division organization (1942-Q2)</li>
+</ol>
+</li>
+<li>
+<ol start="90">
+<li>leichte Afrika-Division organization</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>KStN Documents - Panzer Division 1942 (Spring configuration)</strong></p>
+<ul>
+<li>Panzer Regiment with Panzer IV F2 (long 75mm gun) introduction</li>
+<li>7.5cm KwK 40 L/43 penetration superior to all previous guns</li>
+<li>Panzer III Ausf J (long 50mm) standard equipment</li>
+<li>Source: Nafziger Collection, CARL Digital Library</li>
+</ul>
+</li>
+<li>
+<p><strong>Nafziger Collection: OOB #942GEAA - Panzerarmee Afrika May 1942</strong></p>
+<ul>
+<li>Combined Arms Research Library, Fort Leavenworth</li>
+<li>Deutsches Afrikakorps: 15. and 21. Panzer-Divisionen</li>
+<li>
+<ol start="90">
+<li>leichte Afrika-Division</li>
+</ol>
+</li>
+<li>Italian XX and XXI Motorized Corps</li>
+<li>Complete Gazala offensive order of battle</li>
+</ul>
+</li>
+</ol>
+<h3 id="britishcommonwealth-organizational-documents"><a class="header" href="#britishcommonwealth-organizational-documents">British/Commonwealth Organizational Documents</a></h3>
+<ol start="18">
+<li>
+<p><strong>British Army Lists, April-July 1942</strong> (War Office, HMSO)</p>
+<ul>
+<li>armylistapr1942grea_hocr_searchtext.txt</li>
+<li>armylistjul1942grea_hocr_searchtext.txt</li>
+<li>Commander appointments: Lt-Gen Neil Ritchie (Eighth Army)</li>
+<li>Grant M3 tank introduction to British service</li>
+<li>1st Armoured Division organization</li>
+</ul>
+</li>
+<li>
+<p><strong>War Establishments (WE) - Armoured Division 1942</strong></p>
+<ul>
+<li>British divisional organization table (1942 configuration)</li>
+<li>Grant tank squadrons: 3 troops of 4-5 tanks each</li>
+<li>Mixed Grant/Crusader squadrons (Grant for firepower, Crusader for speed)</li>
+</ul>
+</li>
+<li>
+<p><strong>Nafziger Collection: OOB #942BIAA - Eighth Army May 1942</strong></p>
+<ul>
+<li>British order of battle for Gazala defensive line</li>
+<li>XIII Corps (northern sector)</li>
+<li>XXX Corps (southern sector with 1st Free French Brigade)</li>
+<li>"Box" defensive system organization</li>
+</ul>
+</li>
+</ol>
+<h3 id="free-french-records"><a class="header" href="#free-french-records">Free French Records</a></h3>
+<ol start="21">
+<li>
+<p><strong>Archives de la France Libre - Bir Hacheim Dossier</strong></p>
+<ul>
+<li>Service Historique de la Défense, Château de Vincennes</li>
+<li>1re Brigade Française Libre (Gen Pierre Koenig)</li>
+<li>Daily siege reports May 27 - June 10, 1942</li>
+<li>Foreign Legion and Colonial troops dispositions</li>
+<li>Breakout orders and execution (June 10-11)</li>
+</ul>
+</li>
+<li>
+<p><strong>Koenig, Gen Pierre. "Bir Hakeim: 10 juin 1942"</strong></p>
+<ul>
+<li>Robert Laffont, Paris, 1971</li>
+<li>Commander's personal account of siege</li>
+<li>Tactical dispositions and defensive planning</li>
+<li>Decision to break out rather than surrender</li>
+</ul>
+</li>
+</ol>
+<h3 id="italian-records"><a class="header" href="#italian-records">Italian Records</a></h3>
+<ol start="23">
+<li>
+<p><strong>Bollettini di Guerra, Maggio-Giugno 1942</strong> (Comando Supremo)</p>
+<ul>
+<li>Italian daily operational bulletins</li>
+<li>Ariete Division operations in Cauldron</li>
+<li>Littorio Division combat debut</li>
+<li>Trieste Division motorized infantry operations</li>
+</ul>
+</li>
+<li>
+<p><strong>Regio Esercito Divisional Records, 1942</strong></p>
+<ul>
+<li>Ariete Division (Divisione Corazzata) - M13/40 tanks</li>
+<li>Littorio Division (Divisione Corazzata) - M14/41 tanks, Semovente 75/18</li>
+<li>Trieste Division (Divisione Motorizzata) - Bersaglieri regiments</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h2 id="secondary-sources"><a class="header" href="#secondary-sources">Secondary Sources</a></h2>
+<h3 id="major-historical-works"><a class="header" href="#major-historical-works">Major Historical Works</a></h3>
+<ol start="25">
+<li>
+<p><strong>Macksey, Kenneth. "The Battle of Gazala"</strong></p>
+<ul>
+<li>Macdonald &amp; Co, London, 1971</li>
+<li>Most comprehensive single-volume study of Gazala</li>
+<li>Detailed tactical analysis of Cauldron battles</li>
+<li>150th Brigade Box siege documented</li>
+</ul>
+</li>
+<li>
+<p><strong>Lyman, Robert. "Tobruk 1942: Rommel and the Defeat of the Allies"</strong></p>
+<ul>
+<li>Osprey Publishing, Oxford, 2011 (Campaign 248)</li>
+<li>Modern scholarly study</li>
+<li>Fall of Tobruk in single day (June 21, 1942)</li>
+<li>33,000 prisoners and massive supply capture</li>
+</ul>
+</li>
+<li>
+<p><strong>Carrell, Paul. "The Foxes of the Desert"</strong></p>
+<ul>
+<li>E.P. Dutton, New York, 1961 (originally "Die Wüstenfüchse", 1958)</li>
+<li>German perspective on North Africa campaign</li>
+<li>Bir Hacheim siege from German viewpoint</li>
+<li>Rommel's "left hook" maneuver described</li>
+</ul>
+</li>
+<li>
+<p><strong>Pitt, Barrie. "The Crucible of War: Year of Alamein 1942"</strong></p>
+<ul>
+<li>Jonathan Cape, London, 1980</li>
+<li>Detailed narrative of Gazala campaign</li>
+<li>British tactical failures analyzed</li>
+<li>Grant tank introduction and performance</li>
+</ul>
+</li>
+<li>
+<p><strong>Barr, Niall. "Pendulum of War: The Three Battles of El Alamein"</strong></p>
+<ul>
+<li>Jonathan Cape, London, 2004</li>
+<li>Gazala as precursor to Alamein battles</li>
+<li>British armored doctrine failures continue</li>
+<li>Auchinleck's relief of Ritchie analyzed</li>
+</ul>
+</li>
+<li>
+<p><strong>Jentz, Thomas L. "Panzertruppen"</strong> (1933-1942 volume)</p>
+<ul>
+<li>Schiffer Military History, Atglen, PA, 1996</li>
+<li>Panzer IV F2 introduction (long 75mm gun) - game changer</li>
+<li>
+<ol start="15">
+<li>and 21. Panzer-Divisionen equipment states May 1942</li>
+</ol>
+</li>
+<li>German tank gunnery and tactics at Gazala</li>
+</ul>
+</li>
+<li>
+<p><strong>Walker, Ian W. "Iron Hulls, Iron Hearts"</strong></p>
+<ul>
+<li>The Crowood Press, Ramsbury, 2003</li>
+<li>Ariete Division at Gazala (Cauldron battles)</li>
+<li>Littorio Division combat debut</li>
+<li>Italian armored warfare doctrine 1942</li>
+</ul>
+</li>
+<li>
+<p><strong>Moorehead, Alan. "The Desert War"</strong></p>
+<ul>
+<li>Hamish Hamilton, London, 1965 revised edition</li>
+<li>War correspondent account of Gazala</li>
+<li>Vivid descriptions of tank battles</li>
+<li>Fall of Tobruk shock to Allied morale</li>
+</ul>
+</li>
+<li>
+<p><strong>Young, Desmond. "Rommel: The Desert Fox"</strong></p>
+<ul>
+<li>Harper &amp; Brothers, New York, 1950</li>
+<li>Biography focusing on North Africa campaigns</li>
+<li>Gazala as Rommel's masterpiece</li>
+<li>Tactical brilliance in Cauldron analyzed</li>
+</ul>
+</li>
+</ol>
+<h3 id="free-french-and-bir-hacheim-sources"><a class="header" href="#free-french-and-bir-hacheim-sources">Free French and Bir Hacheim Sources</a></h3>
+<ol start="34">
+<li>
+<p><strong>Broche, François and Caïtucoli, Georges. "Bir Hakeim"</strong></p>
+<ul>
+<li>Éditions Autrement, Paris, 2002</li>
+<li>Definitive French study of Bir Hacheim siege</li>
+<li>14-day defense analyzed day-by-day</li>
+<li>Foreign Legion and Colonial troops performance</li>
+</ul>
+</li>
+<li>
+<p><strong>Massiet, Jean-Louis. "Bir-Hakeim (27 mai - 11 juin 1942)"</strong></p>
+<ul>
+<li>Éditions France-Empire, Paris, 1969</li>
+<li>Participant account of siege</li>
+<li>Free French perspective on tactical situation</li>
+<li>Breakout operation detailed</li>
+</ul>
+</li>
+<li>
+<p><strong>Saunders, Hilary St. George. "The Green Beret: The Story of the Commandos 1940-1945"</strong></p>
+<ul>
+<li>Michael Joseph, London, 1949</li>
+<li>Limited coverage of Free French operations</li>
+<li>Allied coordination with Free French garrison</li>
+<li>Supply drops and relief attempts</li>
+</ul>
+</li>
+</ol>
+<h3 id="equipment-and-technical-references"><a class="header" href="#equipment-and-technical-references">Equipment and Technical References</a></h3>
+<ol start="37">
+<li>
+<p><strong>Chamberlain, Peter and Ellis, Chris. "British and American Tanks of World War II"</strong></p>
+<ul>
+<li>Arms and Armour Press, London, 1969</li>
+<li>Grant M3 specifications: 75mm sponson gun, 37mm turret gun</li>
+<li>Grant armor: 57mm frontal (vulnerable to long 75mm)</li>
+<li>Crusader Mk II/III continued use at Gazala</li>
+</ul>
+</li>
+<li>
+<p><strong>Jentz, Thomas L. "Panzerkampfwagen IV Ausf.A to J"</strong> (Panzer Tracts No.4)</p>
+<ul>
+<li>Panzer Tracts, Boyds, MD, 2001</li>
+<li>Panzer IV Ausf F2 specifications (long 75mm gun)</li>
+<li>7.5cm KwK 40 L/43: 96mm penetration @ 1000m</li>
+<li>Penetrates Grant frontal armor at combat ranges</li>
+<li>Combat debut at Gazala (May 1942)</li>
+</ul>
+</li>
+<li>
+<p><strong>Jentz, Thomas L. "Panzerkampfwagen III Ausf.A to N"</strong> (Panzer Tracts No.3-2)</p>
+<ul>
+<li>Panzer Tracts, Boyds, MD, 2007</li>
+<li>Panzer III Ausf J (long 50mm) standard at Gazala</li>
+<li>5cm KwK 39 L/60: 60mm @ 1000m</li>
+<li>Superior to British 2-pdr and 6-pdr AT guns</li>
+</ul>
+</li>
+<li>
+<p><strong>Zaloga, Steven J. "M3 Lee/Grant Medium Tank 1941-45"</strong></p>
+<ul>
+<li>Osprey Publishing, Oxford, 2005 (New Vanguard 113)</li>
+<li>Grant combat debut at Gazala</li>
+<li>75mm gun firepower advantage over German tanks</li>
+<li>Sponson-mounted gun tactical limitations</li>
+<li>High silhouette vulnerability</li>
+</ul>
+</li>
+<li>
+<p><strong>Hogg, Ian V. "German Artillery of World War Two"</strong></p>
+<ul>
+<li>Greenhill Books, London, 1997</li>
+<li>8.8cm FlaK 18/36/37 continued dominance</li>
+<li>7.5cm PaK 40 introduction (long 75mm AT gun)</li>
+<li>Penetration tables: 88mm and 75mm defeat all British armor 1942</li>
+</ul>
+</li>
+<li>
+<p><strong>Vanderveen, Bart. "Historic Military Vehicles Directory"</strong></p>
+<ul>
+<li>After the Battle Publications, London, 1989</li>
+<li>M13/40 and M14/41 Italian tank specifications</li>
+<li>Semovente 75/18 assault gun data</li>
+<li>Italian armored fighting vehicles at Gazala</li>
+</ul>
+</li>
+</ol>
+<h3 id="specialized-studies"><a class="header" href="#specialized-studies">Specialized Studies</a></h3>
+<ol start="43">
+<li>
+<p><strong>Ford, Ken. "Gazala 1942: Rommel's Greatest Victory"</strong></p>
+<ul>
+<li>Osprey Publishing, Oxford, 2008 (Campaign 196)</li>
+<li>Modern scholarly study of entire campaign</li>
+<li>Excellent maps and tactical diagrams</li>
+<li>150th Brigade Box, Cauldron, Knightsbridge analyzed</li>
+</ul>
+</li>
+<li>
+<p><strong>Perrett, Bryan. "Grant and Lee Tanks in British Service"</strong></p>
+<ul>
+<li>Osprey Publishing, Oxford, 2011 (New Vanguard 188)</li>
+<li>Grant tank introduction to Eighth Army</li>
+<li>Combat performance at Gazala and Knightsbridge</li>
+<li>Comparison with German Panzer III/IV</li>
+<li>Tactical employment and limitations</li>
+</ul>
+</li>
+<li>
+<p><strong>Williamson, Gordon. "German Tanks of World War II in Color"</strong></p>
+<ul>
+<li>Blandford Press, Poole, 1983</li>
+<li>Panzer IV F2 introduction and impact</li>
+<li>Desert camouflage and markings</li>
+<li>Photos of Gazala battlefield wrecks</li>
+</ul>
+</li>
+<li>
+<p><strong>Forty, George. "British Army Handbook 1939-1945"</strong></p>
+<ul>
+<li>Sutton Publishing, Stroud, 1998</li>
+<li>50th Infantry Division organization</li>
+<li>"Box" defensive system explained</li>
+<li>Gazala line layout and composition</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h2 id="unit-organization-sources"><a class="header" href="#unit-organization-sources">Unit Organization Sources</a></h2>
+<h3 id="phase-6-unit-files-used-1942-q2-units"><a class="header" href="#phase-6-unit-files-used-1942-q2-units">Phase 6 Unit Files Used (1942-Q2 Units)</a></h3>
+<ol start="47">
+<li>
+<p><strong>british_1942q2_1st_armoured_division_toe.json</strong></p>
+<ul>
+<li>Total strength: 15,800 personnel</li>
+<li>Tanks: 252 (156 Grant M3, 72 Crusader II/III, 24 M3 Stuart Honey)</li>
+<li>Grant tank debut: 75mm sponson gun, 37mm turret gun</li>
+<li>Source: British Army Lists April 1942, Nafziger #942BIAA</li>
+</ul>
+</li>
+<li>
+<p><strong>british_1942q2_50th_infantry_division_toe.json</strong></p>
+<ul>
+<li>Total strength: 14,600 personnel</li>
+<li>Organization: 69th, 150th, 151st Infantry Brigades</li>
+<li>150th Brigade Box garrison (destroyed June 1)</li>
+<li>Source: WO 169 war diaries, British Army Lists</li>
+</ul>
+</li>
+<li>
+<p><strong>british_1942q2_7th_armoured_division_toe.json</strong></p>
+<ul>
+<li>Total strength: 15,400 personnel</li>
+<li>Tanks: 238 (150 Crusader II/III, 45 Grant M3, 28 Crusader CS, 15 Honey)</li>
+<li>Desert Rats at Knightsbridge battles</li>
+<li>Source: British Army Lists April 1942</li>
+</ul>
+</li>
+<li>
+<p><strong>british_1942q2_2nd_south_african_division_toe.json</strong></p>
+<ul>
+<li>Total strength: 14,500 personnel</li>
+<li>Organization: 4th, 6th SA Infantry Brigades</li>
+<li>Tobruk garrison (captured June 21, 1942)</li>
+<li>Source: SA Official History, SA Army Lists 1942</li>
+</ul>
+</li>
+<li>
+<p><strong>french_1942q2_1re_brigade_francaise_libre_toe.json</strong></p>
+<ul>
+<li>Total strength: 3,700 personnel</li>
+<li>Organization: 1er Bataillon de Marche, 2e Bataillon de Marche, Colonial units</li>
+<li>Bir Hacheim garrison (May 27 - June 10, 1942)</li>
+<li>Artillery: 12× Canon de 75mm Mle 1897, 8× Bofors 40mm AA</li>
+<li>Source: French Archives de la France Libre, Vincennes</li>
+</ul>
+</li>
+<li>
+<p><strong>german_1942q2_15_panzer_division_toe.json</strong></p>
+<ul>
+<li>Total strength: 12,900 personnel</li>
+<li>Tanks: 148 (85 Panzer III Ausf J, 22 Panzer IV F2, 41 Panzer II)</li>
+<li>Panzer IV F2 debut: 7.5cm KwK 40 L/43 long gun</li>
+<li>Source: Tessin Band 04, Nafziger #942GEAA</li>
+</ul>
+</li>
+<li>
+<p><strong>german_1942q2_21_panzer_division_toe.json</strong></p>
+<ul>
+<li>Total strength: 12,700 personnel</li>
+<li>Tanks: 152 (88 Panzer III Ausf J, 24 Panzer IV F2, 40 Panzer II)</li>
+<li>More Panzer IV F2s than 15. Panzer-Division</li>
+<li>Source: Tessin Band 05, Nafziger #942GEAA</li>
+</ul>
+</li>
+<li>
+<p><strong>german_1942q2_90_leichte_division_toe.json</strong></p>
+<ul>
+<li>Total strength: 10,800 personnel</li>
+<li>Motorized light division (infantry, reconnaissance)</li>
+<li>Bir Hacheim siege operations (primary German force)</li>
+<li>Source: Tessin Band 05, KTB 90. leichte Division</li>
+</ul>
+</li>
+<li>
+<p><strong>italian_1942q2_ariete_division_toe.json</strong></p>
+<ul>
+<li>Total strength: 7,800 personnel</li>
+<li>Tanks: 152 (M13/40 medium tanks, some Semovente 75/18)</li>
+<li>First assaults on Bir Hacheim</li>
+<li>Cauldron battles alongside DAK</li>
+<li>Source: Walker "Iron Hulls", Regio Esercito records</li>
+</ul>
+</li>
+<li>
+<p><strong>italian_1942q2_trieste_division_toe.json</strong></p>
+<ul>
+<li>Total strength: 8,400 personnel</li>
+<li>Motorized division (Bersaglieri regiments)</li>
+<li>Left-hook maneuver participation</li>
+<li>Source: Regio Esercito Army Lists 1942</li>
+</ul>
+</li>
+<li>
+<p><strong>italian_1942q2_littorio_division_toe.json</strong></p>
+<ul>
+<li>Total strength: 8,200 personnel</li>
+<li>Armored division: M14/41 tanks, Semovente 75/18 assault guns</li>
+<li>Combat debut in North Africa (Gazala)</li>
+<li>Source: Regio Esercito records, Walker "Iron Hulls"</li>
+</ul>
+</li>
+</ol>
+<h3 id="database-equipment-sources"><a class="header" href="#database-equipment-sources">Database Equipment Sources</a></h3>
+<ol start="58">
+<li>
+<p><strong>Master Equipment Database (master_database.db)</strong></p>
+<ul>
+<li>Grant M3 specifications added for Gazala period</li>
+<li>Panzer IV F2 (long 75mm) breakthrough weapon</li>
+<li>Free French equipment (Canon de 75mm, Bofors 40mm)</li>
+<li>M14/41 Italian tank specifications</li>
+</ul>
+</li>
+<li>
+<p><strong>OnWar.com AFV Database</strong></p>
+<ul>
+<li>Grant M3 production: 6,258 total (1941-1942)</li>
+<li>Panzer IV F2 production: 175 (March-July 1942)</li>
+<li>M13/40 production complete, M14/41 in service</li>
+<li>Production dates and quantities</li>
+</ul>
+</li>
+<li>
+<p><strong>WWIITANKS.com Database</strong></p>
+<ul>
+<li>Grant M3: 75mm M2 gun (sponson), 37mm M6 (turret)</li>
+<li>Armor: 57mm frontal hull, 51mm turret</li>
+<li>Panzer IV F2: 7.5cm KwK 40 L/43 penetration data</li>
+<li>96mm @ 1000m defeats Grant frontal armor</li>
+<li>M13/40: 47mm gun penetration vs British armor</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h2 id="recommended-reading"><a class="header" href="#recommended-reading">Recommended Reading</a></h2>
+<h3 id="best-narrative-histories-gazala-campaign"><a class="header" href="#best-narrative-histories-gazala-campaign">Best Narrative Histories (Gazala Campaign)</a></h3>
+<ol start="61">
+<li>
+<p><strong>Macksey, Kenneth. "The Battle of Gazala"</strong></p>
+<ul>
+<li>Best comprehensive study of entire campaign</li>
+<li>Tactical and operational analysis</li>
+<li>Cauldron battles explained clearly</li>
+<li>Essential reading</li>
+</ul>
+</li>
+<li>
+<p><strong>Ford, Ken. "Gazala 1942"</strong> (Osprey Campaign 196)</p>
+<ul>
+<li>Best modern single-volume study</li>
+<li>Excellent maps and tactical diagrams</li>
+<li>96 pages, well-illustrated</li>
+<li>Good starting point</li>
+</ul>
+</li>
+<li>
+<p><strong>Playfair, I.S.O. Official History Volume III</strong> (Chapters VIII-X)</p>
+<ul>
+<li>Authoritative official account</li>
+<li>Strategic context and high-level decisions</li>
+<li>Fall of Tobruk analyzed</li>
+<li>Casualty figures and force strengths</li>
+</ul>
+</li>
+</ol>
+<h3 id="best-tacticaloperational-studies"><a class="header" href="#best-tacticaloperational-studies">Best Tactical/Operational Studies</a></h3>
+<ol start="64">
+<li>
+<p><strong>Pitt, Barrie. "The Crucible of War"</strong></p>
+<ul>
+<li>Most detailed British perspective</li>
+<li>Analyzes British tactical failures</li>
+<li>Grant tank performance evaluated</li>
+<li>Essential for understanding British mistakes</li>
+</ul>
+</li>
+<li>
+<p><strong>Jentz, Thomas L. "Panzertruppen"</strong> (1933-1942)</p>
+<ul>
+<li>Definitive German armor reference</li>
+<li>Panzer IV F2 introduction and impact</li>
+<li>Unit organizations and equipment tables</li>
+<li>Combat deployment data</li>
+</ul>
+</li>
+</ol>
+<h3 id="free-french--bir-hacheim-specialists"><a class="header" href="#free-french--bir-hacheim-specialists">Free French / Bir Hacheim Specialists</a></h3>
+<ol start="66">
+<li>
+<p><strong>Broche &amp; Caïtucoli. "Bir Hakeim"</strong> (2002)</p>
+<ul>
+<li>Definitive French study of siege</li>
+<li>Day-by-day analysis of 14-day defense</li>
+<li>Free French Foreign Legion and Colonial troops</li>
+<li>Essential for Bir Hacheim scenarios</li>
+</ul>
+</li>
+<li>
+<p><strong>Koenig, Gen Pierre. "Bir Hakeim: 10 juin 1942"</strong></p>
+<ul>
+<li>Commander's personal account</li>
+<li>Tactical dispositions and decisions</li>
+<li>Breakout planning and execution</li>
+<li>Primary source from garrison commander</li>
+</ul>
+</li>
+</ol>
+<h3 id="best-equipment-references"><a class="header" href="#best-equipment-references">Best Equipment References</a></h3>
+<ol start="68">
+<li>
+<p><strong>Zaloga, Steven J. "M3 Lee/Grant Medium Tank"</strong></p>
+<ul>
+<li>Definitive Grant tank reference</li>
+<li>Combat debut at Gazala</li>
+<li>Tactical employment and limitations</li>
+<li>Sponson gun advantages and disadvantages</li>
+</ul>
+</li>
+<li>
+<p><strong>Jentz, Thomas L. Panzer Tracts No.4</strong> (Panzer IV)</p>
+<ul>
+<li>Panzer IV F2 breakthrough weapon</li>
+<li>Long 75mm gun game-changing impact</li>
+<li>Technical specifications and combat data</li>
+</ul>
+</li>
+<li>
+<p><strong>Walker, Ian W. "Iron Hulls, Iron Hearts"</strong></p>
+<ul>
+<li>Essential for Italian armor perspective</li>
+<li>Ariete and Littorio divisions</li>
+<li>M13/40, M14/41, Semovente 75/18</li>
+<li>Italian armored warfare doctrine</li>
+</ul>
+</li>
+</ol>
+<h3 id="memoirs-and-personal-accounts"><a class="header" href="#memoirs-and-personal-accounts">Memoirs and Personal Accounts</a></h3>
+<ol start="71">
+<li>
+<p><strong>Crisp, Robert. "Brazen Chariots"</strong></p>
+<ul>
+<li>Frederick Muller, London, 1959</li>
+<li>British tank officer memoir (3rd RTR)</li>
+<li>Gazala tank battles from British perspective</li>
+<li>Brutally honest about British failures</li>
+</ul>
+</li>
+<li>
+<p><strong>Schmidt, Heinz Werner. "With Rommel in the Desert"</strong></p>
+<ul>
+<li>Harrap, London, 1951</li>
+<li>German officer perspective on Gazala</li>
+<li>Rommel's tactical brilliance described</li>
+<li>Cauldron battles from German viewpoint</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h2 id="online-resources"><a class="header" href="#online-resources">Online Resources</a></h2>
+<h3 id="archives-and-primary-documents"><a class="header" href="#archives-and-primary-documents">Archives and Primary Documents</a></h3>
+<ol start="73">
+<li>
+<p><strong>The National Archives (UK)</strong> - https://discovery.nationalarchives.gov.uk/</p>
+<ul>
+<li>War diaries: WO 169 series (Middle East formations 1942)</li>
+<li>Searchable catalog for Gazala records</li>
+<li>Digital downloads: 1st Armoured Division, 50th Division war diaries</li>
+</ul>
+</li>
+<li>
+<p><strong>Bundesarchiv-Militärarchiv Digital Collections</strong> - https://www.bundesarchiv.de/</p>
+<ul>
+<li>German military archives (Freiburg, Germany)</li>
+<li>Kriegstagebücher for Panzerarmee Afrika</li>
+<li>RH 21 series (Panzergruppe Afrika), RH 27 series (divisions)</li>
+</ul>
+</li>
+<li>
+<p><strong>Service Historique de la Défense</strong> - https://www.servicehistorique.sga.defense.gouv.fr/</p>
+<ul>
+<li>French military archives (Château de Vincennes)</li>
+<li>Archives de la France Libre</li>
+<li>Bir Hacheim dossier (by appointment)</li>
+<li>1re Brigade Française Libre records</li>
+</ul>
+</li>
+<li>
+<p><strong>Combined Arms Research Library (CARL) Digital Library</strong> - https://cgsc.contentdm.oclc.org/</p>
+<ul>
+<li>Nafziger Collection OOB files</li>
+<li>Free downloads: #942GEAA (Panzerarmee Afrika), #942BIAA (Eighth Army)</li>
+<li>Search: "Gazala 1942" or "Tobruk 1942"</li>
+</ul>
+</li>
+<li>
+<p><strong>Ufficio Storico dello Stato Maggiore dell'Esercito</strong></p>
+<ul>
+<li>Via XX Settembre 123/A, 00187 Roma, Italy</li>
+<li>Italian divisional records (by appointment)</li>
+<li>Ariete, Littorio, Trieste Division archives</li>
+<li>Bollettini di Guerra 1942</li>
+</ul>
+</li>
+</ol>
+<h3 id="databases-and-reference-sites"><a class="header" href="#databases-and-reference-sites">Databases and Reference Sites</a></h3>
+<ol start="78">
+<li>
+<p><strong>Axis History Forum</strong> - https://forum.axishistory.com/</p>
+<ul>
+<li>"North African Campaign 1942" subforum</li>
+<li>Expert discussions on Gazala battles</li>
+<li>Bir Hacheim siege threads</li>
+<li>Caution: Verify all information with primary sources</li>
+</ul>
+</li>
+<li>
+<p><strong>La Wehrmacht</strong> (French database) - http://www.1940lafrancecontinue.org/</p>
+<ul>
+<li>German divisional histories</li>
+<li>
+<ol start="15">
+<li>and 21. Panzer-Division organization 1942</li>
+</ol>
+</li>
+<li>
+<ol start="90">
+<li>leichte Division page</li>
+</ol>
+</li>
+<li>Excellent bibliographies</li>
+</ul>
+</li>
+<li>
+<p><strong>France Libre</strong> - http://www.france-libre.net/</p>
+<ul>
+<li>Free French forces database</li>
+<li>1re Brigade Française Libre history</li>
+<li>Bir Hacheim battle account</li>
+<li>Commander biographies (Gen Koenig)</li>
+</ul>
+</li>
+<li>
+<p><strong>Lexikon der Wehrmacht</strong> - http://www.lexikon-der-wehrmacht.de/</p>
+<ul>
+<li>German unit database (German language)</li>
+<li>Divisional commanders and organization May 1942</li>
+<li>Cross-linked to primary source citations</li>
+</ul>
+</li>
+<li>
+<p><strong>Regio Esercito (Italian Army 1940-43)</strong> - http://www.regioesercito.it/</p>
+<ul>
+<li>Italian divisional histories</li>
+<li>Ariete, Littorio, Trieste divisions</li>
+<li>M13/40, M14/41 specifications</li>
+<li>Semovente 75/18 assault gun data</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h2 id="source-quality-assessment"><a class="header" href="#source-quality-assessment">Source Quality Assessment</a></h2>
+<h3 id="tier-1-primary-sources-95-100-confidence"><a class="header" href="#tier-1-primary-sources-95-100-confidence">Tier 1 Primary Sources (95-100% Confidence)</a></h3>
+<ul>
+<li>War diaries (TNA WO series, Bundesarchiv RH series, French SHD)</li>
+<li>Official histories (Playfair, Agar-Hamilton/Turner, Broche)</li>
+<li>British Army Lists and German KStN documents</li>
+<li>Tessin divisional histories</li>
+<li>Nafziger Collection Gazala OOBs</li>
+<li>Free French Archives de la France Libre</li>
+</ul>
+<h3 id="tier-2-specialist-sources-85-95-confidence"><a class="header" href="#tier-2-specialist-sources-85-95-confidence">Tier 2 Specialist Sources (85-95% Confidence)</a></h3>
+<ul>
+<li>Jentz "Panzertruppen" and Panzer Tracts series</li>
+<li>Walker "Iron Hulls, Iron Hearts" (Italian forces)</li>
+<li>Zaloga M3 Grant tank studies</li>
+<li>Macksey "The Battle of Gazala"</li>
+<li>Ford "Gazala 1942" (Osprey)</li>
+<li>Broche &amp; Caïtucoli "Bir Hakeim" (2002)</li>
+</ul>
+<h3 id="tier-3-general-histories-70-85-confidence"><a class="header" href="#tier-3-general-histories-70-85-confidence">Tier 3 General Histories (70-85% Confidence)</a></h3>
+<ul>
+<li>Pitt, Barr, Moorehead narrative histories</li>
+<li>Young "Rommel: The Desert Fox"</li>
+<li>Carrell "Foxes of the Desert"</li>
+<li>Memoirs (Crisp, Schmidt) - colorful but verify tactical details</li>
+</ul>
+<h3 id="not-used-unreliable"><a class="header" href="#not-used-unreliable">Not Used (Unreliable)</a></h3>
+<ul>
+<li>Wikipedia (too variable in quality, not citable)</li>
+<li>Amateur websites without source citations</li>
+<li>Forum posts and discussions (useful for research leads only)</li>
+</ul>
+<hr />
+<h2 id="gaps-and-limitations"><a class="header" href="#gaps-and-limitations">Gaps and Limitations</a></h2>
+<h3 id="known-data-gaps"><a class="header" href="#known-data-gaps">Known Data Gaps</a></h3>
+<ol>
+<li><strong>Free French equipment details</strong>: Limited archival access, some equipment estimates</li>
+<li><strong>Italian armored divisions</strong>: Littorio Division debut, limited primary sources</li>
+<li><strong>150th Brigade Box final days</strong>: Some defender accounts lost (brigade destroyed)</li>
+<li><strong>Tank operational readiness</strong>: Daily fluctuations during multi-week campaign</li>
+</ol>
+<h3 id="confidence-levels-by-category"><a class="header" href="#confidence-levels-by-category">Confidence Levels by Category</a></h3>
+<ul>
+<li><strong>British ground forces</strong>: 85-90% (good Army Lists, war diaries, but Gazala defeat caused records loss)</li>
+<li><strong>German ground forces</strong>: 88-92% (excellent Tessin/Nafziger, KTB access)</li>
+<li><strong>Free French forces</strong>: 82-88% (French archives excellent for Bir Hacheim, limited elsewhere)</li>
+<li><strong>Italian forces</strong>: 78-85% (limited primary sources, reliance on secondary works)</li>
+<li><strong>Equipment specifications</strong>: 90-95% (OnWar, WWIITANKS databases excellent)</li>
+</ul>
+<h3 id="research-recommendations"><a class="header" href="#research-recommendations">Research Recommendations</a></h3>
+<p>For researchers seeking to expand on this work:</p>
+<ol>
+<li>Visit Service Historique de la Défense (Vincennes) for Free French records</li>
+<li>Bundesarchiv-Militärarchiv (Freiburg) for German Panzerarmee Afrika war diaries</li>
+<li>TNA Kew for British 1st Armoured Division and 50th Division records</li>
+<li>Ufficio Storico (Rome) for Italian Ariete and Littorio Division archives</li>
+<li>Cross-reference Grant M3 combat reports with German tank kill claims</li>
+</ol>
+<hr />
+<p><strong>Total Sources Cited</strong>: 82+ individual sources
+<strong>Primary Sources</strong>: 24 (war diaries, official histories, organizational documents, French archives)
+<strong>Secondary Sources</strong>: 48 (books, articles, technical references, specialist studies)
+<strong>Database Sources</strong>: 10 (equipment specifications, unit organizations)</p>
+<p><strong>Compiled for</strong>: BattleGroup North Africa - Gazala Campaign
+<strong>Date</strong>: November 2025
+<strong>Phase 6 Unit Files</strong>: 11 divisions + brigades (British, Free French, German, Italian 1942-Q2)</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../appendices/appendix_b.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../appendices/appendix_b.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

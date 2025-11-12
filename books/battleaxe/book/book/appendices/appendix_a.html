@@ -1,0 +1,560 @@
+<!DOCTYPE HTML>
+<html lang="en" class="rust sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Appendix A: Quick Reference - Operation Battleaxe</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="British offensive to relieve Tobruk meets devastating German 88mm anti-tank guns">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../";
+            const default_light_theme = "rust";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('rust')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Operation Battleaxe</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="appendix-a-quick-reference---operation-battleaxe"><a class="header" href="#appendix-a-quick-reference---operation-battleaxe">Appendix A: Quick Reference - Operation Battleaxe</a></h1>
+<p>This appendix provides essential tables and references for quick gameplay during Operation Battleaxe scenarios (June 1941).</p>
+<h2 id="battlegroup-core-rules-summary"><a class="header" href="#battlegroup-core-rules-summary">BattleGroup Core Rules Summary</a></h2>
+<h3 id="turn-sequence"><a class="header" href="#turn-sequence">Turn Sequence</a></h3>
+<ol>
+<li><strong>Orders Phase</strong>: Both players draw battle rating (BR) chits if needed, issue orders</li>
+<li><strong>Aircraft Phase</strong>: Resolve air strikes, air-to-air combat</li>
+<li><strong>Initiative Phase</strong>: Roll for initiative (higher roll chooses who activates first)</li>
+<li><strong>Action Phase</strong>: Alternate unit activations until both players pass</li>
+<li><strong>Rally Phase</strong>: Attempt to rally pinned units, repair breakdowns</li>
+<li><strong>End Phase</strong>: Remove transient markers, check victory conditions</li>
+</ol>
+<h3 id="key-mechanics"><a class="header" href="#key-mechanics">Key Mechanics</a></h3>
+<p><strong>Morale/Battle Rating</strong>: Each force has BR (typically 30-60 points for battalion-level games). When you take a BR chit (from losses, objectives lost, etc.), draw randomly from your pool. Game ends when a side's BR is reduced to 0 or below.</p>
+<p><strong>Orders/Command</strong>: Most units need orders to act aggressively. Roll 2D6 vs command rating. Artillery always needs orders. Units within command range of HQ don't need to test for defensive actions.</p>
+<p><strong>Movement Rates</strong>: Infantry 5" per action, motorized 10", fast vehicles 12-16", slow tanks 8-10"</p>
+<p><strong>Shooting</strong>: Roll to hit (modified by range, cover, movement), then target rolls armor save (if armored) or cover save (if infantry/soft target). Penetrating hits on vehicles roll on damage table.</p>
+<p><strong>Pinning</strong>: Units taking fire that causes casualties become pinned. Pinned units have reduced effectiveness and must rally before moving or firing effectively.</p>
+<h2 id="weapon-ranges-table-june-1941"><a class="header" href="#weapon-ranges-table-june-1941">Weapon Ranges Table (June 1941)</a></h2>
+<h3 id="british-weapons"><a class="header" href="#british-weapons">British Weapons</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>Weapon</th><th>Effective Range</th><th>Maximum Range</th><th>Penetration @ 20"</th><th>Notes</th></tr></thead><tbody>
+<tr><td><strong>Rifles/SMGs</strong></td><td>10"</td><td>20"</td><td>N/A</td><td>Small arms fire</td></tr>
+<tr><td><strong>Bren LMG</strong></td><td>20"</td><td>30"</td><td>N/A</td><td>Light machine gun</td></tr>
+<tr><td><strong>Vickers HMG</strong></td><td>30"</td><td>48"</td><td>N/A</td><td>Heavy sustained fire</td></tr>
+<tr><td><strong>Boys AT Rifle</strong></td><td>15"</td><td>20"</td><td>15mm</td><td>Limited vs tanks</td></tr>
+<tr><td><strong>2-pdr (40mm) AT</strong></td><td>30"</td><td>40"</td><td>50mm</td><td>No HE capability</td></tr>
+<tr><td><strong>25-pdr Gun-Howitzer</strong></td><td>40" indirect</td><td>120" indirect</td><td>40mm (direct)</td><td>Dual purpose</td></tr>
+<tr><td><strong>3" Mortar</strong></td><td>12" minimum</td><td>48"</td><td>N/A</td><td>Indirect HE only</td></tr>
+<tr><td><strong>6-pdr (57mm) AT</strong></td><td>40"</td><td>50"</td><td>75mm</td><td>Not yet available Jun 1941</td></tr>
+</tbody></table>
+</div>
+<h3 id="german-weapons"><a class="header" href="#german-weapons">German Weapons</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>Weapon</th><th>Effective Range</th><th>Maximum Range</th><th>Penetration @ 20"</th><th>Notes</th></tr></thead><tbody>
+<tr><td><strong>Rifles/MP40</strong></td><td>10"</td><td>20"</td><td>N/A</td><td>Small arms</td></tr>
+<tr><td><strong>MG34</strong></td><td>30"</td><td>48"</td><td>N/A</td><td>Excellent HMG</td></tr>
+<tr><td><strong>37mm PaK 36</strong></td><td>20"</td><td>30"</td><td>35mm</td><td>"Door Knocker" vs Matilda</td></tr>
+<tr><td><strong>50mm PaK 38</strong></td><td>30"</td><td>40"</td><td>60mm</td><td>Standard AT gun</td></tr>
+<tr><td><strong>88mm FlaK 18/36</strong></td><td>40"</td><td>60"</td><td>100mm+</td><td>Devastating vs all tanks</td></tr>
+<tr><td><strong>75mm leIG 18</strong></td><td>15" minimum</td><td>60"</td><td>N/A</td><td>Infantry gun (HE)</td></tr>
+<tr><td><strong>81mm Mortar</strong></td><td>15" minimum</td><td>60"</td><td>N/A</td><td>Indirect HE</td></tr>
+<tr><td><strong>105mm leFH 18</strong></td><td>48" minimum</td><td>180"</td><td>N/A</td><td>Field howitzer</td></tr>
+</tbody></table>
+</div>
+<h3 id="italian-weapons"><a class="header" href="#italian-weapons">Italian Weapons</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>Weapon</th><th>Effective Range</th><th>Maximum Range</th><th>Penetration @ 20"</th><th>Notes</th></tr></thead><tbody>
+<tr><td><strong>Rifles/Beretta M38</strong></td><td>10"</td><td>20"</td><td>N/A</td><td>Small arms</td></tr>
+<tr><td><strong>Breda M30 LMG</strong></td><td>18"</td><td>28"</td><td>N/A</td><td>Unreliable magazine</td></tr>
+<tr><td><strong>Breda M37 HMG</strong></td><td>28"</td><td>40"</td><td>N/A</td><td>Better than M30</td></tr>
+<tr><td><strong>20mm Breda</strong></td><td>20"</td><td>30"</td><td>20mm</td><td>AA/AT autocannon</td></tr>
+<tr><td><strong>47mm 47/32</strong></td><td>25"</td><td>35"</td><td>45mm</td><td>Struggles vs Matilda</td></tr>
+<tr><td><strong>75mm 75/27</strong></td><td>40" indirect</td><td>120" indirect</td><td>30mm (direct)</td><td>Field gun</td></tr>
+<tr><td><strong>81mm Mortar</strong></td><td>12" minimum</td><td>48"</td><td>N/A</td><td>Indirect HE</td></tr>
+</tbody></table>
+</div>
+<h3 id="tank-gun-ranges"><a class="header" href="#tank-gun-ranges">Tank Gun Ranges</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>Gun Type</th><th>Vehicle</th><th>Effective Range</th><th>Penetration @ 20"</th><th>Notes</th></tr></thead><tbody>
+<tr><td><strong>2-pdr (40mm)</strong></td><td>Matilda II, Cruisers</td><td>30"</td><td>50mm</td><td>AP only, no HE</td></tr>
+<tr><td><strong>37mm KwK</strong></td><td>Panzer III (early)</td><td>25"</td><td>35mm</td><td>Inadequate vs Matilda</td></tr>
+<tr><td><strong>50mm KwK 38</strong></td><td>Panzer III (late)</td><td>30"</td><td>60mm</td><td>Effective vs Cruisers</td></tr>
+<tr><td><strong>75mm KwK (short)</strong></td><td>Panzer IV</td><td>25"</td><td>35mm</td><td>Primarily HE platform</td></tr>
+<tr><td><strong>47mm</strong></td><td>M13/40</td><td>25"</td><td>45mm</td><td>Limited penetration</td></tr>
+<tr><td><strong>20mm</strong></td><td>Panzer II, L3/35</td><td>15"</td><td>20mm</td><td>Anti-infantry only</td></tr>
+</tbody></table>
+</div>
+<h2 id="armor-penetration-reference"><a class="header" href="#armor-penetration-reference">Armor Penetration Reference</a></h2>
+<h3 id="penetration-vs-british-armor-frontal--20"><a class="header" href="#penetration-vs-british-armor-frontal--20">Penetration vs British Armor (Frontal @ 20")</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>Attacker Gun</th><th>Matilda II (78mm)</th><th>Crusader (49mm)</th><th>A9/A10 (30mm)</th><th>A13 (30mm)</th></tr></thead><tbody>
+<tr><td><strong>German 37mm PaK 36</strong></td><td><strong>NO</strong></td><td>Possible</td><td>Yes</td><td>Yes</td></tr>
+<tr><td><strong>German 50mm PaK 38</strong></td><td>Difficult (6+)</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+<tr><td><strong>German 88mm FlaK</strong></td><td><strong>EASY</strong> (auto)</td><td><strong>EASY</strong> (auto)</td><td><strong>EASY</strong></td><td><strong>EASY</strong></td></tr>
+<tr><td><strong>Italian 47mm</strong></td><td><strong>NO</strong></td><td>Difficult</td><td>Yes</td><td>Yes</td></tr>
+<tr><td><strong>Panzer III 37mm</strong></td><td><strong>NO</strong></td><td>Possible</td><td>Yes</td><td>Yes</td></tr>
+<tr><td><strong>Panzer III 50mm</strong></td><td>Difficult (6+)</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+<tr><td><strong>Panzer IV 75mm (short)</strong></td><td><strong>NO</strong></td><td>Difficult</td><td>Possible</td><td>Possible</td></tr>
+</tbody></table>
+</div>
+<h3 id="penetration-vs-german-armor-frontal--20"><a class="header" href="#penetration-vs-german-armor-frontal--20">Penetration vs German Armor (Frontal @ 20")</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>Attacker Gun</th><th>Panzer III (50mm)</th><th>Panzer IV (50mm)</th><th>Panzer II (15mm)</th></tr></thead><tbody>
+<tr><td><strong>British 2-pdr</strong></td><td>Yes</td><td>Yes</td><td><strong>EASY</strong> (auto)</td></tr>
+<tr><td><strong>British 25-pdr (AP)</strong></td><td>Yes</td><td>Difficult</td><td><strong>EASY</strong></td></tr>
+<tr><td><strong>German 50mm PaK 38</strong></td><td>Yes</td><td>Yes</td><td><strong>EASY</strong></td></tr>
+<tr><td><strong>German 88mm FlaK</strong></td><td><strong>EASY</strong> (auto)</td><td><strong>EASY</strong> (auto)</td><td><strong>EASY</strong></td></tr>
+</tbody></table>
+</div>
+<h3 id="penetration-vs-italian-armor-frontal--20"><a class="header" href="#penetration-vs-italian-armor-frontal--20">Penetration vs Italian Armor (Frontal @ 20")</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>Attacker Gun</th><th>M13/40 (42mm)</th><th>L3/35 (13mm)</th></tr></thead><tbody>
+<tr><td><strong>British 2-pdr</strong></td><td>Yes</td><td><strong>EASY</strong> (auto)</td></tr>
+<tr><td><strong>German 37mm</strong></td><td>Yes</td><td><strong>EASY</strong></td></tr>
+<tr><td><strong>HMG (.50 cal)</strong></td><td>NO</td><td>Possible</td></tr>
+<tr><td><strong>MG (7.92mm/7.7mm)</strong></td><td>NO</td><td>Difficult (6+)</td></tr>
+</tbody></table>
+</div>
+<p><strong>Notes</strong>:</p>
+<ul>
+<li><strong>EASY</strong> = Automatic penetration, no roll needed</li>
+<li><strong>YES</strong> = Penetrates on standard roll (typically 4+)</li>
+<li><strong>Difficult</strong> = Requires good roll (typically 5-6+) or close range</li>
+<li><strong>Possible</strong> = Only at very close range (under 10") or lucky shot</li>
+<li><strong>NO</strong> = Cannot penetrate frontally at this range</li>
+<li>Side/rear armor is typically 50-70% of frontal values</li>
+</ul>
+<h2 id="movement-rates-by-vehicle-type"><a class="header" href="#movement-rates-by-vehicle-type">Movement Rates by Vehicle Type</a></h2>
+<h3 id="infantry-movement"><a class="header" href="#infantry-movement">Infantry Movement</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>Unit Type</th><th>On Road</th><th>Cross-Country</th><th>Rough Terrain</th><th>Notes</th></tr></thead><tbody>
+<tr><td><strong>Rifle Infantry</strong></td><td>6"</td><td>5"</td><td>4"</td><td>Standard foot movement</td></tr>
+<tr><td><strong>HQ/Officers</strong></td><td>8"</td><td>6"</td><td>5"</td><td>Mounted or fast movement</td></tr>
+<tr><td><strong>Crew/Gun teams</strong></td><td>5"</td><td>4"</td><td>3"</td><td>Slower when carrying equipment</td></tr>
+<tr><td><strong>Bren Carrier</strong></td><td>14"</td><td>10"</td><td>7"</td><td>Fast tracked carrier</td></tr>
+<tr><td><strong>Motorized Infantry</strong></td><td>18" (truck)</td><td>12"</td><td><strong>Cannot enter</strong></td><td>Must dismount for rough terrain</td></tr>
+</tbody></table>
+</div>
+<h3 id="tank-movement"><a class="header" href="#tank-movement">Tank Movement</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>Vehicle</th><th>On Road</th><th>Cross-Country</th><th>Rough Terrain</th><th>Max Speed</th><th>Reliability</th></tr></thead><tbody>
+<tr><td><strong>Matilda II</strong></td><td>8"</td><td>6"</td><td>4"</td><td>SLOW</td><td>Excellent (+1)</td></tr>
+<tr><td><strong>Crusader</strong></td><td>16"</td><td>12"</td><td>8"</td><td>FAST</td><td><strong>Poor (-1)</strong></td></tr>
+<tr><td><strong>A9/A10/A13</strong></td><td>14"</td><td>10"</td><td>6"</td><td>Medium</td><td>Average</td></tr>
+<tr><td><strong>Panzer II</strong></td><td>16"</td><td>12"</td><td>8"</td><td>FAST</td><td>Good</td></tr>
+<tr><td><strong>Panzer III</strong></td><td>14"</td><td>10"</td><td>7"</td><td>Medium</td><td>Good</td></tr>
+<tr><td><strong>Panzer IV</strong></td><td>12"</td><td>9"</td><td>6"</td><td>Medium</td><td>Good</td></tr>
+<tr><td><strong>M13/40</strong></td><td>12"</td><td>8"</td><td>5"</td><td>SLOW</td><td><strong>Poor (-1)</strong></td></tr>
+</tbody></table>
+</div>
+<h3 id="soft-vehicles"><a class="header" href="#soft-vehicles">Soft Vehicles</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>Vehicle Type</th><th>On Road</th><th>Cross-Country</th><th>Rough Terrain</th><th>Notes</th></tr></thead><tbody>
+<tr><td><strong>Truck (3-ton)</strong></td><td>18"</td><td>12"</td><td><strong>Cannot enter</strong></td><td>Vulnerable, no armor</td></tr>
+<tr><td><strong>Staff Car</strong></td><td>20"</td><td>14"</td><td><strong>Cannot enter</strong></td><td>HQ transport</td></tr>
+<tr><td><strong>Armored Car</strong></td><td>18"</td><td>14"</td><td>8"</td><td>Fast reconnaissance</td></tr>
+<tr><td><strong>Motorcycle</strong></td><td>20"</td><td>12"</td><td>6"</td><td>Very fast, vulnerable</td></tr>
+<tr><td><strong>Gun Tow</strong></td><td>14"</td><td>10"</td><td>6"</td><td>Towing reduces by -4"</td></tr>
+</tbody></table>
+</div>
+<h3 id="artillery-movement-limbered"><a class="header" href="#artillery-movement-limbered">Artillery Movement (Limbered)</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>Gun Type</th><th>Towed Speed (Road)</th><th>Towed Speed (Cross-Country)</th><th>Unlimber Time</th><th>Notes</th></tr></thead><tbody>
+<tr><td><strong>2-pdr AT</strong></td><td>14"</td><td>10"</td><td>1 action</td><td>Light, mobile</td></tr>
+<tr><td><strong>25-pdr</strong></td><td>14"</td><td>10"</td><td>1 action</td><td>Portee: faster but vulnerable</td></tr>
+<tr><td><strong>88mm FlaK</strong></td><td>12"</td><td>8"</td><td>2 actions</td><td>Heavy, slow to deploy</td></tr>
+<tr><td><strong>50mm PaK 38</strong></td><td>14"</td><td>10"</td><td>1 action</td><td>Mobile AT gun</td></tr>
+<tr><td><strong>47mm Italian</strong></td><td>12"</td><td>8"</td><td>1 action</td><td>Standard towed</td></tr>
+</tbody></table>
+</div>
+<p><strong>Movement Notes</strong>:</p>
+<ul>
+<li>Movement is per single action (most units can take 2 actions per activation)</li>
+<li>Running: Infantry can run (double movement) but cannot shoot</li>
+<li>Vehicles at full speed must test for breakdowns in rough terrain</li>
+<li>Reversing: Vehicles reversing move at half speed</li>
+</ul>
+<h2 id="special-rules-alphabetical-index"><a class="header" href="#special-rules-alphabetical-index">Special Rules Alphabetical Index</a></h2>
+<h3 id="a-c"><a class="header" href="#a-c">A-C</a></h3>
+<p><strong>APCR Ammunition</strong>: Limited tungsten-core rounds. +2 penetration up to 30". German 50mm PaK 38 and late Panzer III only. Max 3 shots per game.</p>
+<p><strong>Breakdown - Crusader</strong>: Roll D6 when moving at full speed. On 1, immobilized. -1 modifier to all breakdown rolls.</p>
+<p><strong>Breakdown - General</strong>: D6 roll when moving at max speed over rough terrain. On 1, vehicle breaks down for D3 turns (1-4) or permanently (5-6).</p>
+<p><strong>Breakdown - M13/40</strong>: Roll at start of game. On 1-2, reduce movement by -4" all game (sand filters). -1 to breakdown rolls.</p>
+<p><strong>Concealed 88mm</strong>: 88mm guns may start concealed. Not revealed until first shot. Represents hull-down positions in "Hellfire Pass" scenario.</p>
+<h3 id="d-h"><a class="header" href="#d-h">D-H</a></h3>
+<p><strong>Dawn Attack</strong>: First 2 turns have limited visibility (reduce spotting range to 18"). Represents early morning assaults (Scenario 1, 5).</p>
+<p><strong>Desert Terrain</strong>: Open terrain provides minimal cover. Most areas are open ground (no cover save) unless specifically marked.</p>
+<p><strong>Dual Purpose (25-pdr)</strong>: May fire HE (indirect artillery) or AP (direct AT). Switching modes requires 1 full action.</p>
+<p><strong>Escarpment</strong>: Impassable except at marked passes. Units on top get +6" spotting range. Reverse slope provides hard cover.</p>
+<p><strong>Fortified Positions</strong>: Infantry in fortifications get +2 cover save. AT guns in prepared positions count as hull-down (+1 armor save).</p>
+<p><strong>Hull-Down</strong>: Tanks in hull-down positions get +1 armor save vs frontal shots. 88mm guns at "Hellfire Pass" use this rule.</p>
+<h3 id="i-r"><a class="header" href="#i-r">I-R</a></h3>
+<p><strong>Italian Morale</strong>: Some Italian units have lower morale ratings. Use scenario-specific morale values (typically -1 vs German/British equivalents).</p>
+<p><strong>Matilda Thick Armor</strong>: Immune to guns under 50mm except at very close range. +2 armor save vs 37mm and 47mm guns.</p>
+<p><strong>Mechanically Unreliable</strong>: See Breakdown rules above.</p>
+<p><strong>Minefield</strong>: Moving through minefields requires engineering support. Unsupported units roll D6: 1-2 = hit mine (vehicle immobilized/destroyed, infantry take casualties).</p>
+<p><strong>Night Action</strong>: Visibility limited to 12". Close combat bonuses apply. Units may attempt to infiltrate. Used in Scenario 26 (Bir Hacheim breakout).</p>
+<p><strong>No HE - 2-pounder</strong>: British 2-pdr guns cannot fire HE. May only engage armored targets effectively (vs infantry, counts as MG fire).</p>
+<p><strong>Portee Mounting</strong>: AT guns mounted on trucks. Move at truck speed but must dismount (1 action) to fire. Vulnerable when mounted (truck armor).</p>
+<p><strong>Pursuit</strong>: German forces in pursuit scenarios get +2" movement when chasing retreating enemy.</p>
+<h3 id="s-z"><a class="header" href="#s-z">S-Z</a></h3>
+<p><strong>Smoke Rounds</strong>: Create 6" diameter smoke screen, blocks LOS. Lasts 2 turns. Limited supply (max 2 per gun per game).</p>
+<p><strong>Stuka Dive Bomber</strong>: +1 to hit stationary/slow targets. Siren causes morale check (-1) to units within 12" of target.</p>
+<p><strong>Truck Vulnerability</strong>: Trucks have no armor save. Any hit that strikes automatically damages the vehicle.</p>
+<p><strong>Veteran Crews (German)</strong>: German tank crews get +1 to shooting when firing first in an engagement. Represents superior training.</p>
+<p><strong>Wadi Crossing</strong>: Only tracked vehicles may cross wadis. Roll D6: on 1-2, vehicle stuck and immobilized.</p>
+<p><strong>Withdrawal Option</strong>: In some scenarios, forces may voluntarily withdraw off table edge to preserve BR. Must exit designated edge.</p>
+<h2 id="dice-roll-quick-reference"><a class="header" href="#dice-roll-quick-reference">Dice Roll Quick Reference</a></h2>
+<h3 id="to-hit-modifiers"><a class="header" href="#to-hit-modifiers">To Hit Modifiers</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>Situation</th><th>Modifier</th></tr></thead><tbody>
+<tr><td><strong>Target in open</strong></td><td>+0 (base 4+ to hit)</td></tr>
+<tr><td><strong>Target in soft cover</strong></td><td>-1</td></tr>
+<tr><td><strong>Target in hard cover</strong></td><td>-2</td></tr>
+<tr><td><strong>Target moved fast (10"+)</strong></td><td>-1</td></tr>
+<tr><td><strong>Shooting at long range (30"+)</strong></td><td>-1</td></tr>
+<tr><td><strong>Shooting at extreme range (40"+)</strong></td><td>-2</td></tr>
+<tr><td><strong>Veteran crew (German bonus)</strong></td><td>+1 (first shot only)</td></tr>
+<tr><td><strong>Pinned attacker</strong></td><td>-1</td></tr>
+</tbody></table>
+</div>
+<h3 id="armorcover-save-modifiers"><a class="header" href="#armorcover-save-modifiers">Armor/Cover Save Modifiers</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>Situation</th><th>Save Modifier</th></tr></thead><tbody>
+<tr><td><strong>Hull-down position</strong></td><td>+1 to armor save</td></tr>
+<tr><td><strong>Fortified position (infantry)</strong></td><td>+2 to cover save</td></tr>
+<tr><td><strong>Matilda vs small caliber</strong></td><td>+2 to armor save</td></tr>
+<tr><td><strong>Side shot</strong></td><td>-1 to armor save</td></tr>
+<tr><td><strong>Rear shot</strong></td><td>-2 to armor save</td></tr>
+<tr><td><strong>APCR ammunition</strong></td><td>-2 to armor save</td></tr>
+<tr><td><strong>88mm gun</strong></td><td>-1 to armor save (powerful gun)</td></tr>
+</tbody></table>
+</div>
+<h3 id="morale-checks"><a class="header" href="#morale-checks">Morale Checks</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>Situation</th><th>Target Number</th></tr></thead><tbody>
+<tr><td><strong>Standard morale check</strong></td><td>2D6 ≤ unit morale rating</td></tr>
+<tr><td><strong>Took casualties this turn</strong></td><td>+1 to roll (harder)</td></tr>
+<tr><td><strong>HQ within command range</strong></td><td>-1 to roll (easier)</td></tr>
+<tr><td><strong>Elite/Veteran unit</strong></td><td>-1 to roll</td></tr>
+<tr><td><strong>Reduced strength (&lt;50%)</strong></td><td>+1 to roll</td></tr>
+<tr><td><strong>Stuka siren nearby</strong></td><td>+1 to roll</td></tr>
+</tbody></table>
+</div>
+<h3 id="vehicle-damage-table-d6"><a class="header" href="#vehicle-damage-table-d6">Vehicle Damage Table (D6)</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>Roll</th><th>Result</th></tr></thead><tbody>
+<tr><td><strong>1</strong></td><td>Crew stunned - no permanent damage, pinned</td></tr>
+<tr><td><strong>2-3</strong></td><td>Damaged - mobility or weapon hit, roll again for specific</td></tr>
+<tr><td><strong>4-5</strong></td><td>Knocked out - vehicle immobilized, crew may bail out</td></tr>
+<tr><td><strong>6</strong></td><td>Destroyed - catastrophic kill, vehicle explodes, crew casualties</td></tr>
+</tbody></table>
+</div>
+<p><strong>Modifiers to damage roll</strong>:</p>
+<ul>
+<li>Penetrated by 88mm: +1</li>
+<li>Hit in side/rear: +1</li>
+<li>Riveted construction (M13/40): +1 to crew casualty</li>
+<li>Hit by APCR: +1</li>
+</ul>
+<h2 id="scenario-specific-quick-tables"><a class="header" href="#scenario-specific-quick-tables">Scenario-Specific Quick Tables</a></h2>
+<h3 id="hellfire-pass-scenario-2---88mm-engagement"><a class="header" href="#hellfire-pass-scenario-2---88mm-engagement">"Hellfire Pass" (Scenario 2) - 88mm Engagement</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>Range</th><th>British 2-pdr vs 88mm</th><th>German 88mm vs Matilda II</th></tr></thead><tbody>
+<tr><td><strong>0-20"</strong></td><td>Possible (need 6+)</td><td><strong>Automatic penetration</strong></td></tr>
+<tr><td><strong>20-40"</strong></td><td>NO (cannot penetrate)</td><td><strong>Automatic penetration</strong></td></tr>
+<tr><td><strong>40-60"</strong></td><td>Out of range</td><td>Penetrates on 4+</td></tr>
+</tbody></table>
+</div>
+<h3 id="fort-capuzzo-fortifications-scenarios-1-5"><a class="header" href="#fort-capuzzo-fortifications-scenarios-1-5">Fort Capuzzo Fortifications (Scenarios 1, 5)</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>Defensive Element</th><th>Effect</th></tr></thead><tbody>
+<tr><td><strong>Stone walls</strong></td><td>Hard cover (+2 save)</td></tr>
+<tr><td><strong>Trenches</strong></td><td>Soft cover (+1 save), protects vs indirect fire</td></tr>
+<tr><td><strong>Barbed wire</strong></td><td>Reduces infantry movement to 2", vehicles must avoid or test for immobilization</td></tr>
+<tr><td><strong>Minefields</strong></td><td>See minefield rules above</td></tr>
+</tbody></table>
+</div>
+<h3 id="tank-breakdown-rates-operation-battleaxe-historical"><a class="header" href="#tank-breakdown-rates-operation-battleaxe-historical">Tank Breakdown Rates (Operation Battleaxe Historical)</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>Tank Type</th><th>Game Breakdown Chance</th><th>Historical Loss Rate (Jun 15-17)</th></tr></thead><tbody>
+<tr><td><strong>Matilda II</strong></td><td>1 in 12 (on 1, once per game)</td><td>Very low (&lt;5%)</td></tr>
+<tr><td><strong>Crusader</strong></td><td>1 in 6 (on 1, each turn at full speed)</td><td>Very high (~30-40% mechanical)</td></tr>
+<tr><td><strong>Panzer III</strong></td><td>1 in 12 (on 1, rough terrain only)</td><td>Low (~10%)</td></tr>
+<tr><td><strong>M13/40</strong></td><td>1 in 6 (on 1-2, start of game)</td><td>Moderate (~20%)</td></tr>
+</tbody></table>
+</div>
+<p><strong>Designer's Note</strong>: Breakdown rules are simplified for gameplay. Historical breakdown rates during Battleaxe were severe—particularly for Crusaders, which suffered chronic mechanical failures. The -1 modifier for Crusaders represents this mechanical unreliability.</p>
+<h2 id="force-organization-quick-reference"><a class="header" href="#force-organization-quick-reference">Force Organization Quick Reference</a></h2>
+<h3 id="british-force-structure-june-1941"><a class="header" href="#british-force-structure-june-1941">British Force Structure (June 1941)</a></h3>
+<p><strong>Battalion-level game</strong> (typical BR 35-45):</p>
+<ul>
+<li>1x HQ (command value 8-9)</li>
+<li>2-3x Infantry platoons (30-35 men each)</li>
+<li>1x Support platoon (mortars, MGs, carriers)</li>
+<li>1x Tank squadron (8-12 tanks)</li>
+<li>1x Artillery battery (4-6 guns, typically 25-pdr)</li>
+<li>1x AT gun section (2-4 guns, typically 2-pdr)</li>
+</ul>
+<h3 id="german-force-structure-june-1941"><a class="header" href="#german-force-structure-june-1941">German Force Structure (June 1941)</a></h3>
+<p><strong>Battalion-level game</strong> (typical BR 35-45):</p>
+<ul>
+<li>1x HQ (command value 9-10, veteran)</li>
+<li>2-3x Panzergrenadier platoons (30-35 men each)</li>
+<li>1x Support platoon (mortars, MG34s, PAK)</li>
+<li>1x Panzer company (10-15 tanks)</li>
+<li>1x Artillery battery (4-6 guns, 105mm or 88mm)</li>
+<li>1x AT gun section (2-4 guns, PAK 38 or 88mm)</li>
+</ul>
+<h3 id="italian-force-structure-june-1941"><a class="header" href="#italian-force-structure-june-1941">Italian Force Structure (June 1941)</a></h3>
+<p><strong>Battalion-level game</strong> (typical BR 30-40):</p>
+<ul>
+<li>1x HQ (command value 7-8)</li>
+<li>3-4x Infantry platoons (30-35 men each, larger companies)</li>
+<li>1x Support platoon (mortars, Breda HMGs)</li>
+<li>1x Tank company (8-12 M13/40 or L3/35)</li>
+<li>1x Artillery battery (4-6 guns, 75mm)</li>
+<li>1x AT gun section (4-6 guns, 47mm common)</li>
+</ul>
+<h2 id="aircraft-reference-june-1941"><a class="header" href="#aircraft-reference-june-1941">Aircraft Reference (June 1941)</a></h2>
+<h3 id="german-air-support"><a class="header" href="#german-air-support">German Air Support</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>Aircraft</th><th>Type</th><th>Attack Rating</th><th>Notes</th></tr></thead><tbody>
+<tr><td><strong>Ju-87 Stuka</strong></td><td>Dive bomber</td><td>+2 vs stationary targets</td><td>Siren effect, vulnerable to fighters</td></tr>
+<tr><td><strong>Bf-109E</strong></td><td>Fighter</td><td>+1 strafing</td><td>Air superiority, intercepts bombers</td></tr>
+<tr><td><strong>Bf-110</strong></td><td>Heavy fighter</td><td>+0 ground attack</td><td>Twin-engine, vulnerable vs fighters</td></tr>
+</tbody></table>
+</div>
+<h3 id="british-air-support"><a class="header" href="#british-air-support">British Air Support</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>Aircraft</th><th>Type</th><th>Attack Rating</th><th>Notes</th></tr></thead><tbody>
+<tr><td><strong>Hurricane IIB</strong></td><td>Fighter-bomber</td><td>+1 vs soft targets</td><td>Good ground attack, can dogfight</td></tr>
+<tr><td><strong>Kittyhawk</strong></td><td>Fighter-bomber</td><td>+1 vs soft targets</td><td>Better than Hurricane, limited numbers</td></tr>
+<tr><td><strong>Blenheim</strong></td><td>Light bomber</td><td>+0 bombing</td><td>Vulnerable, limited effectiveness</td></tr>
+</tbody></table>
+</div>
+<p><strong>Air Support Rules</strong>: Aircraft availability determined by scenario or pre-game die roll. Each aircraft makes 1 attack run per game, then returns to base. Fighters may intercept enemy aircraft (opposed roll, winner drives off loser).</p>
+<hr />
+<h2 id="combat-example-matilda-ii-vs-88mm-at-halfaya-pass"><a class="header" href="#combat-example-matilda-ii-vs-88mm-at-halfaya-pass">Combat Example: Matilda II vs 88mm at Halfaya Pass</a></h2>
+<p><strong>Situation</strong>: British Matilda II (78mm frontal armor) advances on concealed German 88mm position at 25" range.</p>
+<p><strong>Turn 1</strong>: Matilda moves 6" cross-country, now at 19" range. 88mm not yet revealed (concealed).</p>
+<p><strong>Turn 2</strong>: Matilda moves another 6", now at 13" range. German player reveals 88mm and fires.</p>
+<p><strong>To Hit Roll</strong>:</p>
+<ul>
+<li>Base: 4+</li>
+<li>Range (under 30"): +0</li>
+<li>Target in open: +0</li>
+<li><strong>Result: Needs 4+ to hit</strong></li>
+</ul>
+<p>German rolls 5 - <strong>HIT</strong></p>
+<p><strong>Penetration</strong>:</p>
+<ul>
+<li>88mm penetration @ 13": Automatic vs 78mm armor</li>
+<li>Matilda armor save: Base 4+ (thick armor)</li>
+<li>88mm modifier: -1 (powerful gun)</li>
+<li><strong>Final save needed: 5+</strong></li>
+</ul>
+<p>British rolls 3 - <strong>PENETRATED</strong></p>
+<p><strong>Damage Roll</strong>:</p>
+<ul>
+<li>Base D6 roll: 4</li>
+<li>88mm bonus: +1</li>
+<li><strong>Final: 5 = Knocked Out</strong></li>
+</ul>
+<p><strong>Result</strong>: Matilda II knocked out, crew bails out, British player draws BR chit.</p>
+<p><strong>Historical Note</strong>: This was the typical outcome at "Hellfire Pass" - 11 Matilda IIs destroyed in minutes by concealed 88mm guns.</p>
+<hr />
+<p><strong>Total Lines</strong>: 276</p>
+<p><strong>This quick reference is specific to Operation Battleaxe (June 1941) equipment, tactics, and scenarios. For later battles with different equipment (Grant tanks, Panzer IV F2 long guns, etc.), see the appropriate battle book appendices.</strong></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../special_rules/nations.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../appendices/appendix_b.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../special_rules/nations.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../appendices/appendix_b.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>
