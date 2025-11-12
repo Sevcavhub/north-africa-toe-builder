@@ -148,10 +148,14 @@ def create_app():
         """Get available battle locations for a quarter."""
         # Predefined locations for each quarter
         locations = {
+            '1941q1': ['Agedabia', 'El Agheila', 'Mersa Brega'],
             '1941q2': ['Halfaya Pass', 'Fort Capuzzo', 'Sollum'],
+            '1941q3': ['Tobruk Perimeter', 'Bardia', 'Sidi Barrani'],
             '1941q4': ['Sidi Rezegh', 'Tobruk', 'Bir el Gubi'],
-            '1942q2': ['Gazala', 'Bir Hacheim', 'Got el Ualeb'],
-            '1942q3': ['El Alamein', 'Ruweisat Ridge', 'Alam el Halfa']
+            '1942q1': ['Gazala Line', 'Bir Hacheim', 'Tobruk'],
+            '1942q2': ['Gazala', 'Bir Hacheim', 'Got el Ualeb', 'Knightsbridge'],
+            '1942q3': ['El Alamein', 'Ruweisat Ridge', 'Alam el Halfa'],
+            '1942q4': ['El Alamein', 'Fuka', 'Mersa Matruh']
         }
 
         quarter_locations = locations.get(quarter, ['Generic Desert Location'])
