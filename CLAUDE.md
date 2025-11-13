@@ -69,7 +69,7 @@ As you work, update relevant files with:
 
 **Two Book Types**:
 1. **Project Books**: General historical books (summary chapters, appendices, TO&E tables) - separate workstream
-2. **BattleGroup Books**: Phase 9B specific (4 battle books on hold pending clean data)
+2. **BattleGroup Books**: Phase 9B specific (12 battle books on hold pending clean data)
 
 ---
 
@@ -206,7 +206,7 @@ As you work, update relevant files with:
 **Imagine building a collection of books about World War 2 tank battles in North Africa...**
 
 **What We're Building**: Professional wargaming scenario books (like official Battlegroup-Kursk.pdf)
-- 4 beautiful books: Operation Battleaxe, Operation Crusader, Battle of Gazala, First El Alamein
+- 12 beautiful books: Operation Battleaxe, Operation Crusader, Battle of Gazala, First El Alamein
 - Each book has equipment cards showing tanks/guns with pictures and stats
 - Historical scenarios you can play out on a tabletop
 - Maps, timelines, and stories about what really happened
@@ -228,7 +228,7 @@ As you work, update relevant files with:
 - Each card shows: picture, armor values, weapon stats, movement speed
 - Writing historical scenarios (12 tanks vs 8 tanks with AT guns at Halfaya Pass)
 - Creating organization charts (who commanded which units)
-- Building 4 complete books ready to print as PDFs
+- Building 12 complete books ready to print as PDFs
 
 **Quality Standard**: Publication-ready professional books
 - Looks like official Battlegroup-Kursk.pdf (see Resource Documents folder)
@@ -339,11 +339,11 @@ As you work, update relevant files with:
 
 ## 📊 Phase 9B Current Work (BattleGroup Books)
 
-**Scope**: Generate 4 professional-quality books for BattleGroup wargame system
-- Operation Battleaxe (1941-Q2)
-- Operation Crusader (1941-Q4)
-- Battle of Gazala (1942-Q2)
-- First El Alamein (1942-Q3)
+**Scope**: Generate 12 professional-quality books for BattleGroup wargame system
+- Compass (1940-Q4), Sonnenblume (1941-Q1), Battleaxe (1941-Q2)
+- Crusader (1941-Q4), Gazala (1942-Q2), Tobruk (1942-Q2)
+- First Alamein (1942-Q3), Alam Halfa (1942-Q3), Second Alamein (1942-Q4)
+- Torch (1942-Q4), Tunisia (1943-Q1), Mareth (1943-Q1)
 
 **Quality Standard**: **Publication-ready** (match Battlegroup-Kursk.pdf quality)
 - Equipment datacards match `Resource Documents/Battlegroup Game/Datacard Examples.png`
@@ -618,7 +618,7 @@ As you work, update relevant files with:
 
 **Phase 9B Specific Commands**:
 ```bash
-# Generate equipment datacards for all 4 books
+# Generate equipment datacards for all 12 books
 python scripts/battlegroup/book/generate_book_datacards.py --all
 
 # Generate datacards for specific battle

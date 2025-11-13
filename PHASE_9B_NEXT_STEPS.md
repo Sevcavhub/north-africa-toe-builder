@@ -69,7 +69,7 @@
 - Clear suspect data from equipment_battlegroup
 - Repopulate with validated formulas + WWIITANKS source data
 - Mark generation method for transparency
-- Regenerate all 4 battle books
+- Regenerate all 12 battle books
 
 ### **Formula Rebuild Scope**
 
@@ -152,7 +152,7 @@
 - 📋 Additional extractions: **Only if needed** to validate specific formula edge cases
 - 📦 Comprehensive extraction (17 full sources): "Nice to have later" for personal use, NOT required for MVP
 
-**Decision Driver**: Focus on **book publication** (validate formulas, regenerate equipment stats, complete 4 battle books) rather than building comprehensive reference database.
+**Decision Driver**: Focus on **book publication** (validate formulas, regenerate equipment stats, complete 12 battle books) rather than building comprehensive reference database.
 
 ---
 
@@ -414,7 +414,7 @@ User needs to fill blank CSV fields using PDF or OCR text as reference:
 
 **Priority 1: Book 404 Troubleshooting** (if issues persist)
 - Current Status: Books deployed to git, may have GitHub Pages propagation delay
-- Files in git: 281 HTML files (4 books × ~70 files each)
+- Files in git: 281 HTML files (12 books × ~70 files each)
 - Next steps:
   1. Wait for GitHub Pages cache refresh (24-48 hours)
   2. If persistent, check GitHub Pages build logs
@@ -492,7 +492,7 @@ User needs to fill blank CSV fields using PDF or OCR text as reference:
 - Frontend: `index.html`, `tools.html`, `bibliography.html` (new)
 - Database: `web_database.db` (stripped, 6.58 MB)
 - Git config: `.gitignore` (un-excluded book directories)
-- Books: 281 HTML files added (4 books × MDBook outputs)
+- Books: 281 HTML files added (12 books × MDBook outputs)
 
 **Lines of Code**:
 - Backend API: ~300 lines (7 endpoints, error handling, CORS)

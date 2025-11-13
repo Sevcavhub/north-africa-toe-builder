@@ -1155,14 +1155,14 @@ After building conversion tools and generating initial book content, quality rev
    - Validate conversion formulas against clean reference data
    - Adjust formulas if needed based on accurate data
    - Regenerate equipment stats for all 469 items
-   - Regenerate equipment datacards in all 4 books
+   - Regenerate equipment datacards in all 12 books
    - Final QA and publication
 
 **Timeline**: Unknown - depends on manual extraction progress and formula validation complexity
 
 **Two Book Types** (Important Distinction):
 - **Project Books**: General historical books (need summary chapters, appendices, TO&E tables - separate from Phase 9B)
-- **BattleGroup Books**: Phase 9B specific (4 battle books as foundational test series)
+- **BattleGroup Books**: Phase 9B specific (12 battle books as foundational test series)
 
 **Deliverables**:
 
@@ -1297,7 +1297,7 @@ scripts/battlegroup/
 - [x] Points calculator: 93.6% accuracy (within ±10% target) ✅
 - [x] All 469 equipment items have BattleGroup stats generated ✅
 - [x] Datacards match official format layout ✅ **V5.5 LOCKED (Nov 10, 2025)**
-- [x] V5.5 datacard format deployed to production (255 datacards across 4 books) ✅
+- [x] V5.5 datacard format deployed to production (255 datacards across 12 books) ✅
 - [x] Force lists enforce historical restrictions ✅ (generator created)
 - [ ] 12 complete battle books (84+ scenarios total) - Step 6 pending (4 of 12 complete)
 - [ ] Scenarios playtested and balanced - Step 7 pending

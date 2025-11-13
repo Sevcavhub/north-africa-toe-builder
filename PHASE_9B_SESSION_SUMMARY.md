@@ -125,13 +125,13 @@
 
 ### Overview
 
-Established V5.5 as the **permanent locked standard** for all BattleGroup datacard generation. All 4 battle books (255 datacards total) now use V5.5 format with nation-specific color themes, multi-row armament tables, armor modifiers, silhouette images, and professional layout matching official BattleGroup supplements.
+Established V5.5 as the **permanent locked standard** for all BattleGroup datacard generation. All 12 battle books (255 datacards total) now use V5.5 format with nation-specific color themes, multi-row armament tables, armor modifiers, silhouette images, and professional layout matching official BattleGroup supplements.
 
 **Key Achievement**: All datacards now match official BattleGroup quality with consistent formatting across 5 nations, armor modifiers, and vehicle silhouettes
 
 **Production Deployment** (November 10, 2025):
 - ✅ `generate_book_datacards.py` updated to import and use V5.5 generator
-- ✅ All 4 battle books regenerated with V5.5 format (255 total datacards)
+- ✅ All 12 battle books regenerated with V5.5 format (255 total datacards)
 - ✅ Operation Battleaxe: 57 datacards
 - ✅ Operation Crusader: 78 datacards
 - ✅ Battle of Gazala: 57 datacards
@@ -374,7 +374,7 @@ start book/index.html
 5. ✅ **Step 5 COMPLETE**: Generator enhancement toolkit (7 generators, 57 special rules, 8/8 validation tests passed)
 6. ✅ **Dataset Extraction**: 595 entries from 7 BattleGroup documents with full provenance tracking
 7. ✅ **Formula Discovery**: Reverse-engineered experience effects, date effects, and BR importance patterns
-8. ✅ **Step 7 Part 3 COMPLETE**: Historical chapters (12 files, ~24,000 words) for all 4 books - *Session 2*
+8. ✅ **Step 7 Part 3 COMPLETE**: Historical chapters (12 files, ~24,000 words) for all 12 books - *Session 2*
 9. ✅ **Step 7 Part 4 COMPLETE**: Equipment special rules (4 files, 1,543 lines) - *Session 2*
 10. ✅ **Tactical Templates COMPLETE**: 12 tank/artillery templates + 32 platoon/company files from Phase 6 data - *Session 2*
 11. ✅ **Appendices 25% COMPLETE**: Battleaxe Appendix A (403 lines with real weapon data) - *Session 2*
@@ -1281,7 +1281,7 @@ From PROJECT_SCOPE.md Phase 9B Step 4 requirements:
 
 ### Bundle Pricing Strategy
 
-**Complete Volume 1 Bundle**: $50-65 (all 4 books)
+**Complete Volume 1 Bundle**: $50-65 (all 12 books)
 - Individual pricing if bought separately: $68-86
 - **Bundle discount**: 20-30% savings
 - **Total content**: 195-235 pages, 36-43 scenarios
@@ -1508,7 +1508,7 @@ From PROJECT_SCOPE.md Phase 9B Step 4 requirements:
 
 ### Step 7 Part 3: Historical Chapters - COMPLETE ✅
 
-**Deliverables**: 12 markdown files (~24,000 words) for all 4 books
+**Deliverables**: 12 markdown files (~24,000 words) for all 12 books
 
 **Books Completed**:
 1. **Battleaxe** (June 1941): 88mm debut, Fort Capuzzo, Halfaya Pass
@@ -1560,7 +1560,7 @@ From PROJECT_SCOPE.md Phase 9B Step 4 requirements:
 **Critical Issue Discovered**: Generated scenarios had forces that didn't match historical descriptions
 - **Scenario 2 Example**: "88mm destroyed 11 Matilda IIs" → Generated force had NO Matilda tanks
 - **Root Cause**: Regex pattern `squadron` didn't match plural `squadrons` in research document
-- **Impact**: All 4 books (~40 scenarios) affected by same parsing bugs
+- **Impact**: All 12 books (~40 scenarios) affected by same parsing bugs
 
 **Additional Issues**:
 - Infantry shown as individual soldiers (180x Infantry) instead of platoons
@@ -1684,7 +1684,7 @@ From PROJECT_SCOPE.md Phase 9B Step 4 requirements:
 
 ### Impact & Next Steps
 
-**Books Affected**: All 4 books (~40 scenarios total)
+**Books Affected**: All 12 books (~40 scenarios total)
 - Battleaxe (1941q2) - 8 scenarios
 - Crusader (1941q4) - ~8 scenarios
 - Gazala (1942q2) - ~8 scenarios
@@ -1699,7 +1699,7 @@ From PROJECT_SCOPE.md Phase 9B Step 4 requirements:
 
 **Status**: Ready for book regeneration
 **Remaining Work**: 
-- Regenerate all 4 books with fixed scenarios
+- Regenerate all 12 books with fixed scenarios
 - Create comprehensive documentation
 - Validate all ~40 scenarios pass new rules
 
@@ -1987,7 +1987,7 @@ All destructive operations backed up table before changes:
    - Source categories documentation
 
 4. **MDBook HTML Outputs**:
-   - 281 HTML files added to git (4 books × ~70 files each)
+   - 281 HTML files added to git (12 books × ~70 files each)
    - Book structure: battleaxe/book/book/, crusader/book/book/, etc.
    - Un-ignored from .gitignore for GitHub Pages deployment
    - Status: ⚠️ Still showing 404s (GitHub Pages caching/propagation delay)
