@@ -311,6 +311,13 @@
         <div class="forces">
             <h2>Forces</h2>
 
+            {% if historical_context %}
+            <div style="margin-bottom: 1rem; padding: 0.75rem; background: #f5f5dc; border-left: 3px solid #6b7f3d;">
+                <h3 style="margin-top: 0; font-size: 11pt; color: #4a5335;">Historical Context</h3>
+                <p style="margin-bottom: 0;">{{ historical_context | safe }}</p>
+            </div>
+            {% endif %}
+
             <h3>{{ attacker_name }} Forces ({{ attacker_points }} pts, BR {{ attacker_br }})</h3>
             <ul>
             {% for unit in attacker_units %}
@@ -328,6 +335,22 @@
             <p style="margin-top: 1rem; font-style: italic; font-size: 9pt;">
                 Note: Equipment datacards show regular experience stats. Adjust for veteran/elite as per BattleGroup rules.
             </p>
+
+            {% if equipment_special_rules %}
+            <h3 style="margin-top: 1.5rem;">Equipment Special Rules Reference</h3>
+            <div style="font-size: 9pt; background: #f9f9f9; padding: 0.75rem; border: 1px solid #c9a77c;">
+                <ul style="margin: 0;">
+                {% for rule in equipment_special_rules %}
+                    <li style="margin-bottom: 0.5rem;">
+                        <strong>{{ rule.rule_name }}</strong>: {{ rule.description }}
+                        {% if rule.mechanical_effect %}
+                        <br><em style="font-size: 8pt; color: #666;">Effect: {{ rule.mechanical_effect }}</em>
+                        {% endif %}
+                    </li>
+                {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
         </div>
     </div>
 

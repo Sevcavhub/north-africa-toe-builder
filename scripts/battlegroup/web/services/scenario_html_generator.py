@@ -12,19 +12,39 @@ from pathlib import Path
 from typing import Dict, List, Optional
 from jinja2 import Template
 
-# Import equipment resolver
+# Import equipment resolver, historical context, and special rules services
 try:
     # When running as a module (Flask app)
     from services.equipment_resolver import resolve_equipment_canonical_id, extract_equipment_from_scenario_forces
+    from services.historical_context_service import get_historical_context, format_historical_context_paragraph
+    from services.special_rules_service import get_scenario_special_rules
 except ImportError:
     # When running standalone
     from equipment_resolver import resolve_equipment_canonical_id, extract_equipment_from_scenario_forces
+    from historical_context_service import get_historical_context, format_historical_context_paragraph
+    from special_rules_service import get_scenario_special_rules
 
 # Paths
 PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent.parent.parent
 DB_PATH = PROJECT_ROOT / "database" / "master_database.db"
 TEMPLATE_PATH = PROJECT_ROOT / "scripts" / "battlegroup" / "web" / "templates" / "scenario_printable.html"
 BOOKS_PATH = PROJECT_ROOT / "books"
+
+# Battle to quarter mapping
+BATTLE_QUARTERS = {
+    'compass': '1940q4',
+    'sonnenblume': '1941q1',
+    'battleaxe': '1941q2',
+    'crusader': '1941q4',
+    'gazala': '1942q2',
+    'tobruk': '1942q2',
+    'first_alamein': '1942q3',
+    'alam_halfa': '1942q3',
+    'second_alamein': '1942q4',
+    'torch': '1942q4',
+    'tunisia': '1943q1',
+    'mareth': '1943q1',
+}
 
 
 def classify_scenario_scale(total_points: int) -> str:
@@ -194,24 +214,26 @@ def parse_scenario_markdown(md_path: Path) -> Dict:
         ]
 
     # Extract forces (stop at next ## or ### heading)
-    forces_pattern = rf'### {re.escape(scenario["attacker_name"])} FORCES\n\*\*Nation\*\*:.*?\n\*\*Points Budget\*\*:\s*(\d+)\n\*\*Total Battle Rating\*\*:\s*(\d+)\n\n\*\*Units\*\*:\n((?:- .+\n?)+?)(?=\n###|\n##|\Z)'
+    forces_pattern = rf'### {re.escape(scenario["attacker_name"])} FORCES\n\*\*Nation\*\*:\s*([\w\s\(\)]+?)\n\*\*Points Budget\*\*:\s*(\d+)\n\*\*Total Battle Rating\*\*:\s*(\d+)\n\n\*\*Units\*\*:\n((?:- .+\n?)+?)(?=\n###|\n##|\Z)'
     attacker_forces = re.search(forces_pattern, content, re.IGNORECASE | re.DOTALL)
     if attacker_forces:
-        scenario['attacker_points'] = int(attacker_forces.group(1))
-        scenario['attacker_br'] = int(attacker_forces.group(2))
-        units_text = attacker_forces.group(3)
+        scenario['attacker_nation'] = attacker_forces.group(1).strip().lower()
+        scenario['attacker_points'] = int(attacker_forces.group(2))
+        scenario['attacker_br'] = int(attacker_forces.group(3))
+        units_text = attacker_forces.group(4)
         scenario['attacker_units'] = [
             line.strip('- ').strip()
             for line in units_text.split('\n')
             if line.strip().startswith('-')
         ]
 
-    forces_pattern = rf'### {re.escape(scenario["defender_name"])} FORCES\n\*\*Nation\*\*:.*?\n\*\*Points Budget\*\*:\s*(\d+)\n\*\*Total Battle Rating\*\*:\s*(\d+)\n\n\*\*Units\*\*:\n((?:- .+\n?)+?)(?=\n###|\n##|\Z)'
+    forces_pattern = rf'### {re.escape(scenario["defender_name"])} FORCES\n\*\*Nation\*\*:\s*([\w\s\(\)]+?)\n\*\*Points Budget\*\*:\s*(\d+)\n\*\*Total Battle Rating\*\*:\s*(\d+)\n\n\*\*Units\*\*:\n((?:- .+\n?)+?)(?=\n###|\n##|\Z)'
     defender_forces = re.search(forces_pattern, content, re.IGNORECASE | re.DOTALL)
     if defender_forces:
-        scenario['defender_points'] = int(defender_forces.group(1))
-        scenario['defender_br'] = int(defender_forces.group(2))
-        units_text = defender_forces.group(3)
+        scenario['defender_nation'] = defender_forces.group(1).strip().lower()
+        scenario['defender_points'] = int(defender_forces.group(2))
+        scenario['defender_br'] = int(defender_forces.group(3))
+        units_text = defender_forces.group(4)
         scenario['defender_units'] = [
             line.strip('- ').strip()
             for line in units_text.split('\n')
@@ -365,6 +387,29 @@ def generate_printable_scenario_html(scenario_id: str, battle: str = "battleaxe"
     all_units_text = '\n'.join(scenario_data['attacker_units'] + scenario_data['defender_units'])
     afv_list = extract_equipment_from_scenario_forces(all_units_text)
 
+    # Get historical context
+    historical_context_text = ""
+    nations = []
+    if scenario_data.get('attacker_nation'):
+        nations.append(scenario_data['attacker_nation'])
+    if scenario_data.get('defender_nation'):
+        nations.append(scenario_data['defender_nation'])
+
+    if battle in BATTLE_QUARTERS and nations and afv_list:
+        quarter = BATTLE_QUARTERS[battle]
+        equipment_names = [afv['display_name'] for afv in afv_list]
+        context = get_historical_context(equipment_names, quarter, nations)
+        if context:
+            historical_context_text = format_historical_context_paragraph(context)
+
+    # Get special rules for scenario equipment
+    special_rules_list = []
+    if afv_list:
+        canonical_ids = [afv['canonical_id'] for afv in afv_list if afv.get('canonical_id')]
+        if canonical_ids and nations:
+            special_rules_data = get_scenario_special_rules(canonical_ids, nations)
+            special_rules_list = special_rules_data.get('all_rules', [])
+
     # Generate datacards for unique AFVs
     datacards_html = []
     seen_canonical_ids = set()
@@ -406,7 +451,9 @@ def generate_printable_scenario_html(scenario_id: str, battle: str = "battleaxe"
         defender_units=scenario_data['defender_units'],
         defender_points=scenario_data['defender_points'],
         defender_br=scenario_data['defender_br'],
-        datacards=datacards_html
+        datacards=datacards_html,
+        historical_context=historical_context_text,
+        equipment_special_rules=special_rules_list
     )
 
     return html
