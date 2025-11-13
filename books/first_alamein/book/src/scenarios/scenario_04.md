@@ -2,6 +2,7 @@
 ## SITUATION REPORT
 **Date**: July 10-11, 1942, 16:00
 **Location**: Tel el Eisa, southern slopes
+**Scale**: Battalion-level engagement
 
 1st South African Division attacks Tel el Eisa positions following Australian success. Combined Commonwealth offensive in northern sector.
 

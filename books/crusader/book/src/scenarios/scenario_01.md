@@ -2,6 +2,7 @@
 ## SITUATION REPORT
 **Date**: November 18, 1941, 10:00
 **Location**: Gabr Saleh, south of Tobruk
+**Scale**: Battalion-level engagement
 
 British 7th Armoured Division's 4th Armoured Brigade encounters Italian Ariete Division screening force. First major tank engagement of Operation Crusader.
 

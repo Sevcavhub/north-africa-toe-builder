@@ -2,6 +2,7 @@
 ## SITUATION REPORT
 **Date**: June 15, 1941, 05:30
 **Location**: Fort Capuzzo, Libya
+**Scale**: Company-level engagement
 
 British 4th Armoured Brigade assaults Italian-held Fort Capuzzo at dawn. Initial success as Matilda IIs breakthrough outer defenses, but German reinforcements from 104th Infantry Regiment arrive mid-battle.
 

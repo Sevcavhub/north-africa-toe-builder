@@ -2,6 +2,7 @@
 ## SITUATION REPORT
 **Date**: May 29, 1942, 14:00
 **Location**: 150th Brigade Box, center of Gazala line
+**Scale**: Battalion-level engagement
 
 German forces begin siege of British 150th Brigade Box - fortified position blocking Axis supply route through minefields. Must eliminate box to secure logistics for forces in Cauldron.
 

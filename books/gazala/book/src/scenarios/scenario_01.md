@@ -2,6 +2,7 @@
 ## SITUATION REPORT
 **Date**: May 26-27, 1942, 20:00-08:00 (night/dawn action)
 **Location**: South of Bir Hacheim
+**Scale**: Battalion-level engagement
 
 Rommel's Afrika Korps begins famous "left hook" around southern end of Gazala line at Bir Hacheim. British outposts detect massive Axis column moving through darkness.
 

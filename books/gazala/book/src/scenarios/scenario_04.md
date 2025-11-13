@@ -2,6 +2,7 @@
 ## SITUATION REPORT
 **Date**: May 27, 1942, 11:00
 **Location**: Bir Hacheim fortress, southern anchor of Gazala line
+**Scale**: Battalion-level engagement
 
 German/Italian forces launch first assault on Free French garrison at Bir Hacheim. Free French 1st Brigade defending southern anchor of Gazala line. Beginning of epic 14-day siege.
 

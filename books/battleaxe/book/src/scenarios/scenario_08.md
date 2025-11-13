@@ -2,6 +2,7 @@
 ## SITUATION REPORT
 **Date**: June 17, 1941, 15:00
 **Location**: Sidi Omar, Egyptian border
+**Scale**: Company-level engagement
 
 British rearguard platoon holds vital crossroads at Sidi Omar to allow main force to withdraw. Overwhelming German force attacks.
 

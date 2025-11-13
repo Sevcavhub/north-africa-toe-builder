@@ -2,6 +2,7 @@
 ## SITUATION REPORT
 **Date**: July 10, 1942, 04:30
 **Location**: Tel el Eisa, Point 63 feature, northern sector
+**Scale**: Battalion-level engagement
 
 9th Australian Division launches dawn assault on Axis positions at Tel el Eisa. Australians demonstrate their fighting prowess in brutal close-quarters battle.
 

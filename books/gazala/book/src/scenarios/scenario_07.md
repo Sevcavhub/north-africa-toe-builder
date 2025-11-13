@@ -2,6 +2,7 @@
 ## SITUATION REPORT
 **Date**: June 5, 1942, 09:00
 **Location**: Knightsbridge Box area
+**Scale**: Battalion-level engagement
 
 Major tank battle around Knightsbridge supply box. British Grant tanks with 75mm guns engage German Panzer IIIs and new Panzer IV F2s with long 75mm guns. Brutal armored clash.
 

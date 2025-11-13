@@ -2,6 +2,7 @@
 ## SITUATION REPORT
 **Date**: December 15, 1941, 10:00
 **Location**: El Agheila, western Cyrenaica
+**Scale**: Battalion-level engagement
 
 British probe Axis defensive line at El Agheila bottleneck. Rommel established strong defensive position in narrow coastal corridor between sea and impassable sand sea. British test defenses before full assault.
 

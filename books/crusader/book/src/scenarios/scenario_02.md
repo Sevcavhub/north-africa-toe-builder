@@ -2,6 +2,7 @@
 ## SITUATION REPORT
 **Date**: November 19, 1941, 12:00
 **Location**: Bir el Gubi airfield
+**Scale**: Battalion-level engagement
 
 British 22nd Armoured Brigade attacks Italian Ariete Division holding Bir el Gubi. British expected easy victory but Italians fought stubbornly with well-placed AT guns and M13/40 tanks in hull-down positions.
 

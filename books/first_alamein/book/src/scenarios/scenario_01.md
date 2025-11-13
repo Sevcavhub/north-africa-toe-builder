@@ -2,6 +2,7 @@
 ## SITUATION REPORT
 **Date**: July 1, 1942, 13:00
 **Location**: Deir el Shein box, El Alamein line
+**Scale**: Battalion-level engagement
 
 German 90th Light Division attacks Indian 18th Brigade box at Deir el Shein. First major test of Alamein line. Overrun after fierce resistance but delayed Axis advance crucial 24 hours.
 

@@ -2,6 +2,7 @@
 ## SITUATION REPORT
 **Date**: June 20, 1942, 08:00
 **Location**: Tobruk outer defenses, southeast sector
+**Scale**: Company-level engagement
 
 German assault on Tobruk outer perimeter. Unlike 1941 siege, Tobruk falls in single day. Rommel's greatest tactical victory - captured 33,000 prisoners, massive supply hauls.
 

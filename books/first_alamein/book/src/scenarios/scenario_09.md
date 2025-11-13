@@ -2,6 +2,7 @@
 ## SITUATION REPORT
 **Date**: July 26-27, 1942, 22:00-04:00
 **Location**: Alam el Onsol, northern sector
+**Scale**: Battalion-level engagement
 
 9th Australian Division launches night assault on Axis positions at Alam el Onsol. Final major attack of First Alamein battle. Australian expertise in night operations on full display.
 

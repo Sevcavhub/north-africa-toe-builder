@@ -2,6 +2,7 @@
 ## SITUATION REPORT
 **Date**: Variable (can represent any Gazala battle)
 **Location**: Generic Gazala battlefield
+**Scale**: Battalion-level engagement
 
 
 

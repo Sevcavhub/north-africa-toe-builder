@@ -2,6 +2,7 @@
 ## SITUATION REPORT
 **Date**: June 16, 1941, 06:00
 **Location**: Fort Capuzzo
+**Scale**: Battalion-level engagement
 
 German 15th Panzer Division launches dawn counterattack to retake Fort Capuzzo from British 4th Armoured Brigade. Combined arms assault with Panzer IIIs, infantry, and artillery support.
 

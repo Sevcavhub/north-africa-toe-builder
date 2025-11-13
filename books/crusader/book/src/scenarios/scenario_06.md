@@ -2,6 +2,7 @@
 ## SITUATION REPORT
 **Date**: November 24, 1941, 06:00
 **Location**: El Duda, northern perimeter of Tobruk
+**Scale**: Battalion-level engagement
 
 70th Infantry Division (Tobruk garrison) launches breakout attack toward Ed Duda to link with advancing New Zealand forces. After 8-month siege, opportunity to break encirclement.
 

@@ -2,6 +2,7 @@
 ## SITUATION REPORT
 **Date**: June 21, 1942, 10:00
 **Location**: Tobruk town, final defenses
+**Scale**: Battalion-level engagement
 
 German forces push into Tobruk town after breaching perimeter. British/South African resistance collapsing. Final stand before surrender.
 

@@ -2,6 +2,7 @@
 ## SITUATION REPORT
 **Date**: July 27, 1942, 20:00 (dusk patrol)
 **Location**: No-man's land between lines
+**Scale**: Company-level engagement
 
 Generic patrol action representing stalemate phase as First Alamein battle winds down. Both sides exhausted, conducting aggressive patrolling but no major offensives. Battle of First Alamein ends in stalemate.
 

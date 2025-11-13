@@ -2,6 +2,7 @@
 ## SITUATION REPORT
 **Date**: June 10-11, 1942, 22:00-04:00 (night breakout)
 **Location**: Bir Hacheim
+**Scale**: Battalion-level engagement
 
 Free French ordered to evacuate Bir Hacheim after 14-day siege. Night breakout through German/Italian encirclement. Heroic escape of majority of garrison.
 

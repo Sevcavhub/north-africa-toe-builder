@@ -2,6 +2,7 @@
 ## SITUATION REPORT
 **Date**: June 15, 1941, 15:00
 **Location**: Hafid Ridge, east of Sollum
+**Scale**: Company-level engagement
 
 British Indian infantry platoon attempts to secure rocky Hafid Ridge held by German Panzergrenadier platoon. Close-quarters fighting in broken terrain.
 

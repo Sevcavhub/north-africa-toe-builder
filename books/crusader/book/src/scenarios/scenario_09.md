@@ -2,6 +2,7 @@
 ## SITUATION REPORT
 **Date**: November 28, 1941, 14:00
 **Location**: Ed Duda, final link-up point
+**Scale**: Company-level engagement
 
 New Zealand forces advancing from south finally link with Tobruk garrison forces at Ed Duda. Historic moment ending 242-day siege of Tobruk.
 

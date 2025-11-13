@@ -2,6 +2,7 @@
 ## SITUATION REPORT
 **Date**: June 12, 1942, 14:00
 **Location**: Knightsbridge area (continuation)
+**Scale**: Battalion-level engagement
 
 Continued armored battles around Knightsbridge. British 22nd Armoured Brigade suffers heavy losses to combined German armor and AT guns.
 

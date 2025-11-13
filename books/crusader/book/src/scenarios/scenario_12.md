@@ -2,6 +2,7 @@
 ## SITUATION REPORT
 **Date**: December 24, 1941, 08:00
 **Location**: Approaches to Benghazi
+**Scale**: Battalion-level engagement
 
 British attempt to capture Benghazi before year end. Axis forces conduct delaying action before abandoning city. Christmas Eve attack.
 

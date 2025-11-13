@@ -2,6 +2,7 @@
 ## SITUATION REPORT
 **Date**: June 17, 1941, 08:00
 **Location**: East of Capuzzo, withdrawing toward Egypt
+**Scale**: Company-level engagement
 
 British 7th Armoured Division conducts fighting withdrawal as Operation Battleaxe fails. German forces pursue, attempting to inflict maximum casualties before British reach safety.
 

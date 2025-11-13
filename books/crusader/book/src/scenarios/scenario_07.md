@@ -2,6 +2,7 @@
 ## SITUATION REPORT
 **Date**: November 24-26, 1941 (representing multi-day action)
 **Location**: Egyptian frontier, "the Wire"
+**Scale**: Battalion-level engagement
 
 Rommel's famous "dash to the wire" - personal leading of mobile kampfgruppe deep into British rear areas attempting to create panic and disrupt British logistics. Bold but ultimately unsuccessful raid.
 

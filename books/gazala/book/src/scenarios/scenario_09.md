@@ -2,6 +2,7 @@
 ## SITUATION REPORT
 **Date**: June 13, 1942, 20:00
 **Location**: Gazala line, beginning withdrawal
+**Scale**: Battalion-level engagement
 
 British Gazala line collapses. 50th Division begins breakout from Gazala boxes before encirclement. "Gazala Gallop" - headlong retreat toward Egypt.
 

@@ -2,6 +2,7 @@
 ## SITUATION REPORT
 **Date**: November 27, 1941, 11:00
 **Location**: Sidi Rezegh (returning to previous battlefield)
+**Scale**: Battalion-level engagement
 
 British forces return to Sidi Rezegh after Rommel's dash to the wire ends. Must retake positions lost during Totensonntag. Battlefield littered with destroyed vehicles from previous fighting.
 

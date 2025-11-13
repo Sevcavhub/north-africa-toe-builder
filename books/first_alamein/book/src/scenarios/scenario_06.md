@@ -2,6 +2,7 @@
 ## SITUATION REPORT
 **Date**: July 15-16, 1942, 04:30
 **Location**: Ruweisat Ridge (returning to earlier battlefield)
+**Scale**: Company-level engagement
 
 Second major assault on Ruweisat Ridge. New Zealand and Indian forces attack again. Tank-infantry coordination failures doom attack to failure.
 

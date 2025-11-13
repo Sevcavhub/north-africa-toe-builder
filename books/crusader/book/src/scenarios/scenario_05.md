@@ -2,6 +2,7 @@
 ## SITUATION REPORT
 **Date**: November 23, 1941, 09:00-16:00
 **Location**: Sidi Rezegh escarpment
+**Scale**: Battalion-level engagement
 
 Largest tank battle in North Africa to date. German 15th and 21st Panzer Divisions attack British 5th South African Brigade and remnants of armored brigades at Sidi Rezegh. Devastating German victory earning the name "Totensonntag" (Sunday of the Dead) - German memorial day.
 

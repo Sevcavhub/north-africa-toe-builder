@@ -2,6 +2,7 @@
 ## SITUATION REPORT
 **Date**: June 15, 1941, 12:00
 **Location**: Point 206, southwest of Capuzzo
+**Scale**: Battalion-level engagement
 
 British 7th Armoured Division's Crusader and Honey Stuart tanks engage German 5th Light Division's Panzer IIIs in open desert tank battle. Superior German gunnery and tactics offset British numerical advantage.
 

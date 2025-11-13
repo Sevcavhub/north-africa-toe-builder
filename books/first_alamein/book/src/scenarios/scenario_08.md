@@ -2,6 +2,7 @@
 ## SITUATION REPORT
 **Date**: July 22, 1942, 10:00
 **Location**: Kidney Ridge (later famous in Second Alamein)
+**Scale**: Company-level engagement
 
 British reconnaissance in force toward Kidney Ridge. Probing Axis defenses in preparation for possible offensive.
 

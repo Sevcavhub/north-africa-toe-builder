@@ -2,6 +2,7 @@
 ## SITUATION REPORT
 **Date**: June 15, 1941, 08:00
 **Location**: Halfaya Pass, Egyptian-Libyan border
+**Scale**: Battalion-level engagement
 
 British 4th Indian Division attacks Halfaya Pass ("Hellfire Pass") held by German 33rd Panzer Regiment with concealed 88mm FlaK guns in hull-down positions. Devastating German anti-tank fire destroyed 11 Matilda IIs in minutes - the first major demonstration of 88mm effectiveness against British armor.
 

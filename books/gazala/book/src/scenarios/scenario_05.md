@@ -2,6 +2,7 @@
 ## SITUATION REPORT
 **Date**: June 2-8, 1942 (representing continued siege)
 **Location**: Bir Hacheim
+**Scale**: Battalion-level engagement
 
 Continued siege of Bir Hacheim. Daily Luftwaffe bombing, artillery bombardments, probing attacks. Free French running low on supplies, water, ammunition but refuse to surrender.
 

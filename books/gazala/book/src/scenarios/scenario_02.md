@@ -2,6 +2,7 @@
 ## SITUATION REPORT
 **Date**: May 28, 1942, 10:00
 **Location**: East of Bir Hacheim, "The Cauldron"
+**Scale**: Battalion-level engagement
 
 Rommel's forces trapped in "Cauldron" east of British minefields after left-hook maneuver. British minefields block retreat, British armor surrounds from east. Rommel in desperate situation but brilliantly turns tables.
 

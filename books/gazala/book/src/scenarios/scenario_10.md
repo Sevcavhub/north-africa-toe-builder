@@ -2,6 +2,7 @@
 ## SITUATION REPORT
 **Date**: June 14, 1942, 10:00
 **Location**: Coastal road east of Gazala
+**Scale**: Battalion-level engagement
 
 British forces stream eastward in retreat. German forces pursue, conducting running battles. British attempt to delay pursuit while preserving forces.
 

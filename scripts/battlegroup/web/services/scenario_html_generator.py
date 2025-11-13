@@ -27,6 +27,26 @@ TEMPLATE_PATH = PROJECT_ROOT / "scripts" / "battlegroup" / "web" / "templates" /
 BOOKS_PATH = PROJECT_ROOT / "books"
 
 
+def classify_scenario_scale(total_points: int) -> str:
+    """
+    Classify scenario scale based on total points budget.
+
+    Args:
+        total_points: Combined points budget for all factions
+
+    Returns:
+        Scale classification (Squad, Platoon, Company, or Battalion)
+    """
+    if total_points < 100:
+        return "Squad"
+    elif total_points < 500:
+        return "Platoon"
+    elif total_points < 1500:
+        return "Company"
+    else:
+        return "Battalion"
+
+
 def parse_scenario_markdown(md_path: Path) -> Dict:
     """
     Parse scenario markdown file into structured data.
@@ -337,6 +357,10 @@ def generate_printable_scenario_html(scenario_id: str, battle: str = "battleaxe"
     # Parse scenario
     scenario_data = parse_scenario_markdown(scenario_path)
 
+    # Calculate scenario scale
+    total_points = scenario_data['attacker_points'] + scenario_data['defender_points']
+    scenario_scale = classify_scenario_scale(total_points)
+
     # Extract AFVs from forces
     all_units_text = '\n'.join(scenario_data['attacker_units'] + scenario_data['defender_units'])
     afv_list = extract_equipment_from_scenario_forces(all_units_text)
@@ -362,6 +386,7 @@ def generate_printable_scenario_html(scenario_id: str, battle: str = "battleaxe"
         scenario_title=scenario_data['title'],
         date=scenario_data['date'],
         location=scenario_data['location'],
+        scenario_scale=scenario_scale,
         situation_description=scenario_data['situation_description'],
         battle_description=scenario_data['battle_description'],
         table_size=scenario_data['table_size'],

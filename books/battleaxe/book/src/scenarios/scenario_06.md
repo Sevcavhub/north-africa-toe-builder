@@ -2,6 +2,7 @@
 ## SITUATION REPORT
 **Date**: June 16, 1941, 14:00
 **Location**: Southwest of Halfaya Pass
+**Scale**: Battalion-level engagement
 
 British armored company finds itself surrounded by converging German forces. Must break out while German pincers close.
 

@@ -2,6 +2,7 @@
 ## SITUATION REPORT
 **Date**: December 5-7, 1941 (representing pursuit phase)
 **Location**: West of Gazala
+**Scale**: Battalion-level engagement
 
 British forces pursue withdrawing Axis forces westward. Germans conduct fighting withdrawal, delaying British while preserving strength. Mobile warfare with frequent skirmishes.
 

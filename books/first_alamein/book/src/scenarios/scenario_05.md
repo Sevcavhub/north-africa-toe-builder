@@ -2,6 +2,7 @@
 ## SITUATION REPORT
 **Date**: July 14-15, 1942, 22:00-06:00 (night/dawn attack)
 **Location**: Miteirya Ridge, central sector
+**Scale**: Battalion-level engagement
 
 New Zealand night attack on Miteirya Ridge. Difficult night assault with mixed results. Demonstrates challenges of night operations in desert.
 

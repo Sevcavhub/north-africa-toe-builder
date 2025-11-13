@@ -2,6 +2,7 @@
 ## SITUATION REPORT
 **Date**: November 19, 1941, 15:00
 **Location**: Sidi Rezegh airfield, south of Tobruk
+**Scale**: Battalion-level engagement
 
 British 7th Armoured Brigade attacks Axis-held Sidi Rezegh airfield in first attempt to link with Tobruk garrison. Initial success captured airfield but German counterattacks followed.
 

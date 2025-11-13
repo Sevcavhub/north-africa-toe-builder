@@ -2,6 +2,7 @@
 ## SITUATION REPORT
 **Date**: July 21-22, 1942, 06:00
 **Location**: El Mreir Depression, south of Ruweisat
+**Scale**: Battalion-level engagement
 
 British 23rd Armoured Brigade attacks into El Mreir Depression. Walked into killing ground - destroyed by concealed AT guns. "Tank graveyard" - over 80 British tanks lost.
 

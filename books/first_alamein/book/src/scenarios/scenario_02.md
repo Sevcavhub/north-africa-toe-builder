@@ -2,6 +2,7 @@
 ## SITUATION REPORT
 **Date**: July 1-3, 1942 (multi-day battle, scenario represents climactic assault)
 **Location**: Ruweisat Ridge, central Alamein line
+**Scale**: Company-level engagement
 
 New Zealand and Indian forces attack Axis-held Ruweisat Ridge - key terrain dominating central Alamein line. Series of assaults and counterassaults over 3 days.
 

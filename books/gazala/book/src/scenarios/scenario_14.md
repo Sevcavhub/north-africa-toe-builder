@@ -2,6 +2,7 @@
 ## SITUATION REPORT
 **Date**: June 27, 1942, 14:00
 **Location**: Mersa Matruh defensive positions
+**Scale**: Battalion-level engagement
 
 British attempt to hold Mersa Matruh defensive line. German forces probe defenses. British abandon position rather than risk encirclement.
 

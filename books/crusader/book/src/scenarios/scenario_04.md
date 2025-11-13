@@ -2,6 +2,7 @@
 ## SITUATION REPORT
 **Date**: November 21, 1941, 10:00
 **Location**: Between Sidi Rezegh and Ed Duda
+**Scale**: Battalion-level engagement
 
 New Zealand infantry attempts to create corridor linking British forces at Sidi Rezegh with Tobruk garrison breaking out from siege. German forces attempt to block the link-up.
 

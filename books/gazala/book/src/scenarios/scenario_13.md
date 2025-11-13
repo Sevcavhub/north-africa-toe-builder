@@ -2,6 +2,7 @@
 ## SITUATION REPORT
 **Date**: June 26, 1942, 08:00
 **Location**: West of Mersa Matruh, Egypt
+**Scale**: Battalion-level engagement
 
 Rommel pursues defeated British into Egypt. British attempt to establish defensive line at Mersa Matruh. German forces press pursuit aggressively.
 
