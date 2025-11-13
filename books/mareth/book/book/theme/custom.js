@@ -1,62 +1,47 @@
-// Add "Back to Main Site" button to the top of each page
+// Add "Back to Main Site" button next to search/print buttons
 (function() {
     // Wait for DOM to be ready
     window.addEventListener('DOMContentLoaded', function() {
-        // Find the main content div
-        const contentDiv = document.getElementById('content');
-        if (!contentDiv) return;
+        // Find the right-buttons div in the menu bar
+        const rightButtons = document.querySelector('.right-buttons');
+        if (!rightButtons) return;
 
-        // Create the navigation header
-        const navHeader = document.createElement('div');
-        navHeader.style.cssText = `
-            background: linear-gradient(135deg, #4A5335 0%, #6B7F3D 100%);
-            padding: 0.5rem 1rem;
-            margin: -1rem -1rem 1rem -1rem;
-            border-bottom: 3px solid #C9A77C;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        `;
-
-        // Create the back button
+        // Create the back button link
         const backLink = document.createElement('a');
         backLink.href = 'https://sevcavhub.github.io/north-africa-toe-builder/';
+        backLink.title = 'Back to Main Site';
+        backLink.setAttribute('aria-label', 'Back to Main Site');
         backLink.style.cssText = `
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
-            color: white;
+            gap: 0.3rem;
+            color: var(--icons);
             text-decoration: none;
-            font-weight: 600;
-            font-size: 0.95rem;
-            padding: 0.5rem 1rem;
-            background: rgba(255,255,255,0.1);
+            font-size: 0.875rem;
+            padding: 0.25rem 0.5rem;
+            margin-right: 0.5rem;
             border-radius: 4px;
-            border: 2px solid rgba(255,255,255,0.3);
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
         `;
 
-        // Add arrow SVG
+        // Add arrow SVG and text
         backLink.innerHTML = `
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M19 12H5M12 19l-7-7 7-7"/>
             </svg>
-            <span>Back to Main Site</span>
+            <span style="font-weight: 500;">Main Site</span>
         `;
 
         // Add hover effect
         backLink.addEventListener('mouseenter', function() {
-            this.style.background = 'rgba(255,255,255,0.2)';
-            this.style.borderColor = 'rgba(255,255,255,0.5)';
-            this.style.transform = 'translateX(-2px)';
+            this.style.background = 'var(--sidebar-bg)';
         });
 
         backLink.addEventListener('mouseleave', function() {
-            this.style.background = 'rgba(255,255,255,0.1)';
-            this.style.borderColor = 'rgba(255,255,255,0.3)';
-            this.style.transform = 'translateX(0)';
+            this.style.background = 'transparent';
         });
 
-        // Assemble and inject
-        navHeader.appendChild(backLink);
-        contentDiv.insertBefore(navHeader, contentDiv.firstChild);
+        // Insert before the first child (print button)
+        rightButtons.insertBefore(backLink, rightButtons.firstChild);
     });
 })();

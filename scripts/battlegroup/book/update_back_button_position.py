@@ -1,4 +1,19 @@
-// Add "Back to Main Site" button next to search/print buttons
+#!/usr/bin/env python3
+"""
+Update back button position to be next to search/print buttons in all books.
+"""
+
+from pathlib import Path
+
+# Books to update
+BOOKS = [
+    'compass', 'sonnenblume', 'tobruk', 'battleaxe',
+    'crusader', 'gazala', 'first_alamein', 'alam_halfa',
+    'second_alamein', 'torch', 'tunisia', 'mareth'
+]
+
+# New custom.js content
+NEW_CUSTOM_JS = """// Add "Back to Main Site" button next to search/print buttons
 (function() {
     // Wait for DOM to be ready
     window.addEventListener('DOMContentLoaded', function() {
@@ -45,3 +60,45 @@
         rightButtons.insertBefore(backLink, rightButtons.firstChild);
     });
 })();
+"""
+
+def main():
+    """Update custom.js for all books."""
+    project_root = Path(__file__).resolve().parent.parent.parent.parent
+    books_dir = project_root / "books"
+
+    print("=" * 80)
+    print("UPDATING BACK BUTTON POSITION TO MENU BAR")
+    print("=" * 80)
+    print()
+
+    updated_count = 0
+
+    for book in BOOKS:
+        custom_js_file = books_dir / book / "book" / "theme" / "custom.js"
+
+        print(f"Processing: {book}")
+
+        if not custom_js_file.exists():
+            print(f"  [SKIP] custom.js not found")
+            print()
+            continue
+
+        # Write new custom.js
+        with open(custom_js_file, 'w', encoding='utf-8') as f:
+            f.write(NEW_CUSTOM_JS)
+
+        print(f"  [OK] Updated custom.js - button now in menu bar")
+        updated_count += 1
+        print()
+
+    print("=" * 80)
+    print(f"SUCCESS: Updated {updated_count} books")
+    print("=" * 80)
+    print()
+    print("Next steps:")
+    print("1. Rebuild books: python scripts/battlegroup/book/rebuild_all_books.py")
+    print("2. Commit and push changes")
+
+if __name__ == '__main__':
+    main()
