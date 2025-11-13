@@ -79,7 +79,8 @@ def create_app():
                 'scenarios': {
                     'random': 'POST /api/scenarios/random',
                     'historical': 'POST /api/scenarios/historical',
-                    'locations': 'GET /api/scenarios/locations/{quarter}'
+                    'locations': 'GET /api/scenarios/locations/{quarter}',
+                    'printable': 'GET /api/scenarios/{battle}/{scenario_id}/printable'
                 }
             },
             'status': 'Railway deployment active'
@@ -186,6 +187,46 @@ def create_app():
         }
 
         return jsonify(scenario), 200
+
+    @app.route('/api/scenarios/<battle>/<scenario_id>/printable', methods=['GET'])
+    def get_printable_scenario(battle, scenario_id):
+        """
+        Generate printable HTML scenario with embedded AFV datacards.
+
+        Path parameters:
+            - battle: Battle name (battleaxe, crusader, gazala, first_alamein)
+            - scenario_id: Scenario ID (scenario_01, scenario_02, etc.)
+
+        Returns:
+            HTML content ready for printing (A4 landscape, 2-page format)
+        """
+        from services.scenario_html_generator import generate_printable_scenario_html
+
+        try:
+            # Generate HTML
+            html = generate_printable_scenario_html(scenario_id, battle)
+
+            # Return HTML with proper content type
+            from flask import make_response
+            response = make_response(html)
+            response.headers['Content-Type'] = 'text/html; charset=utf-8'
+            response.headers['Content-Disposition'] = f'inline; filename="{battle}_{scenario_id}_printable.html"'
+
+            return response
+
+        except FileNotFoundError:
+            return jsonify({
+                'error': 'Scenario not found',
+                'battle': battle,
+                'scenario_id': scenario_id,
+                'message': f'Scenario file not found: {battle}/book/src/scenarios/{scenario_id}.md'
+            }), 404
+        except Exception as e:
+            app.logger.error(f"Failed to generate printable scenario: {str(e)}", exc_info=True)
+            return jsonify({
+                'error': 'Failed to generate printable scenario',
+                'message': str(e)
+            }), 500
 
     # ============================================================================
     # EQUIPMENT DATABASE ENDPOINTS (Basic implementation)

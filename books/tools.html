@@ -425,6 +425,52 @@
                 </div>
             </div>
 
+            <!-- Printable Scenario Generator -->
+            <div class="tool-card">
+                <h2>🖨️ Printable Scenarios</h2>
+                <p>Generate print-ready HTML scenarios with embedded AFV datacards.</p>
+
+                <form id="printableScenarioForm">
+                    <div class="form-group">
+                        <label for="printBattle">Battle</label>
+                        <select id="printBattle" required>
+                            <option value="battleaxe" selected>Operation Battleaxe</option>
+                            <option value="crusader">Operation Crusader</option>
+                            <option value="gazala">Battle of Gazala</option>
+                            <option value="first_alamein">First El Alamein</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="printScenario">Scenario</label>
+                        <select id="printScenario" required>
+                            <option value="scenario_01">1. Dawn at Fort Capuzzo</option>
+                            <option value="scenario_02">2. Halfaya Pass</option>
+                            <option value="scenario_03">3. Point 206</option>
+                            <option value="scenario_04">4. Sollum Barracks</option>
+                            <option value="scenario_05">5. Musaid Raid</option>
+                            <option value="scenario_06">6. Sidi Omar</option>
+                            <option value="scenario_07">7. Frontier Battle</option>
+                            <option value="scenario_08">8. Capuzzo Counterattack</option>
+                            <option value="scenario_09">9. Hafid Ridge</option>
+                            <option value="scenario_10">10. Combined Arms Defense</option>
+                        </select>
+                    </div>
+
+                    <button type="submit">🖨️ Open Printable Scenario</button>
+                </form>
+
+                <div class="loading" id="printLoading">
+                    <div class="spinner"></div>
+                    <p>Generating printable scenario...</p>
+                </div>
+
+                <div class="results" id="printResults">
+                    <h3>Scenario Generated</h3>
+                    <p>Opening in new window...</p>
+                </div>
+            </div>
+
             <!-- Equipment Search -->
             <div class="tool-card">
                 <h2>🔍 Equipment Search</h2>
@@ -577,6 +623,35 @@
             } catch (error) {
                 hideLoading('searchLoading');
                 showResults('searchResults', { error: error.message }, false);
+            }
+        });
+
+        // Printable Scenario Form
+        document.getElementById('printableScenarioForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const battle = document.getElementById('printBattle').value;
+            const scenario = document.getElementById('printScenario').value;
+
+            showLoading('printLoading');
+            hideResults('printResults');
+
+            try {
+                // Construct the printable scenario URL
+                const printableUrl = `${API_URL}/api/scenarios/${battle}/${scenario}/printable`;
+
+                // Open in new window for printing
+                window.open(printableUrl, '_blank');
+
+                hideLoading('printLoading');
+                showResults('printResults', {
+                    success: true,
+                    message: 'Printable scenario opened in new window',
+                    url: printableUrl
+                }, true);
+            } catch (error) {
+                hideLoading('printLoading');
+                showResults('printResults', { error: error.message }, false);
             }
         });
 

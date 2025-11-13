@@ -1,9 +1,35 @@
 # Phase 9B BattleGroup System - Session Summary
 
-**Date**: October 31 - November 5, 2025 (Updated Nov 5 - ⏸️ ON HOLD for Reference Data Quality Recovery)
-**Duration**: ~33 hours development + ongoing manual data extraction
+**Date**: October 31 - November 12, 2025 (Updated Nov 12 - Historical Accuracy Corrections Applied)
+**Duration**: ~35 hours development + ongoing manual data extraction
 **Phase**: 9B - BattleGroup Book Generation
-**Status**: ⏸️ **ON HOLD** - Reference data quality issues discovered, manual re-extraction in progress
+**Status**: ⏸️ **ON HOLD** - Reference data quality issues discovered, manual re-extraction in progress + **CRITICAL FIX APPLIED** (Nov 12)
+
+---
+
+## 🔥 CRITICAL FIX: Historical Accuracy Correction (November 12, 2025)
+
+**Problem Discovered**: 9 out of 12 battle books (75%) had incorrect strategic situation content:
+- Operation Compass (1940-Q4) incorrectly showed German forces (Germans not present until Feb 1941)
+- Multiple books showed wrong quarters (e.g., Alam Halfa listed as "1941-Q2" instead of "1942-Q3")
+- Template copy-paste from Battleaxe (June 1941) period applied to all books without customization
+
+**Impact**: Major historical inaccuracies that would have undermined publication credibility
+
+**Solution Implemented**:
+1. Created `scripts/battlegroup/book/historical_accuracy_reference.json` - Comprehensive historical database with verified facts for all 12 battles
+2. Created `scripts/battlegroup/book/fix_strategic_situations.py` - Automated correction script with validation
+3. Applied corrections to all 12 books with 100% validation pass rate
+
+**Results**:
+- ✅ All 12 books now have historically accurate strategic situations
+- ✅ Correct quarters, dates, combatants for each battle
+- ✅ German forces only mentioned in battles where they were present (Sonnenblume onwards)
+- ✅ No anachronistic references (e.g., Tobruk siege not mentioned in Compass)
+
+**Files Modified**: All 12 `books/[battle]/book/src/chapter1/strategic_situation.md` files
+
+**Validation**: Basic rule-checking validation passed (German presence, Tobruk siege applicability, quarter/date accuracy)
 
 ---
 
@@ -1279,7 +1305,7 @@ From PROJECT_SCOPE.md Phase 9B Step 4 requirements:
 - Week 15-16: Generate Book 4 (First Alamein)
 
 **Phase 4 (Weeks 17-20): Production Polish**
-- Layout all 4 books (Markdown → PDF)
+- Layout all 12 books (Markdown → PDF)
 - Source historical photography (public domain archives)
 - Coordinate miniature photography (DIY from collections)
 - Playtest 4-6 scenarios (validation)
@@ -1288,7 +1314,7 @@ From PROJECT_SCOPE.md Phase 9B Step 4 requirements:
 - Distribution strategy decision (Kickstarter vs direct sales vs hybrid)
 - Soft launch on DriveThruRPG/Wargame Vault
 - Gather feedback and reviews
-- Plan Volume 2 (remaining 8 operations: 1940-1943)
+- completed I Volume 2 (remaining 8 operations: 1940-1943)
 
 ### Commercial Success Criteria
 

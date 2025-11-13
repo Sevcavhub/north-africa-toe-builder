@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ scenario_title }} - BattleGroup Scenario</title>
+    <style>
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            font-size: 11pt;
+            line-height: 1.5;
+            color: #2c2416;
+            background: #fff;
+            padding: 0;
+        }
+
+        /* Print Styles */
+        @media print {
+            @page {
+                size: A4 landscape;
+                margin: 20mm;
+            }
+
+            body {
+                font-size: 10pt;
+            }
+
+            .scenario-page {
+                page-break-after: always;
+            }
+
+            .datacard-page {
+                page-break-before: always;
+            }
+
+            .no-print {
+                display: none;
+            }
+        }
+
+        /* Scenario Page */
+        .scenario-page {
+            max-width: 210mm;
+            margin: 0 auto 2rem;
+            padding: 20px;
+            background: white;
+        }
+
+        h1 {
+            font-size: 24pt;
+            color: #4a5335;
+            border-bottom: 3px solid #6b7f3d;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            font-size: 14pt;
+            color: #4a5335;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            border-bottom: 1px solid #c9a77c;
+            padding-bottom: 0.25rem;
+        }
+
+        h3 {
+            font-size: 12pt;
+            color: #6b7f3d;
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        p {
+            margin-bottom: 0.75rem;
+        }
+
+        ul {
+            margin-left: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        li {
+            margin-bottom: 0.25rem;
+        }
+
+        strong {
+            color: #4a5335;
+        }
+
+        .situation-report, .battle, .battlefield, .objectives, .deployment, .special-rules, .forces {
+            margin-bottom: 1.5rem;
+        }
+
+        .forces ul {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .forces li {
+            padding-left: 1rem;
+            text-indent: -1rem;
+        }
+
+        /* Datacard Page Styles (from datacard_print_layout.css) */
+        .datacard-page {
+            max-width: 297mm;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .datacard-page h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .datacard-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 84mm);
+            grid-gap: 2mm;
+            justify-content: center;
+        }
+
+        .datacard {
+            width: 84mm;
+            height: 48mm;
+            border: 1mm solid #2c2416;
+            padding: 2mm;
+            font-family: Arial, sans-serif;
+            font-size: 7pt;
+            page-break-inside: avoid;
+            background: #f5f5dc;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Nation Color Themes */
+        .datacard-german {
+            background: #797768;
+            border-color: #1a1a1a;
+            color: #ffffff;
+        }
+
+        .datacard-british {
+            background: #d4c5a0;
+            border-color: #2c2416;
+            color: #2c2416;
+        }
+
+        .datacard-italian {
+            background: #c8b88a;
+            border-color: #5a4a2a;
+            color: #2c2416;
+        }
+
+        .datacard-american {
+            background: #b8c5a0;
+            border-color: #3a4a2a;
+            color: #2c2416;
+        }
+
+        .datacard-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1mm;
+        }
+
+        .datacard-silhouette {
+            width: 24mm;
+            height: 10mm;
+            margin-right: 2mm;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .datacard-silhouette img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .datacard-title-block {
+            flex: 1;
+        }
+
+        .datacard-title {
+            font-weight: bold;
+            font-size: 9pt;
+            line-height: 1.1;
+        }
+
+        .datacard-subtitle {
+            font-size: 6pt;
+            font-style: italic;
+            opacity: 0.8;
+        }
+
+        .datacard-special-rules {
+            font-size: 6pt;
+            font-style: italic;
+            margin-bottom: 1mm;
+            text-align: center;
+        }
+
+        .datacard table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 6pt;
+            margin-bottom: 1mm;
+        }
+
+        .datacard th, .datacard td {
+            border: 0.5pt solid currentColor;
+            padding: 0.5mm;
+            text-align: center;
+        }
+
+        .datacard th {
+            background: rgba(0,0,0,0.1);
+            font-weight: bold;
+        }
+
+        /* Print Button */
+        .print-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 12px 24px;
+            background: #6b7f3d;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 14pt;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .print-button:hover {
+            background: #4a5335;
+        }
+
+        @media print {
+            .print-button {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Print Button -->
+    <button class="print-button no-print" onclick="window.print()">🖨️ Print Scenario</button>
+
+    <!-- Page 1: Scenario Details -->
+    <div class="scenario-page">
+        <h1>{{ scenario_title }}</h1>
+
+        <div class="situation-report">
+            <h2>Situation Report</h2>
+            <p><strong>Date:</strong> {{ date }}</p>
+            <p><strong>Location:</strong> {{ location }}</p>
+            <p>{{ situation_description }}</p>
+        </div>
+
+        <div class="battle">
+            <h2>The Battle</h2>
+            {{ battle_description | safe }}
+        </div>
+
+        <div class="battlefield">
+            <h2>The Battlefield</h2>
+            <p><strong>Table Size:</strong> {{ table_size }}</p>
+            <p><strong>Terrain:</strong></p>
+            <ul>
+            {% for terrain in terrain_features %}
+                <li>{{ terrain }}</li>
+            {% endfor %}
+            </ul>
+        </div>
+
+        <div class="objectives">
+            <h2>Objectives</h2>
+            <p><strong>Victory Type:</strong> {{ victory_type }}</p>
+            <p><strong>{{ attacker_name }} Victory:</strong> {{ attacker_objective }}</p>
+            <p><strong>{{ defender_name }} Victory:</strong> {{ defender_objective }}</p>
+        </div>
+
+        <div class="deployment">
+            <h2>Deployment</h2>
+            <p><strong>{{ attacker_name }}:</strong> {{ attacker_deployment }}</p>
+            <p><strong>{{ defender_name }}:</strong> {{ defender_deployment }}</p>
+            <p><strong>Turn Limit:</strong> {{ turn_limit }} turns</p>
+        </div>
+
+        <div class="special-rules">
+            <h2>Special Scenario Rules</h2>
+            <ul>
+            {% for rule in special_rules %}
+                <li>{{ rule }}</li>
+            {% endfor %}
+            </ul>
+        </div>
+
+        <div class="forces">
+            <h2>Forces</h2>
+
+            <h3>{{ attacker_name }} Forces ({{ attacker_points }} pts, BR {{ attacker_br }})</h3>
+            <ul>
+            {% for unit in attacker_units %}
+                <li>{{ unit }}</li>
+            {% endfor %}
+            </ul>
+
+            <h3>{{ defender_name }} Forces ({{ defender_points }} pts, BR {{ defender_br }})</h3>
+            <ul>
+            {% for unit in defender_units %}
+                <li>{{ unit }}</li>
+            {% endfor %}
+            </ul>
+
+            <p style="margin-top: 1rem; font-style: italic; font-size: 9pt;">
+                Note: Equipment datacards show regular experience stats. Adjust for veteran/elite as per BattleGroup rules.
+            </p>
+        </div>
+    </div>
+
+    <!-- Page 2+: Equipment Datacards -->
+    {% if datacards %}
+    <div class="datacard-page">
+        <h2>Equipment Datacards</h2>
+        <p style="text-align: center; margin-bottom: 1rem; font-size: 9pt;">
+            AFVs (Tanks, Tank Destroyers, Armored Cars) appearing in this scenario
+        </p>
+
+        <div class="datacard-grid">
+            {% for datacard in datacards %}
+            {{ datacard | safe }}
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+</body>
+</html>
