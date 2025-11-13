@@ -70,6 +70,12 @@ Rommel pursues defeated British into Egypt. British attempt to establish defensi
 - 22x tanks (veteran) - 1100 pts, BR: 7 [Informal range]
 - 13x Infantry Battalion (veteran) - 4030 pts, BR: 13 [1 battalion, ~400 men (assumed, ~13 platoons)]
 
+
+### Historical Context
+
+These forces represent elements of **Panzerarmee Afrika**.
+
+
 ## ALTERNATIVE FORCES
 This scenario can be adapted for other battles or periods.
 

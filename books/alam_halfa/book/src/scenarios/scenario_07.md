@@ -70,6 +70,12 @@ British 7th Armoured Division conducts fighting withdrawal as Battle of Alam Hal
 - 1x Motorcycle Troops (veteran) - 310 pts, BR: 1 [1 platoon, ~30 men (assumed)]
 - 2x PAK 38) (veteran) - 100 pts, BR: 1
 
+
+### Historical Context
+
+These forces represent elements of **15. Panzer-Division** (Deutsches Afrika Korps, Panzerarmee Afrika).
+
+
 ## ALTERNATIVE FORCES
 This scenario can be adapted for other battles or periods.
 

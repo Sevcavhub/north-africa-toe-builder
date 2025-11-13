@@ -72,6 +72,12 @@ Rommel's Afrika Korps begins famous "left hook" around southern end of Gazala li
 - 12x armored cars (veteran) - 600 pts, BR: 4 [1 squadron (~12/squadron assumed)]
 - 4x 25-pdr) (veteran) - 200 pts, BR: 1 [1 battery (4 guns per battery assumed)]
 
+
+### Historical Context
+
+These forces represent elements of **Panzerarmee Afrika**.
+
+
 ## ALTERNATIVE FORCES
 This scenario can be adapted for other battles or periods.
 

@@ -69,6 +69,12 @@ British armored company finds itself surrounded by converging German forces. Mus
 - 18x Panzer III (veteran) - 900 pts, BR: 6 [2 companies]
 - 3x Infantry Company (veteran) - 930 pts, BR: 3 [1 companies, 90 men]
 
+
+### Historical Context
+
+These forces represent elements of **15. Panzer-Division** (Deutsches Afrikakorps). Initial deployment to North Africa (April-May 1941), Operation Battleaxe (15-17 June 1941), Siege of Tobruk.
+
+
 ## ALTERNATIVE FORCES
 This scenario can be adapted for other battles or periods.
 

@@ -72,6 +72,12 @@ British 7th Armoured Division's 4th Armoured Brigade encounters Italian Ariete D
 - 6x Italian Infantry Company (veteran) - 720 pts, BR: 6 [2 companies, ~180 men (assumed)]
 - 2x 47mm AT guns (veteran) - 100 pts, BR: 1 [1 battery/section]
 
+
+### Historical Context
+
+These forces represent elements of **132a Divisione Corazzata "Ariete"** (Corpo d'Armata di Manovra (Maneuver Corps)).
+
+
 ## ALTERNATIVE FORCES
 This scenario can be adapted for other battles or periods.
 

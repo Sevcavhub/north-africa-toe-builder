@@ -75,6 +75,12 @@ British 4th Indian Division attacks Halfaya Pass ("Hellfire Pass") held by Germa
 - 2x PAK 38 50mm AT guns (veteran) - 100 pts, BR: 1
 - 3x Panzer III (veteran) - 150 pts, BR: 1
 
+
+### Historical Context
+
+These forces represent elements of **15. Panzer-Division** (Deutsches Afrikakorps, 5. Panzerarmee (Tunisia)). Tunisia Campaign - Rebuilding after El Alamein losses, defense of southern Tunisia, operations against Kasserine Pass (January-March 1943).
+
+
 ## ALTERNATIVE FORCES
 This scenario can be adapted for other battles or periods.
 

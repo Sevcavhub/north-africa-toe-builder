@@ -74,6 +74,12 @@ German forces begin siege of British 150th Brigade Box - fortified position bloc
 - 11x tanks (veteran) - 550 pts, BR: 3 [Informal range]
 - 4x 105mm artillery (veteran) - 200 pts, BR: 1 [1 battery (4 guns per battery assumed)]
 
+
+### Historical Context
+
+These forces represent elements of **Panzerarmee Afrika**.
+
+
 ## ALTERNATIVE FORCES
 This scenario can be adapted for other battles or periods.
 

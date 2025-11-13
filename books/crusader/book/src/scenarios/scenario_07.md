@@ -75,6 +75,12 @@ Rommel's famous "dash to the wire" - personal leading of mobile kampfgruppe deep
 **Units**:
 - 2x tanks (veteran) - 100 pts, BR: 1 [Informal range]
 
+
+### Historical Context
+
+These forces represent elements of **8th Army**.
+
+
 ## ALTERNATIVE FORCES
 This scenario can be adapted for other battles or periods.
 

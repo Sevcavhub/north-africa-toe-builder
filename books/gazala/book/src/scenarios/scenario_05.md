@@ -71,6 +71,12 @@ Continued siege of Bir Hacheim. Daily Luftwaffe bombing, artillery bombardments,
 **Units**:
 - 9x tanks (veteran) - 450 pts, BR: 3 [Informal range]
 
+
+### Historical Context
+
+These forces represent elements of **Panzerarmee Afrika**.
+
+
 ## ALTERNATIVE FORCES
 This scenario can be adapted for other battles or periods.
 

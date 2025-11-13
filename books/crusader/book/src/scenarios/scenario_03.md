@@ -76,6 +76,12 @@ British 7th Armoured Brigade attacks Axis-held Sidi Rezegh airfield in first att
 - 2x 88mm FlaK 18 (veteran) - 100 pts, BR: 1
 - 4x 75mm Italian field guns) (veteran) - 200 pts, BR: 1 [1 battery (4 guns per battery assumed)]
 
+
+### Historical Context
+
+These forces represent elements of **8th Army**.
+
+
 ## ALTERNATIVE FORCES
 This scenario can be adapted for other battles or periods.
 

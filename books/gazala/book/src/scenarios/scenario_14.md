@@ -71,6 +71,12 @@ British attempt to hold Mersa Matruh defensive line. German forces probe defense
 - 4x 50mm PAK 38 AT guns 6 guns (veteran) - 200 pts, BR: 1 [1 battery (4 guns per battery assumed)]
 - 4x 105mm leFH 18 artillery 4 guns (veteran) - 200 pts, BR: 1 [1 battery (4 guns per battery assumed)]
 
+
+### Historical Context
+
+These forces represent elements of **Panzerarmee Afrika**.
+
+
 ## ALTERNATIVE FORCES
 This scenario can be adapted for other battles or periods.
 

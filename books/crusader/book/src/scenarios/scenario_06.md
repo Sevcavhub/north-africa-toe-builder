@@ -74,6 +74,12 @@ Part of Crusader operation.
 - 8x 105mm (veteran) - 400 pts, BR: 2 [2 battery/section]
 - 9x Panzer III (veteran) - 450 pts, BR: 3 [1 companies]
 
+
+### Historical Context
+
+These forces represent elements of **15. Panzer-Division** (Deutsches Afrikakorps (DAK)).
+
+
 ## ALTERNATIVE FORCES
 This scenario can be adapted for other battles or periods.
 

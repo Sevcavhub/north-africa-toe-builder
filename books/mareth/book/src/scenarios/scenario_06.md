@@ -68,6 +68,12 @@ British armored company finds itself surrounded by converging German forces. Mus
 - 18x Panzer III (veteran) - 900 pts, BR: 6 [2 companies]
 - 3x Infantry Company (veteran) - 930 pts, BR: 3 [1 companies, 90 men]
 
+
+### Historical Context
+
+These forces represent elements of **15. Panzer-Division** (Deutsches Afrikakorps, 5. Panzerarmee (Tunisia)). Tunisia Campaign - Rebuilding after El Alamein losses, defense of southern Tunisia, operations against Kasserine Pass (January-March 1943).
+
+
 ## ALTERNATIVE FORCES
 This scenario can be adapted for other battles or periods.
 

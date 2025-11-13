@@ -70,6 +70,12 @@ British forces stream eastward in retreat. German forces pursue, conducting runn
 **Units**:
 - 18x tanks (veteran) - 900 pts, BR: 6 [Informal range]
 
+
+### Historical Context
+
+These forces represent elements of **Panzerarmee Afrika**.
+
+
 ## ALTERNATIVE FORCES
 This scenario can be adapted for other battles or periods.
 

@@ -72,6 +72,12 @@ New Zealand infantry attempts to create corridor linking British forces at Sidi 
 - 90x men (veteran) - 4500 pts, BR: 30 [Informal range]
 - 3x Matilda II (veteran) - 150 pts, BR: 1 [Informal range]
 
+
+### Historical Context
+
+These forces represent elements of **8th Army**.
+
+
 ## ALTERNATIVE FORCES
 This scenario can be adapted for other battles or periods.
 

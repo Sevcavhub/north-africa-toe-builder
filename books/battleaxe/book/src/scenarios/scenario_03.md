@@ -72,6 +72,12 @@ British 7th Armoured Division's Crusader and Honey Stuart tanks engage German 5t
 - 4x 50mm PAK 38 (veteran) - 200 pts, BR: 1 [1 battery/section]
 - 1x Infantry Platoon (veteran) - 310 pts, BR: 1 [1 platoon, ~30 men/platoon (assumed)]
 
+
+### Historical Context
+
+These forces represent elements of **15. Panzer-Division** (Deutsches Afrikakorps). Initial deployment to North Africa (April-May 1941), Operation Battleaxe (15-17 June 1941), Siege of Tobruk.
+
+
 ## ALTERNATIVE FORCES
 This scenario can be adapted for other battles or periods.
 

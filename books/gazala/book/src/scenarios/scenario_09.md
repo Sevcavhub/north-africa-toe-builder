@@ -68,6 +68,12 @@ British Gazala line collapses. 50th Division begins breakout from Gazala boxes b
 - 11x tanks (veteran) - 550 pts, BR: 3 [Informal range]
 - 1x Infantry Platoon (veteran) - 310 pts, BR: 1 [1 platoon, ~30 men/platoon (assumed)]
 
+
+### Historical Context
+
+These forces represent elements of **Panzerarmee Afrika**.
+
+
 ## ALTERNATIVE FORCES
 This scenario can be adapted for other battles or periods.
 

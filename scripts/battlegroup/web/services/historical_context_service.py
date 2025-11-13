@@ -158,7 +158,7 @@ def extract_unit_equipment(unit: Dict) -> List[str]:
     equipment = []
 
     # Tanks - iterate through tank categories (heavy_tanks, medium_tanks, etc.)
-    if 'tanks' in unit:
+    if 'tanks' in unit and isinstance(unit['tanks'], dict):
         for category_key, category_data in unit['tanks'].items():
             if isinstance(category_data, dict) and 'count' in category_data:
                 # Check if count is a dict with variants

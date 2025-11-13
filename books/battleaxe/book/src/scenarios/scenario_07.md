@@ -71,6 +71,12 @@ British 7th Armoured Division conducts fighting withdrawal as Operation Battleax
 - 1x Motorcycle Troops (veteran) - 310 pts, BR: 1 [1 platoon, ~30 men (assumed)]
 - 2x PAK 38) (veteran) - 100 pts, BR: 1
 
+
+### Historical Context
+
+These forces represent elements of **15. Panzer-Division** (Deutsches Afrikakorps). Initial deployment to North Africa (April-May 1941), Operation Battleaxe (15-17 June 1941), Siege of Tobruk.
+
+
 ## ALTERNATIVE FORCES
 This scenario can be adapted for other battles or periods.
 

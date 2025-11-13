@@ -69,6 +69,12 @@ New Zealand forces advancing from south finally link with Tobruk garrison forces
 - 3x Infantry Company (veteran) - 480 pts, BR: 3 [1 companies, 90 men]
 - 4x Matilda II (veteran) - 200 pts, BR: 1 [Informal range]
 
+
+### Historical Context
+
+These forces represent elements of **8th Army**.
+
+
 ## ALTERNATIVE FORCES
 This scenario can be adapted for other battles or periods.
 

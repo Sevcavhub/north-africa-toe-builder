@@ -73,6 +73,12 @@ British 22nd Armoured Brigade attacks Italian Ariete Division holding Bir el Gub
 - 10x Italian Infantry Battalion (veteran) - 1200 pts, BR: 10 [1 battalion, 325 men (~10 platoons)]
 - 12x 47mm AT guns (veteran) - 600 pts, BR: 4 [2 battery/section]
 
+
+### Historical Context
+
+These forces represent elements of **132a Divisione Corazzata "Ariete"** (Corpo d'Armata di Manovra (Maneuver Corps)).
+
+
 ## ALTERNATIVE FORCES
 This scenario can be adapted for other battles or periods.
 

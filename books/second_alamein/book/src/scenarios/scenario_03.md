@@ -71,6 +71,12 @@ British 7th Armoured Division's Crusader and Honey Stuart tanks engage German 5t
 - 4x 50mm PAK 38 (veteran) - 200 pts, BR: 1 [1 battery/section]
 - 1x Infantry Platoon (veteran) - 310 pts, BR: 1 [1 platoon, ~30 men/platoon (assumed)]
 
+
+### Historical Context
+
+These forces represent elements of **10. Panzer-Division** (5th Panzer Army).
+
+
 ## ALTERNATIVE FORCES
 This scenario can be adapted for other battles or periods.
 

@@ -72,6 +72,12 @@ British probe Axis defensive line at El Agheila bottleneck. Rommel established s
 - 11x tanks (veteran) - 550 pts, BR: 3 [Informal range]
 - 8x 105mm artillery (veteran) - 400 pts, BR: 2 [2 battery (4 guns per battery assumed)]
 
+
+### Historical Context
+
+These forces represent elements of **8th Army**.
+
+
 ## ALTERNATIVE FORCES
 This scenario can be adapted for other battles or periods.
 

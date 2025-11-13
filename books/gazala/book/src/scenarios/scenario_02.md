@@ -77,6 +77,12 @@ Rommel's forces trapped in "Cauldron" east of British minefields after left-hook
 - 8x Italian 47mm AT guns (veteran) - 400 pts, BR: 2 [2 battery (4 guns per battery assumed)]
 - 8x 105mm leFH 18 artillery) (veteran) - 400 pts, BR: 2 [2 battery (4 guns per battery assumed)]
 
+
+### Historical Context
+
+These forces represent elements of **Panzerarmee Afrika**.
+
+
 ## ALTERNATIVE FORCES
 This scenario can be adapted for other battles or periods.
 

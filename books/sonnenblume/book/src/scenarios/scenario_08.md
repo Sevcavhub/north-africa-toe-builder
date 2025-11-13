@@ -71,6 +71,12 @@ British rearguard platoon holds vital crossroads at Sidi Omar to allow main forc
 - 2x Infantry Platoon (veteran) - 620 pts, BR: 2 [2 platoon, 65 men]
 - 4x Panzer III (veteran) - 200 pts, BR: 1 [1 platoon]
 
+
+### Historical Context
+
+These forces represent elements of **5. leichte Division** (Deutsches Afrikakorps).
+
+
 ## ALTERNATIVE FORCES
 This scenario can be adapted for other battles or periods.
 

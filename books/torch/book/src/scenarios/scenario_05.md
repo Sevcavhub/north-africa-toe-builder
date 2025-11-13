@@ -74,6 +74,12 @@ German 15th Panzer Division launches dawn counterattack to retake Fort Capuzzo f
 - 4x 25-pdr (veteran) - 200 pts, BR: 1 [1 battery/section]
 - 2x 2-pdr AT guns (veteran) - 100 pts, BR: 1
 
+
+### Historical Context
+
+These forces represent elements of **10. Panzer-Division** (5th Panzer Army).
+
+
 ## ALTERNATIVE FORCES
 This scenario can be adapted for other battles or periods.
 

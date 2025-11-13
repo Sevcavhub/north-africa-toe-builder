@@ -72,6 +72,12 @@ British forces pursue withdrawing Axis forces westward. Germans conduct fighting
 - 3x Motorized Infantry Company (veteran) - 480 pts, BR: 3 [1 companies, ~90 men (assumed)]
 - 2x 88mm) (veteran) - 100 pts, BR: 1
 
+
+### Historical Context
+
+These forces represent elements of **8th Army**.
+
+
 ## ALTERNATIVE FORCES
 This scenario can be adapted for other battles or periods.
 

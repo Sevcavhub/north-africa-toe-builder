@@ -75,6 +75,12 @@ British 4th Armoured Brigade assaults Italian-held Fort Capuzzo at dawn. Initial
 - 1x German Infantry Platoon (veteran) - 160 pts, BR: 1 [1 platoon, ~30 men/platoon (assumed)]
 - 1x 50mm PaK 38 (veteran) - 50 pts, BR: 1
 
+
+### Historical Context
+
+These forces represent elements of **7th Armoured Division** (XIII Corps, Western Desert Force).
+
+
 ## ALTERNATIVE FORCES
 This scenario can be adapted for other battles or periods.
 
