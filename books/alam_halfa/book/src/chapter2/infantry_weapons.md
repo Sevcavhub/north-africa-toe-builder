@@ -243,7 +243,7 @@
 <span style="color: white; font-size: 10px;">🔲</span>
 </div>
 <div class="datacard-title-block">
-<p class="datacard-title">BOYS ANTI-TANK RIFLE</p>
+<p class="datacard-title">BREN CARRIER WITH BOYS AT-RIFLE</p>
 <p class="datacard-subtitle"></p>
 <p class="datacard-subtitle"></p>
 </div>
@@ -270,10 +270,10 @@
 </tr>
 <tr>
 <td>Artillery</td>
-<td>3"</td>
-<td>3"</td>
+<td>10"</td>
+<td>15"</td>
 <td>-</td>
-<td>N</td>
+<td>O</td>
 <td>O</td>
 <td>O</td>
 <td>None</td>
@@ -294,7 +294,7 @@
 <span style="color: white; font-size: 10px;">🔲</span>
 </div>
 <div class="datacard-title-block">
-<p class="datacard-title">BREN MORTAR CARRIER</p>
+<p class="datacard-title">BREN CARRIER</p>
 <p class="datacard-subtitle"></p>
 <p class="datacard-subtitle"></p>
 </div>
@@ -321,10 +321,10 @@
 </tr>
 <tr>
 <td>Unknown</td>
-<td>8"</td>
-<td>12"</td>
+<td>16"</td>
+<td>24"</td>
 <td>-</td>
-<td>N</td>
+<td>O</td>
 <td>O</td>
 <td>O</td>
 <td>Self (towed gun)</td>

@@ -243,7 +243,7 @@
 <span style="color: white; font-size: 10px;">🔲</span>
 </div>
 <div class="datacard-title-block">
-<p class="datacard-title">105MM M2A1</p>
+<p class="datacard-title">105MM PZFH18 AUF 39H(F)</p>
 <p class="datacard-subtitle"></p>
 <p class="datacard-subtitle"></p>
 </div>
@@ -270,11 +270,11 @@
 </tr>
 <tr>
 <td>Artillery</td>
-<td>0"</td>
-<td>0"</td>
+<td>8"</td>
+<td>12"</td>
 <td>-</td>
 <td>N</td>
-<td>O</td>
+<td>N</td>
 <td>O</td>
 <td>None</td>
 <td>-</td>
@@ -396,7 +396,7 @@
 <span style="color: white; font-size: 10px;">🔲</span>
 </div>
 <div class="datacard-title-block">
-<p class="datacard-title">60-POUNDER HEAVY GUN</p>
+<p class="datacard-title">ALBION HEAVY TRUCK</p>
 <p class="datacard-subtitle"></p>
 <p class="datacard-subtitle"></p>
 </div>
@@ -423,12 +423,12 @@
 </tr>
 <tr>
 <td>Artillery</td>
-<td>0"</td>
-<td>0"</td>
+<td>6"</td>
+<td>24"</td>
 <td>-</td>
-<td>N</td>
-<td>O</td>
-<td>O</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
 <td>Self (towed gun)</td>
 <td>-</td>
 <td>-</td>
@@ -549,7 +549,7 @@
 <span style="color: white; font-size: 10px;">🔲</span>
 </div>
 <div class="datacard-title-block">
-<p class="datacard-title">50MM PAK 38</p>
+<p class="datacard-title">150MM SFH13 AUF LORRAINE</p>
 <p class="datacard-subtitle"></p>
 <p class="datacard-subtitle"></p>
 </div>
@@ -579,7 +579,7 @@
 <td>2"</td>
 <td>2"</td>
 <td>-</td>
-<td>N</td>
+<td>L</td>
 <td>O</td>
 <td>O</td>
 <td>PaK38</td>
@@ -600,7 +600,7 @@
 <span style="color: white; font-size: 10px;">🔲</span>
 </div>
 <div class="datacard-title-block">
-<p class="datacard-title">ITALIAN 75MM</p>
+<p class="datacard-title">ITALIAN MEDIUM TRUCK</p>
 <p class="datacard-subtitle"></p>
 <p class="datacard-subtitle"></p>
 </div>
@@ -630,9 +630,9 @@
 <td>1"</td>
 <td>1"</td>
 <td>-</td>
-<td>N</td>
-<td>O</td>
-<td>O</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
 <td>75mmL24</td>
 <td>Turret</td>
 <td>-</td>
@@ -651,7 +651,7 @@
 <span style="color: white; font-size: 10px;">🔲</span>
 </div>
 <div class="datacard-title-block">
-<p class="datacard-title">20MM BREDA</p>
+<p class="datacard-title">20MM FLAK TRUCK</p>
 <p class="datacard-subtitle"></p>
 <p class="datacard-subtitle"></p>
 </div>
@@ -678,11 +678,62 @@
 </tr>
 <tr>
 <td>Artillery</td>
-<td>3"</td>
-<td>3"</td>
+<td>6"</td>
+<td>24"</td>
 <td>-</td>
+<td>SS</td>
+<td>SS</td>
+<td>SS</td>
+<td>None</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</table>
+
+<div class="datacard-footer">
+<div class="footer-stat"><strong>Points:</strong> -</div>
+<div class="footer-stat"><strong>BR:</strong> 1</div>
+</div>
+</div>
+
+<div class="datacard datacard-italian">
+<div class="datacard-header">
+<div class="datacard-silhouette">
+<span style="color: white; font-size: 10px;">🔲</span>
+</div>
+<div class="datacard-title-block">
+<p class="datacard-title">M35 PRIMER MOVER</p>
+<p class="datacard-subtitle"></p>
+<p class="datacard-subtitle"></p>
+</div>
+</div>
+
+<table>
+<tr>
+<th class="main-header">VEHICLE</th>
+<th class="main-header" colspan="3">MOVEMENT</th>
+<th class="main-header" colspan="3">ARMOUR</th>
+<th class="main-header" colspan="3">ARMAMENT</th>
+</tr>
+<tr>
+<th></th>
+<th>Off-Road</th>
+<th>Road</th>
+<th>Special</th>
+<th>F</th>
+<th>S</th>
+<th>R</th>
+<th>Weapon</th>
+<th>Mount</th>
+<th>Ammo</th>
+</tr>
+<tr>
+<td>Artillery</td>
+<td>9"</td>
+<td>14"</td>
+<td>-</td>
+<td>M</td>
 <td>N</td>
-<td>O</td>
 <td>O</td>
 <td>None</td>
 <td>-</td>
@@ -702,7 +753,7 @@
 <span style="color: white; font-size: 10px;">🔲</span>
 </div>
 <div class="datacard-title-block">
-<p class="datacard-title">47MM CANNONE DA 47/32 M35</p>
+<p class="datacard-title">75MM PAK40 AUF 39H(F)</p>
 <p class="datacard-subtitle"></p>
 <p class="datacard-subtitle"></p>
 </div>
@@ -729,62 +780,11 @@
 </tr>
 <tr>
 <td>Artillery</td>
-<td>3"</td>
-<td>3"</td>
+<td>8"</td>
+<td>12"</td>
 <td>-</td>
 <td>N</td>
-<td>O</td>
-<td>O</td>
-<td>None</td>
-<td>-</td>
-<td>-</td>
-</tr>
-</table>
-
-<div class="datacard-footer">
-<div class="footer-stat"><strong>Points:</strong> -</div>
-<div class="footer-stat"><strong>BR:</strong> 1</div>
-</div>
-</div>
-
-<div class="datacard datacard-italian">
-<div class="datacard-header">
-<div class="datacard-silhouette">
-<span style="color: white; font-size: 10px;">🔲</span>
-</div>
-<div class="datacard-title-block">
-<p class="datacard-title">75MM CANNONE DA 75/27 MODELLO 11</p>
-<p class="datacard-subtitle"></p>
-<p class="datacard-subtitle"></p>
-</div>
-</div>
-
-<table>
-<tr>
-<th class="main-header">VEHICLE</th>
-<th class="main-header" colspan="3">MOVEMENT</th>
-<th class="main-header" colspan="3">ARMOUR</th>
-<th class="main-header" colspan="3">ARMAMENT</th>
-</tr>
-<tr>
-<th></th>
-<th>Off-Road</th>
-<th>Road</th>
-<th>Special</th>
-<th>F</th>
-<th>S</th>
-<th>R</th>
-<th>Weapon</th>
-<th>Mount</th>
-<th>Ammo</th>
-</tr>
-<tr>
-<td>Artillery</td>
-<td>1"</td>
-<td>1"</td>
-<td>-</td>
 <td>N</td>
-<td>O</td>
 <td>O</td>
 <td>None</td>
 <td>-</td>

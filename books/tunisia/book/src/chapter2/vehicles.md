@@ -243,7 +243,7 @@
 <span style="color: white; font-size: 10px;">🔲</span>
 </div>
 <div class="datacard-title-block">
-<p class="datacard-title">CHEVROLET G506</p>
+<p class="datacard-title">CHEVROLET 30 CWT</p>
 <p class="datacard-subtitle"></p>
 <p class="datacard-subtitle"></p>
 </div>
@@ -270,12 +270,12 @@
 </tr>
 <tr>
 <td>Vehicle</td>
-<td>8"</td>
-<td>12"</td>
+<td>6"</td>
+<td>24"</td>
 <td>-</td>
-<td>N</td>
-<td>O</td>
-<td>O</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
 <td>None</td>
 <td>-</td>
 <td>-</td>
@@ -294,7 +294,7 @@
 <span style="color: white; font-size: 10px;">🔲</span>
 </div>
 <div class="datacard-title-block">
-<p class="datacard-title">DODGE WC-51</p>
+<p class="datacard-title">DODGE AMBULANCE</p>
 <p class="datacard-subtitle"></p>
 <p class="datacard-subtitle"></p>
 </div>
@@ -321,12 +321,12 @@
 </tr>
 <tr>
 <td>Vehicle</td>
-<td>8"</td>
-<td>12"</td>
+<td>6"</td>
+<td>24"</td>
 <td>-</td>
-<td>N</td>
-<td>O</td>
-<td>O</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
 <td>None</td>
 <td>-</td>
 <td>-</td>
@@ -345,7 +345,7 @@
 <span style="color: white; font-size: 10px;">🔲</span>
 </div>
 <div class="datacard-title-block">
-<p class="datacard-title">DODGE WC62</p>
+<p class="datacard-title">DODGE AMBULANCE</p>
 <p class="datacard-subtitle"></p>
 <p class="datacard-subtitle"></p>
 </div>
@@ -372,12 +372,12 @@
 </tr>
 <tr>
 <td>Vehicle</td>
-<td>8"</td>
-<td>12"</td>
+<td>6"</td>
+<td>24"</td>
 <td>-</td>
-<td>N</td>
-<td>O</td>
-<td>O</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
 <td>None</td>
 <td>-</td>
 <td>-</td>
@@ -396,7 +396,7 @@
 <span style="color: white; font-size: 10px;">🔲</span>
 </div>
 <div class="datacard-title-block">
-<p class="datacard-title">GMC CCKW-352</p>
+<p class="datacard-title">M17 MGMC</p>
 <p class="datacard-subtitle"></p>
 <p class="datacard-subtitle"></p>
 </div>
@@ -424,7 +424,7 @@
 <tr>
 <td>Vehicle</td>
 <td>8"</td>
-<td>12"</td>
+<td>24"</td>
 <td>-</td>
 <td>N</td>
 <td>O</td>
@@ -498,7 +498,7 @@
 <span style="color: white; font-size: 10px;">🔲</span>
 </div>
 <div class="datacard-title-block">
-<p class="datacard-title">JEEP COMMAND</p>
+<p class="datacard-title">ARMED JEEP</p>
 <p class="datacard-subtitle"></p>
 <p class="datacard-subtitle"></p>
 </div>
@@ -525,12 +525,12 @@
 </tr>
 <tr>
 <td>Vehicle</td>
-<td>18"</td>
-<td>26"</td>
+<td>6"</td>
+<td>24"</td>
 <td>-</td>
-<td>N</td>
-<td>O</td>
-<td>O</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
 <td>None</td>
 <td>-</td>
 <td>-</td>
@@ -549,7 +549,7 @@
 <span style="color: white; font-size: 10px;">🔲</span>
 </div>
 <div class="datacard-title-block">
-<p class="datacard-title">M2 HALFTRACK</p>
+<p class="datacard-title">M20 UTILITY CAR</p>
 <p class="datacard-subtitle"></p>
 <p class="datacard-subtitle"></p>
 </div>
@@ -577,7 +577,7 @@
 <tr>
 <td>Halftrack</td>
 <td>8"</td>
-<td>12"</td>
+<td>24"</td>
 <td>-</td>
 <td>N</td>
 <td>O</td>
@@ -630,7 +630,7 @@
 <td>10"</td>
 <td>15"</td>
 <td>-</td>
-<td>Soft-Skinned</td>
+<td>-</td>
 <td>-</td>
 <td>-</td>
 <td>None</td>
@@ -678,12 +678,63 @@
 </tr>
 <tr>
 <td>Armored Car</td>
+<td>8"</td>
+<td>24"</td>
+<td>-</td>
+<td>N</td>
+<td>O</td>
+<td>O</td>
+<td>None</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</table>
+
+<div class="datacard-footer">
+<div class="footer-stat"><strong>Points:</strong> -</div>
+<div class="footer-stat"><strong>BR:</strong> 1</div>
+</div>
+</div>
+
+<div class="datacard datacard-british">
+<div class="datacard-header">
+<div class="datacard-silhouette">
+<span style="color: white; font-size: 10px;">🔲</span>
+</div>
+<div class="datacard-title-block">
+<p class="datacard-title">SOMUA MCG RECOVERY</p>
+<p class="datacard-subtitle"></p>
+<p class="datacard-subtitle"></p>
+</div>
+</div>
+
+<table>
+<tr>
+<th class="main-header">VEHICLE</th>
+<th class="main-header" colspan="3">MOVEMENT</th>
+<th class="main-header" colspan="3">ARMOUR</th>
+<th class="main-header" colspan="3">ARMAMENT</th>
+</tr>
+<tr>
+<th></th>
+<th>Off-Road</th>
+<th>Road</th>
+<th>Special</th>
+<th>F</th>
+<th>S</th>
+<th>R</th>
+<th>Weapon</th>
+<th>Mount</th>
+<th>Ammo</th>
+</tr>
+<tr>
+<td>Vehicle</td>
+<td>12"</td>
 <td>18"</td>
-<td>26"</td>
 <td>-</td>
-<td>N</td>
-<td>O</td>
-<td>O</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
 <td>None</td>
 <td>-</td>
 <td>-</td>
@@ -702,58 +753,7 @@
 <span style="color: white; font-size: 10px;">🔲</span>
 </div>
 <div class="datacard-title-block">
-<p class="datacard-title">A9 RECOVERY</p>
-<p class="datacard-subtitle"></p>
-<p class="datacard-subtitle"></p>
-</div>
-</div>
-
-<table>
-<tr>
-<th class="main-header">VEHICLE</th>
-<th class="main-header" colspan="3">MOVEMENT</th>
-<th class="main-header" colspan="3">ARMOUR</th>
-<th class="main-header" colspan="3">ARMAMENT</th>
-</tr>
-<tr>
-<th></th>
-<th>Off-Road</th>
-<th>Road</th>
-<th>Special</th>
-<th>F</th>
-<th>S</th>
-<th>R</th>
-<th>Weapon</th>
-<th>Mount</th>
-<th>Ammo</th>
-</tr>
-<tr>
-<td>Vehicle</td>
-<td>8"</td>
-<td>12"</td>
-<td>-</td>
-<td>N</td>
-<td>O</td>
-<td>O</td>
-<td>None</td>
-<td>-</td>
-<td>-</td>
-</tr>
-</table>
-
-<div class="datacard-footer">
-<div class="footer-stat"><strong>Points:</strong> -</div>
-<div class="footer-stat"><strong>BR:</strong> 1</div>
-</div>
-</div>
-
-<div class="datacard datacard-british">
-<div class="datacard-header">
-<div class="datacard-silhouette">
-<span style="color: white; font-size: 10px;">🔲</span>
-</div>
-<div class="datacard-title-block">
-<p class="datacard-title">AUSTIN K2</p>
+<p class="datacard-title">AUSTIN K2 AMBULANCE</p>
 <p class="datacard-subtitle"></p>
 <p class="datacard-subtitle"></p>
 </div>
@@ -783,7 +783,7 @@
 <td>6"</td>
 <td>24"</td>
 <td>-</td>
-<td>Soft-Skinned</td>
+<td>-</td>
 <td>-</td>
 <td>-</td>
 <td>None</td>
@@ -804,7 +804,7 @@
 <span style="color: white; font-size: 10px;">🔲</span>
 </div>
 <div class="datacard-title-block">
-<p class="datacard-title">BEDFORD MW</p>
+<p class="datacard-title">BEDFORD MWD</p>
 <p class="datacard-subtitle"></p>
 <p class="datacard-subtitle"></p>
 </div>
@@ -834,7 +834,7 @@
 <td>6"</td>
 <td>24"</td>
 <td>-</td>
-<td>Soft-Skinned</td>
+<td>-</td>
 <td>-</td>
 <td>-</td>
 <td>None</td>
@@ -855,7 +855,7 @@
 <span style="color: white; font-size: 10px;">🔲</span>
 </div>
 <div class="datacard-title-block">
-<p class="datacard-title">BEDFORD MW 15CWT</p>
+<p class="datacard-title">BEDFORD MWD</p>
 <p class="datacard-subtitle"></p>
 <p class="datacard-subtitle"></p>
 </div>
@@ -882,12 +882,12 @@
 </tr>
 <tr>
 <td>Vehicle</td>
-<td>8"</td>
-<td>12"</td>
+<td>6"</td>
+<td>24"</td>
 <td>-</td>
-<td>N</td>
-<td>O</td>
-<td>O</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
 <td>None</td>
 <td>-</td>
 <td>-</td>
@@ -906,7 +906,7 @@
 <span style="color: white; font-size: 10px;">🔲</span>
 </div>
 <div class="datacard-title-block">
-<p class="datacard-title">BEDFORD QL RECOVERY</p>
+<p class="datacard-title">BEDFORD MWD</p>
 <p class="datacard-subtitle"></p>
 <p class="datacard-subtitle"></p>
 </div>
@@ -933,12 +933,12 @@
 </tr>
 <tr>
 <td>Vehicle</td>
-<td>8"</td>
-<td>12"</td>
+<td>6"</td>
+<td>24"</td>
 <td>-</td>
-<td>N</td>
-<td>O</td>
-<td>O</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
 <td>None</td>
 <td>-</td>
 <td>-</td>
@@ -957,7 +957,7 @@
 <span style="color: white; font-size: 10px;">🔲</span>
 </div>
 <div class="datacard-title-block">
-<p class="datacard-title">CMP CHEVROLET</p>
+<p class="datacard-title">CHEVROLET 30 CWT</p>
 <p class="datacard-subtitle"></p>
 <p class="datacard-subtitle"></p>
 </div>
@@ -984,12 +984,12 @@
 </tr>
 <tr>
 <td>Vehicle</td>
-<td>8"</td>
-<td>12"</td>
+<td>6"</td>
+<td>24"</td>
 <td>-</td>
-<td>N</td>
-<td>O</td>
-<td>O</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
 <td>None</td>
 <td>-</td>
 <td>-</td>
@@ -1059,7 +1059,7 @@
 <span style="color: white; font-size: 10px;">🔲</span>
 </div>
 <div class="datacard-title-block">
-<p class="datacard-title">CHEVROLET C15A</p>
+<p class="datacard-title">CHEVROLET 30 CWT</p>
 <p class="datacard-subtitle"></p>
 <p class="datacard-subtitle"></p>
 </div>
@@ -1086,12 +1086,12 @@
 </tr>
 <tr>
 <td>Vehicle</td>
-<td>8"</td>
-<td>12"</td>
+<td>6"</td>
+<td>24"</td>
 <td>-</td>
-<td>N</td>
-<td>O</td>
-<td>O</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
 <td>None</td>
 <td>-</td>
 <td>-</td>
@@ -1110,7 +1110,7 @@
 <span style="color: white; font-size: 10px;">🔲</span>
 </div>
 <div class="datacard-title-block">
-<p class="datacard-title">DAIMLER ARMORED CAR</p>
+<p class="datacard-title">DAIMLER</p>
 <p class="datacard-subtitle"></p>
 <p class="datacard-subtitle"></p>
 </div>
@@ -1140,7 +1140,7 @@
 <td>8"</td>
 <td>24"</td>
 <td>-</td>
-<td>N</td>
+<td>M</td>
 <td>O</td>
 <td>O</td>
 <td>None</td>
@@ -1161,7 +1161,7 @@
 <span style="color: white; font-size: 10px;">🔲</span>
 </div>
 <div class="datacard-title-block">
-<p class="datacard-title">GUY QUAD ANT</p>
+<p class="datacard-title">GUY LIZARD ARMOURED COMMAND VEHICLE</p>
 <p class="datacard-subtitle"></p>
 <p class="datacard-subtitle"></p>
 </div>
@@ -1188,10 +1188,10 @@
 </tr>
 <tr>
 <td>Vehicle</td>
-<td>8"</td>
-<td>12"</td>
+<td>6"</td>
+<td>24"</td>
 <td>-</td>
-<td>N</td>
+<td>O</td>
 <td>O</td>
 <td>O</td>
 <td>None</td>
@@ -1357,7 +1357,7 @@
 <span style="color: white; font-size: 10px;">🔲</span>
 </div>
 <div class="datacard-title-block">
-<p class="datacard-title">INTERNATIONAL M5-6-318</p>
+<p class="datacard-title">M5 HALFTRACK</p>
 <p class="datacard-subtitle"></p>
 <p class="datacard-subtitle"></p>
 </div>
@@ -1384,8 +1384,8 @@
 </tr>
 <tr>
 <td>Vehicle</td>
-<td>8"</td>
 <td>12"</td>
+<td>24"</td>
 <td>-</td>
 <td>N</td>
 <td>O</td>
@@ -1469,7 +1469,7 @@
 <span style="color: white; font-size: 10px;">🔲</span>
 </div>
 <div class="datacard-title-block">
-<p class="datacard-title">MORRIS C8</p>
+<p class="datacard-title">MORRIS C8 TRACTOR</p>
 <p class="datacard-subtitle"></p>
 <p class="datacard-subtitle"></p>
 </div>
@@ -1497,11 +1497,11 @@
 <tr>
 <td>Vehicle</td>
 <td>8"</td>
-<td>12"</td>
+<td>24"</td>
 <td>-</td>
-<td>N</td>
-<td>O</td>
-<td>O</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
 <td>None</td>
 <td>-</td>
 <td>-</td>
@@ -1624,7 +1624,7 @@
 <span style="color: white; font-size: 10px;">🔲</span>
 </div>
 <div class="datacard-title-block">
-<p class="datacard-title">SCAMMELL PIONEER</p>
+<p class="datacard-title">SCAMMEL PIONEER</p>
 <p class="datacard-subtitle"></p>
 <p class="datacard-subtitle"></p>
 </div>
@@ -1651,12 +1651,12 @@
 </tr>
 <tr>
 <td>Vehicle</td>
-<td>8"</td>
-<td>12"</td>
+<td>6"</td>
+<td>24"</td>
 <td>-</td>
-<td>N</td>
-<td>O</td>
-<td>O</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
 <td>None</td>
 <td>-</td>
 <td>-</td>
@@ -1675,7 +1675,7 @@
 <span style="color: white; font-size: 10px;">🔲</span>
 </div>
 <div class="datacard-title-block">
-<p class="datacard-title">UNIVERSAL CARRIER</p>
+<p class="datacard-title">ARMOURED CARRIER, INDIAN PATTERN</p>
 <p class="datacard-subtitle"></p>
 <p class="datacard-subtitle"></p>
 </div>
@@ -1703,7 +1703,7 @@
 <tr>
 <td>Vehicle</td>
 <td>8"</td>
-<td>12"</td>
+<td>24"</td>
 <td>-</td>
 <td>N</td>
 <td>O</td>
@@ -1726,7 +1726,7 @@
 <span style="color: white; font-size: 10px;">🔲</span>
 </div>
 <div class="datacard-title-block">
-<p class="datacard-title">MORRIS COMMERCIAL</p>
+<p class="datacard-title">MORRIS C8 TRACTOR</p>
 <p class="datacard-subtitle"></p>
 <p class="datacard-subtitle"></p>
 </div>
@@ -1754,11 +1754,11 @@
 <tr>
 <td>Vehicle</td>
 <td>8"</td>
-<td>12"</td>
+<td>24"</td>
 <td>-</td>
-<td>N</td>
-<td>O</td>
-<td>O</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
 <td>None</td>
 <td>-</td>
 <td>-</td>
@@ -1804,11 +1804,11 @@
 </tr>
 <tr>
 <td>Armored Car</td>
-<td>10"</td>
-<td>28"</td>
+<td>8"</td>
+<td>24"</td>
 <td>-</td>
-<td>M</td>
 <td>N</td>
+<td>O</td>
 <td>O</td>
 <td>None</td>
 <td>-</td>
@@ -1828,7 +1828,7 @@
 <span style="color: white; font-size: 10px;">🔲</span>
 </div>
 <div class="datacard-title-block">
-<p class="datacard-title">WHITE-LAFFLY AMD 50</p>
+<p class="datacard-title">WHITE SCOUT CAR</p>
 <p class="datacard-subtitle"></p>
 <p class="datacard-subtitle"></p>
 </div>
@@ -1930,7 +1930,7 @@
 <span style="color: white; font-size: 10px;">🔲</span>
 </div>
 <div class="datacard-title-block">
-<p class="datacard-title">HENSCHEL TYPE 33G1</p>
+<p class="datacard-title">TYPE 1 HO-HA</p>
 <p class="datacard-subtitle"></p>
 <p class="datacard-subtitle"></p>
 </div>
@@ -1957,8 +1957,8 @@
 </tr>
 <tr>
 <td>Vehicle</td>
-<td>8"</td>
 <td>12"</td>
+<td>16"</td>
 <td>-</td>
 <td>N</td>
 <td>O</td>
@@ -2032,7 +2032,7 @@
 <span style="color: white; font-size: 10px;">🔲</span>
 </div>
 <div class="datacard-title-block">
-<p class="datacard-title">OPEL BLITZ</p>
+<p class="datacard-title">ARMOURED MEDIUM TRUCK (OPEL BLITZ)</p>
 <p class="datacard-subtitle"></p>
 <p class="datacard-subtitle"></p>
 </div>
@@ -2062,9 +2062,9 @@
 <td>6"</td>
 <td>24"</td>
 <td>-</td>
-<td>Soft-Skinned</td>
-<td>-</td>
-<td>-</td>
+<td>O</td>
+<td>O</td>
+<td>O</td>
 <td>None</td>
 <td>-</td>
 <td>-</td>
@@ -2134,7 +2134,7 @@
 <span style="color: white; font-size: 10px;">🔲</span>
 </div>
 <div class="datacard-title-block">
-<p class="datacard-title">AB41</p>
+<p class="datacard-title">AUTOBLINDA AB41</p>
 <p class="datacard-subtitle"></p>
 <p class="datacard-subtitle"></p>
 </div>
@@ -2185,7 +2185,7 @@
 <span style="color: white; font-size: 10px;">🔲</span>
 </div>
 <div class="datacard-title-block">
-<p class="datacard-title">FIAT 508C BALILLA</p>
+<p class="datacard-title">FIAT L6/40</p>
 <p class="datacard-subtitle"></p>
 <p class="datacard-subtitle"></p>
 </div>
@@ -2212,10 +2212,10 @@
 </tr>
 <tr>
 <td>Vehicle</td>
-<td>8"</td>
-<td>12"</td>
+<td>9"</td>
+<td>13"</td>
 <td>-</td>
-<td>N</td>
+<td>L</td>
 <td>O</td>
 <td>O</td>
 <td>None</td>
@@ -2236,7 +2236,7 @@
 <span style="color: white; font-size: 10px;">🔲</span>
 </div>
 <div class="datacard-title-block">
-<p class="datacard-title">FIAT 626 RECOVERY</p>
+<p class="datacard-title">FIAT L6/40</p>
 <p class="datacard-subtitle"></p>
 <p class="datacard-subtitle"></p>
 </div>
@@ -2263,10 +2263,10 @@
 </tr>
 <tr>
 <td>Vehicle</td>
-<td>8"</td>
-<td>12"</td>
+<td>9"</td>
+<td>13"</td>
 <td>-</td>
-<td>N</td>
+<td>L</td>
 <td>O</td>
 <td>O</td>
 <td>None</td>
@@ -2287,7 +2287,7 @@
 <span style="color: white; font-size: 10px;">🔲</span>
 </div>
 <div class="datacard-title-block">
-<p class="datacard-title">FIAT 665NM</p>
+<p class="datacard-title">FIAT L6/40</p>
 <p class="datacard-subtitle"></p>
 <p class="datacard-subtitle"></p>
 </div>
@@ -2314,10 +2314,10 @@
 </tr>
 <tr>
 <td>Vehicle</td>
-<td>8"</td>
-<td>12"</td>
+<td>9"</td>
+<td>13"</td>
 <td>-</td>
-<td>N</td>
+<td>L</td>
 <td>O</td>
 <td>O</td>
 <td>None</td>
@@ -2338,7 +2338,7 @@
 <span style="color: white; font-size: 10px;">🔲</span>
 </div>
 <div class="datacard-title-block">
-<p class="datacard-title">LANCIA 3RO</p>
+<p class="datacard-title">LANCIA 3RO HEAVY TRUCK</p>
 <p class="datacard-subtitle"></p>
 <p class="datacard-subtitle"></p>
 </div>
@@ -2365,12 +2365,12 @@
 </tr>
 <tr>
 <td>Vehicle</td>
-<td>8"</td>
-<td>12"</td>
+<td>6"</td>
+<td>24"</td>
 <td>-</td>
-<td>N</td>
-<td>O</td>
-<td>O</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
 <td>None</td>
 <td>-</td>
 <td>-</td>

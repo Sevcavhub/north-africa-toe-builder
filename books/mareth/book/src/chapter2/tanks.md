@@ -654,58 +654,7 @@
 <span style="color: white; font-size: 10px;">🔲</span>
 </div>
 <div class="datacard-title-block">
-<p class="datacard-title">GRANT M3</p>
-<p class="datacard-subtitle"></p>
-<p class="datacard-subtitle"></p>
-</div>
-</div>
-
-<table>
-<tr>
-<th class="main-header">VEHICLE</th>
-<th class="main-header" colspan="3">MOVEMENT</th>
-<th class="main-header" colspan="3">ARMOUR</th>
-<th class="main-header" colspan="3">ARMAMENT</th>
-</tr>
-<tr>
-<th></th>
-<th>Off-Road</th>
-<th>Road</th>
-<th>Special</th>
-<th>F</th>
-<th>S</th>
-<th>R</th>
-<th>Weapon</th>
-<th>Mount</th>
-<th>Ammo</th>
-</tr>
-<tr>
-<td>Tank</td>
-<td>8"</td>
-<td>12"</td>
-<td>-</td>
-<td>N</td>
-<td>O</td>
-<td>O</td>
-<td>None</td>
-<td>-</td>
-<td>-</td>
-</tr>
-</table>
-
-<div class="datacard-footer">
-<div class="footer-stat"><strong>Points:</strong> -</div>
-<div class="footer-stat"><strong>BR:</strong> 1</div>
-</div>
-</div>
-
-<div class="datacard datacard-british">
-<div class="datacard-header">
-<div class="datacard-silhouette">
-<span style="color: white; font-size: 10px;">🔲</span>
-</div>
-<div class="datacard-title-block">
-<p class="datacard-title">GRANT M3 LEE</p>
+<p class="datacard-title">LANDSVERK M36</p>
 <p class="datacard-subtitle"></p>
 <p class="datacard-subtitle"></p>
 </div>
@@ -736,7 +685,7 @@
 <td>14"</td>
 <td>-</td>
 <td>N</td>
-<td>O</td>
+<td>N</td>
 <td>O</td>
 <td>None</td>
 <td>-</td>
@@ -746,7 +695,7 @@
 
 <div class="datacard-footer">
 <div class="footer-stat"><strong>Points:</strong> -</div>
-<div class="footer-stat"><strong>BR:</strong> 2</div>
+<div class="footer-stat"><strong>BR:</strong> 1</div>
 </div>
 </div>
 
@@ -756,7 +705,7 @@
 <span style="color: white; font-size: 10px;">🔲</span>
 </div>
 <div class="datacard-title-block">
-<p class="datacard-title">LIGHT TANK MK VI</p>
+<p class="datacard-title">LANDSVERK M36</p>
 <p class="datacard-subtitle"></p>
 <p class="datacard-subtitle"></p>
 </div>
@@ -783,11 +732,11 @@
 </tr>
 <tr>
 <td>Tank</td>
-<td>8"</td>
-<td>12"</td>
+<td>9"</td>
+<td>14"</td>
 <td>-</td>
 <td>N</td>
-<td>O</td>
+<td>N</td>
 <td>O</td>
 <td>None</td>
 <td>-</td>
@@ -807,7 +756,7 @@
 <span style="color: white; font-size: 10px;">🔲</span>
 </div>
 <div class="datacard-title-block">
-<p class="datacard-title">SHERMAN M4</p>
+<p class="datacard-title">CHURCHILL VI</p>
 <p class="datacard-subtitle"></p>
 <p class="datacard-subtitle"></p>
 </div>
@@ -834,12 +783,63 @@
 </tr>
 <tr>
 <td>Tank</td>
+<td>5"</td>
 <td>8"</td>
-<td>12"</td>
 <td>-</td>
+<td>I</td>
+<td>J</td>
+<td>J</td>
+<td>None</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</table>
+
+<div class="datacard-footer">
+<div class="footer-stat"><strong>Points:</strong> -</div>
+<div class="footer-stat"><strong>BR:</strong> 2</div>
+</div>
+</div>
+
+<div class="datacard datacard-british">
+<div class="datacard-header">
+<div class="datacard-silhouette">
+<span style="color: white; font-size: 10px;">🔲</span>
+</div>
+<div class="datacard-title-block">
+<p class="datacard-title">M4 DD SHERMAN</p>
+<p class="datacard-subtitle"></p>
+<p class="datacard-subtitle"></p>
+</div>
+</div>
+
+<table>
+<tr>
+<th class="main-header">VEHICLE</th>
+<th class="main-header" colspan="3">MOVEMENT</th>
+<th class="main-header" colspan="3">ARMOUR</th>
+<th class="main-header" colspan="3">ARMAMENT</th>
+</tr>
+<tr>
+<th></th>
+<th>Off-Road</th>
+<th>Road</th>
+<th>Special</th>
+<th>F</th>
+<th>S</th>
+<th>R</th>
+<th>Weapon</th>
+<th>Mount</th>
+<th>Ammo</th>
+</tr>
+<tr>
+<td>Tank</td>
+<td>9"</td>
+<td>14"</td>
+<td>-</td>
+<td>K</td>
+<td>L</td>
 <td>N</td>
-<td>O</td>
-<td>O</td>
 <td>None</td>
 <td>-</td>
 <td>-</td>
@@ -858,7 +858,7 @@
 <span style="color: white; font-size: 10px;">🔲</span>
 </div>
 <div class="datacard-title-block">
-<p class="datacard-title">STUART I (M3 LIGHT)</p>
+<p class="datacard-title">LANDSVERK M36</p>
 <p class="datacard-subtitle"></p>
 <p class="datacard-subtitle"></p>
 </div>
@@ -885,11 +885,11 @@
 </tr>
 <tr>
 <td>Tank</td>
-<td>8"</td>
-<td>12"</td>
+<td>9"</td>
+<td>14"</td>
 <td>-</td>
 <td>N</td>
-<td>O</td>
+<td>N</td>
 <td>O</td>
 <td>None</td>
 <td>-</td>
@@ -1097,7 +1097,7 @@
 <span style="color: white; font-size: 10px;">🔲</span>
 </div>
 <div class="datacard-title-block">
-<p class="datacard-title">VICKERS MEDIUM</p>
+<p class="datacard-title">VICKERS E TYPE A</p>
 <p class="datacard-subtitle"></p>
 <p class="datacard-subtitle"></p>
 </div>
@@ -1124,8 +1124,8 @@
 </tr>
 <tr>
 <td>Tank</td>
-<td>8"</td>
-<td>12"</td>
+<td>7"</td>
+<td>11"</td>
 <td>-</td>
 <td>N</td>
 <td>O</td>
@@ -1199,58 +1199,7 @@
 <span style="color: white; font-size: 10px;">🔲</span>
 </div>
 <div class="datacard-title-block">
-<p class="datacard-title">RENAULT R35</p>
-<p class="datacard-subtitle"></p>
-<p class="datacard-subtitle"></p>
-</div>
-</div>
-
-<table>
-<tr>
-<th class="main-header">VEHICLE</th>
-<th class="main-header" colspan="3">MOVEMENT</th>
-<th class="main-header" colspan="3">ARMOUR</th>
-<th class="main-header" colspan="3">ARMAMENT</th>
-</tr>
-<tr>
-<th></th>
-<th>Off-Road</th>
-<th>Road</th>
-<th>Special</th>
-<th>F</th>
-<th>S</th>
-<th>R</th>
-<th>Weapon</th>
-<th>Mount</th>
-<th>Ammo</th>
-</tr>
-<tr>
-<td>Tank</td>
-<td>5"</td>
-<td>8"</td>
-<td>-</td>
-<td>L</td>
-<td>K</td>
-<td>K</td>
-<td>None</td>
-<td>-</td>
-<td>-</td>
-</tr>
-</table>
-
-<div class="datacard-footer">
-<div class="footer-stat"><strong>Points:</strong> -</div>
-<div class="footer-stat"><strong>BR:</strong> 2</div>
-</div>
-</div>
-
-<div class="datacard datacard-french">
-<div class="datacard-header">
-<div class="datacard-silhouette">
-<span style="color: white; font-size: 10px;">🔲</span>
-</div>
-<div class="datacard-title-block">
-<p class="datacard-title">SOMUA S35</p>
+<p class="datacard-title">RENAULT AHS TRUCK</p>
 <p class="datacard-subtitle"></p>
 <p class="datacard-subtitle"></p>
 </div>
@@ -1278,11 +1227,62 @@
 <tr>
 <td>Tank</td>
 <td>6"</td>
-<td>10"</td>
+<td>24"</td>
 <td>-</td>
-<td>L</td>
-<td>N</td>
-<td>L</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>None</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</table>
+
+<div class="datacard-footer">
+<div class="footer-stat"><strong>Points:</strong> -</div>
+<div class="footer-stat"><strong>BR:</strong> 2</div>
+</div>
+</div>
+
+<div class="datacard datacard-french">
+<div class="datacard-header">
+<div class="datacard-silhouette">
+<span style="color: white; font-size: 10px;">🔲</span>
+</div>
+<div class="datacard-title-block">
+<p class="datacard-title">SOMUA MCG PRIME MOVER</p>
+<p class="datacard-subtitle"></p>
+<p class="datacard-subtitle"></p>
+</div>
+</div>
+
+<table>
+<tr>
+<th class="main-header">VEHICLE</th>
+<th class="main-header" colspan="3">MOVEMENT</th>
+<th class="main-header" colspan="3">ARMOUR</th>
+<th class="main-header" colspan="3">ARMAMENT</th>
+</tr>
+<tr>
+<th></th>
+<th>Off-Road</th>
+<th>Road</th>
+<th>Special</th>
+<th>F</th>
+<th>S</th>
+<th>R</th>
+<th>Weapon</th>
+<th>Mount</th>
+<th>Ammo</th>
+</tr>
+<tr>
+<td>Tank</td>
+<td>12"</td>
+<td>18"</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
 <td>None</td>
 <td>-</td>
 <td>-</td>
@@ -1331,9 +1331,9 @@
 <td>8"</td>
 <td>12"</td>
 <td>-</td>
-<td>F</td>
-<td>I</td>
-<td>G</td>
+<td>H</td>
+<td>J</td>
+<td>J</td>
 <td>None</td>
 <td>-</td>
 <td>-</td>

@@ -376,6 +376,7 @@ class BookDatacardGenerator:
                 eb.battle_rating_veteran, eb.battle_rating_elite,
                 eb.reference_vehicle_id, eb.reference_match_confidence,
                 eb.reference_gun_id, eb.reference_gun_match_confidence,
+                eb.bg_builder_vehicle_id, eb.bg_builder_match_confidence,
                 e.crew, e.production_start, e.production_end, e.name, e.category
             FROM equipment_battlegroup eb
             JOIN equipment e ON eb.equipment_id = e.canonical_id
@@ -425,6 +426,23 @@ class BookDatacardGenerator:
                 # Override armor_modifier from bg_reference_vehicles if present
                 if bg_data['armor_modifier']:
                     armor_modifier = bg_data['armor_modifier']
+
+        # FALLBACK: If no reference_vehicle_id but bg_builder_vehicle_id exists, use bg_builder_vehicles directly
+        elif row['bg_builder_vehicle_id']:
+            cursor.execute("""
+                SELECT armor_front, armor_side, armor_rear,
+                       movement_off_road, movement_road, name
+                FROM bg_builder_vehicles
+                WHERE id = ?
+            """, (row['bg_builder_vehicle_id'],))
+            bg_builder_data = cursor.fetchone()
+            if bg_builder_data:
+                armor_front_val = bg_builder_data['armor_front']
+                armor_side_val = bg_builder_data['armor_side']
+                armor_rear_val = bg_builder_data['armor_rear']
+                off_road_val = bg_builder_data['movement_off_road']
+                road_val = bg_builder_data['movement_road']
+                display_name = bg_builder_data['name'] or equipment['name']
 
         # Get points/BR for experience level
         exp_map = {

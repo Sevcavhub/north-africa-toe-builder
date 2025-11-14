@@ -443,7 +443,7 @@
 <span style="color: white; font-size: 10px;">🔲</span>
 </div>
 <div class="datacard-title-block">
-<p class="datacard-title">GRANT M3 LEE</p>
+<p class="datacard-title">LANDSVERK M36</p>
 <p class="datacard-subtitle"></p>
 <p class="datacard-subtitle"></p>
 </div>
@@ -474,7 +474,7 @@
 <td>14"</td>
 <td>-</td>
 <td>N</td>
-<td>O</td>
+<td>N</td>
 <td>O</td>
 <td>None</td>
 <td>-</td>
@@ -494,7 +494,7 @@
 <span style="color: white; font-size: 10px;">🔲</span>
 </div>
 <div class="datacard-title-block">
-<p class="datacard-title">LIGHT TANK MK VI</p>
+<p class="datacard-title">CHURCHILL VI</p>
 <p class="datacard-subtitle"></p>
 <p class="datacard-subtitle"></p>
 </div>
@@ -521,12 +521,12 @@
 </tr>
 <tr>
 <td>Tank</td>
+<td>5"</td>
 <td>8"</td>
-<td>12"</td>
 <td>-</td>
-<td>N</td>
-<td>O</td>
-<td>O</td>
+<td>I</td>
+<td>J</td>
+<td>J</td>
 <td>None</td>
 <td>-</td>
 <td>-</td>
@@ -545,7 +545,7 @@
 <span style="color: white; font-size: 10px;">🔲</span>
 </div>
 <div class="datacard-title-block">
-<p class="datacard-title">SHERMAN M4</p>
+<p class="datacard-title">M4 DD SHERMAN</p>
 <p class="datacard-subtitle"></p>
 <p class="datacard-subtitle"></p>
 </div>
@@ -572,12 +572,12 @@
 </tr>
 <tr>
 <td>Tank</td>
-<td>8"</td>
-<td>12"</td>
+<td>9"</td>
+<td>14"</td>
 <td>-</td>
+<td>K</td>
+<td>L</td>
 <td>N</td>
-<td>O</td>
-<td>O</td>
 <td>None</td>
 <td>-</td>
 <td>-</td>
@@ -596,7 +596,7 @@
 <span style="color: white; font-size: 10px;">🔲</span>
 </div>
 <div class="datacard-title-block">
-<p class="datacard-title">STUART I (M3 LIGHT)</p>
+<p class="datacard-title">LANDSVERK M36</p>
 <p class="datacard-subtitle"></p>
 <p class="datacard-subtitle"></p>
 </div>
@@ -623,11 +623,11 @@
 </tr>
 <tr>
 <td>Tank</td>
-<td>8"</td>
-<td>12"</td>
+<td>9"</td>
+<td>14"</td>
 <td>-</td>
 <td>N</td>
-<td>O</td>
+<td>N</td>
 <td>O</td>
 <td>None</td>
 <td>-</td>
@@ -741,7 +741,7 @@
 <span style="color: white; font-size: 10px;">🔲</span>
 </div>
 <div class="datacard-title-block">
-<p class="datacard-title">VICKERS MEDIUM</p>
+<p class="datacard-title">VICKERS E TYPE A</p>
 <p class="datacard-subtitle"></p>
 <p class="datacard-subtitle"></p>
 </div>
@@ -768,8 +768,8 @@
 </tr>
 <tr>
 <td>Tank</td>
-<td>8"</td>
-<td>12"</td>
+<td>7"</td>
+<td>11"</td>
 <td>-</td>
 <td>N</td>
 <td>O</td>
@@ -792,7 +792,7 @@
 <span style="color: white; font-size: 10px;">🔲</span>
 </div>
 <div class="datacard-title-block">
-<p class="datacard-title">PANZER III COMMAND</p>
+<p class="datacard-title">A13 CRUISER MK.III</p>
 <p class="datacard-subtitle"></p>
 <p class="datacard-subtitle"></p>
 </div>
@@ -819,12 +819,12 @@
 </tr>
 <tr>
 <td>Tank</td>
-<td>10"</td>
-<td>14"</td>
+<td>9"</td>
+<td>15"</td>
 <td>-</td>
-<td>N</td>
-<td>O</td>
-<td>O</td>
+<td>L</td>
+<td>M</td>
+<td>)</td>
 <td>None</td>
 <td>-</td>
 <td>-</td>
@@ -843,7 +843,7 @@
 <span style="color: white; font-size: 10px;">🔲</span>
 </div>
 <div class="datacard-title-block">
-<p class="datacard-title">L6/40</p>
+<p class="datacard-title">FIAT L6/40</p>
 <p class="datacard-subtitle"></p>
 <p class="datacard-subtitle"></p>
 </div>
@@ -870,10 +870,10 @@
 </tr>
 <tr>
 <td>Tank</td>
-<td>8"</td>
-<td>12"</td>
+<td>9"</td>
+<td>13"</td>
 <td>-</td>
-<td>N</td>
+<td>L</td>
 <td>O</td>
 <td>O</td>
 <td>None</td>

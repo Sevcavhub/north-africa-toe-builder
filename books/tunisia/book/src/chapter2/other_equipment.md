@@ -243,7 +243,7 @@
 <span style="color: white; font-size: 10px;">🔲</span>
 </div>
 <div class="datacard-title-block">
-<p class="datacard-title">INDIAN 741</p>
+<p class="datacard-title">ARMOURED CARRIER, INDIAN PATTERN</p>
 <p class="datacard-subtitle"></p>
 <p class="datacard-subtitle"></p>
 </div>
@@ -271,7 +271,7 @@
 <tr>
 <td>Unknown</td>
 <td>8"</td>
-<td>12"</td>
+<td>24"</td>
 <td>-</td>
 <td>N</td>
 <td>O</td>
@@ -294,7 +294,7 @@
 <span style="color: white; font-size: 10px;">🔲</span>
 </div>
 <div class="datacard-title-block">
-<p class="datacard-title">BSA M20</p>
+<p class="datacard-title">M20 UTILITY CAR</p>
 <p class="datacard-subtitle"></p>
 <p class="datacard-subtitle"></p>
 </div>
@@ -322,7 +322,7 @@
 <tr>
 <td>Unknown</td>
 <td>8"</td>
-<td>12"</td>
+<td>24"</td>
 <td>-</td>
 <td>N</td>
 <td>O</td>
@@ -549,7 +549,7 @@
 <span style="color: white; font-size: 10px;">🔲</span>
 </div>
 <div class="datacard-title-block">
-<p class="datacard-title">BENELLI M36</p>
+<p class="datacard-title">LANDSVERK M36</p>
 <p class="datacard-subtitle"></p>
 <p class="datacard-subtitle"></p>
 </div>
@@ -576,11 +576,11 @@
 </tr>
 <tr>
 <td>Unknown</td>
-<td>8"</td>
-<td>12"</td>
+<td>9"</td>
+<td>14"</td>
 <td>-</td>
 <td>N</td>
-<td>O</td>
+<td>N</td>
 <td>O</td>
 <td>None</td>
 <td>-</td>
@@ -600,7 +600,7 @@
 <span style="color: white; font-size: 10px;">🔲</span>
 </div>
 <div class="datacard-title-block">
-<p class="datacard-title">MOTO GUZZI ALCE</p>
+<p class="datacard-title">MOTORCYCLE</p>
 <p class="datacard-subtitle"></p>
 <p class="datacard-subtitle"></p>
 </div>
@@ -627,12 +627,12 @@
 </tr>
 <tr>
 <td>Unknown</td>
-<td>8"</td>
-<td>12"</td>
+<td>6"</td>
+<td>24"</td>
 <td>-</td>
-<td>N</td>
-<td>O</td>
-<td>O</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
 <td>None</td>
 <td>-</td>
 <td>-</td>
