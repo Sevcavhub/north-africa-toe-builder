@@ -39,9 +39,9 @@ As you work, update relevant files with:
 - `PHASE_9B_NEXT_STEPS.md` - Update remaining tasks, mark completed items
 - `PROJECT_SCOPE.md` - Update status if major milestones reached
 
-### **Step 3: Current Reality (as of November 8, 2025)**
+### **Step 3: Current Reality (as of November 14, 2025)**
 
-**Phase 9B Status**: ⏸️ **ON HOLD** - Reference data quality recovery in progress
+**Phase 9B Status**: ✅ **ACTIVE** - Web deployment and datacard generation working
 
 **What Happened**:
 - Infrastructure built: Database schema, conversion tools, book generation ✅
@@ -57,6 +57,8 @@ As you work, update relevant files with:
 - ✅ **CAN** work on documentation updates, infrastructure improvements
 - ✅ **CAN** work on automated linkage (comprehensive_linkage.py)
 - ✅ **CAN** work on ammo data research (Jane's guide, online sources)
+- ✅ **CAN** work on web development (GitHub Pages, Render.com API)
+- ✅ **CAN** regenerate datacards using scenario-based generator (generate_book_datacards_from_scenarios.py)
 - ✅ **MUST** verify patterns before creating new files (check existing structure first)
 - ✅ **READ Data Quality section below** - critical for understanding data source hierarchy
 
@@ -69,7 +71,13 @@ As you work, update relevant files with:
 
 **Two Book Types**:
 1. **Project Books**: General historical books (summary chapters, appendices, TO&E tables) - separate workstream
-2. **BattleGroup Books**: Phase 9B specific (12 battle books on hold pending clean data)
+2. **BattleGroup Books**: Phase 9B specific (12 battle books with scenario-based datacards) ✅ **LIVE**
+
+**Web Deployment** (November 12-14, 2025):
+- **Frontend**: GitHub Pages (https://sevcavhub.github.io/north-africa-toe-builder/)
+- **Backend API**: Render.com (https://north-africa-toe-api.onrender.com)
+- **Books**: 12 MDBook HTML outputs deployed
+- **Datacards**: V5.5 format with scenario-based generation (November 14, 2025 fix)
 
 ---
 

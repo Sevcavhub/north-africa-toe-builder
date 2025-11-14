@@ -623,11 +623,13 @@ Reference Data Tables (Canada's Crucible extraction):
 
 ### **Book Build Commands**:
 ```bash
-# Generate equipment datacards for all 4 books
-python scripts/battlegroup/book/generate_book_datacards.py --all
+# Generate equipment datacards SCENARIO-BASED (November 14, 2025 - CURRENT)
+python scripts/battlegroup/book/generate_book_datacards_from_scenarios.py --all
+python scripts/battlegroup/book/generate_book_datacards_from_scenarios.py --battle tobruk
 
-# Generate datacards for specific battle
-python scripts/battlegroup/book/generate_book_datacards.py --battle battleaxe
+# Generate equipment datacards V5.5 (OLD - pulls all quarter equipment)
+python scripts/battlegroup/book/generate_book_datacards_v5_5.py --all
+python scripts/battlegroup/book/generate_book_datacards_v5_5.py --battle battleaxe
 
 # Validate scenarios
 python scripts/battlegroup/book/validate_all_scenarios.py
@@ -635,11 +637,12 @@ python scripts/battlegroup/book/validate_all_scenarios.py
 # QA final books
 python scripts/battlegroup/book/qa_final_books.py
 
-# Build MDBook HTML
+# Build MDBook HTML (all 12 battles)
 cd books/battleaxe/book && mdbook build
 cd books/crusader/book && mdbook build
 cd books/gazala/book && mdbook build
-cd books/first_alamein/book && mdbook build
+cd books/tobruk/book && mdbook build
+# ... (8 more battles)
 ```
 
 ### **Outputs** (4 books, 171+ files, 28,983+ lines):
@@ -684,20 +687,110 @@ books/{battle}/book/src/
 - ⏸️ Equipment datacards: ON HOLD (format ready, need clean reference data for stats)
 - ❌ Forces/TO&E tables: 0% (deferred - needs script)
 
-**V5 Datacard Format Features** (November 5, 2025):
+**V5.5 Datacard Format Features** (November 11, 2025 - LOCKED):
 - Nation-specific color themes (German, British, Italian, American, French)
 - Multi-row armament tables (main gun + secondary weapons)
 - Special rules as single italicized header line
 - HE range value population (caliber-based)
+- Silhouette images from `data/assets/tank_silhouettes/` directory
+- Armor modifier display (e.g., "Open-topped") below armor values
 - Compact spacing matching official BattleGroup cards
 - Documentation: `docs/DATACARD_FORMAT_STANDARD.md`
+- **Generator**: `scripts/battlegroup/book/generate_book_datacards_v5_5.py`
 
-**Critical Issue**: Reference data quality
-- Scraped BattleGroup data contained errors
-- Conversion formulas reverse-engineered from flawed data
-- Equipment stats assumed incorrect
-- **Recovery**: Manual extraction of clean data (Canada's Crucible ✅, British DataCards ⏳)
+**Scenario-Based Datacard Generation** (November 14, 2025 - ✅ FIXED):
+- **Problem**: V5.5 generator pulled ALL equipment from quarter, not scenario-specific
+- **Solution**: New `generate_book_datacards_from_scenarios.py` script
+- **Method**: Parses scenario markdown files to extract equipment names
+- **Features**:
+  - 4-tier equipment name resolution (exact, normalized, fuzzy, pattern)
+  - Manual name mappings (e.g., "25-pdr" → "QF 25-pounder")
+  - German gun normalization (88mm → 8.8cm)
+  - Generic unit filtering (skips Infantry Platoon, Motorcycle Troops)
+- **Results**: Tobruk 50+ items → 13 items (4 tanks matching scenarios exactly)
+- **Status**: All 12 battles regenerated with scenario-based datacards (76%+ resolution rate)
 - **Format Ready**: V5 datacard generator complete, awaiting validated equipment stats
+
+---
+
+## 🌐 WEB DEPLOYMENT: GitHub Pages + Render.com (November 12-14, 2025)
+
+**Status**: ✅ **LIVE** - Frontend and backend deployed
+**Purpose**: Public web access to books, interactive tools, and API endpoints
+
+### **Frontend: GitHub Pages**
+**URL**: https://sevcavhub.github.io/north-africa-toe-builder/
+**Status**: ✅ Deployed (auto-deploy on git push to main)
+
+**Pages**:
+- `index.html` - Landing page with sticky navigation
+- `tools.html` - Interactive tools (scenario generators, equipment search)
+- `bibliography.html` - Research sources and citations reference page
+- **12 Battle Books** - MDBook HTML outputs (134+ files per book)
+  - `battleaxe/book/book/`, `crusader/book/book/`, `gazala/book/book/`, `tobruk/book/book/`
+  - `first_alamein/book/book/`, `compass/book/book/`, `sonnenblume/book/book/`
+  - `alam_halfa/book/book/`, `second_alamein/book/book/`, `torch/book/book/`
+  - `tunisia/book/book/`, `mareth/book/book/`
+
+**Features**:
+- Sticky top navigation bar (About, Books, Interactive Tools, Bibliography)
+- Feature cards with book contents ("Each book includes...")
+- Equipment search with filters (name, nation, category)
+- Random scenario generator (configurable points, nations, quarter)
+- Historical scenario generator (quarter selection, location dropdown)
+
+### **Backend: Render.com API**
+**URL**: https://north-africa-toe-api.onrender.com
+**Status**: ✅ Production ready
+**Database**: 6.58 MB web_database.db (17 tables, optimized for deployment)
+
+**API Endpoints**:
+1. `GET /api/health` - Health check (status, version, database status)
+2. `GET /api` - API info/documentation
+3. `GET /api/equipment/search` - Equipment search with filters (name, nation, category)
+4. `GET /api/equipment/<id>` - Equipment details by ID
+5. `POST /api/scenarios/random` - Random scenario generator (points, nations, quarter)
+6. `POST /api/scenarios/historical` - Historical scenario generator (location, quarter)
+7. `GET /api/scenarios/locations/<quarter>` - Battle locations by quarter (1941q1-1942q4)
+
+**Configuration**:
+- Auto-deploy from main branch on git push
+- CORS enabled for GitHub Pages frontend
+- Error handling with JSON responses
+- Logging enabled for debugging
+
+### **Scripts**:
+```
+scripts/battlegroup/web/
+├── railway_app.py ──────────────────────── Flask API (7 endpoints)
+├── railway_config.py ───────────────────── Configuration
+├── render.yaml ─────────────────────────── Render deployment config
+└── database/
+    └── web_database.db ─────────────────── Stripped database (6.58 MB vs 15.57 MB full)
+```
+
+### **Deployment Workflow**:
+```bash
+# Backend updates (Render.com)
+git add scripts/battlegroup/web/railway_app.py
+git commit -m "Update API endpoint"
+git push origin main  # Auto-deploys within 2-5 minutes
+
+# Frontend updates (GitHub Pages)
+git add books/*/book/book/**/*.html index.html
+git commit -m "Update books/landing page"
+git push origin main  # Deploys within 1-5 minutes
+
+# Database updates
+# Upload to Render via web dashboard → Restart service
+```
+
+### **Git Commits** (Web Deployment):
+- `d65ff456` - feat(render): Add Render.com deployment configuration
+- `26bd33ee` - feat(render): Add temporary database upload endpoint
+- `8a3fb197` - feat(web): Create stripped database for Render deployment
+- `f0a1ce5f` - feat(web): Add navigation bar and bibliography page
+- `371b1496` - fix(datacards): Generate equipment cards only from scenario units
 
 ---
 

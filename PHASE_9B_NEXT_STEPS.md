@@ -1,14 +1,15 @@
 # Phase 9B: BattleGroup Books - Next Steps
 
-**Date**: November 8, 2025
-**Status**: 🚨 **DATA QUALITY RECOVERY** - All conversion formulas need rebuilding
-**Last Update**: ✅ Automated equipment linkage fixes + Data quality issue documented
-**Database Status**: Schema v3.2 ✅ | 205 clean manual vehicles ✅ | 469 equipment with suspect conversions ⚠️
+**Date**: November 14, 2025
+**Status**: ✅ **WEB DEPLOYMENT ACTIVE** - Scenario-based datacards working
+**Last Update**: ✅ Scenario-based datacard generator created + All 12 battles deployed
+**Database Status**: Schema v3.2 ✅ | 205 clean manual vehicles ✅ | Web deployment live ✅
 **Current Tasks**:
-1. Run comprehensive_linkage.py (auto-link 140+ items)
-2. Parse Jane's guide for ammo capacity data
-3. Continue manual BG extraction (target: 300-350 vehicles)
-4. Rebuild conversion formulas when 300+ vehicles available
+1. ✅ Fix datacard generator (scenario-based) - COMPLETE
+2. ✅ Deploy to GitHub Pages/Render.com - LIVE
+3. Parse Jane's guide for ammo capacity data
+4. Continue manual BG extraction (target: 300-350 vehicles)
+5. Rebuild conversion formulas when 300+ vehicles available
 
 ---
 
