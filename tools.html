@@ -927,7 +927,7 @@
                 // Add "View All HTML" button
                 html += `
                     <button
-                        onclick="viewDatacardsHTML(${JSON.stringify(data.datacards).replace(/'/g, "\\'")})"
+                        onclick="viewDatacardsHTML()"
                         style="padding: 0.75rem 1.5rem; background: var(--accent-red); color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: 600; width: 100%;"
                     >
                         🖨️ Open Printable Datacards (New Window)
@@ -953,37 +953,36 @@
             URL.revokeObjectURL(url);
         };
 
-        // View all datacards as HTML in new window
-        window.viewDatacardsHTML = function(datacards) {
-            // Convert markdown to HTML (basic conversion for display)
-            let html = `
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>BattleGroup Datacards</title>
-    <style>
-        body { font-family: Arial, sans-serif; margin: 20px; }
-        h1 { color: #4A5335; border-bottom: 2px solid #6B7F3D; padding-bottom: 0.5rem; }
-        @media print {
-            @page { size: A4 landscape; margin: 1cm; }
-            body { margin: 0; }
-        }
-    </style>
-</head>
-<body>
-`;
+        // View all datacards as proper V5.5 HTML in new window
+        window.viewDatacardsHTML = async function() {
+            const armyListText = document.getElementById('osjonesArmyList').value.trim();
 
-            for (const [category, content] of Object.entries(datacards)) {
-                html += `<h1>${category.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}</h1>\n`;
-                html += content.replace(/```/g, '').replace(/^# /gm, '<h2>').replace(/\n\n/g, '</h2>\n<p>');
+            if (!armyListText) {
+                alert('Please paste your army list first');
+                return;
             }
 
-            html += '</body></html>';
+            try {
+                // Call HTML endpoint to get complete V5.5 styled HTML
+                const response = await fetch(`${API_URL}/api/datacards/osjones/html`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ army_list_text: armyListText })
+                });
 
-            const newWindow = window.open('', '_blank');
-            newWindow.document.write(html);
-            newWindow.document.close();
+                const html = await response.text();
+
+                if (response.ok) {
+                    // Open in new window
+                    const newWindow = window.open('', '_blank');
+                    newWindow.document.write(html);
+                    newWindow.document.close();
+                } else {
+                    alert('Error generating datacards: ' + html);
+                }
+            } catch (error) {
+                alert('Error: ' + error.message);
+            }
         };
     </script>
 </body>

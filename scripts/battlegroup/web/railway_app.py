@@ -349,6 +349,305 @@ def create_app():
                 'message': str(e)
             }), 500
 
+    @app.route('/api/datacards/osjones/html', methods=['POST'])
+    def generate_osjones_datacards_html():
+        """
+        Generate BattleGroup V5.5 datacards as complete HTML page with V5.5 CSS.
+        Returns full HTML document ready for printing (A4 landscape).
+        """
+        import sys
+        import tempfile
+        from pathlib import Path
+
+        # Add project root to path
+        project_root = Path(__file__).resolve().parents[3]
+        sys.path.insert(0, str(project_root))
+
+        try:
+            from scripts.battlegroup.book.parse_osjones_army_list import OSJonesArmyListParser
+            from scripts.battlegroup.book.generate_datacards_from_army_list import ArmyListDatacardGenerator
+
+            data = request.get_json() or {}
+            army_list_text = data.get('army_list_text', '').strip()
+
+            if not army_list_text:
+                return '<html><body><h1>Error: No army list provided</h1></body></html>', 400
+
+            # Parse army list
+            parser = OSJonesArmyListParser()
+            result = parser.parse_army_list(army_list_text)
+            equipment_names = list(result['equipment'])
+
+            if not equipment_names:
+                return f'<html><body><h1>Error: No equipment found</h1><p>Force: {result.get("force_name", "Unknown")}</p></body></html>', 400
+
+            # Generate datacards in temporary directory
+            with tempfile.TemporaryDirectory() as temp_dir:
+                temp_path = Path(temp_dir)
+
+                generator = ArmyListDatacardGenerator()
+                try:
+                    # Generate datacard files
+                    generator.generate_datacards_from_list(equipment_names, temp_path)
+
+                    # Read generated markdown files and combine into single HTML
+                    html_parts = []
+
+                    for category_file in ['tanks.md', 'guns_and_artillery.md', 'vehicles.md', 'other_equipment.md']:
+                        file_path = temp_path / category_file
+                        if file_path.exists():
+                            with open(file_path, 'r', encoding='utf-8') as f:
+                                content = f.read()
+                                # Extract just the HTML datacard divs (skip CSS and markdown header)
+                                if '<div class="datacard-grid">' in content:
+                                    # Get everything from first datacard-grid to end
+                                    html_content = content[content.find('<div class="datacard-grid">'):content.rfind('</div>') + 6]
+                                    html_parts.append(html_content)
+
+                    # Build complete HTML document
+                    html = f'''<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{result.get("force_name", "BattleGroup Army List")} - Datacards</title>
+    <style>
+{get_v55_css()}
+    </style>
+</head>
+<body>
+    <h1>{result.get("force_name", "Army List")} Datacards</h1>
+    <p><strong>Points:</strong> {result.get("points_total", 0)} | <strong>BR:</strong> {result.get("br_total", 0)}</p>
+
+    {"".join(html_parts)}
+
+    <p style="margin-top: 2rem; font-size: 0.9em; color: #666;">
+        Generated from OSJones Builder army list using North Africa TO&E Builder API
+    </p>
+</body>
+</html>'''
+
+                    return html, 200, {'Content-Type': 'text/html; charset=utf-8'}
+
+                finally:
+                    generator.close()
+
+        except Exception as e:
+            app.logger.error(f"Failed to generate datacards HTML: {str(e)}", exc_info=True)
+            return f'<html><body><h1>Error generating datacards</h1><p>{str(e)}</p></body></html>', 500
+
+    def get_v55_css():
+        """Return V5.5 datacard CSS styling."""
+        return """
+@media print {
+    @page {
+        size: A4 landscape;
+        margin: 10mm;
+    }
+
+    .datacard-grid {
+        page-break-after: always;
+    }
+
+    .datacard {
+        page-break-inside: avoid;
+    }
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+h1 {
+    color: #4A5335;
+    border-bottom: 2px solid #6B7F3D;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.datacard-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.datacard {
+    border: 3px solid #2c2416;
+    padding: 8px;
+    background-color: #d4c5a0;
+    box-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    font-family: Arial, sans-serif;
+}
+
+/* Nation-Specific Color Themes */
+.datacard.datacard-german {
+    background-color: #797768;
+    border-color: #1a1a1a;
+}
+
+.datacard.datacard-german .datacard-title,
+.datacard.datacard-german .datacard-subtitle,
+.datacard.datacard-german .datacard-special-rules {
+    color: white;
+}
+
+.datacard.datacard-german th {
+    background-color: #ECD1A2;
+    color: #1a1a1a;
+}
+
+.datacard.datacard-german td {
+    background-color: #e8dcc8;
+    color: #1a1a1a;
+}
+
+.datacard.datacard-british {
+    background-color: #d4c5a0;
+    border-color: #2c2416;
+}
+
+.datacard.datacard-british th {
+    background-color: #8b7355;
+    color: white;
+}
+
+.datacard.datacard-british td {
+    background-color: #f5f5dc;
+    color: #1a1a1a;
+}
+
+.datacard.datacard-italian {
+    background-color: #739A64;
+    border-color: #5a4a2a;
+}
+
+.datacard.datacard-italian th {
+    background-color: #6b5d3f;
+    color: white;
+}
+
+.datacard.datacard-italian td {
+    background-color: #e8dcc0;
+    color: #1a1a1a;
+}
+
+.datacard.datacard-american {
+    background-color: #b8c5a0;
+    border-color: #3a4a2a;
+}
+
+.datacard.datacard-american th {
+    background-color: #5a6d45;
+    color: white;
+}
+
+.datacard.datacard-american td {
+    background-color: #dce8cf;
+    color: #1a1a1a;
+}
+
+.datacard.datacard-french {
+    background-color: #b8c4d4;
+    border-color: #2a3a4a;
+}
+
+.datacard.datacard-french th {
+    background-color: #4a5a6d;
+    color: white;
+}
+
+.datacard.datacard-french td {
+    background-color: #d8e4f4;
+    color: #1a1a1a;
+}
+
+.datacard-header {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 8px;
+    align-items: center;
+}
+
+.datacard-silhouette {
+    width: 140px;
+    height: 70px;
+    background-color: transparent;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    padding: 5px;
+}
+
+.datacard-silhouette img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    mix-blend-mode: multiply;
+}
+
+.datacard-title-block {
+    flex: 1;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.datacard-title {
+    font-weight: bold;
+    font-size: 16px;
+    margin: 0;
+    line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.datacard-subtitle {
+    font-size: 9px;
+    font-style: italic;
+    margin: 2px 0 0 0;
+    line-height: 1.2;
+}
+
+.datacard-special-rules {
+    font-size: 7px;
+    font-style: italic;
+    margin: 2px 0 0 0;
+    line-height: 1.2;
+    color: #5a4a3a;
+}
+
+.datacard table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2px 0;
+    font-size: 8px;
+}
+
+.datacard th {
+    background-color: #8b7355;
+    color: white;
+    font-weight: bold;
+    padding: 1px 2px;
+    border: 1px solid #2c2416;
+    text-align: center;
+}
+
+.datacard td {
+    background-color: #f5f5dc;
+    color: #1a1a1a;
+    padding: 1px 2px;
+    border: 1px solid #2c2416;
+    text-align: center;
+}
+"""
+
     # ============================================================================
     # EQUIPMENT DATABASE ENDPOINTS (Basic implementation)
     # ============================================================================
