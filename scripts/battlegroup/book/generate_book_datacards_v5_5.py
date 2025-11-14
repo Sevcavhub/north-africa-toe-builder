@@ -39,8 +39,18 @@ DATABASE_PATH = project_root / "database" / "master_database.db"
 UNITS_DIR = project_root / "data" / "output" / "units"
 OUTPUT_BASE = project_root / "books"
 
-# Battle definitions with quarters
+# Battle definitions with quarters (all 12 North Africa battles)
 BATTLES = {
+    'compass': {
+        'name': 'Operation Compass',
+        'quarters': ['1940q4'],
+        'output_dir': 'compass'
+    },
+    'sonnenblume': {
+        'name': 'Operation Sonnenblume',
+        'quarters': ['1941q1'],
+        'output_dir': 'sonnenblume'
+    },
     'battleaxe': {
         'name': 'Operation Battleaxe',
         'quarters': ['1941q2'],
@@ -56,10 +66,40 @@ BATTLES = {
         'quarters': ['1942q2'],
         'output_dir': 'gazala'
     },
+    'tobruk': {
+        'name': 'Fall of Tobruk',
+        'quarters': ['1942q2'],
+        'output_dir': 'tobruk'
+    },
     'alamein': {
         'name': 'First El Alamein',
         'quarters': ['1942q3'],
         'output_dir': 'first_alamein'
+    },
+    'alam_halfa': {
+        'name': 'Battle of Alam Halfa',
+        'quarters': ['1942q3'],
+        'output_dir': 'alam_halfa'
+    },
+    'second_alamein': {
+        'name': 'Second Battle of El Alamein',
+        'quarters': ['1942q4'],
+        'output_dir': 'second_alamein'
+    },
+    'torch': {
+        'name': 'Operation Torch',
+        'quarters': ['1942q4'],
+        'output_dir': 'torch'
+    },
+    'tunisia': {
+        'name': 'Tunisia Campaign',
+        'quarters': ['1943q1'],
+        'output_dir': 'tunisia'
+    },
+    'mareth': {
+        'name': 'Battle of Mareth Line',
+        'quarters': ['1943q1'],
+        'output_dir': 'mareth'
     }
 }
 
@@ -1442,9 +1482,144 @@ class BookDatacardGenerator:
         print(f"{'='*70}\n")
 
     def generate_all_books(self):
-        """Generate datacards for all 4 battle books."""
+        """Generate datacards for all 12 battle books."""
         for battle_key in BATTLES.keys():
             self.generate_book_datacards(battle_key)
+
+    def extract_equipment_from_scenario(self, scenario_path: Path) -> Set[str]:
+        """
+        Extract equipment IDs from a scenario markdown file.
+
+        Parses scenario markdown to find equipment mentioned in FORCES sections.
+        Looks for patterns like:
+        - "8x Matilda II"
+        - "2x 25-pdr"
+        - Equipment names in force lists
+
+        Returns:
+            Set of equipment IDs found in scenario
+        """
+        equipment_ids = set()
+
+        if not scenario_path.exists():
+            print(f"[WARNING] Scenario file not found: {scenario_path}")
+            return equipment_ids
+
+        with open(scenario_path, 'r', encoding='utf-8') as f:
+            content = f.read()
+
+        # Extract equipment from unit lines like "8x Matilda II (veteran) - 400 pts, BR: 2"
+        # Pattern: number + 'x' + equipment name + optional details
+        import re
+        unit_pattern = r'\d+x\s+([^(]+)'
+        matches = re.findall(unit_pattern, content)
+
+        for match in matches:
+            equipment_name = match.strip()
+
+            # Try to find matching equipment in database
+            cursor = self.conn.cursor()
+
+            # Try exact name match first
+            cursor.execute("""
+                SELECT canonical_id FROM equipment
+                WHERE LOWER(name) = LOWER(?)
+            """, (equipment_name,))
+            result = cursor.fetchone()
+
+            if result:
+                equipment_ids.add(result['canonical_id'])
+            else:
+                # Try fuzzy match (contains)
+                cursor.execute("""
+                    SELECT canonical_id FROM equipment
+                    WHERE LOWER(name) LIKE LOWER(?)
+                """, (f'%{equipment_name}%',))
+                result = cursor.fetchone()
+
+                if result:
+                    equipment_ids.add(result['canonical_id'])
+
+        return equipment_ids
+
+    def generate_scenario_datacards(self, battle_key: str, scenario_file: str):
+        """
+        Generate datacards only for equipment used in a specific scenario.
+
+        Args:
+            battle_key: Battle identifier (e.g., 'battleaxe')
+            scenario_file: Scenario filename (e.g., 'scenario_01.md')
+        """
+        if battle_key not in BATTLES:
+            print(f"Error: Unknown battle '{battle_key}'")
+            return
+
+        battle = BATTLES[battle_key]
+        output_dir = OUTPUT_BASE / battle['output_dir'] / "book" / "src"
+        scenario_path = output_dir / "scenarios" / scenario_file
+
+        print(f"\n{'='*70}")
+        print(f"Generating scenario-specific datacards for: {battle['name']}")
+        print(f"Scenario: {scenario_file}")
+        print(f"{'='*70}\n")
+
+        # Extract equipment from scenario
+        equipment_ids = self.extract_equipment_from_scenario(scenario_path)
+
+        if not equipment_ids:
+            print("[WARNING] No equipment found in scenario file")
+            return
+
+        print(f"Found {len(equipment_ids)} unique equipment items in scenario\n")
+
+        # Generate datacards organized by category (pass IDs, not dicts)
+        categorized_equipment = self.categorize_equipment(equipment_ids)
+
+        chapter2_dir = output_dir / "chapter2"
+        chapter2_dir.mkdir(parents=True, exist_ok=True)
+
+        print(f"Output directory: {chapter2_dir}\n")
+
+        # Generate datacards by category (same pattern as generate_book_datacards)
+        for category, equipment_list in categorized_equipment.items():
+            # Deduplicate by canonical_id
+            seen_ids = set()
+            unique_equipment = []
+            for equipment in equipment_list:
+                if equipment['canonical_id'] not in seen_ids:
+                    seen_ids.add(equipment['canonical_id'])
+                    unique_equipment.append(equipment)
+
+            print(f"{category}: {len(unique_equipment)} items (scenario-specific)")
+
+            # Sort by nation then name
+            unique_equipment.sort(key=lambda x: (x['nation'], x['name']))
+
+            # Generate markdown file
+            category_file = category.lower().replace(' ', '_').replace('&', 'and') + '.md'
+            output_file = chapter2_dir / category_file
+
+            with open(output_file, 'w', encoding='utf-8') as f:
+                # Write title
+                f.write(f"# {category}\n\n")
+
+                # Write CSS (same as generate_book_datacards - omitted for brevity, just write datacards)
+                f.write('<div class="datacard-grid">\n\n')
+
+                # Generate all datacards in one continuous grid
+                for equipment in unique_equipment:
+                    datacard = self.generate_datacard_markdown(equipment, 'r')
+                    f.write(datacard)
+                    f.write('\n')
+
+                # Close grid
+                f.write("</div>\n")
+
+            print(f"  -> {output_file.name}\n")
+
+        print(f"{'='*70}")
+        print(f"Scenario datacard generation complete")
+        print(f"{'='*70}\n")
 
     def close(self):
         """Close database connection."""
@@ -1456,26 +1631,45 @@ def main():
     import argparse
 
     parser = argparse.ArgumentParser(
-        description="Phase 9B Step 7: Book Equipment Datacard Generator"
+        description="Phase 9B Step 7: Book Equipment Datacard Generator v5.5",
+        epilog="""
+Examples:
+  %(prog)s --battle battleaxe              # Generate all datacards for Battleaxe
+  %(prog)s --all                           # Generate datacards for all 12 battles
+  %(prog)s --scenario battleaxe scenario_01.md  # Generate only equipment from specific scenario
+        """
     )
     parser.add_argument(
         "--battle",
-        choices=['battleaxe', 'crusader', 'gazala', 'alamein'],
-        help="Generate datacards for specific battle"
+        choices=list(BATTLES.keys()),
+        help="Generate datacards for specific battle (one of 12 North Africa battles)"
     )
     parser.add_argument(
         "--all",
         action="store_true",
-        help="Generate datacards for all 4 battles"
+        help="Generate datacards for all 12 battles"
+    )
+    parser.add_argument(
+        "--scenario",
+        nargs=2,
+        metavar=('BATTLE', 'SCENARIO_FILE'),
+        help="Generate datacards only for equipment in specific scenario (e.g., --scenario battleaxe scenario_01.md)"
     )
 
     args = parser.parse_args()
+
+    # Validate arguments
+    if not args.battle and not args.all and not args.scenario:
+        parser.error("Must specify --battle, --all, or --scenario")
 
     generator = BookDatacardGenerator()
 
     try:
         if args.all:
             generator.generate_all_books()
+        elif args.scenario:
+            battle_key, scenario_file = args.scenario
+            generator.generate_scenario_datacards(battle_key, scenario_file)
         elif args.battle:
             generator.generate_book_datacards(args.battle)
         else:
