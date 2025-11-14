@@ -304,7 +304,7 @@ def create_app():
                     # Generate datacards
                     for equipment_name in equipment_names:
                         bg_vehicle = generator.lookup_bg_builder_vehicle(equipment_name)
-                        bg_weapon = generator.lookup_bg_builder_weapon(equipment_name)
+                        bg_weapon = generator.lookup_bg_builder_weapon_by_name(equipment_name)
 
                         if bg_vehicle or bg_weapon:
                             found_equipment.append(equipment_name)
