@@ -57,19 +57,23 @@ def resolve_equipment_canonical_id(display_name: str) -> Optional[str]:
     display_name = display_name.strip()
 
     # Strategy 1: Lookup table (fastest, most accurate)
-    cursor.execute("""
-        SELECT canonical_id, category
-        FROM equipment_name_aliases
-        WHERE alias = ?
-    """, (display_name,))
+    try:
+        cursor.execute("""
+            SELECT canonical_id, category
+            FROM equipment_name_aliases
+            WHERE alias = ?
+        """, (display_name,))
 
-    result = cursor.fetchone()
-    if result:
-        canonical_id, category = result
-        # Verify it's in our datacard categories
-        if category in DATACARD_CATEGORIES:
-            conn.close()
-            return canonical_id
+        result = cursor.fetchone()
+        if result:
+            canonical_id, category = result
+            # Verify it's in our datacard categories
+            if category in DATACARD_CATEGORIES:
+                conn.close()
+                return canonical_id
+    except sqlite3.OperationalError:
+        # Table doesn't exist - skip to next strategy
+        pass
 
     # Strategy 2: Fuzzy match in equipment table
     # Try exact match first
