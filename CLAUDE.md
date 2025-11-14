@@ -59,12 +59,14 @@ As you work, update relevant files with:
 - ✅ **CAN** work on ammo data research (Jane's guide, online sources)
 - ✅ **CAN** work on web development (GitHub Pages, Render.com API)
 - ✅ **CAN** regenerate datacards using scenario-based generator (generate_book_datacards_from_scenarios.py)
+- ✅ **CAN** use OSJones Builder army list parser for custom datacard generation
 - ✅ **MUST** verify patterns before creating new files (check existing structure first)
 - ✅ **READ Data Quality section below** - critical for understanding data source hierarchy
 
 **Database Status**:
 - Location: `D:\north-africa-toe-builder\database\master_database.db`
 - Clean data: 205 manually-entered BG vehicles (bg_reference_vehicles), 57 guns (bg_reference_guns)
+- **OSJones Builder data**: bg_builder_vehicles (602), bg_builder_weapons (239), bg_builder_vehicle_costs (703)
 - Suspect data: equipment_battlegroup conversions (469 items with bad OCR-derived stats)
 - Good technical specs: WWIITANKS (612 AFVs), OnWar (213 AFVs), guns table (350 guns)
 - Tables: 18 tables (see PHASE_ARCHITECTURE_MAP.md)
@@ -78,6 +80,7 @@ As you work, update relevant files with:
 - **Backend API**: Render.com (https://north-africa-toe-api.onrender.com)
 - **Books**: 12 MDBook HTML outputs deployed
 - **Datacards**: V5.5 format with scenario-based generation (November 14, 2025 fix)
+- **Army List Tool**: OSJones Builder parser integrated (November 14, 2025) ✅ **NEW**
 
 ---
 
@@ -275,6 +278,72 @@ As you work, update relevant files with:
 - `PHASE_9B_SESSION_SUMMARY.md` - Detailed session history and on-hold explanation (**UPDATED 2025-11-05**)
 - `PHASE_9B_NEXT_STEPS.md` - Current tasks and reduced scope approach (**UPDATED 2025-11-05**)
 - `schemas/unified_toe_schema.json` - Data structure requirements
+
+---
+
+## 🌐 Web Tools & Interactive Features (November 14, 2025)
+
+**Live Deployment**: https://sevcavhub.github.io/north-africa-toe-builder/
+
+### **Interactive Tools Page** (tools.html)
+Location: https://sevcavhub.github.io/north-africa-toe-builder/tools.html
+
+**Available Tools**:
+1. **🎲 Random Scenario Generator** - Generate balanced scenarios with specified points/nations
+2. **📜 Historical Scenario Generator** - Create historically accurate battles
+3. **🖨️ Printable Scenarios** - Print-ready HTML with embedded AFV datacards
+4. **🔍 Equipment Search** - Search database by name, nation, or category
+5. **🎨 Army List Datacard Generator** ← **NEW** (November 14, 2025)
+
+### **Army List Datacard Generator Tool**
+
+**Purpose**: Generate BattleGroup V5.5 datacards from OSJones Builder army lists
+
+**Workflow**:
+1. User visits https://osjones.github.io/BattlegroupBuilder/
+2. Builds army list in OSJones Builder
+3. Clicks "Print" button and copies formatted output (Ctrl+A, Ctrl+C)
+4. Pastes into textarea on tools page
+5. Clicks "🎨 Generate Datacards"
+6. Downloads markdown files OR opens printable HTML
+
+**Technical Architecture**:
+- **Frontend**: `tools.html` (lines 511-987)
+  - Large textarea for OSJones output (12 rows, monospace)
+  - JavaScript form handler calls API endpoint
+  - Results display with force summary, equipment lists, download buttons
+- **Backend**: `scripts/battlegroup/web/railway_app.py` (lines 238-350)
+  - Endpoint: `POST /api/datacards/osjones`
+  - Accepts: JSON `{ "army_list_text": "..." }`
+  - Returns: Force metadata, equipment found/not found, datacard markdown
+- **Parser**: `scripts/battlegroup/book/parse_osjones_army_list.py` (384 lines)
+  - Extracts equipment from stat tables and unit composition lines
+  - Filters infantry, support elements, generic labels
+  - Gun caliber extraction (76.2mmL51, 150mmL30)
+- **Generator**: `scripts/battlegroup/book/generate_datacards_from_army_list.py` (735 lines)
+  - Looks up equipment in bg_builder_vehicles (602) and bg_builder_weapons (239)
+  - Generates V5.5 format datacards with nation colors
+  - Outputs: tanks.md, guns_and_artillery.md, vehicles.md
+
+**Database Tables Used**:
+- `bg_builder_vehicles` - 602 vehicles from OSJones Builder data
+- `bg_builder_weapons` - 239 weapons with HE/AP values
+- `bg_builder_vehicle_costs` - 703 cost entries (points/BR by force/experience)
+
+**Example Output**:
+- Force: Deutsches Afrikakorps (496 pts, 31 BR)
+- Equipment: 13 items extracted, 11 found in database (85% success)
+- Datacards: V5.5 format with CSS, downloadable markdown, printable HTML
+
+**Integration Points**:
+- Render.com API: https://north-africa-toe-api.onrender.com/api/datacards/osjones
+- GitHub Pages: Frontend auto-deploys from main branch
+- Database: Uses same master_database.db as book generation
+
+**Documentation**:
+- User guide: `docs/ARMY_LIST_DATACARD_GENERATOR.md` (405 lines)
+- Parser usage: `python parse_osjones_army_list.py --help`
+- API reference: Visit /api endpoint for full documentation
 
 ---
 

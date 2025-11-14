@@ -1,9 +1,63 @@
 # Phase 9B BattleGroup System - Session Summary
 
-**Date**: October 31 - November 12, 2025 (Updated Nov 12 - Historical Accuracy Corrections Applied)
-**Duration**: ~35 hours development + ongoing manual data extraction
+**Date**: October 31 - November 14, 2025 (Updated Nov 14 - OSJones Army List Tool Added)
+**Duration**: ~38 hours development + ongoing manual data extraction
 **Phase**: 9B - BattleGroup Book Generation
-**Status**: ⏸️ **ON HOLD** - Reference data quality issues discovered, manual re-extraction in progress + **CRITICAL FIX APPLIED** (Nov 12)
+**Status**: ✅ **ACTIVE** - Web tools operational, OSJones army list parser integrated (Nov 14)
+
+---
+
+## 🎨 NEW FEATURE: OSJones Army List Datacard Generator (November 14, 2025)
+
+**What Was Built**: Complete end-to-end web tool for generating BattleGroup datacards from OSJones Builder army lists
+
+**Implementation**:
+1. **Parser** (`parse_osjones_army_list.py` - 384 lines):
+   - Parses OSJones Builder print output format
+   - Extracts equipment from vehicle stat tables (Movement/Armour/Weapon columns)
+   - Parses unit composition lines (e.g., "3 Panzer II/Fs", "76.2mmL51 Gun")
+   - Filters out infantry, support elements, generic section headers
+   - Gun caliber extraction with regex pattern matching
+
+2. **Backend API** (`railway_app.py` lines 238-350):
+   - New endpoint: `POST /api/datacards/osjones`
+   - Accepts OSJones Builder text as JSON input
+   - Returns force metadata + datacard markdown by category
+   - Uses bg_builder_vehicles (602) and bg_builder_weapons (239) tables
+   - Comprehensive error handling with logging
+
+3. **Frontend Tool** (`tools.html` lines 511-987):
+   - New tool card "Army List Datacard Generator"
+   - Large textarea for pasting OSJones output (12 rows, monospace)
+   - Results display with force summary, equipment lists
+   - Download buttons for markdown files (.md)
+   - "Open Printable Datacards" button (HTML in new window)
+
+**User Workflow**:
+1. Visit https://osjones.github.io/BattlegroupBuilder/ and build army
+2. Click "Print" and copy formatted output (Ctrl+A, Ctrl+C)
+3. Paste into textarea on https://sevcavhub.github.io/north-africa-toe-builder/tools.html
+4. Click "🎨 Generate Datacards"
+5. Download individual .md files OR open printable HTML
+
+**Test Results**:
+- Deutsches Afrikakorps test list: 13 equipment items extracted
+- 11/13 found in database (85% success rate)
+- Generated: tanks.md (10 items), guns_and_artillery.md (1 item)
+- Missing: 2 items (alternate naming, needs alias mapping)
+
+**Integration**:
+- Live at: https://sevcavhub.github.io/north-africa-toe-builder/tools.html
+- API: https://north-africa-toe-api.onrender.com/api/datacards/osjones
+- Deploys automatically via GitHub Pages + Render.com
+
+**Documentation**:
+- User guide: `docs/ARMY_LIST_DATACARD_GENERATOR.md` (405 lines)
+- Complete usage examples, troubleshooting, database schema reference
+
+**Commits**:
+- `a1fca0fa` - Parser and datacard generator (November 14)
+- `76f24b65` - Web integration (November 14)
 
 ---
 
