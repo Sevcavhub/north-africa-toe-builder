@@ -14,8 +14,8 @@ class RailwayConfig:
     PROJECT_ROOT = Path(__file__).parent
 
     # Database configuration
-    # Use stripped database for web deployment (6.58 MB vs 15.57 MB)
-    DATABASE_PATH = PROJECT_ROOT / "database" / "web_database.db"
+    # Use master database (web_database.db doesn't exist yet)
+    DATABASE_PATH = PROJECT_ROOT / "database" / "master_database.db"
     SQLALCHEMY_DATABASE_URI = f"sqlite:///{DATABASE_PATH}"
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
