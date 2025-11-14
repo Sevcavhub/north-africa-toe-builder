@@ -1075,6 +1075,8 @@ class BookDatacardGenerator:
             # Replace illegal file path characters (like '/') with an underscore '_'
             search_name = search_name.replace('/', '_')
             # --------------------------------
+
+            # Try exact match first
             silhouette_path = silhouette_base / nation / "Side" / f"{search_name}.png"
             if silhouette_path.exists():
                 # Embed image as base64 data URI for portability
@@ -1082,6 +1084,18 @@ class BookDatacardGenerator:
                     img_data = base64.b64encode(img_file.read()).decode('utf-8')
                     silhouette_html = f'<img src="data:image/png;base64,{img_data}" alt="{search_name}">'
                 break
+
+            # Try case-insensitive search if exact match failed
+            side_dir = silhouette_base / nation / "Side"
+            if side_dir.exists():
+                for file in side_dir.iterdir():
+                    if file.name.lower() == f"{search_name.lower()}.png":
+                        with open(file, 'rb') as img_file:
+                            img_data = base64.b64encode(img_file.read()).decode('utf-8')
+                            silhouette_html = f'<img src="data:image/png;base64,{img_data}" alt="{search_name}">'
+                        break
+                if silhouette_html != '<span style="color: white; font-size: 10px;">🔲</span>':
+                    break
 
         template = f"""<div class="datacard datacard-{nation}">
 <div class="datacard-header">
