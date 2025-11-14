@@ -11,14 +11,14 @@
 # Scenarios
 
 - [Scenarios Overview](./scenarios/overview.md)
-  - [Scenario 1](./scenarios/scenario_01.md)
-  - [Scenario 2](./scenarios/scenario_02.md)
-  - [Scenario 3](./scenarios/scenario_03.md)
-  - [Scenario 4](./scenarios/scenario_04.md)
-  - [Scenario 5](./scenarios/scenario_05.md)
-  - [Scenario 6](./scenarios/scenario_06.md)
-  - [Scenario 7](./scenarios/scenario_07.md)
-  - [Scenario 8](./scenarios/scenario_08.md)
+  - [1. Dawn Assault on Nibeiwa](./scenarios/scenario_01.md)
+  - [2. Breakout at Sidi Barrani](./scenarios/scenario_02.md)
+  - [3. Raid on Point 90](./scenarios/scenario_03.md)
+  - [4. Defense of Bardia Harbor](./scenarios/scenario_04.md)
+  - [5. Tobruk Breakthrough](./scenarios/scenario_05.md)
+  - [6. The Desert Chase](./scenarios/scenario_06.md)
+  - [7. Last Stand at Beda Fomm](./scenarios/scenario_07.md)
+  - [8. Roadblock at Sidi Saleh](./scenarios/scenario_08.md)
 
 # Forces
 
