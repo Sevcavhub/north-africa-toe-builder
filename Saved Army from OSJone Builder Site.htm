@@ -1,0 +1,454 @@
+
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <link type="text/css" href="css/jquery-ui.css" rel="Stylesheet" />
+        <link type="text/css" href="css/bgb.css" rel="Stylesheet" />
+        <link type="text/css" href="css/navbar.css" rel="Stylesheet" />
+        <!--<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>-->
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <!--<script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>-->
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/1.5.25/jquery.isotope.min.js"></script>
+        <script type="text/javascript" src="js/weapons.js"></script>
+        <script type="text/javascript" src="js/vehicles.js"></script>
+        <script type="text/javascript" src="js/forces.js"></script>
+        <script type="text/javascript" src="js/bgb-core.js"></script>
+
+        <!--<script type="text/javascript" src="js/page_counts.js"></script>-->
+
+
+        <!-- This is to offset the page count hit from loading the Kursk German Panzer Division as the default-->
+        <!--<script async src="https://api.countapi.xyz/update/osjones.github.io/Kursk_A5_German_Panzer_Division?amount=-1"></script>-->
+
+        <!-- Kursk
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Kursk_A5_German_Panzer_Division?callback=callbackName_Kursk_A5_German_Panzer_Division"></script>
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Kursk_A5_German_Infantry_Division?callback=callbackName_Kursk_A5_German_Infantry_Division"></script>
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Kursk_A5_Russian_Tank_Corps?callback=callbackName_Kursk_A5_Russian_Tank_Corps"></script>
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Kursk_A5_Russian_Rifle_Division?callback=callbackName_Kursk_A5_Russian_Rifle_Division"></script>
+        -->
+        <!-- Overlord
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Overlord_A5_British_6th_Airborne_Division?callback=callbackName_Overlord_A5_British_6th_Airborne_Division"></script>
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Overlord_A5_British_Amphibious_Assault_Battlegroup?callback=callbackName_Overlord_A5_British_Amphibious_Assault_Battlegroup"></script>
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Overlord_A5_US_Airborne_Division?callback=callbackName_Overlord_A5_US_Airborne_Division"></script>
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Overlord_A5_US_Amphibious_Assault_Battlegroup?callback=callbackName_Overlord_A5_US_Amphibious_Assault_Battlegroup"></script>
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Overlord_A5_German_Atlantic_Wall_Resistance_Nest?callback=callbackName_Overlord_A5_German_Atlantic_Wall_Resistance_Nest"></script>
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Overlord_A5_German_21_Panzer_Division?callback=callbackName_Overlord_A5_German_21_Panzer_Division"></script>
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Overlord_A5_British_Armoured_Division?callback=callbackName_Overlord_A5_British_Armoured_Division"></script>
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Overlord_A5_British_Infantry_Division?callback=callbackName_Overlord_A5_British_Infantry_Division"></script>
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Overlord_A5_US_Armoured_Division?callback=callbackName_Overlord_A5_US_Armoured_Division"></script>
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Overlord_A5_US_Infantry_Division?callback=callbackName_Overlord_A5_US_Infantry_Division"></script>
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Overlord_A5_German_Panzer_Division?callback=callbackName_Overlord_A5_German_Panzer_Division"></script>
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Overlord_A5_German_Fallschirmjager_Battlegroup?callback=callbackName_Overlord_A5_German_Fallschirmjager_Battlegroup"></script>
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Overlord_A5_Luftwaffe_Field_Division?callback=callbackName_Overlord_A5_Luftwaffe_Field_Division"></script>
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Overlord_A5_German_Infantry_Division?callback=callbackName_Overlord_A5_German_Infantry_Division"></script>
+        -->
+        <!-- Fall of the Reich
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Fall_of_the_Reich_A5_British_Battlegroup?callback=callbackName_Fall_of_the_Reich_A5_British_Battlegroup"></script>
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Fall_of_the_Reich_A5_Russian_Rifle_Battlegroup?callback=callbackName_Fall_of_the_Reich_A5_Russian_Rifle_Battlegroup"></script>
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Fall_of_the_Reich_A5_Defence_of_the_Reich_Battlegroup?callback=callbackName_Fall_of_the_Reich_A5_Defence_of_the_Reich_Battlegroup"></script>
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Fall_of_the_Reich_A5_US_Armoured_Division?callback=callbackName_Fall_of_the_Reich_A5_US_Armoured_Division"></script>
+        -->
+        <!-- Barbarossa
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Barbarossa_A5_German_Panzer_Division?callback=callbackName_Barbarossa_A5_German_Panzer_Division"></script>
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Barbarossa_A5_German_Infantry_Division?callback=callbackName_Barbarossa_A5_German_Infantry_Division"></script>
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Barbarossa_A5_Finnish_Infantry_Division?callback=callbackName_Barbarossa_A5_Finnish_Infantry_Division"></script>
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Barbarossa_A5_Hungarian_Rapid_Corps?callback=callbackName_Barbarossa_A5_Hungarian_Rapid_Corps"></script>
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Barbarossa_A5_Rumanian_Infantry_Division?callback=callbackName_Barbarossa_A5_Rumanian_Infantry_Division"></script>
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Barbarossa_A5_Russian_Mechanised_Corps?callback=callbackName_Barbarossa_A5_Russian_Mechanised_Corps"></script>
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Barbarossa_A5_Russian_Rifle_Division?callback=callbackName_Barbarossa_A5_Russian_Rifle_Division"></script>
+        -->
+        <!-- Battlegroup Rulebook
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Rulebook_A5_12_SS_Panzer_Division?callback=callbackName_Rulebook_A5_12_SS_Panzer_Division"></script>
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Rulebook_A5_Canadian_3rd_Infantry_Division_Battlegroup?callback=callbackName_Rulebook_A5_Canadian_3rd_Infantry_Division_Battlegroup"></script>
+        -->
+        <!-- Dispatches
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Dispatches_A5_7_SS_Division?callback=callbackName_Dispatches_A5_7_SS_Division"></script>
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Dispatches_A5_Partisan_Battlegroup?callback=callbackName_Dispatches_A5_Partisan_Battlegroup"></script>
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Dispatches_A5_Slovak_Rapid_Brigade?callback=callbackName_Dispatches_A5_Slovak_Rapid_Brigade"></script>
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Dispatches_A5_Royal_Netherlands_Army?callback=callbackName_Dispatches_A5_Royal_Netherlands_Army"></script>
+        -->
+        <!-- Wacht Am Rhein
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Wacht_Am_Rhein_A5_German_Panzer_Division?callback=callbackName_Wacht_Am_Rhein_A5_German_Panzer_Division"></script>
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Wacht_Am_Rhein_A5_German_Fallschirmjager_Battlegroup?callback=callbackName_Wacht_Am_Rhein_A5_German_Fallschirmjager_Battlegroup"></script>
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Wacht_Am_Rhein_A5_German_Infanterie_Division?callback=callbackName_Wacht_Am_Rhein_A5_German_Infanterie_Division"></script>
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Wacht_Am_Rhein_A5_German_Volksgrenadier_Battlegroup?callback=callbackName_Wacht_Am_Rhein_A5_German_Volksgrenadier_Battlegroup"></script>
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Wacht_Am_Rhein_A5_US_Armoured_Division?callback=callbackName_Wacht_Am_Rhein_A5_US_Armoured_Division"></script>
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Wacht_Am_Rhein_A5_US_Infantry_Division?callback=callbackName_Wacht_Am_Rhein_A5_US_Infantry_Division"></script>
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Wacht_Am_Rhein_A5_US_Airborne_Division?callback=callbackName_Wacht_Am_Rhein_A5_US_Airborne_Division"></script>
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Wacht_Am_Rhein_A5_Kampfgruppe_Peiper?callback=callbackName_Wacht_Am_Rhein_A5_Kampfgruppe_Peiper"></script>
+        -->
+        <!-- Tobruk
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Tobruk_A5_Italian_Infantry_Division?callback=callbackName_Tobruk_A5_Italian_Infantry_Division"></script>
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Tobruk_A5_Italian_Infantry_Division_East_Africa?callback=callbackName_Tobruk_A5_Italian_Infantry_Division_East_Africa"></script>
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Tobruk_A5_132nd_Armoured_Division?callback=callbackName_Tobruk_A5_132nd_Armoured_Division"></script>
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Tobruk_A5_British_Armoured_Division?callback=callbackName_Tobruk_A5_British_Armoured_Division"></script>
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Tobruk_A5_British_Infantry_Division?callback=callbackName_Tobruk_A5_British_Infantry_Division"></script>
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Tobruk_A5_British_Infantry_Division_East_Africa?callback=callbackName_Tobruk_A5_British_Infantry_Division_East_Africa"></script>
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Tobruk_A5_Long_Range_Desert_Group_Patrol?callback=callbackName_Tobruk_A5_Long_Range_Desert_Group_Patrol"></script>
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Tobruk_A5_Auto_Saharana_Patrol?callback=callbackName_Tobruk_A5_Auto_Saharana_Patrol"></script>
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Tobruk_A5_Deutsches_Afrikakorps?callback=callbackName_Tobruk_A5_Deutsches_Afrikakorps"></script>
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Tobruk_A5_7th_Flieger_Division?callback=callbackName_Tobruk_A5_7th_Flieger_Division"></script>
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Tobruk_A5_Creforce?callback=callbackName_Tobruk_A5_Creforce"></script>
+        -->
+        <!-- Market Garden
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Market_Garden_A5_German_Panzer_Division?callback=callbackName_Market_Garden_A5_German_Panzer_Division"></script>
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Market_Garden_A5_German_Fallschirmjager_Battlegroup?callback=callbackName_Market_Garden_A5_German_Fallschirmjager_Battlegroup"></script>
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Market_Garden_A5_German_Infanterie_Division?callback=callbackName_Market_Garden_A5_German_Infanterie_Division"></script>
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Market_Garden_A5_British_Armoured_Division?callback=callbackName_Market_Garden_A5_British_Armoured_Division"></script>
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Market_Garden_A5_British_Infantry_Division?callback=callbackName_Market_Garden_A5_British_Infantry_Division"></script>
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Market_Garden_A5_British_1st_Airborne_Division?callback=callbackName_Market_Garden_A5_British_1st_Airborne_Division"></script>
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Market_Garden_A5_US_Airborne_Division?callback=callbackName_Market_Garden_A5_US_Airborne_Division"></script>
+        -->
+        <!-- Spring Awakening
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Spring_Awakening_A5_Russian_Rifle_Battlegroup?callback=callbackName_Spring_Awakening_A5_Russian_Rifle_Battlegroup"></script>
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Spring_Awakening_A5_German_Panzer_Division_Battlegroup?callback=callbackName_Spring_Awakening_A5_German_Panzer_Division_Battlegroup"></script>
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Spring_Awakening_A5_Hungarian_Battlegroup?callback=callbackName_Spring_Awakening_A5_Hungarian_Battlegroup"></script>
+        -->
+        <!-- Stalingrad
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Stalingrad_A5_German_Infantry_Division?callback=callbackName_Stalingrad_A5_German_Infantry_Division"></script>
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Stalingrad_A5_German_Panzer_Division?callback=callbackName_Stalingrad_A5_German_Panzer_Division"></script>
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Stalingrad_A5_German_Stalingrad_StoBgruppe?callback=callbackName_Stalingrad_A5_German_Stalingrad_StoBgruppe"></script>
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Stalingrad_A5_Russian_Rifle_Division?callback=callbackName_Stalingrad_A5_Russian_Rifle_Division"></script>
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Stalingrad_A5_Russian_Tank_Corps?callback=callbackName_Stalingrad_A5_Russian_Tank_Corps"></script>
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Stalingrad_A5_Russian_Defenders_of_Stalingrad?callback=callbackName_Stalingrad_A5_Russian_Defenders_of_Stalingrad"></script>
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Stalingrad_A5_Hungarian_Armoured_Division?callback=callbackName_Stalingrad_A5_Hungarian_Armoured_Division"></script>
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Stalingrad_A5_Hungarian_Light_Field_Division?callback=callbackName_Stalingrad_A5_Hungarian_Light_Field_Division"></script>
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Stalingrad_A5_Rumanian_Battlegroup?callback=callbackName_Stalingrad_A5_Rumanian_Battlegroup"></script>
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Stalingrad_A5_Italian_Infantry_Division?callback=callbackName_Stalingrad_A5_Italian_Infantry_Division"></script>
+        -->
+        <!-- Torch
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Torch_A5_British_Armoured_Division?callback=callbackName_Torch_A5_British_Armoured_Division"></script>
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Torch_A5_British_Armoured_Division___Tunisia?callback=callbackName_Torch_A5_British_Armoured_Division___Tunisia"></script>
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Torch_A5_British_Infantry_Division?callback=callbackName_Torch_A5_British_Infantry_Division"></script>
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Torch_A5_British_Infantry_Division___Tunisia?callback=callbackName_Torch_A5_British_Infantry_Division___Tunisia"></script>
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Torch_A5_Deutsches_Afrikakorps?callback=callbackName_Torch_A5_Deutsches_Afrikakorps"></script>
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Torch_A5_Defence_of_Tunisia_Battlegroup?callback=callbackName_Torch_A5_Defence_of_Tunisia_Battlegroup"></script>
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Torch_A5_Italian_Armoured_Division?callback=callbackName_Torch_A5_Italian_Armoured_Division"></script>
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Torch_A5_Italian_Infantry_Division?callback=callbackName_Torch_A5_Italian_Infantry_Division"></script>
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Torch_A5_American_Armoured_Division?callback=callbackName_Torch_A5_American_Armoured_Division"></script>
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Torch_A5_American_Infantry_Division?callback=callbackName_Torch_A5_American_Infantry_Division"></script>
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Torch_A5_French_March_Division?callback=callbackName_Torch_A5_French_March_Division"></script>
+        -->
+        <!-- Blitzkrieg
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Blitzkrieg_A5_Polish_Battlegroup?callback=callbackName_Blitzkrieg_A5_Polish_Battlegroup"></script>
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Blitzkrieg_A5_German_Battlegroup_1939?callback=callbackName_Blitzkrieg_A5_German_Battlegroup_1939"></script>
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Blitzkrieg_A5_German_Panzer_Division_1940?callback=callbackName_Blitzkrieg_A5_German_Panzer_Division_1940"></script>
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Blitzkrieg_A5_German_Infantry_Division_1940?callback=callbackName_Blitzkrieg_A5_German_Infantry_Division_1940"></script>
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Blitzkrieg_A5_British_Expeditionary_Force?callback=callbackName_Blitzkrieg_A5_British_Expeditionary_Force"></script>
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Blitzkrieg_A5_French_Light_Mechanised_Division?callback=callbackName_Blitzkrieg_A5_French_Light_Mechanised_Division"></script>
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Blitzkrieg_A5_French_Armoured_Division?callback=callbackName_Blitzkrieg_A5_French_Armoured_Division"></script>
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Blitzkrieg_A5_French_Infantry_Division?callback=callbackName_Blitzkrieg_A5_French_Infantry_Division"></script>
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Blitzkrieg_A5_Belgian_Infantry_Division?callback=callbackName_Blitzkrieg_A5_Belgian_Infantry_Division"></script>
+        -->
+        <!-- Pacific War
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Pacific_War_A5_Japanese_Infantry_Division?callback=callbackName_Pacific_War_A5_Japanese_Infantry_Division"></script>
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Pacific_War_A5_Japanese_Island_Garrison?callback=callbackName_Pacific_War_A5_Japanese_Island_Garrison"></script>
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Pacific_War_A5_Japanese_Island_Garrison_Kofuku_Shinai?callback=callbackName_Pacific_War_A5_Japanese_Island_Garrison_Kofuku_Shinai"></script>
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Pacific_War_A5_United_States_Marine_Corps?callback=callbackName_Pacific_War_A5_United_States_Marine_Corps"></script>
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Pacific_War_A5_United_States_Infantry_Division?callback=callbackName_Pacific_War_A5_United_States_Infantry_Division"></script>
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Pacific_War_A5_British_Infantry_Division?callback=callbackName_Pacific_War_A5_British_Infantry_Division"></script>
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Pacific_War_A5_Australian_Infantry_Division?callback=callbackName_Pacific_War_A5_Australian_Infantry_Division"></script>
+        -->
+        <!-- Westwall
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Westwall_A5_German_Infantry_Division?callback=callbackName_Westwall_A5_German_Infantry_Division"></script>
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Westwall_A5_German_Volksgrenadier_Division?callback=callbackName_Westwall_A5_German_Volksgrenadier_Division"></script>
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Westwall_A5_United_States_Infantry_Division?callback=callbackName_Westwall_A5_United_States_Infantry_Division"></script>
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Westwall_A5_United_States_Armoured_Division?callback=callbackName_Westwall_A5_United_States_Armoured_Division"></script>
+        <script async src="https://api.countapi.xyz/get/osjones.github.io/Westwall_A5_German_Panzer_Brigade?callback=callbackName_Westwall_A5_German_Panzer_Brigade"></script>
+        -->
+
+        <script>
+            $( function() {
+                $( "#dialog" ).dialog({width:'1000', height:'850', modal:true, resizable:false});
+              } );
+        </script>
+        <script>
+            $( function() {
+                $( "#tabs" ).tabs();
+              } );
+        </script>
+
+    </head>
+
+
+    <body>
+            <div id="dialog" Title="Welcome to Battlegroup Builder!">
+              <img src="images/logo.png" width="915" alt="Don't worry about me, I don't want to be found"><br>
+              <div id="tabs">
+                <ul>
+                  <li><a href="#tabs-1">Latest Additions</a></li>
+                <!--  <li><a href="#tabs-2">Page views</a></li>-->
+                </ul>
+                <div id="tabs-1">
+                    <p>
+                      2025/08/27 : Corrected Pacific War / Japanese Infantry Division entries<br>
+                      2025/05/29 : Corrected 75mmL30 gun entry<br>
+                      2025/04/24 : Corrected 75mmL43 gun entry<br>
+                      2025/02/23 : Corrected <i>Bagration</i> / Russian Partisan Battlegroup - Dispirited Enemy<br>
+                      2024/09/11 : Corrected <i>Barbarossa</i> / Russian Battlegroups - Command Chaos<br>
+                      2024/09/11 : Corrected <i>Barbarossa</i> / Russian Battlegroups - BA-10 weapon<br>
+                      2024/09/11 : Corrected <i>Barbarossa</i> / German Panzer Division - Panzer 35(t) Squadron<br>
+                      2024/09/10 : Corrected <i>Barbarossa</i> / German Panzer Division - added Armoured Cars to Recce<br>
+                      2024/07/26 : Updated <i>Overlord</i> / 21. Panzer Division<br>
+                      2024/07/15 : Added <i>Bagration</i> / German 5th Panzer Division (Borisov Campaign)<br>
+                      2024/07/10 : Added <i>Bagration</i> / Finnish Infantry Division<br>
+                      2024/07/10 : Added <i>Bagration</i> / German Security Division<br>
+                      2024/07/02 : Added <i>Bagration</i> / German Infantry Division<br>
+                      2024/07/01 : Added <i>Bagration</i> / German Panzer Division<br>
+                      2024/07/01 : Added <i>Bagration</i> / Russian Partisan Brigade<br>
+                      2024/06/28 : Added <i>Bagration</i> / Russian Mechanised Cavalry<br>
+                      2024/06/27 : Added <i>Bagration</i> / Russian Tank Corps<br>
+                      2024/06/24 : Added <i>Bagration</i> / Russian Rifle Division<br>
+                      2024/06/03 : Added <i>Military Miniature Press</i> Far East 1942 - British Infantry Division<br>
+                      2024/05/26 : Added <i>Military Miniature Press</i> Pacific 1941-42 - Japanese Infantry Battlegroup<br>
+                      2024/05/26 : Added missing Cruiser tank platoon to <i>Blitzkrieg</i> British Expeditionary Force<br>
+                      2024/04/16 : Corrected vehicle reference for M10 in <i>Torch</i> American Armoured Division<br>
+                      2024/01/29 : Corrected options for <i>Barbarossa</i> German Panzer Division - Panzerjäger Battery<br>
+                      2024/01/29 : Changed 'Ignore Restrictions' checkbox label to 'Ignore Warnings'<br>
+                      2024/01/04 : Added an 'Ignore Restrictions' checkbox to bypass list build warnings; however pre-requisite Support Choice
+                      selections are still (temporarily) required in order to access the Support selections,
+                      e.g. an <i>Infantry Unit</i> selection to access <i>Engineer Support Units</i><br>
+                      2023/12/30 : Made some corrections to German Panzer Division in <i>Barbarossa</i><br>
+                      2023/11/02 : Added D6 BR for US Airborne and German Resistance Nest in <i>Overlord</i><br>
+                      2023/10/30 : Added second profiles for KV-2, OT-26 and T-26 m31 MG in <i>Barbarossa</i><br>
+                      2023/10/30 : Added second profile for White Scout Car in <i>Kursk</i><br>
+                      2023/10/30 : Added second profile for Komsomolyets tractor in <i>Stalingrad</i><br>
+                      2023/10/30 : Added second profiles for Valentine III, Stuart, Bren Carrier, KV-1 and KV-1E in <i>Stalingrad</i><br>
+                      2023/10/19 : Added 4.5" Rocket Launcher to Calliope in <i>Fall of the Reich</i> / American Battlegroup<br>
+                      2023/10/19 : Renamed US Armoured Division in <i>Fall of the Reich</i> to American Battlegroup<br>
+                      2023/10/16 : Set BR cost of dug in tanks for <i>Stalingrad</i> / Russian Tank Corps<br>
+                      2023/10/02 : Added <i>Fall of the Reich</i> / DoTR Restricted:West options<br>
+                      2023/04/28 : Removed all Page Views code due to delay with countapi reponses<br>
+                      2023/02/25 : Corrected <i>Overlord</i> / German entries for MG Team<br>
+                      2023/02/23 : Corrected <i>Westwall</i> / US Armoured entry for Hellcats<br>
+                      2023/02/14 : Added <i>Westwall</i> / German Panzer Brigade<br>
+                      2023/02/14 : Added <i>Westwall</i> / United States Armoured Division<br>
+                      2023/02/14 : Added <i>Westwall</i> / United States Infantry Division<br>
+                      2023/02/14 : Added <i>Westwall</i> / German Volksgrenadier Division<br>
+                      2023/02/14 : Added <i>Westwall</i> / German Infantry Division<br>
+                      2023/02/14 : Added <i>Overlord</i> / German Infantry Division<br>
+                      2023/01/27 : Updated <i>Overlord</i> / Allied Amphibious Vehicles<br>
+                      2023/01/27 : Added <i>Pacific War</i> / Australian Infantry Division<br>
+                      2023/01/27 : Added <i>Pacific War</i> / British Infantry Division<br>
+                      2023/01/26 : Added <i>Pacific War</i> / United States Infantry Division<br>
+                      2023/01/25 : Added <i>Pacific War</i> / United States Marine Corps<br>
+                      2023/01/17 : Added <i>Pacific War</i> / Japanese Island Garrison - Kōfuku Shinai<br>
+                      2023/01/17 : Added <i>Pacific War</i> / Japanese Island Garrison<br>
+                      2023/01/16 : Added <i>Pacific War</i> / Japanese Infantry Division<br>
+                      2023/01/03 : Added <i>Royal Netherlands Army</i> from Dispatches vol.3<br>
+                      2023/01/03 : Corrected reference to Matilda II tanks across battlegroup lists<br>
+                      2023/01/03 : Corrected cost of Valentine II upgrade in <i>Tobruk</i> British Infantry Division<br>
+                      2022/09/09 : Added <i>Blitzkrieg</i> / Belgian Infantry Division<br>
+                      2022/08/05 : Added <i>Blitzkrieg</i> / French Infantry Division<br>
+                      2022/08/05 : Added <i>Blitzkrieg</i> / French Armoured Division<br>
+                      2022/08/04 : Added <i>Blitzkrieg</i> / French Light Mechanised Division<br>
+                      2022/08/04 : Added code for tallying Battlegroup selections<br>
+                      2022/08/01 : Minor corrections to US Infantry Division (Overlord and Wacht Am Rhein)<br>
+                      2022/07/20 : Added <i>Blitzkrieg</i> / British Expeditionary Force<br>
+                      2022/07/19 : Added <i>Blitzkrieg</i> / German Infantry Division (1940) Battlegroup<br>
+                      2022/07/19 : Cleared up use of 90mmL53 guns between Italian and US Battlegroups<br>
+                      2022/07/18 : Added <i>Blitzkrieg</i> / German (1939) Battlegroup<br>
+                      2022/07/14 : Added <i>Blitzkrieg</i> / German Panzer Division (1940) Battlegroup<br>
+                      2022/07/07 : Added <i>Blitzkrieg</i> / Polish Battlegroup<br>
+                      2022/06/30 : Added <i>Torch</i> / French March Division Battlegroup<br>
+                      2022/06/21 : Added <i>Torch</i> / American Infantry Division Battlegroup<br>
+                      2022/06/20 : Added <i>Torch</i> / American Armoured Division Battlegroup<br>
+                      2022/05/21 : Added <i>Torch</i> / Italian Infantry Division Battlegroup<br>
+                      2022/05/20 : Added <i>Torch</i> / Italian Armoured Division Battlegroup<br>
+                      2022/05/16 : Added <i>Torch</i> / Defence of Tunisia Battlegroup<br>
+                      2022/05/10 : Added <i>Torch</i> / Deutsches Afrikakorps Battlegroup<br>
+                      2022/05/10 : Corrected <i>Torch</i> / British Infantry Division Tunisia - Airborne units<br>
+                      2022/05/05 : Corrected <i>Tobruk</i> / British Armoured Division - Crusader Platoon cost<br>
+                      2022/05/05 : Corrected <i>Overlord</i> / US Infantry Division - Mortar team options<br>
+                      2022/05/05 : Added <i>Torch</i> / British Infantry Division Battlegroup - Tunisia<br>
+                      2022/05/05 : Added <i>Torch</i> / British Infantry Division Battlegroup<br>
+                      2022/05/05 : Added <i>Torch</i> / British Armoured Division Battlegroup - Tunisia<br>
+                      2022/05/04 : Added <i>Torch</i> / British Armoured Division Battlegroup<br>
+                      2022/05/04 : Changed <i>Kursk</i> / German Panzer Division HQ to match 2019 rulebook<br>
+                      2022/03/29 : Added <i>Stalingrad</i> / Italian Battlegroup<br>
+                      2022/03/28 : Added <i>Stalingrad</i> / Rumanian Battlegroup<br>
+                      2022/03/26 : Added <i>Stalingrad</i> / Hungarian Light Field Division<br>
+                      2022/03/26 : Added <i>Stalingrad</i> / Hungarian Armoured Division<br>
+                      2022/03/25 : Added <i>Stalingrad</i> / Defenders of Stalingrad<br>
+                      2022/03/24 : Added <i>Stalingrad</i> / Russian Tank Corps<br>
+                      2022/03/23 : Added <i>Stalingrad</i> / Russian Rifle Division<br>
+                      2022/03/23 : Added <i>Stalingrad</i> / German Stalingrad Stoßgruppe<br>
+                      2022/03/22 : Added <i>Stalingrad</i> / German Panzer Division<br>
+                      2022/03/21 : Added <i>Stalingrad</i> / German Infantry Division<br>
+                      2022/03/21 : Added <i>Barbarossa</i> / Russian Rifle Division<br>
+                      2022/03/21 : Added <i>Barbarossa</i> / Russian Mechanised Corps.<br>
+                      2022/03/16 : Added <i>Barbarossa</i> / Rumanian Infantry Division.<br>
+                      2022/03/16 : Added <i>Barbarossa</i> / Hungarian Rapid Corps.<br>
+                      2022/03/15 : Added <i>Barbarossa</i> / Finnish Infantry Division.<br>
+                      2022/03/15 : Added <i>Barbarossa</i> / German Infantry Division.<br>
+                      2022/03/15 : Corrected duplicate vehicle ID affecting Print of Hungarian vehicles<br>
+                      2021/11/03 : Battlegroup Spring Awakening / Hungarian Battlegroup<br>
+                      2021/11/03 : Battlegroup Wacht Am Rhein / Kampfgruppe Peiper<br>
+                      2021/11/02 : Added Spring Awakening / Panzer Division Battlegroup<br>
+                      2021/11/02 : Added Spring Awakening / Russian Battlegroup<br>
+                      2021/10/30 : Started working on Spring Awakening<br>
+                      2021/10/30 : Moved to Github<br>
+                      2020/03/01 : <i>Tobruk</i> Tobruk finished.<br>
+                      2020/02/27 : <i>Tobruk</i> LRDG & Auto Saharan Patrol lists complete. On to ze Germans and Crete!<br>
+                      2020/02/26 : Standard <i>Tobruk</i> British Lists are complete.<br>
+                      2019/09/08 : <i>Market Garden</i> done. Except for the option to have 25% of British units in your US Airborne list everything is there. Next up will be the completion of the British & German lists for Battlegroup Tobruk.<br>
+                      2019/09/03 : <i>Market Garden</i> German lists added; Atypical platoon needs to be 'decoded' as i don't understand one bit...<br>
+                      2019/09/03 : <i>Tobruk</i> Italian Ariete Armoured Division added. That means the Italians for Tobruk are done. Avanti!<br>
+                      2019/09/02 : <i>Tobruk</i> Italian Infantry Division (+east Afrika version) added.<br>
+                      2019/09/02 : <i>Wacht Am Rhein</i> All Battlegroups added.<br>
+                      2019/09/01 : <i>Wacht Am Rhein</i> German lists are done (with scouts), needs checking by you guys of course :) I also added the Armoured Recce Infantry Platoon to all the '44 Panzer Divisions like the book (pag.27) states.<br>
+                      2019/08/28 : Added <i>Slovak Rapid Brigade</i> from Dispatches vol.2<br>
+                      2019/08/27 : Added <i>Partisan Battlegroup</i> from Dispatches vol.1.<br>
+                      2019/08/26 : Added <i>7.SS "Prinz Eugen"</i> from Dispatches vol.1<br>
+                      2019/08/26 : Added <i>3rd Canadian Infantry Division</i> from the Main rulebook<br>
+                      2019/08/25 : Added <i>17.SS Panzer Division</i> from the Main rulebook
+                  </p>
+                </div>
+
+                <!--
+                <div id="tabs-2">
+                  <br>
+                  <p>
+                  Views since 5th August 2022:
+                  <p>
+                  <table>
+                    <tr><td><span id="visits_Barbarossa_A5_Finnish_Infantry_Division"></span></td><td>Battlegroup Barbarossa \ Finnish Infantry Division </td></tr>
+                    <tr><td><span id="visits_Barbarossa_A5_German_Infantry_Division"></span></td><td>Battlegroup Barbarossa \ German Infantry Division </td></tr>
+                    <tr><td><span id="visits_Barbarossa_A5_German_Panzer_Division"></span></td><td>Battlegroup Barbarossa \ German Panzer Division </td></tr>
+                    <tr><td><span id="visits_Barbarossa_A5_Hungarian_Rapid_Corps"></span></td><td>Battlegroup Barbarossa \ Hungarian Rapid Corps </td></tr>
+                    <tr><td><span id="visits_Barbarossa_A5_Rumanian_Infantry_Division"></span></td><td>Battlegroup Barbarossa \ Rumanian Infantry Division </td></tr>
+                    <tr><td><span id="visits_Barbarossa_A5_Russian_Mechanised_Corps"></span></td><td>Battlegroup Barbarossa \ Russian Mechanised Corps </td></tr>
+                    <tr><td><span id="visits_Barbarossa_A5_Russian_Rifle_Division"></span></td><td>Battlegroup Barbarossa \ Russian Rifle Division</td></tr>
+
+                    <tr><td><span id="visits_Blitzkrieg_A5_Belgian_Infantry_Division"></span></td><td>Battlegroup Blitzkrieg \ Belgian Infantry Division </td></tr>
+                    <tr><td><span id="visits_Blitzkrieg_A5_British_Expeditionary_Force"></span></td><td>Battlegroup Blitzkrieg \ British Expeditionary Force </td></tr>
+                    <tr><td><span id="visits_Blitzkrieg_A5_French_Armoured_Division"></span></td><td>Battlegroup Blitzkrieg \ French Armoured Division </td></tr>
+                    <tr><td><span id="visits_Blitzkrieg_A5_French_Infantry_Division"></span></td><td>Battlegroup Blitzkrieg \ French Infantry Division </td></tr>
+                    <tr><td><span id="visits_Blitzkrieg_A5_French_Light_Mechanised_Division"></span></td><td>Battlegroup Blitzkrieg \ French Light Mechanised Division </td></tr>
+                    <tr><td><span id="visits_Blitzkrieg_A5_German_Battlegroup_1939"></span></td><td>Battlegroup Blitzkrieg \ German Battlegroup (1939) </td></tr>
+                    <tr><td><span id="visits_Blitzkrieg_A5_German_Infantry_Division_1940"></span></td><td>Battlegroup Blitzkrieg \ German Infantry Division (1940)</td></tr>
+                    <tr><td><span id="visits_Blitzkrieg_A5_German_Panzer_Division_1940"></span></td><td>Battlegroup Blitzkrieg \ German Panzer Division (1940) </td></tr>
+                    <tr><td><span id="visits_Blitzkrieg_A5_Polish_Battlegroup"></span></td><td>Battlegroup Blitzkrieg \ Polish Battlegroup </td></tr>
+
+                    <tr><td><span id="visits_Fall_of_the_Reich_A5_British_Battlegroup"></span></td><td>Battlegroup Fall of the Reich \ British Battlegroup </td></tr>
+                    <tr><td><span id="visits_Fall_of_the_Reich_A5_Defence_of_the_Reich_Battlegroup"></span></td><td>Battlegroup Fall of the Reich \ Defence of the Reich Battlegroup </td></tr>
+                    <tr><td><span id="visits_Fall_of_the_Reich_A5_Russian_Rifle_Battlegroup"></span></td><td>Battlegroup Fall of the Reich \ Russian Rifle Battlegroup </td></tr>
+                    <tr><td><span id="visits_Fall_of_the_Reich_A5_US_Armoured_Division"></span></td><td>Battlegroup Fall of the Reich \ US Armoured Division </td></tr>
+
+                    <tr><td><span id="visits_Kursk_A5_German_Infantry_Division"></span></td><td>Battlegroup Kursk \ German Infantry Division</td></tr>
+                    <tr><td><span id="visits_Kursk_A5_German_Panzer_Division"></span></td><td>Battlegroup Kursk \ German Panzer Division </td></tr>
+                    <tr><td><span id="visits_Kursk_A5_Russian_Rifle_Division"></span></td><td>Battlegroup Kursk \ Russian Rifle Division</td></tr>
+                    <tr><td><span id="visits_Kursk_A5_Russian_Tank_Corps"></span></td><td>Battlegroup Kursk \ Russian Tank Corps</td></tr>
+
+                    <tr><td><span id="visits_Market_Garden_A5_British_1st_Airborne_Division"></span></td><td>Battlegroup Market Garden \ British 1st Airborne Division </td></tr>
+                    <tr><td><span id="visits_Market_Garden_A5_British_Armoured_Division"></span></td><td>Battlegroup Market Garden \ British Armoured Division </td></tr>
+                    <tr><td><span id="visits_Market_Garden_A5_British_Infantry_Division"></span></td><td>Battlegroup Market Garden \ British Infantry Division </td></tr>
+                    <tr><td><span id="visits_Market_Garden_A5_German_Fallschirmjager_Battlegroup"></span></td><td>Battlegroup Market Garden \ German Fallschirmjäger Battlegroup </td></tr>
+                    <tr><td><span id="visits_Market_Garden_A5_German_Infanterie_Division"></span></td><td>Battlegroup Market Garden \ German Infanterie-Division </td></tr>
+                    <tr><td><span id="visits_Market_Garden_A5_German_Panzer_Division"></span></td><td>Battlegroup Market Garden \ German Panzer Division </td></tr>
+                    <tr><td><span id="visits_Market_Garden_A5_US_Airborne_Division"></span></td><td>Battlegroup Market Garden \ US Airborne Division </td></tr>
+
+                    <tr><td><span id="visits_Overlord_A5_British_Amphibious_Assault_Battlegroup"></span></td><td>Battlegroup Overlord \ British Amphibious Assault Battlegroup </td></tr>
+                    <tr><td><span id="visits_Overlord_A5_British_6th_Airborne_Division"></span></td><td>Battlegroup Overlord \ British 6th Airborne Division </td></tr>
+                    <tr><td><span id="visits_Overlord_A5_British_Armoured_Division"></span></td><td>Battlegroup Overlord \ British Armoured Division </td></tr>
+                    <tr><td><span id="visits_Overlord_A5_British_Infantry_Division"></span></td><td>Battlegroup Overlord \ British Infantry Division </td></tr>
+                    <tr><td><span id="visits_Overlord_A5_German_21_Panzer_Division"></span></td><td>Battlegroup Overlord \ German 21. Panzer Division </td></tr>
+                    <tr><td><span id="visits_Overlord_A5_German_Atlantic_Wall_Resistance_Nest"></span></td><td>Battlegroup Overlord \ German Atlantic Wall Resistance Nest </td></tr>
+                    <tr><td><span id="visits_Overlord_A5_German_Fallschirmjager_Battlegroup"></span></td><td>Battlegroup Overlord \ German Fallschirmjäger Battlegroup </td></tr>
+                    <tr><td><span id="visits_Overlord_A5_German_Infantry_Division"></span></td><td>Battlegroup Overlord \ German Infantry Division </td></tr>
+                    <tr><td><span id="visits_Overlord_A5_German_Panzer_Division"></span></td><td>Battlegroup Overlord \ German Panzer Division </td></tr>
+                    <tr><td><span id="visits_Overlord_A5_Luftwaffe_Field_Division"></span></td><td>Battlegroup Overlord \ Luftwaffe Field Division </td></tr>
+                    <tr><td><span id="visits_Overlord_A5_US_Airborne_Division"></span></td><td>Battlegroup Overlord \ US Airborne Division </td></tr>
+                    <tr><td><span id="visits_Overlord_A5_US_Amphibious_Assault_Battlegroup"></span></td><td>Battlegroup Overlord \ US Amphibious Assault Battlegroup </td></tr>
+                    <tr><td><span id="visits_Overlord_A5_US_Armoured_Division"></span></td><td>Battlegroup Overlord \ US Armoured Division </td></tr>
+                    <tr><td><span id="visits_Overlord_A5_US_Infantry_Division"></span></td><td>Battlegroup Overlord \ US Infantry Division </td></tr>
+
+                    <tr><td><span id="visits_Pacific_War_A5_Japanese_Infantry_Division"></span></td><td>Battlegroup Pacific War \ Japanese Infantry Division </td></tr>
+                    <tr><td><span id="visits_Pacific_War_A5_Japanese_Island_Garrison"></span></td><td>Battlegroup Pacific War \ Japanese Island Garrison </td></tr>
+                    <tr><td><span id="visits_Pacific_War_A5_Japanese_Island_Garrison_Kofuku_Shinai"></span></td><td>Battlegroup Pacific War \ Japanese Island Garrison Kofuku Shinai</td></tr>
+                    <tr><td><span id="visits_Pacific_War_A5_United_States_Marine_Corps"></span></td><td>Battlegroup Pacific War \ United States Marine Corps </td></tr>
+                    <tr><td><span id="visits_Pacific_War_A5_United_States_Infantry_Division"></span></td><td>Battlegroup Pacific War \ United States Infantry Division </td></tr>
+                    <tr><td><span id="visits_Pacific_War_A5_British_Infantry_Division"></span></td><td>Battlegroup Pacific War \ British Infantry Division </td></tr>
+                    <tr><td><span id="visits_Pacific_War_A5_Australian_Infantry_Division"></span></td><td>Battlegroup Pacific War \ Australian Infantry Division </td></tr>
+
+                    <tr><td><span id="visits_Rulebook_A5_12_SS_Panzer_Division"></span></td><td>Battlegroup Rulebook \ 12. SS Panzer Division „Hitlerjugend“ </td></tr>
+                    <tr><td><span id="visits_Rulebook_A5_Canadian_3rd_Infantry_Division_Battlegroup"></span></td><td>Battlegroup Rulebook \ Canadian 3rd Division </td></tr>
+
+                    <tr><td><span id="visits_Spring_Awakening_A5_German_Panzer_Division_Battlegroup"></span></td><td>Battlegroup Spring Awakening \ German Panzer Division Battlegroup </td></tr>
+                    <tr><td><span id="visits_Spring_Awakening_A5_Hungarian_Battlegroup"></span></td><td>Battlegroup Spring Awakening \ Hungarian Battlegroup </td></tr>
+                    <tr><td><span id="visits_Spring_Awakening_A5_Russian_Rifle_Battlegroup"></span></td><td>Battlegroup Spring Awakening \ Russian Rifle Battlegroup </td></tr>
+
+                    <tr><td><span id="visits_Stalingrad_A5_German_Infantry_Division"></span></td><td>Battlegroup Stalingrad \ German Infantry Division </td></tr>
+                    <tr><td><span id="visits_Stalingrad_A5_German_Panzer_Division"></span></td><td>Battlegroup Stalingrad \ German Panzer Division </td></tr>
+                    <tr><td><span id="visits_Stalingrad_A5_German_Stalingrad_StoBgruppe"></span></td><td>Battlegroup Stalingrad \ German Stalingrad Stoßgruppe </td></tr>
+                    <tr><td><span id="visits_Stalingrad_A5_Hungarian_Armoured_Division"></span></td><td>Battlegroup Stalingrad \ Hungarian Battlegroup </td></tr>
+                    <tr><td><span id="visits_Stalingrad_A5_Hungarian_Light_Field_Division"></span></td><td>Battlegroup Stalingrad \ Hungarian Light Field Division </td></tr>
+                    <tr><td><span id="visits_Stalingrad_A5_Italian_Infantry_Division"></span></td><td>Battlegroup Stalingrad \ Italian Battlegroup </td></tr>
+                    <tr><td><span id="visits_Stalingrad_A5_Rumanian_Battlegroup"></span></td><td>Battlegroup Stalingrad \ Rumanian Battlegroup </td></tr>
+                    <tr><td><span id="visits_Stalingrad_A5_Russian_Defenders_of_Stalingrad"></span></td><td>Battlegroup Stalingrad \ Defenders of Stalingrad </td></tr>
+                    <tr><td><span id="visits_Stalingrad_A5_Russian_Rifle_Division"></span></td><td>Battlegroup Stalingrad \ Russian Rifle Division </td></tr>
+                    <tr><td><span id="visits_Stalingrad_A5_Russian_Tank_Corps"></span></td><td>Battlegroup Stalingrad \ Russian Tank Corps </td></tr>
+
+                    <tr><td><span id="visits_Tobruk_A5_132nd_Armoured_Division"></span></td><td>Battlegroup Tobruk \ 132nd Armoured Division „Ariete“ </td></tr>
+                    <tr><td><span id="visits_Tobruk_A5_7th_Flieger_Division"></span></td><td>Battlegroup Tobruk \ 7th Flieger Division </td></tr>
+                    <tr><td><span id="visits_Tobruk_A5_Auto_Saharana_Patrol"></span></td><td>Battlegroup Tobruk \ Auto Saharana Patrol </td></tr>
+                    <tr><td><span id="visits_Tobruk_A5_British_Armoured_Division"></span></td><td>Battlegroup Tobruk \ British Armoured Division </td></tr>
+                    <tr><td><span id="visits_Tobruk_A5_British_Infantry_Division"></span></td><td>Battlegroup Tobruk \ British Infantry Division </td></tr>
+                    <tr><td><span id="visits_Tobruk_A5_British_Infantry_Division_East_Africa"></span></td><td>Battlegroup Tobruk \ British Infantry Division (East Africa) </td></tr>
+                    <tr><td><span id="visits_Tobruk_A5_Creforce"></span></td><td>Battlegroup Tobruk \ Creforce </td></tr>
+                    <tr><td><span id="visits_Tobruk_A5_Deutsches_Afrikakorps"></span></td><td>Battlegroup Tobruk \ Deutsches Afrikakorps </td></tr>
+                    <tr><td><span id="visits_Tobruk_A5_Italian_Infantry_Division"></span></td><td>Battlegroup Tobruk \ Italian Infantry Division </td></tr>
+                    <tr><td><span id="visits_Tobruk_A5_Italian_Infantry_Division_East_Africa"></span></td><td>Battlegroup Tobruk \ Italian Infantry Division (East Africa) </td></tr>
+                    <tr><td><span id="visits_Tobruk_A5_Long_Range_Desert_Group_Patrol"></span></td><td>Battlegroup Tobruk \ Long Range Desert Group Patrol </td></tr>
+
+                    <tr><td><span id="visits_Torch_A5_American_Armoured_Division"></span></td><td>Battlegroup Torch \ American Armoured Division </td></tr>
+                    <tr><td><span id="visits_Torch_A5_American_Infantry_Division"></span></td><td>Battlegroup Torch \ American Infantry Division </td></tr>
+                    <tr><td><span id="visits_Torch_A5_British_Armoured_Division"></span></td><td>Battlegroup Torch \ British Armoured Division </td></tr>
+                    <tr><td><span id="visits_Torch_A5_British_Armoured_Division___Tunisia"></span></td><td>Battlegroup Torch \ British Armoured Division - Tunisia </td></tr>
+                    <tr><td><span id="visits_Torch_A5_British_Infantry_Division"></span></td><td>Battlegroup Torch \ British Infantry Division </td></tr>
+                    <tr><td><span id="visits_Torch_A5_British_Infantry_Division___Tunisia"></span></td><td>Battlegroup Torch \ British Infantry Division - Tunisia </td></tr>
+                    <tr><td><span id="visits_Torch_A5_Defence_of_Tunisia_Battlegroup"></span></td><td>Battlegroup Torch \ Defence of Tunisia Battlegroup </td></tr>
+                    <tr><td><span id="visits_Torch_A5_Deutsches_Afrikakorps"></span></td><td>Battlegroup Torch \ Deutsches Afrikakorps </td></tr>
+                    <tr><td><span id="visits_Torch_A5_French_March_Division"></span></td><td>Battlegroup Torch \ French March Division </td></tr>
+                    <tr><td><span id="visits_Torch_A5_Italian_Armoured_Division"></span></td><td>Battlegroup Torch \ Italian Armoured Division </td></tr>
+                    <tr><td><span id="visits_Torch_A5_Italian_Infantry_Division"></span></td><td>Battlegroup Torch \ Italian Infantry Division </td></tr>
+
+                    <tr><td><span id="visits_Wacht_Am_Rhein_A5_German_Infanterie_Division"></span></td><td>Battlegroup Wacht Am Rhein \ German Infanterie-Division </td></tr>
+                    <tr><td><span id="visits_Wacht_Am_Rhein_A5_German_Fallschirmjager_Battlegroup"></span></td><td>Battlegroup Wacht Am Rhein \ German Fallschirmjäger Battlegroup </td></tr>
+                    <tr><td><span id="visits_Wacht_Am_Rhein_A5_German_Panzer_Division"></span></td><td>Battlegroup Wacht Am Rhein \ German Panzer Division </td></tr>
+                    <tr><td><span id="visits_Wacht_Am_Rhein_A5_German_Volksgrenadier_Battlegroup"></span></td><td>Battlegroup Wacht Am Rhein \ German Volksgrenadier Battlegroup </td></tr>
+                    <tr><td><span id="visits_Wacht_Am_Rhein_A5_Kampfgruppe_Peiper"></span></td><td>Battlegroup Wacht Am Rhein \ Kampfgruppe Peiper </td></tr>
+                    <tr><td><span id="visits_Wacht_Am_Rhein_A5_US_Airborne_Division"></span></td><td>Battlegroup Wacht Am Rhein \ US Airborne Division </td></tr>
+                    <tr><td><span id="visits_Wacht_Am_Rhein_A5_US_Armoured_Division"></span></td><td>Battlegroup Wacht Am Rhein \ US Armoured Division </td></tr>
+                    <tr><td><span id="visits_Wacht_Am_Rhein_A5_US_Infantry_Division"></span></td><td>Battlegroup Wacht Am Rhein \ US Infantry Division </td></tr>
+
+                    <tr><td><span id="visits_Westwall_A5_German_Infantry_Division"></span></td><td>Battlegroup Westwall \ German Infantry Division </td></tr>
+                    <tr><td><span id="visits_Westwall_A5_German_Volksgrenadier_Division"></span></td><td>Battlegroup Westwall \ German Volksgrenadier Division </td></tr>
+                    <tr><td><span id="visits_Westwall_A5_United_States_Infantry_Division"></span></td><td>Battlegroup Westwall \ United States Infantry Division </td></tr>
+                    <tr><td><span id="visits_Westwall_A5_United_States_Armoured_Division"></span></td><td>Battlegroup Westwall \ United States Armoured Division </td></tr>
+                    <tr><td><span id="visits_Westwall_A5_German_Panzer_Brigade"></span></td><td>Battlegroup Westwall \ German Panzer Brigade Battlegroup </td></tr>
+
+                    <tr><td><span id="visits_Dispatches_A5_7_SS_Division"></span></td><td>Dispatches \ 7. SS-Division „Prinz Eugen“ </td></tr>
+                    <tr><td><span id="visits_Dispatches_A5_Partisan_Battlegroup"></span></td><td>Dispatches \ Partisan Battlegroup </td></tr>
+                    <tr><td><span id="visits_Dispatches_A5_Slovak_Rapid_Brigade"></span></td><td>Dispatches \ Slovak Rapid Brigade </td></tr>
+                    <tr><td><span id="visits_Dispatches_A5_Royal_Netherlands_Army"></span></td><td>Dispatches \ Royal Netherlands Army </td></tr>
+                    <p>
+                </table>
+                <p>
+                  <ul>
+                    <li>Views will be reset if no usage is recorded aginast a given Battlegroup for 6 months</li>
+                  </ul>
+                </div>
+
+                -->
+              </div>
+            </div>
+
+        <!--[if lt IE 9]> <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;'> <a href="http://www.google.com/intl/en/chrome/browser/"><img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. This builder will not work correctly in IE 8 or older. Upgrade for free today." /></a></div> <![endif]-->
+        <div id="main" style="width:100%; clear:both;" class="ui-widget">An error has occurred in the javascript rendering of this page. Do you have an uptodate browser?</div>
+
+        <div id="load_div" style="display:none"><input id="load_input" type="text"></input></div>
+        <div id="save_div" style="display:none"></div>
+      </body>
+</html>

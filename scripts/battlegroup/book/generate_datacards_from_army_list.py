@@ -289,7 +289,8 @@ class ArmyListDatacardGenerator:
             rules.append(bg_vehicle['special_rules'])
 
         # Check for specific indicators
-        if bg_vehicle.get('armor_front', '').upper() == 'OPEN':
+        armor_front = bg_vehicle.get('armor_front')
+        if armor_front and armor_front.upper() == 'OPEN':
             rules.append('Open-topped')
 
         return ', '.join(rules) if rules else None
