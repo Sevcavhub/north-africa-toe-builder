@@ -81,6 +81,9 @@ def create_app():
                     'historical': 'POST /api/scenarios/historical',
                     'locations': 'GET /api/scenarios/locations/{quarter}',
                     'printable': 'GET /api/scenarios/{battle}/{scenario_id}/printable'
+                },
+                'datacards': {
+                    'osjones': 'POST /api/datacards/osjones'
                 }
             },
             'status': 'Railway deployment active'
@@ -225,6 +228,124 @@ def create_app():
             app.logger.error(f"Failed to generate printable scenario: {str(e)}", exc_info=True)
             return jsonify({
                 'error': 'Failed to generate printable scenario',
+                'message': str(e)
+            }), 500
+
+    # ============================================================================
+    # DATACARD GENERATION ENDPOINTS
+    # ============================================================================
+
+    @app.route('/api/datacards/osjones', methods=['POST'])
+    def generate_osjones_datacards():
+        """
+        Generate BattleGroup V5.5 datacards from OSJones Builder army list.
+
+        Request body:
+            {
+                "army_list_text": "Paste OSJones Builder print output here..."
+            }
+
+        Returns:
+            {
+                "success": true,
+                "datacards": {
+                    "tanks": "...markdown content...",
+                    "guns_and_artillery": "...markdown content..."
+                },
+                "equipment_found": ["Panzer III G", "88mm FlaK 36", ...],
+                "equipment_not_found": ["Some vehicle", ...]
+            }
+        """
+        import sys
+        import tempfile
+        from pathlib import Path
+
+        # Add project root to path
+        project_root = Path(__file__).resolve().parents[3]
+        sys.path.insert(0, str(project_root))
+
+        try:
+            from scripts.battlegroup.book.parse_osjones_army_list import OSJonesArmyListParser
+            from scripts.battlegroup.book.generate_datacards_from_army_list import ArmyListDatacardGenerator
+
+            data = request.get_json() or {}
+            army_list_text = data.get('army_list_text', '').strip()
+
+            if not army_list_text:
+                return jsonify({
+                    'error': 'No army list provided',
+                    'message': 'Please provide army_list_text in request body'
+                }), 400
+
+            # Parse army list
+            parser = OSJonesArmyListParser()
+            result = parser.parse_army_list(army_list_text)
+            equipment_names = list(result['equipment'])
+
+            if not equipment_names:
+                return jsonify({
+                    'error': 'No equipment found',
+                    'message': 'Could not extract any equipment from the army list',
+                    'force_name': result.get('force_name', 'Unknown'),
+                    'points': result.get('points_total', 0),
+                    'br': result.get('br_total', 0)
+                }), 400
+
+            # Generate datacards in temporary directory
+            with tempfile.TemporaryDirectory() as temp_dir:
+                temp_path = Path(temp_dir)
+
+                generator = ArmyListDatacardGenerator()
+                try:
+                    # Track found/not found equipment
+                    found_equipment = []
+                    not_found_equipment = []
+
+                    # Generate datacards
+                    for equipment_name in equipment_names:
+                        bg_vehicle = generator.lookup_bg_builder_vehicle(equipment_name)
+                        bg_weapon = generator.lookup_bg_builder_weapon(equipment_name)
+
+                        if bg_vehicle or bg_weapon:
+                            found_equipment.append(equipment_name)
+                        else:
+                            not_found_equipment.append(equipment_name)
+
+                    # Generate datacard files
+                    generator.generate_datacards_from_list(equipment_names, temp_path)
+
+                    # Read generated markdown files
+                    datacards = {}
+                    for category_file in ['tanks.md', 'guns_and_artillery.md', 'vehicles.md', 'other_equipment.md']:
+                        file_path = temp_path / category_file
+                        if file_path.exists():
+                            with open(file_path, 'r', encoding='utf-8') as f:
+                                datacards[category_file.replace('.md', '')] = f.read()
+
+                    return jsonify({
+                        'success': True,
+                        'force_name': result.get('force_name', 'Unknown Force'),
+                        'points_total': result.get('points_total', 0),
+                        'br_total': result.get('br_total', 0),
+                        'equipment_count': len(equipment_names),
+                        'equipment_found': found_equipment,
+                        'equipment_not_found': not_found_equipment,
+                        'datacards': datacards
+                    }), 200
+
+                finally:
+                    generator.close()
+
+        except ImportError as e:
+            app.logger.error(f"Import error: {str(e)}", exc_info=True)
+            return jsonify({
+                'error': 'Module not found',
+                'message': f'Failed to import required modules: {str(e)}'
+            }), 500
+        except Exception as e:
+            app.logger.error(f"Failed to generate datacards: {str(e)}", exc_info=True)
+            return jsonify({
+                'error': 'Failed to generate datacards',
                 'message': str(e)
             }), 500
 
