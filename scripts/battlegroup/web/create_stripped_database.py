@@ -10,7 +10,8 @@ from pathlib import Path
 from datetime import datetime
 
 # Source and destination paths
-source_db = Path("../../../database/master_database.db")
+# Use the web directory's master_database.db which has bg_builder tables
+source_db = Path("database/master_database.db")
 dest_db = Path("database/web_database.db")
 
 # Ensure destination directory exists
@@ -26,6 +27,12 @@ ESSENTIAL_TABLES = [
     "bg_reference_vehicles",
     "bg_reference_guns",
     "bg_special_rules",
+
+    # OSJones Builder data (army list datacards)
+    "bg_builder_vehicles",
+    "bg_builder_weapons",
+    "bg_builder_vehicle_costs",
+    "bg_builder_forces",
 
     # Technical specifications
     "guns",

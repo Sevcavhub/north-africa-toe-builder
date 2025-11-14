@@ -14,8 +14,8 @@ class RailwayConfig:
     PROJECT_ROOT = Path(__file__).parent
 
     # Database configuration
-    # Use master database (web_database.db doesn't exist yet)
-    DATABASE_PATH = PROJECT_ROOT / "database" / "master_database.db"
+    # Use web_database.db (committed to git with bg_builder tables)
+    DATABASE_PATH = PROJECT_ROOT / "database" / "web_database.db"
     SQLALCHEMY_DATABASE_URI = f"sqlite:///{DATABASE_PATH}"
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
