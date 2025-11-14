@@ -211,10 +211,11 @@ class OSJonesArmyListParser:
             equipment.append(name)
             return equipment  # Return early, don't try other patterns
 
-        # Pattern 1: "3 Panzer II/Fs" or "2 Panzer III G" (quantity at START of line)
-        matches = re.findall(r'^\d+\s+([A-Za-z0-9][^\d,]+?)(?:,|$)', line)
-        for match in matches:
-            name = match.strip()
+        # Pattern 1: "3 Panzer II/Fs" or "2 Panzer III G, 1 Panzer III J (lang)" (quantity + name pattern)
+        # Match multiple equipment items separated by commas with quantities
+        matches = re.findall(r'(\d+)\s+([A-Za-z0-9][^,\d]+?)(?:,\s*|$)', line)
+        for quantity, name in matches:
+            name = name.strip()
             # Clean up variant suffixes like "/Fs" -> " F"
             name = re.sub(r'/([A-Za-z])s$', r' \1', name)
             if self.is_datacard_equipment(name):
