@@ -8,11 +8,7 @@ V5.5 changes:
 V5.4 changes:
 - Display armor_modifier (e.g., "Open-topped") below armor values
 
-Generates BattleGroup datacards for all equipment used in the 4 battle books:
-- Operation Battleaxe (1941-Q2)
-- Operation Crusader (1941-Q4)
-- Battle of Gazala (1942-Q2)
-- First El Alamein (1942-Q3)
+Generates BattleGroup datacards for all equipment used in the 12 battle books:
 
 Reads Phase 6 unit JSONs to extract equipment lists, then generates
 datacards organized by book and category.
@@ -906,7 +902,7 @@ class BookDatacardGenerator:
 <td></td>
 </tr>""")
 
-        # Generate V4 datacard format
+        # Generate V5.5 datacard format
         # Build weapon performance table for ALL weapons with ammo
         weapon_table = ''
 
@@ -1075,6 +1071,10 @@ class BookDatacardGenerator:
         for search_name in potential_names:
             if not search_name:
                 continue
+            # --- FILENAME SANITATION STEP ---
+            # Replace illegal file path characters (like '/') with an underscore '_'
+            search_name = search_name.replace('/', '_')
+            # --------------------------------
             silhouette_path = silhouette_base / nation / "Side" / f"{search_name}.png"
             if silhouette_path.exists():
                 # Embed image as base64 data URI for portability
@@ -1298,7 +1298,7 @@ class BookDatacardGenerator:
 }
 
 .datacard-silhouette {
-    width: 100px;
+    width: 140px;
     height: 70px;
     background-color: transparent;
     border: none;
