@@ -1300,7 +1300,7 @@ class BookDatacardGenerator:
 }
 
 .datacard.datacard-italian {
-    background-color: #c8b88a;
+    background-color: #739A64;
     border-color: #5a4a2a;
 }
 
