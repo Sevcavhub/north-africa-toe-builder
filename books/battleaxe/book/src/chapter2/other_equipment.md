@@ -127,7 +127,7 @@
 }
 
 .datacard-silhouette {
-    width: 100px;
+    width: 140px;
     height: 70px;
     background-color: transparent;
     border: none;
