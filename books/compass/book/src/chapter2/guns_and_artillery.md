@@ -127,33 +127,42 @@
 }
 
 .datacard-silhouette {
-    width: 80px;
-    height: 60px;
-    background-color: #1a1a1a;
-    border: 1px solid #333;
+    width: 140px;
+    height: 70px;
+    background-color: transparent;
+    border: none;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
+    padding: 5px;
 }
 
 .datacard-silhouette img {
-    width: 100%;
-    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
     object-fit: contain;
-    filter: brightness(0) invert(1);
+    mix-blend-mode: multiply;
 }
 
 .datacard-title-block {
     flex: 1;
-    text-align: right;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .datacard-title {
     font-weight: bold;
-    font-size: 14px;
+    font-size: 16px;
     margin: 0;
     line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .datacard-subtitle {
@@ -208,6 +217,20 @@
     font-size: 7px;
     padding: 1px 3px;
 }
+
+.datacard-footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+    padding: 3px 5px;
+    font-size: 9px;
+    font-weight: bold;
+}
+
+.datacard-footer .footer-stat {
+    flex: 1;
+    text-align: center;
+}
 </style>
 
 ---
@@ -259,100 +282,10 @@
 </tr>
 </table>
 
+<div class="datacard-footer">
+<div class="footer-stat"><strong>Points:</strong> -</div>
+<div class="footer-stat"><strong>BR:</strong> 2</div>
 </div>
-
-<div class="datacard datacard-british">
-<div class="datacard-header">
-<div class="datacard-silhouette">
-<span style="color: white; font-size: 10px;">🔲</span>
-</div>
-<div class="datacard-title-block">
-<p class="datacard-title">4 5 INCH HOWITZER</p>
-<p class="datacard-subtitle"></p>
-<p class="datacard-subtitle"></p>
-</div>
-</div>
-
-<table>
-<tr>
-<th class="main-header">VEHICLE</th>
-<th class="main-header" colspan="3">MOVEMENT</th>
-<th class="main-header" colspan="3">ARMOUR</th>
-<th class="main-header" colspan="3">ARMAMENT</th>
-</tr>
-<tr>
-<th></th>
-<th>Off-Road</th>
-<th>Road</th>
-<th>Special</th>
-<th>F</th>
-<th>S</th>
-<th>R</th>
-<th>Weapon</th>
-<th>Mount</th>
-<th>Ammo</th>
-</tr>
-<tr>
-<td>Artillery</td>
-<td>0"</td>
-<td>0"</td>
-<td>-</td>
-<td>N</td>
-<td>O</td>
-<td>O</td>
-<td>5 gun</td>
-<td>Turret</td>
-<td>-</td>
-</tr>
-</table>
-
-</div>
-
-<div class="datacard datacard-british">
-<div class="datacard-header">
-<div class="datacard-silhouette">
-<span style="color: white; font-size: 10px;">🔲</span>
-</div>
-<div class="datacard-title-block">
-<p class="datacard-title">BOFORS 40MM</p>
-<p class="datacard-subtitle"></p>
-<p class="datacard-subtitle"></p>
-</div>
-</div>
-
-<table>
-<tr>
-<th class="main-header">VEHICLE</th>
-<th class="main-header" colspan="3">MOVEMENT</th>
-<th class="main-header" colspan="3">ARMOUR</th>
-<th class="main-header" colspan="3">ARMAMENT</th>
-</tr>
-<tr>
-<th></th>
-<th>Off-Road</th>
-<th>Road</th>
-<th>Special</th>
-<th>F</th>
-<th>S</th>
-<th>R</th>
-<th>Weapon</th>
-<th>Mount</th>
-<th>Ammo</th>
-</tr>
-<tr>
-<td>Artillery</td>
-<td>3"</td>
-<td>3"</td>
-<td>-</td>
-<td>N</td>
-<td>O</td>
-<td>O</td>
-<td>2 pdr</td>
-<td>Turret</td>
-<td>-</td>
-</tr>
-</table>
-
 </div>
 
 <div class="datacard datacard-british">
@@ -400,6 +333,10 @@
 </tr>
 </table>
 
+<div class="datacard-footer">
+<div class="footer-stat"><strong>Points:</strong> 20</div>
+<div class="footer-stat"><strong>BR:</strong> 1</div>
+</div>
 </div>
 
 <div class="datacard datacard-british">
@@ -447,6 +384,10 @@
 </tr>
 </table>
 
+<div class="datacard-footer">
+<div class="footer-stat"><strong>Points:</strong> 20</div>
+<div class="footer-stat"><strong>BR:</strong> 1</div>
+</div>
 </div>
 
 <div class="datacard datacard-german">
@@ -494,100 +435,10 @@
 </tr>
 </table>
 
+<div class="datacard-footer">
+<div class="footer-stat"><strong>Points:</strong> -</div>
+<div class="footer-stat"><strong>BR:</strong> 1</div>
 </div>
-
-<div class="datacard datacard-german">
-<div class="datacard-header">
-<div class="datacard-silhouette">
-<span style="color: white; font-size: 10px;">🔲</span>
-</div>
-<div class="datacard-title-block">
-<p class="datacard-title">50MM PAK 38</p>
-<p class="datacard-subtitle"></p>
-<p class="datacard-subtitle"></p>
-</div>
-</div>
-
-<table>
-<tr>
-<th class="main-header">VEHICLE</th>
-<th class="main-header" colspan="3">MOVEMENT</th>
-<th class="main-header" colspan="3">ARMOUR</th>
-<th class="main-header" colspan="3">ARMAMENT</th>
-</tr>
-<tr>
-<th></th>
-<th>Off-Road</th>
-<th>Road</th>
-<th>Special</th>
-<th>F</th>
-<th>S</th>
-<th>R</th>
-<th>Weapon</th>
-<th>Mount</th>
-<th>Ammo</th>
-</tr>
-<tr>
-<td>Artillery</td>
-<td>2"</td>
-<td>2"</td>
-<td>-</td>
-<td>N</td>
-<td>O</td>
-<td>O</td>
-<td>PaK38</td>
-<td>Turret</td>
-<td>-</td>
-</tr>
-</table>
-
-</div>
-
-<div class="datacard datacard-italian">
-<div class="datacard-header">
-<div class="datacard-silhouette">
-<span style="color: white; font-size: 10px;">🔲</span>
-</div>
-<div class="datacard-title-block">
-<p class="datacard-title">149MM MOD 37</p>
-<p class="datacard-subtitle"></p>
-<p class="datacard-subtitle"></p>
-</div>
-</div>
-
-<table>
-<tr>
-<th class="main-header">VEHICLE</th>
-<th class="main-header" colspan="3">MOVEMENT</th>
-<th class="main-header" colspan="3">ARMOUR</th>
-<th class="main-header" colspan="3">ARMAMENT</th>
-</tr>
-<tr>
-<th></th>
-<th>Off-Road</th>
-<th>Road</th>
-<th>Special</th>
-<th>F</th>
-<th>S</th>
-<th>R</th>
-<th>Weapon</th>
-<th>Mount</th>
-<th>Ammo</th>
-</tr>
-<tr>
-<td>Artillery</td>
-<td>0"</td>
-<td>0"</td>
-<td>-</td>
-<td>N</td>
-<td>O</td>
-<td>O</td>
-<td>None</td>
-<td>-</td>
-<td>-</td>
-</tr>
-</table>
-
 </div>
 
 <div class="datacard datacard-italian">
@@ -635,6 +486,10 @@
 </tr>
 </table>
 
+<div class="datacard-footer">
+<div class="footer-stat"><strong>Points:</strong> -</div>
+<div class="footer-stat"><strong>BR:</strong> 1</div>
+</div>
 </div>
 
 <div class="datacard datacard-italian">
@@ -682,6 +537,10 @@
 </tr>
 </table>
 
+<div class="datacard-footer">
+<div class="footer-stat"><strong>Points:</strong> -</div>
+<div class="footer-stat"><strong>BR:</strong> 1</div>
+</div>
 </div>
 
 <div class="datacard datacard-italian">
@@ -729,6 +588,10 @@
 </tr>
 </table>
 
+<div class="datacard-footer">
+<div class="footer-stat"><strong>Points:</strong> -</div>
+<div class="footer-stat"><strong>BR:</strong> 1</div>
+</div>
 </div>
 
 <div class="datacard datacard-italian">
@@ -776,6 +639,10 @@
 </tr>
 </table>
 
+<div class="datacard-footer">
+<div class="footer-stat"><strong>Points:</strong> -</div>
+<div class="footer-stat"><strong>BR:</strong> 1</div>
+</div>
 </div>
 
 </div>
