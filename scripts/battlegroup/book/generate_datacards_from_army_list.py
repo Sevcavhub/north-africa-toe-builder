@@ -20,6 +20,7 @@ Usage:
 import sqlite3
 import re
 import sys
+import os
 from pathlib import Path
 from typing import List, Dict, Set, Tuple
 
@@ -27,7 +28,15 @@ from typing import List, Dict, Set, Tuple
 sys.path.insert(0, str(Path(__file__).resolve().parents[3]))
 from scripts.battlegroup.book.generate_book_datacards_v5_5 import BookDatacardGenerator
 
-DATABASE_PATH = Path(__file__).resolve().parents[3] / "database" / "master_database.db"
+# Support environment variable for database path (for Render.com deployment)
+# Default to main database, but Render uses web database
+PROJECT_ROOT = Path(__file__).resolve().parents[3]
+DATABASE_PATH = os.environ.get('DATABASE_PATH', str(PROJECT_ROOT / "database" / "master_database.db"))
+if not Path(DATABASE_PATH).exists():
+    # Fallback to web database if main database doesn't exist (Render deployment)
+    WEB_DATABASE = PROJECT_ROOT / "scripts" / "battlegroup" / "web" / "database" / "web_database.db"
+    if WEB_DATABASE.exists():
+        DATABASE_PATH = str(WEB_DATABASE)
 
 
 class ArmyListDatacardGenerator:
