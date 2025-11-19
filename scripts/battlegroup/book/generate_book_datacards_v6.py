@@ -576,6 +576,7 @@ class BookDatacardGenerator:
                             break
 
         # V6.1 FALLBACK: If no weapons from bg_reference_vehicles, try bg_builder_vehicles
+        fallback_weapon_id = None  # Track if we used fallback
         if not main_gun or main_gun == 'None':
             cursor.execute("""
                 SELECT weapon_1_id, weapon_2_id, weapon_3_id, weapon_4_id
@@ -603,20 +604,14 @@ class BookDatacardGenerator:
                                 main_gun = weapon_name
                                 main_gun_mount = 'Turret'  # Default assumption for builder data
                                 main_gun_ammo = None  # Not available in bg_builder_vehicles
+                                fallback_weapon_id = weapon_id  # Remember we used fallback
                                 break  # Found main gun, stop searching
 
         # Look up weapon in bg_weapon_name_lookup to get HE/AP data from bg_builder_weapons
         bg_weapon_he_ap_data = None
         if main_gun and main_gun not in ['None', '-', '']:
-            cursor.execute("""
-                SELECT bg_builder_weapon_id
-                FROM bg_weapon_name_lookup
-                WHERE bg_reference_name = ?
-            """, (main_gun,))
-            lookup_result = cursor.fetchone()
-
-            if lookup_result and lookup_result['bg_builder_weapon_id']:
-                # Get HE/AP data from bg_builder_weapons
+            # If we used fallback, directly query with weapon_id
+            if fallback_weapon_id:
                 cursor.execute("""
                     SELECT weapon_name, he_type, he_effect,
                            he_strength_0, he_strength_10, he_strength_20,
@@ -625,8 +620,29 @@ class BookDatacardGenerator:
                            ap_strength_30, ap_strength_40, ap_strength_50
                     FROM bg_builder_weapons
                     WHERE weapon_id = ?
-                """, (lookup_result['bg_builder_weapon_id'],))
+                """, (fallback_weapon_id,))
                 bg_weapon_he_ap_data = cursor.fetchone()
+            else:
+                # Otherwise use lookup table (original method for manual extraction data)
+                cursor.execute("""
+                    SELECT bg_builder_weapon_id
+                    FROM bg_weapon_name_lookup
+                    WHERE bg_reference_name = ?
+                """, (main_gun,))
+                lookup_result = cursor.fetchone()
+
+                if lookup_result and lookup_result['bg_builder_weapon_id']:
+                    # Get HE/AP data from bg_builder_weapons
+                    cursor.execute("""
+                        SELECT weapon_name, he_type, he_effect,
+                               he_strength_0, he_strength_10, he_strength_20,
+                               he_strength_30, he_strength_40, he_strength_50,
+                               ap_effect, ap_strength_0, ap_strength_10, ap_strength_20,
+                               ap_strength_30, ap_strength_40, ap_strength_50
+                        FROM bg_builder_weapons
+                        WHERE weapon_id = ?
+                    """, (lookup_result['bg_builder_weapon_id'],))
+                    bg_weapon_he_ap_data = cursor.fetchone()
 
         # Fallback
         if not main_gun:
@@ -916,8 +932,8 @@ class BookDatacardGenerator:
         # Collect all weapons with ammo for performance table
         weapons_for_table = []
 
-        # Add main gun if it exists and has ammo
-        if main_gun and main_gun not in ['-', 'None', ''] and main_gun_ammo:
+        # Add main gun if it exists (V6.1: Include fallback weapons even without ammo data)
+        if main_gun and main_gun not in ['-', 'None', ''] and (main_gun_ammo or fallback_weapon_id):
             weapons_for_table.append({
                 'name': main_gun,
                 'he_weight': he_weight,
