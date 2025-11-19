@@ -468,47 +468,38 @@ class ArmyListDatacardGenerator:
         html += '    </div>\n'
         html += '  </div>\n'
 
-        # Armor table
+        # V5.5 COMBINED TABLE - All data in ONE table
         armor_front = equipment.get('armor_front', '-')
         armor_side = equipment.get('armor_side', '-')
         armor_rear = equipment.get('armor_rear', '-')
-
-        html += '  <table>\n'
-        html += '    <tr>\n'
-        html += '      <th>Front</th><th>Side</th><th>Rear</th>\n'
-        html += '    </tr>\n'
-        html += '    <tr>\n'
-        html += f'      <td>{armor_front}</td><td>{armor_side}</td><td>{armor_rear}</td>\n'
-        html += '    </tr>\n'
-        html += '  </table>\n'
-
-        # Armament table
-        if equipment.get('armament_rows'):
-            html += '  <table>\n'
-            html += '    <tr>\n'
-            html += '      <th>Weapon</th><th>HE</th><th>AP</th><th>HE Range</th>\n'
-            html += '    </tr>\n'
-
-            for row in equipment['armament_rows']:
-                html += '    <tr>\n'
-                html += f'      <td>{row.get("weapon", "-")}</td>\n'
-                html += f'      <td>{row.get("he", "-")}</td>\n'
-                html += f'      <td>{row.get("ap", "-")}</td>\n'
-                html += f'      <td>{row.get("he_range", "-")}</td>\n'
-                html += '    </tr>\n'
-
-            html += '  </table>\n'
-
-        # Movement table
         off_road = equipment.get('off_road', '-')
         road = equipment.get('road', '-')
 
         html += '  <table>\n'
         html += '    <tr>\n'
-        html += '      <th>Off-Road</th><th>Road</th>\n'
+        html += '      <th>Front</th><th>Side</th><th>Rear</th>'
+
+        # Add weapon columns if there are weapons
+        if equipment.get('armament_rows'):
+            html += '<th>Weapon</th><th>HE</th><th>AP</th><th>HE Range</th>'
+
+        html += '<th>Off-Road</th><th>Road</th>\n'
         html += '    </tr>\n'
         html += '    <tr>\n'
-        html += f'      <td>{off_road}"</td><td>{road}"</td>\n'
+        html += f'      <td>{armor_front}</td><td>{armor_side}</td><td>{armor_rear}</td>'
+
+        # Add weapon data
+        if equipment.get('armament_rows') and len(equipment['armament_rows']) > 0:
+            row = equipment['armament_rows'][0]  # First weapon only in main row
+            html += f'<td>{row.get("weapon", "-")}</td>'
+            html += f'<td>{row.get("he", "-")}</td>'
+            html += f'<td>{row.get("ap", "-")}</td>'
+            html += f'<td>{row.get("he_range", "-")}</td>'
+        elif equipment.get('armament_rows'):
+            # Empty weapon cells if header was added
+            html += '<td>-</td><td>-</td><td>-</td><td>-</td>'
+
+        html += f'<td>{off_road}</td><td>{road}</td>\n'
         html += '    </tr>\n'
         html += '  </table>\n'
 
