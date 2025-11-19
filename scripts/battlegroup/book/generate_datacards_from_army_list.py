@@ -411,7 +411,8 @@ class ArmyListDatacardGenerator:
                 f.write('\n<div class="datacard-grid">\n\n')
 
                 for equipment in items:
-                    datacard_md = self.generate_v55_datacard(equipment)
+                    # Use official V5.5 generator for proper datacards
+                    datacard_md = self.datacard_gen.generate_datacard_markdown(equipment, experience='r')
                     f.write(datacard_md)
                     f.write('\n')
 
@@ -445,76 +446,6 @@ class ArmyListDatacardGenerator:
                 categories['Other Equipment'].append(eq)
 
         return categories
-
-    def generate_v55_datacard(self, equipment: Dict) -> str:
-        """
-        Generate V5.5 format datacard markdown.
-
-        Simplified version - full implementation would call existing generator.
-        """
-        nation = equipment.get('nation', 'unknown')
-        name = equipment.get('name', 'Unknown')
-
-        # Build datacard HTML
-        html = f'<div class="datacard datacard-{nation}">\n'
-        html += '  <div class="datacard-header">\n'
-        html += f'    <div class="datacard-title-block">\n'
-        html += f'      <p class="datacard-title">{name.upper()}</p>\n'
-
-        # Special rules
-        if equipment.get('special_rules'):
-            html += f'      <p class="datacard-special-rules">{equipment["special_rules"]}</p>\n'
-
-        html += '    </div>\n'
-        html += '  </div>\n'
-
-        # V5.5 COMBINED TABLE - All data in ONE table
-        armor_front = equipment.get('armor_front', '-')
-        armor_side = equipment.get('armor_side', '-')
-        armor_rear = equipment.get('armor_rear', '-')
-        off_road = equipment.get('off_road', '-')
-        road = equipment.get('road', '-')
-
-        html += '  <table>\n'
-        html += '    <tr>\n'
-        html += '      <th>Front</th><th>Side</th><th>Rear</th>'
-
-        # Add weapon columns if there are weapons
-        if equipment.get('armament_rows'):
-            html += '<th>Weapon</th><th>HE</th><th>AP</th><th>HE Range</th>'
-
-        html += '<th>Off-Road</th><th>Road</th>\n'
-        html += '    </tr>\n'
-        html += '    <tr>\n'
-        html += f'      <td>{armor_front}</td><td>{armor_side}</td><td>{armor_rear}</td>'
-
-        # Add weapon data
-        if equipment.get('armament_rows') and len(equipment['armament_rows']) > 0:
-            row = equipment['armament_rows'][0]  # First weapon only in main row
-            html += f'<td>{row.get("weapon", "-")}</td>'
-            html += f'<td>{row.get("he", "-")}</td>'
-            html += f'<td>{row.get("ap", "-")}</td>'
-            html += f'<td>{row.get("he_range", "-")}</td>'
-        elif equipment.get('armament_rows'):
-            # Empty weapon cells if header was added
-            html += '<td>-</td><td>-</td><td>-</td><td>-</td>'
-
-        html += f'<td>{off_road}</td><td>{road}</td>\n'
-        html += '    </tr>\n'
-        html += '  </table>\n'
-
-        # Footer (points/BR if available)
-        if equipment.get('points_veteran') or equipment.get('br'):
-            html += '  <div class="datacard-footer">\n'
-            if equipment.get('points_veteran'):
-                html += f'    <div class="footer-stat">Points: {equipment["points_veteran"]}</div>\n'
-            if equipment.get('br'):
-                html += f'    <div class="footer-stat">BR: {equipment["br"]}</div>\n'
-            html += '  </div>\n'
-
-        html += '</div>\n'
-
-        return html
 
     def get_v55_css(self) -> str:
         """Return V5.5 datacard CSS (simplified version)."""
