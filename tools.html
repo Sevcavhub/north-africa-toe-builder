@@ -898,13 +898,25 @@
                 `;
             }
 
-            // Create download buttons for each datacard category
+            // Primary action: Open printable HTML
             const categories = Object.keys(data.datacards);
             if (categories.length > 0) {
                 html += `
-                    <div style="margin-bottom: 1rem;">
-                        <h4 style="margin-bottom: 0.5rem;">Generated Datacards:</h4>
-                        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                    <div style="margin-bottom: 1.5rem;">
+                        <button
+                            onclick="viewDatacardsHTML()"
+                            style="padding: 1rem 2rem; background: var(--accent-red); color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: 600; width: 100%; font-size: 1.1em;"
+                        >
+                            🖨️ Open Printable Datacards (New Window)
+                        </button>
+                    </div>
+                `;
+
+                // Optional: Download individual markdown files (collapsed by default)
+                html += `
+                    <details style="margin-top: 1rem; padding: 0.5rem; background: #f8f9fa; border-radius: 4px;">
+                        <summary style="cursor: pointer; font-weight: 600; color: #666;">Advanced: Download Markdown Files</summary>
+                        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.5rem;">
                 `;
 
                 categories.forEach(category => {
@@ -912,26 +924,16 @@
                     html += `
                         <button
                             onclick="downloadDatacard('${category}', ${JSON.stringify(content).replace(/'/g, "\\'")})"
-                            style="padding: 0.5rem 1rem; background: var(--olive-drab); color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: 600;"
+                            style="padding: 0.5rem 1rem; background: var(--olive-drab); color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 0.9em;"
                         >
-                            📥 Download ${category.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}.md
+                            📥 ${category.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}.md
                         </button>
                     `;
                 });
 
                 html += `
                         </div>
-                    </div>
-                `;
-
-                // Add "View All HTML" button
-                html += `
-                    <button
-                        onclick="viewDatacardsHTML()"
-                        style="padding: 0.75rem 1.5rem; background: var(--accent-red); color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: 600; width: 100%;"
-                    >
-                        🖨️ Open Printable Datacards (New Window)
-                    </button>
+                    </details>
                 `;
             }
 
