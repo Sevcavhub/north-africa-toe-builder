@@ -45,7 +45,8 @@ class ArmyListDatacardGenerator:
     def __init__(self):
         self.conn = sqlite3.connect(DATABASE_PATH)
         self.conn.row_factory = sqlite3.Row
-        self.datacard_gen = BookDatacardGenerator()
+        # Pass database path to generator so it uses the same database
+        self.datacard_gen = BookDatacardGenerator(database_path=DATABASE_PATH)
 
     def close(self):
         """Close database connections."""

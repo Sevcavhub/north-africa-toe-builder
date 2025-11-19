@@ -109,9 +109,15 @@ NATIONS = ['german', 'british', 'italian', 'american', 'french']
 class BookDatacardGenerator:
     """Generate equipment datacards for battle books."""
 
-    def __init__(self):
-        """Initialize generator."""
-        self.conn = sqlite3.connect(DATABASE_PATH)
+    def __init__(self, database_path=None):
+        """Initialize generator.
+
+        Args:
+            database_path: Optional path to database file.
+                          If not provided, uses default DATABASE_PATH.
+        """
+        db_path = database_path or DATABASE_PATH
+        self.conn = sqlite3.connect(db_path)
         self.conn.row_factory = sqlite3.Row
 
     def get_units_for_battle(self, battle_key: str) -> List[Path]:
