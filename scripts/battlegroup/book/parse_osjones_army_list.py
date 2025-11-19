@@ -1,6 +1,10 @@
 #!/usr/bin/env python3
 """
-Parse OSJones BattleGroup Builder print output and extract vehicle/gun names.
+Parse OSJones BattleGroup Builder print output and extract vehicle/gun names (V6.1).
+
+V6.1 changes (November 2025):
+- Use V6.1 datacard generator with weapon fallback support
+- Better coverage for vehicles not manually extracted (e.g., Sherman Jumbo, rare variants)
 
 This script parses the formatted text output from OSJones Builder print page
 and extracts the equipment names that have datacards (vehicles, guns, SPGs).
@@ -21,9 +25,9 @@ import sys
 from pathlib import Path
 from typing import List, Set, Dict, Tuple
 
-# Import the datacard generator
+# Import the V6.1 datacard generator with weapon fallback
 sys.path.insert(0, str(Path(__file__).resolve().parents[3]))
-from scripts.battlegroup.book.generate_datacards_from_army_list import ArmyListDatacardGenerator
+from scripts.battlegroup.book.generate_datacards_from_army_list_v6 import ArmyListDatacardGenerator
 
 
 class OSJonesArmyListParser:

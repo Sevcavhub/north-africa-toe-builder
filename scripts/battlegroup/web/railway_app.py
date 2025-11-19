@@ -238,7 +238,9 @@ def create_app():
     @app.route('/api/datacards/osjones', methods=['POST'])
     def generate_osjones_datacards():
         """
-        Generate BattleGroup V5.5 datacards from OSJones Builder army list.
+        Generate BattleGroup V6.1 datacards from OSJones Builder army list.
+
+        V6.1 includes weapon fallback support for better coverage.
 
         Request body:
             {
@@ -266,7 +268,7 @@ def create_app():
 
         try:
             from scripts.battlegroup.book.parse_osjones_army_list import OSJonesArmyListParser
-            from scripts.battlegroup.book.generate_datacards_from_army_list import ArmyListDatacardGenerator
+            from scripts.battlegroup.book.generate_datacards_from_army_list_v6 import ArmyListDatacardGenerator
 
             data = request.get_json() or {}
             army_list_text = data.get('army_list_text', '').strip()
@@ -352,8 +354,9 @@ def create_app():
     @app.route('/api/datacards/osjones/html', methods=['POST'])
     def generate_osjones_datacards_html():
         """
-        Generate BattleGroup V5.5 datacards as complete HTML page with V5.5 CSS.
+        Generate BattleGroup V6.1 datacards as complete HTML page with V6.1 CSS.
         Returns full HTML document ready for printing (A4 landscape).
+        V6.1 includes weapon fallback support for better coverage.
         """
         import sys
         import tempfile
@@ -365,7 +368,7 @@ def create_app():
 
         try:
             from scripts.battlegroup.book.parse_osjones_army_list import OSJonesArmyListParser
-            from scripts.battlegroup.book.generate_datacards_from_army_list import ArmyListDatacardGenerator
+            from scripts.battlegroup.book.generate_datacards_from_army_list_v6 import ArmyListDatacardGenerator
 
             data = request.get_json() or {}
             army_list_text = data.get('army_list_text', '').strip()
