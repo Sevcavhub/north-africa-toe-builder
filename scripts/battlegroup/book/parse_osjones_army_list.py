@@ -156,6 +156,15 @@ class OSJonesArmyListParser:
         if not vehicle_name or vehicle_name in ['Move', 'Armour', 'Weapon', 'Special']:
             return None
 
+        # Skip weapon performance table rows (ammunition types like "HE [M] (4/4+)" or "AP (-)")
+        # These have names starting with "HE", "AP", "APCR", "APDS", "HEAT", etc.
+        if re.match(r'^(HE|AP|APCR|APDS|HEAT|HESH|Smoke)\s*[\[\(]', vehicle_name, re.IGNORECASE):
+            return None
+
+        # Skip rows that are all numbers (weapon performance data columns)
+        if len(parts) > 1 and all(part.strip().isdigit() or not part.strip() for part in parts[1:]):
+            return None
+
         # Extract movement (e.g., "8   /   12")
         movement = parts[1].strip() if len(parts) > 1 else ''
         movement = re.sub(r'\s+', '', movement)  # Remove spaces: "8/12"

@@ -372,38 +372,8 @@
                 `;
             }
 
-            // Download individual markdown files (optional)
-            const categories = Object.keys(data.datacards || {});
-            if (categories.length > 0) {
-                html += `
-                    <details style="margin-top: 1rem; padding: 0.5rem; background: #f8f9fa; border-radius: 4px;">
-                        <summary style="cursor: pointer; font-weight: 600; color: #666;">Advanced: Download Markdown Files</summary>
-                        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.5rem;">
-                `;
-
-                categories.forEach(category => {
-                    html += `
-                        <button
-                            onclick="downloadMarkdown('${category}')"
-                            class="btn"
-                            style="width: auto; padding: 0.5rem 1rem; font-size: 0.9em; background: #6c757d;"
-                        >
-                            📥 ${category.replace(/_/g, ' ')}
-                        </button>
-                    `;
-                });
-
-                html += `
-                        </div>
-                    </details>
-                `;
-            }
-
             outputEl.innerHTML = html;
             resultsEl.classList.add('show');
-
-            // Store datacards data for download
-            window.datacardsData = data.datacards;
         }
 
         function displayError(data) {
