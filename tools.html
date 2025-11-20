@@ -997,65 +997,66 @@
             resultsEl.classList.remove('show');
         }
 
-        // Nation checkbox validation
-        document.querySelectorAll('input[name="randomNation"]').forEach(checkbox => {
-            checkbox.addEventListener('change', () => {
-                const checked = document.querySelectorAll('input[name="randomNation"]:checked');
-                if (checked.length >= 2) {
-                    document.querySelectorAll('input[name="randomNation"]:not(:checked)').forEach(cb => {
-                        cb.disabled = true;
-                    });
-                } else {
-                    document.querySelectorAll('input[name="randomNation"]').forEach(cb => {
-                        cb.disabled = false;
-                    });
-                }
+            // Nation checkbox validation
+            document.querySelectorAll('input[name="randomNation"]').forEach(checkbox => {
+                checkbox.addEventListener('change', () => {
+                    const checked = document.querySelectorAll('input[name="randomNation"]:checked');
+                    if (checked.length >= 2) {
+                        document.querySelectorAll('input[name="randomNation"]:not(:checked)').forEach(cb => {
+                            cb.disabled = true;
+                        });
+                    } else {
+                        document.querySelectorAll('input[name="randomNation"]').forEach(cb => {
+                            cb.disabled = false;
+                        });
+                    }
+                });
             });
-        });
 
-        // Initialize nation checkboxes
-        const checkedNations = document.querySelectorAll('input[name="randomNation"]:checked');
-        if (checkedNations.length >= 2) {
-            document.querySelectorAll('input[name="randomNation"]:not(:checked)').forEach(cb => {
-                cb.disabled = true;
+            // Initialize nation checkboxes
+            const checkedNations = document.querySelectorAll('input[name="randomNation"]:checked');
+            if (checkedNations.length >= 2) {
+                document.querySelectorAll('input[name="randomNation"]:not(:checked)').forEach(cb => {
+                    cb.disabled = true;
+                });
+            }
+
+            // OSJones Datacard Generator Form
+            document.getElementById('osjonesDatacardForm').addEventListener('submit', async (e) => {
+                e.preventDefault();
+
+                const armyListText = document.getElementById('osjonesArmyList').value.trim();
+
+                if (!armyListText) {
+                    alert('Please paste your army list from OSJones Builder');
+                    return;
+                }
+
+                showLoading('osjonesLoading');
+                hideResults('osjonesResults');
+
+                try {
+                    const response = await fetch(`${API_URL}/api/datacards/osjones`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ army_list_text: armyListText })
+                    });
+
+                    const data = await response.json();
+
+                    hideLoading('osjonesLoading');
+
+                    if (response.ok && data.success) {
+                        displayDatacardResults(data);
+                    } else {
+                        showResults('osjonesResults', data, false);
+                    }
+                } catch (error) {
+                    hideLoading('osjonesLoading');
+                    showResults('osjonesResults', { error: error.message }, false);
+                }
             });
         }
-
-        // OSJones Datacard Generator Form
-        document.getElementById('osjonesDatacardForm').addEventListener('submit', async (e) => {
-            e.preventDefault();
-
-            const armyListText = document.getElementById('osjonesArmyList').value.trim();
-
-            if (!armyListText) {
-                alert('Please paste your army list from OSJones Builder');
-                return;
-            }
-
-            showLoading('osjonesLoading');
-            hideResults('osjonesResults');
-
-            try {
-                const response = await fetch(`${API_URL}/api/datacards/osjones`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ army_list_text: armyListText })
-                });
-
-                const data = await response.json();
-
-                hideLoading('osjonesLoading');
-
-                if (response.ok && data.success) {
-                    displayDatacardResults(data);
-                } else {
-                    showResults('osjonesResults', data, false);
-                }
-            } catch (error) {
-                hideLoading('osjonesLoading');
-                showResults('osjonesResults', { error: error.message }, false);
-            }
-        });
 
         // Display datacard results with formatted HTML
         function displayDatacardResults(data) {

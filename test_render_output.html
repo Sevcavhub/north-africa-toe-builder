@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BattleGroup V6.1 Datacards - Interactive Builder</title>
+    <style>
+        @page { size: A4 landscape; margin: 1cm; }
+        @media print {
+            body { margin: 0; }
+            .page-break { page-break-after: always; }
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .datacards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .datacard {
+            background: white;
+            border: 3px solid #333;
+            border-radius: 8px;
+            padding: 16px;
+            page-break-inside: avoid;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .datacard.datacard-german {
+            background-color: #c4c4c4;
+            border-color: #333;
+        }
+        .datacard.datacard-german th {
+            background-color: #666;
+            color: white;
+        }
+        .datacard.datacard-german td {
+            background-color: #e8e8e8;
+            color: #1a1a1a;
+        }
+        .datacard.datacard-british {
+            background-color: #d4c4a0;
+            border-color: #4a3a2a;
+        }
+        .datacard.datacard-british th {
+            background-color: #6b5d3f;
+            color: white;
+        }
+        .datacard.datacard-british td {
+            background-color: #f0e8d0;
+            color: #1a1a1a;
+        }
+        .datacard.datacard-italian {
+            background-color: #739A64;
+            border-color: #5a4a2a;
+        }
+        .datacard.datacard-italian th {
+            background-color: #6b5d3f;
+            color: white;
+        }
+        .datacard.datacard-italian td {
+            background-color: #e8dcc0;
+            color: #1a1a1a;
+        }
+        .datacard.datacard-american {
+            background-color: #b8c5a0;
+            border-color: #3a4a2a;
+        }
+        .datacard.datacard-american th {
+            background-color: #5a6d45;
+            color: white;
+        }
+        .datacard.datacard-american td {
+            background-color: #dce8cf;
+            color: #1a1a1a;
+        }
+        .datacard.datacard-french {
+            background-color: #b8c4d4;
+            border-color: #2a3a4a;
+        }
+        .datacard.datacard-french th {
+            background-color: #4a5a6d;
+            color: white;
+        }
+        .datacard.datacard-french td {
+            background-color: #d8e4f4;
+            color: #1a1a1a;
+        }
+        .datacard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #333;
+        }
+        .datacard-title {
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .datacard-points {
+            font-size: 16px;
+            font-weight: bold;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 10px;
+        }
+        th, td {
+            border: 1px solid #333;
+            padding: 6px;
+            text-align: center;
+            font-size: 13px;
+        }
+        th {
+            font-weight: bold;
+        }
+        .special-rules {
+            font-style: italic;
+            font-size: 12px;
+            margin-top: 8px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="datacards-container">
+<div class="datacard datacard-american">
+<div class="datacard-header">
+<div class="datacard-silhouette">
+<span style="color: white; font-size: 10px;">🔲</span>
+</div>
+<div class="datacard-title-block">
+<p class="datacard-title">M3 GRANT</p>
+<p class="datacard-subtitle">1942-43</p>
+<p class="datacard-subtitle">Lend-lease medium tank</p>
+</div>
+</div>
+
+<table>
+<tr>
+<th class="main-header">VEHICLE</th>
+<th class="main-header" colspan="3">MOVEMENT</th>
+<th class="main-header" colspan="3">ARMOUR</th>
+<th class="main-header" colspan="3">ARMAMENT</th>
+</tr>
+<tr>
+<th></th>
+<th>Off-Road</th>
+<th>Road</th>
+<th>Special</th>
+<th>F</th>
+<th>S</th>
+<th>R</th>
+<th>Weapon</th>
+<th>Mount</th>
+<th>Ammo</th>
+</tr>
+<tr>
+<td>Vehicle</td>
+<td>8"</td>
+<td>13"</td>
+<td>-</td>
+<td>L</td>
+<td>M</td>
+<td>O</td>
+<td>37mmL53</td>
+<td>Turret</td>
+<td>14</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>75mmL30</td>
+<td>Hull</td>
+<td>5</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>MG</td>
+<td>Co-Axial</td>
+<td>-</td>
+</tr>
+</table>
+
+<table>
+<tr>
+<th class="main-header">WEAPON</th>
+<th class="main-header">AMMO</th>
+<th class="main-header">HE</th>
+<th class="main-header" colspan="6">RANGE</th>
+</tr>
+<tr>
+<th></th>
+<th></th>
+<th>VL</th>
+<th>0-10"</th>
+<th>10-20"</th>
+<th>20-30"</th>
+<th>30-40"</th>
+<th>40-50"</th>
+<th>50-70"</th>
+</tr>
+<tr>
+<td>37mmL53</td>
+<td>HE</td>
+<td>2/5+</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>-</td>
+</tr>
+<tr>
+<td>37mmL53</td>
+<td>AP</td>
+<td>-</td>
+<td>4</td>
+<td>4</td>
+<td>3</td>
+<td>2</td>
+<td>1</td>
+<td>-</td>
+</tr>
+<tr>
+<td>75mmL30</td>
+<td>HE</td>
+<td>3/4+</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+<td>-</td>
+</tr>
+<tr>
+<td>75mmL30</td>
+<td>AP</td>
+<td>-</td>
+<td>5</td>
+<td>5</td>
+<td>4</td>
+<td>3</td>
+<td>2</td>
+<td>-</td>
+</tr>
+
+</table>
+<div class="datacard-footer">
+<div class="footer-stat"><strong>Points:</strong> -</div>
+<div class="footer-stat"><strong>BR:</strong> -</div>
+</div>
+</div>
+
+    </div>
+</body>
+</html>
