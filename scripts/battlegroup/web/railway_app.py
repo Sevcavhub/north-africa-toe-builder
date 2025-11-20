@@ -83,7 +83,9 @@ def create_app():
                     'printable': 'GET /api/scenarios/{battle}/{scenario_id}/printable'
                 },
                 'datacards': {
-                    'osjones': 'POST /api/datacards/osjones'
+                    'osjones': 'POST /api/datacards/osjones',
+                    'vehicles': 'GET /api/vehicles',
+                    'build_html': 'POST /api/build-datacards-html'
                 }
             },
             'status': 'Railway deployment active'
@@ -734,6 +736,252 @@ h1 {
         except Exception as e:
             return jsonify({
                 'error': 'Failed to fetch equipment',
+                'message': str(e)
+            }), 500
+
+    # ============================================================================
+    # INTERACTIVE DATACARD BUILDER ENDPOINTS
+    # ============================================================================
+
+    @app.route('/api/vehicles', methods=['GET'])
+    def get_vehicles():
+        """
+        Get list of all vehicles from bg_builder_vehicles for Interactive Datacard Builder.
+        Returns array of vehicle names.
+        """
+        try:
+            import sqlite3
+
+            conn = sqlite3.connect(app.config['DATABASE_PATH'])
+            conn.row_factory = sqlite3.Row
+            cursor = conn.cursor()
+
+            # Get all vehicle names from bg_builder_vehicles
+            cursor.execute("""
+                SELECT DISTINCT name
+                FROM bg_builder_vehicles
+                ORDER BY name
+            """)
+
+            vehicles = [row['name'] for row in cursor.fetchall()]
+            conn.close()
+
+            return jsonify(vehicles), 200
+        except Exception as e:
+            app.logger.error(f"Error loading vehicles: {str(e)}")
+            return jsonify({
+                'error': 'Failed to load vehicles',
+                'message': str(e)
+            }), 500
+
+    @app.route('/api/build-datacards-html', methods=['POST'])
+    def build_datacards_html():
+        """
+        Build datacards for selected vehicles and return complete HTML page.
+        Accepts JSON: { "vehicles": [{"name": "Panzer IV G", "nation": "german"}, ...] }
+        Returns: Complete HTML page ready for new tab display.
+        """
+        try:
+            import sys
+            from pathlib import Path
+
+            # Add project root to path
+            project_root = Path(__file__).resolve().parents[3]
+            sys.path.insert(0, str(project_root))
+
+            from scripts.battlegroup.book.generate_book_datacards_v6 import BookDatacardGenerator
+
+            data = request.get_json()
+            vehicles = data.get('vehicles', [])
+
+            if not vehicles:
+                return jsonify({
+                    'error': 'No vehicles provided',
+                    'message': 'Please provide an array of vehicles with name and nation'
+                }), 400
+
+            # Initialize generator
+            generator = BookDatacardGenerator(database_path=app.config['DATABASE_PATH'])
+
+            # Build HTML parts
+            html_parts = []
+            html_parts.append('''<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BattleGroup V6.1 Datacards - Interactive Builder</title>
+    <style>
+        @page { size: A4 landscape; margin: 1cm; }
+        @media print {
+            body { margin: 0; }
+            .page-break { page-break-after: always; }
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .datacards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .datacard {
+            background: white;
+            border: 3px solid #333;
+            border-radius: 8px;
+            padding: 16px;
+            page-break-inside: avoid;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+''')
+
+            # Add nation-specific CSS from railway_app.py lines 472-566
+            html_parts.append('''
+        .datacard.datacard-german {
+            background-color: #c4c4c4;
+            border-color: #333;
+        }
+        .datacard.datacard-german th {
+            background-color: #666;
+            color: white;
+        }
+        .datacard.datacard-german td {
+            background-color: #e8e8e8;
+            color: #1a1a1a;
+        }
+        .datacard.datacard-british {
+            background-color: #d4c4a0;
+            border-color: #4a3a2a;
+        }
+        .datacard.datacard-british th {
+            background-color: #6b5d3f;
+            color: white;
+        }
+        .datacard.datacard-british td {
+            background-color: #f0e8d0;
+            color: #1a1a1a;
+        }
+        .datacard.datacard-italian {
+            background-color: #739A64;
+            border-color: #5a4a2a;
+        }
+        .datacard.datacard-italian th {
+            background-color: #6b5d3f;
+            color: white;
+        }
+        .datacard.datacard-italian td {
+            background-color: #e8dcc0;
+            color: #1a1a1a;
+        }
+        .datacard.datacard-american {
+            background-color: #b8c5a0;
+            border-color: #3a4a2a;
+        }
+        .datacard.datacard-american th {
+            background-color: #5a6d45;
+            color: white;
+        }
+        .datacard.datacard-american td {
+            background-color: #dce8cf;
+            color: #1a1a1a;
+        }
+        .datacard.datacard-french {
+            background-color: #b8c4d4;
+            border-color: #2a3a4a;
+        }
+        .datacard.datacard-french th {
+            background-color: #4a5a6d;
+            color: white;
+        }
+        .datacard.datacard-french td {
+            background-color: #d8e4f4;
+            color: #1a1a1a;
+        }
+        .datacard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #333;
+        }
+        .datacard-title {
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .datacard-points {
+            font-size: 16px;
+            font-weight: bold;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 10px;
+        }
+        th, td {
+            border: 1px solid #333;
+            padding: 6px;
+            text-align: center;
+            font-size: 13px;
+        }
+        th {
+            font-weight: bold;
+        }
+        .special-rules {
+            font-style: italic;
+            font-size: 12px;
+            margin-top: 8px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="datacards-container">
+''')
+
+            # Generate datacard for each vehicle
+            for vehicle_data in vehicles:
+                vehicle_name = vehicle_data.get('name')
+                nation_override = vehicle_data.get('nation')
+
+                if not vehicle_name:
+                    continue
+
+                # If nation is 'auto', set to None for auto-detection
+                if nation_override == 'auto':
+                    nation_override = None
+
+                equipment = {
+                    'name': vehicle_name,
+                    'nation_override': nation_override
+                }
+
+                try:
+                    datacard_html = generator.generate_datacard_markdown(equipment, 'r')
+                    html_parts.append(datacard_html)
+                except Exception as e:
+                    app.logger.error(f"Error generating datacard for {vehicle_name}: {str(e)}")
+                    html_parts.append(f'<div class="datacard"><p>Error: Could not generate datacard for {vehicle_name}</p></div>')
+
+            html_parts.append('''
+    </div>
+</body>
+</html>
+''')
+
+            generator.close()
+
+            return ''.join(html_parts), 200, {'Content-Type': 'text/html; charset=utf-8'}
+
+        except Exception as e:
+            app.logger.error(f"Error building datacards: {str(e)}", exc_info=True)
+            return jsonify({
+                'error': 'Failed to build datacards',
                 'message': str(e)
             }), 500
 
