@@ -1,13 +1,41 @@
 # Phase 9B BattleGroup System - Session Summary
 
-**Date**: October 31 - November 14, 2025 (Updated Nov 14 - OSJones Army List Tool Added)
-**Duration**: ~38 hours development + ongoing manual data extraction
+**Date**: October 31 - November 19, 2025 (Updated Nov 19 - V6.1 Generator + Interactive Builder)
+**Duration**: ~40 hours development + ongoing manual data extraction
 **Phase**: 9B - BattleGroup Book Generation
-**Status**: ✅ **ACTIVE** - Web tools operational, OSJones army list parser integrated (Nov 14)
+**Status**: ✅ **ACTIVE** - V6.1 datacard generator operational, interactive web builder deployed (Nov 19)
 
 ---
 
-## 🎨 NEW FEATURE: OSJones Army List Datacard Generator (November 14, 2025)
+## 🚀 V6.1 DATACARD GENERATOR + INTERACTIVE BUILDER (November 19, 2025)
+
+**V6.1 Generator - Weapon Fallback System**: Unlinked vehicles (those not in bg_reference_vehicles manual extraction) can now generate complete weapon performance tables by querying bg_builder_weapons directly.
+
+**Key Features**:
+- **Weapon Fallback**: When bg_reference_vehicles lookup fails, queries bg_builder_vehicles for weapon_id, then bg_builder_weapons for HE/AP data
+- **Table 2 Fix**: Weapon performance tables now populate correctly for fallback vehicles (e.g., M4A3E2 Sherman Jumbo shows 75mmL40 HE/AP data)
+- **Backward Compatible**: Maintains full compatibility with V5.5 and manually-extracted reference data
+- **Technical**: Condition updated at line 936: `(main_gun_ammo or fallback_weapon_id)` allows weapons without ammo counts
+
+**Interactive Datacard Builder** (NEW - Local Web Application):
+- **Flask Server**: Local web server (http://localhost:5000) for custom datacard generation
+- **Vehicle Selection**: Search/select from 602 vehicles in bg_builder_vehicles with nation override
+- **Batch Generation**: Select multiple vehicles, generate datacards in one click
+- **New Tab Display**: Datacards open in new browser tab (no downloads needed)
+- **Easy Sharing**: Includes START_DATACARD_BUILDER.bat for Windows, complete setup docs
+- **Auto-Reload**: Debug mode auto-reloads on code changes
+
+**Files**:
+- Generator: `scripts/battlegroup/book/generate_book_datacards_v6.py` (V6 → V6.1)
+- Server: `interactive_datacard_server.py` (NEW)
+- Frontend: `interactive_datacard_builder.html` (NEW)
+- Docs: `INTERACTIVE_DATACARD_SETUP.md`, `QUICK_START.txt` (NEW)
+
+**Commit**: `bf8c5dc1` - feat(datacards): V6.1 weapon fallback and interactive builder
+
+---
+
+## 🎨 OSJones Army List Datacard Generator (November 14, 2025)
 
 **What Was Built**: Complete end-to-end web tool for generating BattleGroup datacards from OSJones Builder army lists
 

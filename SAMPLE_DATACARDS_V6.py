@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
-Generate sample datacards v5.5 for print testing
-V5.5 changes:
-- Add silhouette images from data/assets/tank_silhouettes/
+Generate sample datacards v6 for print testing
+V6 changes:
+- Use bg_builder_vehicles.name as lookup key instead of equipment.canonical_id
 """
 
 import sqlite3
@@ -13,22 +13,25 @@ from pathlib import Path
 project_root = Path(__file__).resolve().parent
 sys.path.insert(0, str(project_root))
 
-from scripts.battlegroup.book.generate_book_datacards_v5_5 import BookDatacardGenerator
+from scripts.battlegroup.book.generate_book_datacards_v6 import BookDatacardGenerator
 
 DATABASE_PATH = project_root / "database" / "master_database.db"
 
-# Sample equipment IDs - Mix of British, German, Italian vehicles Look up in bg_reference_vehicles table
+# Sample equipment - Using bg_builder_vehicles.name as lookup
+# Format: Either a string (auto-detect nation) or a dict with 'name' and 'nation' keys
+
 SAMPLE_EQUIPMENT = [
-    'GBR_M3_GRANT',         # M3 Grant (ref_id 238)
-    'GER_SDKFZ_251_1',      # SdKfz 251/1 (ref_id 25)
-    'ITA_SEMOVENTE_75_18',  # Semovente M41 75/18 (ref_id 304)
-    'GBR_MATILDA_II',       # Matilda II (ref_id 97)
-    'GBR_CRUSADER_III',     # Crusader III (ref_id 138)
-    'GBR_CHURCHILL_MK_IV',  # Churchill Mk IV (ref_id 82)
-    'GER_PANZER_III_AUSF_H', # Panzer III Ausf H (ref_id 220)
-    'GER_PANZER_IV_AUSF_F2', # Panzer IV Ausf F2 (ref_id 289)
-    'ITA_CARRO_ARMATO_M13_40', # Carro Armato M13/40 (ref_id 178)  
-  
+    'M3 Grant',              # British medium tank (auto-detected)
+    'SdKfz 251/1',           # German halftrack (auto-detected)
+    'M13/40',                # Italian medium tank (auto-detected)
+    'Matilda II',            # British infantry tank (auto-detected)
+    'Crusader III',          # British cruiser tank (auto-detected)
+    'Churchill III/IV',      # British infantry tank (auto-detected)
+    'Panzer III H',          # German medium tank (auto-detected)
+    'Panzer IV F2',          # German medium tank (auto-detected)
+
+    # Override nation: Sherman used by British instead of American
+    {'name': 'M4 Sherman (A1,A2,A3)', 'nation': 'british'},
 ]
 
 def generate_sample():
@@ -40,37 +43,47 @@ def generate_sample():
 
     generator = BookDatacardGenerator()
 
-    # Get equipment data
+    # Get equipment data using bg_builder_vehicles.name as lookup key
     equipment_list = []
-    for equip_id in SAMPLE_EQUIPMENT:
+    for item in SAMPLE_EQUIPMENT:
+        # Handle both string format and dict format
+        if isinstance(item, str):
+            vehicle_name = item
+            nation_override = None  # Auto-detect
+        else:
+            vehicle_name = item['name']
+            nation_override = item.get('nation')  # User-specified nation
+
         cursor.execute("""
-            SELECT canonical_id, name, nation, equipment_type, category
-            FROM equipment
-            WHERE canonical_id = ?
-        """, (equip_id,))
+            SELECT id, name
+            FROM bg_builder_vehicles
+            WHERE name = ?
+        """, (vehicle_name,))
 
         row = cursor.fetchone()
         if row:
             equipment_list.append({
-                'canonical_id': row['canonical_id'],
+                'bg_builder_vehicle_id': row['id'],
                 'name': row['name'],
-                'nation': row['nation'],
-                'equipment_type': row['equipment_type'],
-                'category': row['category']
+                'nation_override': nation_override,  # Pass override to generator
+                'equipment_type': 'vehicle',
+                'category': 'armored_vehicle'
             })
+        else:
+            print(f"[WARNING] Vehicle not found in bg_builder_vehicles: {vehicle_name}")
 
     # Generate output file (HTML for direct printing)
-    output_file = project_root / "SAMPLE_DATACARDS_V5.5.html"
+    output_file = project_root / "SAMPLE_DATACARDS_V6.html"
 
     with open(output_file, 'w', encoding='utf-8') as f:
         # Write HTML header
         f.write("<!DOCTYPE html>\n<html>\n<head>\n")
         f.write("<meta charset='UTF-8'>\n")
-        f.write("<title>Sample Datacards v5.5 - Print Test</title>\n")
+        f.write("<title>Sample Datacards v6 - Print Test</title>\n")
 
         # Write CSS (extract from actual generator to ensure consistency)
         import re
-        gen_path = project_root / "scripts" / "battlegroup" / "book" / "generate_book_datacards_v5_5.py"
+        gen_path = project_root / "scripts" / "battlegroup" / "book" / "generate_book_datacards_v6.py"
         with open(gen_path, 'r', encoding='utf-8') as gen_file:
             gen_content = gen_file.read()
             # Use non-greedy match to stop at first closing """
