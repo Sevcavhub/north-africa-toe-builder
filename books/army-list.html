@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Army List Datacard Generator - North Africa Campaign</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #c0392b 0%, #e74c3c 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+            position: relative;
+        }
+
+        .header h1 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            opacity: 0.9;
+            font-size: 1.1em;
+        }
+
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            padding: 10px 20px;
+            background: white;
+            color: #c0392b;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .back-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .main-content {
+            padding: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #2c3e50;
+            font-weight: 600;
+            font-size: 0.95em;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #dee2e6;
+            border-radius: 8px;
+            font-size: 1em;
+            transition: all 0.3s;
+            background: white;
+            font-family: 'Courier New', monospace;
+            resize: vertical;
+        }
+
+        textarea:focus {
+            outline: none;
+            border-color: #e74c3c;
+            box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.1);
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+            color: white;
+            width: 100%;
+            font-size: 1.2em;
+            padding: 15px;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+        }
+
+        .btn-primary:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .loading.show {
+            display: block;
+        }
+
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #e74c3c;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 15px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .results {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .results.show {
+            display: block;
+        }
+
+        .results h3 {
+            color: #c0392b;
+            margin-bottom: 15px;
+        }
+
+        .force-info {
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background: #e8f5e9;
+            border-radius: 4px;
+            border-left: 4px solid #4caf50;
+        }
+
+        .force-info h4 {
+            margin: 0 0 0.5rem 0;
+            color: #2e7d32;
+        }
+
+        .force-info p {
+            margin: 0.25rem 0;
+            font-size: 0.95em;
+        }
+
+        .warning-box {
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background: #fff3cd;
+            border-radius: 4px;
+            border-left: 4px solid #ffc107;
+        }
+
+        .warning-box p {
+            margin: 0;
+            font-weight: 600;
+            color: #856404;
+        }
+
+        .warning-box ul {
+            margin: 0.5rem 0 0 0;
+            padding-left: 1.5rem;
+            color: #856404;
+        }
+
+        .btn-success {
+            background: linear-gradient(135deg, #4caf50 0%, #45a049 100%);
+            color: white;
+            padding: 1rem 2rem;
+            font-size: 1.1em;
+            width: 100%;
+            margin-bottom: 1rem;
+        }
+
+        .btn-success:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(76, 175, 80, 0.4);
+        }
+
+        .info-box {
+            background: #e3f2fd;
+            border-left: 4px solid #2196f3;
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+
+        .info-box h4 {
+            color: #1976d2;
+            margin-bottom: 10px;
+        }
+
+        .info-box ol {
+            margin-left: 20px;
+            color: #0d47a1;
+        }
+
+        .info-box li {
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <a href="index.html" class="back-button">← Back to Index</a>
+            <h1>🎨 Army List Datacard Generator</h1>
+            <p>Generate BattleGroup datacards from OSJones Builder army lists</p>
+        </div>
+
+        <div class="main-content">
+            <div class="info-box">
+                <h4>📋 How to use:</h4>
+                <ol>
+                    <li>Visit <a href="https://osjones.github.io/BattlegroupBuilder/" target="_blank">OSJones BattleGroup Builder</a></li>
+                    <li>Create your army list</li>
+                    <li>Click "Print" button</li>
+                    <li>Copy all text (Ctrl+A, Ctrl+C)</li>
+                    <li>Paste into the box below and click Generate!</li>
+                </ol>
+            </div>
+
+            <form id="armyListForm">
+                <div class="form-group">
+                    <label for="armyListText">Paste Your Army List Here:</label>
+                    <textarea
+                        id="armyListText"
+                        rows="14"
+                        placeholder="Deutsches Afrikakorps&#10;(Officers: 3, Scouts: 0) Army Size: Platoon&#10;496 / 31br&#10;&#10;Tank Units&#10; Panzer II Platoon&#10;65/6BR&#10;3 Panzer II/Fs&#10;..."
+                    ></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary">
+                    🎨 Generate Datacards
+                </button>
+            </form>
+
+            <div class="loading" id="loading">
+                <div class="spinner"></div>
+                <p>Generating datacards from your army list...</p>
+            </div>
+
+            <div class="results" id="results">
+                <h3>Generated Datacards</h3>
+                <div id="output"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // API configuration
+        const API_URL = 'https://north-africa-toe-api.onrender.com';
+
+        let datacardHTML = '';
+
+        // Form submission
+        document.getElementById('armyListForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const armyListText = document.getElementById('armyListText').value.trim();
+
+            if (!armyListText) {
+                alert('Please paste your army list from OSJones Builder');
+                return;
+            }
+
+            // Show loading, hide results
+            document.getElementById('loading').classList.add('show');
+            document.getElementById('results').classList.remove('show');
+
+            try {
+                const response = await fetch(`${API_URL}/api/datacards/osjones`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ army_list_text: armyListText })
+                });
+
+                const data = await response.json();
+
+                // Hide loading
+                document.getElementById('loading').classList.remove('show');
+
+                if (response.ok && data.success) {
+                    displayResults(data);
+                } else {
+                    displayError(data);
+                }
+            } catch (error) {
+                document.getElementById('loading').classList.remove('show');
+                displayError({ error: error.message });
+            }
+        });
+
+        function displayResults(data) {
+            const resultsEl = document.getElementById('results');
+            const outputEl = document.getElementById('output');
+
+            let html = `
+                <div class="force-info">
+                    <h4>${data.force_name}</h4>
+                    <p><strong>Points:</strong> ${data.points_total} | <strong>BR:</strong> ${data.br_total}</p>
+                    <p><strong>Equipment Found:</strong> ${data.equipment_found.length}/${data.equipment_count}</p>
+                </div>
+            `;
+
+            if (data.equipment_not_found && data.equipment_not_found.length > 0) {
+                html += `
+                    <div class="warning-box">
+                        <p>⚠️ Not Found in Database:</p>
+                        <ul>
+                            ${data.equipment_not_found.map(eq => `<li>${eq}</li>`).join('')}
+                        </ul>
+                    </div>
+                `;
+            }
+
+            // Store HTML for viewing
+            if (data.printable_html) {
+                datacardHTML = data.printable_html;
+                html += `
+                    <button onclick="viewDatacards()" class="btn btn-success">
+                        🖨️ Open Printable Datacards (New Window)
+                    </button>
+                `;
+            }
+
+            // Download individual markdown files (optional)
+            const categories = Object.keys(data.datacards || {});
+            if (categories.length > 0) {
+                html += `
+                    <details style="margin-top: 1rem; padding: 0.5rem; background: #f8f9fa; border-radius: 4px;">
+                        <summary style="cursor: pointer; font-weight: 600; color: #666;">Advanced: Download Markdown Files</summary>
+                        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.5rem;">
+                `;
+
+                categories.forEach(category => {
+                    html += `
+                        <button
+                            onclick="downloadMarkdown('${category}')"
+                            class="btn"
+                            style="width: auto; padding: 0.5rem 1rem; font-size: 0.9em; background: #6c757d;"
+                        >
+                            📥 ${category.replace(/_/g, ' ')}
+                        </button>
+                    `;
+                });
+
+                html += `
+                        </div>
+                    </details>
+                `;
+            }
+
+            outputEl.innerHTML = html;
+            resultsEl.classList.add('show');
+
+            // Store datacards data for download
+            window.datacardsData = data.datacards;
+        }
+
+        function displayError(data) {
+            const resultsEl = document.getElementById('results');
+            const outputEl = document.getElementById('output');
+
+            outputEl.innerHTML = `
+                <div class="warning-box">
+                    <p>❌ Error generating datacards:</p>
+                    <p style="margin-top: 0.5rem; color: #721c24;">${data.error || 'Unknown error occurred'}</p>
+                </div>
+            `;
+
+            resultsEl.classList.add('show');
+        }
+
+        function viewDatacards() {
+            if (!datacardHTML) {
+                alert('No datacards available to view');
+                return;
+            }
+
+            const newWindow = window.open('', '_blank');
+            newWindow.document.write(datacardHTML);
+            newWindow.document.close();
+        }
+
+        function downloadMarkdown(category) {
+            if (!window.datacardsData || !window.datacardsData[category]) {
+                alert('No data available for this category');
+                return;
+            }
+
+            const content = window.datacardsData[category];
+            const blob = new Blob([content], { type: 'text/markdown' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `${category}.md`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+    </script>
+</body>
+</html>
