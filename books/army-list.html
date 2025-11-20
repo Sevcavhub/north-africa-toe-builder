@@ -317,18 +317,30 @@
             document.getElementById('results').classList.remove('show');
 
             try {
-                const response = await fetch(`${API_URL}/api/datacards/osjones`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ army_list_text: armyListText })
-                });
+                // Call both endpoints in parallel: JSON for summary, HTML for printable datacards
+                const [jsonResponse, htmlResponse] = await Promise.all([
+                    fetch(`${API_URL}/api/datacards/osjones`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ army_list_text: armyListText })
+                    }),
+                    fetch(`${API_URL}/api/datacards/osjones/html`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ army_list_text: armyListText })
+                    })
+                ]);
 
-                const data = await response.json();
+                const data = await jsonResponse.json();
+                const htmlContent = await htmlResponse.text();
+
+                // Store the HTML for the "Open Printable Datacards" button
+                datacardHTML = htmlContent;
 
                 // Hide loading
                 document.getElementById('loading').classList.remove('show');
 
-                if (response.ok && data.success) {
+                if (jsonResponse.ok && data.success) {
                     displayResults(data);
                 } else {
                     displayError(data);
@@ -362,15 +374,12 @@
                 `;
             }
 
-            // Store HTML for viewing
-            if (data.printable_html) {
-                datacardHTML = data.printable_html;
-                html += `
-                    <button onclick="viewDatacards()" class="btn btn-success">
-                        🖨️ Open Printable Datacards (New Window)
-                    </button>
-                `;
-            }
+            // Always show the button to open printable datacards (V6.1 format)
+            html += `
+                <button onclick="viewDatacards()" class="btn btn-success" style="margin-top: 1rem;">
+                    🖨️ Open Printable Datacards (V6.1 Format - New Window)
+                </button>
+            `;
 
             outputEl.innerHTML = html;
             resultsEl.classList.add('show');
