@@ -10,7 +10,7 @@ DATABASE_PATH = Path("scripts/battlegroup/web/database/web_database.db")
 
 sys.path.insert(0, str(Path(__file__).parent))
 
-from scripts.battlegroup.book.generate_book_datacards_v6 import BookDatacardGenerator
+from scripts.battlegroup.book.generate_book_datacards_v6_1 import BookDatacardGenerator
 
 print("Testing Crusader I datacard generation")
 print("=" * 70)

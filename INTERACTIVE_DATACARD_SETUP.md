@@ -25,7 +25,7 @@ The Interactive Datacard Builder is a web-based tool for generating BattleGroup 
 You need the following from the project:
 - `interactive_datacard_server.py` - Flask web server
 - `interactive_datacard_builder.html` - Web interface
-- `scripts/battlegroup/book/generate_book_datacards_v6.py` - V6.1 generator
+- `scripts/battlegroup/book/generate_book_datacards_v6_1.py` - V6.1 generator
 - `database/master_database.db` - Equipment database (602 vehicles, 239 weapons)
 
 ## 🚀 Quick Start (Windows)
@@ -87,7 +87,7 @@ north-africa-toe-builder/
 └── scripts/
     └── battlegroup/
         └── book/
-            └── generate_book_datacards_v6.py
+            └── generate_book_datacards_v6_1.py
 ```
 
 **Setup for colleague:**

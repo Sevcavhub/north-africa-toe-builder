@@ -31,7 +31,7 @@ from typing import List, Dict, Set, Tuple
 
 # Import V6.1 generator with weapon fallback support
 sys.path.insert(0, str(Path(__file__).resolve().parents[3]))
-from scripts.battlegroup.book.generate_book_datacards_v6 import BookDatacardGenerator
+from scripts.battlegroup.book.generate_book_datacards_v6_1 import BookDatacardGenerator
 
 # Support environment variable for database path (for Render.com deployment)
 # Default to main database, but Render uses web database

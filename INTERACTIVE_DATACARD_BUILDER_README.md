@@ -105,7 +105,7 @@ Each file contains:
 - Serves HTML interface
 - Provides `/api/vehicles` endpoint (vehicle list)
 - Provides `/api/build-datacards` endpoint (generation)
-- Uses `generate_book_datacards_v6.py` for datacard generation
+- Uses `generate_book_datacards_v6_1.py` for datacard generation
 
 **Database**: SQLite
 - Reads from `bg_builder_vehicles` (602 vehicles)
@@ -181,7 +181,7 @@ print(response.json())
 
 ## 📝 Credits
 
-- **Generator**: `generate_book_datacards_v6.py`
+- **Generator**: `generate_book_datacards_v6_1.py`
 - **Database**: OSJones Builder data (bg_builder_* tables)
 - **Format**: BattleGroup V5.5 datacard specification
 - **UI Design**: Modern gradient card interface

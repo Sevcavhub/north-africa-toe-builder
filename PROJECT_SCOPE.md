@@ -95,7 +95,7 @@
   - Staff car: german, italian
 
 **Generator Updates**:
-- ✅ **V6.1 Datacard Generator** (November 19, 2025): `generate_book_datacards_v6.py`
+- ✅ **V6.1 Datacard Generator** (November 19, 2025): `generate_book_datacards_v6_1.py`
   - Weapon fallback system for unlinked vehicles (queries bg_builder_weapons directly)
   - Uses ammo_1-4 fields instead of single ammo field
   - Main gun and secondary weapons query updated

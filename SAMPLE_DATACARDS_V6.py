@@ -13,7 +13,7 @@ from pathlib import Path
 project_root = Path(__file__).resolve().parent
 sys.path.insert(0, str(project_root))
 
-from scripts.battlegroup.book.generate_book_datacards_v6 import BookDatacardGenerator
+from scripts.battlegroup.book.generate_book_datacards_v6_1 import BookDatacardGenerator
 
 DATABASE_PATH = project_root / "database" / "master_database.db"
 
@@ -83,7 +83,7 @@ def generate_sample():
 
         # Write CSS (extract from actual generator to ensure consistency)
         import re
-        gen_path = project_root / "scripts" / "battlegroup" / "book" / "generate_book_datacards_v6.py"
+        gen_path = project_root / "scripts" / "battlegroup" / "book" / "generate_book_datacards_v6_1.py"
         with open(gen_path, 'r', encoding='utf-8') as gen_file:
             gen_content = gen_file.read()
             # Use non-greedy match to stop at first closing """

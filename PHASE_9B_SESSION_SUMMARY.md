@@ -26,7 +26,7 @@
 - **Auto-Reload**: Debug mode auto-reloads on code changes
 
 **Files**:
-- Generator: `scripts/battlegroup/book/generate_book_datacards_v6.py` (V6 → V6.1)
+- Generator: `scripts/battlegroup/book/generate_book_datacards_v6_1.py` (V6 → V6.1)
 - Server: `interactive_datacard_server.py` (NEW)
 - Frontend: `interactive_datacard_builder.html` (NEW)
 - Docs: `INTERACTIVE_DATACARD_SETUP.md`, `QUICK_START.txt` (NEW)

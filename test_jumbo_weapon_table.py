@@ -8,7 +8,7 @@ from pathlib import Path
 project_root = Path(__file__).resolve().parent
 sys.path.insert(0, str(project_root))
 
-from scripts.battlegroup.book.generate_book_datacards_v6 import BookDatacardGenerator
+from scripts.battlegroup.book.generate_book_datacards_v6_1 import BookDatacardGenerator
 
 DATABASE_PATH = project_root / "database" / "master_database.db"
 
