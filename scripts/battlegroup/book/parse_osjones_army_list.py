@@ -145,12 +145,21 @@ class OSJonesArmyListParser:
         Format: "Panzer II F    8   /   12    N / O / O    20mmL55"
         Returns: {'name': 'Panzer II F', 'movement': '8/12', 'armor': 'N/O/O', 'weapon': '20mmL55'}
         """
-        # Split by multiple spaces to separate columns
-        parts = re.split(r'\s{2,}', line)
-        if len(parts) < 3:
+        # Find the movement column (starts with digit, possibly with spaces before)
+        # Movement pattern: one or more digits, possibly followed by spaces and "/"
+        movement_match = re.search(r'\s+(\d+)\s*(?:/|$)', line)
+        if not movement_match:
             return None
 
-        vehicle_name = parts[0].strip()
+        # Vehicle name is everything before the movement column
+        movement_start = movement_match.start()
+        vehicle_name = line[:movement_start].strip()
+
+        # Parse the rest using the movement match position
+        rest_of_line = line[movement_start:].strip()
+        parts = re.split(r'\s{2,}', rest_of_line)
+        if len(parts) < 2:
+            return None
 
         # Skip non-vehicle rows
         if not vehicle_name or vehicle_name in ['Move', 'Armour', 'Weapon', 'Special']:
@@ -162,22 +171,22 @@ class OSJonesArmyListParser:
             return None
 
         # Skip rows that are all numbers (weapon performance data columns)
-        if len(parts) > 1 and all(part.strip().isdigit() or not part.strip() for part in parts[1:]):
+        if len(parts) > 0 and all(part.strip().isdigit() or not part.strip() for part in parts):
             return None
 
         # Extract movement (e.g., "8   /   12")
-        movement = parts[1].strip() if len(parts) > 1 else ''
+        movement = parts[0].strip() if len(parts) > 0 else ''
         movement = re.sub(r'\s+', '', movement)  # Remove spaces: "8/12"
 
         # Extract armor (e.g., "N / O / O")
-        armor = parts[2].strip() if len(parts) > 2 else ''
+        armor = parts[1].strip() if len(parts) > 1 else ''
         armor = re.sub(r'\s+', '', armor)  # Remove spaces: "N/O/O"
 
         # Extract weapon (e.g., "20mmL55")
-        weapon = parts[3].strip() if len(parts) > 3 else ''
+        weapon = parts[2].strip() if len(parts) > 2 else ''
 
         # Extract special rules (e.g., "Open-Topped")
-        special = parts[4].strip() if len(parts) > 4 else ''
+        special = parts[3].strip() if len(parts) > 3 else ''
 
         return {
             'name': vehicle_name,
