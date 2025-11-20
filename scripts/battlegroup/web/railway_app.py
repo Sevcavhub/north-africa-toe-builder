@@ -938,6 +938,24 @@ h1 {
             margin-top: 8px;
             color: #333;
         }
+        .datacard-silhouette {
+            width: 140px;
+            height: 70px;
+            background-color: transparent;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            padding: 5px;
+        }
+        .datacard-silhouette img {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+        }
     </style>
 </head>
 <body>
