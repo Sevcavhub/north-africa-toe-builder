@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Datacard Builder</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            opacity: 0.9;
+            font-size: 1.1em;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            padding: 30px;
+        }
+
+        .panel {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 25px;
+            border: 2px solid #e9ecef;
+        }
+
+        .panel h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #2c3e50;
+            font-weight: 600;
+            font-size: 0.95em;
+        }
+
+        select, input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #dee2e6;
+            border-radius: 8px;
+            font-size: 1em;
+            transition: all 0.3s;
+            background: white;
+        }
+
+        select:focus, input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-success {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            color: white;
+            width: 100%;
+            font-size: 1.2em;
+            padding: 15px;
+            margin-top: 20px;
+        }
+
+        .btn-success:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(17, 153, 142, 0.4);
+        }
+
+        .btn-success:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .vehicle-list {
+            max-height: 400px;
+            overflow-y: auto;
+            margin-top: 15px;
+        }
+
+        .vehicle-item {
+            background: white;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            border: 2px solid #dee2e6;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s;
+        }
+
+        .vehicle-item:hover {
+            border-color: #667eea;
+            box-shadow: 0 2px 8px rgba(102, 126, 234, 0.2);
+        }
+
+        .vehicle-info {
+            flex: 1;
+        }
+
+        .vehicle-name {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .vehicle-nation {
+            font-size: 0.9em;
+            color: #6c757d;
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 4px;
+            text-transform: capitalize;
+        }
+
+        .nation-british { background: #d4c5a0; color: #2c2416; }
+        .nation-german { background: #797768; color: white; }
+        .nation-italian { background: #739A64; color: white; }
+        .nation-american { background: #b8c5a0; color: #3a4a2a; }
+        .nation-french { background: #b8c4d4; color: #2a3a4a; }
+
+        .btn-remove {
+            background: #dc3545;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 6px;
+            font-size: 0.9em;
+            margin-left: 10px;
+        }
+
+        .btn-remove:hover {
+            background: #c82333;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 40px;
+            color: #6c757d;
+        }
+
+        .empty-state svg {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 15px;
+            opacity: 0.3;
+        }
+
+        .status-message {
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            display: none;
+        }
+
+        .status-success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .status-error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        .status-info {
+            background: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #667eea;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 15px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .vehicle-count {
+            background: #667eea;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎯 Interactive Datacard Builder v6.1</h1>
+            <p>Build custom equipment datacards with nation selection</p>
+            <button onclick="window.location.href='index.html'" style="position: absolute; top: 20px; left: 20px; padding: 10px 20px; background: white; color: #2c3e50; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; transition: all 0.3s;">
+                ← Back to Index
+            </button>
+        </div>
+
+        <div class="main-content">
+            <!-- Left Panel: Add Vehicle -->
+            <div class="panel">
+                <h2>📋 Add Vehicle</h2>
+
+                <div class="form-group">
+                    <label for="vehicleSearch">Search Vehicle:</label>
+                    <input type="text" id="vehicleSearch" placeholder="Type to search vehicles...">
+                </div>
+
+                <div class="form-group">
+                    <label for="vehicleSelect">Select Vehicle:</label>
+                    <select id="vehicleSelect" size="10">
+                        <option value="">Loading vehicles...</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="nationSelect">Nation:</label>
+                    <select id="nationSelect">
+                        <option value="auto">Auto-detect from database</option>
+                        <option value="british">🇬🇧 British</option>
+                        <option value="german">🇩🇪 German</option>
+                        <option value="italian">🇮🇹 Italian</option>
+                        <option value="american">🇺🇸 American</option>
+                        <option value="french">🇫🇷 French</option>
+                    </select>
+                </div>
+
+                <button class="btn btn-primary" id="addBtn">➕ Add to List</button>
+            </div>
+
+            <!-- Right Panel: Selected Vehicles -->
+            <div class="panel">
+                <h2>
+                    ✅ Selected Vehicles
+                    <span class="vehicle-count" id="vehicleCount">0</span>
+                </h2>
+
+                <div id="vehicleList" class="vehicle-list">
+                    <div class="empty-state">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4"></path>
+                        </svg>
+                        <p>No vehicles selected yet.<br>Add vehicles from the left panel.</p>
+                    </div>
+                </div>
+
+                <button class="btn btn-success" id="buildBtn" disabled>
+                    🚀 Build Datacards
+                </button>
+
+                <div id="statusMessage" class="status-message"></div>
+                <div id="loading" class="loading">
+                    <div class="spinner"></div>
+                    <p>Generating datacards...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // API configuration
+        const API_URL = 'https://north-africa-toe-api.onrender.com';
+
+        let vehicles = [];
+        let selectedVehicles = [];
+        let allVehicles = [];
+
+        // Load vehicles from database
+        async function loadVehicles() {
+            try {
+                const response = await fetch(`${API_URL}/api/vehicles`);
+                if (!response.ok) {
+                    throw new Error('Failed to load vehicles from API');
+                }
+                allVehicles = await response.json();
+                vehicles = allVehicles;
+                populateVehicleSelect();
+            } catch (error) {
+                // Fallback: Use static list if API unavailable
+                console.warn('API unavailable, using fallback vehicle list');
+                loadFallbackVehicles();
+            }
+        }
+
+        // Fallback vehicle list (for when Python backend isn't running)
+        function loadFallbackVehicles() {
+            allVehicles = [
+                'M3 Grant', 'M4 Sherman (A1,A2,A3)', 'M5 Stuart',
+                'Matilda II', 'Crusader III', 'Churchill III/IV', 'Cromwell IV',
+                'Panzer III H', 'Panzer IV F2', 'Panzer IV G', 'Tiger I',
+                'SdKfz 251/1', 'SdKfz 222', 'SdKfz 231',
+                'M13/40', 'Semovente 75/18', 'AB41'
+            ];
+            vehicles = allVehicles;
+            populateVehicleSelect();
+        }
+
+        function populateVehicleSelect() {
+            const select = document.getElementById('vehicleSelect');
+            select.innerHTML = '';
+
+            if (vehicles.length === 0) {
+                select.innerHTML = '<option value="">No vehicles found</option>';
+                return;
+            }
+
+            vehicles.forEach(vehicle => {
+                const option = document.createElement('option');
+                option.value = vehicle;
+                option.textContent = vehicle;
+                select.appendChild(option);
+            });
+        }
+
+        // Search filter
+        document.getElementById('vehicleSearch').addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase();
+            vehicles = allVehicles.filter(v => v.toLowerCase().includes(searchTerm));
+            populateVehicleSelect();
+        });
+
+        // Add vehicle to list
+        document.getElementById('addBtn').addEventListener('click', () => {
+            const vehicleSelect = document.getElementById('vehicleSelect');
+            const nationSelect = document.getElementById('nationSelect');
+
+            const vehicleName = vehicleSelect.value;
+            const nation = nationSelect.value;
+
+            if (!vehicleName) {
+                showStatus('Please select a vehicle', 'error');
+                return;
+            }
+
+            // Check for duplicates
+            const exists = selectedVehicles.some(v => v.name === vehicleName && v.nation === nation);
+            if (exists) {
+                showStatus('This vehicle with this nation is already in the list', 'error');
+                return;
+            }
+
+            selectedVehicles.push({ name: vehicleName, nation: nation });
+            updateVehicleList();
+            showStatus(`Added ${vehicleName}`, 'success');
+        });
+
+        // Update vehicle list display
+        function updateVehicleList() {
+            const listContainer = document.getElementById('vehicleList');
+            const countBadge = document.getElementById('vehicleCount');
+            const buildBtn = document.getElementById('buildBtn');
+
+            countBadge.textContent = selectedVehicles.length;
+
+            if (selectedVehicles.length === 0) {
+                listContainer.innerHTML = `
+                    <div class="empty-state">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4"></path>
+                        </svg>
+                        <p>No vehicles selected yet.<br>Add vehicles from the left panel.</p>
+                    </div>
+                `;
+                buildBtn.disabled = true;
+                return;
+            }
+
+            buildBtn.disabled = false;
+            listContainer.innerHTML = selectedVehicles.map((vehicle, index) => `
+                <div class="vehicle-item">
+                    <div class="vehicle-info">
+                        <div class="vehicle-name">${vehicle.name}</div>
+                        <span class="vehicle-nation nation-${vehicle.nation === 'auto' ? 'british' : vehicle.nation}">
+                            ${vehicle.nation === 'auto' ? 'Auto-detect' : vehicle.nation}
+                        </span>
+                    </div>
+                    <button class="btn btn-remove" onclick="removeVehicle(${index})">✕</button>
+                </div>
+            `).join('');
+        }
+
+        // Remove vehicle from list
+        function removeVehicle(index) {
+            selectedVehicles.splice(index, 1);
+            updateVehicleList();
+            showStatus('Vehicle removed', 'info');
+        }
+
+        // Build datacards
+        document.getElementById('buildBtn').addEventListener('click', async () => {
+            const loading = document.getElementById('loading');
+            const buildBtn = document.getElementById('buildBtn');
+
+            loading.style.display = 'block';
+            buildBtn.disabled = true;
+
+            try {
+                const response = await fetch(`${API_URL}/api/build-datacards-html`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ vehicles: selectedVehicles })
+                });
+
+                if (!response.ok) {
+                    throw new Error('Failed to build datacards');
+                }
+
+                const htmlContent = await response.text();
+
+                // Open in new tab
+                const newWindow = window.open('', '_blank');
+                newWindow.document.write(htmlContent);
+                newWindow.document.close();
+
+                showStatus(`✅ Success! Generated ${selectedVehicles.length} datacards. Opening in new tab...`, 'success');
+            } catch (error) {
+                showStatus('❌ Error: ' + error.message + ' (Make sure the Python backend is running)', 'error');
+            } finally {
+                loading.style.display = 'none';
+                buildBtn.disabled = false;
+            }
+        });
+
+        // Show status message
+        function showStatus(message, type) {
+            const statusDiv = document.getElementById('statusMessage');
+            statusDiv.className = `status-message status-${type}`;
+            statusDiv.textContent = message;
+            statusDiv.style.display = 'block';
+
+            setTimeout(() => {
+                statusDiv.style.display = 'none';
+            }, 3000);
+        }
+
+        // Initialize
+        loadVehicles();
+    </script>
+</body>
+</html>
