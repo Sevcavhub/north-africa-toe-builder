@@ -7,6 +7,7 @@ on:
       - 'books/**'
       - 'index.html'
       - 'tools.html'
+      - 'builder.html'
       - 'styles.css'
   workflow_dispatch:
 
@@ -33,6 +34,7 @@ jobs:
         run: |
           cp index.html books/ || true
           cp tools.html books/ || true
+          cp builder.html books/ || true
           cp styles.css books/ || true
 
       - name: Upload artifact
