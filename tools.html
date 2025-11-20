@@ -639,6 +639,9 @@
         document.addEventListener('DOMContentLoaded', function() {
             const initialBattle = document.getElementById('printBattle').value;
             updateScenarioDropdown(initialBattle);
+
+            // Load vehicles for Interactive Datacard Builder
+            loadBuilderVehicles();
         });
 
         // Listen for battle changes
@@ -1179,9 +1182,6 @@
                 buildBtn.disabled = false;
             }
         });
-
-        // Load vehicles on page load
-        loadBuilderVehicles();
     </script>
 </body>
 </html>
