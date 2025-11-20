@@ -652,6 +652,9 @@
             // Load vehicles for Interactive Datacard Builder
             loadBuilderVehicles();
 
+            // Attach Interactive Datacard Builder event listeners
+            attachBuilderEventListeners();
+
             // Add all other event listeners
             initializeEventListeners();
         });
@@ -1042,17 +1045,18 @@
             });
         }
 
-        // Search filter
-        document.getElementById('vehicleSearch').addEventListener('input', (e) => {
-            const searchTerm = e.target.value.toLowerCase();
-            filteredBuilderVehicles = allBuilderVehicles.filter(v =>
-                v.toLowerCase().includes(searchTerm)
-            );
-            populateBuilderVehicleSelect();
-        });
+        // Search filter - will be attached in initializeEventListeners
+        function attachBuilderEventListeners() {
+            document.getElementById('vehicleSearch').addEventListener('input', (e) => {
+                const searchTerm = e.target.value.toLowerCase();
+                filteredBuilderVehicles = allBuilderVehicles.filter(v =>
+                    v.toLowerCase().includes(searchTerm)
+                );
+                populateBuilderVehicleSelect();
+            });
 
-        // Add vehicle to list
-        document.getElementById('addVehicleBtn').addEventListener('click', () => {
+            // Add vehicle to list
+            document.getElementById('addVehicleBtn').addEventListener('click', () => {
             const vehicleSelect = document.getElementById('vehicleSelect');
             const nationSelect = document.getElementById('nationSelect');
 
@@ -1119,53 +1123,54 @@
         }
 
         // Build datacards
-        document.getElementById('buildDatacardsBtn').addEventListener('click', async () => {
-            const loading = document.getElementById('interactiveLoading');
-            const buildBtn = document.getElementById('buildDatacardsBtn');
-            const resultsDiv = document.getElementById('interactiveResults');
-            const outputDiv = document.getElementById('interactiveOutput');
+            document.getElementById('buildDatacardsBtn').addEventListener('click', async () => {
+                const loading = document.getElementById('interactiveLoading');
+                const buildBtn = document.getElementById('buildDatacardsBtn');
+                const resultsDiv = document.getElementById('interactiveResults');
+                const outputDiv = document.getElementById('interactiveOutput');
 
-            loading.style.display = 'block';
-            buildBtn.disabled = true;
-            resultsDiv.style.display = 'none';
+                loading.style.display = 'block';
+                buildBtn.disabled = true;
+                resultsDiv.style.display = 'none';
 
-            try {
-                const response = await fetch(`${API_URL}/api/build-datacards-html`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ vehicles: selectedBuilderVehicles })
-                });
+                try {
+                    const response = await fetch(`${API_URL}/api/build-datacards-html`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ vehicles: selectedBuilderVehicles })
+                    });
 
-                if (!response.ok) {
-                    throw new Error('Failed to build datacards');
+                    if (!response.ok) {
+                        throw new Error('Failed to build datacards');
+                    }
+
+                    const htmlContent = await response.text();
+
+                    // Open in new tab
+                    const newWindow = window.open('', '_blank');
+                    newWindow.document.write(htmlContent);
+                    newWindow.document.close();
+
+                    outputDiv.innerHTML = `
+                        <div style="padding: 1rem; background: var(--success-green); color: white; border-radius: 4px; margin-top: 1rem;">
+                            ✅ Success! Generated ${selectedBuilderVehicles.length} datacards. Opening in new tab...
+                        </div>
+                    `;
+                    resultsDiv.style.display = 'block';
+                } catch (error) {
+                    outputDiv.innerHTML = `
+                        <div style="padding: 1rem; background: var(--error-red); color: white; border-radius: 4px; margin-top: 1rem;">
+                            ❌ Error: ${error.message}<br>
+                            <small>Make sure the API server is running at ${API_URL}</small>
+                        </div>
+                    `;
+                    resultsDiv.style.display = 'block';
+                } finally {
+                    loading.style.display = 'none';
+                    buildBtn.disabled = false;
                 }
-
-                const htmlContent = await response.text();
-
-                // Open in new tab
-                const newWindow = window.open('', '_blank');
-                newWindow.document.write(htmlContent);
-                newWindow.document.close();
-
-                outputDiv.innerHTML = `
-                    <div style="padding: 1rem; background: var(--success-green); color: white; border-radius: 4px; margin-top: 1rem;">
-                        ✅ Success! Generated ${selectedBuilderVehicles.length} datacards. Opening in new tab...
-                    </div>
-                `;
-                resultsDiv.style.display = 'block';
-            } catch (error) {
-                outputDiv.innerHTML = `
-                    <div style="padding: 1rem; background: var(--error-red); color: white; border-radius: 4px; margin-top: 1rem;">
-                        ❌ Error: ${error.message}<br>
-                        <small>Make sure the API server is running at ${API_URL}</small>
-                    </div>
-                `;
-                resultsDiv.style.display = 'block';
-            } finally {
-                loading.style.display = 'none';
-                buildBtn.disabled = false;
-            }
-        });
+            });
+        }  // End of attachBuilderEventListeners()
         }  // End of initializeEventListeners()
 
         async function checkAPIStatus() {
