@@ -635,46 +635,30 @@
             });
         }
 
-        // Initialize scenario dropdown with default battle
+        // Wait for DOM to be ready before attaching event listeners
         document.addEventListener('DOMContentLoaded', function() {
+            // Initialize scenario dropdown with default battle
             const initialBattle = document.getElementById('printBattle').value;
             updateScenarioDropdown(initialBattle);
 
+            // Listen for battle changes
+            document.getElementById('printBattle').addEventListener('change', function(e) {
+                updateScenarioDropdown(e.target.value);
+            });
+
+            // Check API status
+            checkAPIStatus();
+
             // Load vehicles for Interactive Datacard Builder
             loadBuilderVehicles();
+
+            // Add all other event listeners
+            initializeEventListeners();
         });
 
-        // Listen for battle changes
-        document.getElementById('printBattle').addEventListener('change', function(e) {
-            updateScenarioDropdown(e.target.value);
-        });
-
-        // Check API status on load
-        checkAPIStatus();
-
-        async function checkAPIStatus() {
-            const statusEl = document.getElementById('apiStatus');
-            const statusText = document.getElementById('statusText');
-            const indicator = document.querySelector('.status-indicator');
-
-            try {
-                const response = await fetch(`${API_URL}/api/health`);
-                const data = await response.json();
-
-                if (data.status === 'healthy') {
-                    statusEl.classList.remove('offline');
-                    statusEl.classList.add('online');
-                    indicator.classList.remove('offline');
-                    indicator.classList.add('online');
-                    statusText.textContent = `Online - ${data.service} v${data.api_version}`;
-                }
-            } catch (error) {
-                statusText.textContent = 'Offline - Start Flask server (python scripts/battlegroup/web/app.py)';
-            }
-        }
-
-        // Random Scenario Form
-        document.getElementById('randomScenarioForm').addEventListener('submit', async (e) => {
+        function initializeEventListeners() {
+            // Random Scenario Form
+            document.getElementById('randomScenarioForm').addEventListener('submit', async (e) => {
             e.preventDefault();
 
             const points = parseInt(document.getElementById('randomPoints').value);
@@ -1182,6 +1166,28 @@
                 buildBtn.disabled = false;
             }
         });
+        }  // End of initializeEventListeners()
+
+        async function checkAPIStatus() {
+            const statusEl = document.getElementById('apiStatus');
+            const statusText = document.getElementById('statusText');
+            const indicator = document.querySelector('.status-indicator');
+
+            try {
+                const response = await fetch(`${API_URL}/api/health`);
+                const data = await response.json();
+
+                if (data.status === 'healthy') {
+                    statusEl.classList.remove('offline');
+                    statusEl.classList.add('online');
+                    indicator.classList.remove('offline');
+                    indicator.classList.add('online');
+                    statusText.textContent = `Online - ${data.service} v${data.api_version}`;
+                }
+            } catch (error) {
+                statusText.textContent = 'Offline - Start Flask server (python scripts/battlegroup/web/app.py)';
+            }
+        }
     </script>
 </body>
 </html>
