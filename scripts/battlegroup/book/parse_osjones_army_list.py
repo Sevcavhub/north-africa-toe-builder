@@ -233,9 +233,12 @@ class OSJonesArmyListParser:
             equipment.append(name)
             return equipment  # Return early, don't try other patterns
 
-        # Pattern 1: "3 Panzer II/Fs" or "2 Panzer III G, 1 Panzer III J (lang)" (quantity + name pattern)
+        # Pattern 1: "3 Panzer II/Fs" or "2 Panzer III G, 1 Panzer III J (lang)" or "1 A13 and 2 A9" (quantity + name pattern)
+        # First, normalize separators: replace " and " with ", " to simplify parsing
+        normalized_line = re.sub(r'\s+and\s+', ', ', line)
         # Match multiple equipment items separated by commas with quantities
-        matches = re.findall(r'(\d+)\s+([A-Za-z0-9][^,\d]+?)(?:,\s*|$)', line)
+        # Pattern matches: digit(s) + space + equipment name (alphanumeric with optional spaces) + lookahead for comma or end
+        matches = re.findall(r'(\d+)\s+([A-Za-z0-9]+(?:\s+[A-Za-z0-9]+)*?)(?=\s*,|\s*$)', normalized_line)
         for quantity, name in matches:
             name = name.strip()
             # Clean up variant suffixes like "/Fs" -> " F"
@@ -311,6 +314,8 @@ class OSJonesArmyListParser:
             r'crusader',
             r'churchill',
             r'valentine',
+            r'^a\d+',       # British A9, A10, A13, A15, etc. cruiser tanks
+            r'bren carrier', # British carriers
             r'sherman',     # American tanks
             r'stuart',
             r'grant',
