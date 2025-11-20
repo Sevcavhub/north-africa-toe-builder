@@ -10,12 +10,16 @@ from pathlib import Path
 class RailwayConfig:
     """Railway deployment configuration."""
 
-    # In Railway deployment, we're at the project root (3 levels up from this file)
-    PROJECT_ROOT = Path(__file__).resolve().parents[3]
+    # In Railway/Render deployment, use relative path from this file
+    # web_database.db is in git (exception in .gitignore line 38)
+    WEB_DIR = Path(__file__).resolve().parent
 
     # Database configuration
-    # Use master_database.db (canonical database at project root)
-    DATABASE_PATH = PROJECT_ROOT / "database" / "master_database.db"
+    # Use web_database.db (committed to git, has bg_builder tables)
+    DATABASE_PATH = WEB_DIR / "database" / "web_database.db"
+
+    # For local development, project root is 3 levels up
+    PROJECT_ROOT = Path(__file__).resolve().parents[3]
     SQLALCHEMY_DATABASE_URI = f"sqlite:///{DATABASE_PATH}"
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
