@@ -743,11 +743,11 @@ h1 {
     # INTERACTIVE DATACARD BUILDER ENDPOINTS
     # ============================================================================
 
-    @app.route('/api/vehicles', methods=['GET'])
-    def get_vehicles():
+    @app.route('/api/force-groups', methods=['GET'])
+    def get_force_groups():
         """
-        Get list of all vehicles from bg_builder_vehicles for Interactive Datacard Builder.
-        Returns array of vehicle names.
+        Get list of all force groups from bg_builder_forces.
+        Returns array of force group names.
         """
         try:
             import sqlite3
@@ -756,12 +756,56 @@ h1 {
             conn.row_factory = sqlite3.Row
             cursor = conn.cursor()
 
-            # Get all vehicle names from bg_builder_vehicles
             cursor.execute("""
-                SELECT DISTINCT name
-                FROM bg_builder_vehicles
-                ORDER BY name
+                SELECT DISTINCT force_group
+                FROM bg_builder_forces
+                ORDER BY force_group
             """)
+
+            force_groups = [row['force_group'] for row in cursor.fetchall()]
+            conn.close()
+
+            return jsonify(force_groups), 200
+        except Exception as e:
+            app.logger.error(f"Error loading force groups: {str(e)}")
+            return jsonify({
+                'error': 'Failed to load force groups',
+                'message': str(e)
+            }), 500
+
+    @app.route('/api/vehicles', methods=['GET'])
+    def get_vehicles():
+        """
+        Get list of vehicles from bg_builder_vehicles for Interactive Datacard Builder.
+        Optional query param: force_group - filter vehicles by force group
+        Returns array of vehicle names.
+        """
+        try:
+            import sqlite3
+
+            force_group = request.args.get('force_group', None)
+
+            conn = sqlite3.connect(app.config['DATABASE_PATH'])
+            conn.row_factory = sqlite3.Row
+            cursor = conn.cursor()
+
+            if force_group and force_group != 'all':
+                # Filter by force group
+                cursor.execute("""
+                    SELECT DISTINCT v.name
+                    FROM bg_builder_vehicles v
+                    INNER JOIN bg_builder_vehicle_costs c ON v.id = c.vehicle_id
+                    INNER JOIN bg_builder_forces f ON c.force_name = f.force_name
+                    WHERE f.force_group = ?
+                    ORDER BY v.name
+                """, (force_group,))
+            else:
+                # Get all vehicles
+                cursor.execute("""
+                    SELECT DISTINCT name
+                    FROM bg_builder_vehicles
+                    ORDER BY name
+                """)
 
             vehicles = [row['name'] for row in cursor.fetchall()]
             conn.close()

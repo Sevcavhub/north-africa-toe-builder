@@ -285,6 +285,13 @@
                 <h2>📋 Add Vehicle</h2>
 
                 <div class="form-group">
+                    <label for="forceGroupSelect">Filter by Force:</label>
+                    <select id="forceGroupSelect">
+                        <option value="all">All Forces</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
                     <label for="vehicleSearch">Search Vehicle:</label>
                     <input type="text" id="vehicleSearch" placeholder="Type to search vehicles...">
                 </div>
@@ -347,11 +354,42 @@
         let vehicles = [];
         let selectedVehicles = [];
         let allVehicles = [];
+        let currentForceGroup = 'all';
+
+        // Load force groups from database
+        async function loadForceGroups() {
+            try {
+                const response = await fetch(`${API_URL}/api/force-groups`);
+                if (!response.ok) {
+                    throw new Error('Failed to load force groups from API');
+                }
+                const forceGroups = await response.json();
+                populateForceGroupSelect(forceGroups);
+            } catch (error) {
+                console.warn('Failed to load force groups:', error);
+            }
+        }
+
+        function populateForceGroupSelect(forceGroups) {
+            const select = document.getElementById('forceGroupSelect');
+            select.innerHTML = '<option value="all">All Forces</option>';
+
+            forceGroups.forEach(group => {
+                const option = document.createElement('option');
+                option.value = group;
+                option.textContent = group;
+                select.appendChild(option);
+            });
+        }
 
         // Load vehicles from database
-        async function loadVehicles() {
+        async function loadVehicles(forceGroup = 'all') {
             try {
-                const response = await fetch(`${API_URL}/api/vehicles`);
+                const url = forceGroup === 'all'
+                    ? `${API_URL}/api/vehicles`
+                    : `${API_URL}/api/vehicles?force_group=${encodeURIComponent(forceGroup)}`;
+
+                const response = await fetch(url);
                 if (!response.ok) {
                     throw new Error('Failed to load vehicles from API');
                 }
@@ -394,6 +432,13 @@
                 select.appendChild(option);
             });
         }
+
+        // Force group filter
+        document.getElementById('forceGroupSelect').addEventListener('change', async (e) => {
+            currentForceGroup = e.target.value;
+            document.getElementById('vehicleSearch').value = ''; // Clear search
+            await loadVehicles(currentForceGroup);
+        });
 
         // Search filter
         document.getElementById('vehicleSearch').addEventListener('input', (e) => {
@@ -517,6 +562,7 @@
         }
 
         // Initialize
+        loadForceGroups();
         loadVehicles();
     </script>
 </body>
