@@ -345,7 +345,16 @@
                 displaySuccess();
             } catch (error) {
                 document.getElementById('loading').classList.remove('show');
-                displayError({ error: error.message });
+
+                // Check if it's a network error (likely Render.com hibernation)
+                if (error.message.includes('NetworkError') || error.message.includes('Failed to fetch')) {
+                    displayError({
+                        error: 'Service Starting Up',
+                        details: 'The API service is waking up from hibernation (free tier). This takes 30-60 seconds. Please wait a moment and try again.'
+                    });
+                } else {
+                    displayError({ error: error.message });
+                }
             }
         });
 
@@ -370,10 +379,14 @@
             const resultsEl = document.getElementById('results');
             const outputEl = document.getElementById('output');
 
+            const errorMessage = data.error || 'Unknown error occurred';
+            const details = data.details || '';
+
             outputEl.innerHTML = `
                 <div class="warning-box">
                     <p>❌ Error generating datacards:</p>
-                    <p style="margin-top: 0.5rem; color: #721c24;">${data.error || 'Unknown error occurred'}</p>
+                    <p style="margin-top: 0.5rem; color: #721c24;">${errorMessage}</p>
+                    ${details ? `<p style="margin-top: 0.5rem; color: #856404; font-weight: normal;">${details}</p>` : ''}
                 </div>
             `;
 
