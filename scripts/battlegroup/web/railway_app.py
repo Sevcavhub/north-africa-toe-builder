@@ -779,9 +779,14 @@ h1 {
         Get list of vehicles from bg_builder_vehicles for Interactive Datacard Builder.
         Optional query param: force_group - filter vehicles by force group
         Returns array of vehicle names.
+
+        When force_group is specified, extracts vehicle references from the sections JSON
+        field in bg_builder_forces (which contains the complete unit composition data).
         """
         try:
             import sqlite3
+            import json
+            import re
 
             force_group = request.args.get('force_group', None)
 
@@ -790,15 +795,56 @@ h1 {
             cursor = conn.cursor()
 
             if force_group and force_group != 'all':
-                # Filter by force group
+                # Get all force sections for this force group
                 cursor.execute("""
-                    SELECT DISTINCT v.name
-                    FROM bg_builder_vehicles v
-                    INNER JOIN bg_builder_vehicle_costs c ON v.id = c.vehicle_id
-                    INNER JOIN bg_builder_forces f ON c.force_name = f.force_name
-                    WHERE f.force_group = ?
-                    ORDER BY v.name
+                    SELECT sections
+                    FROM bg_builder_forces
+                    WHERE force_group = ?
                 """, (force_group,))
+
+                # Extract vehicle IDs from sections JSON
+                vehicle_ids = set()
+                for row in cursor.fetchall():
+                    try:
+                        sections = json.loads(row['sections'])
+                        # Recursively search for 'v' keys (vehicle IDs) in the JSON
+                        def extract_vehicle_ids(obj):
+                            if isinstance(obj, dict):
+                                if 'v' in obj:
+                                    v_val = obj['v']
+                                    # Handle both single IDs and arrays like "[119,118]"
+                                    if isinstance(v_val, (int, str)):
+                                        try:
+                                            if isinstance(v_val, str) and '[' in v_val:
+                                                # Parse array notation like "[119,118]"
+                                                ids = json.loads(v_val)
+                                                vehicle_ids.update(ids)
+                                            else:
+                                                vehicle_ids.add(int(v_val))
+                                        except:
+                                            pass
+                                for value in obj.values():
+                                    extract_vehicle_ids(value)
+                            elif isinstance(obj, list):
+                                for item in obj:
+                                    extract_vehicle_ids(item)
+
+                        extract_vehicle_ids(sections)
+                    except:
+                        pass
+
+                # Get vehicle names for these IDs
+                if vehicle_ids:
+                    placeholders = ','.join('?' * len(vehicle_ids))
+                    cursor.execute(f"""
+                        SELECT DISTINCT name
+                        FROM bg_builder_vehicles
+                        WHERE id IN ({placeholders})
+                        ORDER BY name
+                    """, tuple(vehicle_ids))
+                    vehicles = [row['name'] for row in cursor.fetchall()]
+                else:
+                    vehicles = []
             else:
                 # Get all vehicles
                 cursor.execute("""
@@ -806,10 +852,9 @@ h1 {
                     FROM bg_builder_vehicles
                     ORDER BY name
                 """)
+                vehicles = [row['name'] for row in cursor.fetchall()]
 
-            vehicles = [row['name'] for row in cursor.fetchall()]
             conn.close()
-
             return jsonify(vehicles), 200
         except Exception as e:
             app.logger.error(f"Error loading vehicles: {str(e)}")
