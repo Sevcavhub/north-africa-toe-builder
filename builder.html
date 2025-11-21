@@ -347,6 +347,10 @@
         </div>
     </div>
 
+    <div id="apiStatus" style="position: fixed; bottom: 10px; right: 10px; background: rgba(0,0,0,0.7); color: #fff; padding: 5px 10px; border-radius: 4px; font-size: 12px; font-family: monospace; z-index: 9999;">
+        API: <span id="statusText">Checking...</span>
+    </div>
+
     <script>
         // API configuration
         const API_URL = 'https://north-africa-toe-api.onrender.com';
@@ -355,6 +359,44 @@
         let selectedVehicles = [];
         let allVehicles = [];
         let currentForceGroup = 'all';
+
+        // Auto-wake and status check on page load
+        async function checkApiStatus() {
+            const statusEl = document.getElementById('statusText');
+            const containerEl = document.getElementById('apiStatus');
+
+            statusEl.textContent = 'Waking...';
+            statusEl.style.color = '#ffc107';
+
+            try {
+                const startTime = Date.now();
+                const response = await fetch(`${API_URL}/api/force-groups`, {
+                    method: 'GET',
+                    signal: AbortSignal.timeout(60000) // 60 second timeout for cold start
+                });
+                const elapsed = ((Date.now() - startTime) / 1000).toFixed(1);
+
+                if (response.ok) {
+                    statusEl.textContent = `Ready (${elapsed}s)`;
+                    statusEl.style.color = '#28a745';
+                    // Fade after 5 seconds if ready
+                    setTimeout(() => {
+                        containerEl.style.opacity = '0.5';
+                    }, 5000);
+                } else {
+                    statusEl.textContent = 'Error';
+                    statusEl.style.color = '#dc3545';
+                }
+            } catch (error) {
+                if (error.name === 'TimeoutError') {
+                    statusEl.textContent = 'Timeout - Retry';
+                    statusEl.style.color = '#dc3545';
+                } else {
+                    statusEl.textContent = 'Offline';
+                    statusEl.style.color = '#dc3545';
+                }
+            }
+        }
 
         // Load force groups from database
         async function loadForceGroups() {
@@ -562,6 +604,7 @@
         }
 
         // Initialize
+        checkApiStatus();
         loadForceGroups();
         loadVehicles();
     </script>
