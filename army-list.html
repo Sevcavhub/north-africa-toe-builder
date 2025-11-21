@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Army List Datacard Generator - North Africa Campaign</title>
+    <!-- Force rebuild: 2025-01-20 -->
     <style>
         * {
             margin: 0;
@@ -295,11 +296,13 @@
         </div>
     </div>
 
+    <div style="position: fixed; bottom: 10px; right: 10px; background: rgba(0,0,0,0.7); color: #fff; padding: 5px 10px; border-radius: 4px; font-size: 12px; font-family: monospace; z-index: 9999;">
+        v2025.01.20.1
+    </div>
+
     <script>
         // API configuration
         const API_URL = 'https://north-africa-toe-api.onrender.com';
-
-        let datacardHTML = '';
 
         // Form submission
         document.getElementById('armyListForm').addEventListener('submit', async (e) => {
@@ -317,62 +320,49 @@
             document.getElementById('results').classList.remove('show');
 
             try {
-                const response = await fetch(`${API_URL}/api/datacards/osjones`, {
+                // Call HTML endpoint to generate V6.1 datacards
+                const response = await fetch(`${API_URL}/api/datacards/osjones/html`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ army_list_text: armyListText })
                 });
 
-                const data = await response.json();
-
                 // Hide loading
                 document.getElementById('loading').classList.remove('show');
 
-                if (response.ok && data.success) {
-                    displayResults(data);
-                } else {
-                    displayError(data);
+                if (!response.ok) {
+                    throw new Error('Failed to generate datacards');
                 }
+
+                const htmlContent = await response.text();
+
+                // Open datacards in new window immediately (like builder.html)
+                const newWindow = window.open('', '_blank');
+                newWindow.document.write(htmlContent);
+                newWindow.document.close();
+
+                // Show success message
+                displaySuccess();
             } catch (error) {
                 document.getElementById('loading').classList.remove('show');
                 displayError({ error: error.message });
             }
         });
 
-        function displayResults(data) {
+        function displaySuccess() {
             const resultsEl = document.getElementById('results');
             const outputEl = document.getElementById('output');
 
-            let html = `
-                <div class="force-info">
-                    <h4>${data.force_name}</h4>
-                    <p><strong>Points:</strong> ${data.points_total} | <strong>BR:</strong> ${data.br_total}</p>
-                    <p><strong>Equipment Found:</strong> ${data.equipment_found.length}/${data.equipment_count}</p>
+            outputEl.innerHTML = `
+                <div class="force-info" style="background: #d4edda; border-color: #c3e6cb;">
+                    <h4 style="color: #155724;">✅ Success!</h4>
+                    <p style="color: #155724;">Datacards generated and opened in new window.</p>
+                    <p style="color: #155724; margin-top: 0.5rem; font-size: 0.9em;">
+                        If the window didn't open, check your pop-up blocker settings.
+                    </p>
                 </div>
             `;
 
-            if (data.equipment_not_found && data.equipment_not_found.length > 0) {
-                html += `
-                    <div class="warning-box">
-                        <p>⚠️ Not Found in Database:</p>
-                        <ul>
-                            ${data.equipment_not_found.map(eq => `<li>${eq}</li>`).join('')}
-                        </ul>
-                    </div>
-                `;
-            }
-
-            // Store HTML for viewing
-            if (data.printable_html) {
-                datacardHTML = data.printable_html;
-                html += `
-                    <button onclick="viewDatacards()" class="btn btn-success">
-                        🖨️ Open Printable Datacards (New Window)
-                    </button>
-                `;
-            }
-
-            outputEl.innerHTML = html;
             resultsEl.classList.add('show');
         }
 
@@ -390,34 +380,6 @@
             resultsEl.classList.add('show');
         }
 
-        function viewDatacards() {
-            if (!datacardHTML) {
-                alert('No datacards available to view');
-                return;
-            }
-
-            const newWindow = window.open('', '_blank');
-            newWindow.document.write(datacardHTML);
-            newWindow.document.close();
-        }
-
-        function downloadMarkdown(category) {
-            if (!window.datacardsData || !window.datacardsData[category]) {
-                alert('No data available for this category');
-                return;
-            }
-
-            const content = window.datacardsData[category];
-            const blob = new Blob([content], { type: 'text/markdown' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = `${category}.md`;
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            URL.revokeObjectURL(url);
-        }
     </script>
 </body>
 </html>
